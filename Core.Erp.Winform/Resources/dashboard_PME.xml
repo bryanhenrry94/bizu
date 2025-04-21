@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard CurrencyCulture="es-ES">
+  <Title Text="Tablero de PME" />
+  <DataSources>
+    <SqlDataSource Name="Origen de datos SQL 1" ComponentName="dashboardSqlDataSource2">
+      <Connection Name="10.0.0.11_DBERP_PRODUCCION_Connection" ProviderKey="MySql">
+        <Parameters>
+          <Parameter Name="server" Value="10.0.0.11" />
+          <Parameter Name="database" Value="DBERP_PRODUCCION" />
+          <Parameter Name="read only" Value="1" />
+          <Parameter Name="generateConnectionHelper" Value="false" />
+          <Parameter Name="Port" Value="3306" />
+          <Parameter Name="userid" Value="" />
+          <Parameter Name="password" Value="" />
+        </Parameters>
+      </Connection>
+      <Query Type="SelectQuery" Name="vwObr_Dashboard_PME">
+        <Tables>
+          <Table Name="vwObr_Dashboard_PME" X="30" Y="30" Width="125" Height="341" />
+        </Tables>
+        <Columns>
+          <Column Table="vwObr_Dashboard_PME" Name="IdEmpresa" />
+          <Column Table="vwObr_Dashboard_PME" Name="IdSucursal" />
+          <Column Table="vwObr_Dashboard_PME" Name="IdProyecto" />
+          <Column Table="vwObr_Dashboard_PME" Name="NomProyecto" />
+          <Column Table="vwObr_Dashboard_PME" Name="pe_FechaIni" />
+          <Column Table="vwObr_Dashboard_PME" Name="pe_FechaFin" />
+          <Column Table="vwObr_Dashboard_PME" Name="IdPeriodo" />
+          <Column Table="vwObr_Dashboard_PME" Name="pe_Descripcion" />
+          <Column Table="vwObr_Dashboard_PME" Name="IdEstado_cierre" />
+          <Column Table="vwObr_Dashboard_PME" Name="IdCentroCosto" />
+          <Column Table="vwObr_Dashboard_PME" Name="Centro_costo" />
+          <Column Table="vwObr_Dashboard_PME" Name="PesoTotal_GuiaRemision" />
+          <Column Table="vwObr_Dashboard_PME" Name="PesoTotal_PME" />
+          <Column Table="vwObr_Dashboard_PME" Name="Estado" />
+        </Columns>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="Origen de datos SQL 1">
+          <View Name="vwObr_Dashboard_PME">
+            <Field Name="IdEmpresa" Type="Int32" />
+            <Field Name="IdSucursal" Type="Int32" />
+            <Field Name="IdProyecto" Type="Int32" />
+            <Field Name="NomProyecto" Type="String" />
+            <Field Name="pe_FechaIni" Type="DateTime" />
+            <Field Name="pe_FechaFin" Type="DateTime" />
+            <Field Name="IdPeriodo" Type="Int32" />
+            <Field Name="pe_Descripcion" Type="String" />
+            <Field Name="IdEstado_cierre" Type="String" />
+            <Field Name="IdCentroCosto" Type="String" />
+            <Field Name="Centro_costo" Type="String" />
+            <Field Name="PesoTotal_GuiaRemision" Type="Double" />
+            <Field Name="PesoTotal_PME" Type="Double" />
+            <Field Name="Estado" Type="Char" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+      <ConnectionOptions CloseConnection="true" />
+    </SqlDataSource>
+  </DataSources>
+  <Items>
+    <Chart ComponentName="chartDashboardItem1" Name="Planificado vs Despachado" DataSource="dashboardSqlDataSource2" DataMember="vwObr_Dashboard_PME">
+      <DataItems>
+        <Dimension DataMember="pe_Descripcion" DefaultId="DataItem2" />
+        <Measure DataMember="PesoTotal_PME" Name="Planificado" DefaultId="DataItem1">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="PesoTotal_GuiaRemision" Name="Despachado" DefaultId="DataItem0">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem2" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Panel 1">
+          <AxisY Title="Peso Total KG">
+            <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+          </AxisY>
+          <Series>
+            <Simple SeriesType="Line">
+              <Value DefaultId="DataItem1" />
+              <PointLabelOptions ContentType="Value" />
+            </Simple>
+            <Simple SeriesType="Line">
+              <Value DefaultId="DataItem0" />
+              <PointLabelOptions ContentType="Value" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+    <ListBox ComponentName="listBoxDashboardItem1" Name="Periodos" DataSource="dashboardSqlDataSource2" DataMember="vwObr_Dashboard_PME">
+      <DataItems>
+        <Dimension DataMember="pe_Descripcion" DefaultId="DataItem0" />
+      </DataItems>
+      <FilterDimensions>
+        <Dimension DefaultId="DataItem0" />
+      </FilterDimensions>
+    </ListBox>
+    <ListBox ComponentName="listBoxDashboardItem2" Name="Proyectos" DataSource="dashboardSqlDataSource2" DataMember="vwObr_Dashboard_PME">
+      <DataItems>
+        <Dimension DataMember="NomProyecto" DefaultId="DataItem1" />
+      </DataItems>
+      <FilterDimensions>
+        <Dimension DefaultId="DataItem1" />
+      </FilterDimensions>
+    </ListBox>
+    <Chart ComponentName="chartDashboardItem2" Name="Total Kg (Planificado vs Despachado)" DataSource="dashboardSqlDataSource2" DataMember="vwObr_Dashboard_PME">
+      <DataItems>
+        <Dimension DataMember="NomProyecto" DefaultId="DataItem1" />
+        <Measure DataMember="PesoTotal_GuiaRemision" Name="Despachado" DefaultId="DataItem0">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="PesoTotal_PME" Name="Planificado" DefaultId="DataItem2">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Panel 1">
+          <AxisY>
+            <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+          </AxisY>
+          <Series>
+            <Simple>
+              <Value DefaultId="DataItem0" />
+              <PointLabelOptions ContentType="Value" />
+            </Simple>
+            <Simple>
+              <Value DefaultId="DataItem2" />
+              <PointLabelOptions ContentType="Value" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+    <Chart ComponentName="chartDashboardItem3" Name="Planificado vs Despachado - Proyecto" DataSource="dashboardSqlDataSource2" DataMember="vwObr_Dashboard_PME">
+      <DataItems>
+        <Dimension DataMember="pe_Descripcion" DefaultId="DataItem2" />
+        <Dimension DataMember="NomProyecto" DefaultId="DataItem3" />
+        <Measure DataMember="PesoTotal_GuiaRemision" Name="Despachado" DefaultId="DataItem0">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="PesoTotal_PME" Name="Planificado" DefaultId="DataItem1">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem3" />
+      </SeriesDimensions>
+      <Arguments>
+        <Argument DefaultId="DataItem2" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Panel 1">
+          <AxisY Title="Peso Total KG">
+            <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+          </AxisY>
+          <Series>
+            <Simple SeriesType="Line">
+              <Value DefaultId="DataItem0" />
+              <PointLabelOptions ContentType="Value" />
+            </Simple>
+            <Simple SeriesType="Line">
+              <Value DefaultId="DataItem1" />
+              <PointLabelOptions ContentType="Value" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+    <ComboBox ComponentName="comboBoxDashboardItem1" Name="Estado Cierre" DataSource="dashboardSqlDataSource2" DataMember="vwObr_Dashboard_PME">
+      <DataItems>
+        <Dimension DataMember="IdEstado_cierre" DefaultId="DataItem0" />
+      </DataItems>
+      <FilterDimensions>
+        <Dimension DefaultId="DataItem0" />
+      </FilterDimensions>
+    </ComboBox>
+  </Items>
+  <ColorScheme>
+    <Entry DataMember="vwObr_Dashboard" PaletteIndex="4">
+      <MeasureKey>
+        <Definition DataMember="CantidadTotal_Guia" />
+      </MeasureKey>
+      <DimensionKeys>
+        <DimensionKey>
+          <Definition DataMember="Proyecto" />
+          <Value Type="System.String" Value="MEZANINE CEIBOS 2 (LAVIE)" />
+        </DimensionKey>
+      </DimensionKeys>
+    </Entry>
+  </ColorScheme>
+  <LayoutTree>
+    <LayoutGroup Orientation="Vertical" Weight="100">
+      <LayoutGroup Weight="46.352583586626139">
+        <LayoutGroup Orientation="Vertical" Weight="42.307692307692307">
+          <LayoutItem DashboardItem="comboBoxDashboardItem1" Weight="17.704918032786885" />
+          <LayoutGroup Weight="82.295081967213122">
+            <LayoutItem DashboardItem="listBoxDashboardItem2" Weight="49.78354978354978" />
+            <LayoutItem DashboardItem="listBoxDashboardItem1" Weight="50.21645021645022" />
+          </LayoutGroup>
+        </LayoutGroup>
+        <LayoutItem DashboardItem="chartDashboardItem1" Weight="57.692307692307693" />
+      </LayoutGroup>
+      <LayoutGroup Weight="53.647416413373861">
+        <LayoutItem DashboardItem="chartDashboardItem2" Weight="42.307692307692307" />
+        <LayoutItem DashboardItem="chartDashboardItem3" Weight="57.692307692307693" />
+      </LayoutGroup>
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

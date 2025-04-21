@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard CurrencyCulture="es-EC">
+  <Title Text="Tablero de Ordenes de Taller por Motivo de Anulación" />
+  <DataSources>
+    <SqlDataSource Name="Origen de datos SQL 1" ComponentName="dashboardSqlDataSource1">
+      <Connection Name="localhost_Connection" ProviderKey="MySql">
+        <Parameters>
+          <Parameter Name="server" Value="10.0.0.11" />
+          <Parameter Name="database" Value="DBERP_PRODUCCION" />
+          <Parameter Name="read only" Value="1" />
+          <Parameter Name="generateConnectionHelper" Value="false" />
+          <Parameter Name="Port" Value="3306" />
+          <Parameter Name="userid" Value="mysql_sa" />
+          <Parameter Name="password" Value="admin*2012" />
+        </Parameters>
+      </Connection>	
+      <Query Type="SelectQuery" Name="Edehsa_vwPROD_EDEHSA_Rpt010">
+        <Tables>
+          <Table Name="vwPROD_EDEHSA_Rpt010" X="30" Y="30" Width="125" Height="664" />
+        </Tables>
+        <Columns>
+          <Column Table="vwPROD_EDEHSA_Rpt010" Name="IdEmpresa" />
+          <Column Table="vwPROD_EDEHSA_Rpt010" Name="IdSucursal" />
+          <Column Table="vwPROD_EDEHSA_Rpt010" Name="IdOrdenTaller" />
+          <Column Table="vwPROD_EDEHSA_Rpt010" Name="IdProyecto" />
+          <Column Table="vwPROD_EDEHSA_Rpt010" Name="Fecha" />
+          <Column Table="vwPROD_EDEHSA_Rpt010" Name="NomProyecto" />
+          <Column Table="vwPROD_EDEHSA_Rpt010" Name="Descripcion_Proyecto" />
+          <Column Table="vwPROD_EDEHSA_Rpt010" Name="IdCentroCosto" />
+          <Column Table="vwPROD_EDEHSA_Rpt010" Name="IdEstadoAprobacion" />
+          <Column Table="vwPROD_EDEHSA_Rpt010" Name="EstadoAprobacion" />
+          <Column Table="vwPROD_EDEHSA_Rpt010" Name="IdEstadoCierre" />
+          <Column Table="vwPROD_EDEHSA_Rpt010" Name="Cliente" />
+          <Column Table="vwPROD_EDEHSA_Rpt010" Name="Codigo" />
+          <Column Table="vwPROD_EDEHSA_Rpt010" Name="IdProducto" />
+          <Column Table="vwPROD_EDEHSA_Rpt010" Name="pr_descripcion" />
+          <Column Table="vwPROD_EDEHSA_Rpt010" Name="PesoUnitario" />
+          <Column Table="vwPROD_EDEHSA_Rpt010" Name="CantidadPlanificada" />
+          <Column Table="vwPROD_EDEHSA_Rpt010" Name="PesoTotal" />
+          <Column Table="vwPROD_EDEHSA_Rpt010" Name="IdUnidadMedida" />
+          <Column Table="vwPROD_EDEHSA_Rpt010" Name="IdCategoria" />
+          <Column Table="vwPROD_EDEHSA_Rpt010" Name="ca_Categoria" />
+          <Column Table="vwPROD_EDEHSA_Rpt010" Name="IdLinea" />
+          <Column Table="vwPROD_EDEHSA_Rpt010" Name="nom_linea" />
+          <Column Table="vwPROD_EDEHSA_Rpt010" Name="IdGrupo" />
+          <Column Table="vwPROD_EDEHSA_Rpt010" Name="nom_grupo" />
+          <Column Table="vwPROD_EDEHSA_Rpt010" Name="IdSubGrupo" />
+          <Column Table="vwPROD_EDEHSA_Rpt010" Name="nom_subgrupo" />
+          <Column Table="vwPROD_EDEHSA_Rpt010" Name="Estado" />
+          <Column Table="vwPROD_EDEHSA_Rpt010" Name="IdUsuarioAnulacion" />
+          <Column Table="vwPROD_EDEHSA_Rpt010" Name="FechaAnulacion" />
+          <Column Table="vwPROD_EDEHSA_Rpt010" Name="MotivoAnulacion" />
+          <Column Table="vwPROD_EDEHSA_Rpt010" Name="Observacion" />
+        </Columns>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="Origen de datos SQL 1">
+          <View Name="Edehsa_vwPROD_EDEHSA_Rpt010">
+            <Field Name="IdEmpresa" Type="Int32" />
+            <Field Name="IdSucursal" Type="Int32" />
+            <Field Name="IdOrdenTaller" Type="Decimal" />
+            <Field Name="IdProyecto" Type="Int32" />
+            <Field Name="Fecha" Type="DateTime" />
+            <Field Name="NomProyecto" Type="String" />
+            <Field Name="Descripcion_Proyecto" Type="String" />
+            <Field Name="IdCentroCosto" Type="String" />
+            <Field Name="IdEstadoAprobacion" Type="String" />
+            <Field Name="EstadoAprobacion" Type="String" />
+            <Field Name="IdEstadoCierre" Type="String" />
+            <Field Name="Cliente" Type="String" />
+            <Field Name="Codigo" Type="String" />
+            <Field Name="IdProducto" Type="Decimal" />
+            <Field Name="pr_descripcion" Type="String" />
+            <Field Name="PesoUnitario" Type="Double" />
+            <Field Name="CantidadPlanificada" Type="Double" />
+            <Field Name="PesoTotal" Type="Double" />
+            <Field Name="IdUnidadMedida" Type="String" />
+            <Field Name="IdCategoria" Type="String" />
+            <Field Name="ca_Categoria" Type="String" />
+            <Field Name="IdLinea" Type="Int32" />
+            <Field Name="nom_linea" Type="String" />
+            <Field Name="IdGrupo" Type="Int32" />
+            <Field Name="nom_grupo" Type="String" />
+            <Field Name="IdSubGrupo" Type="Int32" />
+            <Field Name="nom_subgrupo" Type="String" />
+            <Field Name="Estado" Type="Char" />
+            <Field Name="IdUsuarioAnulacion" Type="String" />
+            <Field Name="FechaAnulacion" Type="DateTime" />
+            <Field Name="MotivoAnulacion" Type="String" />
+            <Field Name="Observacion" Type="String" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+      <ConnectionOptions CloseConnection="true" />
+    </SqlDataSource>
+  </DataSources>
+  <Items>
+    <ComboBox ComponentName="comboBoxDashboardItem1" Name="Estado Cierre" DataSource="dashboardSqlDataSource1" DataMember="Edehsa_vwPROD_EDEHSA_Rpt010">
+      <DataItems>
+        <Dimension DataMember="IdEstadoCierre" DefaultId="DataItem0" />
+      </DataItems>
+      <FilterDimensions>
+        <Dimension DefaultId="DataItem0" />
+      </FilterDimensions>
+    </ComboBox>
+    <ListBox ComponentName="listBoxDashboardItem1" Name="Proyectos" DataSource="dashboardSqlDataSource1" DataMember="Edehsa_vwPROD_EDEHSA_Rpt010" EnableSearch="true">
+      <DataItems>
+        <Dimension DataMember="NomProyecto" DefaultId="DataItem0" />
+      </DataItems>
+      <FilterDimensions>
+        <Dimension DefaultId="DataItem0" />
+      </FilterDimensions>
+    </ListBox>
+    <ListBox ComponentName="listBoxDashboardItem4" Name="Linea" DataSource="dashboardSqlDataSource1" DataMember="Edehsa_vwPROD_EDEHSA_Rpt010">
+      <DataItems>
+        <Dimension DataMember="nom_linea" DefaultId="DataItem0" />
+      </DataItems>
+      <FilterDimensions>
+        <Dimension DefaultId="DataItem0" />
+      </FilterDimensions>
+    </ListBox>
+    <ListBox ComponentName="listBoxDashboardItem3" Name="Grupo" DataSource="dashboardSqlDataSource1" DataMember="Edehsa_vwPROD_EDEHSA_Rpt010">
+      <DataItems>
+        <Dimension DataMember="nom_grupo" DefaultId="DataItem0" />
+      </DataItems>
+      <FilterDimensions>
+        <Dimension DefaultId="DataItem0" />
+      </FilterDimensions>
+    </ListBox>
+    <Chart ComponentName="chartDashboardItem1" Name="Peso Total OT KG x Motivo de Anulación" DataSource="dashboardSqlDataSource1" DataMember="Edehsa_vwPROD_EDEHSA_Rpt010">
+      <DataItems>
+        <Measure DataMember="PesoTotal" Name="Peso Total" DefaultId="DataItem0">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Dimension DataMember="MotivoAnulacion" DefaultId="DataItem1" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Panel 1">
+          <AxisY>
+            <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+          </AxisY>
+          <Series>
+            <Simple>
+              <Value DefaultId="DataItem0" />
+              <PointLabelOptions ContentType="Value" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+    <Pivot ComponentName="pivotDashboardItem1" Name="Matriz" DataSource="dashboardSqlDataSource1" DataMember="Edehsa_vwPROD_EDEHSA_Rpt010">
+      <DataItems>
+        <Measure DataMember="PesoTotal" DefaultId="DataItem0">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Dimension DataMember="Codigo" DefaultId="DataItem6" />
+        <Dimension DataMember="MotivoAnulacion" DefaultId="DataItem2" />
+        <Dimension DataMember="ca_Categoria" DefaultId="DataItem3" />
+        <Dimension DataMember="nom_linea" DefaultId="DataItem4" />
+        <Dimension DataMember="pr_descripcion" DefaultId="DataItem1" />
+        <Dimension DataMember="nom_grupo" DefaultId="DataItem5" />
+      </DataItems>
+      <Columns>
+        <Column DefaultId="DataItem2" />
+      </Columns>
+      <Rows>
+        <Row DefaultId="DataItem3" />
+        <Row DefaultId="DataItem4" />
+        <Row DefaultId="DataItem5" />
+        <Row DefaultId="DataItem6" />
+        <Row DefaultId="DataItem1" />
+      </Rows>
+      <Values>
+        <Value DefaultId="DataItem0" />
+      </Values>
+    </Pivot>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup Orientation="Vertical" Weight="100">
+      <LayoutGroup Weight="61.395348837209305">
+        <LayoutGroup Orientation="Vertical" Weight="29.559204840103718">
+          <LayoutItem DashboardItem="comboBoxDashboardItem1" Weight="13.888888888888889" />
+          <LayoutItem DashboardItem="listBoxDashboardItem1" Weight="29.545454545454547" />
+          <LayoutItem DashboardItem="listBoxDashboardItem4" Weight="27.777777777777779" />
+          <LayoutItem DashboardItem="listBoxDashboardItem3" Weight="28.787878787878789" />
+        </LayoutGroup>
+        <LayoutItem DashboardItem="chartDashboardItem1" Weight="70.440795159896282" />
+      </LayoutGroup>
+      <LayoutItem DashboardItem="pivotDashboardItem1" Weight="38.604651162790695" />
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

@@ -1,0 +1,71 @@
+# Carpeta binaria de compilación
+bin/
+
+# Carpeta de objetos
+obj/
+
+# Carpeta de archivos temporales generados por Visual Studio
+/.vs/
+
+# Archivos de respaldo y de compilación
+# *.bak
+# *.exe
+# *.dll
+# *.pdb
+# *.user
+# *.tmp
+# *.log
+# *.swp
+[Tt]humbs.db
+[Tt]est[Rr]esult*/
+
+# Carpeta de paquetes de NuGet
+/packages/
+
+# Archivos de configuración específicos del entorno
+*.suo
+*.userprefs
+*.vscode/
+*.vssscc
+*.vspscc
+*_i.c
+*_p.c
+*.ncb
+*.sdf
+*.opensdf
+*.cachefile
+*.csproj.user
+# *.resx
+# *.Designer.cs
+*.psess
+*.vsp
+*.vshost.*
+*.vsix
+*.lck
+
+# Carpeta de resultados de compilación
+/[Dd]ebug/
+/[Rr]elease/
+/x64/
+/x86/
+/[Aa]ny[Cc]pu/
+*.cache
+*.ilk
+*.msi
+*.user
+*.sqlproj.user
+*.tss
+
+# Carpeta de publicación y archivos generados
+/_PublishedWebsites/
+/PublishProfiles/
+*.pubxml
+*.publishsettings
+
+# Carpeta de archivos de respaldo de Visual Studio
+/Backup*/
+
+# Carpeta de archivos de registro
+/logs/
+
+# Otros archivos y carpetas específicos de tu proyecto

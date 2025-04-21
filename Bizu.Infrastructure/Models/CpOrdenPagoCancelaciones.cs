@@ -1,0 +1,97 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
+
+namespace Bizu.Infrastructure.Models;
+
+[PrimaryKey("IdEmpresa", "Idcancelacion", "Secuencia")]
+[Table("cp_orden_pago_cancelaciones")]
+[Index("IdEmpresaOpPadre", "IdOrdenPagoOpPadre", "SecuenciaOpPadre", Name = "FK_cp_orden_pago_cancelaciones_cp_orden_pago_det1")]
+[Index("IdEmpresaCxp", "IdTipoCbteCxp", "IdCbteCbleCxp", Name = "FK_cp_orden_pago_cancelaciones_ct_cbtecble")]
+[Index("IdEmpresaPago", "IdTipoCbtePago", "IdCbteCblePago", Name = "FK_cp_orden_pago_cancelaciones_ct_cbtecble1")]
+[Index("IdEmpresaOp", "IdOrdenPagoOp", "SecuenciaOp", Name = "IX_cp_orden_pago_cancelaciones_1")]
+[MySqlCollation("utf8mb4_unicode_ci")]
+public partial class CpOrdenPagoCancelaciones
+{
+    [Key]
+    public int IdEmpresa { get; set; }
+
+    [Key]
+    [Precision(18, 0)]
+    public decimal Idcancelacion { get; set; }
+
+    [Key]
+    public int Secuencia { get; set; }
+
+    [Column("IdEmpresa_op")]
+    public int IdEmpresaOp { get; set; }
+
+    [Column("IdOrdenPago_op")]
+    [Precision(18, 0)]
+    public decimal IdOrdenPagoOp { get; set; }
+
+    [Column("Secuencia_op")]
+    public int SecuenciaOp { get; set; }
+
+    [Column("IdEmpresa_op_padre")]
+    public int? IdEmpresaOpPadre { get; set; }
+
+    [Column("IdOrdenPago_op_padre")]
+    [Precision(18, 0)]
+    public decimal? IdOrdenPagoOpPadre { get; set; }
+
+    [Column("Secuencia_op_padre")]
+    public int? SecuenciaOpPadre { get; set; }
+
+    public DateOnly? FechaCancelacion { get; set; }
+
+    [Column("IdEmpresa_cxp")]
+    public int? IdEmpresaCxp { get; set; }
+
+    [Column("IdTipoCbte_cxp")]
+    public int? IdTipoCbteCxp { get; set; }
+
+    [Column("IdCbteCble_cxp")]
+    [Precision(18, 0)]
+    public decimal? IdCbteCbleCxp { get; set; }
+
+    [Column("IdEmpresa_pago")]
+    public int IdEmpresaPago { get; set; }
+
+    [Column("IdTipoCbte_pago")]
+    public int IdTipoCbtePago { get; set; }
+
+    [Column("IdCbteCble_pago")]
+    [Precision(18, 0)]
+    public decimal IdCbteCblePago { get; set; }
+
+    public double MontoAplicado { get; set; }
+
+    public double SaldoAnterior { get; set; }
+
+    public double SaldoActual { get; set; }
+
+    public string Observacion { get; set; } = null!;
+
+    [Column("fechaTransaccion")]
+    [MaxLength(6)]
+    public DateTime FechaTransaccion { get; set; }
+
+    [ForeignKey("IdEmpresaOp, IdOrdenPagoOp, SecuenciaOp")]
+    [InverseProperty("CpOrdenPagoCancelacionesCpOrdenPagoDet")]
+    public virtual CpOrdenPagoDet CpOrdenPagoDet { get; set; } = null!;
+
+    [ForeignKey("IdEmpresaOpPadre, IdOrdenPagoOpPadre, SecuenciaOpPadre")]
+    [InverseProperty("CpOrdenPagoCancelacionesCpOrdenPagoDetNavigation")]
+    public virtual CpOrdenPagoDet? CpOrdenPagoDetNavigation { get; set; }
+
+    [ForeignKey("IdEmpresaCxp, IdTipoCbteCxp, IdCbteCbleCxp")]
+    [InverseProperty("CpOrdenPagoCancelacionesCtCbtecble")]
+    public virtual CtCbtecble? CtCbtecble { get; set; }
+
+    [ForeignKey("IdEmpresaPago, IdTipoCbtePago, IdCbteCblePago")]
+    [InverseProperty("CpOrdenPagoCancelacionesCtCbtecbleNavigation")]
+    public virtual CtCbtecble CtCbtecbleNavigation { get; set; } = null!;
+}

@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard CurrencyCulture="es-EC">
+  <Title Text="Tablero de control" />
+  <DataSources>
+    <SqlDataSource Name="Origen de datos SQL 2" ComponentName="dashboardSqlDataSource2">
+      <Connection Name="localhost_Connection" ProviderKey="MySql">
+        <Parameters>
+          <Parameter Name="server" Value="10.0.0.11" />
+          <Parameter Name="database" Value="DBERP_PRODUCCION" />
+          <Parameter Name="read only" Value="1" />
+          <Parameter Name="generateConnectionHelper" Value="false" />
+          <Parameter Name="Port" Value="3306" />
+          <Parameter Name="userid" Value="mysql_sa" />
+          <Parameter Name="password" Value="admin*2012" />
+        </Parameters>
+      </Connection>	
+      <Query Type="SelectQuery" Name="Edehsa_vwPROD_EDEHSA_Rpt009">
+        <Tables>
+          <Table Name="vwPROD_EDEHSA_Rpt009" X="30" Y="30" Width="125" Height="330" />
+        </Tables>
+        <Columns>
+          <Column Table="vwPROD_EDEHSA_Rpt009" Name="IdEmpresa" />
+          <Column Table="vwPROD_EDEHSA_Rpt009" Name="IdSucursal" />
+          <Column Table="vwPROD_EDEHSA_Rpt009" Name="IdProyecto" />
+          <Column Table="vwPROD_EDEHSA_Rpt009" Name="NombreProyecto" />
+          <Column Table="vwPROD_EDEHSA_Rpt009" Name="IdEstadoAprobacion" />
+          <Column Table="vwPROD_EDEHSA_Rpt009" Name="IdEstadoCierre" />
+          <Column Table="vwPROD_EDEHSA_Rpt009" Name="IdCentroCosto" />
+          <Column Table="vwPROD_EDEHSA_Rpt009" Name="Peso_Total_OT" />
+          <Column Table="vwPROD_EDEHSA_Rpt009" Name="Peso_Total_GR" />
+          <Column Table="vwPROD_EDEHSA_Rpt009" Name="Desperdicio_Peso_OT" />
+          <Column Table="vwPROD_EDEHSA_Rpt009" Name="Porcentaje_OT_VS_GR" />
+          <Column Table="vwPROD_EDEHSA_Rpt009" Name="Cantidad_Total_OT" />
+          <Column Table="vwPROD_EDEHSA_Rpt009" Name="Cantidad_Total_OT_Revision" />
+          <Column Table="vwPROD_EDEHSA_Rpt009" Name="Desperdicio_Cant_OT" />
+          <Column Table="vwPROD_EDEHSA_Rpt009" Name="Porcentaje_OT_VS_Revision" />
+        </Columns>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="Origen de datos SQL 2">
+          <View Name="Edehsa_vwPROD_EDEHSA_Rpt009">
+            <Field Name="IdEmpresa" Type="Int32" />
+            <Field Name="IdSucursal" Type="Int32" />
+            <Field Name="IdProyecto" Type="Int32" />
+            <Field Name="NombreProyecto" Type="String" />
+            <Field Name="IdEstadoAprobacion" Type="String" />
+            <Field Name="IdEstadoCierre" Type="String" />
+            <Field Name="IdCentroCosto" Type="String" />
+            <Field Name="Peso_Total_OT" Type="Double" />
+            <Field Name="Peso_Total_GR" Type="Double" />
+            <Field Name="Desperdicio_Peso_OT" Type="Double" />
+            <Field Name="Porcentaje_OT_VS_GR" Type="Double" />
+            <Field Name="Cantidad_Total_OT" Type="Double" />
+            <Field Name="Cantidad_Total_OT_Revision" Type="Double" />
+            <Field Name="Desperdicio_Cant_OT" Type="Double" />
+            <Field Name="Porcentaje_OT_VS_Revision" Type="Double" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+      <ConnectionOptions CloseConnection="true" />
+    </SqlDataSource>
+  </DataSources>
+  <Items>
+    <Pivot ComponentName="pivotDashboardItem2" Name="PESO DE OT VS DESPACHADO" DataSource="dashboardSqlDataSource2" DataMember="Edehsa_vwPROD_EDEHSA_Rpt009">
+      <DataItems>
+        <Dimension DataMember="NombreProyecto" Name="Proyecto" SortOrder="Descending" DefaultId="DataItem0" />
+        <Measure DataMember="Peso_Total_OT" Name="Peso O/T Generadas" DefaultId="DataItem1">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="Peso_Total_GR" Name="Peso G/R Despachado" DefaultId="DataItem2">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="Desperdicio_Peso_OT" Name="KG OT Reproceso" DefaultId="DataItem3">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="Porcentaje_OT_VS_GR" Name="% Reproceso" DefaultId="DataItem4">
+          <NumericFormat FormatType="Percent" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+      </DataItems>
+      <FormatRules>
+        <PivotItemFormatRule Name="FormatRule 1" DataItem="DataItem4" DataItemApplyTo="DataItem4">
+          <FormatConditionValue Condition="Greater">
+            <IconSettings IconType="IndicatorCircledYellowExclamation" />
+            <Value1 Type="System.Double" Value="0" />
+          </FormatConditionValue>
+          <PivotItemFormatRuleLevel />
+        </PivotItemFormatRule>
+      </FormatRules>
+      <Rows>
+        <Row DefaultId="DataItem0" />
+      </Rows>
+      <Values>
+        <Value DefaultId="DataItem1" />
+        <Value DefaultId="DataItem2" />
+        <Value DefaultId="DataItem3" />
+        <Value DefaultId="DataItem4" />
+      </Values>
+      <ShowColumnGrandTotals>false</ShowColumnGrandTotals>
+    </Pivot>
+    <Pivot ComponentName="pivotDashboardItem1" Name="OT VS REVISION" DataSource="dashboardSqlDataSource2" DataMember="Edehsa_vwPROD_EDEHSA_Rpt009">
+      <DataItems>
+        <Dimension DataMember="NombreProyecto" Name="Proyecto" SortOrder="Descending" DefaultId="DataItem0" />
+        <Measure DataMember="Cantidad_Total_OT" Name="Numero Elementos" DefaultId="DataItem1">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="Cantidad_Total_OT_Revision" Name="Numero de OT" DefaultId="DataItem2">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="Desperdicio_Cant_OT" Name="OT Reproceso" DefaultId="DataItem3">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="Porcentaje_OT_VS_Revision" Name="% Reproceso" DefaultId="DataItem4">
+          <NumericFormat FormatType="Percent" IncludeGroupSeparator="true" />
+        </Measure>
+      </DataItems>
+      <FormatRules>
+        <PivotItemFormatRule Name="FormatRule 1" DataItem="DataItem4" DataItemApplyTo="DataItem4">
+          <FormatConditionValue Condition="Greater">
+            <IconSettings IconType="IndicatorCircledYellowExclamation" />
+            <Value1 Type="System.Double" Value="0" />
+          </FormatConditionValue>
+          <PivotItemFormatRuleLevel />
+        </PivotItemFormatRule>
+      </FormatRules>
+      <Rows>
+        <Row DefaultId="DataItem0" />
+      </Rows>
+      <Values>
+        <Value DefaultId="DataItem1" />
+        <Value DefaultId="DataItem2" />
+        <Value DefaultId="DataItem3" />
+        <Value DefaultId="DataItem4" />
+      </Values>
+    </Pivot>
+    <ListBox ComponentName="listBoxDashboardItem1" Name="Proyectos" DataSource="dashboardSqlDataSource2" DataMember="Edehsa_vwPROD_EDEHSA_Rpt009" EnableSearch="true">
+      <DataItems>
+        <Dimension DataMember="NombreProyecto" DefaultId="DataItem0" />
+      </DataItems>
+      <FilterDimensions>
+        <Dimension DefaultId="DataItem0" />
+      </FilterDimensions>
+    </ListBox>
+    <Pie ComponentName="pieDashboardItem1" Name="Desperdicio Peso OT" DataSource="dashboardSqlDataSource2" DataMember="Edehsa_vwPROD_EDEHSA_Rpt009" PieType="Donut" LabelContentType="ValueAndPercent" ShowPieCaptions="false">
+      <DataItems>
+        <Measure DataMember="Desperdicio_Peso_OT" Name="Desperdicio" DefaultId="DataItem0">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Dimension DataMember="NombreProyecto" DefaultId="DataItem1" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Values>
+        <Value DefaultId="DataItem0" />
+      </Values>
+    </Pie>
+    <Pie ComponentName="pieDashboardItem2" Name="Desperdicio Cantidades OT" DataSource="dashboardSqlDataSource2" DataMember="Edehsa_vwPROD_EDEHSA_Rpt009" PieType="Donut" LabelContentType="ValueAndPercent" ShowPieCaptions="false">
+      <DataItems>
+        <Measure DataMember="Desperdicio_Cant_OT" Name="Desperdicio" DefaultId="DataItem0" />
+        <Dimension DataMember="NombreProyecto" DefaultId="DataItem1" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Values>
+        <Value DefaultId="DataItem0" />
+      </Values>
+    </Pie>
+    <ComboBox ComponentName="comboBoxDashboardItem1" Name="Estado Cierre" DataSource="dashboardSqlDataSource2" DataMember="Edehsa_vwPROD_EDEHSA_Rpt009">
+      <DataItems>
+        <Dimension DataMember="IdEstadoCierre" Name="Estado Aprobación" DefaultId="DataItem0" />
+      </DataItems>
+      <FilterDimensions>
+        <Dimension DefaultId="DataItem0" />
+      </FilterDimensions>
+    </ComboBox>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup Orientation="Vertical" Weight="100">
+      <LayoutGroup Weight="49.602543720190781">
+        <LayoutGroup Orientation="Vertical" Weight="28.157894736842106">
+          <LayoutItem DashboardItem="comboBoxDashboardItem1" Weight="19.23076923076923" />
+          <LayoutItem DashboardItem="listBoxDashboardItem1" Weight="80.769230769230774" />
+        </LayoutGroup>
+        <LayoutGroup Weight="71.84210526315789">
+          <LayoutItem DashboardItem="pieDashboardItem1" Weight="49.938949938949939" />
+          <LayoutItem DashboardItem="pieDashboardItem2" Weight="50.061050061050061" />
+        </LayoutGroup>
+      </LayoutGroup>
+      <LayoutGroup Weight="50.397456279809219">
+        <LayoutItem DashboardItem="pivotDashboardItem2" Weight="51.754385964912281" />
+        <LayoutItem DashboardItem="pivotDashboardItem1" Weight="48.245614035087719" />
+      </LayoutGroup>
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

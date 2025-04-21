@@ -1,0 +1,123 @@
+﻿ public partial class EntitiesContabilidadRptGeneral : DbContext {
+        public EntitiesContabilidadRptGeneral() : base("name=EntitiesContabilidadRptGeneral")
+        {
+            
+        }
+
+		//poner esta funcion dentro de la clase entities no viene por defecto
+		//10000 timeout 1 minutos
+        public void SetCommandTimeOut(int TimeOut)
+        {
+            ((IObjectContextAdapter)this).ObjectContext.CommandTimeout = TimeOut;
+        }
+    											
+		//VALIDACION PARA VER ERRORES DEL ENTITYFRAMEWORK
+		using System.Data.Entity.Validation;		
+
+		catch (DbEntityValidationException ex)
+        {			
+			foreach (var item in ex.EntityValidationErrors)
+			{
+				foreach (var item_validaciones in item.ValidationErrors)
+				{
+					mensaje = "Propiedad: " + item_validaciones.PropertyName + " Mensaje: " + item_validaciones.ErrorMessage + "\n";
+				}
+			}
+        }
+		
+		//REDONDEAR DECIMALES ROUND DOWN
+		public double RoundDown(double number, int decimalPlaces)
+        {
+            return Math.Floor(number * Math.Pow(10, decimalPlaces)) / Math.Pow(10, decimalPlaces);
+        }
+
+		SWICH Personalizacion por cliente
+		switch (param.IdCliente_Ven_x_Default)
+        {
+
+        case Cl_Enumeradores.eCliente_Vzen.EDEHSA:
+
+            //AQUI EL CODIGO
+        break;
+        default:
+                 
+        //AQUI EL CODIGO
+
+        break;
+        }
+					
+		//EJEMPLO DE AGRUPAR
+        var select_ = from T in list_Saldo
+        where 
+            T.check_cartera == true                              
+        group T by new
+        {
+            T.IdEmpresa,
+            T.IdSucursal,
+            T.IdCentroCosto,                                  
+            T.IdCliente                             
+        }
+            into grouping
+			 let count = grouping.Count()
+            select new { grouping.Key, valorTotal = grouping.Sum(p => p.valor_aplicar) };
+
+
+		ifnull(ROW_NUMBER() OVER(ORDER BY A.IdEmpresa ASC), 0)
+
+
+		 var select = from q in OEInventario.in_Ing_Egr_Inven_det
+                             join p in OEInventario.in_Producto
+                             on new { q.IdEmpresa, q.IdProducto } equals new { p.IdEmpresa, p.IdProducto }
+                             where q.IdEmpresa == IdEmpresa
+                             && q.IdSucursal == IdSucursal
+                             && q.IdMovi_inven_tipo == IdMovi_inven_tipo
+                             && q.IdProducto == IdProducto
+                             && q.IdOrdenCompra != null
+                             select new
+                             {
+                                 IdEmpresa = q.IdEmpresa,
+                                 IdSucursal = q.IdSucursal,
+                                 IdBodega = q.IdBodega,
+                                 IdMovi_inven_tipo = q.IdMovi_inven_tipo,
+                                 IdNumMovi = q.IdNumMovi,
+                                 Secuencia = q.Secuencia,
+                                 IdProducto = q.IdProducto,
+                                 dm_stock_ante = q.dm_stock_ante,
+                                 dm_stock_actu = q.dm_stock_actu,
+                                 dm_observacion = q.dm_observacion,
+                                 dm_precio = q.dm_precio,
+                                 mv_costo = q.mv_costo,
+                                 dm_peso = q.dm_peso,
+                                 IdCentroCosto = q.IdCentroCosto,
+                                 IdCentroCosto_sub_centro_costo = q.IdCentroCosto_sub_centro_costo,
+                                 //IdRegistro = q.IdCentroCosto == null || q.IdCentroCosto_sub_centro_costo == null ? null : q.IdCentroCosto + "-" + q.IdCentroCosto_sub_centro_costo,
+                                 IdUnidadMedida = q.IdUnidadMedida,
+                                 IdUnidadMedida_sinConversion = q.IdUnidadMedida_sinConversion,
+                                 mv_costo_sinConversion = q.mv_costo_sinConversion,
+                                 IdEmpresa_oc = q.IdEmpresa_oc,
+                                 IdSucursal_oc = q.IdSucursal_oc,
+                                 IdOrdenCompra = q.IdOrdenCompra,
+                                 Secuencia_oc = q.Secuencia_oc,
+                                 IdPunto_cargo_grupo = q.IdPunto_cargo_grupo,
+                                 IdPunto_cargo = q.IdPunto_cargo,
+                                 IdMotivo_Inv = q.IdMotivo_Inv,
+                                 IdEstadoAproba = q.IdEstadoAproba,
+                                 IdEmpresa_inv = q.IdEmpresa_inv,
+                                 IdSucursal_inv = q.IdSucursal_inv,
+                                 IdBodega_inv = q.IdBodega_inv,
+                                 IdMovi_inven_tipo_inv = q.IdMovi_inven_tipo_inv,
+                                 IdNumMovi_inv = q.IdNumMovi_inv,
+                                 secuencia_inv = q.secuencia_inv,
+                                 dm_cantidad_sinConversion = q.dm_cantidad_sinConversion,
+                                 dm_cantidad = q.dm_cantidad,
+                                 cod_producto = p.pr_codigo,
+                                 IdOrdenTaller = q.IdOrdenTaller
+                             };
+
+// DELEGADOS
+public delegate void delegate_FrmGe_Tarea_Mant_FormClosing(object sender, FormClosingEventArgs e);
+public event delegate_FrmGe_Tarea_Mant_FormClosing event_FrmGe_Tarea_Mant_FormClosing;
+
+
+
+CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci

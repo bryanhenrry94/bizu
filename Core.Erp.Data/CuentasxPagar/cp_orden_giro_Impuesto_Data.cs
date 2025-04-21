@@ -1,0 +1,91 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Core.Erp.Info.CuentasxPagar;
+
+namespace Core.Erp.Data.CuentasxPagar
+{
+    public class cp_orden_giro_Impuesto_Data
+    {
+        public bool Eliminar(int IdEmpresa, decimal IdCbteCble_Ogiro, int IdTipoCbte_Ogiro)
+        {
+            try
+            {
+                EntitiesCuentasxPagar dbContext = new EntitiesCuentasxPagar();
+
+                string sQuery = $"delete from cp_orden_giro_Impuesto where IdEmpresa = {IdEmpresa} and IdCbteCble_Ogiro = {IdCbteCble_Ogiro} and IdTipoCbte_Ogiro = {IdTipoCbte_Ogiro}";
+
+                dbContext.Database.ExecuteSqlCommand(sQuery);
+
+                return true;
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public bool GrabarBD(cp_orden_giro_Impuesto_Info Info)
+        {
+            try
+            {
+                EntitiesCuentasxPagar dbContext = new EntitiesCuentasxPagar();
+
+                cp_orden_giro_Impuesto _objOrdenGiro = new cp_orden_giro_Impuesto();
+                _objOrdenGiro.IdEmpresa = Info.IdEmpresa;
+                _objOrdenGiro.IdCbteCble_Ogiro = Info.IdCbteCble_Ogiro;
+                _objOrdenGiro.IdTipoCbte_Ogiro = Info.IdTipoCbte_Ogiro;
+                _objOrdenGiro.Codigo = Info.Codigo;
+                _objOrdenGiro.CodigoPorcentaje = Info.CodigoPorcentaje;
+                _objOrdenGiro.BaseImponible = Info.BaseImponible;
+                _objOrdenGiro.Tarifa = Info.Tarifa;
+                _objOrdenGiro.Valor = Info.Valor;
+
+                dbContext.cp_orden_giro_Impuesto.Add(_objOrdenGiro);
+                dbContext.SaveChanges();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<cp_orden_giro_Impuesto_Info> GetList(int IdEmpresa, decimal IdCbteCble_Ogiro, int IdTipoCbte_Ogiro)
+        {
+            try
+            {
+                List<cp_orden_giro_Impuesto_Info> Lista = new List<cp_orden_giro_Impuesto_Info>();
+
+                EntitiesCuentasxPagar dbContext = new EntitiesCuentasxPagar();
+
+                var query = dbContext.cp_orden_giro_Impuesto.Where(q => q.IdEmpresa == IdEmpresa
+                    && q.IdCbteCble_Ogiro == IdCbteCble_Ogiro
+                    && q.IdTipoCbte_Ogiro == IdTipoCbte_Ogiro).ToList();
+
+                foreach(var item in query)
+                {
+                    cp_orden_giro_Impuesto_Info _objOrdenGiro = new cp_orden_giro_Impuesto_Info();
+                    _objOrdenGiro.IdEmpresa = item.IdEmpresa;
+                    _objOrdenGiro.IdCbteCble_Ogiro = item.IdCbteCble_Ogiro;
+                    _objOrdenGiro.IdTipoCbte_Ogiro = item.IdTipoCbte_Ogiro;
+                    _objOrdenGiro.Codigo = item.Codigo;
+                    _objOrdenGiro.CodigoPorcentaje = item.CodigoPorcentaje;
+                    _objOrdenGiro.BaseImponible = item.BaseImponible;
+                    _objOrdenGiro.Tarifa = item.Tarifa;
+                    _objOrdenGiro.Valor = item.Valor;
+
+                    Lista.Add(_objOrdenGiro);
+                }
+                
+                return Lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+    }
+}

@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard CurrencyCulture="es-EC">
+  <Title Text="Tablero de Orden de Taller por Revisiones" />
+  <DataSources>
+    <SqlDataSource Name="Origen de datos SQL 1" ComponentName="dashboardSqlDataSource1">
+      <Connection Name="10.0.0.11_DBERP_PRODUCCION_Connection 1" ProviderKey="MySql">
+        <Parameters>
+          <Parameter Name="server" Value="10.0.0.11" />
+          <Parameter Name="database" Value="DBERP_PRODUCCION" />
+          <Parameter Name="read only" Value="1" />
+          <Parameter Name="generateConnectionHelper" Value="false" />
+          <Parameter Name="Port" Value="3306" />
+          <Parameter Name="userid" Value="" />
+          <Parameter Name="password" Value="" />
+        </Parameters>
+      </Connection>
+      <Query Type="SelectQuery" Name="vwPROD_EDEHSA_Rpt009">
+        <Tables>
+          <Table Name="vwPROD_EDEHSA_Rpt009" X="30" Y="30" Width="125" Height="324" />
+        </Tables>
+        <Columns>
+          <Column Table="vwPROD_EDEHSA_Rpt009" Name="IdEmpresa" />
+          <Column Table="vwPROD_EDEHSA_Rpt009" Name="IdSucursal" />
+          <Column Table="vwPROD_EDEHSA_Rpt009" Name="IdProyecto" />
+          <Column Table="vwPROD_EDEHSA_Rpt009" Name="NombreProyecto" />
+          <Column Table="vwPROD_EDEHSA_Rpt009" Name="IdEstadoAprobacion" />
+          <Column Table="vwPROD_EDEHSA_Rpt009" Name="IdEstadoCierre" />
+          <Column Table="vwPROD_EDEHSA_Rpt009" Name="IdCentroCosto" />
+          <Column Table="vwPROD_EDEHSA_Rpt009" Name="Peso_Total_OT" />
+          <Column Table="vwPROD_EDEHSA_Rpt009" Name="Peso_Total_GR" />
+          <Column Table="vwPROD_EDEHSA_Rpt009" Name="Saldo_Total_OT" />
+          <Column Table="vwPROD_EDEHSA_Rpt009" Name="Porcentaje_OT_VS_GR" />
+          <Column Table="vwPROD_EDEHSA_Rpt009" Name="Cantidad_Total_OT_Activas" />
+          <Column Table="vwPROD_EDEHSA_Rpt009" Name="Cantidad_Total_OT_Inactivas" />
+          <Column Table="vwPROD_EDEHSA_Rpt009" Name="Porcentaje_OT_VS_Revision" />
+        </Columns>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="Origen de datos SQL 1">
+          <View Name="vwPROD_EDEHSA_Rpt009">
+            <Field Name="IdEmpresa" Type="Int32" />
+            <Field Name="IdSucursal" Type="Int32" />
+            <Field Name="IdProyecto" Type="Int32" />
+            <Field Name="NombreProyecto" Type="String" />
+            <Field Name="IdEstadoAprobacion" Type="String" />
+            <Field Name="IdEstadoCierre" Type="String" />
+            <Field Name="IdCentroCosto" Type="String" />
+            <Field Name="Peso_Total_OT" Type="Double" />
+            <Field Name="Peso_Total_GR" Type="Double" />
+            <Field Name="Saldo_Total_OT" Type="Double" />
+            <Field Name="Porcentaje_OT_VS_GR" Type="Double" />
+            <Field Name="Cantidad_Total_OT_Activas" Type="Decimal" />
+            <Field Name="Cantidad_Total_OT_Inactivas" Type="Decimal" />
+            <Field Name="Porcentaje_OT_VS_Revision" Type="Decimal" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+      <ConnectionOptions CloseConnection="true" />
+    </SqlDataSource>
+  </DataSources>
+  <Parameters>
+    <Parameter Name="pIdEmpresa" Type="System.Int16, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Value="1" />
+    <Parameter Name="pIdEstadoCierre" Value="ABI" />
+  </Parameters>
+  <Items>
+    <Pivot ComponentName="pivotDashboardItem2" Name="PESO DE OT VS DESPACHADO" DataSource="dashboardSqlDataSource1" DataMember="vwPROD_EDEHSA_Rpt009">
+      <DataItems>
+        <Measure DataMember="Peso_Total_OT" Name="Peso O/T Generadas" DefaultId="DataItem1">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="Peso_Total_GR" Name="Peso G/R Despachado" DefaultId="DataItem2">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Dimension DataMember="NombreProyecto" Name="Proyecto" DefaultId="DataItem0" />
+        <Measure DataMember="Porcentaje_OT_VS_GR" Name="% Pendiente" DefaultId="DataItem3">
+          <NumericFormat FormatType="Percent" IncludeGroupSeparator="true" />
+        </Measure>
+      </DataItems>
+      <FormatRules>
+        <PivotItemFormatRule Name="FormatRule 1" Enabled="false">
+          <FormatConditionValue Condition="Greater">
+            <IconSettings IconType="IndicatorCircledYellowExclamation" />
+            <Value1 Type="System.Double" Value="0" />
+          </FormatConditionValue>
+          <PivotItemFormatRuleLevel />
+        </PivotItemFormatRule>
+      </FormatRules>
+      <Rows>
+        <Row DefaultId="DataItem0" />
+      </Rows>
+      <Values>
+        <Value DefaultId="DataItem1" />
+        <Value DefaultId="DataItem2" />
+        <Value DefaultId="DataItem3" />
+      </Values>
+      <ShowColumnGrandTotals>false</ShowColumnGrandTotals>
+    </Pivot>
+    <Pivot ComponentName="pivotDashboardItem1" Name="OT VS REVISION" DataSource="dashboardSqlDataSource1" DataMember="vwPROD_EDEHSA_Rpt009">
+      <DataItems>
+        <Dimension DataMember="NombreProyecto" Name="Proyecto" SortOrder="Descending" DefaultId="DataItem0" />
+        <Measure DataMember="Cantidad_Total_OT_Activas" Name="OT Activas" DefaultId="DataItem3">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="Cantidad_Total_OT_Inactivas" Name="OT Inactivas" DefaultId="DataItem4">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="Porcentaje_OT_VS_Revision" Name="% Anulacion" DefaultId="DataItem5">
+          <NumericFormat FormatType="Percent" IncludeGroupSeparator="true" />
+        </Measure>
+      </DataItems>
+      <FormatRules>
+        <PivotItemFormatRule Name="FormatRule 1" Enabled="false">
+          <FormatConditionValue Condition="Greater">
+            <IconSettings IconType="IndicatorCircledYellowExclamation" />
+            <Value1 Type="System.Double" Value="0" />
+          </FormatConditionValue>
+          <PivotItemFormatRuleLevel />
+        </PivotItemFormatRule>
+      </FormatRules>
+      <Rows>
+        <Row DefaultId="DataItem0" />
+      </Rows>
+      <Values>
+        <Value DefaultId="DataItem3" />
+        <Value DefaultId="DataItem4" />
+        <Value DefaultId="DataItem5" />
+      </Values>
+    </Pivot>
+    <ListBox ComponentName="listBoxDashboardItem1" Name="Proyectos" DataSource="dashboardSqlDataSource1" DataMember="vwPROD_EDEHSA_Rpt009" EnableSearch="true">
+      <InteractivityOptions IgnoreMasterFilters="false" />
+      <DataItems>
+        <Dimension DataMember="NombreProyecto" DefaultId="DataItem0" />
+      </DataItems>
+      <FilterDimensions>
+        <Dimension DefaultId="DataItem0" />
+      </FilterDimensions>
+    </ListBox>
+    <Pie ComponentName="pieDashboardItem1" Name="Total OT Activas vs Inactivas" DataSource="dashboardSqlDataSource1" DataMember="vwPROD_EDEHSA_Rpt009" ShowPieCaptions="false">
+      <DataItems>
+        <Measure DataMember="Cantidad_Total_OT_Activas" Name="Total Activas" DefaultId="DataItem1">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="Cantidad_Total_OT_Inactivas" Name="Total Inactivas" DefaultId="DataItem2">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Dimension DataMember="NombreProyecto" Name="Proyecto" DefaultId="DataItem0" />
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem0" />
+      </SeriesDimensions>
+      <Values>
+        <Value DefaultId="DataItem1" />
+        <Value DefaultId="DataItem2" />
+      </Values>
+    </Pie>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup Weight="100">
+      <LayoutItem DashboardItem="listBoxDashboardItem1" Weight="18.083961248654468" />
+      <LayoutGroup Weight="81.916038751345539">
+        <LayoutItem DashboardItem="pieDashboardItem1" Weight="39.421813403416557" />
+        <LayoutGroup Orientation="Vertical" Weight="60.578186596583443">
+          <LayoutItem DashboardItem="pivotDashboardItem2" Weight="50" />
+          <LayoutItem DashboardItem="pivotDashboardItem1" Weight="50" />
+        </LayoutGroup>
+      </LayoutGroup>
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

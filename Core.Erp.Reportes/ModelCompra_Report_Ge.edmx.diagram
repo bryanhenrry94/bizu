@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9ee436f1cbaa4cb48c3155eaac7dd9a8" Name="Diagrama1" ZoomLevel="60">
+        <EntityTypeShape EntityType="DBERPModel1.vwCOMP_Rpt001" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DBERPModel1.vwCOMP_Rpt002" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DBERPModel1.vwCOMP_Rpt003" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DBERPModel1.vwCOMP_Rpt004" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DBERPModel1.vwCOMP_Rpt005" Width="1.5" PointX="6.75" PointY="7.75" />
+        <EntityTypeShape EntityType="DBERPModel1.vwCOMP_Rpt006" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DBERPModel1.vwCOMP_Rpt008" Width="1.5" PointX="8.75" PointY="8.75" />
+        <EntityTypeShape EntityType="DBERPModel1.vwCOMP_Rpt009" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DBERPModel1.vwCOMP_Rpt011" Width="1.5" PointX="0.75" PointY="10.75" />
+        <EntityTypeShape EntityType="DBERPModel1.vwCOMP_Rpt012" Width="1.5" PointX="10.75" PointY="8.75" />
+        <EntityTypeShape EntityType="DBERPModel1.vwCOMP_Rpt013" Width="1.5" PointX="3.375" PointY="11.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

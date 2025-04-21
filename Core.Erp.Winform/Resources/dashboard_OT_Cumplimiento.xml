@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard CurrencyCulture="es-EC">
+  <Title Text="Tablero de Orden Taller por Cumplimiento" />
+  <DataSources>
+    <SqlDataSource Name="Origen de datos SQL 1" ComponentName="dashboardSqlDataSource1">
+     <Connection Name="localhost_Connection" ProviderKey="MySql">
+        <Parameters>
+          <Parameter Name="server" Value="10.0.0.11" />
+          <Parameter Name="database" Value="DBERP_PRODUCCION" />
+          <Parameter Name="read only" Value="1" />
+          <Parameter Name="generateConnectionHelper" Value="false" />
+          <Parameter Name="Port" Value="3306" />
+          <Parameter Name="userid" Value="mysql_sa" />
+          <Parameter Name="password" Value="admin*2012" />
+        </Parameters>
+      </Connection>
+      <Query Type="SelectQuery" Name="Edehsa_vwPROD_EDEHSA_Rpt011">
+        <Tables>
+          <Table Name="vwPROD_EDEHSA_Rpt011" X="30" Y="30" Width="125" Height="761" />
+        </Tables>
+        <Columns>
+          <Column Table="vwPROD_EDEHSA_Rpt011" Name="IdEmpresa" />
+          <Column Table="vwPROD_EDEHSA_Rpt011" Name="IdSucursal" />
+          <Column Table="vwPROD_EDEHSA_Rpt011" Name="IdOrdenTaller" />
+          <Column Table="vwPROD_EDEHSA_Rpt011" Name="IdBodega" />
+          <Column Table="vwPROD_EDEHSA_Rpt011" Name="IdEstadoAprobacion" />
+          <Column Table="vwPROD_EDEHSA_Rpt011" Name="Codigo" />
+          <Column Table="vwPROD_EDEHSA_Rpt011" Name="IdProducto" />
+          <Column Table="vwPROD_EDEHSA_Rpt011" Name="Marca" />
+          <Column Table="vwPROD_EDEHSA_Rpt011" Name="IdUnidadMedida" />
+          <Column Table="vwPROD_EDEHSA_Rpt011" Name="UnidadMedida" />
+          <Column Table="vwPROD_EDEHSA_Rpt011" Name="CantidadPlanificada" />
+          <Column Table="vwPROD_EDEHSA_Rpt011" Name="PesoUnitario" />
+          <Column Table="vwPROD_EDEHSA_Rpt011" Name="PesoTotal_Planificado" />
+          <Column Table="vwPROD_EDEHSA_Rpt011" Name="IdProyecto" />
+          <Column Table="vwPROD_EDEHSA_Rpt011" Name="nom_proyecto" />
+          <Column Table="vwPROD_EDEHSA_Rpt011" Name="IdEstadoCierre" />
+          <Column Table="vwPROD_EDEHSA_Rpt011" Name="IdCentroCosto" />
+          <Column Table="vwPROD_EDEHSA_Rpt011" Name="Centro_costo" />
+          <Column Table="vwPROD_EDEHSA_Rpt011" Name="Estado" />
+          <Column Table="vwPROD_EDEHSA_Rpt011" Name="Fecha" />
+          <Column Table="vwPROD_EDEHSA_Rpt011" Name="FechaPlanificada" />
+          <Column Table="vwPROD_EDEHSA_Rpt011" Name="Indicador" />
+          <Column Table="vwPROD_EDEHSA_Rpt011" Name="IdPeriodo" />
+          <Column Table="vwPROD_EDEHSA_Rpt011" Name="pe_FechaIni" />
+          <Column Table="vwPROD_EDEHSA_Rpt011" Name="pe_FechaFin" />
+          <Column Table="vwPROD_EDEHSA_Rpt011" Name="pe_Descripcion" />
+          <Column Table="vwPROD_EDEHSA_Rpt011" Name="IdArea" />
+          <Column Table="vwPROD_EDEHSA_Rpt011" Name="nom_area" />
+          <Column Table="vwPROD_EDEHSA_Rpt011" Name="IdNivel" />
+          <Column Table="vwPROD_EDEHSA_Rpt011" Name="nom_nivel" />
+          <Column Table="vwPROD_EDEHSA_Rpt011" Name="IdSector" />
+          <Column Table="vwPROD_EDEHSA_Rpt011" Name="nom_sector" />
+          <Column Table="vwPROD_EDEHSA_Rpt011" Name="Cantidad_PME" />
+          <Column Table="vwPROD_EDEHSA_Rpt011" Name="PesoUnit_PME" />
+          <Column Table="vwPROD_EDEHSA_Rpt011" Name="PesoTotal_PME" />
+        </Columns>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="Origen de datos SQL 1">
+          <View Name="Edehsa_vwPROD_EDEHSA_Rpt011">
+            <Field Name="IdEmpresa" Type="Int32" />
+            <Field Name="IdSucursal" Type="Int32" />
+            <Field Name="IdOrdenTaller" Type="Decimal" />
+            <Field Name="IdBodega" Type="Int32" />
+            <Field Name="IdEstadoAprobacion" Type="String" />
+            <Field Name="Codigo" Type="String" />
+            <Field Name="IdProducto" Type="Decimal" />
+            <Field Name="Marca" Type="String" />
+            <Field Name="IdUnidadMedida" Type="String" />
+            <Field Name="UnidadMedida" Type="String" />
+            <Field Name="CantidadPlanificada" Type="Double" />
+            <Field Name="PesoUnitario" Type="Double" />
+            <Field Name="PesoTotal_Planificado" Type="Double" />
+            <Field Name="IdProyecto" Type="Int32" />
+            <Field Name="nom_proyecto" Type="String" />
+            <Field Name="IdEstadoCierre" Type="String" />
+            <Field Name="IdCentroCosto" Type="String" />
+            <Field Name="Centro_costo" Type="String" />
+            <Field Name="Estado" Type="Char" />
+            <Field Name="Fecha" Type="DateTime" />
+            <Field Name="FechaPlanificada" Type="DateTime" />
+            <Field Name="Indicador" Type="String" />
+            <Field Name="IdPeriodo" Type="Int32" />
+            <Field Name="pe_FechaIni" Type="DateTime" />
+            <Field Name="pe_FechaFin" Type="DateTime" />
+            <Field Name="pe_Descripcion" Type="String" />
+            <Field Name="IdArea" Type="Int32" />
+            <Field Name="nom_area" Type="String" />
+            <Field Name="IdNivel" Type="Int32" />
+            <Field Name="nom_nivel" Type="String" />
+            <Field Name="IdSector" Type="Int32" />
+            <Field Name="nom_sector" Type="String" />
+            <Field Name="Cantidad_PME" Type="Double" />
+            <Field Name="PesoUnit_PME" Type="Double" />
+            <Field Name="PesoTotal_PME" Type="Double" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+      <ConnectionOptions CloseConnection="true" />
+    </SqlDataSource>
+  </DataSources>
+  <Items>
+    <ListBox ComponentName="listBoxDashboardItem2" Name="Proyectos" DataSource="dashboardSqlDataSource1" DataMember="Edehsa_vwPROD_EDEHSA_Rpt011" EnableSearch="true">
+      <InteractivityOptions IgnoreMasterFilters="false" />
+      <DataItems>
+        <Dimension DataMember="nom_proyecto" DefaultId="DataItem0" />
+      </DataItems>
+      <FilterDimensions>
+        <Dimension DefaultId="DataItem0" />
+      </FilterDimensions>
+    </ListBox>
+    <ListBox ComponentName="listBoxDashboardItem3" Name="Estado OT" DataSource="dashboardSqlDataSource1" DataMember="Edehsa_vwPROD_EDEHSA_Rpt011">
+      <DataItems>
+        <Dimension DataMember="Indicador" DefaultId="DataItem0" />
+      </DataItems>
+      <FilterDimensions>
+        <Dimension DefaultId="DataItem0" />
+      </FilterDimensions>
+    </ListBox>
+    <Pie ComponentName="pieDashboardItem1" Name="Cant. O/T x Proyecto" DataSource="dashboardSqlDataSource1" DataMember="Edehsa_vwPROD_EDEHSA_Rpt011" LabelContentType="ArgumentValueAndPercent">
+      <DataItems>
+        <Measure DataMember="IdOrdenTaller" SummaryType="CountDistinct" DefaultId="DataItem0">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Dimension DataMember="Indicador" DefaultId="DataItem1" />
+        <Dimension DataMember="nom_proyecto" DefaultId="DataItem2" />
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem2" />
+      </SeriesDimensions>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Values>
+        <Value DefaultId="DataItem0" />
+      </Values>
+    </Pie>
+    <Pie ComponentName="pieDashboardItem2" Name="Cant. O/T Global" DataSource="dashboardSqlDataSource1" DataMember="Edehsa_vwPROD_EDEHSA_Rpt011" LabelContentType="ArgumentValueAndPercent" ShowPieCaptions="false">
+      <DataItems>
+        <Measure DataMember="IdOrdenTaller" SummaryType="CountDistinct" DefaultId="DataItem0">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Dimension DataMember="Indicador" DefaultId="DataItem1" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Values>
+        <Value DefaultId="DataItem0" />
+      </Values>
+    </Pie>
+    <Chart ComponentName="chartDashboardItem1" Name="Total KG O/T Planificado" ParentContainer="dashboardTabPage1" DataSource="dashboardSqlDataSource1" DataMember="Edehsa_vwPROD_EDEHSA_Rpt011">
+      <DataItems>
+        <Dimension DataMember="pe_Descripcion" DefaultId="DataItem1" />
+        <Measure DataMember="PesoTotal_Planificado" DefaultId="DataItem0">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Panel 1">
+          <AxisY Title="Peso Total Kg">
+            <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+          </AxisY>
+          <Series>
+            <Simple>
+              <Value DefaultId="DataItem0" />
+              <PointLabelOptions OverlappingMode="Reposition" ContentType="Value" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+      <ChartLegend Visible="false" />
+      <AxisX>
+        <NumericFormat FormatType="General" Unit="Ones" />
+      </AxisX>
+    </Chart>
+    <ListBox ComponentName="listBoxDashboardItem4" Name="Periodos" DataSource="dashboardSqlDataSource1" DataMember="Edehsa_vwPROD_EDEHSA_Rpt011" EnableSearch="true">
+      <DataItems>
+        <Dimension DataMember="IdPeriodo" DefaultId="DataItem0">
+          <NumericFormat FormatType="General" />
+        </Dimension>
+        <Dimension DataMember="pe_Descripcion" DefaultId="DataItem1" />
+      </DataItems>
+      <FilterDimensions>
+        <Dimension DefaultId="DataItem0" />
+        <Dimension DefaultId="DataItem1" />
+      </FilterDimensions>
+    </ListBox>
+    <DateFilter ComponentName="dateFilterDashboardItem1" Name="Año" DataSource="dashboardSqlDataSource1" DataMember="Edehsa_vwPROD_EDEHSA_Rpt011" SelectedDateTimePeriodIndex="Este año">
+      <DataItems>
+        <Dimension DataMember="Fecha" DefaultId="DataItem0" />
+      </DataItems>
+      <Dimension DefaultId="DataItem0" />
+      <DateTimePeriods>
+        <DateTimePeriod Name="Este año">
+          <StartLimit>
+            <FlowDateTimePeriodLimit />
+          </StartLimit>
+          <EndLimit>
+            <FlowDateTimePeriodLimit Offset="1" />
+          </EndLimit>
+        </DateTimePeriod>
+        <DateTimePeriod Name="Año pasado">
+          <StartLimit>
+            <FlowDateTimePeriodLimit Offset="-1" />
+          </StartLimit>
+          <EndLimit>
+            <FlowDateTimePeriodLimit />
+          </EndLimit>
+        </DateTimePeriod>
+      </DateTimePeriods>
+    </DateFilter>
+    <Chart ComponentName="chartDashboardItem2" Name="Total KG O/T Planificado (Estado O/T)" ParentContainer="dashboardTabPage1" DataSource="dashboardSqlDataSource1" DataMember="Edehsa_vwPROD_EDEHSA_Rpt011">
+      <DataItems>
+        <Dimension DataMember="Indicador" DefaultId="DataItem1" />
+        <Dimension DataMember="IdPeriodo" DefaultId="DataItem3">
+          <NumericFormat FormatType="General" />
+        </Dimension>
+        <Dimension DataMember="pe_Descripcion" DefaultId="DataItem2" />
+        <Measure DataMember="PesoTotal_Planificado" DefaultId="DataItem0">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem1" />
+      </SeriesDimensions>
+      <Arguments>
+        <Argument DefaultId="DataItem3" />
+        <Argument DefaultId="DataItem2" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Panel 1">
+          <AxisY Title="Peso Total Kg">
+            <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+          </AxisY>
+          <Series>
+            <Simple>
+              <Value DefaultId="DataItem0" />
+              <PointLabelOptions OverlappingMode="Reposition" ContentType="Value" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+      <ChartLegend Visible="false" />
+      <AxisX>
+        <NumericFormat FormatType="General" Unit="Ones" />
+      </AxisX>
+    </Chart>
+    <Pie ComponentName="pieDashboardItem3" Name="Peso O/T x Proyecto" DataSource="dashboardSqlDataSource1" DataMember="Edehsa_vwPROD_EDEHSA_Rpt011" LabelContentType="ArgumentValueAndPercent">
+      <DataItems>
+        <Dimension DataMember="Indicador" DefaultId="DataItem1" />
+        <Dimension DataMember="nom_proyecto" DefaultId="DataItem2" />
+        <Measure DataMember="PesoTotal_Planificado" DefaultId="DataItem0">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem2" />
+      </SeriesDimensions>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Values>
+        <Value DefaultId="DataItem0" />
+      </Values>
+    </Pie>
+    <Grid ComponentName="gridDashboardItem1" Name="Matriz" ParentContainer="dashboardTabPage2" DataSource="dashboardSqlDataSource1" DataMember="Edehsa_vwPROD_EDEHSA_Rpt011">
+      <DataItems>
+        <Dimension DataMember="Marca" DefaultId="DataItem0" />
+        <Dimension DataMember="Indicador" Name="Estado O/T" DefaultId="DataItem1" />
+        <Dimension DataMember="nom_proyecto" Name="Proyecto" DefaultId="DataItem2" />
+        <Measure DataMember="PesoTotal_Planificado" Name="Peso Total Planificado" DefaultId="DataItem3">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Dimension DataMember="Codigo" Name="Codigo O/T" DefaultId="DataItem4" />
+      </DataItems>
+      <GridColumns>
+        <GridDimensionColumn Weight="104.85436893203884">
+          <Dimension DefaultId="DataItem2" />
+        </GridDimensionColumn>
+        <GridDimensionColumn Weight="85.740291262135912">
+          <Dimension DefaultId="DataItem4" />
+        </GridDimensionColumn>
+        <GridDimensionColumn Weight="86.2864077669903">
+          <Dimension DefaultId="DataItem0" />
+        </GridDimensionColumn>
+        <GridDimensionColumn Weight="62.257281553398059">
+          <Dimension DefaultId="DataItem1" />
+        </GridDimensionColumn>
+        <GridMeasureColumn Weight="89.5631067961165">
+          <Measure DefaultId="DataItem3" />
+        </GridMeasureColumn>
+      </GridColumns>
+      <GridOptions ColumnWidthMode="Manual" />
+    </Grid>
+    <TabContainer ComponentName="tabContainerDashboardItem1" Name="Tab Container 1">
+      <Pages>
+        <Page ComponentName="dashboardTabPage1" Name="Gráfico" />
+        <Page ComponentName="dashboardTabPage2" Name="Página 2" />
+      </Pages>
+    </TabContainer>
+    <ComboBox ComponentName="comboBoxDashboardItem2" Name="Estado Cierre" DataSource="dashboardSqlDataSource1" DataMember="Edehsa_vwPROD_EDEHSA_Rpt011">
+      <DataItems>
+        <Dimension DataMember="IdEstadoCierre" DefaultId="DataItem0" />
+      </DataItems>
+      <FilterDimensions>
+        <Dimension DefaultId="DataItem0" />
+      </FilterDimensions>
+    </ComboBox>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup Orientation="Vertical" Weight="100">
+      <LayoutGroup Weight="62.1580547112462">
+        <LayoutGroup Orientation="Vertical" Weight="22.473604826546">
+          <LayoutItem DashboardItem="comboBoxDashboardItem2" Weight="13.202933985330073" />
+          <LayoutGroup Weight="32.762836185819069">
+            <LayoutItem DashboardItem="listBoxDashboardItem3" Weight="58.7248322147651" />
+            <LayoutItem DashboardItem="dateFilterDashboardItem1" Weight="41.2751677852349" />
+          </LayoutGroup>
+          <LayoutItem DashboardItem="listBoxDashboardItem2" Weight="54.034229828850854" />
+        </LayoutGroup>
+        <LayoutTabContainer DashboardItem="tabContainerDashboardItem1" Weight="77.526395173453992">
+          <LayoutTabPage Orientation="Vertical" DashboardItem="dashboardTabPage1" Weight="100">
+            <LayoutItem DashboardItem="chartDashboardItem1" Weight="53.46260387811634" />
+            <LayoutItem DashboardItem="chartDashboardItem2" Weight="46.53739612188366" />
+          </LayoutTabPage>
+          <LayoutTabPage Orientation="Vertical" DashboardItem="dashboardTabPage2" Weight="100">
+            <LayoutItem DashboardItem="gridDashboardItem1" Weight="100" />
+          </LayoutTabPage>
+        </LayoutTabContainer>
+      </LayoutGroup>
+      <LayoutGroup Weight="37.8419452887538">
+        <LayoutItem DashboardItem="listBoxDashboardItem4" Weight="22.171945701357465" />
+        <LayoutItem DashboardItem="pieDashboardItem2" Weight="26.621417797888387" />
+        <LayoutItem DashboardItem="pieDashboardItem1" Weight="25.1131221719457" />
+        <LayoutItem DashboardItem="pieDashboardItem3" Weight="26.093514328808446" />
+      </LayoutGroup>
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

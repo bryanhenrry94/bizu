@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0d2e58351f664fc0b3b4b461438d58e7" Name="Diagram1" ZoomLevel="62" >
+        <EntityTypeShape EntityType="DBERPModel5.vwCXC_Rpt002" Width="1.5" PointX="2.125" PointY="0.5" />
+        <EntityTypeShape EntityType="DBERPModel5.vwCXC_Rpt003" Width="1.5" PointX="3.75" PointY="0.5" />
+        <EntityTypeShape EntityType="DBERPModel5.vwCXC_Rpt005" Width="1.5" PointX="7.25" PointY="0.5" />
+        <EntityTypeShape EntityType="DBERPModel5.vwCXC_Rpt011" Width="1.5" PointX="10.5" PointY="0.5" />
+        <EntityTypeShape EntityType="DBERPModel5.vwCXC_Rpt001" Width="1.5" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="DBERPModel5.vwCXC_Rpt014" Width="1.5" PointX="8.875" PointY="0.5" />
+        <EntityTypeShape EntityType="DBERPModel5.vwCXC_Rpt016" Width="1.5" PointX="0.625" PointY="6.875" />
+        <EntityTypeShape EntityType="DBERPModel5.vwCXC_Rpt013" Width="1.5" PointX="5.25" PointY="7.625" />
+        <EntityTypeShape EntityType="DBERPModel5.vwCXC_Rpt004" Width="1.5" PointX="9.125" PointY="6.375" />
+        <EntityTypeShape EntityType="DBERPModel5.vwCXC_Rpt006" Width="1.5" PointX="5.5" PointY="0.5" />
+        <EntityTypeShape EntityType="DBERPModel5.vwCXC_Rpt007" Width="1.5" PointX="3.125" PointY="6.625" />
+        <EntityTypeShape EntityType="DBERPModel5.vwCXC_Rpt019" Width="1.5" PointX="3.4899927338073" PointY="16.131314255358333" />
+        <EntityTypeShape EntityType="DBERPModel5.vwCXC_Rpt019_1" Width="1.5" PointX="2.7797300903032207" PointY="17.656640224930197" />
+        <EntityTypeShape EntityType="DBERPModel5.vwCXC_Rpt019_2" Width="1.5" PointX="1.9457337194801" PointY="11.269385745408659" />
+        <EntityTypeShape EntityType="DBERPModel5.vwCXC_Rpt020" Width="1.5" PointX="8.6582501366074425" PointY="12.6333554147898" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

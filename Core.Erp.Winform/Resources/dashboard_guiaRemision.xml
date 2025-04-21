@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard CurrencyCulture="es-ES">
+  <Title Text="Tablero de control" />
+  <DataSources>
+    <SqlDataSource Name="Origen de datos SQL 1" ComponentName="dashboardSqlDataSource1">
+      <Connection Name="10.0.0.11_DBERP_PRODUCCION_Connection 1" ProviderKey="MySql">
+        <Parameters>
+          <Parameter Name="server" Value="10.0.0.11" />
+          <Parameter Name="database" Value="DBERP_PRODUCCION" />
+          <Parameter Name="read only" Value="1" />
+          <Parameter Name="generateConnectionHelper" Value="false" />
+          <Parameter Name="Port" Value="3306" />
+          <Parameter Name="userid" Value="mysql_sa" />
+          <Parameter Name="password" Value="admin*2012" />
+        </Parameters>
+      </Connection>
+      <Query Type="StoredProcQuery" Name="DBERP_PRODUCCION_spINV_Dashboard_GuiaRemision">
+        <Parameter Name="@pIdEmpresa" Type="DevExpress.DataAccess.Expression">(System.Int32)(?pIdEmpresa)</Parameter>
+        <Parameter Name="@pFechaDesde" Type="DevExpress.DataAccess.Expression">(System.DateTime)(?pFechaDesde)</Parameter>
+        <Parameter Name="@pFechaHasta" Type="DevExpress.DataAccess.Expression">(System.DateTime)(?pFechaHasta)</Parameter>
+        <ProcName>DBERP_PRODUCCION.spINV_Dashboard_GuiaRemision</ProcName>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="Origen de datos SQL 1">
+          <View Name="DBERP_PRODUCCION_spINV_Dashboard_GuiaRemision">
+            <Field Name="IdEmpresa" Type="Int32" />
+            <Field Name="IdSucursal" Type="Int32" />
+            <Field Name="Su_Descripcion" Type="String" />
+            <Field Name="IdGuiaRemision" Type="Decimal" />
+            <Field Name="IdBodega" Type="Int32" />
+            <Field Name="nom_bodega" Type="String" />
+            <Field Name="FechaEmision" Type="DateTime" />
+            <Field Name="FechaTrasladoIni" Type="DateTime" />
+            <Field Name="FechaTrasladoFin" Type="DateTime" />
+            <Field Name="Serie1" Type="String" />
+            <Field Name="Serie2" Type="String" />
+            <Field Name="NumDocumento" Type="String" />
+            <Field Name="IdTipo_Persona" Type="String" />
+            <Field Name="IdEntidad" Type="Decimal" />
+            <Field Name="pe_nombreCompleto" Type="String" />
+            <Field Name="pe_cedulaRuc" Type="String" />
+            <Field Name="IdProyecto" Type="Int32" />
+            <Field Name="NomProyecto" Type="String" />
+            <Field Name="IdCentroCosto" Type="String" />
+            <Field Name="Centro_costo" Type="String" />
+            <Field Name="Origen" Type="String" />
+            <Field Name="Destino" Type="String" />
+            <Field Name="Observacion" Type="String" />
+            <Field Name="IdMotivo" Type="Int32" />
+            <Field Name="Motivo" Type="String" />
+            <Field Name="IdEstado_cierre" Type="String" />
+            <Field Name="Estado" Type="String" />
+            <Field Name="FechaAutorizacion" Type="DateTime" />
+            <Field Name="NumAutorizacion" Type="String" />
+            <Field Name="IdTransportista" Type="Int32" />
+            <Field Name="CedulaTransportista" Type="String" />
+            <Field Name="NombreTransportista" Type="String" />
+            <Field Name="Placa" Type="String" />
+            <Field Name="Ruta" Type="String" />
+            <Field Name="Correo" Type="String" />
+            <Field Name="Secuencia" Type="Int32" />
+            <Field Name="IdProducto" Type="Decimal" />
+            <Field Name="pr_codigo" Type="String" />
+            <Field Name="pr_descripcion" Type="String" />
+            <Field Name="IdUnidadMedida" Type="String" />
+            <Field Name="UnidadMedida" Type="String" />
+            <Field Name="Total_GuiaRemision" Type="Double" />
+            <Field Name="PesoUnitario" Type="Double" />
+            <Field Name="Cantidad" Type="Double" />
+            <Field Name="IdPeriodo" Type="Int32" />
+            <Field Name="pe_FechaIni" Type="DateTime" />
+            <Field Name="pe_FechaFin" Type="DateTime" />
+            <Field Name="pe_Descripcion" Type="String" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+      <ConnectionOptions CloseConnection="true" />
+    </SqlDataSource>
+  </DataSources>
+  <Parameters>
+    <Parameter Name="pIdEmpresa" Type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Value="1" Description="pIdEmpresa" />
+    <Parameter Name="pFechaDesde" Type="System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Value="2023-01-01T00:00:00" Description="pFechaDesde" />
+    <Parameter Name="pFechaHasta" Type="System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Value="2023-12-31T00:00:00" Description="pFechaHasta" />
+  </Parameters>
+  <Items>
+    <Chart ComponentName="chartDashboardItem1" Name="Cant. Total G/R" DataSource="dashboardSqlDataSource1" DataMember="DBERP_PRODUCCION_spINV_Dashboard_GuiaRemision">
+      <DataItems>
+        <Measure DataMember="Total_GuiaRemision" Name="Cant. Total" DefaultId="DataItem0">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Dimension DataMember="FechaEmision" DefaultId="DataItem1" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Panel 1">
+          <Series>
+            <Simple>
+              <Value DefaultId="DataItem0" />
+              <PointLabelOptions ContentType="Value" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+    <Chart ComponentName="chartDashboardItem2" Name="Cant. Total G/R Mensual" DataSource="dashboardSqlDataSource1" DataMember="DBERP_PRODUCCION_spINV_Dashboard_GuiaRemision">
+      <DataItems>
+        <Measure DataMember="Total_GuiaRemision" Name="Cant. Total" DefaultId="DataItem0">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Dimension DataMember="FechaEmision" DateTimeGroupInterval="Month" DefaultId="DataItem1" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Panel 1">
+          <Series>
+            <Simple>
+              <Value DefaultId="DataItem0" />
+              <PointLabelOptions ContentType="Value" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+    <Pie ComponentName="pieDashboardItem1" Name="% Distribucion por Centro Costo" DataSource="dashboardSqlDataSource1" DataMember="DBERP_PRODUCCION_spINV_Dashboard_GuiaRemision">
+      <DataItems>
+        <Measure DataMember="Total_GuiaRemision" DefaultId="DataItem0" />
+        <Dimension DataMember="FechaEmision" DateTimeGroupInterval="Month" DefaultId="DataItem2" />
+        <Dimension DataMember="IdCentroCosto" DefaultId="DataItem1" />
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem2" />
+      </SeriesDimensions>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Values>
+        <Value DefaultId="DataItem0" />
+      </Values>
+    </Pie>
+    <Chart ComponentName="chartDashboardItem3" Name="Cant. Total Mensual por Centro Costo" ParentContainer="dashboardTabPage1" DataSource="dashboardSqlDataSource1" DataMember="DBERP_PRODUCCION_spINV_Dashboard_GuiaRemision">
+      <DataItems>
+        <Dimension DataMember="FechaEmision" DateTimeGroupInterval="Month" DefaultId="DataItem1" />
+        <Dimension DataMember="IdCentroCosto" DefaultId="DataItem2" />
+        <Measure DataMember="Total_GuiaRemision" DefaultId="DataItem0">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem2" />
+      </SeriesDimensions>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Panel 1">
+          <Series>
+            <Simple>
+              <Value DefaultId="DataItem0" />
+              <PointLabelOptions ContentType="SeriesName, Value" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+    <TabContainer ComponentName="tabContainerDashboardItem1" Name="Tab Container 1">
+      <Pages>
+        <Page ComponentName="dashboardTabPage1" Name="Página 1" />
+        <Page ComponentName="dashboardTabPage2" Name="Matriz" />
+      </Pages>
+    </TabContainer>
+    <Grid ComponentName="gridDashboardItem1" Name="Matriz" ParentContainer="dashboardTabPage2" DataSource="dashboardSqlDataSource1" DataMember="DBERP_PRODUCCION_spINV_Dashboard_GuiaRemision">
+      <DataItems>
+        <Dimension DataMember="FechaEmision" Name="Fecha" DefaultId="DataItem3" />
+        <Dimension DataMember="UnidadMedida" Name="Medida" DefaultId="DataItem4" />
+        <Dimension DataMember="pr_codigo" Name="Codigo" DefaultId="DataItem5" />
+        <Dimension DataMember="pr_descripcion" Name="Descripcion" DefaultId="DataItem6" />
+        <Dimension DataMember="Serie1" Name="Estab." DefaultId="DataItem10" />
+        <Dimension DataMember="Serie2" Name="Emision" DefaultId="DataItem11" />
+        <Dimension DataMember="NumDocumento" Name="Secuencia" DefaultId="DataItem12" />
+        <Dimension DataMember="IdGuiaRemision" Name="ID" DefaultId="DataItem0">
+          <NumericFormat FormatType="Number" Precision="0" Unit="Ones" />
+        </Dimension>
+        <Dimension DataMember="IdProducto" DefaultId="DataItem1">
+          <NumericFormat FormatType="Number" Precision="0" Unit="Ones" />
+        </Dimension>
+        <Dimension DataMember="Secuencia" Name="Secuencia" DefaultId="DataItem2" />
+        <Dimension DataMember="Cantidad" DefaultId="DataItem7">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Dimension>
+        <Dimension DataMember="PesoUnitario" Name="Peso" DefaultId="DataItem8">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Dimension>
+        <Dimension DataMember="Total_GuiaRemision" Name="Cant. Total" DefaultId="DataItem9">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Dimension>
+        <Dimension DataMember="Observacion" DefaultId="DataItem13" />
+      </DataItems>
+      <GridColumns>
+        <GridDimensionColumn Weight="52.854671280276811">
+          <Dimension DefaultId="DataItem0" />
+        </GridDimensionColumn>
+        <GridDimensionColumn Weight="51.730103806228364">
+          <Dimension DefaultId="DataItem10" />
+        </GridDimensionColumn>
+        <GridDimensionColumn Weight="55.103806228373685">
+          <Dimension DefaultId="DataItem11" />
+        </GridDimensionColumn>
+        <GridDimensionColumn Weight="77.595155709342549">
+          <Dimension DefaultId="DataItem12" />
+        </GridDimensionColumn>
+        <GridDimensionColumn Weight="58.477508650519013" FixedWidth="5.8845886737438944">
+          <Dimension DefaultId="DataItem3" />
+        </GridDimensionColumn>
+        <GridDimensionColumn Weight="74.999999999999986">
+          <Dimension DefaultId="DataItem13" />
+        </GridDimensionColumn>
+        <GridDimensionColumn Weight="53.979238754325245">
+          <Dimension DefaultId="DataItem1" />
+        </GridDimensionColumn>
+        <GridDimensionColumn Weight="109.08304498269892">
+          <Dimension DefaultId="DataItem5" />
+        </GridDimensionColumn>
+        <GridDimensionColumn Weight="140.57093425605532" FixedWidth="22.067207526539605">
+          <Dimension DefaultId="DataItem6" />
+        </GridDimensionColumn>
+        <GridDimensionColumn Weight="70.847750865051893">
+          <Dimension DefaultId="DataItem4" />
+        </GridDimensionColumn>
+        <GridDimensionColumn Weight="79.84429065743943">
+          <Dimension DefaultId="DataItem2" />
+        </GridDimensionColumn>
+        <GridDimensionColumn Weight="76.4705882352941">
+          <Dimension DefaultId="DataItem7" />
+        </GridDimensionColumn>
+        <GridDimensionColumn Weight="73.096885813148774">
+          <Dimension DefaultId="DataItem8" />
+        </GridDimensionColumn>
+        <GridDimensionColumn Weight="75.346020761245654">
+          <Dimension DefaultId="DataItem9" />
+        </GridDimensionColumn>
+      </GridColumns>
+      <GridOptions ColumnWidthMode="Manual" />
+    </Grid>
+    <ListBox ComponentName="listBoxDashboardItem1" Name="Centro Costo" DataSource="dashboardSqlDataSource1" DataMember="DBERP_PRODUCCION_spINV_Dashboard_GuiaRemision">
+      <DataItems>
+        <Dimension DataMember="IdCentroCosto" DefaultId="DataItem0" />
+        <Dimension DataMember="Centro_costo" DefaultId="DataItem1" />
+      </DataItems>
+      <FilterDimensions>
+        <Dimension DefaultId="DataItem0" />
+        <Dimension DefaultId="DataItem1" />
+      </FilterDimensions>
+    </ListBox>
+    <ListBox ComponentName="listBoxDashboardItem2" Name="Estado de Cierre" DataSource="dashboardSqlDataSource1" DataMember="DBERP_PRODUCCION_spINV_Dashboard_GuiaRemision">
+      <DataItems>
+        <Dimension DataMember="IdEstado_cierre" DefaultId="DataItem0" />
+      </DataItems>
+      <FilterDimensions>
+        <Dimension DefaultId="DataItem0" />
+      </FilterDimensions>
+    </ListBox>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup Orientation="Vertical" Weight="100">
+      <LayoutGroup Weight="47.184466019417478">
+        <LayoutGroup Orientation="Vertical" Weight="19.170403587443946">
+          <LayoutItem DashboardItem="listBoxDashboardItem2" Weight="38.68312757201646" />
+          <LayoutItem DashboardItem="listBoxDashboardItem1" Weight="61.31687242798354" />
+        </LayoutGroup>
+        <LayoutGroup Weight="80.829596412556057">
+          <LayoutItem DashboardItem="chartDashboardItem1" Weight="25.52011095700416" />
+          <LayoutItem DashboardItem="chartDashboardItem2" Weight="35.783633841886271" />
+          <LayoutItem DashboardItem="pieDashboardItem1" Weight="38.696255201109572" />
+        </LayoutGroup>
+      </LayoutGroup>
+      <LayoutTabContainer DashboardItem="tabContainerDashboardItem1" Weight="52.815533980582522">
+        <LayoutTabPage Orientation="Vertical" DashboardItem="dashboardTabPage1" Weight="100">
+          <LayoutItem DashboardItem="chartDashboardItem3" Weight="100" />
+        </LayoutTabPage>
+        <LayoutTabPage Orientation="Vertical" DashboardItem="dashboardTabPage2" Weight="100">
+          <LayoutItem DashboardItem="gridDashboardItem1" Weight="100" />
+        </LayoutTabPage>
+      </LayoutTabContainer>
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

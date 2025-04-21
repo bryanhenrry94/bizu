@@ -1,0 +1,85 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Core.Erp.Reportes.Inventario
+{
+    public class XINV_Rpt032_Info
+    {
+        public string tp_descripcion { get; set; }
+        public string ca_Categoria { get; set; }
+        public int IdEmpresa { get; set; }
+        public Nullable<int> IdSucursal { get; set; }
+        public Nullable<int> IdBodega { get; set; }
+        public decimal IdProducto { get; set; }
+        public string pr_codigo { get; set; }
+        public string pr_codigo_barra { get; set; }
+        public int IdProductoTipo { get; set; }
+        public string IdPresentacion { get; set; }
+        public string IdCategoria { get; set; }
+        public string pr_descripcion { get; set; }
+        public string pr_observacion { get; set; }
+        public string IdUnidadMedida { get; set; }
+        public decimal pr_precio_publico { get; set; }
+        public decimal pr_precio_mayor { get; set; }
+        public decimal pr_precio_minimo { get; set; }
+        public decimal pr_precio_puerta { get; set; }
+        public double pr_stock { get; set; }
+        public int pr_pedidos { get; set; }
+        public string pr_ManejaIva { get; set; }
+        public string pr_ManejaSeries { get; set; }
+        public double pr_costo_fob { get; set; }
+        public double pr_costo_CIF { get; set; }
+        public double pr_costo_promedio { get; set; }
+        public int IdMarca { get; set; }
+        public int pr_DiasMaritimo { get; set; }
+        public int pr_DiasAereo { get; set; }
+        public int pr_DiasTerrestre { get; set; }
+        public double pr_largo { get; set; }
+        public double pr_alto { get; set; }
+        public double pr_profundidad { get; set; }
+        public double pr_peso { get; set; }
+        public byte[] pr_imagenPeque { get; set; }
+        public byte[] pr_imagen_Grande { get; set; }
+        public string pr_partidaArancel { get; set; }
+        public decimal pr_porcentajeArancel { get; set; }
+        public double pr_Por_descuento { get; set; }
+        public double pr_stock_maximo { get; set; }
+        public double pr_stock_minimo { get; set; }
+        public string IdUsuario { get; set; }
+        public System.DateTime Fecha_Transac { get; set; }
+        public string IdUsuarioUltMod { get; set; }
+        public System.DateTime Fecha_UltMod { get; set; }
+        public string IdUsuarioUltAnu { get; set; }
+        public Nullable<System.DateTime> Fecha_UltAnu { get; set; }
+        public string pr_motivoAnulacion { get; set; }
+        public string nom_pc { get; set; }
+        public string ip { get; set; }
+        public string Estado { get; set; }
+        public string pr_descripcion_2 { get; set; }
+        public Nullable<double> AnchoEspecifico { get; set; }
+        public Nullable<double> PesoEspecifico { get; set; }
+        public int IdLinea { get; set; }
+        public int IdGrupo { get; set; }
+        public int IdSubGrupo { get; set; }
+        public string ManejaKardex { get; set; }
+        public string IdNaturaleza { get; set; }
+        public Nullable<int> IdMotivo_Vta { get; set; }
+        public string IdUnidadMedida_Consumo { get; set; }
+        public string nom_linea { get; set; }
+        public string nom_grupo { get; set; }
+        public string nom_subgrupo { get; set; }
+        public string IdCod_Impuesto_Iva { get; set; }
+        public string IdCod_Impuesto_Ice { get; set; }
+        public bool Aparece_modu_Ventas { get; set; }
+        public bool Aparece_modu_Compras { get; set; }
+        public bool Aparece_modu_Inventario { get; set; }
+        public bool Aparece_modu_Activo_F { get; set; }
+        public string tp_ManejaInven { get; set; }
+        public string marca { get; set; }
+        public string unidadMedida { get; set; }
+        public string stock { get; set; }
+    }
+}

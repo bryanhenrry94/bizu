@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c8d5d26a8111495195c6b9cd6733cb5f" Name="Diagrama1" ZoomLevel="16">
+        <EntityTypeShape EntityType="ModelCompras_GE.com_catalogo" Width="1.5" PointX="3.75" PointY="34.5" />
+        <EntityTypeShape EntityType="ModelCompras_GE.com_catalogo_tipo" Width="1.5" PointX="1.5" PointY="36.375" />
+        <EntityTypeShape EntityType="ModelCompras_GE.com_comprador" Width="1.5" PointX="3.75" PointY="29.875" />
+        <EntityTypeShape EntityType="ModelCompras_GE.com_departamento" Width="1.5" PointX="3.75" PointY="21.375" />
+        <EntityTypeShape EntityType="ModelCompras_GE.com_estado_cierre" Width="1.5" PointX="0.75" PointY="7.375" />
+        <EntityTypeShape EntityType="ModelCompras_GE.com_ListadoMateriales_Det" Width="1.5" PointX="10.75" PointY="9.75" />
+        <EntityTypeShape EntityType="ModelCompras_GE.com_Motivo_Orden_Compra" Width="1.5" PointX="3.75" PointY="13" />
+        <EntityTypeShape EntityType="ModelCompras_GE.com_ordencompra_local" Width="1.5" PointX="6" PointY="4" />
+        <EntityTypeShape EntityType="ModelCompras_GE.com_ordencompra_local_det" Width="1.5" PointX="8.25" PointY="4" />
+        <EntityTypeShape EntityType="ModelCompras_GE.com_ordencompra_local_det_x_com_solicitud_compra_det" Width="1.5" PointX="10.5" PointY="5.75" />
+        <EntityTypeShape EntityType="ModelCompras_GE.com_ordencompra_local_x_com_solicitud_compra" Width="1.5" PointX="8.25" PointY="11" />
+        <EntityTypeShape EntityType="ModelCompras_GE.com_parametro" Width="1.5" PointX="3" PointY="6.875" />
+        <EntityTypeShape EntityType="ModelCompras_GE.com_solicitante" Width="1.5" PointX="3.75" PointY="25.375" />
+        <EntityTypeShape EntityType="ModelCompras_GE.com_solicitud_compra" Width="1.5" PointX="6" PointY="34.375" />
+        <EntityTypeShape EntityType="ModelCompras_GE.com_solicitud_compra_det" Width="1.5" PointX="8.25" PointY="34.5" />
+        <EntityTypeShape EntityType="ModelCompras_GE.com_TerminoPago" Width="1.5" PointX="3.75" PointY="17.125" />
+        <EntityTypeShape EntityType="ModelCompras_GE.com_tarjeta_orden_compra" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ModelCompras_GE.vwcom_cotizacion_compra_Edehsa" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ModelCompras_GE.vwcom_EstadoRecibido" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ModelCompras_GE.vwcom_ordencompra_local" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="ModelCompras_GE.vwcom_ordencompra_local_con_cant_devolver" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ModelCompras_GE.vwcom_ordencompra_local_det" Width="1.5" PointX="12.75" PointY="7.75" />
+        <EntityTypeShape EntityType="ModelCompras_GE.vwcom_ordencompra_local_det_con_saldo_x_ing_a_inven" Width="1.5" PointX="14.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ModelCompras_GE.vwcom_ordencompra_local_det_con_saldo_x_ing_a_inven_con_saldo" Width="1.5" PointX="5.75" PointY="14.75" />
+        <EntityTypeShape EntityType="ModelCompras_GE.vwcom_ordencompra_local_det_GE" Width="1.5" PointX="7.75" PointY="14.75" />
+        <EntityTypeShape EntityType="ModelCompras_GE.vwcom_ordencompra_local_det_x_cant_pedida_solic_compra" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ModelCompras_GE.vwcom_ordencompra_local_det_x_com_solicitud_compra_det" Width="1.5" PointX="14.75" PointY="11.75" />
+        <EntityTypeShape EntityType="ModelCompras_GE.vwcom_ordencompra_local_det_x_MoviInven_SaldoItem" Width="1.5" PointX="16.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ModelCompras_GE.vwcom_ordencompra_local_GE" Width="1.5" PointX="16.75" PointY="6.75" />
+        <EntityTypeShape EntityType="ModelCompras_GE.vwcom_ordencompra_local_x_com_solicitud_compra" Width="1.5" PointX="9.75" PointY="16.75" />
+        <EntityTypeShape EntityType="ModelCompras_GE.vwcom_solicitud_compra" Width="1.5" PointX="11.75" PointY="16.75" />
+        <EntityTypeShape EntityType="ModelCompras_GE.vwcom_solicitud_compra_det" Width="1.5" PointX="16.75" PointY="17.75" />
+        <EntityTypeShape EntityType="ModelCompras_GE.vwcom_solicitud_compra_det_aprobacion" Width="1.5" PointX="18.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ModelCompras_GE.vwcom_solicitud_compra_det_x_Orden_Compra" Width="1.5" PointX="18.75" PointY="7.75" />
+        <EntityTypeShape EntityType="ModelCompras_GE.vwcom_solicitud_compra_x_items_con_saldos" Width="1.5" PointX="18.75" PointY="11.75" />
+        <EntityTypeShape EntityType="ModelCompras_GE.vwcom_solicitud_compra_X_Orden_Compra" Width="1.5" PointX="20.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ModelCompras_GE.vwcom_SolicitudCompra_Det_CantidadPedida_Compra" Width="1.5" PointX="20.75" PointY="6.75" />
+        <EntityTypeShape EntityType="ModelCompras_GE.vwcom_SolicitudCompra_Det_SaldoPendiente" Width="1.5" PointX="20.75" PointY="9.75" />
+        <EntityTypeShape EntityType="ModelCompras_GE.vwcom_TerminoPago" Width="1.5" PointX="20.75" PointY="18.75" />
+        <AssociationConnector Association="ModelCompras_GE.FK_com_catalogo_com_catalogo_tipo" />
+        <AssociationConnector Association="ModelCompras_GE.FK_com_ordencompra_local_com_catalogo" />
+        <AssociationConnector Association="ModelCompras_GE.FK_com_ordencompra_local_com_catalogo1" />
+        <AssociationConnector Association="ModelCompras_GE.FK_com_parametro_com_catalogo" />
+        <AssociationConnector Association="ModelCompras_GE.FK_com_parametro_com_catalogo1" />
+        <AssociationConnector Association="ModelCompras_GE.FK_com_parametro_com_catalogo2" />
+        <AssociationConnector Association="ModelCompras_GE.FK_com_solicitud_compra_com_catalogo" />
+        <AssociationConnector Association="ModelCompras_GE.FK_com_ordencompra_local_com_comprador" />
+        <AssociationConnector Association="ModelCompras_GE.FK_com_ordencompra_local_com_departamento" />
+        <AssociationConnector Association="ModelCompras_GE.FK_com_ordencompra_local_com_estado_cierre" />
+        <AssociationConnector Association="ModelCompras_GE.FK_com_parametro_com_estado_cierre" />
+        <AssociationConnector Association="ModelCompras_GE.FK_com_ordencompra_local_com_Motivo_Orden_Compra" />
+        <AssociationConnector Association="ModelCompras_GE.FK_com_ordencompra_local_com_solicitante" />
+        <AssociationConnector Association="ModelCompras_GE.FK_com_ordencompra_local_com_TerminoPago" />
+        <AssociationConnector Association="ModelCompras_GE.FK_com_ordencompra_local_det_com_ordencompra_local" />
+        <AssociationConnector Association="ModelCompras_GE.FK_com_ordencompra_local_x_com_solicitud_compra_com_ordencompr16" />
+        <AssociationConnector Association="ModelCompras_GE.FK_com_ordencompra_local_det_x_com_solicitud_compra_det_com_or20" />
+        <AssociationConnector Association="ModelCompras_GE.FK_com_solicitud_compra_det_com_solicitud_compra" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,213 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
+using System.Data.Entity.Infrastructure;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Dazzsoft.ERP.Infrastructure.Model.Contabilidad;
+
+namespace Dazzsoft.ERP.Infrastructure.Persistence
+{
+    public class ContabilidadContext : DbContext
+    {
+        public ContabilidadContext() : base("name=DefaultConnection") { }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            // Esta línea evita que use el esquema dbo
+            modelBuilder.HasDefaultSchema("public"); // Usa "public", o cambia según el esquema real
+
+            base.OnModelCreating(modelBuilder);
+        }
+
+        public void SetCommandTimeOut(int TimeOut)
+        {
+            ((IObjectContextAdapter)this).ObjectContext.CommandTimeout = TimeOut;
+        }
+
+        public DbSet<ct_anio_fiscal> ct_anio_fiscal { get; set; }
+        public DbSet<ct_anio_fiscal_x_cuenta_utilidad> ct_anio_fiscal_x_cuenta_utilidad { get; set; }
+        public DbSet<ct_cbtecble> ct_cbtecble { get; set; }
+        public DbSet<ct_cbtecble_det> ct_cbtecble_det { get; set; }
+        public DbSet<ct_cbtecble_Plantilla> ct_cbtecble_Plantilla { get; set; }
+        public DbSet<ct_cbtecble_Plantilla_det> ct_cbtecble_Plantilla_det { get; set; }
+        public DbSet<ct_cbtecble_Reversado> ct_cbtecble_Reversado { get; set; }
+        public DbSet<ct_cbtecble_tipo> ct_cbtecble_tipo { get; set; }
+        public DbSet<ct_centro_costo> ct_centro_costo { get; set; }
+        public DbSet<ct_centro_costo_nivel> ct_centro_costo_nivel { get; set; }
+        public DbSet<ct_centro_costo_sub_centro_costo> ct_centro_costo_sub_centro_costo { get; set; }
+        public DbSet<ct_centro_costo_sub_centro_costo_x_Af_Activo_fijo> ct_centro_costo_sub_centro_costo_x_Af_Activo_fijo { get; set; }
+        public DbSet<ct_grupo_x_Tipo_Gasto> ct_grupo_x_Tipo_Gasto { get; set; }
+        public DbSet<ct_grupocble> ct_grupocble { get; set; }
+        public DbSet<ct_grupocble_Mayor> ct_grupocble_Mayor { get; set; }
+        public DbSet<ct_GrupoEmpresarial> ct_GrupoEmpresarial { get; set; }
+        public DbSet<ct_GrupoEmpresarial_grupocble> ct_GrupoEmpresarial_grupocble { get; set; }
+        public DbSet<ct_GrupoEmpresarial_plancta> ct_GrupoEmpresarial_plancta { get; set; }
+        public DbSet<ct_GrupoEmpresarial_plancta_nivel> ct_GrupoEmpresarial_plancta_nivel { get; set; }
+        public DbSet<ct_GrupoEmpresarial_plancta_x_ct_plancta> ct_GrupoEmpresarial_plancta_x_ct_plancta { get; set; }
+        public DbSet<ct_parametro> ct_parametro { get; set; }
+        public DbSet<ct_periodo> ct_periodo { get; set; }
+        public DbSet<ct_periodo_x_tb_modulo> ct_periodo_x_tb_modulo { get; set; }
+        public DbSet<ct_plancta> ct_plancta { get; set; }
+        public DbSet<ct_plancta_nivel> ct_plancta_nivel { get; set; }
+        public DbSet<ct_punto_cargo> ct_punto_cargo { get; set; }
+        public DbSet<ct_punto_cargo_grupo> ct_punto_cargo_grupo { get; set; }
+        public DbSet<ct_rpt_Empresas_A_mostrar> ct_rpt_Empresas_A_mostrar { get; set; }
+        public DbSet<ct_saldoxCuentas> ct_saldoxCuentas { get; set; }
+        public DbSet<ct_saldoxCuentas_Movi> ct_saldoxCuentas_Movi { get; set; }
+        public DbSet<ct_saldoxCuentas_Movi_x_RangoFecha> ct_saldoxCuentas_Movi_x_RangoFecha { get; set; }
+        public DbSet<ct_Tipo_costo> ct_Tipo_costo { get; set; }
+        public DbSet<ct_tipo_ctacble> ct_tipo_ctacble { get; set; }
+        public DbSet<vwct_anio_fiscal_x_cuenta_utilidad> vwct_anio_fiscal_x_cuenta_utilidad { get; set; }
+        public DbSet<vwct_cbtecble_con_ctacble_acreedora> vwct_cbtecble_con_ctacble_acreedora { get; set; }
+        public DbSet<vwct_cbtecble_Con_Saldo> vwct_cbtecble_Con_Saldo { get; set; }
+        public DbSet<vwct_cbtecble_con_saldo_cxp> vwct_cbtecble_con_saldo_cxp { get; set; }
+        public DbSet<vwct_cbtecble_con_saldo_cxp_consulta> vwct_cbtecble_con_saldo_cxp_consulta { get; set; }
+        public DbSet<vwct_cbtecble_det> vwct_cbtecble_det { get; set; }
+        public DbSet<vwct_cbtecble_det_TotalDiario> vwct_cbtecble_det_TotalDiario { get; set; }
+        public DbSet<vwct_cbtecble_x_cp_Conciliacion_caja> vwct_cbtecble_x_cp_Conciliacion_caja { get; set; }
+        public DbSet<vwct_centro_costo> vwct_centro_costo { get; set; }
+        public DbSet<vwct_centro_costo_sub_centro_costo> vwct_centro_costo_sub_centro_costo { get; set; }
+        public DbSet<vwct_centro_costo_x_fa_cliente_obra> vwct_centro_costo_x_fa_cliente_obra { get; set; }
+        public DbSet<vwct_ComprobanteContable> vwct_ComprobanteContable { get; set; }
+        public DbSet<vwct_grupo_x_Tipo_Gasto> vwct_grupo_x_Tipo_Gasto { get; set; }
+        public DbSet<vwct_periodo> vwct_periodo { get; set; }
+        public DbSet<vwct_plancta> vwct_plancta { get; set; }
+        public DbSet<vwct_plancta_nivel> vwct_plancta_nivel { get; set; }
+        public DbSet<vwct_SaldosxCuentas> vwct_SaldosxCuentas { get; set; }
+        public DbSet<vwct_UtilidadxPeriodo> vwct_UtilidadxPeriodo { get; set; }
+        public DbSet<vwct_UtilidadxPeriodo_Saldo_Acumulado> vwct_UtilidadxPeriodo_Saldo_Acumulado { get; set; }
+        public DbSet<vwct_UtilidadxPeriodo_Saldo_Anterior> vwct_UtilidadxPeriodo_Saldo_Anterior { get; set; }
+        public DbSet<vwct_UtilidadxPeriodo_Saldo_PeriodoActual> vwct_UtilidadxPeriodo_Saldo_PeriodoActual { get; set; }
+        public DbSet<ct_rpt_MovxCta> ct_rpt_MovxCta { get; set; }
+        public DbSet<ct_saldoxCuentas_Movi_tmp> ct_saldoxCuentas_Movi_tmp { get; set; }
+        public DbSet<ct_saldoxCuentas_TMP> ct_saldoxCuentas_TMP { get; set; }
+        public DbSet<ct_rpt_SaldoxCta> ct_rpt_SaldoxCta { get; set; }
+        public DbSet<ct_dashboard_financiero> ct_dashboard_financiero { get; set; }
+        public DbSet<vwct_cbtecble_con_saldo_cxp_DIARIO> vwct_cbtecble_con_saldo_cxp_DIARIO { get; set; }
+        public DbSet<vwct_cbtecble_con_saldo_cxp_NOTA> vwct_cbtecble_con_saldo_cxp_NOTA { get; set; }
+        public DbSet<vwct_cbtecble_con_saldo_cxp_ANTI_PROVEE> vwct_cbtecble_con_saldo_cxp_ANTI_PROVEE { get; set; }
+
+        public virtual int spCON_Saldo_Inicial_x_cta_cble(Nullable<int> p_IdEmpresa, Nullable<System.DateTime> p_FechaCorte, string p_IdCentroCosto)
+        {
+            var p_IdEmpresaParameter = p_IdEmpresa.HasValue ?
+                new ObjectParameter("p_IdEmpresa", p_IdEmpresa) :
+                new ObjectParameter("p_IdEmpresa", typeof(int));
+
+            var p_FechaCorteParameter = p_FechaCorte.HasValue ?
+                new ObjectParameter("p_FechaCorte", p_FechaCorte) :
+                new ObjectParameter("p_FechaCorte", typeof(System.DateTime));
+
+            var p_IdCentroCostoParameter = p_IdCentroCosto != null ?
+                new ObjectParameter("p_IdCentroCosto", p_IdCentroCosto) :
+                new ObjectParameter("p_IdCentroCosto", typeof(string));
+
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spCON_Saldo_Inicial_x_cta_cble", p_IdEmpresaParameter, p_FechaCorteParameter, p_IdCentroCostoParameter);
+        }
+
+        public virtual ObjectResult<spCON_saldo_cuentas_x_anio_para_cierre_Result> spCON_saldo_cuentas_x_anio_para_cierre(Nullable<int> p_IdEmpresa, Nullable<int> p_Anio)
+        {
+            var p_IdEmpresaParameter = p_IdEmpresa.HasValue ?
+                new ObjectParameter("p_IdEmpresa", p_IdEmpresa) :
+                new ObjectParameter("p_IdEmpresa", typeof(int));
+
+            var p_AnioParameter = p_Anio.HasValue ?
+                new ObjectParameter("p_Anio", p_Anio) :
+                new ObjectParameter("p_Anio", typeof(int));
+
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spCON_saldo_cuentas_x_anio_para_cierre_Result>("spCON_saldo_cuentas_x_anio_para_cierre", p_IdEmpresaParameter, p_AnioParameter);
+        }
+
+        public virtual ObjectResult<spCON_Mayorizar_x_fecha_corte_Result> spCON_Mayorizar_x_fecha_corte(Nullable<int> p_IdEmpresa, Nullable<System.DateTime> p_Fecha_Ini, Nullable<System.DateTime> p_Fecha_Fin, string p_IdCentroCosto, Nullable<int> p_IdPunto_cargo_grupo, Nullable<int> p_IdPunto_cargo, Nullable<bool> p_Mostrar_reg_en_cero, Nullable<bool> p_Mostrar_reg_Centro_costo, Nullable<bool> p_Considerar_Asiento_cierre_anual, string p_IdUsuario)
+        {
+            var p_IdEmpresaParameter = p_IdEmpresa.HasValue ?
+                new ObjectParameter("p_IdEmpresa", p_IdEmpresa) :
+                new ObjectParameter("p_IdEmpresa", typeof(int));
+
+            var p_Fecha_IniParameter = p_Fecha_Ini.HasValue ?
+                new ObjectParameter("p_Fecha_Ini", p_Fecha_Ini) :
+                new ObjectParameter("p_Fecha_Ini", typeof(System.DateTime));
+
+            var p_Fecha_FinParameter = p_Fecha_Fin.HasValue ?
+                new ObjectParameter("p_Fecha_Fin", p_Fecha_Fin) :
+                new ObjectParameter("p_Fecha_Fin", typeof(System.DateTime));
+
+            var p_IdCentroCostoParameter = p_IdCentroCosto != null ?
+                new ObjectParameter("p_IdCentroCosto", p_IdCentroCosto) :
+                new ObjectParameter("p_IdCentroCosto", typeof(string));
+
+            var p_IdPunto_cargo_grupoParameter = p_IdPunto_cargo_grupo.HasValue ?
+                new ObjectParameter("p_IdPunto_cargo_grupo", p_IdPunto_cargo_grupo) :
+                new ObjectParameter("p_IdPunto_cargo_grupo", typeof(int));
+
+            var p_IdPunto_cargoParameter = p_IdPunto_cargo.HasValue ?
+                new ObjectParameter("p_IdPunto_cargo", p_IdPunto_cargo) :
+                new ObjectParameter("p_IdPunto_cargo", typeof(int));
+
+            var p_Mostrar_reg_en_ceroParameter = p_Mostrar_reg_en_cero.HasValue ?
+                new ObjectParameter("p_Mostrar_reg_en_cero", p_Mostrar_reg_en_cero) :
+                new ObjectParameter("p_Mostrar_reg_en_cero", typeof(bool));
+
+            var p_Mostrar_reg_Centro_costoParameter = p_Mostrar_reg_Centro_costo.HasValue ?
+                new ObjectParameter("p_Mostrar_reg_Centro_costo", p_Mostrar_reg_Centro_costo) :
+                new ObjectParameter("p_Mostrar_reg_Centro_costo", typeof(bool));
+
+            var p_Considerar_Asiento_cierre_anualParameter = p_Considerar_Asiento_cierre_anual.HasValue ?
+                new ObjectParameter("p_Considerar_Asiento_cierre_anual", p_Considerar_Asiento_cierre_anual) :
+                new ObjectParameter("p_Considerar_Asiento_cierre_anual", typeof(bool));
+
+            var p_IdUsuarioParameter = p_IdUsuario != null ?
+                new ObjectParameter("p_IdUsuario", p_IdUsuario) :
+                new ObjectParameter("p_IdUsuario", typeof(string));
+
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spCON_Mayorizar_x_fecha_corte_Result>("spCON_Mayorizar_x_fecha_corte", p_IdEmpresaParameter, p_Fecha_IniParameter, p_Fecha_FinParameter, p_IdCentroCostoParameter, p_IdPunto_cargo_grupoParameter, p_IdPunto_cargoParameter, p_Mostrar_reg_en_ceroParameter, p_Mostrar_reg_Centro_costoParameter, p_Considerar_Asiento_cierre_anualParameter, p_IdUsuarioParameter);
+        }
+
+        public virtual ObjectResult<spCON_Mayorizar_x_Rangofecha_Result> spCON_Mayorizar_x_Rangofecha(Nullable<int> p_IdEmpresa, Nullable<System.DateTime> p_Fecha_Ini, Nullable<System.DateTime> p_Fecha_Fin, string p_IdCentroCosto, Nullable<int> p_IdPunto_cargo_grupo, Nullable<int> p_IdPunto_cargo, Nullable<bool> p_Mostrar_reg_en_cero, Nullable<bool> p_Mostrar_reg_Centro_costo, Nullable<bool> p_Considerar_Asiento_cierre_anual, string p_IdUsuario)
+        {
+            var p_IdEmpresaParameter = p_IdEmpresa.HasValue ?
+                new ObjectParameter("p_IdEmpresa", p_IdEmpresa) :
+                new ObjectParameter("p_IdEmpresa", typeof(int));
+
+            var p_Fecha_IniParameter = p_Fecha_Ini.HasValue ?
+                new ObjectParameter("p_Fecha_Ini", p_Fecha_Ini) :
+                new ObjectParameter("p_Fecha_Ini", typeof(System.DateTime));
+
+            var p_Fecha_FinParameter = p_Fecha_Fin.HasValue ?
+                new ObjectParameter("p_Fecha_Fin", p_Fecha_Fin) :
+                new ObjectParameter("p_Fecha_Fin", typeof(System.DateTime));
+
+            var p_IdCentroCostoParameter = p_IdCentroCosto != null ?
+                new ObjectParameter("p_IdCentroCosto", p_IdCentroCosto) :
+                new ObjectParameter("p_IdCentroCosto", typeof(string));
+
+            var p_IdPunto_cargo_grupoParameter = p_IdPunto_cargo_grupo.HasValue ?
+                new ObjectParameter("p_IdPunto_cargo_grupo", p_IdPunto_cargo_grupo) :
+                new ObjectParameter("p_IdPunto_cargo_grupo", typeof(int));
+
+            var p_IdPunto_cargoParameter = p_IdPunto_cargo.HasValue ?
+                new ObjectParameter("p_IdPunto_cargo", p_IdPunto_cargo) :
+                new ObjectParameter("p_IdPunto_cargo", typeof(int));
+
+            var p_Mostrar_reg_en_ceroParameter = p_Mostrar_reg_en_cero.HasValue ?
+                new ObjectParameter("p_Mostrar_reg_en_cero", p_Mostrar_reg_en_cero) :
+                new ObjectParameter("p_Mostrar_reg_en_cero", typeof(bool));
+
+            var p_Mostrar_reg_Centro_costoParameter = p_Mostrar_reg_Centro_costo.HasValue ?
+                new ObjectParameter("p_Mostrar_reg_Centro_costo", p_Mostrar_reg_Centro_costo) :
+                new ObjectParameter("p_Mostrar_reg_Centro_costo", typeof(bool));
+
+            var p_Considerar_Asiento_cierre_anualParameter = p_Considerar_Asiento_cierre_anual.HasValue ?
+                new ObjectParameter("p_Considerar_Asiento_cierre_anual", p_Considerar_Asiento_cierre_anual) :
+                new ObjectParameter("p_Considerar_Asiento_cierre_anual", typeof(bool));
+
+            var p_IdUsuarioParameter = p_IdUsuario != null ?
+                new ObjectParameter("p_IdUsuario", p_IdUsuario) :
+                new ObjectParameter("p_IdUsuario", typeof(string));
+
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spCON_Mayorizar_x_Rangofecha_Result>("spCON_Mayorizar_x_Rangofecha", p_IdEmpresaParameter, p_Fecha_IniParameter, p_Fecha_FinParameter, p_IdCentroCostoParameter, p_IdPunto_cargo_grupoParameter, p_IdPunto_cargoParameter, p_Mostrar_reg_en_ceroParameter, p_Mostrar_reg_Centro_costoParameter, p_Considerar_Asiento_cierre_anualParameter, p_IdUsuarioParameter);
+        }
+    }
+}

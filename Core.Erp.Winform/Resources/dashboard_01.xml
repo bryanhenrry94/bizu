@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard CurrencyCulture="es-ES">
+  <Title Text="Tablero de control" />
+  <DataSources>
+    <SqlDataSource Name="Origen de datos SQL 1" ComponentName="dashboardSqlDataSource1">
+      <Connection Name="localhost_Connection" ProviderKey="MySql">
+        <Parameters>
+          <Parameter Name="server" Value="10.0.0.11" />
+          <Parameter Name="database" Value="DBERP_PRODUCCION" />
+          <Parameter Name="read only" Value="1" />
+          <Parameter Name="generateConnectionHelper" Value="false" />
+          <Parameter Name="Port" Value="3306" />
+          <Parameter Name="userid" Value="mysql_sa" />
+          <Parameter Name="password" Value="admin*2012" />
+        </Parameters>
+      </Connection>	
+      <Query Type="SelectQuery" Name="vwObr_Dashboard_Resumen_Periodo">
+        <Tables>
+          <Table Name="vwObr_Dashboard_Resumen_Periodo" X="30" Y="30" Width="125" Height="366" />
+        </Tables>
+        <Columns>
+          <Column Table="vwObr_Dashboard_Resumen_Periodo" Name="IdEmpresa" />
+          <Column Table="vwObr_Dashboard_Resumen_Periodo" Name="IdSucursal" />
+          <Column Table="vwObr_Dashboard_Resumen_Periodo" Name="IdProyecto" />
+          <Column Table="vwObr_Dashboard_Resumen_Periodo" Name="Proyecto" />
+          <Column Table="vwObr_Dashboard_Resumen_Periodo" Name="IdCentroCosto" />
+          <Column Table="vwObr_Dashboard_Resumen_Periodo" Name="IdPeriodo" />
+          <Column Table="vwObr_Dashboard_Resumen_Periodo" Name="pe_FechaIni" />
+          <Column Table="vwObr_Dashboard_Resumen_Periodo" Name="pe_FechaFin" />
+          <Column Table="vwObr_Dashboard_Resumen_Periodo" Name="pe_Descripcion" />
+          <Column Table="vwObr_Dashboard_Resumen_Periodo" Name="Estado" />
+          <Column Table="vwObr_Dashboard_Resumen_Periodo" Name="CantidadTotal_PME" />
+          <Column Table="vwObr_Dashboard_Resumen_Periodo" Name="CantidadTotal_OT" />
+          <Column Table="vwObr_Dashboard_Resumen_Periodo" Name="CantidadTotal_Guia_InTime" />
+          <Column Table="vwObr_Dashboard_Resumen_Periodo" Name="num_registros_marcas_sin_OT" />
+          <Column Table="vwObr_Dashboard_Resumen_Periodo" Name="num_registros_marcas_con_OT" />
+          <Column Table="vwObr_Dashboard_Resumen_Periodo" Name="Cantidad_Total_PME_Acumulada" />
+          <Column Table="vwObr_Dashboard_Resumen_Periodo" Name="Cantidad_Total_GR_Acumulada" />
+        </Columns>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="Origen de datos SQL 1">
+          <View Name="vwObr_Dashboard_Resumen_Periodo">
+            <Field Name="IdEmpresa" Type="Int32" />
+            <Field Name="IdSucursal" Type="Int32" />
+            <Field Name="IdProyecto" Type="Int32" />
+            <Field Name="Proyecto" Type="String" />
+            <Field Name="IdCentroCosto" Type="String" />
+            <Field Name="IdPeriodo" Type="Int32" />
+            <Field Name="pe_FechaIni" Type="DateTime" />
+            <Field Name="pe_FechaFin" Type="DateTime" />
+            <Field Name="pe_Descripcion" Type="String" />
+            <Field Name="Estado" Type="Char" />
+            <Field Name="CantidadTotal_PME" Type="Double" />
+            <Field Name="CantidadTotal_OT" Type="Double" />
+            <Field Name="CantidadTotal_Guia_InTime" Type="Double" />
+            <Field Name="num_registros_marcas_sin_OT" Type="Decimal" />
+            <Field Name="num_registros_marcas_con_OT" Type="Decimal" />
+            <Field Name="Cantidad_Total_PME_Acumulada" Type="Double" />
+            <Field Name="Cantidad_Total_GR_Acumulada" Type="Double" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+      <ConnectionOptions CloseConnection="true" />
+    </SqlDataSource>
+  </DataSources>
+  <Items>
+    <Chart ComponentName="chartDashboardItem1" Name="Planificado vs Despachado" DataSource="dashboardSqlDataSource1" DataMember="vwObr_Dashboard_Resumen_Periodo">
+      <ColoringOptions UseGlobalColors="false" />
+      <DataItems>
+        <Dimension DataMember="IdPeriodo" DefaultId="DataItem4">
+          <NumericFormat FormatType="General" />
+        </Dimension>
+        <Dimension DataMember="pe_Descripcion" DefaultId="DataItem2" />
+        <Dimension DataMember="Proyecto" DefaultId="DataItem3" />
+        <Measure DataMember="CantidadTotal_PME" Name="Total PME" DefaultId="DataItem0">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="CantidadTotal_Guia_InTime" Name="Total G/R In-Time" DefaultId="DataItem1">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem3" />
+      </SeriesDimensions>
+      <Arguments>
+        <Argument DefaultId="DataItem4" />
+        <Argument DefaultId="DataItem2" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Panel 1">
+          <AxisY TitleVisible="false" ShowGridLines="false">
+            <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+          </AxisY>
+          <Series>
+            <Simple ShowPointMarkers="true" SeriesType="Line">
+              <Value DefaultId="DataItem0" />
+              <PointLabelOptions ShowForZeroValues="true" ContentType="Value" />
+            </Simple>
+            <Simple ShowPointMarkers="true" SeriesType="StackedLine">
+              <Value DefaultId="DataItem1" />
+              <PointLabelOptions ContentType="Value" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+      <ChartLegend OutsidePosition="BottomCenterHorizontal" />
+    </Chart>
+    <Gauge ComponentName="gaugeDashboardItem1" Name="Indicador de Desempeño" DataSource="dashboardSqlDataSource1" DataMember="vwObr_Dashboard_Resumen_Periodo" ViewType="CircularHalf">
+      <DataItems>
+        <Measure DataMember="CantidadTotal_Guia_InTime" DefaultId="DataItem1" />
+        <Measure DataMember="CantidadTotal_PME" Name="Total Planificado" DefaultId="DataItem0">
+          <NumericFormat FormatType="Percent" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Dimension DataMember="Proyecto" DefaultId="DataItem2" />
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem2" />
+      </SeriesDimensions>
+      <GaugeElement>
+        <ActualValue DefaultId="DataItem1" />
+        <TargetValue DefaultId="DataItem0" />
+        <DeltaOptions ValueType="PercentOfTarget" />
+        <AbsoluteVariationNumericFormat Unit="Ones" IncludeGroupSeparator="true" />
+        <PercentVariationNumericFormat IncludeGroupSeparator="true" />
+        <PercentOfTargetNumericFormat IncludeGroupSeparator="true" />
+        <ScaleLabelNumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+      </GaugeElement>
+    </Gauge>
+    <ListBox ComponentName="listBoxDashboardItem1" Name="Periodos" DataSource="dashboardSqlDataSource1" DataMember="vwObr_Dashboard_Resumen_Periodo" EnableSearch="true">
+      <DataItems>
+        <Dimension DataMember="IdPeriodo" DefaultId="DataItem0">
+          <NumericFormat FormatType="Number" Precision="0" Unit="Ones" />
+        </Dimension>
+        <Dimension DataMember="pe_Descripcion" DefaultId="DataItem1" />
+      </DataItems>
+      <FilterDimensions>
+        <Dimension DefaultId="DataItem0" />
+        <Dimension DefaultId="DataItem1" />
+      </FilterDimensions>
+    </ListBox>
+    <ListBox ComponentName="listBoxDashboardItem2" Name="Proyectos" DataSource="dashboardSqlDataSource1" DataMember="vwObr_Dashboard_Resumen_Periodo">
+      <DataItems>
+        <Dimension DataMember="Proyecto" DefaultId="DataItem0" />
+      </DataItems>
+      <FilterDimensions>
+        <Dimension DefaultId="DataItem0" />
+      </FilterDimensions>
+    </ListBox>
+    <Pie ComponentName="pieDashboardItem1" Name="% marcas con O/T" ParentContainer="dashboardTabPage1" DataSource="dashboardSqlDataSource1" DataMember="vwObr_Dashboard_Resumen_Periodo" LabelContentType="ValueAndPercent">
+      <ColoringOptions UseGlobalColors="false" />
+      <InteractivityOptions MasterFilterMode="Single" />
+      <DataItems>
+        <Measure DataMember="num_registros_marcas_con_OT" Name="Total marcas con OT" DefaultId="DataItem0">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Dimension DataMember="Proyecto" DefaultId="DataItem2" />
+        <Measure DataMember="num_registros_marcas_sin_OT" Name="Total marcas sin OT" DefaultId="DataItem1" />
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem2" />
+      </SeriesDimensions>
+      <Values>
+        <Value DefaultId="DataItem0" />
+        <Value DefaultId="DataItem1" />
+      </Values>
+    </Pie>
+    <Chart ComponentName="chartDashboardItem2" Name="PME vs GR Acumulado" DataSource="dashboardSqlDataSource1" DataMember="vwObr_Dashboard_Resumen_Periodo">
+      <ColoringOptions UseGlobalColors="false" />
+      <DataItems>
+        <Measure DataMember="Cantidad_Total_PME_Acumulada" DefaultId="DataItem2">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="Cantidad_Total_GR_Acumulada" DefaultId="DataItem1">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Dimension DataMember="Proyecto" DefaultId="DataItem0" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem0" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Panel 1">
+          <AxisY TitleVisible="false" AlwaysShowZeroLevel="false" ShowGridLines="false">
+            <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+          </AxisY>
+          <Series>
+            <Simple>
+              <Value DefaultId="DataItem2" />
+              <PointLabelOptions ContentType="Value" />
+            </Simple>
+            <Simple>
+              <Value DefaultId="DataItem1" />
+              <PointLabelOptions ContentType="Value" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+      <ChartLegend Visible="false" IsInsidePosition="true" InsidePosition="TopLeftHorizontal" />
+    </Chart>
+    <TabContainer ComponentName="tabContainerDashboardItem1" Name="Tab Container 1">
+      <Pages>
+        <Page ComponentName="dashboardTabPage1" Name="Página 1" />
+      </Pages>
+    </TabContainer>
+    <Gauge ComponentName="gaugeDashboardItem2" Name="Indicador de Cumplimiento Acumulado" DataSource="dashboardSqlDataSource1" DataMember="vwObr_Dashboard_Resumen_Periodo" ViewType="CircularHalf">
+      <DataItems>
+        <Measure DataMember="Cantidad_Total_GR_Acumulada" DefaultId="DataItem0">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="Cantidad_Total_PME_Acumulada" DefaultId="DataItem1">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Dimension DataMember="Proyecto" DefaultId="DataItem2" />
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem2" />
+      </SeriesDimensions>
+      <GaugeElement>
+        <ActualValue DefaultId="DataItem0" />
+        <TargetValue DefaultId="DataItem1" />
+        <DeltaOptions ValueType="PercentOfTarget" />
+        <AbsoluteVariationNumericFormat Unit="Ones" IncludeGroupSeparator="true" />
+        <PercentVariationNumericFormat IncludeGroupSeparator="true" />
+        <PercentOfTargetNumericFormat IncludeGroupSeparator="true" />
+        <ScaleLabelNumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+      </GaugeElement>
+    </Gauge>
+  </Items>
+  <ColorScheme>
+    <Entry DataSource="dashboardSqlDataSource1" DataMember="vwObr_Dashboard" PaletteIndex="4">
+      <MeasureKey>
+        <Definition DataMember="CantidadTotal_Guia" />
+      </MeasureKey>
+      <DimensionKeys>
+        <DimensionKey>
+          <Definition DataMember="Proyecto" />
+          <Value Type="System.String" Value="MEZANINE CEIBOS 2 (LAVIE)" />
+        </DimensionKey>
+      </DimensionKeys>
+    </Entry>
+  </ColorScheme>
+  <LayoutTree>
+    <LayoutGroup Orientation="Vertical" Weight="100">
+      <LayoutGroup Weight="57.710651828298886">
+        <LayoutGroup Orientation="Vertical" Weight="25.335720680393912">
+          <LayoutItem DashboardItem="listBoxDashboardItem2" Weight="39.944903581267219" />
+          <LayoutItem DashboardItem="listBoxDashboardItem1" Weight="60.055096418732781" />
+        </LayoutGroup>
+        <LayoutItem DashboardItem="chartDashboardItem1" Weight="74.664279319606081" />
+      </LayoutGroup>
+      <LayoutGroup Weight="42.289348171701114">
+        <LayoutTabContainer DashboardItem="tabContainerDashboardItem1" Weight="25.335720680393912">
+          <LayoutTabPage Orientation="Vertical" DashboardItem="dashboardTabPage1" Weight="100">
+            <LayoutItem DashboardItem="pieDashboardItem1" Weight="100" />
+          </LayoutTabPage>
+        </LayoutTabContainer>
+        <LayoutItem DashboardItem="gaugeDashboardItem1" Weight="24.529991047448522" />
+        <LayoutItem DashboardItem="gaugeDashboardItem2" Weight="24.619516562220234" />
+        <LayoutItem DashboardItem="chartDashboardItem2" Weight="25.514771709937332" />
+      </LayoutGroup>
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

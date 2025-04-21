@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard CurrencyCulture="es-ES">
+  <Title Text="Dashboard Guía Remisión" />
+  <DataSources>
+    <SqlDataSource Name="Origen de datos SQL 1" ComponentName="dashboardSqlDataSource1">
+      <Connection Name="localhost_Connection" ProviderKey="MySql">
+        <Parameters>
+          <Parameter Name="server" Value="10.0.0.11" />
+          <Parameter Name="database" Value="DBERP_PRODUCCION" />
+          <Parameter Name="read only" Value="1" />
+          <Parameter Name="generateConnectionHelper" Value="false" />
+          <Parameter Name="Port" Value="3306" />
+          <Parameter Name="userid" Value="mysql_sa" />
+          <Parameter Name="password" Value="admin*2012" />
+        </Parameters>
+      </Connection>	
+      <Query Type="SelectQuery" Name="vwIn_Dashboard_GuiaRemision">
+        <Tables>
+          <Table Name="vwIn_Dashboard_GuiaRemision" X="30" Y="30" Width="125" Height="780" />
+        </Tables>
+        <Columns>
+          <Column Table="vwIn_Dashboard_GuiaRemision" Name="IdEmpresa" />
+          <Column Table="vwIn_Dashboard_GuiaRemision" Name="IdSucursal" />
+          <Column Table="vwIn_Dashboard_GuiaRemision" Name="Su_Descripcion" />
+          <Column Table="vwIn_Dashboard_GuiaRemision" Name="IdGuiaRemision" />
+          <Column Table="vwIn_Dashboard_GuiaRemision" Name="IdBodega" />
+          <Column Table="vwIn_Dashboard_GuiaRemision" Name="nom_bodega" />
+          <Column Table="vwIn_Dashboard_GuiaRemision" Name="FechaEmision" />
+          <Column Table="vwIn_Dashboard_GuiaRemision" Name="FechaTrasladoIni" />
+          <Column Table="vwIn_Dashboard_GuiaRemision" Name="FechaTrasladoFin" />
+          <Column Table="vwIn_Dashboard_GuiaRemision" Name="Serie1" />
+          <Column Table="vwIn_Dashboard_GuiaRemision" Name="Serie2" />
+          <Column Table="vwIn_Dashboard_GuiaRemision" Name="NumDocumento" />
+          <Column Table="vwIn_Dashboard_GuiaRemision" Name="IdTipo_Persona" />
+          <Column Table="vwIn_Dashboard_GuiaRemision" Name="IdEntidad" />
+          <Column Table="vwIn_Dashboard_GuiaRemision" Name="pe_nombreCompleto" />
+          <Column Table="vwIn_Dashboard_GuiaRemision" Name="pe_cedulaRuc" />
+          <Column Table="vwIn_Dashboard_GuiaRemision" Name="IdProyecto" />
+          <Column Table="vwIn_Dashboard_GuiaRemision" Name="NomProyecto" />
+          <Column Table="vwIn_Dashboard_GuiaRemision" Name="IdCentroCosto" />
+          <Column Table="vwIn_Dashboard_GuiaRemision" Name="Centro_costo" />
+          <Column Table="vwIn_Dashboard_GuiaRemision" Name="Origen" />
+          <Column Table="vwIn_Dashboard_GuiaRemision" Name="Destino" />
+          <Column Table="vwIn_Dashboard_GuiaRemision" Name="Observacion" />
+          <Column Table="vwIn_Dashboard_GuiaRemision" Name="IdMotivo" />
+          <Column Table="vwIn_Dashboard_GuiaRemision" Name="Motivo" />
+          <Column Table="vwIn_Dashboard_GuiaRemision" Name="IdEstado_cierre" />
+          <Column Table="vwIn_Dashboard_GuiaRemision" Name="Estado" />
+          <Column Table="vwIn_Dashboard_GuiaRemision" Name="FechaAutorizacion" />
+          <Column Table="vwIn_Dashboard_GuiaRemision" Name="NumAutorizacion" />
+          <Column Table="vwIn_Dashboard_GuiaRemision" Name="IdTransportista" />
+          <Column Table="vwIn_Dashboard_GuiaRemision" Name="CedulaTransportista" />
+          <Column Table="vwIn_Dashboard_GuiaRemision" Name="NombreTransportista" />
+          <Column Table="vwIn_Dashboard_GuiaRemision" Name="Placa" />
+          <Column Table="vwIn_Dashboard_GuiaRemision" Name="Ruta" />
+          <Column Table="vwIn_Dashboard_GuiaRemision" Name="Correo" />
+          <Column Table="vwIn_Dashboard_GuiaRemision" Name="Total_GuiaRemision" />
+          <Column Table="vwIn_Dashboard_GuiaRemision" Name="IdPeriodo" />
+          <Column Table="vwIn_Dashboard_GuiaRemision" Name="pe_FechaIni" />
+          <Column Table="vwIn_Dashboard_GuiaRemision" Name="pe_FechaFin" />
+          <Column Table="vwIn_Dashboard_GuiaRemision" Name="pe_Descripcion" />
+        </Columns>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="Origen de datos SQL 1">
+          <View Name="vwIn_Dashboard_GuiaRemision">
+            <Field Name="IdEmpresa" Type="Int32" />
+            <Field Name="IdSucursal" Type="Int32" />
+            <Field Name="Su_Descripcion" Type="String" />
+            <Field Name="IdGuiaRemision" Type="Decimal" />
+            <Field Name="IdBodega" Type="Int32" />
+            <Field Name="nom_bodega" Type="String" />
+            <Field Name="FechaEmision" Type="DateTime" />
+            <Field Name="FechaTrasladoIni" Type="DateTime" />
+            <Field Name="FechaTrasladoFin" Type="DateTime" />
+            <Field Name="Serie1" Type="String" />
+            <Field Name="Serie2" Type="String" />
+            <Field Name="NumDocumento" Type="String" />
+            <Field Name="IdTipo_Persona" Type="String" />
+            <Field Name="IdEntidad" Type="Decimal" />
+            <Field Name="pe_nombreCompleto" Type="String" />
+            <Field Name="pe_cedulaRuc" Type="String" />
+            <Field Name="IdProyecto" Type="Int32" />
+            <Field Name="NomProyecto" Type="String" />
+            <Field Name="IdCentroCosto" Type="String" />
+            <Field Name="Centro_costo" Type="String" />
+            <Field Name="Origen" Type="String" />
+            <Field Name="Destino" Type="String" />
+            <Field Name="Observacion" Type="String" />
+            <Field Name="IdMotivo" Type="Int32" />
+            <Field Name="Motivo" Type="String" />
+            <Field Name="IdEstado_cierre" Type="String" />
+            <Field Name="Estado" Type="Char" />
+            <Field Name="FechaAutorizacion" Type="DateTime" />
+            <Field Name="NumAutorizacion" Type="String" />
+            <Field Name="IdTransportista" Type="Int32" />
+            <Field Name="CedulaTransportista" Type="String" />
+            <Field Name="NombreTransportista" Type="String" />
+            <Field Name="Placa" Type="String" />
+            <Field Name="Ruta" Type="String" />
+            <Field Name="Correo" Type="String" />
+            <Field Name="Total_GuiaRemision" Type="Double" />
+            <Field Name="IdPeriodo" Type="Int32" />
+            <Field Name="pe_FechaIni" Type="DateTime" />
+            <Field Name="pe_FechaFin" Type="DateTime" />
+            <Field Name="pe_Descripcion" Type="String" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+      <ConnectionOptions CloseConnection="true" />
+    </SqlDataSource>
+  </DataSources>
+  <Items>
+    <Chart ComponentName="chartDashboardItem1" Name="Despachado Acumulado" DataSource="dashboardSqlDataSource1" DataMember="vwIn_Dashboard_GuiaRemision">
+      <DataItems>
+        <Measure DataMember="Total_GuiaRemision" DefaultId="DataItem0">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Dimension DataMember="pe_Descripcion" DefaultId="DataItem1" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Panel 1">
+          <AxisY>
+            <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+          </AxisY>
+          <Series>
+            <Simple Name="Despachado" ShowPointMarkers="true" SeriesType="Line">
+              <Value DefaultId="DataItem0" />
+              <PointLabelOptions ContentType="Value" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+      <ChartLegend IsInsidePosition="true" />
+    </Chart>
+    <ListBox ComponentName="listBoxDashboardItem1" Name="Obra" DataSource="dashboardSqlDataSource1" DataMember="vwIn_Dashboard_GuiaRemision" EnableSearch="true">
+      <DataItems>
+        <Dimension DataMember="NomProyecto" DefaultId="DataItem1" />
+      </DataItems>
+      <FilterDimensions>
+        <Dimension DefaultId="DataItem1" />
+      </FilterDimensions>
+    </ListBox>
+    <Chart ComponentName="chartDashboardItem3" Name="Acumulado" DataSource="dashboardSqlDataSource1" DataMember="vwIn_Dashboard_GuiaRemision">
+      <DataItems>
+        <Measure DataMember="Total_GuiaRemision" DefaultId="DataItem1">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Dimension DataMember="NomProyecto" DefaultId="DataItem0" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem0" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Panel 1">
+          <AxisY>
+            <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+          </AxisY>
+          <Series>
+            <Simple Name="Acumulado">
+              <Value DefaultId="DataItem1" />
+              <PointLabelOptions Position="Inside" ContentType="Value" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+      <ChartLegend Visible="false" OutsidePosition="BottomRightVertical" />
+    </Chart>
+    <Chart ComponentName="chartDashboardItem2" Name="Despachado x Obra" DataSource="dashboardSqlDataSource1" DataMember="vwIn_Dashboard_GuiaRemision">
+      <DataItems>
+        <Measure DataMember="Total_GuiaRemision" DefaultId="DataItem0">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Dimension DataMember="pe_Descripcion" DefaultId="DataItem1" />
+        <Dimension DataMember="NomProyecto" DefaultId="DataItem2" />
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem2" />
+      </SeriesDimensions>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Panel 1">
+          <AxisY Title="Despachado">
+            <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+          </AxisY>
+          <Series>
+            <Simple ShowPointMarkers="true" SeriesType="Line">
+              <Value DefaultId="DataItem0" />
+              <PointLabelOptions ContentType="Value" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+    <ListBox ComponentName="listBoxDashboardItem2" Name="Semanas" DataSource="dashboardSqlDataSource1" DataMember="vwIn_Dashboard_GuiaRemision" EnableSearch="true">
+      <DataItems>
+        <Dimension DataMember="pe_Descripcion" DefaultId="DataItem0" />
+      </DataItems>
+      <FilterDimensions>
+        <Dimension DefaultId="DataItem0" />
+      </FilterDimensions>
+    </ListBox>
+    <ListBox ComponentName="listBoxDashboardItem4" Name="Estado Cierre" DataSource="dashboardSqlDataSource1" DataMember="vwIn_Dashboard_GuiaRemision">
+      <DataItems>
+        <Dimension DataMember="IdEstado_cierre" DefaultId="DataItem0" />
+      </DataItems>
+      <FilterDimensions>
+        <Dimension DefaultId="DataItem0" />
+      </FilterDimensions>
+    </ListBox>
+    <Pie ComponentName="pieDashboardItem1" Name="Despacho por Cliente" DataSource="dashboardSqlDataSource1" DataMember="vwIn_Dashboard_GuiaRemision" PieType="Donut" LabelContentType="ArgumentAndValue">
+      <InteractivityOptions TargetDimensions="Series" />
+      <DataItems>
+        <Measure DataMember="Total_GuiaRemision" Name="Despacho" DefaultId="DataItem0">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Dimension DataMember="pe_nombreCompleto" DefaultId="DataItem1" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Values>
+        <Value DefaultId="DataItem0" />
+      </Values>
+    </Pie>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup Orientation="Vertical" Weight="100">
+      <LayoutGroup Weight="31.955484896661368">
+        <LayoutItem DashboardItem="listBoxDashboardItem1" Weight="23.473774720550303" />
+        <LayoutItem DashboardItem="chartDashboardItem1" Weight="76.5262252794497" />
+      </LayoutGroup>
+      <LayoutGroup Weight="36.883942766295711">
+        <LayoutItem DashboardItem="listBoxDashboardItem2" Weight="23.473774720550303" />
+        <LayoutItem DashboardItem="chartDashboardItem2" Weight="76.5262252794497" />
+      </LayoutGroup>
+      <LayoutGroup Weight="31.160572337042925">
+        <LayoutItem DashboardItem="listBoxDashboardItem4" Weight="23.473774720550303" />
+        <LayoutItem DashboardItem="chartDashboardItem3" Weight="39.810834049871026" />
+        <LayoutItem DashboardItem="pieDashboardItem1" Weight="36.715391229578678" />
+      </LayoutGroup>
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

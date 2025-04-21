@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2c1606ba61c347de8552733be8ae92bd" Name="Diagram1" ShowGrid="true" >
+        <EntityTypeShape EntityType="ModelMail.mail_Cuenta_Correo" Width="1.5" PointX="2.75" PointY="4.75" />
+        <EntityTypeShape EntityType="ModelMail.mail_Mail" Width="1.5" PointX="0.75" PointY="1" />
+        <EntityTypeShape EntityType="ModelMail.mail_Mail_Attachment" Width="1.5" PointX="3" PointY="1.5" />
+        <EntityTypeShape EntityType="ModelMail.mail_Plantilla_Mensaje" Width="1.5" PointX="4.75" PointY="4.75" />
+        <AssociationConnector Association="ModelMail.mail_Mail_mail_Mail_Attachment_fk" />
+        <EntityTypeShape EntityType="ModelMail.mail_Notificacion_Config" Width="1.5" PointX="5.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

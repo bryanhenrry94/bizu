@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Dazzsoft.ERP.Infrastructure.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ConexionBD" Type="(Web Service URL)" Scope="User">
+      <Value Profile="(Default)">Host=127.0.0.1;Port=5432;Database=zafiro;Username=postgres;Password=M1n0T4ur0;</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

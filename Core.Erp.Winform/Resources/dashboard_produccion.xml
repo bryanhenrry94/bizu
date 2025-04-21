@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard CurrencyCulture="es-EC">
+  <Title Text="Tablero de control" />
+  <DataSources>
+    <SqlDataSource Name="Origen de datos SQL 1" ComponentName="dashboardSqlDataSource1">
+      <Connection Name="10.0.0.11_DBERP_PRODUCCION_Connection" ProviderKey="MySql">
+        <Parameters>
+          <Parameter Name="server" Value="10.0.0.11" />
+          <Parameter Name="database" Value="DBERP_PRODUCCION" />
+          <Parameter Name="read only" Value="1" />
+          <Parameter Name="generateConnectionHelper" Value="false" />
+          <Parameter Name="Port" Value="3306" />
+        </Parameters>
+      </Connection>
+      <Query Type="StoredProcQuery" Name="DBERP_PRODUCCION_spPrd_Dashboard">
+        <Parameter Name="@p_IdEmpresa" Type="DevExpress.DataAccess.Expression">(System.Int32)(?IdEmpresa)</Parameter>
+        <Parameter Name="@p_fecha_desde" Type="DevExpress.DataAccess.Expression">(System.DateTime)(?fechaDesde)</Parameter>
+        <Parameter Name="@p_fecha_hasta" Type="DevExpress.DataAccess.Expression">(System.DateTime)(?fechaHasta)</Parameter>
+        <ProcName>DBERP_PRODUCCION.spPrd_Dashboard</ProcName>
+      </Query>
+      <ConnectionOptions CloseConnection="true" />
+    </SqlDataSource>
+  </DataSources>
+  <Parameters>
+    <Parameter Name="IdEmpresa" Type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Value="1" Description="IdEmpresa" />
+    <Parameter Name="fechaDesde" Type="System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Value="2021-01-01T00:00:00" Description="Fecha Desde" />
+    <Parameter Name="fechaHasta" Type="System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Value="2023-12-01T00:00:00" Description="Fecha Hasta" />
+  </Parameters>
+  <Items>
+    <Chart ComponentName="chartDashboardItem1" Name="Totala Kg x Proceso de Fabricación" ParentContainer="dashboardTabPage1" DataSource="dashboardSqlDataSource1" DataMember="DBERP_PRODUCCION_spPrd_Dashboard">
+      <DataItems>
+        <Measure DataMember="PesoTotal" DefaultId="DataItem1">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Dimension DataMember="pe_Descripcion" DefaultId="DataItem2" />
+        <Dimension DataMember="NomEtapa" DefaultId="DataItem0" />
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem0" />
+      </SeriesDimensions>
+      <Arguments>
+        <Argument DefaultId="DataItem2" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Panel 1">
+          <AxisY Title="Total KG">
+            <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+          </AxisY>
+          <Series>
+            <Simple>
+              <Value DefaultId="DataItem1" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+    <ListBox ComponentName="listBoxDashboardItem1" Name="Proyectos" DataSource="dashboardSqlDataSource1" DataMember="DBERP_PRODUCCION_spPrd_Dashboard">
+      <DataItems>
+        <Dimension DataMember="NomProyecto" DefaultId="DataItem0" />
+      </DataItems>
+      <FilterDimensions>
+        <Dimension DefaultId="DataItem0" />
+      </FilterDimensions>
+    </ListBox>
+    <Grid ComponentName="gridDashboardItem1" Name="Matriz" ParentContainer="dashboardTabPage2" DataSource="dashboardSqlDataSource1" DataMember="DBERP_PRODUCCION_spPrd_Dashboard">
+      <DataItems>
+        <Dimension DataMember="NomProyecto" DefaultId="DataItem0" />
+        <Dimension DataMember="NomProceso" DefaultId="DataItem1" />
+        <Dimension DataMember="NomEtapa" DefaultId="DataItem3" />
+        <Dimension DataMember="Codigo" DefaultId="DataItem4" />
+        <Dimension DataMember="pr_descripcion" DefaultId="DataItem5" />
+        <Dimension DataMember="NomResponsable" DefaultId="DataItem2" />
+        <Measure DataMember="PesoTotal" DefaultId="DataItem6">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+      </DataItems>
+      <GridColumns>
+        <GridDimensionColumn Weight="82.758620689655174">
+          <Dimension DefaultId="DataItem0" />
+        </GridDimensionColumn>
+        <GridDimensionColumn Weight="81.992337164750964">
+          <Dimension DefaultId="DataItem1" />
+        </GridDimensionColumn>
+        <GridDimensionColumn Weight="61.302681992337163">
+          <Dimension DefaultId="DataItem3" />
+        </GridDimensionColumn>
+        <GridDimensionColumn Weight="52.873563218390807">
+          <Dimension DefaultId="DataItem4" />
+        </GridDimensionColumn>
+        <GridDimensionColumn Weight="71.264367816091948">
+          <Dimension DefaultId="DataItem5" />
+        </GridDimensionColumn>
+        <GridDimensionColumn Weight="99.616858237547888">
+          <Dimension DefaultId="DataItem2" />
+        </GridDimensionColumn>
+        <GridMeasureColumn Weight="74.968071519795657">
+          <Measure DefaultId="DataItem6" />
+        </GridMeasureColumn>
+      </GridColumns>
+      <GridOptions ColumnWidthMode="Manual" />
+    </Grid>
+    <DateFilter ComponentName="dateFilterDashboardItem1" Name="Año" DataSource="dashboardSqlDataSource1" DataMember="DBERP_PRODUCCION_spPrd_Dashboard" SelectedDateTimePeriodIndex="Este año">
+      <DataItems>
+        <Dimension DataMember="fecha" DefaultId="DataItem0" />
+      </DataItems>
+      <Dimension DefaultId="DataItem0" />
+      <DateTimePeriods>
+        <DateTimePeriod Name="Año pasado">
+          <StartLimit>
+            <FlowDateTimePeriodLimit Offset="-1" />
+          </StartLimit>
+          <EndLimit>
+            <FlowDateTimePeriodLimit />
+          </EndLimit>
+        </DateTimePeriod>
+        <DateTimePeriod Name="Este año">
+          <StartLimit>
+            <FlowDateTimePeriodLimit />
+          </StartLimit>
+          <EndLimit>
+            <FlowDateTimePeriodLimit Offset="1" />
+          </EndLimit>
+        </DateTimePeriod>
+      </DateTimePeriods>
+    </DateFilter>
+    <ComboBox ComponentName="comboBoxDashboardItem1" Name="Estado Cierre - Proyecto" DataSource="dashboardSqlDataSource1" DataMember="DBERP_PRODUCCION_spPrd_Dashboard">
+      <DataItems>
+        <Dimension DataMember="IdEstadoCierre" DefaultId="DataItem0" />
+      </DataItems>
+      <FilterDimensions>
+        <Dimension DefaultId="DataItem0" />
+      </FilterDimensions>
+    </ComboBox>
+    <ListBox ComponentName="listBoxDashboardItem2" Name="Periodos" DataSource="dashboardSqlDataSource1" DataMember="DBERP_PRODUCCION_spPrd_Dashboard">
+      <DataItems>
+        <Dimension DataMember="pe_Descripcion" DefaultId="DataItem0" />
+      </DataItems>
+      <FilterDimensions>
+        <Dimension DefaultId="DataItem0" />
+      </FilterDimensions>
+    </ListBox>
+    <ListBox ComponentName="listBoxDashboardItem3" Name="Etapas" DataMember="Edehsa_vwPROD_EDEHSA_Rpt012">
+      <DataItems>
+        <Dimension DataMember="NomEtapa" DefaultId="DataItem0" />
+      </DataItems>
+      <FilterDimensions>
+        <Dimension DefaultId="DataItem0" />
+      </FilterDimensions>
+    </ListBox>
+    <TabContainer ComponentName="tabContainerDashboardItem1" Name="Tab Container 1">
+      <Pages>
+        <Page ComponentName="dashboardTabPage1" Name="Gráficos" />
+        <Page ComponentName="dashboardTabPage2" Name="Página 2" />
+      </Pages>
+    </TabContainer>
+    <Pie ComponentName="pieDashboardItem1" Name="Total Kg x Proceso (Responsables)" ParentContainer="dashboardTabPage1" DataSource="dashboardSqlDataSource1" DataMember="DBERP_PRODUCCION_spPrd_Dashboard" PieType="Donut" LabelContentType="ArgumentAndValue" ContentArrangementMode="FixedColumnCount" ContentLineCount="10">
+      <DataItems>
+        <Dimension DataMember="NomEtapa" DefaultId="DataItem2" />
+        <Dimension DataMember="NomResponsable" DefaultId="DataItem1" />
+        <Measure DataMember="PesoTotal" DefaultId="DataItem0">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem1" />
+      </SeriesDimensions>
+      <Arguments>
+        <Argument DefaultId="DataItem2" />
+      </Arguments>
+      <Values>
+        <Value DefaultId="DataItem0" />
+      </Values>
+    </Pie>
+    <Chart ComponentName="chartDashboardItem2" Name="Totala Kg x Proceso de Fabricación Acumulado" ParentContainer="dashboardTabPage1" DataSource="dashboardSqlDataSource1" DataMember="DBERP_PRODUCCION_spPrd_Dashboard">
+      <DataItems>
+        <Dimension DataMember="NomEtapa" DefaultId="DataItem0" />
+        <Measure DataMember="PesoTotal" DefaultId="DataItem1">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem0" />
+      </SeriesDimensions>
+      <Panes>
+        <Pane Name="Panel 1">
+          <AxisY Title="Total KG">
+            <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+          </AxisY>
+          <Series>
+            <Simple>
+              <Value DefaultId="DataItem1" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup Weight="100">
+      <LayoutGroup Orientation="Vertical" Weight="30.341113105924595">
+        <LayoutItem DashboardItem="comboBoxDashboardItem1" Weight="13.578274760383387" />
+        <LayoutGroup Weight="38.81789137380192">
+          <LayoutItem DashboardItem="listBoxDashboardItem1" Weight="50.295857988165679" />
+          <LayoutGroup Orientation="Vertical" Weight="49.704142011834321">
+            <LayoutItem DashboardItem="dateFilterDashboardItem1" Weight="55.555555555555557" />
+            <LayoutItem DashboardItem="listBoxDashboardItem3" Weight="44.444444444444443" />
+          </LayoutGroup>
+        </LayoutGroup>
+        <LayoutItem DashboardItem="listBoxDashboardItem2" Weight="47.6038338658147" />
+      </LayoutGroup>
+      <LayoutTabContainer DashboardItem="tabContainerDashboardItem1" Weight="69.658886894075408">
+        <LayoutTabPage Orientation="Vertical" DashboardItem="dashboardTabPage1" Weight="100">
+          <LayoutGroup Weight="60.891938250428815">
+            <LayoutItem DashboardItem="chartDashboardItem1" Weight="64.69816272965879" />
+            <LayoutItem DashboardItem="chartDashboardItem2" Weight="35.30183727034121" />
+          </LayoutGroup>
+          <LayoutItem DashboardItem="pieDashboardItem1" Weight="39.108061749571185" />
+        </LayoutTabPage>
+        <LayoutTabPage Orientation="Vertical" DashboardItem="dashboardTabPage2" Weight="100">
+          <LayoutItem DashboardItem="gridDashboardItem1" Weight="100" />
+        </LayoutTabPage>
+      </LayoutTabContainer>
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>
