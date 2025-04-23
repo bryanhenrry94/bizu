@@ -19,6 +19,9 @@ namespace Core.Erp.Winform
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            Properties.Settings.Default.SkinName = "The Bezier";
+            Properties.Settings.Default.Palette = "Office Black";
+            Properties.Settings.Default.Save();
             DevExpress.LookAndFeel.UserLookAndFeel.Default.SetSkinStyle(Properties.Settings.Default.SkinName, Properties.Settings.Default.Palette);
 
             Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(Properties.Settings.Default.ConfRegional);

@@ -34,7 +34,7 @@ namespace Core.Erp.Winform.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Basic")]
+        [global::System.Configuration.DefaultSettingValueAttribute("The Bezier")]
         public string SkinName {
             get {
                 return ((string)(this["SkinName"]));
@@ -46,7 +46,7 @@ namespace Core.Erp.Winform.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Default")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Office Black")]
         public string Palette {
             get {
                 return ((string)(this["Palette"]));

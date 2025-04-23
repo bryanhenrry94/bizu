@@ -26,10 +26,10 @@
     </SccProvider>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <PublishUrl>\\intranet\ERP\vsynergy\produccion\</PublishUrl>
+    <PublishUrl>C:\deploy\Bizu\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateEnabled>false</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
@@ -37,13 +37,12 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>\\intranet\ERP\vsynergy\produccion\</UpdateUrl>
-    <ProductName>vSynergy</ProductName>
-    <PublisherName>Sistemas EDEHSA</PublisherName>
-    <SuiteName>vSynergy</SuiteName>
+    <ProductName>Bizu</ProductName>
+    <PublisherName>DAZZSOFT</PublisherName>
+    <SuiteName>Bizu</SuiteName>
     <WebPage>publish.htm</WebPage>
-    <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>469</ApplicationRevision>
-    <ApplicationVersion>2.0.0.%2a</ApplicationVersion>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
