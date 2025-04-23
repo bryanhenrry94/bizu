@@ -94,7 +94,7 @@
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>erp_icon.ico</ApplicationIcon>
+    <ApplicationIcon>Dazzsoft_3D_Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <PlatformTarget>x86</PlatformTarget>
@@ -6425,6 +6425,7 @@
     <None Include="Resources\083.png" />
     <None Include="Resources\Aniversario Edehsa.jpg" />
     <None Include="Resources\Aniversario Edehsa1.jpg" />
+    <Content Include="Dazzsoft_3D_Icon.ico" />
     <Content Include="erp_icon.ico" />
     <Content Include="Resources\anular.png" />
     <Content Include="Office-building.ico" />
@@ -6718,6 +6719,7 @@
     </None>
     <None Include="Resources\erp_256px.ico" />
     <None Include="Resources\erp_256.png" />
+    <None Include="Resources\Dazzsoft_3D_Icon.ico" />
     <Content Include="Resources\ico_anular1.png" />
     <Content Include="Resources\ico_anular2.png" />
     <None Include="Resources\ico_anular3.png" />
@@ -6867,6 +6869,7 @@
     <None Include="Resources\menu_search.ico" />
     <None Include="Resources\menu_new.ico" />
     <None Include="Resources\menu_menu_general.ico" />
+    <None Include="Resources\logo dazzsoft 3d.png" />
     <Content Include="Resources\Refres.jpg" />
     <None Include="Resources\refresh_64x64.png" />
     <None Include="Resources\refresh_128x128.png" />

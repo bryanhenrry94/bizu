@@ -49,31 +49,34 @@
             this.btnIngresar.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIngresar.Appearance.Options.UseBackColor = true;
             this.btnIngresar.Appearance.Options.UseFont = true;
-            this.btnIngresar.Location = new System.Drawing.Point(12, 154);
+            this.btnIngresar.Location = new System.Drawing.Point(16, 190);
+            this.btnIngresar.Margin = new System.Windows.Forms.Padding(4);
             this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(256, 35);
+            this.btnIngresar.Size = new System.Drawing.Size(341, 43);
             this.btnIngresar.TabIndex = 3;
             this.btnIngresar.Text = "Ingresar";
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(12, 57);
+            this.txtUsuario.Location = new System.Drawing.Point(16, 70);
+            this.txtUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuario.Properties.Appearance.Options.UseFont = true;
-            this.txtUsuario.Size = new System.Drawing.Size(256, 22);
+            this.txtUsuario.Size = new System.Drawing.Size(341, 26);
             this.txtUsuario.TabIndex = 1;
             this.txtUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUsuario_KeyDown);
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(12, 107);
+            this.txtPassword.Location = new System.Drawing.Point(16, 132);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Properties.Appearance.Options.UseFont = true;
             this.txtPassword.Properties.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(256, 22);
+            this.txtPassword.Size = new System.Drawing.Size(341, 26);
             this.txtPassword.TabIndex = 2;
             this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
             // 
@@ -81,9 +84,10 @@
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(12, 38);
+            this.labelControl1.Location = new System.Drawing.Point(16, 47);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(48, 16);
+            this.labelControl1.Size = new System.Drawing.Size(60, 19);
             this.labelControl1.TabIndex = 6;
             this.labelControl1.Text = "Usuario:";
             // 
@@ -91,17 +95,19 @@
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(12, 88);
+            this.labelControl2.Location = new System.Drawing.Point(16, 108);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(70, 16);
+            this.labelControl2.Size = new System.Drawing.Size(85, 19);
             this.labelControl2.TabIndex = 7;
             this.labelControl2.Text = "Contraseña:";
             // 
             // btnCambiarContrasena
             // 
-            this.btnCambiarContrasena.Location = new System.Drawing.Point(150, 137);
+            this.btnCambiarContrasena.Location = new System.Drawing.Point(200, 169);
+            this.btnCambiarContrasena.Margin = new System.Windows.Forms.Padding(4);
             this.btnCambiarContrasena.Name = "btnCambiarContrasena";
-            this.btnCambiarContrasena.Size = new System.Drawing.Size(118, 13);
+            this.btnCambiarContrasena.Size = new System.Drawing.Size(147, 16);
             this.btnCambiarContrasena.TabIndex = 8;
             this.btnCambiarContrasena.Text = "Olvidaste tu contrasena?";
             this.btnCambiarContrasena.Click += new System.EventHandler(this.btnCambiarContrasena_Click);
@@ -110,17 +116,18 @@
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Location = new System.Drawing.Point(87, 12);
+            this.labelControl3.Location = new System.Drawing.Point(116, 15);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(109, 20);
+            this.labelControl3.Size = new System.Drawing.Size(131, 25);
             this.labelControl3.TabIndex = 9;
             this.labelControl3.Text = "Iniciar Sesion";
             // 
             // FrmSeg_Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(282, 209);
+            this.ClientSize = new System.Drawing.Size(376, 257);
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.btnCambiarContrasena);
             this.Controls.Add(this.labelControl2);
@@ -131,7 +138,8 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("FrmSeg_Login.IconOptions.Icon")));
-            this.IconOptions.Image = global::Bizu.Presentation.Properties.Resources.erp_256;
+            this.IconOptions.Image = global::Bizu.Presentation.Properties.Resources.logo_dazzsoft_3d;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmSeg_Login";
             this.Opacity = 0.92D;
             this.ShowInTaskbar = false;
