@@ -1,0 +1,80 @@
+﻿using System;
+using System.Drawing;
+using System.Collections;
+using System.ComponentModel;
+using DevExpress.XtraReports.UI;
+using Bizu.Application.General;
+using Bizu.Domain.General;
+using Bizu.Reports;
+using System.Collections.Generic;
+using System.IO;
+
+namespace Bizu.Reports.CuentasxPagar
+{
+    public partial class XCXP_Rpt030_Rpt_Sin_Agrupar : DevExpress.XtraReports.UI.XtraReport
+    {
+        cl_parametrosGenerales_Bus param = cl_parametrosGenerales_Bus.Instance;
+        tb_sis_Log_Error_Vzen_Bus Log_Error_bus = new tb_sis_Log_Error_Vzen_Bus();
+        List<XCXP_Rpt030_Info_Resumen> list_resumen = new List<XCXP_Rpt030_Info_Resumen>();
+
+        public XCXP_Rpt030_Rpt_Sin_Agrupar()
+        {
+            InitializeComponent();
+        }
+
+        private void XCXP_Rpt030_Rpt_Sin_Agrupar_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            try
+            {
+                xrLUsuario.Text = param.IdUsuario;
+                lblFechaImpresion.Text = DateTime.Now.ToString("dddd, dd' de 'MMMM' de 'yyyy HH:mm:ss");
+                xlbl_idReporte.Text = "XCXP_Rpt030_Rpt_Sin_Agrupar";
+
+                string msg = "";
+                XCXP_Rpt030_Bus Bus = new XCXP_Rpt030_Bus();
+                List<XCXP_Rpt030_Info> lista = new List<XCXP_Rpt030_Info>();
+
+                list_resumen = new List<XCXP_Rpt030_Info_Resumen>();
+
+                int IdEmpresa = 0;
+                
+                DateTime FechaIni;
+                DateTime FechaFin;
+                bool x_Fecha_Emision = true;
+
+
+                IdEmpresa = Convert.ToInt32(this.PIdEmpresa.Value);
+                FechaFin = Convert.ToDateTime(this.p_FechaFin.Value);
+                FechaIni = Convert.ToDateTime(this.p_FechaIni.Value);
+                x_Fecha_Emision = Convert.ToBoolean(this.P_X_Fecha_Emision.Value);
+
+
+                lista = Bus.Get_List_Data_Totales(IdEmpresa, FechaIni, FechaFin, x_Fecha_Emision, ref list_resumen, ref msg);
+
+                this.DataSource = lista.ToArray();
+            }
+            catch (Exception ex)
+            {
+                Log_Error_bus.Log_Error(ex.ToString());
+                Bizu.Domain.Log_Exception.LoggingManager.Logger.Log(Bizu.Domain.Log_Exception.LoggingCategory.Error, ex.Message);
+                throw new Bizu.Domain.Log_Exception.DalException(string.Format("", "XCXP_Rpt030_Rpt_Sin_Agrupar_BeforePrint", ex.Message), ex) { EntityType = typeof(XCXP_Rpt030_Rpt_Sin_Agrupar) };
+            }
+        }
+
+        private void xrSubreport1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            try
+            {
+                ((XRSubreport)sender).ReportSource.DataSource = list_resumen;
+                ((XRSubreport)sender).ReportSource.FillDataSource();
+            }
+            catch (Exception ex)
+            {
+                Log_Error_bus.Log_Error(ex.ToString());
+                Bizu.Domain.Log_Exception.LoggingManager.Logger.Log(Bizu.Domain.Log_Exception.LoggingCategory.Error, ex.Message);
+                throw new Bizu.Domain.Log_Exception.DalException(string.Format("", "set_parametros", ex.Message), ex) { EntityType = typeof(XCXP_Rpt030_Rpt_Sin_Agrupar) };
+            }
+        }
+
+    }
+}

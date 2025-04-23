@@ -1,0 +1,160 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using Bizu.Domain.General;
+using Bizu.Presentation.Controles;
+using Bizu.Application.General;
+using Bizu.Domain.Facturacion;
+using Bizu.Application.Facturacion;
+
+namespace Bizu.Presentation.Facturacion
+{
+    public partial class frmFa_AprobacionPedido : DevExpress.XtraEditors.XtraForm
+    {
+        public frmFa_AprobacionPedido()
+        {
+            try
+            {
+               InitializeComponent();
+            }
+            catch (Exception ex)
+            {
+                Log_Error_bus.Log_Error(ex.ToString());
+            }
+
+        }
+        tb_sis_Log_Error_Vzen_Bus Log_Error_bus = new tb_sis_Log_Error_Vzen_Bus();
+        UCIn_Sucursal_Bodega UC_Sucursal = new UCIn_Sucursal_Bodega();
+        cl_parametrosGenerales_Bus param = cl_parametrosGenerales_Bus.Instance;
+        motivo_aprobacion_pedido_venta_Info infoMotivo = new motivo_aprobacion_pedido_venta_Info();
+        motivo_aprobacion_pedido_venta_Bus busMotivo = new motivo_aprobacion_pedido_venta_Bus();
+       
+        private void frmFa_AprobacionPedido_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                UC_Sucursal.Dock = DockStyle.None;
+                UC_Sucursal.TipoCarga = Cl_Enumeradores.eTipoFiltro.Normal;
+                this.panel1.Controls.Add(UC_Sucursal);
+                dtpFechaIni.Value = dtpFechaIni.Value.AddDays(-30);
+                CargaGrid(dtpFechaIni.Value, dtpFechaFin.Value);
+            }
+            catch (Exception ex)
+            {
+                Log_Error_bus.Log_Error(ex.ToString());
+            }
+
+
+        }
+
+        BindingList<fa_pedido_Info> DataSource;
+
+        private void CargaGrid( DateTime fecha_ini, DateTime fecha_fin)
+        {
+            try
+            {
+             
+               List<fa_pedido_Info> lista_pedido = new List<fa_pedido_Info>();
+               fa_pedido_Bus bus_pers = new fa_pedido_Bus();
+               lista_pedido = bus_pers.Get_List_pedido(param.IdEmpresa, fecha_ini, fecha_fin, Convert.ToInt32(UC_Sucursal.cmb_sucursal.EditValue), Convert.ToInt32(UC_Sucursal.cmb_bodega.EditValue)).FindAll(v => v.IdEstadoAprobacion != "A");
+               DataSource = new BindingList<fa_pedido_Info>(lista_pedido.FindAll(v => v.IdEstadoAprobacion != "R"));
+                gridControlPedido.DataSource = DataSource;
+
+
+            }
+            catch (Exception ex)
+            {
+                Log_Error_bus.Log_Error(ex.ToString());
+            }
+        }
+
+        private void btn_buscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CargaGrid(dtpFechaIni.Value, dtpFechaFin.Value);
+            }
+            catch (Exception ex)
+            {
+                 Log_Error_bus.Log_Error(ex.ToString());
+            }
+
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Close();
+            }
+            catch (Exception ex)
+            {
+                     Log_Error_bus.Log_Error(ex.ToString());
+            }
+
+        }
+
+        private void btnAprobar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<fa_pedido_Info> lst = new List<fa_pedido_Info>();
+             
+                dtpFechaFin.Focus();
+                
+                foreach (var item in DataSource)
+                {
+                    if (item.Chek)
+                        lst.Add(item);
+                }
+
+                foreach (var item in lst)
+                {
+                    if (item.IdEstadoAprobacion == "C")
+                    {
+                        string mot = "";
+                        Boolean Res = false;
+                        frmFa_Aprobacion_Motivo frm = new frmFa_Aprobacion_Motivo();
+                        frm.IdPedido = Convert.ToInt32(item.IdPedido);
+                        frm.Cliente = item.Cliente;
+                        frm.estado = item.EstadoAprobacion;
+                        frm.ShowDialog();
+
+                        mot = frm.motivoAnulacion;
+
+                        infoMotivo.IdPedido = Convert.ToInt32(item.IdPedido);
+                        infoMotivo.IdEmpresa = item.IdEmpresa;
+                        infoMotivo.IdCliente = item.IdCliente;
+                        infoMotivo.MotivoAprobacion = mot;
+                        infoMotivo.IdUsuario = param.IdUsuario;
+                    
+                        Res = busMotivo.GrabarDB(infoMotivo);
+
+                    }
+                }
+
+                fa_pedido_Bus bus = new fa_pedido_Bus();
+                if (bus.ActualizarEstadoApro(lst, "A"))
+                {
+                    MessageBox.Show("Pedidos Aprobrados Con exito");
+                }
+                CargaGrid(dtpFechaIni.Value, dtpFechaFin.Value);
+            }
+            catch (Exception ex)
+            {
+                Log_Error_bus.Log_Error(ex.ToString());
+                
+            }
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            gridControlPedido.ShowPrintPreview();
+        }
+    }
+}

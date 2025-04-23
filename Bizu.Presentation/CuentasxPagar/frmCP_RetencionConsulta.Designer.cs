@@ -1,0 +1,497 @@
+﻿namespace Bizu.Presentation.CuentasxPagar
+{
+    partial class frmCP_RetencionConsulta
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCP_RetencionConsulta));
+            this.gridControlConsRet = new DevExpress.XtraGrid.GridControl();
+            this.gridViewConsRet = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colIdEmpresa = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colIdCbte_CXP = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colIdTipoCbte_Ogiro = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colFactura_Prov = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colco_FechaFactura = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colIdRetencion = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNumeroRT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colFecha_RT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAutorizacionRT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colEstadoRT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colImpresaRT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colobservacionRT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colre_Tiene_RTiva = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colre_Tiene_RFuente = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colIdProveedor = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNombre_Prov = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colserie = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colIdEmpresa_Ogiro = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colEstado_Auto = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colFechaReg = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_Icono_pdf = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemPictureEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
+            this.col_Icono_xml = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.ucGe_Menu = new Bizu.Presentation.Controles.UCGe_Menu_Mantenimiento_x_usuario();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlConsRet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewConsRet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // gridControlConsRet
+            // 
+            this.gridControlConsRet.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlConsRet.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.gridControlConsRet.Location = new System.Drawing.Point(0, 0);
+            this.gridControlConsRet.MainView = this.gridViewConsRet;
+            this.gridControlConsRet.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.gridControlConsRet.Name = "gridControlConsRet";
+            this.gridControlConsRet.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemPictureEdit1});
+            this.gridControlConsRet.Size = new System.Drawing.Size(2388, 697);
+            this.gridControlConsRet.TabIndex = 0;
+            this.gridControlConsRet.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewConsRet});
+            // 
+            // gridViewConsRet
+            // 
+            this.gridViewConsRet.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colIdEmpresa,
+            this.colIdCbte_CXP,
+            this.colIdTipoCbte_Ogiro,
+            this.colFactura_Prov,
+            this.colco_FechaFactura,
+            this.colIdRetencion,
+            this.colNumeroRT,
+            this.colFecha_RT,
+            this.colAutorizacionRT,
+            this.colEstadoRT,
+            this.colImpresaRT,
+            this.colobservacionRT,
+            this.colre_Tiene_RTiva,
+            this.colre_Tiene_RFuente,
+            this.colIdProveedor,
+            this.colNombre_Prov,
+            this.colserie,
+            this.colIdEmpresa_Ogiro,
+            this.colEstado_Auto,
+            this.colFechaReg,
+            this.col_Icono_pdf,
+            this.col_Icono_xml});
+            this.gridViewConsRet.DetailHeight = 673;
+            this.gridViewConsRet.FixedLineWidth = 4;
+            this.gridViewConsRet.GridControl = this.gridControlConsRet;
+            this.gridViewConsRet.Name = "gridViewConsRet";
+            this.gridViewConsRet.OptionsBehavior.Editable = false;
+            this.gridViewConsRet.OptionsView.ShowAutoFilterRow = true;
+            this.gridViewConsRet.OptionsView.ShowGroupPanel = false;
+            this.gridViewConsRet.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colAutorizacionRT, DevExpress.Data.ColumnSortOrder.Ascending)});
+            this.gridViewConsRet.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.gridViewConsRet_RowCellClick);
+            this.gridViewConsRet.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gridViewConsRet_RowCellStyle);
+            this.gridViewConsRet.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewConsRet_FocusedRowChanged);
+            // 
+            // colIdEmpresa
+            // 
+            this.colIdEmpresa.FieldName = "IdEmpresa";
+            this.colIdEmpresa.MinWidth = 40;
+            this.colIdEmpresa.Name = "colIdEmpresa";
+            this.colIdEmpresa.OptionsColumn.ReadOnly = true;
+            this.colIdEmpresa.Width = 150;
+            // 
+            // colIdCbte_CXP
+            // 
+            this.colIdCbte_CXP.Caption = "IdCbte_CXP";
+            this.colIdCbte_CXP.FieldName = "IdCbteCble_Ogiro";
+            this.colIdCbte_CXP.MinWidth = 40;
+            this.colIdCbte_CXP.Name = "colIdCbte_CXP";
+            this.colIdCbte_CXP.OptionsColumn.ReadOnly = true;
+            this.colIdCbte_CXP.Width = 224;
+            // 
+            // colIdTipoCbte_Ogiro
+            // 
+            this.colIdTipoCbte_Ogiro.FieldName = "IdTipoCbte_Ogiro";
+            this.colIdTipoCbte_Ogiro.MinWidth = 40;
+            this.colIdTipoCbte_Ogiro.Name = "colIdTipoCbte_Ogiro";
+            this.colIdTipoCbte_Ogiro.OptionsColumn.ReadOnly = true;
+            this.colIdTipoCbte_Ogiro.Width = 240;
+            // 
+            // colFactura_Prov
+            // 
+            this.colFactura_Prov.Caption = "#Factura";
+            this.colFactura_Prov.FieldName = "Factura_Prov";
+            this.colFactura_Prov.MinWidth = 40;
+            this.colFactura_Prov.Name = "colFactura_Prov";
+            this.colFactura_Prov.OptionsColumn.ReadOnly = true;
+            this.colFactura_Prov.Visible = true;
+            this.colFactura_Prov.VisibleIndex = 3;
+            this.colFactura_Prov.Width = 322;
+            // 
+            // colco_FechaFactura
+            // 
+            this.colco_FechaFactura.Caption = "Fecha/Fact";
+            this.colco_FechaFactura.FieldName = "co_FechaFactura";
+            this.colco_FechaFactura.MinWidth = 40;
+            this.colco_FechaFactura.Name = "colco_FechaFactura";
+            this.colco_FechaFactura.OptionsColumn.ReadOnly = true;
+            this.colco_FechaFactura.Width = 374;
+            // 
+            // colIdRetencion
+            // 
+            this.colIdRetencion.Caption = "IdRetencion";
+            this.colIdRetencion.FieldName = "IdRetencion";
+            this.colIdRetencion.MinWidth = 40;
+            this.colIdRetencion.Name = "colIdRetencion";
+            this.colIdRetencion.OptionsColumn.ReadOnly = true;
+            this.colIdRetencion.Width = 140;
+            // 
+            // colNumeroRT
+            // 
+            this.colNumeroRT.Caption = "#Retencion";
+            this.colNumeroRT.FieldName = "NumRetencion";
+            this.colNumeroRT.MinWidth = 40;
+            this.colNumeroRT.Name = "colNumeroRT";
+            this.colNumeroRT.OptionsColumn.ReadOnly = true;
+            this.colNumeroRT.Visible = true;
+            this.colNumeroRT.VisibleIndex = 1;
+            this.colNumeroRT.Width = 232;
+            // 
+            // colFecha_RT
+            // 
+            this.colFecha_RT.Caption = "Fecha Ret.";
+            this.colFecha_RT.FieldName = "fecha";
+            this.colFecha_RT.MinWidth = 40;
+            this.colFecha_RT.Name = "colFecha_RT";
+            this.colFecha_RT.OptionsColumn.ReadOnly = true;
+            this.colFecha_RT.Visible = true;
+            this.colFecha_RT.VisibleIndex = 2;
+            this.colFecha_RT.Width = 226;
+            // 
+            // colAutorizacionRT
+            // 
+            this.colAutorizacionRT.Caption = "#Autorizacion";
+            this.colAutorizacionRT.FieldName = "NAutorizacion";
+            this.colAutorizacionRT.MinWidth = 40;
+            this.colAutorizacionRT.Name = "colAutorizacionRT";
+            this.colAutorizacionRT.OptionsColumn.ReadOnly = true;
+            this.colAutorizacionRT.Visible = true;
+            this.colAutorizacionRT.VisibleIndex = 7;
+            this.colAutorizacionRT.Width = 226;
+            // 
+            // colEstadoRT
+            // 
+            this.colEstadoRT.Caption = "Estado";
+            this.colEstadoRT.FieldName = "Estado";
+            this.colEstadoRT.MinWidth = 40;
+            this.colEstadoRT.Name = "colEstadoRT";
+            this.colEstadoRT.OptionsColumn.ReadOnly = true;
+            this.colEstadoRT.Width = 208;
+            // 
+            // colImpresaRT
+            // 
+            this.colImpresaRT.Caption = "Impresa";
+            this.colImpresaRT.FieldName = "re_EstaImpresa";
+            this.colImpresaRT.MinWidth = 40;
+            this.colImpresaRT.Name = "colImpresaRT";
+            this.colImpresaRT.OptionsColumn.ReadOnly = true;
+            this.colImpresaRT.Width = 102;
+            // 
+            // colobservacionRT
+            // 
+            this.colobservacionRT.Caption = "Observacion";
+            this.colobservacionRT.FieldName = "observacion";
+            this.colobservacionRT.MinWidth = 40;
+            this.colobservacionRT.Name = "colobservacionRT";
+            this.colobservacionRT.OptionsColumn.ReadOnly = true;
+            this.colobservacionRT.Visible = true;
+            this.colobservacionRT.VisibleIndex = 5;
+            this.colobservacionRT.Width = 666;
+            // 
+            // colre_Tiene_RTiva
+            // 
+            this.colre_Tiene_RTiva.Caption = "Rt/Iva";
+            this.colre_Tiene_RTiva.FieldName = "re_Tiene_RTiva";
+            this.colre_Tiene_RTiva.MinWidth = 40;
+            this.colre_Tiene_RTiva.Name = "colre_Tiene_RTiva";
+            this.colre_Tiene_RTiva.OptionsColumn.ReadOnly = true;
+            this.colre_Tiene_RTiva.Width = 98;
+            // 
+            // colre_Tiene_RFuente
+            // 
+            this.colre_Tiene_RFuente.Caption = "RT/Fte";
+            this.colre_Tiene_RFuente.FieldName = "re_Tiene_RFuente";
+            this.colre_Tiene_RFuente.MinWidth = 40;
+            this.colre_Tiene_RFuente.Name = "colre_Tiene_RFuente";
+            this.colre_Tiene_RFuente.OptionsColumn.ReadOnly = true;
+            this.colre_Tiene_RFuente.Width = 114;
+            // 
+            // colIdProveedor
+            // 
+            this.colIdProveedor.Caption = "IdProveedor";
+            this.colIdProveedor.FieldName = "IdProveedor";
+            this.colIdProveedor.MinWidth = 40;
+            this.colIdProveedor.Name = "colIdProveedor";
+            this.colIdProveedor.OptionsColumn.ReadOnly = true;
+            this.colIdProveedor.Width = 150;
+            // 
+            // colNombre_Prov
+            // 
+            this.colNombre_Prov.Caption = "Proveedor";
+            this.colNombre_Prov.FieldName = "NomProveedor";
+            this.colNombre_Prov.MinWidth = 40;
+            this.colNombre_Prov.Name = "colNombre_Prov";
+            this.colNombre_Prov.OptionsColumn.ReadOnly = true;
+            this.colNombre_Prov.Visible = true;
+            this.colNombre_Prov.VisibleIndex = 4;
+            this.colNombre_Prov.Width = 410;
+            // 
+            // colserie
+            // 
+            this.colserie.Caption = "Serie";
+            this.colserie.FieldName = "S_Serie";
+            this.colserie.MinWidth = 40;
+            this.colserie.Name = "colserie";
+            this.colserie.OptionsColumn.ReadOnly = true;
+            this.colserie.Visible = true;
+            this.colserie.VisibleIndex = 0;
+            this.colserie.Width = 150;
+            // 
+            // colIdEmpresa_Ogiro
+            // 
+            this.colIdEmpresa_Ogiro.FieldName = "IdEmpresa_Ogiro";
+            this.colIdEmpresa_Ogiro.MinWidth = 40;
+            this.colIdEmpresa_Ogiro.Name = "colIdEmpresa_Ogiro";
+            this.colIdEmpresa_Ogiro.OptionsColumn.ReadOnly = true;
+            this.colIdEmpresa_Ogiro.Width = 150;
+            // 
+            // colEstado_Auto
+            // 
+            this.colEstado_Auto.Caption = "Auto";
+            this.colEstado_Auto.FieldName = "Estado_Auto";
+            this.colEstado_Auto.MinWidth = 40;
+            this.colEstado_Auto.Name = "colEstado_Auto";
+            this.colEstado_Auto.Visible = true;
+            this.colEstado_Auto.VisibleIndex = 6;
+            this.colEstado_Auto.Width = 292;
+            // 
+            // colFechaReg
+            // 
+            this.colFechaReg.Caption = "Fecha/Reg";
+            this.colFechaReg.DisplayFormat.FormatString = "dd/MM/yyyy hh:mm:ss";
+            this.colFechaReg.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.colFechaReg.FieldName = "Fecha_Transac";
+            this.colFechaReg.MinWidth = 40;
+            this.colFechaReg.Name = "colFechaReg";
+            this.colFechaReg.Width = 198;
+            // 
+            // col_Icono_pdf
+            // 
+            this.col_Icono_pdf.ColumnEdit = this.repositoryItemPictureEdit1;
+            this.col_Icono_pdf.FieldName = "Icono_pdf";
+            this.col_Icono_pdf.MinWidth = 40;
+            this.col_Icono_pdf.Name = "col_Icono_pdf";
+            this.col_Icono_pdf.Visible = true;
+            this.col_Icono_pdf.VisibleIndex = 8;
+            this.col_Icono_pdf.Width = 150;
+            // 
+            // repositoryItemPictureEdit1
+            // 
+            this.repositoryItemPictureEdit1.Name = "repositoryItemPictureEdit1";
+            // 
+            // col_Icono_xml
+            // 
+            this.col_Icono_xml.ColumnEdit = this.repositoryItemPictureEdit1;
+            this.col_Icono_xml.FieldName = "Icono_xml";
+            this.col_Icono_xml.MinWidth = 40;
+            this.col_Icono_xml.Name = "col_Icono_xml";
+            this.col_Icono_xml.Visible = true;
+            this.col_Icono_xml.VisibleIndex = 9;
+            this.col_Icono_xml.Width = 150;
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 1034);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(2, 0, 28, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(2388, 22);
+            this.statusStrip1.TabIndex = 3;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // ucGe_Menu
+            // 
+            this.ucGe_Menu.CargarTodasBodegas = false;
+            this.ucGe_Menu.CargarTodasSucursales = true;
+            this.ucGe_Menu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ucGe_Menu.Enable_boton_anular = true;
+            this.ucGe_Menu.Enable_boton_CancelarCuotas = true;
+            this.ucGe_Menu.Enable_boton_CargaMarcaciónExcel = true;
+            this.ucGe_Menu.Enable_boton_consultar = true;
+            this.ucGe_Menu.Enable_boton_DiseñoCheque = true;
+            this.ucGe_Menu.Enable_boton_DiseñoChequeComprobante = true;
+            this.ucGe_Menu.Enable_boton_Duplicar = true;
+            this.ucGe_Menu.Enable_boton_GenerarPeriodos = true;
+            this.ucGe_Menu.Enable_boton_GenerarXml = true;
+            this.ucGe_Menu.Enable_boton_Habilitar_Reg = true;
+            this.ucGe_Menu.Enable_boton_Importar_XML = true;
+            this.ucGe_Menu.Enable_boton_imprimir = true;
+            this.ucGe_Menu.Enable_boton_LoteCheque = true;
+            this.ucGe_Menu.Enable_boton_modificar = true;
+            this.ucGe_Menu.Enable_boton_nuevo = true;
+            this.ucGe_Menu.Enable_boton_NuevoCheque = true;
+            this.ucGe_Menu.Enable_boton_periodo = true;
+            this.ucGe_Menu.Enable_boton_salir = true;
+            this.ucGe_Menu.Enable_btnImpExcel = true;
+            this.ucGe_Menu.Enable_Descargar_Marca_Base_exter = true;
+            this.ucGe_Menu.fecha_desde = new System.DateTime(2023, 10, 8, 21, 21, 40, 378);
+            this.ucGe_Menu.fecha_hasta = new System.DateTime(2023, 12, 8, 21, 21, 40, 381);
+            this.ucGe_Menu.FormConsulta = null;
+            this.ucGe_Menu.FormMain = null;
+            this.ucGe_Menu.GridControlConsulta = null;
+            this.ucGe_Menu.Location = new System.Drawing.Point(0, 0);
+            this.ucGe_Menu.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
+            this.ucGe_Menu.Name = "ucGe_Menu";
+            this.ucGe_Menu.Perfil_x_usuario = null;
+            this.ucGe_Menu.Size = new System.Drawing.Size(2388, 337);
+            this.ucGe_Menu.TabIndex = 0;
+            this.ucGe_Menu.Visible_bodega = false;
+            this.ucGe_Menu.Visible_boton_anular = DevExpress.XtraBars.BarItemVisibility.Always;
+            this.ucGe_Menu.Visible_boton_CancelarCuotas = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.ucGe_Menu.Visible_boton_CargaMarcaciónExcel = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.ucGe_Menu.Visible_boton_consular = DevExpress.XtraBars.BarItemVisibility.Always;
+            this.ucGe_Menu.Visible_boton_DiseñoCheque = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.ucGe_Menu.Visible_boton_DiseñoChequeComprobante = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.ucGe_Menu.Visible_boton_DiseNoReport = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.ucGe_Menu.Visible_boton_Duplicar = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.ucGe_Menu.Visible_boton_GenerarPeriodos = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.ucGe_Menu.Visible_boton_GenerarXml = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.ucGe_Menu.Visible_boton_Habilitar_Reg = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.ucGe_Menu.Visible_boton_Importar_XML = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.ucGe_Menu.Visible_boton_imprimir = DevExpress.XtraBars.BarItemVisibility.Always;
+            this.ucGe_Menu.Visible_boton_LoteCheque = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.ucGe_Menu.Visible_boton_modificar = DevExpress.XtraBars.BarItemVisibility.Always;
+            this.ucGe_Menu.Visible_boton_nuevo = DevExpress.XtraBars.BarItemVisibility.Always;
+            this.ucGe_Menu.Visible_boton_NuevoCheque = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.ucGe_Menu.Visible_btn_imprimir_lote = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.ucGe_Menu.Visible_btnImpExcel = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.ucGe_Menu.Visible_btnRevision = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.ucGe_Menu.Visible_Descargar_Marca_Base_exter = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.ucGe_Menu.Visible_fechas = true;
+            this.ucGe_Menu.Visible_Grupo_Cancelaciones = true;
+            this.ucGe_Menu.Visible_Grupo_Diseño_Reporte = false;
+            this.ucGe_Menu.Visible_Grupo_filtro = false;
+            this.ucGe_Menu.Visible_Grupo_FormaPago = false;
+            this.ucGe_Menu.Visible_Grupo_Impresion = true;
+            this.ucGe_Menu.Visible_Grupo_Otras_Trans = true;
+            this.ucGe_Menu.Visible_Grupo_Transacciones = true;
+            this.ucGe_Menu.Visible_Pie_fechas_Boton_buscar = true;
+            this.ucGe_Menu.Visible_ribbon_control = true;
+            this.ucGe_Menu.Visible_sucursal = false;
+            this.ucGe_Menu.event_btnNuevo_ItemClick += new Bizu.Presentation.Controles.UCGe_Menu_Mantenimiento_x_usuario.delegate_btnNuevo_ItemClick(this.ucGe_Menu_Mantenimiento_x_usuario_event_btnNuevo_ItemClick);
+            this.ucGe_Menu.event_btnModificar_ItemClick += new Bizu.Presentation.Controles.UCGe_Menu_Mantenimiento_x_usuario.delegate_btnModificar_ItemClick(this.ucGe_Menu_Mantenimiento_x_usuario_event_btnModificar_ItemClick);
+            this.ucGe_Menu.event_btnconsultar_ItemClick += new Bizu.Presentation.Controles.UCGe_Menu_Mantenimiento_x_usuario.delegate_btnconsultar_ItemClick(this.ucGe_Menu_Mantenimiento_x_usuario_event_btnconsultar_ItemClick);
+            this.ucGe_Menu.event_btnAnular_ItemClick += new Bizu.Presentation.Controles.UCGe_Menu_Mantenimiento_x_usuario.delegate_btnAnular_ItemClick(this.ucGe_Menu_Mantenimiento_x_usuario_event_btnAnular_ItemClick);
+            this.ucGe_Menu.event_btnImprimir_ItemClick += new Bizu.Presentation.Controles.UCGe_Menu_Mantenimiento_x_usuario.delegate_btnImprimir_ItemClick(this.ucGe_Menu_event_btnImprimir_ItemClick);
+            this.ucGe_Menu.event_btnSalir_ItemClick += new Bizu.Presentation.Controles.UCGe_Menu_Mantenimiento_x_usuario.delegate_btnSalir_ItemClick(this.ucGe_Menu_Mantenimiento_x_usuario_event_btnSalir_ItemClick);
+            this.ucGe_Menu.event_btnBuscar_Click += new Bizu.Presentation.Controles.UCGe_Menu_Mantenimiento_x_usuario.delegate_btnBuscar_Click(this.ucGe_Menu_Mantenimiento_x_usuario_event_btnBuscar_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.gridControlConsRet);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 337);
+            this.panel1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(2388, 697);
+            this.panel1.TabIndex = 4;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "cbt_pdf.png");
+            this.imageList1.Images.SetKeyName(1, "cbte_xml.png");
+            // 
+            // frmCP_RetencionConsulta
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(2388, 1056);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.ucGe_Menu);
+            this.Controls.Add(this.statusStrip1);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Name = "frmCP_RetencionConsulta";
+            this.Text = "Consulta Retención";
+            this.Load += new System.EventHandler(this.frmCP_RetencionConsulta_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlConsRet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewConsRet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private DevExpress.XtraGrid.GridControl gridControlConsRet;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewConsRet;
+        private DevExpress.XtraGrid.Columns.GridColumn colIdEmpresa;
+        private DevExpress.XtraGrid.Columns.GridColumn colIdCbte_CXP;
+        private DevExpress.XtraGrid.Columns.GridColumn colIdTipoCbte_Ogiro;
+        private DevExpress.XtraGrid.Columns.GridColumn colFactura_Prov;
+        private DevExpress.XtraGrid.Columns.GridColumn colco_FechaFactura;
+        private DevExpress.XtraGrid.Columns.GridColumn colIdRetencion;
+        private DevExpress.XtraGrid.Columns.GridColumn colNumeroRT;
+        private DevExpress.XtraGrid.Columns.GridColumn colFecha_RT;
+        private DevExpress.XtraGrid.Columns.GridColumn colAutorizacionRT;
+        private DevExpress.XtraGrid.Columns.GridColumn colEstadoRT;
+        private DevExpress.XtraGrid.Columns.GridColumn colImpresaRT;
+        private DevExpress.XtraGrid.Columns.GridColumn colobservacionRT;
+        private DevExpress.XtraGrid.Columns.GridColumn colre_Tiene_RTiva;
+        private DevExpress.XtraGrid.Columns.GridColumn colre_Tiene_RFuente;
+        private DevExpress.XtraGrid.Columns.GridColumn colIdProveedor;
+        private DevExpress.XtraGrid.Columns.GridColumn colNombre_Prov;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private DevExpress.XtraGrid.Columns.GridColumn colserie;
+        private DevExpress.XtraGrid.Columns.GridColumn colIdEmpresa_Ogiro;
+        private Controles.UCGe_Menu_Mantenimiento_x_usuario ucGe_Menu;
+        private System.Windows.Forms.Panel panel1;
+        private DevExpress.XtraGrid.Columns.GridColumn colEstado_Auto;
+        private DevExpress.XtraGrid.Columns.GridColumn colFechaReg;
+        private DevExpress.XtraGrid.Columns.GridColumn col_Icono_pdf;
+        private DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit repositoryItemPictureEdit1;
+        private DevExpress.XtraGrid.Columns.GridColumn col_Icono_xml;
+        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+    }
+}

@@ -1,0 +1,32 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Bizu.Reports.Compras
+{
+    public class XCOMP_Rpt010_Info
+    {
+        public int IdEmpresa { get; set; }
+        public Nullable<int> IdSucursal { get; set; }
+        public decimal IdOrdenCompra { get; set; }
+        public string Tipo { get; set; }
+        public decimal Cbte { get; set; }
+        public decimal IdProveedor { get; set; }
+        public string nom_Proveedor { get; set; }
+        public string Referencia { get; set; }
+        public Nullable<double> Total_Debe { get; set; }
+        public Nullable<double> Total_Haber { get; set; }
+        public Nullable<double> Total_Saldo { get; set; }
+        public double Debe_OC { get; set; }
+        public double Haber_OC { get; set; }
+        public double Saldo_OC { get; set; }
+        public System.DateTime Fecha_Documento { get; set; }
+        public string Observacion { get; set; }
+        public string Estado { get; set; }
+        public string IdCentroCosto { get; set; }
+        public int Nivel { get; set; }
+        public string IdUsuario { get; set; }
+    }
+}
