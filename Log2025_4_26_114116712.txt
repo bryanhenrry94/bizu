@@ -1,0 +1,16 @@
+Category: Error, Message: System.InvalidOperationException: No se encuentra ninguna cadena de conexión denominada 'EntitiesGeneral' en el archivo de configuración de la aplicación.
+   en System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   en System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   en System.Data.Entity.Internal.InternalContext.Initialize()
+   en System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   en System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   en System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   en System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   en Bizu.Infrastructure.General.tb_sis_Mensajes_sys_Data.Get_List_Mensajes_sys() en C:\Users\USER\workspace\dazzsoft\Bizu\Bizu.Infrastructure\General\tb_sis_Mensajes_sys_Data.cs:línea 51
+Category: Error, Message: cargaCmb_centroCostos - Bizu.Domain.Log_Exception.DalException ---> System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Bizu.Infrastructure.Contabilidad.ct_Centro_costo_Data.Get_list_Centro_Costo_cuentas_de_movimiento_x_EstadoObra(Int32 IdEmpresa, String IdEstadoObra, String& MensajeError) en C:\Users\USER\workspace\dazzsoft\Bizu\Bizu.Infrastructure\Contabilidad\ct_Centro_costo_Data.cs:línea 485
+   en Bizu.Application.Contabilidad.ct_Centro_costo_Bus.Get_list_Centro_Costo_cuentas_de_movimiento_x_EstadoObra(Int32 IdEmpresa, String IdEstadoObra, String& MensajeError) en C:\Users\USER\workspace\dazzsoft\Bizu\Bizu.Application\Contabilidad\ct_Centro_costo_Bus.cs:línea 240
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en Bizu.Application.Contabilidad.ct_Centro_costo_Bus.Get_list_Centro_Costo_cuentas_de_movimiento_x_EstadoObra(Int32 IdEmpresa, String IdEstadoObra, String& MensajeError) en C:\Users\USER\workspace\dazzsoft\Bizu\Bizu.Application\Contabilidad\ct_Centro_costo_Bus.cs:línea 244
+   en Bizu.Presentation.Controles.UCCon_CentroCosto_ctas_Movi.cargaCmb_centroCostos() en C:\Users\USER\workspace\dazzsoft\Bizu\Bizu.Presentation\Controles\UCCon_CentroCosto_ctas_Movi.cs:línea 61

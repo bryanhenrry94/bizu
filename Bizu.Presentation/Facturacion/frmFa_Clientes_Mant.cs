@@ -265,7 +265,7 @@ namespace Bizu.Presentation.Facturacion
                 this.txt_apellidos.Text = info.Persona_Info.pe_apellido.Trim();
                 UC_Doc_per.set_TipoDoc_Personales(info.Persona_Info.IdTipoDocumento);
                 this.txt_cedula.Text = info.Persona_Info.pe_cedulaRuc.Trim();
-                this.txt_direccion.Text = info.Persona_Info.pe_direccion.Trim();
+                this.txt_direccion.EditValue = info.Persona_Info.pe_direccion.Trim();
                 this.chk_Estado.Checked = (info.Estado == "A") ? true : false;
                 lblEstado.Visible = (info.Estado == "I") ? true : false;
                 this.txt_razon_social.Text = info.Persona_Info.pe_razonSocial.Trim();
@@ -337,7 +337,7 @@ namespace Bizu.Presentation.Facturacion
 
                 if (info.Persona_Info.pe_fechaCreacion != null)
                 {
-                    this.dtFechaCreacion.Value = Convert.ToDateTime(info.Persona_Info.pe_fechaCreacion);
+                    this.dtFechaCreacion.EditValue = info.Persona_Info.pe_fechaCreacion;
                 }
 
 
@@ -438,7 +438,7 @@ namespace Bizu.Presentation.Facturacion
                 info_persona.pe_correo_secundario2 = info.Mail_Secundario2;
                 info_persona.IdTipoPersona = 1;
                 info_persona.pe_cedulaRuc = (this.txt_cedula.Text != "") ? this.txt_cedula.Text : " ";
-                info_persona.pe_direccion = (this.txt_direccion.Text != "") ? this.txt_direccion.Text : " ";
+                info_persona.pe_direccion = (this.txt_direccion.EditValue != null) ? Convert.ToString(this.txt_direccion.EditValue) : " ";
                 info_persona.pe_estado = (this.chk_Estado.Checked == true) ? "A" : "I";
                 info_persona.pe_UltUsuarioModi = param.IdUsuario;
                 info_persona.pe_fechaCreacion = DateTime.Now;
@@ -456,7 +456,7 @@ namespace Bizu.Presentation.Facturacion
                 info_persona.pe_extTelOficina = (this.txtExtension.Text != "") ? this.txtExtension.Text : " ";
                 info_persona.pe_cargoLaboral = (this.txtCargoLaboral.Text != "") ? this.txtCargoLaboral.Text : " ";
                 info_persona.pe_codigoPostar = (this.txtCodPostal.Text != "") ? this.txtCodPostal.Text : " ";
-                info_persona.pe_fechaCreacion = dtFechaCreacion.Value;
+                info_persona.pe_fechaCreacion = Convert.ToDateTime(dtFechaCreacion.EditValue);
 
                 info.list_punto_emision_x_cliente = new List<fa_cliente_pto_emision_cliente_Info>(blist_Punto_emision);
 
@@ -550,6 +550,8 @@ namespace Bizu.Presentation.Facturacion
                 this.cmb_categoria.ValueMember = "id";
 
                 cmb_actividad_economica.cargar_Catalogos(Convert.ToInt32(Cl_Enumeradores.FaTipoCat.ACT_ECO)); ;
+
+                dtFechaCreacion.EditValue = DateTime.Now;
 
                 tb_persona_bus bus_persona = new tb_persona_bus();
                 listaCliente = new List<fa_Cliente_Info>();
@@ -1275,7 +1277,7 @@ namespace Bizu.Presentation.Facturacion
                     this.txt_apellidos.Text = Convert.ToString(select.pe_apellido);
                     this.chk_Estado.Checked = (select.pe_estado == "A") ? true : false;
                     this.txt_razon_social.Text = Convert.ToString(select.pe_razonSocial);
-                    this.txt_direccion.Text = Convert.ToString(select.pe_direccion);
+                    this.txt_direccion.EditValue = Convert.ToString(select.pe_direccion);
                     this.txt_telefono_ofic.Text = (String.IsNullOrWhiteSpace(select.pe_telefonoOfic))
                         ? select.pe_telefonoOfic = string.Empty : select.pe_telefonoOfic;
                     this.txtTelefonoCasa.Text = (String.IsNullOrWhiteSpace(select.pe_telefonoCasa))
@@ -1529,7 +1531,7 @@ namespace Bizu.Presentation.Facturacion
                 this.txt_fax.Text = "";
                 this.txt_casilla.Text = "";
                 this.txt_cedula.Text = "";
-                this.txt_direccion.Text = "";
+                this.txt_direccion.EditValue = null;
                 this.chk_Estado.Checked = true;
                 this.txtCargoLaboral.Text = "";
                 this.txtExtension.Text = "";
