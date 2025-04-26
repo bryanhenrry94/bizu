@@ -66,6 +66,7 @@
             this.skinDropDownButtonItem,
             this.skinPaletteRibbonGalleryBarItem});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
+            this.ribbonControl.Margin = new System.Windows.Forms.Padding(4);
             this.ribbonControl.MaxItemId = 48;
             this.ribbonControl.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.Always;
             this.ribbonControl.Name = "ribbonControl";
@@ -73,7 +74,7 @@
             this.ribbonPage});
             this.ribbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
             this.ribbonControl.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
-            this.ribbonControl.Size = new System.Drawing.Size(1032, 158);
+            this.ribbonControl.Size = new System.Drawing.Size(1376, 193);
             this.ribbonControl.StatusBar = this.ribbonStatusBar;
             this.ribbonControl.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             // 
@@ -140,10 +141,11 @@
             // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 634);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 780);
+            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(4);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbonControl;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1032, 24);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1376, 30);
             // 
             // dockManager
             // 
@@ -166,18 +168,20 @@
             this.dockPanel.Controls.Add(this.dockPanel_Container);
             this.dockPanel.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
             this.dockPanel.ID = new System.Guid("a045df26-1503-4d9a-99c1-a531310af22b");
-            this.dockPanel.Location = new System.Drawing.Point(0, 158);
+            this.dockPanel.Location = new System.Drawing.Point(0, 193);
+            this.dockPanel.Margin = new System.Windows.Forms.Padding(4);
             this.dockPanel.Name = "dockPanel";
             this.dockPanel.OriginalSize = new System.Drawing.Size(200, 200);
-            this.dockPanel.Size = new System.Drawing.Size(200, 476);
+            this.dockPanel.Size = new System.Drawing.Size(200, 587);
             this.dockPanel.Text = "Navigation";
             // 
             // dockPanel_Container
             // 
             this.dockPanel_Container.Controls.Add(this.accordionControl);
-            this.dockPanel_Container.Location = new System.Drawing.Point(3, 26);
+            this.dockPanel_Container.Location = new System.Drawing.Point(4, 32);
+            this.dockPanel_Container.Margin = new System.Windows.Forms.Padding(4);
             this.dockPanel_Container.Name = "dockPanel_Container";
-            this.dockPanel_Container.Size = new System.Drawing.Size(193, 447);
+            this.dockPanel_Container.Size = new System.Drawing.Size(190, 551);
             this.dockPanel_Container.TabIndex = 0;
             // 
             // accordionControl
@@ -185,8 +189,9 @@
             this.accordionControl.AllowItemSelection = true;
             this.accordionControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.accordionControl.Location = new System.Drawing.Point(0, 0);
+            this.accordionControl.Margin = new System.Windows.Forms.Padding(4);
             this.accordionControl.Name = "accordionControl";
-            this.accordionControl.Size = new System.Drawing.Size(193, 447);
+            this.accordionControl.Size = new System.Drawing.Size(190, 551);
             this.accordionControl.TabIndex = 0;
             this.accordionControl.Text = "accordionControl";
             // 
@@ -196,13 +201,15 @@
             // 
             // FrmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1032, 658);
+            this.ClientSize = new System.Drawing.Size(1376, 810);
             this.Controls.Add(this.dockPanel);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbonControl);
+            this.IconOptions.Image = global::Bizu.Presentation.Properties.Resources.logo_dazzsoft_3d;
             this.IsMdiContainer = true;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmMain";
             this.Ribbon = this.ribbonControl;
             this.StatusBar = this.ribbonStatusBar;
