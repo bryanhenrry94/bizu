@@ -2551,12 +2551,6 @@
     <Compile Include="Controles\UCGe_Pais.Designer.cs">
       <DependentUpon>UCGe_Pais.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controles\UCSeg_Propiedades.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCSeg_Propiedades.Designer.cs">
-      <DependentUpon>UCSeg_Propiedades.cs</DependentUpon>
-    </Compile>
     <Compile Include="Facturacion\FrmFa_PuntoVta_cons.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -4281,12 +4275,6 @@
     <Compile Include="SeguridadAcceso\FrmSeg_Login_x_Empresas.designer.cs">
       <DependentUpon>FrmSeg_Login_x_Empresas.cs</DependentUpon>
     </Compile>
-    <Compile Include="SeguridadAcceso\FrmSeg_Menu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SeguridadAcceso\FrmSeg_Menu.Designer.cs">
-      <DependentUpon>FrmSeg_Menu.cs</DependentUpon>
-    </Compile>
     <Compile Include="SeguridadAcceso\FrmSeg_Menu_Consulta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -5386,9 +5374,6 @@
     <EmbeddedResource Include="Controles\UCGe_Pais.resx">
       <DependentUpon>UCGe_Pais.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCSeg_Propiedades.resx">
-      <DependentUpon>UCSeg_Propiedades.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\FrmFa_PuntoVta_cons.resx">
       <DependentUpon>FrmFa_PuntoVta_cons.cs</DependentUpon>
     </EmbeddedResource>
@@ -6254,9 +6239,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SeguridadAcceso\FrmSeg_Login_x_Empresas.resx">
       <DependentUpon>FrmSeg_Login_x_Empresas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SeguridadAcceso\FrmSeg_Menu.resx">
-      <DependentUpon>FrmSeg_Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SeguridadAcceso\FrmSeg_Menu_Consulta.resx">
       <DependentUpon>FrmSeg_Menu_Consulta.cs</DependentUpon>

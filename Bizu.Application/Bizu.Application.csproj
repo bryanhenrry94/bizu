@@ -565,12 +565,6 @@
     <Compile Include="SeguridadAcceso\seg_Menu_bus.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="SeguridadAcceso\seg_Menu_Categoria_Bus.cs" />
-    <Compile Include="SeguridadAcceso\seg_Menu_Grupo_Bus.cs" />
-    <Compile Include="SeguridadAcceso\seg_Menu_Grupo_x_seg_Menu_Item_Bus.cs" />
-    <Compile Include="SeguridadAcceso\seg_Menu_Item_Bus.cs" />
-    <Compile Include="SeguridadAcceso\seg_Menu_Item_Tipo_Bus.cs" />
-    <Compile Include="SeguridadAcceso\seg_Menu_Pagina_Bus.cs" />
     <Compile Include="SeguridadAcceso\seg_Menu_x_Empresa_bus.cs">
       <SubType>Code</SubType>
     </Compile>

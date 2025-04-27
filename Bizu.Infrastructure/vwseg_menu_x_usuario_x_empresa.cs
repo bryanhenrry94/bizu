@@ -12,7 +12,7 @@ namespace Bizu.Infrastructure
     using System;
     using System.Collections.Generic;
     
-    public partial class vw_seg_menu_x_usuario_x_empresa
+    public partial class vwseg_menu_x_usuario_x_empresa
     {
         public int idmenu { get; set; }
         public Nullable<int> idmenupadre { get; set; }

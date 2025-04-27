@@ -12,12 +12,10 @@ namespace Bizu.Infrastructure
     using System;
     using System.Collections.Generic;
     
-    public partial class seg_Usuario_x_Empresa
+    public partial class seg_usuario_x_empresa
     {
-        public string IdUsuario { get; set; }
-        public int IdEmpresa { get; set; }
-        public string Observacion { get; set; }
-    
-        public virtual seg_usuario seg_usuario { get; set; }
+        public string idusuario { get; set; }
+        public int idempresa { get; set; }
+        public string observacion { get; set; }
     }
 }

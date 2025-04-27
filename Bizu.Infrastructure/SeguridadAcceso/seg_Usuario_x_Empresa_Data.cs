@@ -9,57 +9,53 @@ using Bizu.Domain.SeguridadAcceso;
 using Bizu.Infrastructure.General;
 using Bizu.Domain.General;
 
-
-
 namespace Bizu.Infrastructure.SeguridadAcceso
 {
-   public class seg_Usuario_x_Empresa_Data
+    public class seg_Usuario_x_Empresa_Data
     {
-
-
-       public List<seg_Usuario_x_Empresa_info> Get_List_Usuario_x_Empresa(string IdUsuario)
-       {
-           try
-           {
-               List<seg_Usuario_x_Empresa_info> lista = new List<seg_Usuario_x_Empresa_info>();
-               using (EntitiesSeguAcceso DBBase = new EntitiesSeguAcceso())
-               {
+        public List<seg_Usuario_x_Empresa_info> Get_List_Usuario_x_Empresa(string IdUsuario)
+        {
+            try
+            {
+                List<seg_Usuario_x_Empresa_info> lista = new List<seg_Usuario_x_Empresa_info>();
+                using (EntitiesSeguAcceso DBBase = new EntitiesSeguAcceso())
+                {
 
 
 
-                   var q = from C in DBBase.vwseg_Usuario_x_Empresa
-                           where C.IdUsuario == IdUsuario
-                           select C;
+                    var q = from C in DBBase.vwseg_usuario_x_empresa
+                            where C.idusuario == IdUsuario
+                            select C;
 
-                   foreach (var item in q)
-                   {
-                       seg_Usuario_x_Empresa_info Info = new seg_Usuario_x_Empresa_info();
+                    foreach (var item in q)
+                    {
+                        seg_Usuario_x_Empresa_info Info = new seg_Usuario_x_Empresa_info();
 
-                       Info.IdUsuario = item.IdUsuario;
-                       Info.IdEmpresa = item.IdEmpresa;
-                       Info.Observacion = item.Observacion;
-                       Info.em_ruc= item.em_ruc;
-                       Info.em_nombre = item.em_nombre;
+                        Info.IdUsuario = item.idusuario;
+                        Info.IdEmpresa = item.idempresa;
+                        Info.Observacion = item.observacion;
+                        Info.em_ruc = item.em_ruc;
+                        Info.em_nombre = item.em_nombre;
 
-                       lista.Add(Info);
-                   }
+                        lista.Add(Info);
+                    }
 
-               }
+                }
 
-               return lista;
+                return lista;
 
-           }
-           catch (Exception ex)
-           {
-               string mensaje = "";
-               mensaje = ex.ToString();
-               tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
-               tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", mensaje, "", "", "", "", "", DateTime.Now);
-               oDataLog.Guardar_Log_Error(Log_Error_sis, ref mensaje);
-               throw new Exception(mensaje);
+            }
+            catch (Exception ex)
+            {
+                string mensaje = "";
+                mensaje = ex.ToString();
+                tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
+                tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", mensaje, "", "", "", "", "", DateTime.Now);
+                oDataLog.Guardar_Log_Error(Log_Error_sis, ref mensaje);
+                throw new Exception(mensaje);
 
-           }
-       }
+            }
+        }
 
     }
 }

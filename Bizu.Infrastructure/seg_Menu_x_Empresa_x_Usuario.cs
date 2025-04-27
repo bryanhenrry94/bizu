@@ -12,16 +12,13 @@ namespace Bizu.Infrastructure
     using System;
     using System.Collections.Generic;
     
-    public partial class seg_Menu_x_Empresa_x_Usuario
+    public partial class seg_menu_x_empresa_x_usuario
     {
-        public int IdEmpresa { get; set; }
-        public string IdUsuario { get; set; }
-        public int IdMenu { get; set; }
-        public bool Lectura { get; set; }
-        public bool Escritura { get; set; }
-        public bool Eliminacion { get; set; }
-    
-        public virtual seg_Menu_x_Empresa seg_Menu_x_Empresa { get; set; }
-        public virtual seg_usuario seg_usuario { get; set; }
+        public int idempresa { get; set; }
+        public string idusuario { get; set; }
+        public int idmenu { get; set; }
+        public bool lectura { get; set; }
+        public bool escritura { get; set; }
+        public bool eliminacion { get; set; }
     }
 }

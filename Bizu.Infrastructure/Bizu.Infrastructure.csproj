@@ -1885,7 +1885,19 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="SeguridadAcceso\seg_usuario_x_tb_sis_reporte_Data.cs" />
+    <Compile Include="seg_menu.cs">
+      <DependentUpon>ModelSeguAcceso.tt</DependentUpon>
+    </Compile>
+    <Compile Include="seg_menu_x_empresa.cs">
+      <DependentUpon>ModelSeguAcceso.tt</DependentUpon>
+    </Compile>
+    <Compile Include="seg_menu_x_empresa_x_usuario.cs">
+      <DependentUpon>ModelSeguAcceso.tt</DependentUpon>
+    </Compile>
     <Compile Include="seg_usuario.cs">
+      <DependentUpon>ModelSeguAcceso.tt</DependentUpon>
+    </Compile>
+    <Compile Include="seg_usuario_x_empresa.cs">
       <DependentUpon>ModelSeguAcceso.tt</DependentUpon>
     </Compile>
     <Compile Include="seg_usuario_x_tb_sis_reporte.cs">
@@ -1946,12 +1958,6 @@
     <Compile Include="SeguridadAcceso\seg_Menu_data.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="SeguridadAcceso\seg_Menu_Categoria_Data.cs" />
-    <Compile Include="SeguridadAcceso\seg_Menu_Grupo_Data.cs" />
-    <Compile Include="SeguridadAcceso\seg_Menu_Grupo_x_seg_Menu_Item_Data.cs" />
-    <Compile Include="SeguridadAcceso\seg_Menu_Item_Data.cs" />
-    <Compile Include="SeguridadAcceso\seg_Menu_Item_Tipo_Data.cs" />
-    <Compile Include="SeguridadAcceso\seg_Menu_Pagina_Data.cs" />
     <Compile Include="SeguridadAcceso\seg_Menu_x_Empresa_data.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -1962,36 +1968,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="SeguridadAcceso\seg_Usuario_x_Empresa_Data.cs" />
-    <Compile Include="seg_Menu.cs">
-      <DependentUpon>ModelSeguAcceso.tt</DependentUpon>
-    </Compile>
-    <Compile Include="seg_Menu_Categoria.cs">
-      <DependentUpon>ModelSeguAcceso.tt</DependentUpon>
-    </Compile>
-    <Compile Include="seg_Menu_Grupo.cs">
-      <DependentUpon>ModelSeguAcceso.tt</DependentUpon>
-    </Compile>
-    <Compile Include="seg_Menu_Grupo_x_seg_Menu_Item.cs">
-      <DependentUpon>ModelSeguAcceso.tt</DependentUpon>
-    </Compile>
-    <Compile Include="seg_Menu_Item.cs">
-      <DependentUpon>ModelSeguAcceso.tt</DependentUpon>
-    </Compile>
-    <Compile Include="seg_Menu_Item_Tipo.cs">
-      <DependentUpon>ModelSeguAcceso.tt</DependentUpon>
-    </Compile>
-    <Compile Include="seg_Menu_Pagina.cs">
-      <DependentUpon>ModelSeguAcceso.tt</DependentUpon>
-    </Compile>
-    <Compile Include="seg_Menu_x_Empresa.cs">
-      <DependentUpon>ModelSeguAcceso.tt</DependentUpon>
-    </Compile>
-    <Compile Include="seg_Menu_x_Empresa_x_Usuario.cs">
-      <DependentUpon>ModelSeguAcceso.tt</DependentUpon>
-    </Compile>
-    <Compile Include="seg_Usuario_x_Empresa.cs">
-      <DependentUpon>ModelSeguAcceso.tt</DependentUpon>
-    </Compile>
     <Compile Include="spIn_CuerpoDelCardex_Result.cs">
       <DependentUpon>ModelInventario.tt</DependentUpon>
     </Compile>
@@ -3312,7 +3288,10 @@
     <Compile Include="vwin_Zona_vs_ct_Centro_Costo.cs">
       <DependentUpon>ModelInventario.tt</DependentUpon>
     </Compile>
-    <Compile Include="vwseg_Usuario_x_Empresa.cs">
+    <Compile Include="vwseg_menu_x_usuario_x_empresa.cs">
+      <DependentUpon>ModelSeguAcceso.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwseg_usuario_x_empresa.cs">
       <DependentUpon>ModelSeguAcceso.tt</DependentUpon>
     </Compile>
     <Compile Include="vwseg_usuario_x_tb_sis_reporte.cs">
@@ -3357,7 +3336,7 @@
     <Compile Include="vwtb_Ubicacion_Geografica.cs">
       <DependentUpon>ModelGeneral.tt</DependentUpon>
     </Compile>
-    <Compile Include="vw_Seg_Menu_x_Usuario_x_Empresa.cs">
+    <Compile Include="vw_seg_menu_x_usuario_x_empresa.cs">
       <DependentUpon>ModelSeguAcceso.tt</DependentUpon>
     </Compile>
   </ItemGroup>

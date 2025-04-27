@@ -12,20 +12,12 @@ namespace Bizu.Infrastructure
     using System;
     using System.Collections.Generic;
     
-    public partial class seg_Menu_x_Empresa
+    public partial class seg_menu_x_empresa
     {
-        public seg_Menu_x_Empresa()
-        {
-            this.seg_Menu_x_Empresa_x_Usuario = new HashSet<seg_Menu_x_Empresa_x_Usuario>();
-        }
-    
-        public int IdEmpresa { get; set; }
-        public int IdMenu { get; set; }
-        public bool Habilitado { get; set; }
-        public string NombreAsambly_x_Emp { get; set; }
-        public string NomFormulario_x_Emp { get; set; }
-    
-        public virtual ICollection<seg_Menu_x_Empresa_x_Usuario> seg_Menu_x_Empresa_x_Usuario { get; set; }
-        public virtual seg_Menu seg_Menu { get; set; }
+        public int idempresa { get; set; }
+        public int idmenu { get; set; }
+        public bool habilitado { get; set; }
+        public string nombreasambly_x_emp { get; set; }
+        public string nomformulario_x_emp { get; set; }
     }
 }

@@ -14,22 +14,22 @@ namespace Bizu.Infrastructure.SeguridadAcceso
             {
                 List<seg_Menu_x_Empresa_x_Usuario_info> returnValue = new List<seg_Menu_x_Empresa_x_Usuario_info>();
                 EntitiesSeguAcceso entity = new EntitiesSeguAcceso();
-                var select_menu_x_empresa_x_usuario = from c in entity.vw_Seg_Menu_x_Usuario_x_Empresa
-                                                      where c.IdEmpresa == idEmpresa && c.IdUsuario == idUsuario
+                var select_menu_x_empresa_x_usuario = from c in entity.vw_seg_menu_x_usuario_x_empresa
+                                                      where c.idempresa == idEmpresa && c.idusuario == idUsuario
                                                       select c;
                 foreach (var item in select_menu_x_empresa_x_usuario.ToList())
                 {
                     seg_Menu_x_Empresa_x_Usuario_info info = new seg_Menu_x_Empresa_x_Usuario_info();
                     info.Checkeado = true;
-                    info.DescripcionMenu = item.DescripcionMenu;
-                    info.Eliminacion = item.Eliminacion;
-                    info.Escritura = item.Escritura;
+                    info.DescripcionMenu = item.descripcionmenu;
+                    info.Eliminacion = item.eliminacion;
+                    info.Escritura = item.escritura;
                     info.Existe = true;
-                    info.IdEmpresa = item.IdEmpresa;
-                    info.IdMenu = item.IdMenu;
-                    info.IdMenuPadre = (int)item.IdMenuPadre;
-                    info.IdUsuario = item.IdUsuario;
-                    info.Lectura = item.Lectura;
+                    info.IdEmpresa = item.idempresa;
+                    info.IdMenu = item.idmenu;
+                    info.IdMenuPadre = (int)item.idmenupadre;
+                    info.IdUsuario = item.idusuario;
+                    info.Lectura = item.lectura;
                     info.SeModificoValor = false;
                     returnValue.Add(info);
                 }
@@ -42,36 +42,33 @@ namespace Bizu.Infrastructure.SeguridadAcceso
             }
         }
 
-
-
-
-        public seg_Menu_x_Empresa_x_Usuario_info Get_Info_Menu_x_Empresa_x_Usuario(int idEmpresa, string idUsuario,string Name_Formunalrio, ref string MensajeError)
+        public seg_Menu_x_Empresa_x_Usuario_info Get_Info_Menu_x_Empresa_x_Usuario(int idEmpresa, string idUsuario, string Name_Formunalrio, ref string MensajeError)
         {
             try
             {
                 seg_Menu_x_Empresa_x_Usuario_info info = new seg_Menu_x_Empresa_x_Usuario_info();
-                
+
                 EntitiesSeguAcceso entity = new EntitiesSeguAcceso();
-                var select_menu_x_empresa_x_usuario = from c in entity.vw_Seg_Menu_x_Usuario_x_Empresa
-                                                      where c.IdEmpresa == idEmpresa 
-                                                      && c.IdUsuario == idUsuario
-                                                      && c.nom_Formulario == Name_Formunalrio
+                var select_menu_x_empresa_x_usuario = from c in entity.vw_seg_menu_x_usuario_x_empresa
+                                                      where c.idempresa == idEmpresa
+                                                      && c.idusuario == idUsuario
+                                                      && c.nom_formulario == Name_Formunalrio
                                                       select c;
                 foreach (var item in select_menu_x_empresa_x_usuario.ToList())
                 {
-                
+
                     info.Checkeado = true;
-                    info.DescripcionMenu = item.DescripcionMenu;
-                    info.Lectura = item.Lectura;
-                    info.Escritura = item.Escritura;
-                    info.Eliminacion = item.Eliminacion;
+                    info.DescripcionMenu = item.descripcionmenu;
+                    info.Lectura = item.lectura;
+                    info.Escritura = item.escritura;
+                    info.Eliminacion = item.eliminacion;
                     info.Existe = true;
-                    info.IdEmpresa = item.IdEmpresa;
-                    info.IdMenu = item.IdMenu;
-                    info.IdMenuPadre = (int)item.IdMenuPadre;
-                    info.IdUsuario = item.IdUsuario;
+                    info.IdEmpresa = item.idempresa;
+                    info.IdMenu = item.idmenu;
+                    info.IdMenuPadre = (int)item.idmenupadre;
+                    info.IdUsuario = item.idusuario;
                     info.SeModificoValor = false;
-                    
+
                 }
                 return info;
             }
@@ -89,16 +86,16 @@ namespace Bizu.Infrastructure.SeguridadAcceso
                 List<seg_Menu_x_Empresa_x_Usuario_info> returnValue = new List<seg_Menu_x_Empresa_x_Usuario_info>();
                 EntitiesSeguAcceso entity = new EntitiesSeguAcceso();
                 seg_Menu_x_Empresa_data data = new seg_Menu_x_Empresa_data();
-                MensajeError="";
+                MensajeError = "";
                 List<seg_Menu_x_Empresa_info> lMenu_x_empresa = data.Get_List_DescripcionMenu_x_Empresa(idEmpresa, ref MensajeError);
-                if(!MensajeError.Equals(""))
+                if (!MensajeError.Equals(""))
                 {
                     return new List<seg_Menu_x_Empresa_x_Usuario_info>();
                 }
                 var select_no_menu_x_empresa_x_usuario = from c in lMenu_x_empresa
-                                                         where !(from filtro in entity.vw_Seg_Menu_x_Usuario_x_Empresa
-                                                                 where filtro.IdEmpresa == idEmpresa && filtro.IdUsuario == idUsuario
-                                                                 select filtro.IdMenu).Contains(c.IdMenu)
+                                                         where !(from filtro in entity.vw_seg_menu_x_usuario_x_empresa
+                                                                 where filtro.idempresa == idEmpresa && filtro.idusuario == idUsuario
+                                                                 select filtro.idmenu).Contains(c.IdMenu)
                                                          select c;
                 foreach (var item in select_no_menu_x_empresa_x_usuario)
                 {
@@ -132,33 +129,33 @@ namespace Bizu.Infrastructure.SeguridadAcceso
                 EntitiesSeguAcceso entity = new EntitiesSeguAcceso();
                 foreach (seg_Menu_x_Empresa_x_Usuario_info item in listaMenu_x_Empresa_Modificada)
                 {
-                    var Listaregistros = (from c in entity.seg_Menu_x_Empresa_x_Usuario
-                                          where c.IdEmpresa == item.IdEmpresa
-                                          && c.IdMenu == item.IdMenu
-                                          && c.IdUsuario == item.IdUsuario
+                    var Listaregistros = (from c in entity.seg_menu_x_empresa_x_usuario
+                                          where c.idempresa == item.IdEmpresa
+                                          && c.idmenu == item.IdMenu
+                                          && c.idusuario == item.IdUsuario
                                           select c);
-                    seg_Menu_x_Empresa_x_Usuario registro = new seg_Menu_x_Empresa_x_Usuario();
+                    seg_menu_x_empresa_x_usuario registro = new seg_menu_x_empresa_x_usuario();
                     if ((Listaregistros.Count() == 0) && (item.Checkeado))
                     {
-                        registro.IdMenu = item.IdMenu;
-                        registro.IdEmpresa = item.IdEmpresa;
-                        registro.IdUsuario = item.IdUsuario;
-                        registro.Lectura = item.Lectura;
-                        registro.Escritura = item.Escritura;
-                        registro.Eliminacion = item.Eliminacion;
-                        entity.seg_Menu_x_Empresa_x_Usuario.Add(registro);
+                        registro.idmenu = item.IdMenu;
+                        registro.idempresa = item.IdEmpresa;
+                        registro.idusuario = item.IdUsuario;
+                        registro.lectura = item.Lectura;
+                        registro.escritura = item.Escritura;
+                        registro.eliminacion = item.Eliminacion;
+                        entity.seg_menu_x_empresa_x_usuario.Add(registro);
                     }
                     else if ((Listaregistros.Count() > 0) && (item.Checkeado))
                     {
                         registro = Listaregistros.First();
-                        registro.Lectura = item.Lectura;
-                        registro.Escritura = item.Escritura;
-                        registro.Eliminacion = item.Eliminacion;
+                        registro.lectura = item.Lectura;
+                        registro.escritura = item.Escritura;
+                        registro.eliminacion = item.Eliminacion;
                     }
                     else if ((Listaregistros.Count() > 0) && (!item.Checkeado))
                     {
                         registro = Listaregistros.First();
-                        entity.seg_Menu_x_Empresa_x_Usuario.Remove(registro);
+                        entity.seg_menu_x_empresa_x_usuario.Remove(registro);
                     }
                     else if ((Listaregistros.Count() == 0) && (!item.Checkeado))
                     {

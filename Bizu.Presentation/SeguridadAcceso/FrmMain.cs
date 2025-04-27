@@ -725,69 +725,7 @@ namespace Bizu.Presentation.SeguridadAcceso
         {
             try
             {
-
-
-
                 ribbonMenuTop.Images = imageCollection64_x_64;
-
-
-                seg_Menu_Pagina_Bus BusPagina = new seg_Menu_Pagina_Bus();
-                List<seg_Menu_Pagina_Info> listaPaginas = new List<seg_Menu_Pagina_Info>();
-                listaPaginas = BusPagina.Get_List_Menu_Pagina("");
-
-                foreach (var item in listaPaginas)
-                {
-                    // Create a Ribbon page.
-                    RibbonPage pagina = new RibbonPage();
-                    pagina.Text = item.Descripcion;
-                    pagina.Name = item.Codigo_Pagina;
-
-                    seg_Menu_Grupo_Bus BusGrupoPagina = new seg_Menu_Grupo_Bus();
-                    List<seg_Menu_Grupo_Info> ListaGrupo_x_Pagi = new List<seg_Menu_Grupo_Info>();
-                    ListaGrupo_x_Pagi = BusGrupoPagina.Get_List_Menu_Grupo(item.Codigo_Pagina);
-
-
-                    foreach (var item_x_Grupo_x_Pag in ListaGrupo_x_Pagi)
-                    {
-                        RibbonPageGroup group_x_Pagina = new RibbonPageGroup();
-                        group_x_Pagina.Name = item_x_Grupo_x_Pag.Codigo_Grupo;
-                        group_x_Pagina.Text = item_x_Grupo_x_Pag.Descripcion;
-                        group_x_Pagina.KeyTip = item_x_Grupo_x_Pag.Descripcion;
-
-
-                        seg_Menu_Item_Bus BusItems_x_grupo_x_pagi = new seg_Menu_Item_Bus();
-                        List<seg_Menu_Item_Info> listMenu_Ribbon_Item = new List<seg_Menu_Item_Info>();
-
-                        listMenu_Ribbon_Item = BusItems_x_grupo_x_pagi.Get_List_Menu_Item(item_x_Grupo_x_Pag.Codigo_Grupo);
-
-                        foreach (var item_x_grupo in listMenu_Ribbon_Item)
-                        {
-
-                            BarButtonItem BarButton_item = new BarButtonItem();
-                            BarButton_item.Name = item_x_grupo.Codigo_Item;
-                            BarButton_item.Caption = item_x_grupo.Descripcion;
-                            BarButton_item.ImageIndex = item_x_grupo.ImageIndex;
-                            BarButton_item.ItemClick += new ItemClickEventHandler(BarButton_item_Click);
-                            BarButton_item.RibbonStyle = RibbonItemStyles.Large;
-                            BarButton_item.Tag = item_x_grupo;
-
-                            ribbonMenuTop.Items.Add(BarButton_item);
-                            group_x_Pagina.ItemLinks.Add(BarButton_item);
-
-                        }
-
-
-                        pagina.Groups.Add(group_x_Pagina);
-
-                    }
-
-
-                    ribbonMenuTop.Pages.Add(pagina);
-
-                }
-
-
-
             }
             catch (Exception ex)
             {
@@ -802,18 +740,7 @@ namespace Bizu.Presentation.SeguridadAcceso
 
         void BarButton_item_Click(object sender, ItemClickEventArgs e)
         {
-            try
-            {
-                seg_Menu_Item_Info Info = (seg_Menu_Item_Info)e.Item.Tag;
-            }
-            catch (Exception ex)
-            {
-                string NameMetodo = System.Reflection.MethodBase.GetCurrentMethod().Name;
-                NameMetodo = NameMetodo + " - " + ex.ToString();
-                MessageBox.Show(NameMetodo + " " + param.Get_Mensaje_sys(enum_Mensajes_sys.Error_comunicarse_con_sistemas)
-                    , param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log_Error_bus.Log_Error(NameMetodo + " - " + ex.ToString());
-            }
+            
         }
 
         void Cargar_Combo()

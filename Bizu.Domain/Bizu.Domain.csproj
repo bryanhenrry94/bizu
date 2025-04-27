@@ -786,12 +786,6 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeguridadAcceso\seg_Menu_info.cs" />
-    <Compile Include="SeguridadAcceso\seg_Menu_Categoria_Info.cs" />
-    <Compile Include="SeguridadAcceso\seg_Menu_Grupo_Info.cs" />
-    <Compile Include="SeguridadAcceso\seg_Menu_Grupo_x_seg_Menu_Item_Info.cs" />
-    <Compile Include="SeguridadAcceso\seg_Menu_Item_Info.cs" />
-    <Compile Include="SeguridadAcceso\seg_Menu_Item_Tipo_Info.cs" />
-    <Compile Include="SeguridadAcceso\seg_Menu_Pagina_Info.cs" />
     <Compile Include="SeguridadAcceso\seg_Menu_x_Empresa_info.cs" />
     <Compile Include="SeguridadAcceso\seg_Menu_x_Empresa_x_Usuario_info.cs" />
     <Compile Include="SeguridadAcceso\seg_usuario_info.cs" />

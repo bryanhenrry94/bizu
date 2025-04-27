@@ -20,23 +20,21 @@ namespace Bizu.Infrastructure.SeguridadAcceso
             {
                 EntitiesSeguAcceso OESeguridad = new EntitiesSeguAcceso();
 
-                var selectMenu = from C in OESeguridad.seg_Menu
-                                 orderby C.PosicionMenu
+                var selectMenu = from C in OESeguridad.seg_menu
+                                 orderby C.posicionmenu
                                  select C;
 
                 foreach (var item in selectMenu)
                 {
                     seg_Menu_info oM = new seg_Menu_info();
-                    oM.IdMenu = item.IdMenu;
-                    oM.IdMenuPadre = (int)item.IdMenuPadre;
-                    oM.DescripcionMenu = item.DescripcionMenu;
-                    oM.PosicionMenu = item.PosicionMenu;
-                    oM.Habilitado = item.Habilitado;
-                    oM.Tiene_FormularioAsociado = item.Tiene_FormularioAsociado;
-                    
-                    oM.nom_Formulario = item.nom_Formulario;
-                    oM.nom_Asembly = item.nom_Asembly;
-
+                    oM.IdMenu = item.idmenu;
+                    oM.IdMenuPadre = (int)item.idmenupadre;
+                    oM.DescripcionMenu = item.descripcionmenu;
+                    oM.PosicionMenu = item.posicionmenu;
+                    oM.Habilitado = item.habilitado;
+                    oM.Tiene_FormularioAsociado = item.tiene_formularioasociado;                    
+                    oM.nom_Formulario = item.nom_formulario;
+                    oM.nom_Asembly = item.nom_asembly;
                     oM.imagen_peque = item.imagen_peque;
                     oM.imagen_grande = item.imagen_grande;
                     oM.icono = item.icono;
@@ -65,23 +63,23 @@ namespace Bizu.Infrastructure.SeguridadAcceso
             try
             {                
                 EntitiesSeguAcceso OEselectMenuEmpresa = new EntitiesSeguAcceso();                
-                var selectMenu_x_Empresa = from menu in OEselectMenuEmpresa.seg_Menu
-                                           join filtro in OEselectMenuEmpresa.seg_Menu_x_Empresa
-                                           on menu.IdMenu equals filtro.IdMenu
-                                           where filtro.IdEmpresa == idEmpresa
+                var selectMenu_x_Empresa = from menu in OEselectMenuEmpresa.seg_menu
+                                           join filtro in OEselectMenuEmpresa.seg_menu_x_empresa
+                                           on menu.idmenu equals filtro.idmenu
+                                           where filtro.idempresa == idEmpresa
                                            select menu;
                 foreach (var item in selectMenu_x_Empresa)
                 {
                     seg_Menu_info info = new seg_Menu_info();
                     
-                    info.IdMenu = item.IdMenu;
-                    info.IdMenuPadre = item.IdMenuPadre;
-                    info.DescripcionMenu = item.DescripcionMenu;
-                    info.PosicionMenu = item.PosicionMenu;
-                    info.Habilitado = item.Habilitado;
-                    info.Tiene_FormularioAsociado = item.Tiene_FormularioAsociado;
-                    info.nom_Formulario = item.nom_Formulario;
-                    info.nom_Asembly = item.nom_Asembly;
+                    info.IdMenu = item.idmenu;
+                    info.IdMenuPadre = item.idmenupadre;
+                    info.DescripcionMenu = item.descripcionmenu;
+                    info.PosicionMenu = item.posicionmenu;
+                    info.Habilitado = item.habilitado;
+                    info.Tiene_FormularioAsociado = item.tiene_formularioasociado;
+                    info.nom_Formulario = item.nom_formulario;
+                    info.nom_Asembly = item.nom_asembly;
                     info.imagen_grande = item.imagen_grande;
                     info.imagen_peque = item.imagen_peque;
                     info.icono = item.icono;
@@ -108,21 +106,21 @@ namespace Bizu.Infrastructure.SeguridadAcceso
             try
             {                
                 EntitiesSeguAcceso entidadMenu = new EntitiesSeguAcceso();
-                var consulta = from m in entidadMenu.vw_Seg_Menu_x_Usuario_x_Empresa
-                               where m.IdEmpresa == idEmpresa && m.IdUsuario == idUsuario
+                var consulta = from m in entidadMenu.vw_seg_menu_x_usuario_x_empresa
+                               where m.idempresa == idEmpresa && m.idusuario == idUsuario
                                select m;
                 
                 foreach (var item in consulta)
                 {
                     seg_Menu_info info = new seg_Menu_info();
-                    info.IdMenu = item.IdMenu;
-                    info.IdMenuPadre = item.IdMenuPadre;
-                    info.DescripcionMenu = item.DescripcionMenu;
-                    info.PosicionMenu = item.PosicionMenu;
-                    info.Habilitado = item.Habilitado;
-                    info.Tiene_FormularioAsociado = item.Tiene_FormularioAsociado;
-                    info.nom_Formulario = item.nom_Formulario;
-                    info.nom_Asembly = item.nom_Asembly;
+                    info.IdMenu = item.idmenu;
+                    info.IdMenuPadre = item.idmenupadre;
+                    info.DescripcionMenu = item.descripcionmenu;
+                    info.PosicionMenu = item.posicionmenu;
+                    info.Habilitado = item.habilitado;
+                    info.Tiene_FormularioAsociado = item.tiene_formularioasociado;
+                    info.nom_Formulario = item.nom_formulario;
+                    info.nom_Asembly = item.nom_asembly;
                     info.imagen_grande = item.imagen_grande;
                     info.imagen_peque = item.imagen_peque;
                     info.icono = item.icono;
@@ -150,29 +148,29 @@ namespace Bizu.Infrastructure.SeguridadAcceso
             try
             {
                 EntitiesSeguAcceso entidadMenu = new EntitiesSeguAcceso();
-                var consulta = from m in entidadMenu.vw_Seg_Menu_x_Usuario_x_Empresa
-                               where m.IdEmpresa == idEmpresa && m.IdUsuario == idUsuario
-                               && m.nom_Formulario == NomFor
+                var consulta = from m in entidadMenu.vw_seg_menu_x_usuario_x_empresa
+                               where m.idempresa == idEmpresa && m.idusuario == idUsuario
+                               && m.nom_formulario == NomFor
                                select m;
 
                 foreach (var item in consulta)
                 {
                     seg_Menu_info info = new seg_Menu_info();
-                    info.IdMenu = item.IdMenu;
-                    info.IdMenuPadre = item.IdMenuPadre;
-                    info.DescripcionMenu = item.DescripcionMenu;
-                    info.PosicionMenu = item.PosicionMenu;
-                    info.Habilitado = item.Habilitado;
-                    info.Tiene_FormularioAsociado = item.Tiene_FormularioAsociado;
-                    info.nom_Formulario = item.nom_Formulario;
-                    info.nom_Asembly = item.nom_Asembly;
+                    info.IdMenu = item.idmenu;
+                    info.IdMenuPadre = item.idmenupadre;
+                    info.DescripcionMenu = item.descripcionmenu;
+                    info.PosicionMenu = item.posicionmenu;
+                    info.Habilitado = item.habilitado;
+                    info.Tiene_FormularioAsociado = item.tiene_formularioasociado;
+                    info.nom_Formulario = item.nom_formulario;
+                    info.nom_Asembly = item.nom_asembly;
                     info.imagen_grande = item.imagen_grande;
                     info.imagen_peque = item.imagen_peque;
                     info.icono = item.icono;
                     info.nivel = item.nivel;
-                    info.Eliminacion = item.Eliminacion;
-                    info.Escritura = item.Escritura;
-                    info.Lectura = item.Lectura;
+                    info.Eliminacion = item.eliminacion;
+                    info.Escritura = item.escritura;
+                    info.Lectura = item.lectura;
 
                     returnValue.Add(info);
                 }
@@ -195,24 +193,22 @@ namespace Bizu.Infrastructure.SeguridadAcceso
             {
                 EntitiesSeguAcceso OESeguridad = new EntitiesSeguAcceso();
 
-                var selectMenu = from C in OESeguridad.seg_Menu
-                                 orderby C.PosicionMenu
-                                 where C.IdMenu == idmenu
+                var selectMenu = from C in OESeguridad.seg_menu
+                                 orderby C.posicionmenu
+                                 where C.idmenu == idmenu
                                  select C;
 
                 foreach (var item in selectMenu)
                 {
                     seg_Menu_info oM = new seg_Menu_info();
-                    oM.IdMenu = item.IdMenu;
-                    oM.DescripcionMenu = item.DescripcionMenu;
-                    oM.Tiene_FormularioAsociado = item.Tiene_FormularioAsociado;
-                    oM.Habilitado = item.Habilitado;
-                    oM.IdMenuPadre = (int)item.IdMenuPadre;
-                    oM.PosicionMenu = item.PosicionMenu;
-                    
-                    oM.nom_Formulario = item.nom_Formulario;
-                    oM.nom_Asembly = item.nom_Asembly;
-
+                    oM.IdMenu = item.idmenu;
+                    oM.DescripcionMenu = item.descripcionmenu;
+                    oM.Tiene_FormularioAsociado = item.tiene_formularioasociado;
+                    oM.Habilitado = item.habilitado;
+                    oM.IdMenuPadre = (int)item.idmenupadre;
+                    oM.PosicionMenu = item.posicionmenu;                    
+                    oM.nom_Formulario = item.nom_formulario;
+                    oM.nom_Asembly = item.nom_asembly;
                     oM.imagen_peque = item.imagen_peque;
                     oM.imagen_grande = item.imagen_grande;
                     oM.icono = item.icono;
@@ -245,18 +241,18 @@ namespace Bizu.Infrastructure.SeguridadAcceso
                 int resultado = 0;
                 using (EntitiesSeguAcceso context = new EntitiesSeguAcceso())
                 {
-                    var contact = context.seg_Menu.FirstOrDefault(dinfo => dinfo.IdMenu == info.IdMenu);
+                    var contact = context.seg_menu.FirstOrDefault(dinfo => dinfo.idmenu == info.IdMenu);
                     if (contact != null)
                     {
-                        contact.IdMenuPadre = info.IdMenuPadre;
-                        contact.DescripcionMenu = info.DescripcionMenu;
-                        contact.PosicionMenu = info.PosicionMenu;
-                        contact.Habilitado = info.Habilitado;
-                        contact.Tiene_FormularioAsociado = info.Tiene_FormularioAsociado;
+                        contact.idmenupadre = info.IdMenuPadre;
+                        contact.descripcionmenu = info.DescripcionMenu;
+                        contact.posicionmenu = info.PosicionMenu;
+                        contact.habilitado = info.Habilitado;
+                        contact.tiene_formularioasociado = info.Tiene_FormularioAsociado;
                         info.nom_Asembly = (info.nom_Asembly == null) ? "" : info.nom_Asembly;
                         info.nom_Formulario = (info.nom_Formulario == null) ? "" : info.nom_Formulario;
-                        contact.nom_Formulario = info.nom_Formulario;
-                        contact.nom_Asembly = info.nom_Asembly;
+                        contact.nom_formulario = info.nom_Formulario;
+                        contact.nom_asembly = info.nom_Asembly;
 
                         contact.imagen_peque = info.imagen_peque;
                         contact.imagen_grande = info.imagen_grande;
@@ -267,8 +263,8 @@ namespace Bizu.Infrastructure.SeguridadAcceso
                     }
                     if (resultado > 0)
                     {
-                        info.IdMenu = contact.IdMenu;
-                        info.DescripcionMenu = contact.DescripcionMenu;
+                        info.IdMenu = contact.idmenu;
+                        info.DescripcionMenu = contact.descripcionmenu;
                         
                     }
                 }
@@ -293,15 +289,15 @@ namespace Bizu.Infrastructure.SeguridadAcceso
                 {
                     foreach (var item in lista)
                     {
-                        var contact = context.seg_Menu.FirstOrDefault(menu => menu.IdMenu == item.IdMenu);
+                        var contact = context.seg_menu.FirstOrDefault(menu => menu.idmenu == item.IdMenu);
                         if (contact != null)
                         {
-                            contact.DescripcionMenu = item.DescripcionMenu;
-                            contact.PosicionMenu = item.PosicionMenu;
-                            contact.nom_Asembly = item.nom_Asembly;
-                            contact.nom_Formulario = item.nom_Formulario;
-                            contact.Habilitado = item.Habilitado;
-                            contact.Tiene_FormularioAsociado = item.Tiene_FormularioAsociado;
+                            contact.descripcionmenu = item.DescripcionMenu;
+                            contact.posicionmenu = item.PosicionMenu;
+                            contact.nom_asembly = item.nom_Asembly;
+                            contact.nom_formulario = item.nom_Formulario;
+                            contact.habilitado = item.Habilitado;
+                            contact.tiene_formularioasociado = item.Tiene_FormularioAsociado;
                             contact.imagen_peque = item.imagen_peque;
                             contact.imagen_grande = item.imagen_grande;
                             contact.icono = item.icono;
@@ -329,10 +325,10 @@ namespace Bizu.Infrastructure.SeguridadAcceso
             {
                 using (EntitiesSeguAcceso context = new EntitiesSeguAcceso())
                 {
-                    var contact = context.seg_Menu.FirstOrDefault(dinfo => dinfo.IdMenu == idMenu);
+                    var contact = context.seg_menu.FirstOrDefault(dinfo => dinfo.idmenu == idMenu);
                     if (contact != null)
                     {
-                        contact.Habilitado = false;
+                        contact.habilitado = false;
 
                         context.SaveChanges();
                     }
@@ -359,8 +355,8 @@ namespace Bizu.Infrastructure.SeguridadAcceso
             {                
                 int Idsecuencia;
                 EntitiesSeguAcceso OEPermisos = new EntitiesSeguAcceso();
-                var selectMax = (from C in OEPermisos.seg_Menu
-                                 select C.IdMenu).Max();
+                var selectMax = (from C in OEPermisos.seg_menu
+                                 select C.idmenu).Max();
                 Idsecuencia = Convert.ToInt32(selectMax.ToString()) + 1;
                 return Idsecuencia;
             }
@@ -383,20 +379,20 @@ namespace Bizu.Infrastructure.SeguridadAcceso
             {
                 using (EntitiesSeguAcceso context = new EntitiesSeguAcceso())
                 {                    
-                    var address = new seg_Menu();
-                    address.IdMenu = getIdMenu_Max(ref MensajeError);
-                    address.IdMenuPadre = info.IdMenuPadre;
-                    address.DescripcionMenu = info.DescripcionMenu;
-                    address.PosicionMenu = info.PosicionMenu;
-                    address.Habilitado = info.Habilitado;
-                    address.Tiene_FormularioAsociado = info.Tiene_FormularioAsociado;
-                    address.nom_Formulario = info.nom_Formulario;
-                    address.nom_Asembly = info.nom_Asembly;                                        
+                    var address = new seg_menu();
+                    address.idmenu = getIdMenu_Max(ref MensajeError);
+                    address.idmenupadre = info.IdMenuPadre;
+                    address.descripcionmenu = info.DescripcionMenu;
+                    address.posicionmenu = info.PosicionMenu;
+                    address.habilitado = info.Habilitado;
+                    address.tiene_formularioasociado = info.Tiene_FormularioAsociado;
+                    address.nom_formulario = info.nom_Formulario;
+                    address.nom_asembly = info.nom_Asembly;                                        
                     address.imagen_peque = info.imagen_peque;
                     address.imagen_grande = info.imagen_grande;
                     address.icono = info.icono;
                     address.nivel = (info.nivel == null) ? 0 : Convert.ToInt32(info.nivel);                                        
-                    context.seg_Menu.Add(address);
+                    context.seg_menu.Add(address);
                     context.SaveChanges();
                 }
                 return true;
@@ -441,10 +437,10 @@ namespace Bizu.Infrastructure.SeguridadAcceso
             {
                 using (EntitiesSeguAcceso context = new EntitiesSeguAcceso())
                 {                                                            
-                    var contact = context.seg_Menu.FirstOrDefault(dinfo => dinfo.IdMenu == info.IdMenu);
+                    var contact = context.seg_menu.FirstOrDefault(dinfo => dinfo.idmenu == info.IdMenu);
                     if (contact != null)
                     {
-                        context.seg_Menu.Remove(contact);
+                        context.seg_menu.Remove(contact);
                         context.SaveChanges();
                     }
                 }
@@ -467,8 +463,8 @@ namespace Bizu.Infrastructure.SeguridadAcceso
                 Boolean existe = false;
                 using (EntitiesSeguAcceso context = new EntitiesSeguAcceso())
                 {
-                    var menu_empresa = (from c in context.seg_Menu_x_Empresa
-                                        where c.IdMenu == idMenu
+                    var menu_empresa = (from c in context.seg_menu_x_empresa
+                                        where c.idmenu == idMenu
                                         select c);
                     if (menu_empresa.Count() > 0)
                         existe = true;

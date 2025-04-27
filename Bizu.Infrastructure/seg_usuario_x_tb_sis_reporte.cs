@@ -14,10 +14,8 @@ namespace Bizu.Infrastructure
     
     public partial class seg_usuario_x_tb_sis_reporte
     {
-        public string IdUsuario { get; set; }
-        public string CodReporte { get; set; }
+        public string idusuario { get; set; }
+        public string codreporte { get; set; }
         public string observacion { get; set; }
-    
-        public virtual seg_usuario seg_usuario { get; set; }
     }
 }

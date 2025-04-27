@@ -25,20 +25,15 @@ namespace Bizu.Infrastructure
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<seg_Menu_x_Empresa> seg_Menu_x_Empresa { get; set; }
-        public DbSet<seg_Menu_x_Empresa_x_Usuario> seg_Menu_x_Empresa_x_Usuario { get; set; }
-        public DbSet<seg_Usuario_x_Empresa> seg_Usuario_x_Empresa { get; set; }
-        public DbSet<vw_Seg_Menu_x_Usuario_x_Empresa> vw_Seg_Menu_x_Usuario_x_Empresa { get; set; }
-        public DbSet<vwseg_Usuario_x_Empresa> vwseg_Usuario_x_Empresa { get; set; }
-        public DbSet<seg_Menu> seg_Menu { get; set; }
-        public DbSet<seg_Menu_Grupo> seg_Menu_Grupo { get; set; }
-        public DbSet<seg_Menu_Item_Tipo> seg_Menu_Item_Tipo { get; set; }
-        public DbSet<seg_Menu_Pagina> seg_Menu_Pagina { get; set; }
-        public DbSet<seg_Menu_Categoria> seg_Menu_Categoria { get; set; }
-        public DbSet<seg_Menu_Grupo_x_seg_Menu_Item> seg_Menu_Grupo_x_seg_Menu_Item { get; set; }
-        public DbSet<seg_Menu_Item> seg_Menu_Item { get; set; }
-        public DbSet<seg_usuario_x_tb_sis_reporte> seg_usuario_x_tb_sis_reporte { get; set; }
-        public DbSet<vwseg_usuario_x_tb_sis_reporte> vwseg_usuario_x_tb_sis_reporte { get; set; }
+        public DbSet<seg_menu> seg_menu { get; set; }
+        public DbSet<seg_menu_x_empresa> seg_menu_x_empresa { get; set; }
+        public DbSet<seg_menu_x_empresa_x_usuario> seg_menu_x_empresa_x_usuario { get; set; }
         public DbSet<seg_usuario> seg_usuario { get; set; }
+        public DbSet<seg_usuario_x_empresa> seg_usuario_x_empresa { get; set; }
+        public DbSet<seg_usuario_x_tb_sis_reporte> seg_usuario_x_tb_sis_reporte { get; set; }
+        public DbSet<vw_seg_menu_x_usuario_x_empresa> vw_seg_menu_x_usuario_x_empresa { get; set; }
+        public DbSet<vwseg_menu_x_usuario_x_empresa> vwseg_menu_x_usuario_x_empresa { get; set; }
+        public DbSet<vwseg_usuario_x_empresa> vwseg_usuario_x_empresa { get; set; }
+        public DbSet<vwseg_usuario_x_tb_sis_reporte> vwseg_usuario_x_tb_sis_reporte { get; set; }
     }
 }
