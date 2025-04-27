@@ -12,6 +12,8 @@ namespace Bizu.Reports.Compras
 {
     public partial class XCOMP_Rpt001_Rpt : DevExpress.XtraReports.UI.XtraReport
     {
+        cl_parametrosGenerales_Bus param = cl_parametrosGenerales_Bus.Instance;
+
         public XCOMP_Rpt001_Rpt()
         {
             InitializeComponent();
@@ -38,7 +40,13 @@ namespace Bizu.Reports.Compras
 
         private void Credito_No_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
+            xrPictureBox1.Image = param.InfoEmpresa.em_logo_Image;
+            xrLabel22.Text = param.InfoEmpresa.RazonSocial;
 
+            XCOMP_Rpt001_Bus BusReporte = new XCOMP_Rpt001_Bus();
+            List<XCOMP_Rpt001_Info> listaReporte = BusReporte.Get_Data(Convert.ToInt32(pIdEmpresa.Value), Convert.ToInt32(pIdSucursal.Value), Convert.ToDecimal(pIdOrdenCompra.Value));
+
+            this.DataSource = listaReporte;
         }
     }
 }

@@ -147,6 +147,9 @@
             this.lblSubtotalIva = new DevExpress.XtraReports.UI.CalculatedField();
             this.lblIva = new DevExpress.XtraReports.UI.CalculatedField();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.pIdEmpresa = new DevExpress.XtraReports.Parameters.Parameter();
+            this.pIdSucursal = new DevExpress.XtraReports.Parameters.Parameter();
+            this.pIdOrdenCompra = new DevExpress.XtraReports.Parameters.Parameter();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
@@ -944,7 +947,7 @@
             this.xrLabel22.SizeF = new System.Drawing.SizeF(308.3334F, 23F);
             this.xrLabel22.StylePriority.UseFont = false;
             this.xrLabel22.StylePriority.UseTextAlignment = false;
-            this.xrLabel22.Text = "ESTRUCTURAS DE HIERRO EDEHSA S.A.";
+            this.xrLabel22.Text = "RAZON SOCIAL";
             this.xrLabel22.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             // 
             // xrLabel23
@@ -1401,6 +1404,27 @@
             // 
             this.bindingSource1.DataSource = typeof(Bizu.Reports.Compras.XCOMP_Rpt001_Info);
             // 
+            // pIdEmpresa
+            // 
+            this.pIdEmpresa.Description = "pIdEmpresa";
+            this.pIdEmpresa.Name = "pIdEmpresa";
+            this.pIdEmpresa.Type = typeof(short);
+            this.pIdEmpresa.ValueInfo = "0";
+            // 
+            // pIdSucursal
+            // 
+            this.pIdSucursal.Description = "pIdSucursal";
+            this.pIdSucursal.Name = "pIdSucursal";
+            this.pIdSucursal.Type = typeof(short);
+            this.pIdSucursal.ValueInfo = "0";
+            // 
+            // pIdOrdenCompra
+            // 
+            this.pIdOrdenCompra.Description = "pIdOrdenCompra";
+            this.pIdOrdenCompra.Name = "pIdOrdenCompra";
+            this.pIdOrdenCompra.Type = typeof(decimal);
+            this.pIdOrdenCompra.ValueInfo = "0";
+            // 
             // XCOMP_Rpt001_Rpt
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -1422,6 +1446,10 @@
             this.PageHeight = 1169;
             this.PageWidth = 827;
             this.PaperKind = System.Drawing.Printing.PaperKind.A4;
+            this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
+            this.pIdEmpresa,
+            this.pIdSucursal,
+            this.pIdOrdenCompra});
             this.Version = "19.2";
             ((System.ComponentModel.ISupportInitialize)(this.xrTable5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable7)).EndInit();
@@ -1542,5 +1570,8 @@
         private DevExpress.XtraReports.UI.XRTableRow xrTableRow7;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell36;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell37;
+        public DevExpress.XtraReports.Parameters.Parameter pIdEmpresa;
+        public DevExpress.XtraReports.Parameters.Parameter pIdSucursal;
+        public DevExpress.XtraReports.Parameters.Parameter pIdOrdenCompra;
     }
 }

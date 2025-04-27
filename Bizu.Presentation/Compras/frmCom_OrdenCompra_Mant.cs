@@ -23,6 +23,7 @@ using Bizu.Application.Inventario;
 using Bizu.Application.Contabilidad;
 using Bizu.Domain.Contabilidad;
 using Bizu.Presentation.Contabilidad;
+using Bizu.Reports.Compras;
 using System.Diagnostics;
 using DevExpress.XtraReports.Parameters;
 using DevExpress.XtraReports.UI;
@@ -572,14 +573,14 @@ namespace Bizu.Presentation.Compras
                 idSucursal = cmbSucursal.get_SucursalInfo().IdSucursal;
                 IdOrdenCompra = Convert.ToDecimal(txtIdOC.Text);
 
-                //XCOMP_Rpt001_Rpt Reporte_general = new XCOMP_Rpt001_Rpt();
-                //Reporte_general.RequestParameters = false;
-                //ReportPrintTool pt_general = new ReportPrintTool(Reporte_general);
-                //pt_general.AutoShowParametersPanel = false;
-                //Reporte_general.IdEmpresa.Value = idEmpresa;
-                //Reporte_general.IdSucursal.Value = idSucursal;
-                //Reporte_general.IdOrdenCompra.Value = IdOrdenCompra;
-                //Reporte_general.ShowPreviewDialog();
+                XCOMP_Rpt001_Rpt Reporte_general = new XCOMP_Rpt001_Rpt();
+                Reporte_general.RequestParameters = false;
+                ReportPrintTool pt_general = new ReportPrintTool(Reporte_general);
+                pt_general.AutoShowParametersPanel = false;
+                Reporte_general.pIdEmpresa.Value = idEmpresa;
+                Reporte_general.pIdSucursal.Value = idSucursal;
+                Reporte_general.pIdOrdenCompra.Value = IdOrdenCompra;
+                Reporte_general.ShowPreviewDialog();
             }
             catch (Exception ex)
             {
