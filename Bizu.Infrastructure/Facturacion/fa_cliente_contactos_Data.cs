@@ -47,7 +47,7 @@ namespace Bizu.Infrastructure.Facturacion
                 throw new Exception(ex.InnerException.ToString());
             }
         }
-        
+
         public Boolean GuardarDB(fa_cliente_contactos_Info Info, ref string mensaje)
         {
             try
@@ -62,7 +62,7 @@ namespace Bizu.Infrastructure.Facturacion
                     Base.observacion = Info.observacion;
                     conexion.fa_cliente_contactos.Add(Base);
                     conexion.SaveChanges();
-                    mensaje = "Se ha grabado el Cliente: " + Info.IdCliente.ToString() + " exitosamente.";                    
+                    mensaje = "Se ha grabado el Cliente: " + Info.IdCliente.ToString() + " exitosamente.";
                 }
                 return true;
             }
@@ -162,74 +162,6 @@ namespace Bizu.Infrastructure.Facturacion
                 MensajeError = ex.InnerException + " " + ex.Message;
                 oDataLog.Guardar_Log_Error(Log_Error_sis, ref MensajeError);
                 throw new Exception(ex.ToString());
-            }
-        }
-
-        public List<tb_contacto_Info> Get_List_Contactos_x_Clientes(int IdEmpresa, decimal Idcliente)
-        {
-            List<tb_contacto_Info> listaCon = new List<tb_contacto_Info>();
-            try
-            {
-                using (EntitiesFacturacion Base = new EntitiesFacturacion())
-                {
-                    var select = from A in Base.vwfa_clientes_contactos
-                                 where A.IdCliente == Idcliente
-                                 && A.IdEmpresa_cli==IdEmpresa
-                                 orderby A.IdContacto
-                                 select A;
-
-                    foreach (var item in select)
-                    {
-                        tb_contacto_Info info = new tb_contacto_Info();
-                        info.IdEmpresa = item.IdEmpresa;
-                        info.IdContacto = item.IdContacto;
-                        info.IdPersona = item.IdPersona;
-                        info.CodContacto = item.CodContacto;
-                        info.Organizacion = item.Organizacion;
-                        info.Cargo = item.Cargo;
-                        info.Mostrar_como = item.Mostrar_como;
-                        info.Fecha_alta = item.Fecha_alta;
-                        info.Fecha_Ult_Contacto = item.Fecha_Ult_Contacto;
-                        info.IdNacionalidad = item.IdNacionalidad;
-                        info.Notas = item.Notas;
-                        info.Pagina_Web = item.Pagina_Web;
-                        info.Codigo_postal = item.Codigo_postal;
-                        info.Estado = item.Estado;
-                        //info.Pais_Info.IdPais = item.IdPais;
-                        //info.Ciudad_Info.IdCiudad = item.IdCiudad;
-                        //info.Provi_Info.IdProvincia = item.IdProvincia;
-                        //info.IdNacionalidad = item.IdNacionalidad;
-
-                        tb_persona_Info personaInfo = new tb_persona_Info();
-                        personaInfo.IdPersona = item.IdPersona;
-                        personaInfo.IdTipoDocumento = item.IdTipoDocumento;
-                        personaInfo.pe_apellido = item.pe_apellido;
-                        personaInfo.pe_nombre = item.pe_nombre;
-                        personaInfo.pe_nombreCompleto = item.pe_nombre + item.pe_apellido;
-                        personaInfo.pe_telefonoCasa = item.pe_telefonoCasa;
-                        personaInfo.pe_correo = item.pe_correo;
-                        personaInfo.pe_celular = item.pe_celular;
-                        personaInfo.pe_cedulaRuc = item.pe_cedulaRuc;
-                        personaInfo.pe_direccion = item.pe_direccion;
-                        personaInfo.pe_fechaNacimiento = item.pe_fechaNacimiento;
-                        personaInfo.pe_razonSocial = item.pe_razonSocial;
-                        personaInfo.pe_Naturaleza = item.pe_Naturaleza;
-                        info.Persona_Info = personaInfo;                        
-
-                        listaCon.Add(info);
-                    }
-                }
-                return listaCon;
-            }
-            catch (Exception ex)
-            {
-                string arreglo = ToString();
-                string MensajeError = string.Empty;
-                tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
-                tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", arreglo, "", "", "", "", "", DateTime.Now);
-                MensajeError = ex.InnerException + " " + ex.Message;
-                oDataLog.Guardar_Log_Error(Log_Error_sis, ref MensajeError);
-                throw new Exception(ex.InnerException.ToString());
             }
         }
     }

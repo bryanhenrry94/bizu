@@ -157,23 +157,7 @@ namespace Bizu.Reports.Inventario
                 using (Entities_Inventario_General BalanceGeneral = new Entities_Inventario_General())
                 {
                     BalanceGeneral.SetCommandTimeOut(1000);
-
-                    List<tb_Bodega_Filtro_Info> List_Bodega_Filtro = new List<tb_Bodega_Filtro_Info>();
-                    tb_Bodega_Filtro_Data Data_Bodega_Filtro = new tb_Bodega_Filtro_Data();
-
-                    foreach (var item in List_IdBodega)
-                    {
-                        tb_Bodega_Filtro_Info Info_Bodega_Filtro = new tb_Bodega_Filtro_Info();
-                        Info_Bodega_Filtro.IdEmpresa = IdEmpresa;
-                        Info_Bodega_Filtro.IdSucursal = IdSucursal;
-                        Info_Bodega_Filtro.IdBodega = item;
-                        Info_Bodega_Filtro.IdUsuario = IdUsuario;
-
-                        List_Bodega_Filtro.Add(Info_Bodega_Filtro);
-                    }
-
-                    Data_Bodega_Filtro.GrabarBD(List_Bodega_Filtro);
-
+                    
                     var select = from h in BalanceGeneral.spINV_Rpt009_Edehsa(IdEmpresa, IdSucursal, IdProducto_ini, IdProducto_fin, Fecha_corte, IdUsuario)
                                  select h;
 

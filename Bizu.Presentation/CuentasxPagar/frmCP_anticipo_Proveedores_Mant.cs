@@ -44,8 +44,6 @@ namespace Bizu.Presentation.CuentasxPagar
         tb_banco_Bus BancoBus = new tb_banco_Bus();
         List<ba_Banco_Cuenta_Info> LstBancoCuentaInfo = new List<ba_Banco_Cuenta_Info>();
         ba_Banco_Cuenta_Bus BancoCuentaBus = new ba_Banco_Cuenta_Bus();
-        List<tb_tarjeta_Info> TarjetaInfoList = new List<tb_tarjeta_Info>();
-        tb_tarjeta_Bus TarjetaBus = new tb_tarjeta_Bus();
         List<tb_Sucursal_Info> SucuInfo = new List<tb_Sucursal_Info>();
         tb_Sucursal_Bus SucuBus = new tb_Sucursal_Bus();
         caj_Caja_Bus busCaja = new caj_Caja_Bus();
@@ -227,9 +225,7 @@ namespace Bizu.Presentation.CuentasxPagar
                 //carga el listado de las cuentas de los bancos
                 LstBancoCuentaInfo = BancoCuentaBus.Get_list_Banco_Cuenta(param.IdEmpresa);
                 repositoryItemSearchLookUpEditBancoDepo.DataSource = LstBancoCuentaInfo;
-                //carga el combo de caja
-                TarjetaInfoList = new List<tb_tarjeta_Info>(TarjetaBus.Get_List_tarjeta());
-                repositoryItemSearchLookUpEditTarjeta.DataSource = TarjetaInfoList;                
+                
                 cmbCaja.Properties.DataSource = busCaja.Get_list_caja(param.IdEmpresa, ref  MensajeError);
             }
             catch (Exception ex)

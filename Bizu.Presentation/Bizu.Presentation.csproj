@@ -509,18 +509,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bancos\FrmBA_CashManagement_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Bancos\FrmBA_CashManagement_Cons.designer.cs">
-      <DependentUpon>FrmBA_CashManagement_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Bancos\FrmBA_CashManagement_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Bancos\FrmBA_CashManagement_Mant.designer.cs">
-      <DependentUpon>FrmBA_CashManagement_Mant.cs</DependentUpon>
-    </Compile>
     <Compile Include="Bancos\FrmBA_DepositoBancario_Varios_Mant.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -581,29 +569,11 @@
     <Compile Include="Contabilidad\FrmCon_Dashboard.Designer.cs">
       <DependentUpon>FrmCon_Dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controles\UCScrum_Board.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCScrum_Board.Designer.cs">
-      <DependentUpon>UCScrum_Board.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controles\UCScrum_Task.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCScrum_Task.Designer.cs">
-      <DependentUpon>UCScrum_Task.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controles\UCGe_Menu_Comprobantes_Recibidos.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controles\UCGe_Menu_Comprobantes_Recibidos.Designer.cs">
       <DependentUpon>UCGe_Menu_Comprobantes_Recibidos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controles\UC_Horario_Actividades.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UC_Horario_Actividades.Designer.cs">
-      <DependentUpon>UC_Horario_Actividades.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
@@ -652,12 +622,6 @@
     </Compile>
     <Compile Include="General\FrmGe_Mensaje.Designer.cs">
       <DependentUpon>FrmGe_Mensaje.cs</DependentUpon>
-    </Compile>
-    <Compile Include="General\FrmGe_Tarea_Board.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\FrmGe_Tarea_Board.Designer.cs">
-      <DependentUpon>FrmGe_Tarea_Board.cs</DependentUpon>
     </Compile>
     <Compile Include="Inventario\Dashboard_GuiaRemision.cs">
       <SubType>Component</SubType>
@@ -1113,29 +1077,11 @@
     <Compile Include="ActivoFijo\frmAF_VentaActivo_Mant.Designer.cs">
       <DependentUpon>frmAF_VentaActivo_Mant.cs</DependentUpon>
     </Compile>
-    <Compile Include="Bancos\FrmBA_Actualizar_Archivos_Wizard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Bancos\FrmBA_Actualizar_Archivos_Wizard.Designer.cs">
-      <DependentUpon>FrmBA_Actualizar_Archivos_Wizard.cs</DependentUpon>
-    </Compile>
     <Compile Include="Bancos\frmBA_AdministradorReporte.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Bancos\frmBA_AdministradorReporte.Designer.cs">
       <DependentUpon>frmBA_AdministradorReporte.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Bancos\FrmBA_Administrador_Archivos_Banco.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Bancos\FrmBA_Administrador_Archivos_Banco.Designer.cs">
-      <DependentUpon>FrmBA_Administrador_Archivos_Banco.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Bancos\FrmBA_Archivo_Transferencia_Det.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Bancos\FrmBA_Archivo_Transferencia_Det.Designer.cs">
-      <DependentUpon>FrmBA_Archivo_Transferencia_Det.cs</DependentUpon>
     </Compile>
     <Compile Include="Bancos\FrmBA_Cancelacion_Cuotas.cs">
       <SubType>Form</SubType>
@@ -1310,24 +1256,6 @@
     </Compile>
     <Compile Include="Bancos\FrmBA_Inversion_Mant.designer.cs">
       <DependentUpon>FrmBA_Inversion_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Bancos\FrmBA_PrestamosMantenimiento.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Bancos\FrmBA_PrestamosMantenimiento.designer.cs">
-      <DependentUpon>FrmBA_PrestamosMantenimiento.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Bancos\FrmBA_Prestamos_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Bancos\FrmBA_Prestamos_Cons.designer.cs">
-      <DependentUpon>FrmBA_Prestamos_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Bancos\FrmBA_prestamo_detalle_cancelacion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Bancos\FrmBA_prestamo_detalle_cancelacion.designer.cs">
-      <DependentUpon>FrmBA_prestamo_detalle_cancelacion.cs</DependentUpon>
     </Compile>
     <Compile Include="Bancos\FrmBA_Talonario_cheques_x_bancoConsulta.cs">
       <SubType>Form</SubType>
@@ -1951,12 +1879,6 @@
     <Compile Include="Controles\UCBa_CuentaBanco.Designer.cs">
       <DependentUpon>UCBa_CuentaBanco.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controles\UCBa_Proceso_x_Banco.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCBa_Proceso_x_Banco.Designer.cs">
-      <DependentUpon>UCBa_Proceso_x_Banco.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controles\UCBa_TextBox_Girar_a.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -2107,12 +2029,6 @@
     <Compile Include="Controles\UCFa_Cliente_Tipo.Designer.cs">
       <DependentUpon>UCFa_Cliente_Tipo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controles\UCFa_Cliente_x_Contacto.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCFa_Cliente_x_Contacto.Designer.cs">
-      <DependentUpon>UCFa_Cliente_x_Contacto.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controles\UCFa_FormaPago_x_Factura.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -2251,12 +2167,6 @@
     <Compile Include="Controles\UCGe_Beneficiario.Designer.cs">
       <DependentUpon>UCGe_Beneficiario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controles\UCGe_PaisProvinciaCiudad.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCGe_PaisProvinciaCiudad.Designer.cs">
-      <DependentUpon>UCGe_PaisProvinciaCiudad.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controles\UCGe_CatalogosCmb.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -2371,12 +2281,6 @@
     <Compile Include="Controles\UCGe_Persona_cmb.Designer.cs">
       <DependentUpon>UCGe_Persona_cmb.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controles\UCGe_Persona_x_Direcciones_Grid.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCGe_Persona_x_Direcciones_Grid.Designer.cs">
-      <DependentUpon>UCGe_Persona_x_Direcciones_Grid.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controles\UCGe_rango_fechas.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -2406,12 +2310,6 @@
     </Compile>
     <Compile Include="Controles\UCGe_Sucursal_combo.Designer.cs">
       <DependentUpon>UCGe_Sucursal_combo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controles\UCGe_Transportista_Cmb.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCGe_Transportista_Cmb.Designer.cs">
-      <DependentUpon>UCGe_Transportista_Cmb.cs</DependentUpon>
     </Compile>
     <Compile Include="Controles\UCInv_Estado_apro_x_Ing_Egr_Inven.cs">
       <SubType>UserControl</SubType>
@@ -2545,12 +2443,6 @@
     <Compile Include="Controles\UCIn_UnidadMedidaCmb.Designer.cs">
       <DependentUpon>UCIn_UnidadMedidaCmb.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controles\UCGe_Pais.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCGe_Pais.Designer.cs">
-      <DependentUpon>UCGe_Pais.cs</DependentUpon>
-    </Compile>
     <Compile Include="Facturacion\FrmFa_PuntoVta_cons.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -2592,18 +2484,6 @@
     </Compile>
     <Compile Include="CuentasxCobrar\frmCxc_AdministradorReporte.Designer.cs">
       <DependentUpon>frmCxc_AdministradorReporte.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CuentasxCobrar\frmCxc_cancelacion_Intercompany_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CuentasxCobrar\frmCxc_cancelacion_Intercompany_Cons.Designer.cs">
-      <DependentUpon>frmCxc_cancelacion_Intercompany_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CuentasxCobrar\frmCxc_cancelacion_Intercompany_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CuentasxCobrar\frmCxc_cancelacion_Intercompany_Mant.Designer.cs">
-      <DependentUpon>frmCxc_cancelacion_Intercompany_Mant.cs</DependentUpon>
     </Compile>
     <Compile Include="CuentasxCobrar\frmcxc_Cheque_Asignacion_custodio_Cons.cs">
       <SubType>Form</SubType>
@@ -2856,18 +2736,6 @@
     </Compile>
     <Compile Include="CuentasxPagar\frmCP_ConsultaRetencion_Proveedor.Designer.cs">
       <DependentUpon>frmCP_ConsultaRetencion_Proveedor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CuentasxPagar\frmCP_GeneracionFile_Banco_x_cxp_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CuentasxPagar\frmCP_GeneracionFile_Banco_x_cxp_Cons.Designer.cs">
-      <DependentUpon>frmCP_GeneracionFile_Banco_x_cxp_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CuentasxPagar\frmCP_GeneracionFile_Banco_x_cxp_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CuentasxPagar\frmCP_GeneracionFile_Banco_x_cxp_Mant.Designer.cs">
-      <DependentUpon>frmCP_GeneracionFile_Banco_x_cxp_Mant.cs</DependentUpon>
     </Compile>
     <Compile Include="CuentasxPagar\frmCP_ImprimirRetencion.cs">
       <SubType>Form</SubType>
@@ -3415,48 +3283,6 @@
     <Compile Include="General\FrmGe_Banco_Mant.Designer.cs">
       <DependentUpon>FrmGe_Banco_Mant.cs</DependentUpon>
     </Compile>
-    <Compile Include="General\frmGe_banco_procesos_bancarios_tipo_cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\frmGe_banco_procesos_bancarios_tipo_cons.Designer.cs">
-      <DependentUpon>frmGe_banco_procesos_bancarios_tipo_cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="General\frmGe_banco_procesos_bancarios_tipo_mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\frmGe_banco_procesos_bancarios_tipo_mant.Designer.cs">
-      <DependentUpon>frmGe_banco_procesos_bancarios_tipo_mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="General\FrmGe_Contacto_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\FrmGe_Contacto_Cons.Designer.cs">
-      <DependentUpon>FrmGe_Contacto_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="General\FrmGe_Contacto_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\FrmGe_Contacto_Mant.Designer.cs">
-      <DependentUpon>FrmGe_Contacto_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="General\FrmGe_Buscar_Imagen_Iconos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\FrmGe_Buscar_Imagen_Iconos.Designer.cs">
-      <DependentUpon>FrmGe_Buscar_Imagen_Iconos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="General\FrmGe_CalendarioFeriado_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\FrmGe_CalendarioFeriado_Cons.Designer.cs">
-      <DependentUpon>FrmGe_CalendarioFeriado_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="General\FrmGe_CalendarioFeriado_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\FrmGe_CalendarioFeriado_Mant.Designer.cs">
-      <DependentUpon>FrmGe_CalendarioFeriado_Mant.cs</DependentUpon>
-    </Compile>
     <Compile Include="General\FrmGe_CambiarContraseña.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3487,35 +3313,11 @@
     <Compile Include="General\frmGe_CatalogoTipo_man.Designer.cs">
       <DependentUpon>frmGe_CatalogoTipo_man.cs</DependentUpon>
     </Compile>
-    <Compile Include="General\frmGe_Ciudad_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\frmGe_Ciudad_Mant.Designer.cs">
-      <DependentUpon>frmGe_Ciudad_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="General\FrmGe_DocuAnulados.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\FrmGe_DocuAnulados.Designer.cs">
-      <DependentUpon>FrmGe_DocuAnulados.cs</DependentUpon>
-    </Compile>
-    <Compile Include="General\FrmGe_DocuAnuladosConsulta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\FrmGe_DocuAnuladosConsulta.Designer.cs">
-      <DependentUpon>FrmGe_DocuAnuladosConsulta.cs</DependentUpon>
-    </Compile>
     <Compile Include="General\FrmGe_Documento_Tipo_Talonario_Cons.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="General\FrmGe_Documento_Tipo_Talonario_Cons.Designer.cs">
       <DependentUpon>FrmGe_Documento_Tipo_Talonario_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="General\FrmGe_Documento_Tipo_x_Disenio_Reporte.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\FrmGe_Documento_Tipo_x_Disenio_Reporte.Designer.cs">
-      <DependentUpon>FrmGe_Documento_Tipo_x_Disenio_Reporte.cs</DependentUpon>
     </Compile>
     <Compile Include="General\FrmGE_EmpresaCons.cs">
       <SubType>Form</SubType>
@@ -3534,24 +3336,6 @@
     </Compile>
     <Compile Include="General\frmGe_Esperar.designer.cs">
       <DependentUpon>frmGe_Esperar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="General\FrmGe_Formulario_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\FrmGe_Formulario_Cons.Designer.cs">
-      <DependentUpon>FrmGe_Formulario_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="General\FrmGe_Formulario_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\FrmGe_Formulario_Mant.Designer.cs">
-      <DependentUpon>FrmGe_Formulario_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="General\FrmGe_Iconos_sistema.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\FrmGe_Iconos_sistema.Designer.cs">
-      <DependentUpon>FrmGe_Iconos_sistema.cs</DependentUpon>
     </Compile>
     <Compile Include="General\FrmGe_Impuesto_Cons.cs">
       <SubType>Form</SubType>
@@ -3601,71 +3385,17 @@
     <Compile Include="General\frmGe_MotivoAnulacion.Designer.cs">
       <DependentUpon>frmGe_MotivoAnulacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="General\FrmGe_Pais_Consul.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\FrmGe_Pais_Consul.Designer.cs">
-      <DependentUpon>FrmGe_Pais_Consul.cs</DependentUpon>
-    </Compile>
-    <Compile Include="General\FrmGe_Pais_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\FrmGe_Pais_Mant.Designer.cs">
-      <DependentUpon>FrmGe_Pais_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="General\FrmGe_Parametrizacion_Contable.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\FrmGe_Parametrizacion_Contable.Designer.cs">
-      <DependentUpon>FrmGe_Parametrizacion_Contable.cs</DependentUpon>
-    </Compile>
     <Compile Include="General\FrmGe_Parametros.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="General\FrmGe_Parametros.Designer.cs">
       <DependentUpon>FrmGe_Parametros.cs</DependentUpon>
     </Compile>
-    <Compile Include="General\frmGe_Parroquia_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\frmGe_Parroquia_Mant.Designer.cs">
-      <DependentUpon>frmGe_Parroquia_Mant.cs</DependentUpon>
-    </Compile>
     <Compile Include="General\FrmGe_PersonaConsulta.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="General\FrmGe_PersonaConsulta.Designer.cs">
       <DependentUpon>FrmGe_PersonaConsulta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="General\FrmGe_Persona_Direcciones_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\FrmGe_Persona_Direcciones_Mant.Designer.cs">
-      <DependentUpon>FrmGe_Persona_Direcciones_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="General\FrmGe_Persona_Direccion_Tipo_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\FrmGe_Persona_Direccion_Tipo_Mant.Designer.cs">
-      <DependentUpon>FrmGe_Persona_Direccion_Tipo_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="General\FrmGe_ProcesosaContabilizarMant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\FrmGe_ProcesosaContabilizarMant.Designer.cs">
-      <DependentUpon>FrmGe_ProcesosaContabilizarMant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="General\frmGe_Provinvia_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\frmGe_Provinvia_Mant.Designer.cs">
-      <DependentUpon>frmGe_Provinvia_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="General\FrmGe_Rango_Fechas_x_Periodo_Busqueda.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\FrmGe_Rango_Fechas_x_Periodo_Busqueda.Designer.cs">
-      <DependentUpon>FrmGe_Rango_Fechas_x_Periodo_Busqueda.cs</DependentUpon>
     </Compile>
     <Compile Include="General\FrmGe_Secuencia_Documento_Talonario_Consulta.cs">
       <SubType>Form</SubType>
@@ -3721,18 +3451,6 @@
     <!-- <Compile Include="Produccion_Edehsa\FrmPrd_Dashboard_Calidad.Designer.cs"> -->
     <!-- <DependentUpon>FrmPrd_Dashboard_Calidad.cs</DependentUpon> -->
     <!-- </Compile> -->
-    <Compile Include="General\FrmGe_Tarjeta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\FrmGe_Tarjeta.Designer.cs">
-      <DependentUpon>FrmGe_Tarjeta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="General\FrmGe_Tarjeta_Mantenimiento.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\FrmGe_Tarjeta_Mantenimiento.Designer.cs">
-      <DependentUpon>FrmGe_Tarjeta_Mantenimiento.cs</DependentUpon>
-    </Compile>
     <Compile Include="General\FrmGe_TipoDocumento_Mantenimiento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3744,30 +3462,6 @@
     </Compile>
     <Compile Include="General\FrmGe_TipoDocumento_Transaccion_Sistema.Designer.cs">
       <DependentUpon>FrmGe_TipoDocumento_Transaccion_Sistema.cs</DependentUpon>
-    </Compile>
-    <Compile Include="General\frmGE_transportista.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\frmGE_transportista.Designer.cs">
-      <DependentUpon>frmGE_transportista.cs</DependentUpon>
-    </Compile>
-    <Compile Include="General\frmGE_transportista_Consulta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\frmGE_transportista_Consulta.Designer.cs">
-      <DependentUpon>frmGE_transportista_Consulta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="General\FrmGe_transportista_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\FrmGe_transportista_Mant.Designer.cs">
-      <DependentUpon>FrmGe_transportista_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="General\frmGe_UbicacionGeografica.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\frmGe_UbicacionGeografica.Designer.cs">
-      <DependentUpon>frmGe_UbicacionGeografica.cs</DependentUpon>
     </Compile>
     <Compile Include="Contabilidad\frmCon_PlanCuenta_Consulta.cs">
       <SubType>Form</SubType>
@@ -4245,12 +3939,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="General\FrmGe_Tarea_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\FrmGe_Tarea_Mant.Designer.cs">
-      <DependentUpon>FrmGe_Tarea_Mant.cs</DependentUpon>
-    </Compile>
     <Compile Include="SeguridadAcceso\FrmSeg_Cambiar_Contrasenia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -4342,12 +4030,6 @@
     <Compile Include="WaitForm2.Designer.cs">
       <DependentUpon>WaitForm2.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Bancos\FrmBA_CashManagement_Cons.resx">
-      <DependentUpon>FrmBA_CashManagement_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Bancos\FrmBA_CashManagement_Mant.resx">
-      <DependentUpon>FrmBA_CashManagement_Mant.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Bancos\FrmBA_DepositoBancario_Varios_Mant.resx">
       <DependentUpon>FrmBA_DepositoBancario_Varios_Mant.cs</DependentUpon>
     </EmbeddedResource>
@@ -4378,17 +4060,8 @@
     <EmbeddedResource Include="Contabilidad\FrmCon_Dashboard.resx">
       <DependentUpon>FrmCon_Dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCScrum_Board.resx">
-      <DependentUpon>UCScrum_Board.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCScrum_Task.resx">
-      <DependentUpon>UCScrum_Task.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Controles\UCGe_Menu_Comprobantes_Recibidos.resx">
       <DependentUpon>UCGe_Menu_Comprobantes_Recibidos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UC_Horario_Actividades.resx">
-      <DependentUpon>UC_Horario_Actividades.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
@@ -4413,9 +4086,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="General\FrmGe_Mensaje.resx">
       <DependentUpon>FrmGe_Mensaje.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\FrmGe_Tarea_Board.resx">
-      <DependentUpon>FrmGe_Tarea_Board.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventario\Dashboard_GuiaRemision.resx">
       <DependentUpon>Dashboard_GuiaRemision.cs</DependentUpon>
@@ -4655,17 +4325,8 @@
     <EmbeddedResource Include="ActivoFijo\frmAF_VentaActivo_Mant.resx">
       <DependentUpon>frmAF_VentaActivo_Mant.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Bancos\FrmBA_Actualizar_Archivos_Wizard.resx">
-      <DependentUpon>FrmBA_Actualizar_Archivos_Wizard.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Bancos\frmBA_AdministradorReporte.resx">
       <DependentUpon>frmBA_AdministradorReporte.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Bancos\FrmBA_Administrador_Archivos_Banco.resx">
-      <DependentUpon>FrmBA_Administrador_Archivos_Banco.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Bancos\FrmBA_Archivo_Transferencia_Det.resx">
-      <DependentUpon>FrmBA_Archivo_Transferencia_Det.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Bancos\FrmBA_Cancelacion_Cuotas.resx">
       <DependentUpon>FrmBA_Cancelacion_Cuotas.cs</DependentUpon>
@@ -4753,15 +4414,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Bancos\FrmBA_Inversion_Mant.resx">
       <DependentUpon>FrmBA_Inversion_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Bancos\FrmBA_PrestamosMantenimiento.resx">
-      <DependentUpon>FrmBA_PrestamosMantenimiento.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Bancos\FrmBA_Prestamos_Cons.resx">
-      <DependentUpon>FrmBA_Prestamos_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Bancos\FrmBA_prestamo_detalle_cancelacion.resx">
-      <DependentUpon>FrmBA_prestamo_detalle_cancelacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Bancos\FrmBA_Talonario_cheques_x_bancoConsulta.resx">
       <DependentUpon>FrmBA_Talonario_cheques_x_bancoConsulta.cs</DependentUpon>
@@ -5073,9 +4725,6 @@
     <EmbeddedResource Include="Controles\UCBa_CuentaBanco.resx">
       <DependentUpon>UCBa_CuentaBanco.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCBa_Proceso_x_Banco.resx">
-      <DependentUpon>UCBa_Proceso_x_Banco.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Controles\UCBa_TextBox_Girar_a.resx">
       <DependentUpon>UCBa_TextBox_Girar_a.cs</DependentUpon>
     </EmbeddedResource>
@@ -5150,9 +4799,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controles\UCFa_Cliente_Tipo.resx">
       <DependentUpon>UCFa_Cliente_Tipo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCFa_Cliente_x_Contacto.resx">
-      <DependentUpon>UCFa_Cliente_x_Contacto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controles\UCFa_FormaPago_x_Factura.resx">
       <DependentUpon>UCFa_FormaPago_x_Factura.cs</DependentUpon>
@@ -5275,17 +4921,11 @@
     <EmbeddedResource Include="Controles\UCGe_NaturalezaPersona.resx">
       <DependentUpon>UCGe_NaturalezaPersona.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCGe_PaisProvinciaCiudad.resx">
-      <DependentUpon>UCGe_PaisProvinciaCiudad.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Controles\UCGe_ParametrosxModulo.resx">
       <DependentUpon>UCGe_ParametrosxModulo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controles\UCGe_Persona_cmb.resx">
       <DependentUpon>UCGe_Persona_cmb.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCGe_Persona_x_Direcciones_Grid.resx">
-      <DependentUpon>UCGe_Persona_x_Direcciones_Grid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controles\UCGe_rango_fechas.resx">
       <DependentUpon>UCGe_rango_fechas.cs</DependentUpon>
@@ -5301,9 +4941,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controles\UCGe_Sucursal_combo.resx">
       <DependentUpon>UCGe_Sucursal_combo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCGe_Transportista_Cmb.resx">
-      <DependentUpon>UCGe_Transportista_Cmb.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controles\UCInv_Estado_apro_x_Ing_Egr_Inven.resx">
       <DependentUpon>UCInv_Estado_apro_x_Ing_Egr_Inven.cs</DependentUpon>
@@ -5371,9 +5008,6 @@
     <EmbeddedResource Include="Controles\UCIn_UnidadMedidaCmb.resx">
       <DependentUpon>UCIn_UnidadMedidaCmb.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCGe_Pais.resx">
-      <DependentUpon>UCGe_Pais.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\FrmFa_PuntoVta_cons.resx">
       <DependentUpon>FrmFa_PuntoVta_cons.cs</DependentUpon>
     </EmbeddedResource>
@@ -5394,12 +5028,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CuentasxCobrar\frmCxc_AdministradorReporte.resx">
       <DependentUpon>frmCxc_AdministradorReporte.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CuentasxCobrar\frmCxc_cancelacion_Intercompany_Cons.resx">
-      <DependentUpon>frmCxc_cancelacion_Intercompany_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CuentasxCobrar\frmCxc_cancelacion_Intercompany_Mant.resx">
-      <DependentUpon>frmCxc_cancelacion_Intercompany_Mant.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CuentasxCobrar\frmcxc_Cheque_Asignacion_custodio_Cons.resx">
       <DependentUpon>frmcxc_Cheque_Asignacion_custodio_Cons.cs</DependentUpon>
@@ -5527,12 +5155,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CuentasxPagar\frmCP_ConsultaRetencion_Proveedor.resx">
       <DependentUpon>frmCP_ConsultaRetencion_Proveedor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CuentasxPagar\frmCP_GeneracionFile_Banco_x_cxp_Cons.resx">
-      <DependentUpon>frmCP_GeneracionFile_Banco_x_cxp_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CuentasxPagar\frmCP_GeneracionFile_Banco_x_cxp_Mant.resx">
-      <DependentUpon>frmCP_GeneracionFile_Banco_x_cxp_Mant.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CuentasxPagar\frmCP_ImprimirRetencion.resx">
       <DependentUpon>frmCP_ImprimirRetencion.cs</DependentUpon>
@@ -5807,27 +5429,6 @@
     <EmbeddedResource Include="General\FrmGe_Banco_Mant.resx">
       <DependentUpon>FrmGe_Banco_Mant.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="General\frmGe_banco_procesos_bancarios_tipo_cons.resx">
-      <DependentUpon>frmGe_banco_procesos_bancarios_tipo_cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\frmGe_banco_procesos_bancarios_tipo_mant.resx">
-      <DependentUpon>frmGe_banco_procesos_bancarios_tipo_mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\FrmGe_Contacto_Cons.resx">
-      <DependentUpon>FrmGe_Contacto_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\FrmGe_Contacto_Mant.resx">
-      <DependentUpon>FrmGe_Contacto_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\FrmGe_Buscar_Imagen_Iconos.resx">
-      <DependentUpon>FrmGe_Buscar_Imagen_Iconos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\FrmGe_CalendarioFeriado_Cons.resx">
-      <DependentUpon>FrmGe_CalendarioFeriado_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\FrmGe_CalendarioFeriado_Mant.resx">
-      <DependentUpon>FrmGe_CalendarioFeriado_Mant.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="General\FrmGe_CambiarContraseña.resx">
       <DependentUpon>FrmGe_CambiarContraseña.cs</DependentUpon>
     </EmbeddedResource>
@@ -5843,20 +5444,8 @@
     <EmbeddedResource Include="General\frmGe_CatalogoTipo_man.resx">
       <DependentUpon>frmGe_CatalogoTipo_man.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="General\frmGe_Ciudad_Mant.resx">
-      <DependentUpon>frmGe_Ciudad_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\FrmGe_DocuAnulados.resx">
-      <DependentUpon>FrmGe_DocuAnulados.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\FrmGe_DocuAnuladosConsulta.resx">
-      <DependentUpon>FrmGe_DocuAnuladosConsulta.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="General\FrmGe_Documento_Tipo_Talonario_Cons.resx">
       <DependentUpon>FrmGe_Documento_Tipo_Talonario_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\FrmGe_Documento_Tipo_x_Disenio_Reporte.resx">
-      <DependentUpon>FrmGe_Documento_Tipo_x_Disenio_Reporte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="General\FrmGE_EmpresaCons.resx">
       <DependentUpon>FrmGE_EmpresaCons.cs</DependentUpon>
@@ -5866,15 +5455,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="General\frmGe_Esperar.resx">
       <DependentUpon>frmGe_Esperar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\FrmGe_Formulario_Cons.resx">
-      <DependentUpon>FrmGe_Formulario_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\FrmGe_Formulario_Mant.resx">
-      <DependentUpon>FrmGe_Formulario_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\FrmGe_Iconos_sistema.resx">
-      <DependentUpon>FrmGe_Iconos_sistema.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="General\FrmGe_Impuesto_Cons.resx">
       <DependentUpon>FrmGe_Impuesto_Cons.cs</DependentUpon>
@@ -5900,38 +5480,11 @@
     <EmbeddedResource Include="General\frmGe_MotivoAnulacion.resx">
       <DependentUpon>frmGe_MotivoAnulacion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="General\FrmGe_Pais_Consul.resx">
-      <DependentUpon>FrmGe_Pais_Consul.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\FrmGe_Pais_Mant.resx">
-      <DependentUpon>FrmGe_Pais_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\FrmGe_Parametrizacion_Contable.resx">
-      <DependentUpon>FrmGe_Parametrizacion_Contable.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="General\FrmGe_Parametros.resx">
       <DependentUpon>FrmGe_Parametros.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="General\frmGe_Parroquia_Mant.resx">
-      <DependentUpon>frmGe_Parroquia_Mant.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="General\FrmGe_PersonaConsulta.resx">
       <DependentUpon>FrmGe_PersonaConsulta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\FrmGe_Persona_Direcciones_Mant.resx">
-      <DependentUpon>FrmGe_Persona_Direcciones_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\FrmGe_Persona_Direccion_Tipo_Mant.resx">
-      <DependentUpon>FrmGe_Persona_Direccion_Tipo_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\FrmGe_ProcesosaContabilizarMant.resx">
-      <DependentUpon>FrmGe_ProcesosaContabilizarMant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\frmGe_Provinvia_Mant.resx">
-      <DependentUpon>frmGe_Provinvia_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\FrmGe_Rango_Fechas_x_Periodo_Busqueda.resx">
-      <DependentUpon>FrmGe_Rango_Fechas_x_Periodo_Busqueda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="General\FrmGe_Secuencia_Documento_Talonario_Consulta.resx">
       <DependentUpon>FrmGe_Secuencia_Documento_Talonario_Consulta.cs</DependentUpon>
@@ -5960,29 +5513,11 @@
     <!-- <EmbeddedResource Include="Produccion_Edehsa\FrmPrd_Dashboard_Calidad.resx"> -->
     <!-- <DependentUpon>FrmPrd_Dashboard_Calidad.cs</DependentUpon> -->
     <!-- </EmbeddedResource> -->
-    <EmbeddedResource Include="General\FrmGe_Tarjeta.resx">
-      <DependentUpon>FrmGe_Tarjeta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\FrmGe_Tarjeta_Mantenimiento.resx">
-      <DependentUpon>FrmGe_Tarjeta_Mantenimiento.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="General\FrmGe_TipoDocumento_Mantenimiento.resx">
       <DependentUpon>FrmGe_TipoDocumento_Mantenimiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="General\FrmGe_TipoDocumento_Transaccion_Sistema.resx">
       <DependentUpon>FrmGe_TipoDocumento_Transaccion_Sistema.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\frmGE_transportista.resx">
-      <DependentUpon>frmGE_transportista.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\frmGE_transportista_Consulta.resx">
-      <DependentUpon>frmGE_transportista_Consulta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\FrmGe_transportista_Mant.resx">
-      <DependentUpon>FrmGe_transportista_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\frmGe_UbicacionGeografica.resx">
-      <DependentUpon>frmGe_UbicacionGeografica.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Contabilidad\frmCon_PlanCuenta_Consulta.resx">
       <DependentUpon>frmCon_PlanCuenta_Consulta.cs</DependentUpon>
@@ -6223,9 +5758,6 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\FrmGe_Tarea_Mant.resx">
-      <DependentUpon>FrmGe_Tarea_Mant.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SeguridadAcceso\FrmSeg_Cambiar_Contrasenia.resx">
       <DependentUpon>FrmSeg_Cambiar_Contrasenia.cs</DependentUpon>

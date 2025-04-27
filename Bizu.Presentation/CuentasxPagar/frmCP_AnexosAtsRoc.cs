@@ -434,35 +434,6 @@ namespace Bizu.Presentation.CuentasxPagar
                 iva.compras = lstDetalleCompras;
                 progressBar1.Value = 85;
 
-                //*****ANULADOS VENTAS FACTURAS,N/C,RETENCIONES*******
-                //********************
-                #region "Anulados"
-                tb_sis_Documento_Tipo_x_Empresa_Anulados_Bus DocAnu_B = new tb_sis_Documento_Tipo_x_Empresa_Anulados_Bus();
-                List<tb_sis_Documento_Tipo_x_Empresa_Anulados_Info> LstDocAnu = new List<tb_sis_Documento_Tipo_x_Empresa_Anulados_Info>();
-
-                LstDocAnu = DocAnu_B.ConsultaPorMesAnio(param.IdEmpresa, Convert.ToInt32(cmb_anio.Text), Convert.ToInt32(cmb_periodo.SelectedValue));
-
-                List<Bizu.Domain.CuentasxPagar.xmlATS_V_1_1_4.detalleAnulados> lstDetalleDocAnu = new List<Bizu.Domain.CuentasxPagar.xmlATS_V_1_1_4.detalleAnulados>();
-                foreach (var itemDA in LstDocAnu)
-                {
-                    if (itemDA.Autorizacion != null)
-                    {
-                        detalleAnulados info = new detalleAnulados();
-                        info.autorizacion = itemDA.Autorizacion;
-                        info.establecimiento = itemDA.Serie1;
-                        info.puntoEmision = itemDA.Serie2;
-                        info.secuencialInicio = itemDA.Documento;
-                        info.secuencialFin = itemDA.DocumentoFin;
-                        var tipD = LstTipDoc.First(c => c.CodTipoDocumento == itemDA.codDocumentoTipo);
-                        info.tipoComprobante = tipD.CodSRI;
-                        lstDetalleDocAnu.Add(info);
-                    }
-                }
-
-                if (lstDetalleDocAnu.Count > 0)
-                    iva.anulados = lstDetalleDocAnu;
-                #endregion
-
                 //// FACTURAS DE VENTAS
                 fa_factura_Bus fac_B = new fa_factura_Bus();
                 List<detalleVentas> LstDV = new List<detalleVentas>();

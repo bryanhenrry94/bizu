@@ -14,11 +14,9 @@ namespace Bizu.Infrastructure
     
     public partial class tb_parametro
     {
-        public string IdParametro { get; set; }
-        public string IdTipoParam { get; set; }
-        public string Valor { get; set; }
+        public string idparametro { get; set; }
+        public string idtipoparam { get; set; }
+        public string valor { get; set; }
         public string descripcion { get; set; }
-    
-        public virtual tb_parametro_tipo tb_parametro_tipo { get; set; }
     }
 }

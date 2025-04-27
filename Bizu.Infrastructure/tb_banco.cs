@@ -14,19 +14,10 @@ namespace Bizu.Infrastructure
     
     public partial class tb_banco
     {
-        public tb_banco()
-        {
-            this.tb_banco_estado_reg__resp_bancaria = new HashSet<tb_banco_estado_reg__resp_bancaria>();
-            this.tb_persona = new HashSet<tb_persona>();
-        }
-    
-        public int IdBanco { get; set; }
+        public int idbanco { get; set; }
         public string ba_descripcion { get; set; }
-        public string Estado { get; set; }
-        public string CodigoLegal { get; set; }
-        public bool TieneFormatoTransferencia { get; set; }
-    
-        public virtual ICollection<tb_banco_estado_reg__resp_bancaria> tb_banco_estado_reg__resp_bancaria { get; set; }
-        public virtual ICollection<tb_persona> tb_persona { get; set; }
+        public string estado { get; set; }
+        public string codigolegal { get; set; }
+        public bool tieneformatotransferencia { get; set; }
     }
 }

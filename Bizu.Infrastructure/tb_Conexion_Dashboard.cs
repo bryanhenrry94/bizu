@@ -12,15 +12,15 @@ namespace Bizu.Infrastructure
     using System;
     using System.Collections.Generic;
     
-    public partial class tb_Conexion_Dashboard
+    public partial class tb_conexion_dashboard
     {
-        public int Id { get; set; }
-        public string Provider { get; set; }
-        public string ServerName { get; set; }
-        public string PortNumber { get; set; }
-        public string DatabaseName { get; set; }
-        public string UserName { get; set; }
-        public string Password { get; set; }
-        public string StringConnection { get; set; }
+        public int id { get; set; }
+        public string provider { get; set; }
+        public string servername { get; set; }
+        public string portnumber { get; set; }
+        public string databasename { get; set; }
+        public string username { get; set; }
+        public string password { get; set; }
+        public string stringconnection { get; set; }
     }
 }

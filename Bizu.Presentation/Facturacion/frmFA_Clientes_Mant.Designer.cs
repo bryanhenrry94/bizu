@@ -151,7 +151,6 @@
             this.xtraTabPage4 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.ucFa_Cliente_x_Contacto1 = new Bizu.Presentation.Controles.UCFa_Cliente_x_Contacto();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
@@ -1426,24 +1425,6 @@
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Telefonos";
             // 
-            // ucFa_Cliente_x_Contacto1
-            // 
-            this.ucFa_Cliente_x_Contacto1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucFa_Cliente_x_Contacto1.Location = new System.Drawing.Point(2, 23);
-            this.ucFa_Cliente_x_Contacto1.Name = "ucFa_Cliente_x_Contacto1";
-            this.ucFa_Cliente_x_Contacto1.Size = new System.Drawing.Size(854, 144);
-            this.ucFa_Cliente_x_Contacto1.TabIndex = 0;
-            // 
-            // groupControl2
-            // 
-            this.groupControl2.Controls.Add(this.ucFa_Cliente_x_Contacto1);
-            this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl2.Location = new System.Drawing.Point(0, 133);
-            this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(858, 169);
-            this.groupControl2.TabIndex = 1;
-            this.groupControl2.Text = "Otros Contactos";
-            // 
             // groupControl3
             // 
             this.groupControl3.Controls.Add(this.txt_celular_rep_legal);
@@ -1688,7 +1669,6 @@
         private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
         private DevExpress.XtraEditors.GroupControl groupControl2;
-        private Controles.UCFa_Cliente_x_Contacto ucFa_Cliente_x_Contacto1;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage3;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage5;

@@ -1026,22 +1026,9 @@
       <DependentUpon>ModelCuentasxCobrar.tt</DependentUpon>
     </Compile>
     <Compile Include="Facturacion\fa_cliente_Obra_Data.cs" />
-    <Compile Include="General\Itb_Actividades_Horario_Acciones_Data.cs" />
-    <Compile Include="General\Itb_Actividades_Horario_Data.cs" />
-    <Compile Include="General\Itb_Actividades_Horario_Tipo_Ejecucion_Data.cs" />
-    <Compile Include="General\Itb_Actividades_Horario_Tipo_Tiempo_Data.cs" />
-    <Compile Include="General\tb_Actividades_Horario_Acciones_Data_SQL.cs" />
-    <Compile Include="General\tb_Actividades_Horario_Data_SQL.cs" />
-    <Compile Include="General\tb_Actividades_Horario_Tipo_Ejecucion_Data_SQL.cs" />
-    <Compile Include="General\tb_Actividades_Horario_Tipo_Tiempo_Data_SQL.cs" />
-    <Compile Include="General\tb_Bodega_Filtro_Data.cs" />
-    <Compile Include="General\tb_catastroGranContribuyente_Data.cs" />
-    <Compile Include="General\tb_ciiu_Data.cs" />
     <Compile Include="General\tb_Comprobantes_Recibidos_Data.cs" />
     <Compile Include="General\tb_Conexion_Dashboard_Data.cs" />
     <Compile Include="General\tb_Conexion_DBFacturacion_Electronica_Data.cs" />
-    <Compile Include="General\tb_tarea_Data.cs" />
-    <Compile Include="General\tb_tarea_equipo_Data.cs" />
     <Compile Include="Inventario\in_GuiaRemision_Exportacion_Data.cs" />
     <Compile Include="Inventario\in_Ing_Egr_Inven_det_x_prd_OrdenTrabajo_Det_Data.cs" />
     <Compile Include="Inventario\in_Ing_Egr_Inven_x_in_GuiaRemision_Data.cs" />
@@ -1588,45 +1575,23 @@
     <Compile Include="Facturacion\vwfa_notaCreDeb_sri_Data.cs" />
     <Compile Include="Facturacion\vwfa_Nota_Credito_x_Devolver_Data.cs" />
     <Compile Include="General\tbSys_Ge_Comparativo_Modulo_vs_Contas_Data.cs" />
-    <Compile Include="General\tb_banco_estado_reg__resp_bancaria_Data.cs" />
-    <Compile Include="General\tb_banco_procesos_bancarios_tipo_Data.cs" />
-    <Compile Include="General\tb_banco_procesos_bancarios_x_empresa_Data.cs" />
-    <Compile Include="General\tb_Ciudad_Data.cs" />
     <Compile Include="General\tb_parametro_Data.cs" />
-    <Compile Include="General\tb_parroquia_Data.cs" />
-    <Compile Include="General\tb_persona_direccion_Data.cs" />
-    <Compile Include="General\tb_persona_direccion_tipo_Data.cs" />
-    <Compile Include="General\tb_contacto_Data.cs" />
     <Compile Include="General\tb_persona_tipo_Data.cs" />
     <Compile Include="General\tb_Proceso_SRI_Data.cs" />
-    <Compile Include="General\tb_Provincia_Data.cs" />
-    <Compile Include="General\tb_rango_fecha_busqueda_x_periodo_Data.cs" />
-    <Compile Include="General\tb_region_Data.cs" />
     <Compile Include="General\tb_sis_Documento_Tipo_Data.cs" />
-    <Compile Include="General\tb_Calendario_Data.cs" />
     <Compile Include="General\tb_Dia_Data.cs" />
     <Compile Include="General\tb_modulo_Data.cs" />
     <Compile Include="General\tb_ParametrosSp_Data.cs" />
-    <Compile Include="General\tb_sis_Documento_Tipo_Reporte_x_Empresa_Data.cs" />
     <Compile Include="General\tb_sis_Documento_Tipo_Talonario_Data.cs" />
-    <Compile Include="General\tb_sis_Documento_Tipo_x_Empresa_Anulados_Data.cs" />
     <Compile Include="General\tb_sis_Documento_Tipo_x_Empresa_Data.cs" />
-    <Compile Include="General\tb_sis_formulario_Data.cs" />
-    <Compile Include="General\tb_sis_Grupo_empresarial_Cliente_Data.cs" />
-    <Compile Include="General\tb_sis_iconos_Data.cs" />
     <Compile Include="General\tb_sis_impuesto_Data.cs" />
     <Compile Include="General\tb_sis_Impuesto_Tipo_Data.cs" />
     <Compile Include="General\tb_sis_Impuesto_x_ctacble_Data.cs" />
     <Compile Include="General\tb_sis_Log_Error_Vzen_Data.cs" />
     <Compile Include="General\tb_sis_Mensajes_sys_Data.cs" />
-    <Compile Include="General\tb_sis_Param_Cont_Tipo_Contabilizacion_Data.cs" />
     <Compile Include="General\tb_sis_reporte_Data.cs" />
-    <Compile Include="General\tb_tarjeta_parametro_Data.cs" />
     <Compile Include="General\vwtb_Bodega_x_Sucursal_TreeList_Data.cs" />
     <Compile Include="General\vwtb_persona_beneficiario_Data.cs" />
-    <Compile Include="General\vwtb_sis_Documento_Tipo_x_Disenio_Report_Data.cs" />
-    <Compile Include="General\vwtb_sis_Param_Cont_x_Proceso_x_Parametro_x_Sucu_Data.cs" />
-    <Compile Include="General\vwtb_Ubicacion_Geografica_Data.cs" />
     <Compile Include="Inventario\in_Catalogo_Data.cs" />
     <Compile Include="Inventario\in_Catalogo_Tipo_Data.cs" />
     <Compile Include="Inventario\in_devolucion_inven_Data.cs" />
@@ -1711,8 +1676,6 @@
     <Compile Include="General\tb_Bodega_Data.cs" />
     <Compile Include="General\tb_sis_tipoDocumento_Data.cs" />
     <Compile Include="General\tb_Sucursal_Data.cs" />
-    <Compile Include="General\tb_tarjeta_Data.cs" />
-    <Compile Include="General\tb_transportista_Data.cs" />
     <Compile Include="Inventario\in_ajusteFisico_Data.cs" />
     <Compile Include="Inventario\in_AjusteFisico_Detalle_Data.cs" />
     <Compile Include="Inventario\in_categorias_data.cs" />
@@ -1980,64 +1943,28 @@
     <Compile Include="spIn_ObtenerStockAFechaPorProducto_Result.cs">
       <DependentUpon>ModelInventario.tt</DependentUpon>
     </Compile>
-    <Compile Include="tb_Actividades_Horario.cs">
-      <DependentUpon>ModelGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tb_Actividades_Horario_Acciones.cs">
-      <DependentUpon>ModelGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tb_Actividades_Horario_Tipo_Ejecucion.cs">
-      <DependentUpon>ModelGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tb_Actividades_Horario_Tipo_Tiempo.cs">
-      <DependentUpon>ModelGeneral.tt</DependentUpon>
-    </Compile>
     <Compile Include="tb_banco.cs">
-      <DependentUpon>ModelGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tb_banco_estado_reg__resp_bancaria.cs">
-      <DependentUpon>ModelGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tb_banco_procesos_bancarios_tipo.cs">
-      <DependentUpon>ModelGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tb_banco_procesos_bancarios_x_empresa.cs">
       <DependentUpon>ModelGeneral.tt</DependentUpon>
     </Compile>
     <Compile Include="tb_bodega.cs">
       <DependentUpon>ModelGeneral.tt</DependentUpon>
     </Compile>
-    <Compile Include="tb_bodega_Filtro.cs">
+    <Compile Include="tb_calendario.cs">
       <DependentUpon>ModelGeneral.tt</DependentUpon>
     </Compile>
-    <Compile Include="tb_Calendario.cs">
+    <Compile Include="tb_catalogo.cs">
       <DependentUpon>ModelGeneral.tt</DependentUpon>
     </Compile>
-    <Compile Include="tb_Catalogo.cs">
+    <Compile Include="tb_catalogotipo.cs">
       <DependentUpon>ModelGeneral.tt</DependentUpon>
     </Compile>
-    <Compile Include="tb_CatalogoTipo.cs">
+    <Compile Include="tb_comprobantesrecibidos.cs">
       <DependentUpon>ModelGeneral.tt</DependentUpon>
     </Compile>
-    <Compile Include="tb_catastroGranContribuyente.cs">
+    <Compile Include="tb_conexion_dashboard.cs">
       <DependentUpon>ModelGeneral.tt</DependentUpon>
     </Compile>
-    <Compile Include="tb_ciiu.cs">
-      <DependentUpon>ModelGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tb_ciudad.cs">
-      <DependentUpon>ModelGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tb_ComprobantesRecibidos.cs">
-      <DependentUpon>ModelGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tb_Conexion_Dashboard.cs">
-      <DependentUpon>ModelGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tb_Conexion_DBFacturacion_Electronica.cs">
-      <DependentUpon>ModelGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tb_contacto.cs">
+    <Compile Include="tb_conexion_dbfacturacion_electronica.cs">
       <DependentUpon>ModelGeneral.tt</DependentUpon>
     </Compile>
     <Compile Include="tb_dia.cs">
@@ -2055,118 +1982,49 @@
     <Compile Include="tb_moneda.cs">
       <DependentUpon>ModelGeneral.tt</DependentUpon>
     </Compile>
-    <Compile Include="tb_pais.cs">
-      <DependentUpon>ModelGeneral.tt</DependentUpon>
-    </Compile>
     <Compile Include="tb_parametro.cs">
       <DependentUpon>ModelGeneral.tt</DependentUpon>
     </Compile>
     <Compile Include="tb_parametro_tipo.cs">
       <DependentUpon>ModelGeneral.tt</DependentUpon>
     </Compile>
-    <Compile Include="tb_parroquia.cs">
-      <DependentUpon>ModelGeneral.tt</DependentUpon>
-    </Compile>
     <Compile Include="tb_persona.cs">
-      <DependentUpon>ModelGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tb_persona_direccion.cs">
-      <DependentUpon>ModelGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tb_persona_direccion_tipo.cs">
       <DependentUpon>ModelGeneral.tt</DependentUpon>
     </Compile>
     <Compile Include="tb_persona_tipo.cs">
       <DependentUpon>ModelGeneral.tt</DependentUpon>
     </Compile>
-    <Compile Include="tb_provincia.cs">
+    <Compile Include="tb_sis_datos_sistema.cs">
       <DependentUpon>ModelGeneral.tt</DependentUpon>
     </Compile>
-    <Compile Include="tb_rango_fecha_busqueda_x_periodo.cs">
+    <Compile Include="tb_sis_documento_tipo.cs">
       <DependentUpon>ModelGeneral.tt</DependentUpon>
     </Compile>
-    <Compile Include="tb_region.cs">
+    <Compile Include="tb_sis_documento_tipo_talonario.cs">
       <DependentUpon>ModelGeneral.tt</DependentUpon>
     </Compile>
-    <Compile Include="tb_sis_Actualizaciones_x_tablas.cs">
+    <Compile Include="tb_sis_documento_tipo_x_empresa.cs">
       <DependentUpon>ModelGeneral.tt</DependentUpon>
     </Compile>
-    <Compile Include="tb_sis_Datos_Sistema.cs">
+    <Compile Include="tb_sis_impuesto.cs">
       <DependentUpon>ModelGeneral.tt</DependentUpon>
     </Compile>
-    <Compile Include="tb_sis_Documento_Registros_x_Talonario.cs">
+    <Compile Include="tb_sis_impuesto_tipo.cs">
       <DependentUpon>ModelGeneral.tt</DependentUpon>
     </Compile>
-    <Compile Include="tb_sis_Documento_Tipo.cs">
+    <Compile Include="tb_sis_impuesto_x_ctacble.cs">
       <DependentUpon>ModelGeneral.tt</DependentUpon>
     </Compile>
-    <Compile Include="tb_sis_Documento_Tipo_Reporte_x_Empresa.cs">
+    <Compile Include="tb_sis_log_error_vzen.cs">
       <DependentUpon>ModelGeneral.tt</DependentUpon>
     </Compile>
-    <Compile Include="tb_sis_Documento_Tipo_Talonario.cs">
-      <DependentUpon>ModelGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tb_sis_Documento_Tipo_x_Empresa.cs">
-      <DependentUpon>ModelGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tb_sis_Documento_Tipo_x_Empresa_Anulados.cs">
-      <DependentUpon>ModelGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tb_sis_Documento_Tipo_x_Secuencia_Talonario.cs">
-      <DependentUpon>ModelGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tb_sis_formulario.cs">
-      <DependentUpon>ModelGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tb_sis_Grupo_empresarial_Cliente.cs">
-      <DependentUpon>ModelGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tb_sis_iconos.cs">
-      <DependentUpon>ModelGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tb_sis_Impuesto.cs">
-      <DependentUpon>ModelGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tb_sis_Impuesto_Tipo.cs">
-      <DependentUpon>ModelGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tb_sis_Impuesto_x_ctacble.cs">
-      <DependentUpon>ModelGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tb_sis_Log_Error_Vzen.cs">
-      <DependentUpon>ModelGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tb_sis_Mensajes_sys.cs">
+    <Compile Include="tb_sis_mensajes_sys.cs">
       <DependentUpon>ModelGeneral.tt</DependentUpon>
     </Compile>
     <Compile Include="tb_sis_reporte.cs">
       <DependentUpon>ModelGeneral.tt</DependentUpon>
     </Compile>
-    <Compile Include="tb_sis_reporte_Grupo.cs">
-      <DependentUpon>ModelGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tb_sis_reporte_x_formulario.cs">
-      <DependentUpon>ModelGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tb_spSys_in_consulta_errores_frecuentes_eliminar_movimient1.cs">
-      <DependentUpon>ModelGeneral.tt</DependentUpon>
-    </Compile>
     <Compile Include="tb_sucursal.cs">
-      <DependentUpon>ModelGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tb_tarea.cs">
-      <DependentUpon>ModelGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tb_tarea_equipo.cs">
-      <DependentUpon>ModelGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tb_tarjeta.cs">
-      <DependentUpon>ModelGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tb_tarjeta_parametro.cs">
-      <DependentUpon>ModelGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tb_transportista.cs">
       <DependentUpon>ModelGeneral.tt</DependentUpon>
     </Compile>
     <Compile Include="vwAf_ActivoCtasCbles.cs">
@@ -3024,10 +2882,7 @@
     <Compile Include="vwfa_venta_telefonica_det.cs">
       <DependentUpon>ModelFacturacion.tt</DependentUpon>
     </Compile>
-    <Compile Include="vwGe_tb_sis_Documento_Tipo_Talonario.cs">
-      <DependentUpon>ModelGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwGe_tb_Tarjeta_tb_Parametro.cs">
+    <Compile Include="vwge_tb_sis_documento_tipo_talonario.cs">
       <DependentUpon>ModelGeneral.tt</DependentUpon>
     </Compile>
     <Compile Include="vwin_ajusteFisico.cs">
@@ -3297,47 +3152,41 @@
     <Compile Include="vwseg_usuario_x_tb_sis_reporte.cs">
       <DependentUpon>ModelSeguAcceso.tt</DependentUpon>
     </Compile>
-    <Compile Include="vwtb_Bodega_x_Sucursal_TreeList.cs">
+    <Compile Include="vwtb_bodega_x_sucursal_treelist.cs">
       <DependentUpon>ModelGeneral.tt</DependentUpon>
     </Compile>
     <Compile Include="vwtb_bodega_x_tb_sucursal.cs">
       <DependentUpon>ModelGeneral.tt</DependentUpon>
     </Compile>
-    <Compile Include="vwtb_Ciudad.cs">
-      <DependentUpon>ModelGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwtb_contacto.cs">
-      <DependentUpon>ModelGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwtb_empresa_x_Usuario.cs">
+    <Compile Include="vwtb_empresa_x_usuario.cs">
       <DependentUpon>ModelGeneral.tt</DependentUpon>
     </Compile>
     <Compile Include="vwtb_persona_beneficiario.cs">
       <DependentUpon>ModelGeneral.tt</DependentUpon>
     </Compile>
-    <Compile Include="vwtb_persona_beneficiario_por_Banco_Acreditacion.cs">
+    <Compile Include="vwtb_persona_beneficiario_por_banco_acreditacion.cs">
       <DependentUpon>ModelGeneral.tt</DependentUpon>
     </Compile>
-    <Compile Include="vwtb_sis_Documento_Tipo_x_Disenio_Report.cs">
+    <Compile Include="vwtb_tb_sis_documento_tipo_talonario.cs">
       <DependentUpon>ModelGeneral.tt</DependentUpon>
     </Compile>
-    <Compile Include="vwtb_sis_Documento_Tipo_x_Empresa_Anulados.cs">
+    <Compile Include="vw_estadocivil.cs">
       <DependentUpon>ModelGeneral.tt</DependentUpon>
     </Compile>
-    <Compile Include="vwtb_tb_banco_procesos_bancarios.cs">
+    <Compile Include="vw_naturalezapersona.cs">
       <DependentUpon>ModelGeneral.tt</DependentUpon>
     </Compile>
-    <Compile Include="vwtb_tb_sis_Documento_Tipo_Talonario.cs">
-      <DependentUpon>ModelGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwtb_transportista_x_tb_persona.cs">
-      <DependentUpon>ModelGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwtb_Ubicacion_Geografica.cs">
+    <Compile Include="vw_persona.cs">
       <DependentUpon>ModelGeneral.tt</DependentUpon>
     </Compile>
     <Compile Include="vw_seg_menu_x_usuario_x_empresa.cs">
       <DependentUpon>ModelSeguAcceso.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_tipoctabancos.cs">
+      <DependentUpon>ModelGeneral.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_tipodocumento.cs">
+      <DependentUpon>ModelGeneral.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -3348,7 +3197,6 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModelActivoFijo.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Compile Include="General\tb_pais_Data.cs" />
     <None Include="ModelActivoFijo.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ModelActivoFijo.edmx</DependentUpon>

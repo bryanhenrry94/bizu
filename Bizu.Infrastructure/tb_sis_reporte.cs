@@ -14,36 +14,27 @@ namespace Bizu.Infrastructure
     
     public partial class tb_sis_reporte
     {
-        public tb_sis_reporte()
-        {
-            this.tb_sis_reporte_x_formulario = new HashSet<tb_sis_reporte_x_formulario>();
-        }
-    
-        public string CodReporte { get; set; }
-        public string Nombre { get; set; }
-        public string NombreCorto { get; set; }
-        public string Modulo { get; set; }
-        public string VistaRpt { get; set; }
-        public string Formulario { get; set; }
-        public string Class_NomReporte { get; set; }
-        public string nom_Asembly { get; set; }
-        public int Orden { get; set; }
-        public string Observacion { get; set; }
+        public string codreporte { get; set; }
+        public string nombre { get; set; }
+        public string nombrecorto { get; set; }
+        public string modulo { get; set; }
+        public string vistarpt { get; set; }
+        public string formulario { get; set; }
+        public string class_nomreporte { get; set; }
+        public string nom_asembly { get; set; }
+        public int orden { get; set; }
+        public string observacion { get; set; }
         public byte[] imagen { get; set; }
-        public Nullable<int> VersionActual { get; set; }
-        public string Tipo_Balance { get; set; }
-        public string SQuery { get; set; }
-        public string Class_Info { get; set; }
-        public string Class_Bus { get; set; }
-        public string Class_Data { get; set; }
-        public Nullable<int> IdGrupo_Reporte { get; set; }
-        public Nullable<bool> se_Muestra_Admin_Reporte { get; set; }
-        public string Estado { get; set; }
-        public string Store_proce_rpt { get; set; }
-        public byte[] Disenio_reporte { get; set; }
-    
-        public virtual tb_modulo tb_modulo { get; set; }
-        public virtual tb_sis_reporte_Grupo tb_sis_reporte_Grupo { get; set; }
-        public virtual ICollection<tb_sis_reporte_x_formulario> tb_sis_reporte_x_formulario { get; set; }
+        public Nullable<int> versionactual { get; set; }
+        public string tipo_balance { get; set; }
+        public string squery { get; set; }
+        public string class_info { get; set; }
+        public string class_bus { get; set; }
+        public string class_data { get; set; }
+        public Nullable<int> idgrupo_reporte { get; set; }
+        public Nullable<bool> se_muestra_admin_reporte { get; set; }
+        public string estado { get; set; }
+        public string store_proce_rpt { get; set; }
+        public byte[] disenio_reporte { get; set; }
     }
 }

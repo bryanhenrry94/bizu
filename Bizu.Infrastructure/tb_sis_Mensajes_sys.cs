@@ -12,12 +12,12 @@ namespace Bizu.Infrastructure
     using System;
     using System.Collections.Generic;
     
-    public partial class tb_sis_Mensajes_sys
+    public partial class tb_sis_mensajes_sys
     {
-        public decimal IdSecuencia { get; set; }
-        public string IdMensaje { get; set; }
-        public string Mensaje_Esp { get; set; }
-        public string Mensaje_Englesh { get; set; }
-        public string Estado { get; set; }
+        public decimal idsecuencia { get; set; }
+        public string idmensaje { get; set; }
+        public string mensaje_esp { get; set; }
+        public string mensaje_englesh { get; set; }
+        public string estado { get; set; }
     }
 }

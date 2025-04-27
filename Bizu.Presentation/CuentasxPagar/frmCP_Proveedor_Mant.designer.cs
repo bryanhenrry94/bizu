@@ -55,7 +55,6 @@
             this.lblCodPostal = new DevExpress.XtraEditors.LabelControl();
             this.txt_celular_secundario = new System.Windows.Forms.TextBox();
             this.label34 = new System.Windows.Forms.Label();
-            this.ucGe_Persona_x_Direcciones_Grid1 = new Bizu.Presentation.Controles.UCGe_Persona_x_Direcciones_Grid();
             this.txe_telefono_contacto = new DevExpress.XtraEditors.TextEdit();
             this.txe_telefono_casa = new DevExpress.XtraEditors.TextEdit();
             this.label30 = new System.Windows.Forms.Label();
@@ -527,7 +526,6 @@
             this.panelControl2.Controls.Add(this.lblCodPostal);
             this.panelControl2.Controls.Add(this.txt_celular_secundario);
             this.panelControl2.Controls.Add(this.label34);
-            this.panelControl2.Controls.Add(this.ucGe_Persona_x_Direcciones_Grid1);
             this.panelControl2.Controls.Add(this.txe_telefono_contacto);
             this.panelControl2.Controls.Add(this.txe_telefono_casa);
             this.panelControl2.Controls.Add(this.label30);
@@ -579,15 +577,7 @@
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(99, 13);
             this.label34.TabIndex = 47;
-            this.label34.Text = "Celular Secundario:";
-            // 
-            // ucGe_Persona_x_Direcciones_Grid1
-            // 
-            this.ucGe_Persona_x_Direcciones_Grid1.Location = new System.Drawing.Point(109, 130);
-            this.ucGe_Persona_x_Direcciones_Grid1.Margin = new System.Windows.Forms.Padding(4);
-            this.ucGe_Persona_x_Direcciones_Grid1.Name = "ucGe_Persona_x_Direcciones_Grid1";
-            this.ucGe_Persona_x_Direcciones_Grid1.Size = new System.Drawing.Size(500, 91);
-            this.ucGe_Persona_x_Direcciones_Grid1.TabIndex = 45;
+            this.label34.Text = "Celular Secundario:";           
             // 
             // txe_telefono_contacto
             // 
@@ -2375,7 +2365,6 @@
         private System.Windows.Forms.Label label8;
         private DevExpress.XtraEditors.TextEdit txt_Plazo;
         private System.Windows.Forms.TabPage tabPageInfoCtaBancaria;
-        private Controles.UCGe_Persona_x_Direcciones_Grid ucGe_Persona_x_Direcciones_Grid1;
         private Reports.Controles.UCct_Pto_Cargo_Grupo uCct_Pto_Cargo_Grupo1;
         private System.Windows.Forms.TextBox txt_celular_secundario;
         private System.Windows.Forms.Label label34;

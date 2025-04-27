@@ -268,11 +268,8 @@ namespace Bizu.Application.Inventario
             {
                 in_producto_x_tb_bodega_Costo_Historico_Bus BusCostoHis = new in_producto_x_tb_bodega_Costo_Historico_Bus();
                 in_producto_x_tb_bodega_Costo_Historico_Info InfoCostoHis = new in_producto_x_tb_bodega_Costo_Historico_Info();
-                tb_Calendario_Bus busCalendario = new tb_Calendario_Bus();
-                tb_Calendario_Info InfoCalendario = new tb_Calendario_Info();
+                
                 string msjError = "";
-
-                InfoCalendario = busCalendario.Get_Info_Calendario(cm_fecha);
 
                 foreach (var item in InfoDet)
                 {
@@ -283,7 +280,7 @@ namespace Bizu.Application.Inventario
                         InfoCostoHis.IdSucursal = item.IdSucursal;
                         InfoCostoHis.IdBodega = item.IdBodega;
                         InfoCostoHis.IdProducto = item.IdProducto;
-                        InfoCostoHis.IdFecha = InfoCalendario.IdCalendario;
+                        InfoCostoHis.IdFecha = 0; // antes se enviaba la fecha id de calendario
                         InfoCostoHis.Secuencia = item.Secuencia;
                         InfoCostoHis.fecha = cm_fecha;
                         InfoCostoHis.costo = item.Costo_Promedio_x_Producto;

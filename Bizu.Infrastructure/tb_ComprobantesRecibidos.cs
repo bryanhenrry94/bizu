@@ -12,27 +12,27 @@ namespace Bizu.Infrastructure
     using System;
     using System.Collections.Generic;
     
-    public partial class tb_ComprobantesRecibidos
+    public partial class tb_comprobantesrecibidos
     {
-        public int Id { get; set; }
-        public string RucEmisor { get; set; }
-        public string RazonSocialEmisor { get; set; }
-        public string TipoComprobante { get; set; }
-        public string SerieComprobante { get; set; }
-        public System.DateTime FechaEmision { get; set; }
-        public string ClaveAcceso { get; set; }
-        public System.DateTime FechaAutorizacion { get; set; }
-        public string IdentificacionReceptor { get; set; }
-        public Nullable<decimal> ValorSinImpuestos { get; set; }
-        public Nullable<decimal> Iva { get; set; }
-        public Nullable<decimal> ImporteTotal { get; set; }
-        public string NumeroDocumentoModificado { get; set; }
-        public string Estado { get; set; }
-        public string Motivo { get; set; }
-        public string XML { get; set; }
-        public Nullable<int> IdEmpresa_Ogiro { get; set; }
-        public Nullable<decimal> IdCbteCble_Ogiro { get; set; }
-        public Nullable<int> IdTipoCbte_Ogiro { get; set; }
-        public string NumeroAutorizacion { get; set; }
+        public int id { get; set; }
+        public string rucemisor { get; set; }
+        public string razonsocialemisor { get; set; }
+        public string tipocomprobante { get; set; }
+        public string seriecomprobante { get; set; }
+        public System.DateTime fechaemision { get; set; }
+        public string claveacceso { get; set; }
+        public System.DateTime fechaautorizacion { get; set; }
+        public string identificacionreceptor { get; set; }
+        public Nullable<decimal> valorsinimpuestos { get; set; }
+        public Nullable<decimal> iva { get; set; }
+        public Nullable<decimal> importetotal { get; set; }
+        public string numerodocumentomodificado { get; set; }
+        public string estado { get; set; }
+        public string motivo { get; set; }
+        public string xml { get; set; }
+        public Nullable<int> idempresa_ogiro { get; set; }
+        public Nullable<decimal> idcbtecble_ogiro { get; set; }
+        public Nullable<int> idtipocbte_ogiro { get; set; }
+        public string numeroautorizacion { get; set; }
     }
 }

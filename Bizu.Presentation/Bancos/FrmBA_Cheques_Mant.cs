@@ -15,16 +15,9 @@ using Bizu.Domain.Bancos;
 using Bizu.Application.Bancos;
 using Bizu.Domain.General;
 using Bizu.Presentation.General;
-using Bizu.Presentation.Controles;
-using Bizu.Application.SeguridadAcceso;
 using Bizu.Reports.Bancos;
 using Bizu.Presentation.CuentasxPagar;
-using System.IO;
-
-using DevExpress.XtraReports.Parameters;
 using DevExpress.XtraReports.UI;
-using Bizu.Application.Mail;
-using Bizu.Domain.Mail;
 
 namespace Bizu.Presentation.Bancos
 {
@@ -50,7 +43,6 @@ namespace Bizu.Presentation.Bancos
         vwcp_orden_pago_con_cancelacion_Bus orden_pago_con_cancelacion_Bus = new vwcp_orden_pago_con_cancelacion_Bus();
         cp_orden_pago_cancelaciones_Bus BusOrdenPagoCancelacion = new cp_orden_pago_cancelaciones_Bus();
         cp_proveedor_Bus proveedorB = new cp_proveedor_Bus();
-        tb_Ciudad_Bus BusCiudad = new tb_Ciudad_Bus();
         vwct_cbtecble_con_ctacble_acreedora_Bus Bus_CtaCble_Acreedora = new vwct_cbtecble_con_ctacble_acreedora_Bus();
         tb_sis_Log_Error_Vzen_Bus Log_Error_bus = new tb_sis_Log_Error_Vzen_Bus();
 
@@ -58,7 +50,6 @@ namespace Bizu.Presentation.Bancos
         List<ct_Cbtecble_det_Info> _ListaCbteCbleDet = new List<ct_Cbtecble_det_Info>();
         List<ct_Cbtecble_det_Info> _ListaCbteCbleDetAnt = new List<ct_Cbtecble_det_Info>();
         List<cp_orden_pago_cancelaciones_Info> ListOrdenPagoCancelacion = new List<cp_orden_pago_cancelaciones_Info>();
-        List<tb_ciudad_Info> ListInfoCiudad = new List<tb_ciudad_Info>();
         BindingList<vwba_Banco_Movimiento_det_cancelado_Info> BindingDetalleCaja = new BindingList<vwba_Banco_Movimiento_det_cancelado_Info>();
         BindingList<vwcp_orden_pago_con_cancelacion_Info> Obj_DetalleAprob = new BindingList<vwcp_orden_pago_con_cancelacion_Info>();
         BindingList<vwba_ordenGiroPendientes_Info> BindListOG = new BindingList<vwba_ordenGiroPendientes_Info>();        
@@ -252,8 +243,7 @@ namespace Bizu.Presentation.Bancos
             try
             {
                 if (_Accion == 0) { _Accion = Cl_Enumeradores.eTipo_action.grabar; }
-                ListInfoCiudad = BusCiudad.Get_List_Ciudad("");
-                this.cmbCiudad.Properties.DataSource = ListInfoCiudad;
+                
                 listParaBan = paramBa_B.Get_List_Banco_Parametros(param.IdEmpresa);
                 InfoParam_Banco = listParaBan.Find(delegate (ba_Cbte_Ban_tipo_x_ct_CbteCble_tipo_Info P) { return P.CodTipoCbteBan == "CHEQ"; });
 

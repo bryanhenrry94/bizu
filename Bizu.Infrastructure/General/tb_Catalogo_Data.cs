@@ -19,16 +19,16 @@ namespace Bizu.Infrastructure.General
             {
                 List<Cl_EstadoCivil_Info> lEstC = new List<Cl_EstadoCivil_Info>();
                 EntitiesGeneral OCatalogo = new EntitiesGeneral();
-                var EstadoCivil = from C in OCatalogo.tb_Catalogo
-                                  where C.IdTipoCatalogo == 2
+                var EstadoCivil = from C in OCatalogo.tb_catalogo
+                                  where C.idtipocatalogo == 2
                                   orderby C.ca_orden
                                   select C;
 
                 foreach (var item in EstadoCivil)
                 {
                     Cl_EstadoCivil_Info Cbt = new Cl_EstadoCivil_Info();
-                    Cbt.id = item.IdCatalogo;
-                    Cbt.codigo = item.CodCatalogo;
+                    Cbt.id = item.idcatalogo;
+                    Cbt.codigo = item.codcatalogo;
                     Cbt.descripcion = item.ca_descripcion;
                     lEstC.Add(Cbt);
                 }
@@ -45,23 +45,23 @@ namespace Bizu.Infrastructure.General
                 throw new Exception(ex.ToString());
             }
         }
-        
+
         public List<Cl_TipoDoc_Personales_Info> Get_List_TipoDoc_Personales()
         {
             try
             {
                 List<Cl_TipoDoc_Personales_Info> lEstC = new List<Cl_TipoDoc_Personales_Info>();
                 EntitiesGeneral OCatalogo = new EntitiesGeneral();
-                var Doc = from C in OCatalogo.tb_Catalogo
-                          where C.IdTipoCatalogo == 3
+                var Doc = from C in OCatalogo.tb_catalogo
+                          where C.idtipocatalogo == 3
                           orderby C.ca_orden
                           select C;
-                
+
                 foreach (var item in Doc)
                 {
                     Cl_TipoDoc_Personales_Info Cbt = new Cl_TipoDoc_Personales_Info();
-                    Cbt.id = item.IdCatalogo;
-                    Cbt.codigo = item.CodCatalogo;
+                    Cbt.id = item.idcatalogo;
+                    Cbt.codigo = item.codcatalogo;
                     Cbt.descripcion = item.ca_descripcion;
                     lEstC.Add(Cbt);
                 }
@@ -86,15 +86,15 @@ namespace Bizu.Infrastructure.General
 
                 List<Cl_Sexo_Info> lEstC = new List<Cl_Sexo_Info>();
                 EntitiesGeneral OCatalogo = new EntitiesGeneral();
-                var Doc = from C in OCatalogo.tb_Catalogo
-                          where C.IdTipoCatalogo == 1
+                var Doc = from C in OCatalogo.tb_catalogo
+                          where C.idtipocatalogo == 1
                           orderby C.ca_orden
                           select C;
                 foreach (var item in Doc)
                 {
                     Cl_Sexo_Info Cbt = new Cl_Sexo_Info();
-                    Cbt.id = item.CodCatalogo;
-                    Cbt.codigo = item.CodCatalogo;
+                    Cbt.id = item.codcatalogo;
+                    Cbt.codigo = item.codcatalogo;
                     Cbt.descripcion = item.ca_descripcion;
                     lEstC.Add(Cbt);
                 }
@@ -121,8 +121,8 @@ namespace Bizu.Infrastructure.General
 
                 List<Cl_NaturalezaPerso> lEstC = new List<Cl_NaturalezaPerso>();
                 EntitiesGeneral OCatalogo = new EntitiesGeneral();
-                var Doc = from C in OCatalogo.tb_Catalogo
-                          where C.IdTipoCatalogo == 5
+                var Doc = from C in OCatalogo.tb_catalogo
+                          where C.idtipocatalogo == 5
                           orderby C.ca_orden
                           select C;
 
@@ -130,8 +130,8 @@ namespace Bizu.Infrastructure.General
                 foreach (var item in Doc)
                 {
                     Cl_NaturalezaPerso Cbt = new Cl_NaturalezaPerso();
-                    Cbt.id = item.IdCatalogo;
-                    Cbt.codigo = item.CodCatalogo;
+                    Cbt.id = item.idcatalogo;
+                    Cbt.codigo = item.codcatalogo;
                     Cbt.descripcion = item.ca_descripcion;
 
 
@@ -166,8 +166,8 @@ namespace Bizu.Infrastructure.General
 
                 List<Cl_Estado_Info> lEstC = new List<Cl_Estado_Info>();
                 EntitiesGeneral OCatalogo = new EntitiesGeneral();
-                var Doc = from C in OCatalogo.tb_Catalogo
-                          where C.IdTipoCatalogo == 4
+                var Doc = from C in OCatalogo.tb_catalogo
+                          where C.idtipocatalogo == 4
                           orderby C.ca_orden
                           select C;
 
@@ -175,8 +175,8 @@ namespace Bizu.Infrastructure.General
                 foreach (var item in Doc)
                 {
                     Cl_Estado_Info Cbt = new Cl_Estado_Info();
-                    Cbt.id = item.IdCatalogo;
-                    Cbt.codigo = item.CodCatalogo;
+                    Cbt.id = item.idcatalogo;
+                    Cbt.codigo = item.codcatalogo;
                     Cbt.descripcion = item.ca_descripcion;
 
 
@@ -208,15 +208,15 @@ namespace Bizu.Infrastructure.General
             try
             {
 
-                string tipo2="";
+                string tipo2 = "";
                 tipo2 = Tipo.ToString();
 
                 List<tb_Catalogo_Info> lista = new List<tb_Catalogo_Info>();
                 EntitiesGeneral OCatalogo = new EntitiesGeneral();
-                var Doc = from C in OCatalogo.tb_Catalogo
-                          join TC in OCatalogo.tb_CatalogoTipo
-                          on C.IdTipoCatalogo equals TC.IdTipoCatalogo
-                          where TC.Codigo.Equals(tipo2)
+                var Doc = from C in OCatalogo.tb_catalogo
+                          join TC in OCatalogo.tb_catalogotipo
+                          on C.idtipocatalogo equals TC.idtipocatalogo
+                          where TC.codigo.Equals(tipo2)
                           orderby C.ca_orden
                           select C;
 
@@ -224,9 +224,9 @@ namespace Bizu.Infrastructure.General
                 foreach (var item in Doc)
                 {
                     tb_Catalogo_Info catalogo = new tb_Catalogo_Info();
-                    catalogo.IdCatalogo = item.IdCatalogo;
-                    catalogo.IdTipoCatalogo = item.IdTipoCatalogo;
-                    catalogo.CodCatalogo = item.CodCatalogo;
+                    catalogo.IdCatalogo = item.idcatalogo;
+                    catalogo.IdTipoCatalogo = item.idtipocatalogo;
+                    catalogo.CodCatalogo = item.codcatalogo;
                     catalogo.ca_descripcion = item.ca_descripcion;
                     catalogo.ca_estado = item.ca_estado;
                     catalogo.ca_orden = item.ca_orden;
@@ -257,16 +257,16 @@ namespace Bizu.Infrastructure.General
             {
                 List<tb_Catalogo_Info> lEstC = new List<tb_Catalogo_Info>();
                 EntitiesGeneral OCatalogo = new EntitiesGeneral();
-                var Doc = from C in OCatalogo.tb_Catalogo
-                          where C.IdTipoCatalogo == 24
+                var Doc = from C in OCatalogo.tb_catalogo
+                          where C.idtipocatalogo == 24
                           orderby C.ca_orden
                           select C;
 
                 foreach (var item in Doc)
                 {
                     tb_Catalogo_Info Cbt = new tb_Catalogo_Info();
-                    Cbt.IdCatalogo = item.IdCatalogo;
-                    Cbt.CodCatalogo = item.CodCatalogo;
+                    Cbt.IdCatalogo = item.idcatalogo;
+                    Cbt.CodCatalogo = item.codcatalogo;
                     Cbt.ca_descripcion = item.ca_descripcion;
 
                     lEstC.Add(Cbt);
@@ -293,20 +293,20 @@ namespace Bizu.Infrastructure.General
             {
                 List<tb_Catalogo_Info> lEstC = new List<tb_Catalogo_Info>();
                 EntitiesGeneral OCatalogo = new EntitiesGeneral();
-                var Doc = from C in OCatalogo.tb_Catalogo
-                          where C.IdTipoCatalogo == IdTipoCatalgo
+                var Doc = from C in OCatalogo.tb_catalogo
+                          where C.idtipocatalogo == IdTipoCatalgo
                           select C;
 
                 foreach (var item in Doc)
                 {
                     tb_Catalogo_Info Cbt = new tb_Catalogo_Info();
 
-                    Cbt.IdCatalogo = item.IdCatalogo;
-                    Cbt.CodCatalogo = item.CodCatalogo;
+                    Cbt.IdCatalogo = item.idcatalogo;
+                    Cbt.CodCatalogo = item.codcatalogo;
                     Cbt.ca_descripcion = item.ca_descripcion;
                     Cbt.ca_estado = item.ca_estado;
                     Cbt.ca_orden = item.ca_orden;
-                    Cbt.IdTipoCatalogo = item.IdTipoCatalogo;
+                    Cbt.IdTipoCatalogo = item.idtipocatalogo;
 
                     lEstC.Add(Cbt);
                 }
@@ -331,7 +331,7 @@ namespace Bizu.Infrastructure.General
             {
                 using (EntitiesGeneral context = new EntitiesGeneral())
                 {
-                    var contact = context.tb_Catalogo.FirstOrDefault(A => A.IdCatalogo == info.IdCatalogo);
+                    var contact = context.tb_catalogo.FirstOrDefault(A => A.idcatalogo == info.IdCatalogo);
                     if (contact != null)
                     {
                         contact.ca_estado = "I";
@@ -364,10 +364,10 @@ namespace Bizu.Infrastructure.General
 
                 using (EntitiesGeneral EDG = new EntitiesGeneral())
                 {
-                    var codigo = (from per in EDG.tb_Catalogo
-                                 where per.CodCatalogo == info.CodCatalogo
-                                select per).Count();
-                    if (codigo != 0) 
+                    var codigo = (from per in EDG.tb_catalogo
+                                  where per.codcatalogo == info.CodCatalogo
+                                  select per).Count();
+                    if (codigo != 0)
                     {
                         msg = "El Codigo Ingresado Ya Existe Favor Ingrese uno diferente";
                         return false;
@@ -377,18 +377,18 @@ namespace Bizu.Infrastructure.General
                     info.IdCatalogo = idCat;
                     info.CodCatalogo = (info.CodCatalogo == null || info.CodCatalogo == "") ? Convert.ToString(idCat) : info.CodCatalogo;
 
-                    var Q = from per in EDG.tb_Catalogo
-                            where per.IdCatalogo == info.IdCatalogo
+                    var Q = from per in EDG.tb_catalogo
+                            where per.idcatalogo == info.IdCatalogo
                             select per;
 
                     if (Q.ToList().Count == 0)
                     {
-                        
-                        tb_Catalogo address = new tb_Catalogo();
 
-                        address.IdCatalogo = info.IdCatalogo;
-                        address.CodCatalogo = info.CodCatalogo;
-                        address.IdTipoCatalogo = info.IdTipoCatalogo;
+                        tb_catalogo address = new tb_catalogo();
+
+                        address.idcatalogo = info.IdCatalogo;
+                        address.codcatalogo = info.CodCatalogo;
+                        address.idtipocatalogo = info.IdTipoCatalogo;
 
                         orden = GetOrdenSegunTipo(info.IdTipoCatalogo);
                         address.ca_orden = orden;
@@ -396,10 +396,10 @@ namespace Bizu.Infrastructure.General
                         address.ca_estado = info.ca_estado;
                         address.ca_descripcion = info.ca_descripcion;
 
-                        EDG.tb_Catalogo.Add(address);
+                        EDG.tb_catalogo.Add(address);
                         EDG.SaveChanges();
 
-                        msg = "El Catálogo #" + address.CodCatalogo + " se grabó Exitosamente";
+                        msg = "El Catálogo #" + address.codcatalogo + " se grabó Exitosamente";
                         return true;
                     }
                     else
@@ -427,16 +427,16 @@ namespace Bizu.Infrastructure.General
                 int Id;
                 EntitiesGeneral OEGeneral = new EntitiesGeneral();
 
-                var q = from C in OEGeneral.tb_Catalogo
-                        where C.IdTipoCatalogo==tipo
+                var q = from C in OEGeneral.tb_catalogo
+                        where C.idtipocatalogo == tipo
                         select C;
                 if (q.ToList().Count == 0)
                     return 1;
                 else
                 {
-                    var select_ = (from t in OEGeneral.tb_Catalogo
-                                   where t.IdTipoCatalogo == tipo
-                                   select t.IdCatalogo).Max();
+                    var select_ = (from t in OEGeneral.tb_catalogo
+                                   where t.idtipocatalogo == tipo
+                                   select t.idcatalogo).Max();
                     Id = Convert.ToInt32(select_.ToString()) + 1;
                     return Id;
                 }
@@ -459,17 +459,17 @@ namespace Bizu.Infrastructure.General
             {
                 using (EntitiesGeneral context = new EntitiesGeneral())
                 {
-                    var contact = context.tb_Catalogo.FirstOrDefault(A => A.IdTipoCatalogo == info.IdTipoCatalogo && A.IdCatalogo == info.IdCatalogo);
+                    var contact = context.tb_catalogo.FirstOrDefault(A => A.idtipocatalogo == info.IdTipoCatalogo && A.idcatalogo == info.IdCatalogo);
                     if (contact != null)
                     {
-                        contact.IdCatalogo = info.IdCatalogo;
-                        contact.IdTipoCatalogo = info.IdTipoCatalogo;
+                        contact.idcatalogo = info.IdCatalogo;
+                        contact.idtipocatalogo = info.IdTipoCatalogo;
                         //contact.CodCatalogo = info.CodCatalogo;
                         contact.ca_orden = info.ca_orden;
                         contact.ca_estado = info.ca_estado;
                         contact.ca_descripcion = info.ca_descripcion;
                         context.SaveChanges();
-                        msg = "El Catálogo #" + contact.CodCatalogo + " se actualizó Exitosamente";
+                        msg = "El Catálogo #" + contact.codcatalogo + " se actualizó Exitosamente";
                     }
                 }
                 return true;
@@ -493,7 +493,7 @@ namespace Bizu.Infrastructure.General
             {
                 int Id;
                 EntitiesGeneral OECompras = new EntitiesGeneral();
-                var select = from q in OECompras.tb_Catalogo
+                var select = from q in OECompras.tb_catalogo
                              select q;
 
                 if (select.ToList().Count < 1)
@@ -502,8 +502,8 @@ namespace Bizu.Infrastructure.General
                 }
                 else
                 {
-                    var select_pv = (from q in OECompras.tb_Catalogo
-                                     select q.IdCatalogo).Max();
+                    var select_pv = (from q in OECompras.tb_catalogo
+                                     select q.idcatalogo).Max();
                     Id = Convert.ToInt32(select_pv.ToString()) + 1;
                     Id = (Id == 0) ? 1 : Id;
                 }
@@ -528,11 +528,11 @@ namespace Bizu.Infrastructure.General
             {
                 using (EntitiesGeneral context = new EntitiesGeneral())
                 {
-                    var contact = context.tb_Catalogo.FirstOrDefault(A => A.CodCatalogo == codigo);
+                    var contact = context.tb_catalogo.FirstOrDefault(A => A.codcatalogo == codigo);
                     if (contact != null)
                     {
                         descripcion = contact.ca_descripcion;
-                     
+
                     }
                 }
                 return descripcion;
@@ -544,7 +544,7 @@ namespace Bizu.Infrastructure.General
                 tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", arreglo, "",
                                     "", "", "", "", DateTime.Now);
                 oDataLog.Guardar_Log_Error(Log_Error_sis, ref mensaje);
-                mensaje = ex.ToString() + " " + ex.Message;                
+                mensaje = ex.ToString() + " " + ex.Message;
                 throw new Exception(ex.ToString());
             }
         }

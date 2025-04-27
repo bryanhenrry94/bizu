@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 using System.Xml;
 using System.Xml.Serialization;
 using System.IO;
-using System.Text;
 
 using Bizu.Domain.General;
-using Bizu.Infrastructure.General;
 
 using Bizu.Domain.class_sri.FacturaV2;
 using Bizu.Domain.class_sri.NotaCredito;

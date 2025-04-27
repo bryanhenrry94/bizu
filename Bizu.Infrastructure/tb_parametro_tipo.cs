@@ -14,14 +14,7 @@ namespace Bizu.Infrastructure
     
     public partial class tb_parametro_tipo
     {
-        public tb_parametro_tipo()
-        {
-            this.tb_parametro = new HashSet<tb_parametro>();
-        }
-    
-        public string IdTipoParam { get; set; }
-        public string nom_TipoParam { get; set; }
-    
-        public virtual ICollection<tb_parametro> tb_parametro { get; set; }
+        public string idtipoparam { get; set; }
+        public string nom_tipoparam { get; set; }
     }
 }

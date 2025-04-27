@@ -19,25 +19,25 @@ namespace Bizu.Infrastructure.General
             {
                 List<tb_sis_Documento_Tipo_Talonario_Info> lm = new List<tb_sis_Documento_Tipo_Talonario_Info>();
                 EntitiesGeneral OEGeneral = new EntitiesGeneral();
-                var q = from A in OEGeneral.vwGe_tb_sis_Documento_Tipo_Talonario
-                        where A.IdEmpresa == IdEmpresa
+                var q = from A in OEGeneral.vwge_tb_sis_documento_tipo_talonario
+                        where A.idempresa == IdEmpresa
                         select A;
                 foreach (var item in q)
                 {
                     tb_sis_Documento_Tipo_Talonario_Info info = new tb_sis_Documento_Tipo_Talonario_Info();
-                    info.IdEmpresa = item.IdEmpresa;
-                    info.CodDocumentoTipo = item.CodDocumentoTipo;
-                    info.PuntoEmision = item.PuntoEmision;
-                    info.NumDocumento = item.NumDocumento;
-                    info.Establecimiento = item.Establecimiento;
-                    info.FechaCaducidad = item.FechaCaducidad;
-                    info.Usado = Convert.ToBoolean(item.Usado);
-                    info.Estado = item.Estado;
-                    info.IdSucursal = item.IdSucursal;
-                    info.NumAutorizacion = item.NumAutorizacion;
-                    info.NombreSucursal = item.Su_Descripcion;
+                    info.IdEmpresa = item.idempresa;
+                    info.CodDocumentoTipo = item.coddocumentotipo;
+                    info.PuntoEmision = item.puntoemision;
+                    info.NumDocumento = item.numdocumento;
+                    info.Establecimiento = item.establecimiento;
+                    info.FechaCaducidad = item.fechacaducidad;
+                    info.Usado = Convert.ToBoolean(item.usado);
+                    info.Estado = item.estado;
+                    info.IdSucursal = item.idsucursal;
+                    info.NumAutorizacion = item.numautorizacion;
+                    info.NombreSucursal = item.su_descripcion;
                     info.NombreEmpresa = item.em_nombre;
-                    info.es_Documento_electronico = Convert.ToBoolean(item.es_Documento_Electronico);
+                    info.es_Documento_electronico = Convert.ToBoolean(item.es_documento_electronico);
 
                     lm.Add(info);
                 }
@@ -60,26 +60,26 @@ namespace Bizu.Infrastructure.General
             {
                 List<tb_sis_Documento_Tipo_Talonario_Info> lm = new List<tb_sis_Documento_Tipo_Talonario_Info>();
                 EntitiesGeneral OEGeneral = new EntitiesGeneral();
-                var q = from A in OEGeneral.vwGe_tb_sis_Documento_Tipo_Talonario
-                        where A.IdEmpresa == IdEmpresa && A.CodDocumentoTipo == TipoDocu
-                        && A.es_Documento_Electronico == Es_Documento_Electronico
+                var q = from A in OEGeneral.vwge_tb_sis_documento_tipo_talonario
+                        where A.idempresa == IdEmpresa && A.coddocumentotipo == TipoDocu
+                        && A.es_documento_electronico == Es_Documento_Electronico
                         select A;
                 foreach (var item in q)
                 {
                     tb_sis_Documento_Tipo_Talonario_Info info = new tb_sis_Documento_Tipo_Talonario_Info();
-                    info.IdEmpresa = item.IdEmpresa;
-                    info.CodDocumentoTipo = item.CodDocumentoTipo;
-                    info.PuntoEmision = item.PuntoEmision;
-                    info.NumDocumento = item.NumDocumento;
-                    info.Establecimiento = item.Establecimiento;
-                    info.FechaCaducidad = item.FechaCaducidad;
-                    info.Usado = Convert.ToBoolean(item.Usado);
-                    info.Estado = item.Estado;
-                    info.IdSucursal = item.IdSucursal;
-                    info.NumAutorizacion = item.NumAutorizacion;
-                    info.NombreSucursal = item.Su_Descripcion;
+                    info.IdEmpresa = item.idempresa;
+                    info.CodDocumentoTipo = item.coddocumentotipo;
+                    info.PuntoEmision = item.puntoemision;
+                    info.NumDocumento = item.numdocumento;
+                    info.Establecimiento = item.establecimiento;
+                    info.FechaCaducidad = item.fechacaducidad;
+                    info.Usado = Convert.ToBoolean(item.usado);
+                    info.Estado = item.estado;
+                    info.IdSucursal = item.idsucursal;
+                    info.NumAutorizacion = item.numautorizacion;
+                    info.NombreSucursal = item.su_descripcion;
                     info.NombreEmpresa = item.em_nombre;
-                    info.es_Documento_electronico = Convert.ToBoolean(item.es_Documento_Electronico);
+                    info.es_Documento_electronico = Convert.ToBoolean(item.es_documento_electronico);
 
                     lm.Add(info);
                 }
@@ -104,13 +104,13 @@ namespace Bizu.Infrastructure.General
 
                 List<tb_sis_Documento_Tipo_Talonario_Info> lm = new List<tb_sis_Documento_Tipo_Talonario_Info>();
                 EntitiesGeneral OEGeneral = new EntitiesGeneral();
-                var q = (from A in OEGeneral.tb_sis_Documento_Tipo_Talonario
-                         where A.IdEmpresa == IdEmpresa
-                         && A.PuntoEmision == puntoemision
-                         && A.CodDocumentoTipo == tipodoc
-                         && A.Establecimiento == establecimiento
-                         && A.Estado == "A"
-                         select A.NumDocumento).Max();
+                var q = (from A in OEGeneral.tb_sis_documento_tipo_talonario
+                         where A.idempresa == IdEmpresa
+                         && A.puntoemision == puntoemision
+                         && A.coddocumentotipo == tipodoc
+                         && A.establecimiento == establecimiento
+                         && A.estado == "A"
+                         select A.numdocumento).Max();
 
                 string UltRegistro = "";
 
@@ -123,29 +123,29 @@ namespace Bizu.Infrastructure.General
                     UltRegistro = q.ToString();
                 }
 
-                var querry = from A in OEGeneral.tb_sis_Documento_Tipo_Talonario
-                             where A.IdEmpresa == IdEmpresa
-                             && A.PuntoEmision == puntoemision
-                             && A.CodDocumentoTipo == tipodoc
-                             && A.Establecimiento == establecimiento
-                             && A.NumDocumento == UltRegistro
+                var querry = from A in OEGeneral.tb_sis_documento_tipo_talonario
+                             where A.idempresa == IdEmpresa
+                             && A.puntoemision == puntoemision
+                             && A.coddocumentotipo == tipodoc
+                             && A.establecimiento == establecimiento
+                             && A.numdocumento == UltRegistro
                              select A;
 
                 if (querry != null)
                 {
                     foreach (var item in querry)
                     {
-                        Info.IdEmpresa = item.IdEmpresa;
-                        Info.IdSucursal = item.IdSucursal;
-                        Info.CodDocumentoTipo = item.CodDocumentoTipo;
-                        Info.Establecimiento = item.Establecimiento;
-                        Info.Estado = item.Estado;
-                        Info.FechaCaducidad = item.FechaCaducidad;
-                        Info.NumAutorizacion = item.NumAutorizacion;
-                        Info.NumDocumento = item.NumDocumento;
-                        Info.PuntoEmision = item.PuntoEmision;
-                        Info.Usado = item.Usado;
-                        Info.es_Documento_electronico = Convert.ToBoolean(item.es_Documento_Electronico);
+                        Info.IdEmpresa = item.idempresa;
+                        Info.IdSucursal = item.idsucursal;
+                        Info.CodDocumentoTipo = item.coddocumentotipo;
+                        Info.Establecimiento = item.establecimiento;
+                        Info.Estado = item.estado;
+                        Info.FechaCaducidad = item.fechacaducidad;
+                        Info.NumAutorizacion = item.numautorizacion;
+                        Info.NumDocumento = item.numdocumento;
+                        Info.PuntoEmision = item.puntoemision;
+                        Info.Usado = item.usado;
+                        Info.es_Documento_electronico = Convert.ToBoolean(item.es_documento_electronico);
                     }
                 }
                 else
@@ -184,29 +184,29 @@ namespace Bizu.Infrastructure.General
                 EntitiesGeneral OEGeneral = new EntitiesGeneral();
 
 
-                var querry = from A in OEGeneral.tb_sis_Documento_Tipo_Talonario
-                             where A.IdEmpresa == IdEmpresa
-                             && A.Establecimiento == establecimiento
-                             && A.PuntoEmision == puntoemision
-                             && A.CodDocumentoTipo == tipodoc
-                             && A.NumDocumento == NumDocumento
+                var querry = from A in OEGeneral.tb_sis_documento_tipo_talonario
+                             where A.idempresa == IdEmpresa
+                             && A.establecimiento == establecimiento
+                             && A.puntoemision == puntoemision
+                             && A.coddocumentotipo == tipodoc
+                             && A.numdocumento == NumDocumento
                              select A;
 
                 if (querry != null)
                 {
                     foreach (var item in querry)
                     {
-                        Info.IdEmpresa = item.IdEmpresa;
-                        Info.IdSucursal = item.IdSucursal;
-                        Info.CodDocumentoTipo = item.CodDocumentoTipo;
-                        Info.Establecimiento = item.Establecimiento;
-                        Info.Estado = item.Estado;
-                        Info.FechaCaducidad = item.FechaCaducidad;
-                        Info.NumAutorizacion = item.NumAutorizacion;
-                        Info.NumDocumento = item.NumDocumento;
-                        Info.PuntoEmision = item.PuntoEmision;
-                        Info.Usado = item.Usado;
-                        Info.es_Documento_electronico = Convert.ToBoolean(item.es_Documento_Electronico);
+                        Info.IdEmpresa = item.idempresa;
+                        Info.IdSucursal = item.idsucursal;
+                        Info.CodDocumentoTipo = item.coddocumentotipo;
+                        Info.Establecimiento = item.establecimiento;
+                        Info.Estado = item.estado;
+                        Info.FechaCaducidad = item.fechacaducidad;
+                        Info.NumAutorizacion = item.numautorizacion;
+                        Info.NumDocumento = item.numdocumento;
+                        Info.PuntoEmision = item.puntoemision;
+                        Info.Usado = item.usado;
+                        Info.es_Documento_electronico = Convert.ToBoolean(item.es_documento_electronico);
                     }
                 }
 
@@ -233,40 +233,40 @@ namespace Bizu.Infrastructure.General
 
                 List<tb_sis_Documento_Tipo_Talonario_Info> lm = new List<tb_sis_Documento_Tipo_Talonario_Info>();
                 EntitiesGeneral OEGeneral = new EntitiesGeneral();
-                var q = (from A in OEGeneral.tb_sis_Documento_Tipo_Talonario
-                         where A.IdEmpresa == IdEmpresa
-                             //&& A.PuntoEmision == puntoemision 
-                         && A.CodDocumentoTipo == tipodoc
-                         && A.Establecimiento == establecimiento
-                         && A.es_Documento_Electronico == Es_Documento_Electronico
-                         && A.Usado == false
-                         && A.Estado == "A"
-                         select A.NumDocumento).Max();
+                var q = (from A in OEGeneral.tb_sis_documento_tipo_talonario
+                         where A.idempresa == IdEmpresa
+                         //&& A.PuntoEmision == puntoemision 
+                         && A.coddocumentotipo == tipodoc
+                         && A.establecimiento == establecimiento
+                         && A.es_documento_electronico == Es_Documento_Electronico
+                         && A.usado == false
+                         && A.estado == "A"
+                         select A.numdocumento).Max();
                 if (q != null)
                 {
                     string UltRegistro = q.ToString();
-                    var querry = from A in OEGeneral.tb_sis_Documento_Tipo_Talonario
-                                 where A.IdEmpresa == IdEmpresa
-                                     //&& A.PuntoEmision == puntoemision 
-                                 && A.CodDocumentoTipo == tipodoc
-                                 && A.Establecimiento == establecimiento
-                                 && A.Usado == false
-                                 && A.NumDocumento == UltRegistro
+                    var querry = from A in OEGeneral.tb_sis_documento_tipo_talonario
+                                 where A.idempresa == IdEmpresa
+                                 //&& A.PuntoEmision == puntoemision 
+                                 && A.coddocumentotipo == tipodoc
+                                 && A.establecimiento == establecimiento
+                                 && A.usado == false
+                                 && A.numdocumento == UltRegistro
                                  select A;
 
                     foreach (var item in querry)
                     {
-                        Info.IdEmpresa = item.IdEmpresa;
-                        Info.IdSucursal = item.IdSucursal;
-                        Info.CodDocumentoTipo = item.CodDocumentoTipo;
-                        Info.Establecimiento = item.Establecimiento;
-                        Info.Estado = item.Estado;
-                        Info.FechaCaducidad = item.FechaCaducidad;
-                        Info.NumAutorizacion = item.NumAutorizacion;
-                        Info.NumDocumento = item.NumDocumento;
-                        Info.PuntoEmision = item.PuntoEmision;
-                        Info.Usado = item.Usado;
-                        Info.es_Documento_electronico = Convert.ToBoolean(item.es_Documento_Electronico);
+                        Info.IdEmpresa = item.idempresa;
+                        Info.IdSucursal = item.idsucursal;
+                        Info.CodDocumentoTipo = item.coddocumentotipo;
+                        Info.Establecimiento = item.establecimiento;
+                        Info.Estado = item.estado;
+                        Info.FechaCaducidad = item.fechacaducidad;
+                        Info.NumAutorizacion = item.numautorizacion;
+                        Info.NumDocumento = item.numdocumento;
+                        Info.PuntoEmision = item.puntoemision;
+                        Info.Usado = item.usado;
+                        Info.es_Documento_electronico = Convert.ToBoolean(item.es_documento_electronico);
                     }
                 }
 
@@ -292,12 +292,12 @@ namespace Bizu.Infrastructure.General
 
                 EntitiesGeneral OEGeneral = new EntitiesGeneral();
 
-                var consulta = from A in OEGeneral.tb_sis_Documento_Tipo_Talonario
-                               where A.IdEmpresa == IdEmpresa
-                               && A.PuntoEmision == puntoEmision
-                               && A.CodDocumentoTipo == codDocuTipo
-                               && A.Establecimiento == establecimiento
-                               && A.NumDocumento == numDocumento
+                var consulta = from A in OEGeneral.tb_sis_documento_tipo_talonario
+                               where A.idempresa == IdEmpresa
+                               && A.puntoemision == puntoEmision
+                               && A.coddocumentotipo == codDocuTipo
+                               && A.establecimiento == establecimiento
+                               && A.numdocumento == numDocumento
 
                                select A;
 
@@ -335,88 +335,86 @@ namespace Bizu.Infrastructure.General
                 EntitiesGeneral OEGeneral = new EntitiesGeneral();
 
                 string q;
-                IQueryable<tb_sis_Documento_Tipo_Talonario> querry;
+                IQueryable<tb_sis_documento_tipo_talonario> querry;
 
                 if (!Considerar_punto_emision)
                 {
-                    q = (from A in OEGeneral.tb_sis_Documento_Tipo_Talonario
-                         where A.IdEmpresa == IdEmpresa
-                             //&& A.PuntoEmision == puntoemision
-                         && A.CodDocumentoTipo == tipodoc
-                         && A.Establecimiento == establecimiento
-                         && A.es_Documento_Electronico == Es_Documento_Electronico
-                         && A.Usado == false
-                         && A.Estado == "A"
+                    q = (from A in OEGeneral.tb_sis_documento_tipo_talonario
+                         where A.idempresa == IdEmpresa
+                         && A.coddocumentotipo == tipodoc
+                         && A.establecimiento == establecimiento
+                         && A.es_documento_electronico == Es_Documento_Electronico
+                         && A.usado == false
+                         && A.estado == "A"
 
-                         select A.NumDocumento).Min();
+                         select A.numdocumento).Min();
                     if (q != null)
                     {
                         string UltRegistro = q.ToString();
 
-                        querry = from A in OEGeneral.tb_sis_Documento_Tipo_Talonario
-                                 where A.IdEmpresa == IdEmpresa
-                                     //&& A.PuntoEmision == puntoemision
-                                 && A.CodDocumentoTipo == tipodoc
-                                 && A.Establecimiento == establecimiento
-                                 && A.Usado == false
-                                 && A.NumDocumento == UltRegistro
+                        querry = from A in OEGeneral.tb_sis_documento_tipo_talonario
+                                 where A.idempresa == IdEmpresa
+                                 && A.coddocumentotipo == tipodoc
+                                 && A.establecimiento == establecimiento
+                                 && A.usado == false
+                                 && A.numdocumento == UltRegistro
                                  select A;
 
                         foreach (var item in querry)
                         {
-                            Info.IdEmpresa = item.IdEmpresa;
-                            Info.IdSucursal = item.IdSucursal;
-                            Info.CodDocumentoTipo = item.CodDocumentoTipo;
-                            Info.Establecimiento = item.Establecimiento;
-                            Info.Estado = item.Estado;
-                            Info.FechaCaducidad = item.FechaCaducidad;
-                            Info.NumAutorizacion = item.NumAutorizacion;
-                            Info.NumDocumento = item.NumDocumento;
-                            Info.PuntoEmision = item.PuntoEmision;
-                            Info.Usado = item.Usado;
-                            Info.es_Documento_electronico = Convert.ToBoolean(item.es_Documento_Electronico);
+                            Info.IdEmpresa = item.idempresa;
+                            Info.IdSucursal = item.idsucursal;
+                            Info.CodDocumentoTipo = item.coddocumentotipo;
+                            Info.Establecimiento = item.establecimiento;
+                            Info.Estado = item.estado;
+                            Info.FechaCaducidad = item.fechacaducidad;
+                            Info.NumAutorizacion = item.numautorizacion;
+                            Info.NumDocumento = item.numdocumento;
+                            Info.PuntoEmision = item.puntoemision;
+                            Info.Usado = item.usado;
+                            Info.es_Documento_electronico = Convert.ToBoolean(item.es_documento_electronico);
                         }
                     }
                 }
                 else
                 {
-                    q = (from A in OEGeneral.tb_sis_Documento_Tipo_Talonario
-                         where A.IdEmpresa == IdEmpresa
-                         && A.CodDocumentoTipo == tipodoc
-                         && A.Establecimiento == establecimiento
-                         && A.PuntoEmision == puntoemision
-                         && A.es_Documento_Electronico == Es_Documento_Electronico
-                         && A.Usado == false
-                         && A.Estado == "A"
-                         select A.NumDocumento).Min();
+                    q = (from A in OEGeneral.tb_sis_documento_tipo_talonario
+                         where A.idempresa == IdEmpresa
+                         && A.coddocumentotipo == tipodoc
+                         && A.establecimiento == establecimiento
+                         && A.puntoemision == puntoemision
+                         && A.es_documento_electronico == Es_Documento_Electronico
+                         && A.usado == false
+                         && A.estado == "A"
+                         select A.numdocumento).Min();
 
                     if (q != null)
                     {
                         string UltRegistro = q.ToString();
 
 
-                        querry = from A in OEGeneral.tb_sis_Documento_Tipo_Talonario
-                                 where A.IdEmpresa == IdEmpresa
-                                 && A.CodDocumentoTipo == tipodoc
-                                 && A.Establecimiento == establecimiento
-                                 && A.PuntoEmision == puntoemision
-                                 && A.Usado == false
-                                 && A.NumDocumento == UltRegistro
+                        querry = from A in OEGeneral.tb_sis_documento_tipo_talonario
+                                 where A.idempresa == IdEmpresa
+                                 && A.coddocumentotipo == tipodoc
+                                 && A.establecimiento == establecimiento
+                                 && A.puntoemision == puntoemision
+                                 && A.usado == false
+                                 && A.numdocumento == UltRegistro
                                  select A;
 
                         foreach (var item in querry)
                         {
-                            Info.IdEmpresa = item.IdEmpresa;
-                            Info.IdSucursal = item.IdSucursal;
-                            Info.CodDocumentoTipo = item.CodDocumentoTipo;
-                            Info.Establecimiento = item.Establecimiento;
-                            Info.Estado = item.Estado;
-                            Info.FechaCaducidad = item.FechaCaducidad;
-                            Info.NumAutorizacion = item.NumAutorizacion;
-                            Info.NumDocumento = item.NumDocumento;
-                            Info.PuntoEmision = item.PuntoEmision;
-                            Info.Usado = item.Usado;
-                            Info.es_Documento_electronico = Convert.ToBoolean(item.es_Documento_Electronico);
+                            Info.IdEmpresa = item.idempresa;
+                            Info.IdSucursal = item.idsucursal;
+                            Info.CodDocumentoTipo = item.coddocumentotipo;
+                            Info.Establecimiento = item.establecimiento;
+                            Info.Estado = item.estado;
+                            Info.FechaCaducidad = item.fechacaducidad;
+                            Info.NumAutorizacion = item.numautorizacion;
+                            Info.NumDocumento = item.numdocumento;
+                            Info.PuntoEmision = item.puntoemision;
+                            Info.Usado = item.usado;
+                            Info.es_Documento_electronico = Convert.ToBoolean(item.es_documento_electronico);
                         }
                     }
                 }
@@ -440,29 +438,29 @@ namespace Bizu.Infrastructure.General
             {
                 using (EntitiesGeneral Context = new EntitiesGeneral())
                 {
-                    var lst = from q in Context.tb_sis_Documento_Tipo_Talonario
-                              where q.IdEmpresa == Info.IdEmpresa
-                              && q.CodDocumentoTipo == Info.CodDocumentoTipo
-                              && q.Establecimiento == Info.Establecimiento
-                              && q.PuntoEmision == Info.PuntoEmision
-                              && q.NumDocumento == Info.NumDocumento
+                    var lst = from q in Context.tb_sis_documento_tipo_talonario
+                              where q.idempresa == Info.IdEmpresa
+                              && q.coddocumentotipo == Info.CodDocumentoTipo
+                              && q.establecimiento == Info.Establecimiento
+                              && q.puntoemision == Info.PuntoEmision
+                              && q.numdocumento == Info.NumDocumento
                               select q;
 
                     if (lst.Count() == 0)
                     {
-                        var Address = new tb_sis_Documento_Tipo_Talonario();
-                        Address.IdEmpresa = Info.IdEmpresa;
-                        Address.CodDocumentoTipo = Info.CodDocumentoTipo;
-                        Address.Establecimiento = Info.Establecimiento;
-                        Address.PuntoEmision = Info.PuntoEmision;
-                        Address.NumDocumento = Info.NumDocumento;
-                        Address.FechaCaducidad = Convert.ToDateTime(Info.FechaCaducidad);
-                        Address.Usado = Info.Usado;
-                        Address.Estado = "A";
-                        Address.IdSucursal = Info.IdSucursal;
-                        Address.NumAutorizacion = Info.NumAutorizacion;
-                        Address.es_Documento_Electronico = Info.es_Documento_electronico;
-                        Context.tb_sis_Documento_Tipo_Talonario.Add(Address);
+                        var Address = new tb_sis_documento_tipo_talonario();
+                        Address.idempresa = Info.IdEmpresa;
+                        Address.coddocumentotipo = Info.CodDocumentoTipo;
+                        Address.establecimiento = Info.Establecimiento;
+                        Address.puntoemision = Info.PuntoEmision;
+                        Address.numdocumento = Info.NumDocumento;
+                        Address.fechacaducidad = Convert.ToDateTime(Info.FechaCaducidad);
+                        Address.usado = Info.Usado;
+                        Address.estado = "A";
+                        Address.idsucursal = Info.IdSucursal;
+                        Address.numautorizacion = Info.NumAutorizacion;
+                        Address.es_documento_electronico = Info.es_Documento_electronico;
+                        Context.tb_sis_documento_tipo_talonario.Add(Address);
                         Context.SaveChanges();
                     }
                 }
@@ -488,18 +486,18 @@ namespace Bizu.Infrastructure.General
                 using (EntitiesGeneral Context = new EntitiesGeneral())
                 {
 
-                    var Address = Context.tb_sis_Documento_Tipo_Talonario.FirstOrDefault(cot => cot.IdEmpresa == Info.IdEmpresa && cot.CodDocumentoTipo == Info.CodDocumentoTipo && cot.IdSucursal == Info.IdSucursal && cot.NumDocumento == Info.NumDocumento);
+                    var Address = Context.tb_sis_documento_tipo_talonario.FirstOrDefault(cot => cot.idempresa == Info.IdEmpresa && cot.coddocumentotipo == Info.CodDocumentoTipo && cot.idsucursal == Info.IdSucursal && cot.numdocumento == Info.NumDocumento);
                     if (Address != null)
                     {
-                        Address.CodDocumentoTipo = Info.CodDocumentoTipo;
-                        Address.Establecimiento = Info.Establecimiento;
-                        Address.PuntoEmision = Info.PuntoEmision;
-                        Address.NumDocumento = Info.NumDocumento;
-                        Address.FechaCaducidad = Convert.ToDateTime(Info.FechaCaducidad);
-                        Address.Usado = Info.Usado;
-                        Address.Estado = Info.Estado;
-                        Address.NumAutorizacion = Info.NumAutorizacion;
-                        Address.es_Documento_Electronico = Info.es_Documento_electronico;
+                        Address.coddocumentotipo = Info.CodDocumentoTipo;
+                        Address.establecimiento = Info.Establecimiento;
+                        Address.puntoemision = Info.PuntoEmision;
+                        Address.numdocumento = Info.NumDocumento;
+                        Address.fechacaducidad = Convert.ToDateTime(Info.FechaCaducidad);
+                        Address.usado = Info.Usado;
+                        Address.estado = Info.Estado;
+                        Address.numautorizacion = Info.NumAutorizacion;
+                        Address.es_documento_electronico = Info.es_Documento_electronico;
                         Context.SaveChanges();
                     }
                 }
@@ -522,10 +520,10 @@ namespace Bizu.Infrastructure.General
 
                 using (EntitiesGeneral Context = new EntitiesGeneral())
                 {
-                    var Address = Context.tb_sis_Documento_Tipo_Talonario.FirstOrDefault(cot => cot.IdEmpresa == Info.IdEmpresa && cot.CodDocumentoTipo == Info.CodDocumentoTipo && cot.Establecimiento == Info.Establecimiento && cot.PuntoEmision == Info.PuntoEmision && cot.NumDocumento == Info.NumDocumento);
+                    var Address = Context.tb_sis_documento_tipo_talonario.FirstOrDefault(cot => cot.idempresa == Info.IdEmpresa && cot.coddocumentotipo == Info.CodDocumentoTipo && cot.establecimiento == Info.Establecimiento && cot.puntoemision == Info.PuntoEmision && cot.numdocumento == Info.NumDocumento);
                     if (Address != null)
                     {
-                        Address.Usado = true;
+                        Address.usado = true;
                         Context.SaveChanges();
                     }
                 }
@@ -550,13 +548,13 @@ namespace Bizu.Infrastructure.General
                 List<tb_sis_Documento_Tipo_Talonario_Info> lm = new List<tb_sis_Documento_Tipo_Talonario_Info>();
                 EntitiesGeneral OEGeneral = new EntitiesGeneral();
 
-                var q = (from A in OEGeneral.tb_sis_Documento_Tipo_Talonario
-                         where A.IdEmpresa == Info.IdEmpresa
-                         && A.PuntoEmision == Info.PuntoEmision
-                         && A.CodDocumentoTipo == Info.CodDocumentoTipo
-                         && A.Establecimiento == Info.Establecimiento
-                         && A.NumDocumento == Info.NumDocumento
-                         && A.Usado == true
+                var q = (from A in OEGeneral.tb_sis_documento_tipo_talonario
+                         where A.idempresa == Info.IdEmpresa
+                         && A.puntoemision == Info.PuntoEmision
+                         && A.coddocumentotipo == Info.CodDocumentoTipo
+                         && A.establecimiento == Info.Establecimiento
+                         && A.numdocumento == Info.NumDocumento
+                         && A.usado == true
                          select A);
 
                 if (q.Count() > 0)
@@ -589,20 +587,20 @@ namespace Bizu.Infrastructure.General
             {
 
                 EntitiesGeneral OEGeneral = new EntitiesGeneral();
-                var consulta = from A in OEGeneral.vwGe_tb_sis_Documento_Tipo_Talonario
-                               where A.PuntoEmision == puntoEmision
-                               && A.CodDocumentoTipo == codDocuTipo
-                               && A.Establecimiento == establecimiento
-                               && A.NumDocumento == numDocumento
-                               && A.IdEmpresa == IdEmpresa
+                var consulta = from A in OEGeneral.vwge_tb_sis_documento_tipo_talonario
+                               where A.puntoemision == puntoEmision
+                               && A.coddocumentotipo == codDocuTipo
+                               && A.establecimiento == establecimiento
+                               && A.numdocumento == numDocumento
+                               && A.idempresa == IdEmpresa
                                select A;
 
                 foreach (var item in consulta)
                 {
-                    Info.Establecimiento = item.Establecimiento;
-                    Info.PuntoEmision = item.PuntoEmision;
-                    Info.NumDocumento = item.NumDocumento;
-                    Info.es_Documento_electronico = (bool)item.es_Documento_Electronico;
+                    Info.Establecimiento = item.establecimiento;
+                    Info.PuntoEmision = item.puntoemision;
+                    Info.NumDocumento = item.numdocumento;
+                    Info.es_Documento_electronico = (bool)item.es_documento_electronico;
                 }
                 return Info;
             }
@@ -626,30 +624,30 @@ namespace Bizu.Infrastructure.General
                 List<tb_sis_Documento_Tipo_Talonario_Info> lm = new List<tb_sis_Documento_Tipo_Talonario_Info>();
 
                 EntitiesGeneral OEGeneral = new EntitiesGeneral();
-                var querry = (from A in OEGeneral.tb_sis_Documento_Tipo_Talonario
-                              where A.IdEmpresa == IdEmpresa
-                              && A.CodDocumentoTipo == tipodoc
-                              && A.Establecimiento == establecimiento
-                              && A.PuntoEmision == puntoemision
-                              && A.es_Documento_Electronico == Es_Documento_Electronico
-                              && A.Usado == false
+                var querry = (from A in OEGeneral.tb_sis_documento_tipo_talonario
+                              where A.idempresa == IdEmpresa
+                              && A.coddocumentotipo == tipodoc
+                              && A.establecimiento == establecimiento
+                              && A.puntoemision == puntoemision
+                              && A.es_documento_electronico == Es_Documento_Electronico
+                              && A.usado == false
                               select A);
 
                 foreach (var item in querry)
                 {
                     tb_sis_Documento_Tipo_Talonario_Info Info = new tb_sis_Documento_Tipo_Talonario_Info();
 
-                    Info.IdEmpresa = item.IdEmpresa;
-                    Info.IdSucursal = item.IdSucursal;
-                    Info.CodDocumentoTipo = item.CodDocumentoTipo;
-                    Info.Establecimiento = item.Establecimiento;
-                    Info.Estado = item.Estado;
-                    Info.FechaCaducidad = item.FechaCaducidad;
-                    Info.NumAutorizacion = item.NumAutorizacion;
-                    Info.NumDocumento = item.NumDocumento;
-                    Info.PuntoEmision = item.PuntoEmision;
-                    Info.Usado = item.Usado;
-                    Info.es_Documento_electronico = Convert.ToBoolean(item.es_Documento_Electronico);
+                    Info.IdEmpresa = item.idempresa;
+                    Info.IdSucursal = item.idsucursal;
+                    Info.CodDocumentoTipo = item.coddocumentotipo;
+                    Info.Establecimiento = item.establecimiento;
+                    Info.Estado = item.estado;
+                    Info.FechaCaducidad = item.fechacaducidad;
+                    Info.NumAutorizacion = item.numautorizacion;
+                    Info.NumDocumento = item.numdocumento;
+                    Info.PuntoEmision = item.puntoemision;
+                    Info.Usado = item.usado;
+                    Info.es_Documento_electronico = Convert.ToBoolean(item.es_documento_electronico);
                     lm.Add(Info);
                 }
 
@@ -672,10 +670,10 @@ namespace Bizu.Infrastructure.General
 
                 using (EntitiesGeneral Context = new EntitiesGeneral())
                 {
-                    var Address = Context.tb_sis_Documento_Tipo_Talonario.FirstOrDefault(cot => cot.IdEmpresa == IdEmpresa && cot.CodDocumentoTipo == CodDocumentoTipo && cot.Establecimiento == Establecimiento && cot.PuntoEmision == PuntoEmision && cot.NumDocumento == NumDocumento);
+                    var Address = Context.tb_sis_documento_tipo_talonario.FirstOrDefault(cot => cot.idempresa == IdEmpresa && cot.coddocumentotipo == CodDocumentoTipo && cot.establecimiento == Establecimiento && cot.puntoemision == PuntoEmision && cot.numdocumento == NumDocumento);
                     if (Address != null)
                     {
-                        Address.Usado = true;
+                        Address.usado = true;
                         Context.SaveChanges();
                     }
                 }
@@ -691,7 +689,6 @@ namespace Bizu.Infrastructure.General
                 mensajeError = ex.ToString() + " " + ex.Message;
                 throw new Exception(ex.ToString());
             }
-        }
-
+        }    
     }
 }

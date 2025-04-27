@@ -988,7 +988,6 @@
             this.uccxC_MenuReportes1.VisibleBtnSalir = DevExpress.XtraBars.BarItemVisibility.Always;
             this.uccxC_MenuReportes1.VisibleCmbCliente = DevExpress.XtraBars.BarItemVisibility.Always;
             this.uccxC_MenuReportes1.VisibleCmbPeriodo = DevExpress.XtraBars.BarItemVisibility.Never;
-            this.uccxC_MenuReportes1.VisibleCmbProvincia = DevExpress.XtraBars.BarItemVisibility.Always;
             this.uccxC_MenuReportes1.VisibleCmbSucursal = DevExpress.XtraBars.BarItemVisibility.Always;
             this.uccxC_MenuReportes1.VisibleCmbTipoCliente = DevExpress.XtraBars.BarItemVisibility.Never;
             this.uccxC_MenuReportes1.VisibleCmbTipoCobro = DevExpress.XtraBars.BarItemVisibility.Always;

@@ -14,28 +14,26 @@ namespace Bizu.Infrastructure
     
     public partial class tb_bodega
     {
-        public int IdEmpresa { get; set; }
-        public int IdSucursal { get; set; }
-        public int IdBodega { get; set; }
+        public int idempresa { get; set; }
+        public int idsucursal { get; set; }
+        public int idbodega { get; set; }
         public string cod_bodega { get; set; }
-        public string bo_Descripcion { get; set; }
+        public string bo_descripcion { get; set; }
         public string cod_punto_emision { get; set; }
-        public string bo_manejaFacturacion { get; set; }
-        public string bo_EsBodega { get; set; }
-        public string IdUsuario { get; set; }
-        public System.DateTime Fecha_Transac { get; set; }
-        public string IdUsuarioUltMod { get; set; }
-        public Nullable<System.DateTime> Fecha_UltMod { get; set; }
-        public string IdUsuarioUltAnu { get; set; }
-        public Nullable<System.DateTime> Fecha_UltAnu { get; set; }
+        public string bo_manejafacturacion { get; set; }
+        public string bo_esbodega { get; set; }
+        public string idusuario { get; set; }
+        public System.DateTime fecha_transac { get; set; }
+        public string idusuarioultmod { get; set; }
+        public Nullable<System.DateTime> fecha_ultmod { get; set; }
+        public string idusuarioultanu { get; set; }
+        public Nullable<System.DateTime> fecha_ultanu { get; set; }
         public string nom_pc { get; set; }
         public string ip { get; set; }
-        public string Estado { get; set; }
-        public string IdEstadoAproba_x_Ing_Egr_Inven { get; set; }
-        public string IdCentroCosto { get; set; }
-        public string IdCtaCtble_Inve { get; set; }
-        public string IdCtaCtble_Costo { get; set; }
-    
-        public virtual tb_sucursal tb_sucursal { get; set; }
+        public string estado { get; set; }
+        public string idestadoaproba_x_ing_egr_inven { get; set; }
+        public string idcentrocosto { get; set; }
+        public string idctactble_inve { get; set; }
+        public string idctactble_costo { get; set; }
     }
 }

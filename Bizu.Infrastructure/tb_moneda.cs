@@ -14,10 +14,10 @@ namespace Bizu.Infrastructure
     
     public partial class tb_moneda
     {
-        public int IdMoneda { get; set; }
+        public int idmoneda { get; set; }
         public string im_descripcion { get; set; }
         public string im_simbolo { get; set; }
         public string im_nemonico { get; set; }
-        public string Estado { get; set; }
+        public string estado { get; set; }
     }
 }

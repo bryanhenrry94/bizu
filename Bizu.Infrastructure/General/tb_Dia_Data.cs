@@ -24,10 +24,10 @@ namespace Bizu.Infrastructure.General
                 foreach (var item in query)
                 {
                     tb_Dia_Info info = new tb_Dia_Info();
-                    info.idDia = item.idDia;
+                    info.idDia = item.iddia;
                     info.sdia = item.sdia;
                     info.nemonico = item.nemonico;
-                    info.sdiaIngles = item.sdiaIngles;
+                    info.sdiaIngles = item.sdiaingles;
                     Lst.Add(info);
                 }
 

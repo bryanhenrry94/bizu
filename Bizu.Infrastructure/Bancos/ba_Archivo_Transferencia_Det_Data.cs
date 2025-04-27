@@ -463,21 +463,7 @@ namespace Bizu.Infrastructure.Bancos
                             Secuencial_registro = Convert.ToDecimal(lst.Max(q => q.Secuencial_reg_x_proceso) + 1);
                         }
                     }
-                    if (Secuencial_registro == 0)
-                    {
-                        using (EntitiesGeneral Context = new EntitiesGeneral())
-                        {
-                            var lst = from q in Context.tb_banco_procesos_bancarios_x_empresa
-                                      where q.IdEmpresa == IdEmpresa
-                                      && q.IdProceso_bancario_tipo == IdProceso_bancario
-                                      && q.Secuencial_detalle_inicial != null
-                                      select q;
-                            if (lst.Count() != 0)
-                            {
-                                Secuencial_registro = Convert.ToDecimal(lst.Max(q => q.Secuencial_detalle_inicial));
-                            }
-                        }
-                    }
+                    
                     if (Secuencial_registro == 0) Secuencial_registro = 1;
 
                     return Secuencial_registro;
@@ -538,15 +524,7 @@ namespace Bizu.Infrastructure.Bancos
                     {
                         using (EntitiesGeneral Context = new EntitiesGeneral())
                         {
-                            var lst = from q in Context.tb_banco_procesos_bancarios_x_empresa
-                                      where q.IdEmpresa == IdEmpresa
-                                      && q.IdProceso_bancario_tipo == IdProceso_bancario
-                                      && q.Secuencial_detalle_inicial != null
-                                      select q;
-                            if (lst.Count() != 0)
-                            {
-                                Secuencial_registro = Convert.ToDecimal(lst.Min(q => q.Secuencial_detalle_inicial));
-                            }
+                           
                         }
                     }
                     if (Secuencial_registro == 0) Secuencial_registro = 1;
@@ -606,15 +584,7 @@ namespace Bizu.Infrastructure.Bancos
                     {
                         using (EntitiesGeneral Context = new EntitiesGeneral())
                         {
-                            var lst = from q in Context.tb_banco_procesos_bancarios_x_empresa
-                                      where q.IdEmpresa == IdEmpresa
-                                      && q.IdProceso_bancario_tipo == IdProceso_bancario
-                                      && q.Secuencial_detalle_inicial != null
-                                      select q;
-                            if (lst.Count() != 0)
-                            {
-                                Secuencial_registro = Convert.ToDecimal(lst.Max(q => q.Secuencial_detalle_inicial));
-                            }
+                           
                         }
                     }
                     if (Secuencial_registro == 0) Secuencial_registro = 1;
@@ -677,15 +647,7 @@ namespace Bizu.Infrastructure.Bancos
                     {
                         using (EntitiesGeneral Context = new EntitiesGeneral())
                         {
-                            var lst = from q in Context.tb_banco_procesos_bancarios_x_empresa
-                                      where q.IdEmpresa == IdEmpresa
-                                      && q.IdProceso_bancario_tipo == IdProceso_bancario
-                                      && q.Secuencial_detalle_inicial != null
-                                      select q;
-                            if (lst.Count() != 0)
-                            {
-                                Secuencial_registro = Convert.ToDecimal(lst.Min(q => q.Secuencial_detalle_inicial));
-                            }
+                           
                         }
                     }
                     if (Secuencial_registro == 0) Secuencial_registro = 1;

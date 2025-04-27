@@ -556,7 +556,7 @@ namespace Bizu.Infrastructure.Inventario
                 EntitiesGeneral OGeneral = new EntitiesGeneral();
 
                 var Logo = from E in OGeneral.tb_empresa
-                           where E.IdEmpresa == IdEmpresa
+                           where E.idempresa == IdEmpresa
                            select E;
 
                 foreach (var item in Logo)

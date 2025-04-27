@@ -14,25 +14,17 @@ namespace Bizu.Infrastructure
     
     public partial class tb_empresa
     {
-        public tb_empresa()
-        {
-            this.tb_contacto = new HashSet<tb_contacto>();
-            this.tb_sis_Documento_Tipo_x_Empresa = new HashSet<tb_sis_Documento_Tipo_x_Empresa>();
-            this.tb_sucursal = new HashSet<tb_sucursal>();
-            this.tb_tarjeta_parametro = new HashSet<tb_tarjeta_parametro>();
-        }
-    
-        public int IdEmpresa { get; set; }
+        public int idempresa { get; set; }
         public string codigo { get; set; }
         public string em_nombre { get; set; }
-        public string RazonSocial { get; set; }
-        public string NombreComercial { get; set; }
-        public string ContribuyenteEspecial { get; set; }
-        public string ObligadoAllevarConta { get; set; }
+        public string razonsocial { get; set; }
+        public string nombrecomercial { get; set; }
+        public string contribuyenteespecial { get; set; }
+        public string obligadoallevarconta { get; set; }
         public string em_ruc { get; set; }
         public string em_gerente { get; set; }
         public string em_contador { get; set; }
-        public string em_rucContador { get; set; }
+        public string em_ruccontador { get; set; }
         public string em_telefonos { get; set; }
         public string em_fax { get; set; }
         public Nullable<int> em_notificacion { get; set; }
@@ -40,17 +32,12 @@ namespace Bizu.Infrastructure
         public string em_tel_int { get; set; }
         public byte[] em_logo { get; set; }
         public byte[] em_fondo { get; set; }
-        public System.DateTime em_fechaInicioContable { get; set; }
-        public string Estado { get; set; }
-        public Nullable<System.DateTime> em_fechaInicioActividad { get; set; }
+        public System.DateTime em_fechainiciocontable { get; set; }
+        public string estado { get; set; }
+        public Nullable<System.DateTime> em_fechainicioactividad { get; set; }
         public string cod_entidad_dinardap { get; set; }
-        public string em_Email { get; set; }
-        public string em_Email_Contacto { get; set; }
-        public string Sitio_Web { get; set; }
-    
-        public virtual ICollection<tb_contacto> tb_contacto { get; set; }
-        public virtual ICollection<tb_sis_Documento_Tipo_x_Empresa> tb_sis_Documento_Tipo_x_Empresa { get; set; }
-        public virtual ICollection<tb_sucursal> tb_sucursal { get; set; }
-        public virtual ICollection<tb_tarjeta_parametro> tb_tarjeta_parametro { get; set; }
+        public string em_email { get; set; }
+        public string em_email_contacto { get; set; }
+        public string sitio_web { get; set; }
     }
 }

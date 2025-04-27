@@ -279,12 +279,6 @@ namespace Bizu.Application.Facturacion
 
                     if (respuesta == true)
                     {
-                        if (info.Persona_Info.list_direcciones_x_persona.Count() > 0)
-                        {
-                            tb_persona_direccion_Bus bus_direccion_x_persona = new tb_persona_direccion_Bus();
-                            bus_direccion_x_persona.EliminarDB(info.IdPersona, ref msg);
-                            bus_direccion_x_persona.GuardarDB(info.Persona_Info.list_direcciones_x_persona, info.IdPersona, ref msg);
-                        }
 
                         if (info.list_contactos_x_cliente.Count() > 0)
                         {
@@ -329,15 +323,10 @@ namespace Bizu.Application.Facturacion
                 if (Result)
                 {
                     Result = data.GrabarDB(info, ref id, ref msg);
+                    
                     // si se grabo el cliente
                     if (Result == true)
-                    {
-                        if (info.Persona_Info.list_direcciones_x_persona.Count() > 0)
-                        {
-                            tb_persona_direccion_Bus bus_direccion_x_persona = new tb_persona_direccion_Bus();
-                            bus_direccion_x_persona.GuardarDB(info.Persona_Info.list_direcciones_x_persona, info.IdPersona, ref msg);
-                        }
-
+                    {                        
                         if (info.list_punto_emision_x_cliente.Count > 0)
                         {
                             fa_cliente_pto_emision_cliente_Bus bus_Punto_emision = new fa_cliente_pto_emision_cliente_Bus();

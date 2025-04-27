@@ -668,11 +668,7 @@
             this.repositoryItemSearchLookUpEditTarjeta.DisplayMember = "tr_Descripcion";
             this.repositoryItemSearchLookUpEditTarjeta.Name = "repositoryItemSearchLookUpEditTarjeta";
             this.repositoryItemSearchLookUpEditTarjeta.ValueMember = "IdTarjeta";
-            this.repositoryItemSearchLookUpEditTarjeta.View = this.gridView2;
-            // 
-            // tbtarjetaInfoBindingSource
-            // 
-            this.tbtarjetaInfoBindingSource.DataSource = typeof(Bizu.Domain.General.tb_tarjeta_Info);
+            this.repositoryItemSearchLookUpEditTarjeta.View = this.gridView2;            
             // 
             // gridView2
             // 

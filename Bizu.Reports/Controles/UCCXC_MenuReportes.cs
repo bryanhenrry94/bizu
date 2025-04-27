@@ -44,10 +44,6 @@ namespace Bizu.Reports.Controles
         ct_Periodo_Bus BusPeriodo = new ct_Periodo_Bus();
         List<ct_Periodo_Info> listPeriodo = new List<ct_Periodo_Info>();
 
-        tb_Provincia_Bus busProvincia = new tb_Provincia_Bus();
-        List<tb_provincia_Info> listaProvincia = new List<tb_provincia_Info>();
-
-
         #endregion 
 
         #region delegados
@@ -165,13 +161,7 @@ namespace Bizu.Reports.Controles
             get { return this.beiVendedor.Visibility; }
             set { this.beiVendedor.Visibility = value; }
         }
-
-        public DevExpress.XtraBars.BarItemVisibility VisibleCmbProvincia
-        {
-            get { return this.beiProvincia.Visibility; }
-            set { this.beiProvincia.Visibility = value; }
-        }
-
+      
         public DevExpress.XtraBars.BarItemVisibility VisibleCmbTipoCobro
         {
             get { return this.beiTipoCobro.Visibility; }
@@ -350,13 +340,7 @@ namespace Bizu.Reports.Controles
                 cmbVendedor.ValueMember = "IdVendedor";
                 cmbVendedor.DisplayMember = "Ve_Vendedor";
                 //beiVendedor.EditValue = "IdVendedor";
-
-                listaProvincia = busProvincia.Get_List_Provincia("1");
-                cmb_Provincia.DataSource = listaProvincia;
-                cmb_Provincia.ValueMember = "IdProvincia";
-                cmb_Provincia.DisplayMember = "Descripcion";
-                //beiProvincia.EditValue = "IdProvincia";
-
+               
                 lstCobro = CobroBus.Get_List_Cobro_Tipo_Todos();
                 Bind_List_Cobro = new BindingList<cxc_cobro_tipo_Info>(lstCobro);
                 this.risTipoCobro.DataSource = lstCobro;

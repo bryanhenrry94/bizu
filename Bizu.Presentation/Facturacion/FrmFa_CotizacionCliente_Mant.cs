@@ -1046,17 +1046,6 @@ namespace Bizu.Presentation.Facturacion
             try
             {
                 XFAC_Rpt008_rpt rptSoporte = new XFAC_Rpt008_rpt(param.IdUsuario);
-                tb_sis_Documento_Tipo_Reporte_x_Empresa_Bus busDoc_x_Emp = new tb_sis_Documento_Tipo_Reporte_x_Empresa_Bus();
-                tb_sis_Documento_Tipo_Reporte_x_Empresa_Info InfoDoc_x_Emp = new tb_sis_Documento_Tipo_Reporte_x_Empresa_Info();
-
-                InfoDoc_x_Emp = busDoc_x_Emp.get_DisenioRpt(param.IdEmpresa, Cl_Enumeradores.eTipoDocumento_Talonario.FACT.ToString());
-                if (InfoDoc_x_Emp.File_Disenio_Reporte != null)
-                {
-                    File.WriteAllBytes(RootReporte, InfoDoc_x_Emp.File_Disenio_Reporte);
-                    rptSoporte.LoadLayout(RootReporte);
-                }
-
-
                 XFAC_Rpt008_Bus busRpt = new XFAC_Rpt008_Bus();
                 List<XFAC_Rpt008_Info> lstRpt = new List<XFAC_Rpt008_Info>();
                 rptSoporte.RequestParameters = false;

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Bizu.Application.Facturacion
 {
-    
+
     public class fa_cliente_contactos_Bus
     {
         fa_cliente_contactos_Data Data = new fa_cliente_contactos_Data();
@@ -44,7 +44,7 @@ namespace Bizu.Application.Facturacion
         {
             try
             {
-                return Data.EliminarDB(IdEmpresa,IdCliente, ref msg);
+                return Data.EliminarDB(IdEmpresa, IdCliente, ref msg);
             }
             catch (Exception ex)
             {
@@ -66,21 +66,5 @@ namespace Bizu.Application.Facturacion
                 throw new Bizu.Domain.Log_Exception.DalException(string.Format("", "ExisteCliente", ex.Message), ex) { EntityType = typeof(fa_catalogo_tipo_Bus) };
             }
         }
-
-        public List<tb_contacto_Info> Get_List_Contactos_x_Clientes(int IdEmpresa, decimal Idcliente)
-        {
-            try
-            {
-                return Data.Get_List_Contactos_x_Clientes(IdEmpresa,Idcliente);
-
-            }
-            catch (Exception ex)
-            {
-                Bizu.Domain.Log_Exception.LoggingManager.Logger.Log(Bizu.Domain.Log_Exception.LoggingCategory.Error, ex.Message);
-                throw new Bizu.Domain.Log_Exception.DalException(string.Format("", "ExisteCliente", ex.Message), ex) { EntityType = typeof(fa_catalogo_tipo_Bus) };
-            }
-        }
-
     }
-
 }

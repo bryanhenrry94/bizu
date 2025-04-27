@@ -4,8 +4,6 @@ using System.Linq;
 using System.Text;
 using Bizu.Domain.General;
 using Bizu.Infrastructure.General;
-using Bizu.Application.General;
-
 
 namespace Bizu.Application.General
 {
@@ -24,7 +22,7 @@ namespace Bizu.Application.General
             catch (Exception ex)
             {
                 Bizu.Domain.Log_Exception.LoggingManager.Logger.Log(Bizu.Domain.Log_Exception.LoggingCategory.Error, ex.Message);
-                throw new Bizu.Domain.Log_Exception.DalException(string.Format("", "ConsutarSisTipoDocu", ex.Message), ex) { EntityType = typeof(tb_rango_fecha_busqueda_x_periodo_Bus) };
+                throw new Bizu.Domain.Log_Exception.DalException(string.Format("", "ConsutarSisTipoDocu", ex.Message), ex) { EntityType = typeof(tb_sis_Documento_Tipo_Bus) };
             }
         }
 
@@ -37,10 +35,9 @@ namespace Bizu.Application.General
             catch (Exception ex)
             {
                 Bizu.Domain.Log_Exception.LoggingManager.Logger.Log(Bizu.Domain.Log_Exception.LoggingCategory.Error, ex.Message);
-                throw new Bizu.Domain.Log_Exception.DalException(string.Format("", "ConsutarSisTipoDocu", ex.Message), ex) { EntityType = typeof(tb_rango_fecha_busqueda_x_periodo_Bus) };
+                throw new Bizu.Domain.Log_Exception.DalException(string.Format("", "ConsutarSisTipoDocu", ex.Message), ex) { EntityType = typeof(tb_sis_Documento_Tipo_Bus) };
             }
         }
-
 
         public List<tb_sis_Documento_Tipo_Info> Get_List_Documento_Tipo(int IdEmpresa)
         {
@@ -51,12 +48,10 @@ namespace Bizu.Application.General
             catch (Exception ex)
             {
                 Bizu.Domain.Log_Exception.LoggingManager.Logger.Log(Bizu.Domain.Log_Exception.LoggingCategory.Error, ex.Message);
-                throw new Bizu.Domain.Log_Exception.DalException(string.Format("", "ConsutarSisTipoDocu", ex.Message), ex) { EntityType = typeof(tb_rango_fecha_busqueda_x_periodo_Bus) };
+                throw new Bizu.Domain.Log_Exception.DalException(string.Format("", "ConsutarSisTipoDocu", ex.Message), ex) { EntityType = typeof(tb_sis_Documento_Tipo_Bus) };
             }
 
         }
-
-
 
         public List<tb_sis_Documento_Tipo_Info> Get_List_Documento_Tipo_ApareceTalonario(int IdEmpresa)
         {
@@ -67,11 +62,10 @@ namespace Bizu.Application.General
             catch (Exception ex)
             {
                 Bizu.Domain.Log_Exception.LoggingManager.Logger.Log(Bizu.Domain.Log_Exception.LoggingCategory.Error, ex.Message);
-                throw new Bizu.Domain.Log_Exception.DalException(string.Format("", "ConsutarSisTipoDocu", ex.Message), ex) { EntityType = typeof(tb_rango_fecha_busqueda_x_periodo_Bus) };
+                throw new Bizu.Domain.Log_Exception.DalException(string.Format("", "ConsutarSisTipoDocu", ex.Message), ex) { EntityType = typeof(tb_sis_Documento_Tipo_Bus) };
             }
 
         }
-    
-    
+
     }
 }

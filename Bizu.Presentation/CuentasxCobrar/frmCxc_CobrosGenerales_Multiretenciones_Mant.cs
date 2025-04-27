@@ -57,8 +57,6 @@ namespace Bizu.Presentation.CuentasxCobrar
         List<fa_TipoNota_Info> ListTipoNota = new List<fa_TipoNota_Info>();
 
         tb_banco_Bus BusBanco = new tb_banco_Bus();
-        tb_tarjeta_Bus BusTarje = new tb_tarjeta_Bus();
-
         cxc_parametro_Bus cxcParametroBus = new cxc_parametro_Bus();
 
         BindingList<vwcxc_cartera_x_cobrar_Info> bList = new BindingList<vwcxc_cartera_x_cobrar_Info>();
@@ -472,15 +470,10 @@ namespace Bizu.Presentation.CuentasxCobrar
                 cmbTipoNC.DisplayMember = "no_Descripcion";
                 cmbTipoNC.ValueMember = "IdTipoNota";
 
-
                 cmbBancos.Properties.DataSource = BusBanco.Get_List_Banco();
                 cmbBancos.Properties.DisplayMember = "ba_descripcion";
                 cmbBancos.Properties.ValueMember = "IdBanco";
-
-                cmbTarjetas.DataSource = BusTarje.Get_List_tarjeta();
-                cmbTarjetas.DisplayMember = "tr_Descripcion";
-                cmbTarjetas.ValueMember = "IdTarjeta";
-
+                
                 ListCaja = busCaja.Get_list_caja(param.IdEmpresa, ref  MensajeError);
                 cmbCaja.Properties.DataSource = ListCaja;
 

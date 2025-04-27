@@ -186,67 +186,14 @@ namespace Bizu.Presentation.CuentasxPagar
                 XCXP_Rpt015_rpt reportes = new XCXP_Rpt015_rpt();
 
                 string RootReporte = System.IO.Path.GetTempPath() + "reporteRetencionComprobante..repx";
-                tb_sis_Documento_Tipo_Reporte_x_Empresa_Bus busDoc_x_Emp = new tb_sis_Documento_Tipo_Reporte_x_Empresa_Bus();
-                tb_sis_Documento_Tipo_Reporte_x_Empresa_Info InfoDoc_x_Emp = new tb_sis_Documento_Tipo_Reporte_x_Empresa_Info();
 
-                InfoDoc_x_Emp = busDoc_x_Emp.get_DisenioRpt(Info_Retencion.IdEmpresa, Cl_Enumeradores.eTipoDocumento_Talonario.RETEN.ToString());
-
-                if (InfoDoc_x_Emp.IdEmpresa != 0 && InfoDoc_x_Emp.File_Disenio_Reporte != null)
-                {
-                    if (EstaImpresa == "N")
-                    {
-
-                        if (!txtNumRetencion_Validating())
-                        {
-                            Actualizar_Retencion_y_Documento_Talonario();
-
-                            File.WriteAllBytes(RootReporte, InfoDoc_x_Emp.File_Disenio_Reporte);
-                            reportes.LoadLayout(RootReporte);
-
-                            reportes.set_parametros(Convert.ToInt32(Info_Retencion.IdEmpresa_Ogiro), Convert.ToDecimal(Info_Retencion.IdCbteCble_Ogiro), Convert.ToInt32(Info_Retencion.IdTipoCbte_Ogiro));
-                            reportes.RequestParameters = true;
-                            reportes.ShowPreviewDialog();
-                        }
-
-                    }
-                    else
-                    {
-                        File.WriteAllBytes(RootReporte, InfoDoc_x_Emp.File_Disenio_Reporte);
-                        reportes.LoadLayout(RootReporte);
-
-                        reportes.set_parametros(Convert.ToInt32(Info_Retencion.IdEmpresa_Ogiro), Convert.ToDecimal(Info_Retencion.IdCbteCble_Ogiro), Convert.ToInt32(Info_Retencion.IdTipoCbte_Ogiro));
-                        reportes.RequestParameters = true;
-                        reportes.ShowPreviewDialog();
-
-
-                    }
-                }
-                else
+                if (EstaImpresa == "N")
                 {
 
-                    if (EstaImpresa == "N")
+                    if (!txtNumRetencion_Validating())
                     {
+                        Actualizar_Retencion_y_Documento_Talonario();
 
-                        if (!txtNumRetencion_Validating())
-                        {
-                            Actualizar_Retencion_y_Documento_Talonario();
-
-                            XCXP_Rpt023_Rpt rpt = new XCXP_Rpt023_Rpt();
-                            rpt.RequestParameters = true;
-
-                            int IdEmpresa = 0;
-                            decimal IdOrdenPago = 0;
-
-                            IdEmpresa = param.IdEmpresa;
-                            IdOrdenPago = Convert.ToDecimal(Info_Retencion.IdCbteCble_Ogiro);
-
-                            rpt.Parameters["idOrdenGiro"].Value = IdOrdenPago;
-                            rpt.Print();
-                            this.Close();
-                        }
-                    }
-                    else
-                    {
                         XCXP_Rpt023_Rpt rpt = new XCXP_Rpt023_Rpt();
                         rpt.RequestParameters = true;
 
@@ -260,6 +207,21 @@ namespace Bizu.Presentation.CuentasxPagar
                         rpt.Print();
                         this.Close();
                     }
+                }
+                else
+                {
+                    XCXP_Rpt023_Rpt rpt = new XCXP_Rpt023_Rpt();
+                    rpt.RequestParameters = true;
+
+                    int IdEmpresa = 0;
+                    decimal IdOrdenPago = 0;
+
+                    IdEmpresa = param.IdEmpresa;
+                    IdOrdenPago = Convert.ToDecimal(Info_Retencion.IdCbteCble_Ogiro);
+
+                    rpt.Parameters["idOrdenGiro"].Value = IdOrdenPago;
+                    rpt.Print();
+                    this.Close();
                 }
             }
             catch (Exception ex)

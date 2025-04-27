@@ -669,11 +669,7 @@
             this.repositoryItemSearchLookUpEditTarjeta.Name = "repositoryItemSearchLookUpEditTarjeta";
             this.repositoryItemSearchLookUpEditTarjeta.ValueMember = "IdTarjeta";
             this.repositoryItemSearchLookUpEditTarjeta.View = this.gridView2;
-            // 
-            // tbtarjetaInfoBindingSource
-            // 
-            this.tbtarjetaInfoBindingSource.DataSource = typeof(Bizu.Domain.General.tb_tarjeta_Info);
-            // 
+            //
             // gridView2
             // 
             this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {

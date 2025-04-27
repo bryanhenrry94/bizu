@@ -14,9 +14,9 @@ namespace Bizu.Infrastructure
     
     public partial class tb_dia
     {
-        public int idDia { get; set; }
+        public int iddia { get; set; }
         public string sdia { get; set; }
         public string nemonico { get; set; }
-        public string sdiaIngles { get; set; }
+        public string sdiaingles { get; set; }
     }
 }

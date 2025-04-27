@@ -5,31 +5,28 @@ using System.Text;
 using System.Threading.Tasks;
 using Bizu.Domain.General;
 
-
 namespace Bizu.Infrastructure.General
 {
-   public class tbSys_Ge_Comparativo_Modulo_vs_Contas_Data
+    public class tbSys_Ge_Comparativo_Modulo_vs_Contas_Data
     {
 
         string mensaje = "";
-        //Obtiene lista Tipo cata
-        public List<tbSys_Ge_Comparativo_Modulo_vs_Contas_Info> Get_List_Comparativo_Modulo_vs_Contas(int IdEmpresa,DateTime Fecha_Ini,DateTime Fecha_Fin)
+
+        public List<tbSys_Ge_Comparativo_Modulo_vs_Contas_Info> Get_List_Comparativo_Modulo_vs_Contas(int IdEmpresa, DateTime Fecha_Ini, DateTime Fecha_Fin)
         {
 
             try
             {
-
                 List<tbSys_Ge_Comparativo_Modulo_vs_Contas_Info> lista = new List<tbSys_Ge_Comparativo_Modulo_vs_Contas_Info>();
                 EntitiesGeneral OCatalogo = new EntitiesGeneral();
-                var Doc = from C in OCatalogo.spSys_Ge_Comparativo_Modulo_vs_Contas(IdEmpresa,Fecha_Ini,Fecha_Fin)
+
+                var Doc = from C in OCatalogo.spSys_Ge_Comparativo_Modulo_vs_Contas(IdEmpresa, Fecha_Ini, Fecha_Fin)
                           select C;
 
 
                 foreach (var item in Doc)
                 {
                     tbSys_Ge_Comparativo_Modulo_vs_Contas_Info info = new tbSys_Ge_Comparativo_Modulo_vs_Contas_Info();
-
-
                     info.IdEmpresa = item.IdEmpresa;
                     info.IdSucursal = item.IdSucursal;
                     info.cod_sucu = item.cod_sucu;
@@ -58,10 +55,7 @@ namespace Bizu.Infrastructure.General
                     info.TIPO = item.TIPO;
                     info.referencia = item.referencia;
                     info.Diferencia = (info.Debito_Vta + info.Credito_Vta) - (info.Debito_Conta + info.Credito_Conta);
-                    info.Diferencia = Math.Round( Convert.ToDouble(info.Diferencia), 2);
-                    
-
-                    
+                    info.Diferencia = Math.Round(Convert.ToDouble(info.Diferencia), 2);
 
                     lista.Add(info);
                 }

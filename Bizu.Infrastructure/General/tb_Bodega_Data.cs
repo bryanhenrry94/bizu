@@ -21,28 +21,26 @@ namespace Bizu.Infrastructure.General
                 EntitiesGeneral OEGeneral = new EntitiesGeneral();
 
                 var select_pv = from A in OEGeneral.tb_bodega
-                                where A.IdEmpresa==IdEmpresa && A.IdSucursal==IdSucursal
+                                where A.idempresa==IdEmpresa && A.idsucursal==IdSucursal
                                       select A;
                 
                 foreach (var item in select_pv)
                 {
                     tb_Bodega_Info info = new tb_Bodega_Info();
-                    info.IdEmpresa = item.IdEmpresa;
-                    info.IdBodega = item.IdBodega;
-                    info.IdSucursal = item.IdSucursal;
+                    info.IdEmpresa = item.idempresa;
+                    info.IdBodega = item.idbodega;
+                    info.IdSucursal = item.idsucursal;
                     info.cod_bodega = item.cod_bodega;
-                    info.bo_Descripcion = item.bo_Descripcion.Trim();
-                    info.bo_Descripcion2 = "[" + item.IdBodega + "]-" + item.bo_Descripcion.Trim();
-                    info.IdCentroCosto = item.IdCentroCosto;
+                    info.bo_Descripcion = item.bo_descripcion.Trim();
+                    info.bo_Descripcion2 = "[" + item.idbodega + "]-" + item.bo_descripcion.Trim();
+                    info.IdCentroCosto = item.idcentrocosto;
                     info.cod_punto_emision = item.cod_punto_emision;
-                    info.bo_esBodega = item.bo_EsBodega;
-                    info.bo_manejaFacturacion = item.bo_manejaFacturacion;
-                    info.Estado = (item.Estado == "A") ? true : false;
-                    info.IdEstadoAproba_x_Ing_Egr_Inven = item.IdEstadoAproba_x_Ing_Egr_Inven;
-
-                    info.IdCtaCtble_Inve = item.IdCtaCtble_Inve;
-                    info.IdCtaCtble_Costo = item.IdCtaCtble_Costo;
-
+                    info.bo_esBodega = item.bo_esbodega;
+                    info.bo_manejaFacturacion = item.bo_manejafacturacion;
+                    info.Estado = (item.estado == "A") ? true : false;
+                    info.IdEstadoAproba_x_Ing_Egr_Inven = item.idestadoaproba_x_ing_egr_inven;
+                    info.IdCtaCtble_Inve = item.idctactble_inve;
+                    info.IdCtaCtble_Costo = item.idctactble_costo;
 
                     lM.Add(info);
                 }
@@ -70,27 +68,24 @@ namespace Bizu.Infrastructure.General
 
                 var select_pv = from A in OEGeneral.tb_bodega
                                 join B in OEGeneral.tb_sucursal
-                                on new { A.IdEmpresa, A.IdSucursal } equals new { B.IdEmpresa, B.IdSucursal }
-                                where A.IdEmpresa == idempresa
+                                on new { A.idempresa, A.idsucursal } equals new { B.idempresa, B.idsucursal }
+                                where A.idempresa == idempresa
                                 
-                              //&& A.IdSucursal == par
-                                
-                               // && A.IdBodega == 1
                                 select new
                                 {
-                                    A.IdEmpresa,
-                                    A.IdBodega,
-                                    A.IdSucursal,
+                                    A.idempresa,
+                                    A.idbodega,
+                                    A.idsucursal,
                                     A.cod_bodega,
-                                    A.bo_Descripcion,
+                                    A.bo_descripcion,
                                     A.cod_punto_emision,
-                                    A.bo_EsBodega,
-                                    A.bo_manejaFacturacion,
-                                    A.IdCentroCosto,
-                                    A.Estado,
-                                    B.Su_Descripcion,
-                                    A.IdCtaCtble_Costo,
-                                    A.IdCtaCtble_Inve
+                                    A.bo_esbodega,
+                                    A.bo_manejafacturacion,
+                                    A.idcentrocosto,
+                                    A.estado,
+                                    B.su_descripcion,
+                                    A.idctactble_costo,
+                                    A.idctactble_inve
                                 };
                 if (TipoCarga == Cl_Enumeradores.eTipoFiltro.todos)
                 {
@@ -103,20 +98,19 @@ namespace Bizu.Infrastructure.General
                 foreach (var item in select_pv)
                 {
                     tb_Bodega_Info info = new tb_Bodega_Info();
-                    info.IdEmpresa = item.IdEmpresa;
-                    info.IdBodega = item.IdBodega;
-                    info.IdSucursal = item.IdSucursal;
+                    info.IdEmpresa = item.idempresa;
+                    info.IdBodega = item.idbodega;
+                    info.IdSucursal = item.idsucursal;
                     info.cod_bodega = item.cod_bodega;
-                    info.bo_Descripcion = item.bo_Descripcion.Trim();
+                    info.bo_Descripcion = item.bo_descripcion.Trim();
                     info.cod_punto_emision = item.cod_punto_emision;
-                    info.bo_esBodega = item.bo_EsBodega;
-                    info.bo_manejaFacturacion = item.bo_manejaFacturacion;
-                    info.IdCentroCosto = item.IdCentroCosto;
-                    info.Estado = (item.Estado == "A") ? true : false;
-                    info.NomSucursal = item.Su_Descripcion.Trim();
-
-                    info.IdCtaCtble_Inve = item.IdCtaCtble_Inve;
-                    info.IdCtaCtble_Costo = item.IdCtaCtble_Costo;
+                    info.bo_esBodega = item.bo_esbodega;
+                    info.bo_manejaFacturacion = item.bo_manejafacturacion;
+                    info.IdCentroCosto = item.idcentrocosto;
+                    info.Estado = (item.estado == "A") ? true : false;
+                    info.NomSucursal = item.su_descripcion.Trim();
+                    info.IdCtaCtble_Inve = item.idctactble_inve;
+                    info.IdCtaCtble_Costo = item.idctactble_costo;
 
                     lM.Add(info);
                 }
@@ -143,42 +137,41 @@ namespace Bizu.Infrastructure.General
 
                 var select_pv = from A in OEGeneral.tb_bodega
                                 join B in OEGeneral.tb_sucursal
-                                on new { A.IdEmpresa, A.IdSucursal } equals new { B.IdEmpresa, B.IdSucursal }
-                                where A.IdEmpresa == IdEmpresa && A.IdCentroCosto == IdCentroCosto
+                                on new { A.idempresa, A.idsucursal } equals new { B.idempresa, B.idsucursal }
+                                where A.idempresa == IdEmpresa && A.idcentrocosto == IdCentroCosto
                                 select new
                                 {
-                                    A.IdEmpresa,
-                                    A.IdBodega,
-                                    A.IdSucursal,
+                                    A.idempresa,
+                                    A.idbodega,
+                                    A.idsucursal,
                                     A.cod_bodega,
-                                    A.bo_Descripcion,
+                                    A.bo_descripcion,
                                     A.cod_punto_emision,
-                                    A.bo_EsBodega,
-                                    A.bo_manejaFacturacion,
-                                    A.Estado,
-                                    A.IdCentroCosto,
-                                    B.Su_Descripcion,
-                                    A.IdCtaCtble_Inve,
-                                    A.IdCtaCtble_Costo
+                                    A.bo_esbodega,
+                                    A.bo_manejafacturacion,
+                                    A.estado,
+                                    A.idcentrocosto,
+                                    B.su_descripcion,
+                                    A.idctactble_inve,
+                                    A.idctactble_costo
                                 };
 
                 foreach (var item in select_pv)
                 {
                     tb_Bodega_Info info = new tb_Bodega_Info();
-                    info.IdEmpresa = item.IdEmpresa;
-                    info.IdBodega = item.IdBodega;
-                    info.IdSucursal = item.IdSucursal;
+                    info.IdEmpresa = item.idempresa;
+                    info.IdBodega = item.idbodega;
+                    info.IdSucursal = item.idsucursal;
                     info.cod_bodega = item.cod_bodega;
-                    info.bo_Descripcion = item.bo_Descripcion.Trim();
+                    info.bo_Descripcion = item.bo_descripcion.Trim();
                     info.cod_punto_emision = item.cod_punto_emision;
-                    info.bo_esBodega = item.bo_EsBodega;
-                    info.bo_manejaFacturacion = item.bo_manejaFacturacion;
-                    info.Estado = (item.Estado == "A") ? true : false;
-                    info.NomSucursal = item.Su_Descripcion.Trim();
-                    info.IdCentroCosto = item.IdCentroCosto;
-
-                    info.IdCtaCtble_Inve = item.IdCtaCtble_Inve;
-                    info.IdCtaCtble_Costo = item.IdCtaCtble_Costo;
+                    info.bo_esBodega = item.bo_esbodega;
+                    info.bo_manejaFacturacion = item.bo_manejafacturacion;
+                    info.Estado = (item.estado == "A") ? true : false;
+                    info.NomSucursal = item.su_descripcion.Trim();
+                    info.IdCentroCosto = item.idcentrocosto;
+                    info.IdCtaCtble_Inve = item.idctactble_inve;
+                    info.IdCtaCtble_Costo = item.idctactble_costo;
 
                     lM.Add(info);
                 }
@@ -206,35 +199,33 @@ namespace Bizu.Infrastructure.General
 
                 var bodegas = from bo in Oenti.tb_bodega
                               join su in Oenti.tb_sucursal
-                              on new { bo.IdEmpresa, bo.IdSucursal } equals new { su.IdEmpresa, su.IdSucursal }
-                              where bo.IdEmpresa == IdEmpresa
-                              && bo.IdSucursal == IdSucursal
-                              && bo.IdBodega == IdBodega
+                              on new { bo.idempresa, bo.idsucursal } equals new { su.idempresa, su.idsucursal }
+                              where bo.idempresa == IdEmpresa
+                              && bo.idsucursal == IdSucursal
+                              && bo.idbodega == IdBodega
                               select new
                               {
-                                  bo.IdEmpresa,
-                                  bo.IdBodega,
-                                  bo.IdSucursal,
+                                  bo.idempresa,
+                                  bo.idbodega,
+                                  bo.idsucursal,
                                   bo.cod_bodega,
-                                  bo.bo_Descripcion,
-                                  su.Su_Descripcion,
+                                  bo.bo_descripcion,
+                                  su.su_descripcion,
                                   bo.cod_punto_emision,
-                                  bo.IdCtaCtble_Inve,
-                                  bo.IdCtaCtble_Costo
+                                  bo.idctactble_inve,
+                                  bo.idctactble_costo
                               };
                 foreach (var bod in bodegas)
                 {
-                    bodega.IdEmpresa = bod.IdEmpresa;
-                    bodega.IdBodega = bod.IdBodega;
-                    bodega.IdSucursal = bod.IdSucursal;
+                    bodega.IdEmpresa = bod.idempresa;
+                    bodega.IdBodega = bod.idbodega;
+                    bodega.IdSucursal = bod.idsucursal;
                     bodega.cod_bodega = bod.cod_bodega;
-                    bodega.bo_Descripcion = bod.bo_Descripcion;
-                    bodega.NomSucursal = bod.Su_Descripcion;
+                    bodega.bo_Descripcion = bod.bo_descripcion;
+                    bodega.NomSucursal = bod.su_descripcion;
                     bodega.cod_punto_emision = bod.cod_punto_emision;
-
-                    bodega.IdCtaCtble_Inve = bod.IdCtaCtble_Inve;
-                    bodega.IdCtaCtble_Costo = bod.IdCtaCtble_Costo;
-
+                    bodega.IdCtaCtble_Inve = bod.idctactble_inve;
+                    bodega.IdCtaCtble_Costo = bod.idctactble_costo;
                 }
                 return bodega;
             }
@@ -260,9 +251,9 @@ namespace Bizu.Infrastructure.General
                 EntitiesGeneral Oenti = new EntitiesGeneral();
 
                 var bodegas = from bo in Oenti.tb_bodega
-                              where bo.IdEmpresa == IdEmpresa
-                              && bo.IdSucursal == IdSucursal
-                              && bo.IdBodega == IdBodega
+                              where bo.idempresa == IdEmpresa
+                              && bo.idsucursal == IdSucursal
+                              && bo.idbodega == IdBodega
                               select bo;
 
                               
@@ -291,7 +282,7 @@ namespace Bizu.Infrastructure.General
                 using (EntitiesGeneral context = new EntitiesGeneral())
                 {
 
-                    var selecte = context.tb_bodega.Count(q => q.IdEmpresa == info.IdEmpresa && q.IdSucursal == info.IdSucursal && q.IdBodega==info.IdBodega);
+                    var selecte = context.tb_bodega.Count(q => q.idempresa == info.IdEmpresa && q.idsucursal == info.IdSucursal && q.idbodega==info.IdBodega);
 
                     if (selecte == 0)
                     {
@@ -309,8 +300,8 @@ namespace Bizu.Infrastructure.General
 
                     else
                     {
-
-                        var contact = context.tb_bodega.First(obj => obj.IdEmpresa == info.IdEmpresa && obj.IdSucursal == info.IdSucursal && obj.IdBodega == info.IdBodega);
+                        
+                        var contact = context.tb_bodega.First(obj => obj.idempresa == info.IdEmpresa && obj.idsucursal == info.IdSucursal && obj.idbodega == info.IdBodega);
                         if (info.Estado == false)
                         {
                             if (VerificarSiBodegaTieneMovimientos(info, ref msg))
@@ -319,21 +310,19 @@ namespace Bizu.Infrastructure.General
                             }
                         }
 
-                        contact.bo_Descripcion = info.bo_Descripcion;
+                        contact.bo_descripcion = info.bo_Descripcion;
                         contact.cod_punto_emision = info.cod_punto_emision;
-                        contact.bo_EsBodega = info.bo_esBodega;
-                        contact.bo_manejaFacturacion = info.bo_manejaFacturacion;
-                        contact.IdUsuarioUltMod = info.IdUsuarioUltMod;
-                        contact.Fecha_UltMod = info.Fecha_UltMod;
-                        contact.IdCentroCosto = info.IdCentroCosto;
+                        contact.bo_esbodega = info.bo_esBodega;
+                        contact.bo_manejafacturacion = info.bo_manejaFacturacion;
+                        contact.idusuarioultmod = info.IdUsuarioUltMod;
+                        contact.fecha_ultmod = info.Fecha_UltMod;
+                        contact.idcentrocosto = info.IdCentroCosto;
                         contact.nom_pc = info.nom_pc;
                         contact.ip = info.ip;
-                        contact.Estado = (info.Estado == true) ? "A" : "I";
-                        contact.IdEstadoAproba_x_Ing_Egr_Inven = info.IdEstadoAproba_x_Ing_Egr_Inven;
-
-                        contact.IdCtaCtble_Inve = (info.IdCtaCtble_Inve == "") ? null : info.IdCtaCtble_Inve;
-                        contact.IdCtaCtble_Costo = (info.IdCtaCtble_Costo == "") ? null : info.IdCtaCtble_Costo;
-
+                        contact.estado = (info.Estado == true) ? "A" : "I";
+                        contact.idestadoaproba_x_ing_egr_inven = info.IdEstadoAproba_x_Ing_Egr_Inven;
+                        contact.idctactble_inve = (info.IdCtaCtble_Inve == "") ? null : info.IdCtaCtble_Inve;
+                        contact.idctactble_costo = (info.IdCtaCtble_Costo == "") ? null : info.IdCtaCtble_Costo;
 
                         context.SaveChanges();
                         msg = "Se ha procedido actualizar el registro de la Bodega #: " + info.IdBodega.ToString() + " exitosamente";
@@ -362,8 +351,8 @@ namespace Bizu.Infrastructure.General
             {
                 EntitiesGeneral OEGeneral = new EntitiesGeneral();
                 var select = from q in OEGeneral.tb_bodega
-                             where q.IdEmpresa ==idempresa 
-                             && q.IdSucursal ==idsucursal 
+                             where q.idempresa ==idempresa 
+                             && q.idsucursal ==idsucursal 
                              select q;
 
                 if (select.ToList().Count <1)
@@ -373,8 +362,8 @@ namespace Bizu.Infrastructure.General
                 else
                 {
                     var select_pv = (from q in OEGeneral.tb_bodega
-                                     where q.IdEmpresa == idempresa
-                                     select q.IdBodega).Max();
+                                     where q.idempresa == idempresa
+                                     select q.idbodega).Max();
                     Id = Convert.ToInt32(select_pv.ToString()) + 1;
                 }
                 return Id;
@@ -426,25 +415,22 @@ namespace Bizu.Infrastructure.General
                     var address = new tb_bodega();
                     int idpv = getId(info.IdEmpresa,info.IdSucursal );
                     id = idpv;
-                    address.IdEmpresa = info.IdEmpresa;
-                    address.IdSucursal = info.IdSucursal; 
-                    address.IdBodega = idpv;
-                    address.bo_Descripcion = info.bo_Descripcion;
+                    address.idempresa = info.IdEmpresa;
+                    address.idsucursal = info.IdSucursal; 
+                    address.idbodega = idpv;
+                    address.bo_descripcion = info.bo_Descripcion;
                     address.cod_punto_emision = info.cod_punto_emision;
-                    address.IdCentroCosto = info.IdCentroCosto;
-                    address.bo_EsBodega = "S";
-                    address.bo_manejaFacturacion=info.bo_manejaFacturacion;
-                    address.IdUsuario=info.IdUsuario;
-                    address.Fecha_Transac=info.Fecha_Transac;
+                    address.idcentrocosto = info.IdCentroCosto;
+                    address.bo_esbodega = "S";
+                    address.bo_manejafacturacion=info.bo_manejaFacturacion;
+                    address.idusuario=info.IdUsuario;
+                    address.fecha_transac=info.Fecha_Transac;
                     address.nom_pc=info.nom_pc;
                     address.ip=info.ip;
-                    address.Estado = "A";
-                    address.IdEstadoAproba_x_Ing_Egr_Inven = info.IdEstadoAproba_x_Ing_Egr_Inven;
-
-                    address.IdCtaCtble_Inve = (info.IdCtaCtble_Inve == "") ? null : info.IdCtaCtble_Inve;
-                    address.IdCtaCtble_Costo = (info.IdCtaCtble_Costo == "") ? null : info.IdCtaCtble_Costo;
-
-
+                    address.estado = "A";
+                    address.idestadoaproba_x_ing_egr_inven = info.IdEstadoAproba_x_Ing_Egr_Inven;
+                    address.idctactble_inve = (info.IdCtaCtble_Inve == "") ? null : info.IdCtaCtble_Inve;
+                    address.idctactble_costo = (info.IdCtaCtble_Costo == "") ? null : info.IdCtaCtble_Costo;
 
                     context.tb_bodega.Add(address);
                     context.SaveChanges();
@@ -509,19 +495,19 @@ namespace Bizu.Infrastructure.General
                 }
               
                 var select = from q in OEGeneral.tb_bodega
-                             where q.IdEmpresa == info.IdEmpresa && q.IdSucursal == info.IdSucursal && q.IdBodega==info.IdBodega
+                             where q.idempresa == info.IdEmpresa && q.idsucursal == info.IdSucursal && q.idbodega==info.IdBodega
                              select q;
 
                 if (select.ToList().Count > 0)
                 {
                     using (EntitiesGeneral context = new EntitiesGeneral())
                     {
-                        var contact = context.tb_bodega.First(obj => obj.IdEmpresa == info.IdEmpresa && obj.IdSucursal == info.IdSucursal && obj.IdBodega == info.IdBodega);
-                        contact.IdUsuarioUltAnu = info.IdUsuarioUltAnu;
-                        contact.Fecha_UltAnu = info.Fecha_UltAnu;
+                        var contact = context.tb_bodega.First(obj => obj.idempresa == info.IdEmpresa && obj.idsucursal == info.IdSucursal && obj.idbodega == info.IdBodega);
+                        contact.idusuarioultanu = info.IdUsuarioUltAnu;
+                        contact.fecha_ultanu = info.Fecha_UltAnu;
                         contact.nom_pc = info.nom_pc;
                         contact.ip = info.ip;
-                        contact.Estado = "I";
+                        contact.estado = "I";
                         context.SaveChanges();
                         msg = "Se ha procedido anular el registro de la Bodega #: " + info.IdBodega.ToString() + " exitosamente";
                     }

@@ -14,8 +14,6 @@ namespace Bizu.Domain.Bancos
 
         public string IdProceso_bancario { get; set; }
 
-        public ebanco_procesos_bancarios_tipo IdProceso { get; set; }
-
         public int Secuencia { get; set; }
 
         public string Id_Item { get; set; }

@@ -12,23 +12,15 @@ namespace Bizu.Infrastructure
     using System;
     using System.Collections.Generic;
     
-    public partial class tb_sis_Impuesto
+    public partial class tb_sis_impuesto
     {
-        public tb_sis_Impuesto()
-        {
-            this.tb_sis_Impuesto_x_ctacble = new HashSet<tb_sis_Impuesto_x_ctacble>();
-        }
-    
-        public string IdCod_Impuesto { get; set; }
+        public string idcod_impuesto { get; set; }
         public string nom_impuesto { get; set; }
-        public bool Usado_en_Ventas { get; set; }
-        public bool Usado_en_Compras { get; set; }
+        public bool usado_en_ventas { get; set; }
+        public bool usado_en_compras { get; set; }
         public double porcentaje { get; set; }
-        public Nullable<int> IdCodigo_SRI { get; set; }
+        public Nullable<int> idcodigo_sri { get; set; }
         public bool estado { get; set; }
-        public string IdTipoImpuesto { get; set; }
-    
-        public virtual tb_sis_Impuesto_Tipo tb_sis_Impuesto_Tipo { get; set; }
-        public virtual ICollection<tb_sis_Impuesto_x_ctacble> tb_sis_Impuesto_x_ctacble { get; set; }
+        public string idtipoimpuesto { get; set; }
     }
 }

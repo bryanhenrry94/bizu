@@ -19,41 +19,25 @@ namespace Bizu.Reports.Facturacion
     public partial class XFAC_Rpt008_frm : Form
     {
         tb_sis_Log_Error_Vzen_Bus Log_Error_bus = new tb_sis_Log_Error_Vzen_Bus();
-        cl_parametrosGenerales_Bus param = cl_parametrosGenerales_Bus.Instance;        
-        tb_sis_Documento_Tipo_Reporte_x_Empresa_Bus busDoc_x_Emp = new tb_sis_Documento_Tipo_Reporte_x_Empresa_Bus();
-        tb_sis_Documento_Tipo_Reporte_x_Empresa_Info InfoDoc_x_Emp = new tb_sis_Documento_Tipo_Reporte_x_Empresa_Info();
+        cl_parametrosGenerales_Bus param = cl_parametrosGenerales_Bus.Instance;
         static string result = Path.GetTempPath();
         String RootReporte = result + @"Factura.repx";
-        
-        
+
         public XFAC_Rpt008_frm()
         {
-            InitializeComponent();            
+            InitializeComponent();
         }
 
         public XFAC_Rpt008_frm(vwtb_sis_Documento_Tipo_x_Disenio_Report_Info Info)
         {
             InitializeComponent();
             commandBarItem31.PerformClick();
-           
-                    XFAC_Rpt008_rpt reporte = new XFAC_Rpt008_rpt();
 
-                    InfoDoc_x_Emp = busDoc_x_Emp.get_DisenioRpt(Info.IdEmpresa, Info.codDocumentoTipo);
-                    if (InfoDoc_x_Emp.File_Disenio_Reporte != null)
-                    {
-                        File.WriteAllBytes(RootReporte, InfoDoc_x_Emp.File_Disenio_Reporte);
-                        reporte.LoadLayout(RootReporte);
-                    }
+            XFAC_Rpt008_rpt reporte = new XFAC_Rpt008_rpt();
 
-                    InfoDoc_x_Emp.IdEmpresa = Info.IdEmpresa;
-                    InfoDoc_x_Emp.codDocumentoTipo = Info.codDocumentoTipo;
-
-                    xrDesignDockManager1.XRDesignPanel.OpenReport(reporte);
-                 
+            xrDesignDockManager1.XRDesignPanel.OpenReport(reporte);
         }
 
-
-        
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             try
@@ -70,16 +54,7 @@ namespace Bizu.Reports.Facturacion
                         data = ms.ToArray();
                     }
                 }
-                InfoDoc_x_Emp.File_Disenio_Reporte = data;
-                String Mensajes = "";
-                if (busDoc_x_Emp.GuardarDatos(InfoDoc_x_Emp, ref Mensajes))
-                {
-                    MessageBox.Show("Se Guardo Exitosamente el Diseño", "SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show(Mensajes, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+               
             }
             catch (Exception ex)
             {
@@ -87,7 +62,5 @@ namespace Bizu.Reports.Facturacion
                 MessageBox.Show(ex.Message, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
     }
 }

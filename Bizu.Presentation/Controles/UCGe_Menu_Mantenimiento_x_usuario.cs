@@ -1166,14 +1166,6 @@ namespace Bizu.Presentation.Controles
         {
             try
             {
-                FrmGe_Rango_Fechas_x_Periodo_Busqueda form1 = new FrmGe_Rango_Fechas_x_Periodo_Busqueda();
-                form1.ShowDialog();
-
-                dtpFechaDesde.EditValue = form1.Fecha_desde;
-                dtpFechaHasta.EditValue = form1.Fecha_hast;
-
-                event_btnfiltro_fecha_ItemClick(sender, e);
-                btnBuscar_Click(sender, e);
             }
             catch (Exception ex)
             {

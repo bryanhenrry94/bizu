@@ -12,15 +12,15 @@ namespace Bizu.Infrastructure
     using System;
     using System.Collections.Generic;
     
-    public partial class vwtb_Bodega_x_Sucursal_TreeList
+    public partial class vwtb_bodega_x_sucursal_treelist
     {
-        public int IdEmpresa { get; set; }
-        public string Id { get; set; }
-        public string IdPadre { get; set; }
-        public string Nombre { get; set; }
-        public string Estado { get; set; }
-        public long Nivel { get; set; }
-        public int IdSucursal { get; set; }
-        public Nullable<int> IdBodega { get; set; }
+        public int idempresa { get; set; }
+        public string id { get; set; }
+        public string idpadre { get; set; }
+        public string nombre { get; set; }
+        public string estado { get; set; }
+        public long nivel { get; set; }
+        public int idsucursal { get; set; }
+        public Nullable<int> idbodega { get; set; }
     }
 }

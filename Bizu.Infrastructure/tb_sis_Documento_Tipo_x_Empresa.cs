@@ -12,23 +12,15 @@ namespace Bizu.Infrastructure
     using System;
     using System.Collections.Generic;
     
-    public partial class tb_sis_Documento_Tipo_x_Empresa
+    public partial class tb_sis_documento_tipo_x_empresa
     {
-        public tb_sis_Documento_Tipo_x_Empresa()
-        {
-            this.tb_sis_Documento_Tipo_Talonario = new HashSet<tb_sis_Documento_Tipo_Talonario>();
-        }
-    
-        public int IdEmpresa { get; set; }
-        public string codDocumentoTipo { get; set; }
-        public string ApareceComboFac_TipoFact { get; set; }
-        public string ApareceComboFac_Import { get; set; }
-        public string ApareceTalonario { get; set; }
-        public string Descripcion { get; set; }
-        public int Posicion { get; set; }
-        public string ApareceCombo_FileReporte { get; set; }
-    
-        public virtual ICollection<tb_sis_Documento_Tipo_Talonario> tb_sis_Documento_Tipo_Talonario { get; set; }
-        public virtual tb_empresa tb_empresa { get; set; }
+        public int idempresa { get; set; }
+        public string coddocumentotipo { get; set; }
+        public string aparececombofac_tipofact { get; set; }
+        public string aparececombofac_import { get; set; }
+        public string aparecetalonario { get; set; }
+        public string descripcion { get; set; }
+        public int posicion { get; set; }
+        public string aparececombo_filereporte { get; set; }
     }
 }

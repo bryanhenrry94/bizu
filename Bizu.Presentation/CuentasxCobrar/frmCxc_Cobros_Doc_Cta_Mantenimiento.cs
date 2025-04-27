@@ -43,13 +43,9 @@ namespace Bizu.Presentation.CuentasxCobrar
             try
             {
                 InitializeComponent();
-                tb_tarjeta_Bus Bus_tarjeta = new tb_tarjeta_Bus();
-                List<tb_tarjeta_Info> Info_tarjeta = new List<tb_tarjeta_Info>();
-                Info_tarjeta = Bus_tarjeta.Get_List_tarjeta();
-                this.cmbTarjeta.DataSource = Info_tarjeta;
+
                 listaCaja = cajaBus.Get_list_caja(param.IdEmpresa, ref  MensajeError);
-                this.cmbCaja.Properties.DataSource = listaCaja;
-                
+                this.cmbCaja.Properties.DataSource = listaCaja;                
             }
             catch (Exception ex)
             {

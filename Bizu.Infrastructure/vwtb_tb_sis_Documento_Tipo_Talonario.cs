@@ -12,13 +12,13 @@ namespace Bizu.Infrastructure
     using System;
     using System.Collections.Generic;
     
-    public partial class vwtb_tb_sis_Documento_Tipo_Talonario
+    public partial class vwtb_tb_sis_documento_tipo_talonario
     {
-        public int IdEmpresa { get; set; }
+        public int idempresa { get; set; }
         public string em_ruc { get; set; }
-        public string CodDocumentoTipo { get; set; }
-        public string Establecimiento { get; set; }
-        public string PuntoEmision { get; set; }
-        public string NumDocumento { get; set; }
+        public string coddocumentotipo { get; set; }
+        public string establecimiento { get; set; }
+        public string puntoemision { get; set; }
+        public string numdocumento { get; set; }
     }
 }

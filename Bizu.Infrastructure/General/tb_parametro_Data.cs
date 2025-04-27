@@ -3,18 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Bizu.Domain.General;
-using Bizu.Domain.Contabilidad;
-using Bizu.Infrastructure.General;
-
 
 namespace Bizu.Infrastructure.General
 {
-   public class tb_parametro_Data
+    public class tb_parametro_Data
     {
         string mensaje = "";
-
 
         public List<tb_parametro_Info> Get_List_parametro()
         {
@@ -30,12 +25,12 @@ namespace Bizu.Infrastructure.General
                 {
 
                     tb_parametro_Info info = new tb_parametro_Info();
-                    info.IdParametro = item.IdParametro;
-                    info.IdTipoParam = item.IdTipoParam;
-                    info.Valor = item.Valor;
+                    info.IdParametro = item.idparametro;
+                    info.IdTipoParam = item.idtipoparam;
+                    info.Valor = item.valor;
                     info.descripcion = item.descripcion;
 
-                    
+
                     lM.Add(info);
                 }
                 return (lM);
@@ -58,13 +53,13 @@ namespace Bizu.Infrastructure.General
             {
                 using (EntitiesGeneral context = new EntitiesGeneral())
                 {
-                
-                        var contact = context.tb_parametro.First(obj => obj.IdParametro == info.IdParametro );
-                        contact.IdParametro = info.IdParametro;
-                        contact.IdTipoParam = info.IdTipoParam;
-                        contact.Valor = info.Valor;
-                        contact.descripcion = info.descripcion;
-                        context.SaveChanges();
+
+                    var contact = context.tb_parametro.First(obj => obj.idparametro == info.IdParametro);
+                    contact.idparametro = info.IdParametro;
+                    contact.idtipoparam = info.IdTipoParam;
+                    contact.valor = info.Valor;
+                    contact.descripcion = info.descripcion;
+                    context.SaveChanges();
                 }
                 return true;
             }
@@ -90,9 +85,9 @@ namespace Bizu.Infrastructure.General
                 using (EntitiesGeneral context = new EntitiesGeneral())
                 {
                     var address = new tb_parametro();
-                    address.IdParametro = info.IdParametro;
-                    address.IdTipoParam = info.IdTipoParam;
-                    address.Valor = info.Valor;
+                    address.idparametro = info.IdParametro;
+                    address.idtipoparam = info.IdTipoParam;
+                    address.valor = info.Valor;
                     address.descripcion = info.descripcion;
 
                     context.tb_parametro.Add(address);
@@ -115,20 +110,20 @@ namespace Bizu.Infrastructure.General
             }
         }
 
-                      
+
         public string getValor(string dato, ref string msg)
-       {
+        {
             try
             {
                 string resultado = "0";
                 EntitiesGeneral OEGeneral = new EntitiesGeneral();
-                    var contact = OEGeneral.tb_parametro.First(obj => obj.IdParametro == dato );
-                    if (contact != null)
-                    {
-                        return resultado = contact.Valor;
+                var contact = OEGeneral.tb_parametro.First(obj => obj.idparametro == dato);
+                if (contact != null)
+                {
+                    return resultado = contact.valor;
 
-                    }
-                    return resultado;
+                }
+                return resultado;
             }
             catch (Exception ex)
             {

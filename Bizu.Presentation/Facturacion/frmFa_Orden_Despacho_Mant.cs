@@ -361,17 +361,6 @@ namespace Bizu.Presentation.Facturacion
         
         public void cargarTransportistas() 
         {
-            try
-            {
-                tb_transportista_Bus Bustransportista = new tb_transportista_Bus();
-                ultraComboEditorTransportista.Properties.DataSource = Bustransportista.Get_List_transportista(param.IdEmpresa);
-                ultraComboEditorTransportista.Properties.DisplayMember = "Nombre";
-                ultraComboEditorTransportista.Properties.ValueMember = "IdTransportista";
-            }
-            catch (Exception ex)
-            {
-                Log_Error_bus.Log_Error(ex.ToString());
-            }
         }
     
         public string obtnerDesProd(decimal idproducto) 

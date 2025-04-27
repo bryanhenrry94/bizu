@@ -25,19 +25,19 @@ namespace Bizu.Infrastructure.General
             {
                 EntitiesGeneral Context = new EntitiesGeneral();
 
-                tb_Conexion_DBFacturacion_Electronica Obj = new tb_Conexion_DBFacturacion_Electronica();
-                Obj.IdEmpresa = Info.IdEmpresa;
-                Obj.Tipo_BaseDatos = Info.Tipo_BaseDatos;
-                Obj.Servidor = Info.Servidor;
-                Obj.Puerto = Info.Puerto;
-                Obj.AutenticacionWindows = Info.AutenticacionWindows;
-                Obj.Usuario = Info.Usuario;
-                Obj.Contrasena = Info.Contrasena;
-                Obj.Nombre_BaseDatos = Info.Nombre_BaseDatos;
-                Obj.Cadena_Conexion = Info.Cadena_Conexion;
-                Obj.Script_ComprobantesRecibidos = Info.Script_ComprobantesRecibidos;
+                tb_conexion_dbfacturacion_electronica Obj = new tb_conexion_dbfacturacion_electronica();
+                Obj.idempresa = Info.IdEmpresa;
+                Obj.tipo_basedatos = Info.Tipo_BaseDatos;
+                Obj.servidor = Info.Servidor;
+                Obj.puerto = Info.Puerto;
+                Obj.autenticacionwindows = Info.AutenticacionWindows;
+                Obj.usuario = Info.Usuario;
+                Obj.contrasena = Info.Contrasena;
+                Obj.nombre_basedatos = Info.Nombre_BaseDatos;
+                Obj.cadena_conexion = Info.Cadena_Conexion;
+                Obj.script_comprobantesrecibidos = Info.Script_ComprobantesRecibidos;
 
-                Context.tb_Conexion_DBFacturacion_Electronica.Add(Obj);
+                Context.tb_conexion_dbfacturacion_electronica.Add(Obj);
                 Context.SaveChanges();
 
                 mensaje = "Configuracion registrada con éxito!";
@@ -56,21 +56,21 @@ namespace Bizu.Infrastructure.General
             {
                 EntitiesGeneral Context = new EntitiesGeneral();
 
-                tb_Conexion_DBFacturacion_Electronica Obj = (from q in Context.tb_Conexion_DBFacturacion_Electronica
-                                                             where q.IdEmpresa == Info.IdEmpresa
+                tb_conexion_dbfacturacion_electronica Obj = (from q in Context.tb_conexion_dbfacturacion_electronica
+                                                             where q.idempresa == Info.IdEmpresa
                                                              select q).FirstOrDefault();
 
                 if (Obj != null)
                 {
-                    Obj.Tipo_BaseDatos = Info.Tipo_BaseDatos;
-                    Obj.Servidor = Info.Servidor;
-                    Obj.Puerto = Info.Puerto;
-                    Obj.AutenticacionWindows = Info.AutenticacionWindows;
-                    Obj.Usuario = Info.Usuario;
-                    Obj.Contrasena = Info.Contrasena;
-                    Obj.Nombre_BaseDatos = Info.Nombre_BaseDatos;
-                    Obj.Cadena_Conexion = Info.Cadena_Conexion;
-                    Obj.Script_ComprobantesRecibidos = Info.Script_ComprobantesRecibidos;
+                    Obj.tipo_basedatos = Info.Tipo_BaseDatos;
+                    Obj.servidor = Info.Servidor;
+                    Obj.puerto = Info.Puerto;
+                    Obj.autenticacionwindows = Info.AutenticacionWindows;
+                    Obj.usuario = Info.Usuario;
+                    Obj.contrasena = Info.Contrasena;
+                    Obj.nombre_basedatos = Info.Nombre_BaseDatos;
+                    Obj.cadena_conexion = Info.Cadena_Conexion;
+                    Obj.script_comprobantesrecibidos = Info.Script_ComprobantesRecibidos;
 
                     Context.SaveChanges();
 
@@ -98,21 +98,21 @@ namespace Bizu.Infrastructure.General
 
                 EntitiesGeneral Context = new EntitiesGeneral();
 
-                var query = from q in Context.tb_Conexion_DBFacturacion_Electronica
-                            where q.IdEmpresa == IdEmpresa
+                var query = from q in Context.tb_conexion_dbfacturacion_electronica
+                            where q.idempresa == IdEmpresa
                             select q;
 
                 foreach (var item in query)
                 {
-                    Info.Tipo_BaseDatos = item.Tipo_BaseDatos;
-                    Info.Servidor = item.Servidor;
-                    Info.Puerto = item.Puerto;
-                    Info.AutenticacionWindows = item.AutenticacionWindows;
-                    Info.Usuario = item.Usuario;
-                    Info.Contrasena = item.Contrasena;
-                    Info.Nombre_BaseDatos = item.Nombre_BaseDatos;
-                    Info.Cadena_Conexion = item.Cadena_Conexion;
-                    Info.Script_ComprobantesRecibidos = item.Script_ComprobantesRecibidos;
+                    Info.Tipo_BaseDatos = item.tipo_basedatos;
+                    Info.Servidor = item.servidor;
+                    Info.Puerto = item.puerto;
+                    Info.AutenticacionWindows = item.autenticacionwindows;
+                    Info.Usuario = item.usuario;
+                    Info.Contrasena = item.contrasena;
+                    Info.Nombre_BaseDatos = item.nombre_basedatos;
+                    Info.Cadena_Conexion = item.cadena_conexion;
+                    Info.Script_ComprobantesRecibidos = item.script_comprobantesrecibidos;
                 }
 
                 return Info;
@@ -131,8 +131,8 @@ namespace Bizu.Infrastructure.General
 
                 EntitiesGeneral Context = new EntitiesGeneral();
 
-                var query = from q in Context.tb_Conexion_DBFacturacion_Electronica
-                            where q.IdEmpresa == IdEmpresa
+                var query = from q in Context.tb_conexion_dbfacturacion_electronica
+                            where q.idempresa == IdEmpresa
                             select q;
 
                 if (query.Count() > 0)

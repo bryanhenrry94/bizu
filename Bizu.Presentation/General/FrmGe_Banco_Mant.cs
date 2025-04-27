@@ -25,11 +25,6 @@ namespace Bizu.Presentation.General
         tb_banco_Info BancoInfo = new tb_banco_Info();
         tb_banco_Bus bus_Banco = new tb_banco_Bus();
 
-        BindingList<tb_banco_procesos_bancarios_x_empresa_Info> blist_procesos_bancarios_x_empresa = new BindingList<tb_banco_procesos_bancarios_x_empresa_Info>();
-        tb_banco_procesos_bancarios_x_empresa_Bus bus_procesos_bancarios_x_empresa = new tb_banco_procesos_bancarios_x_empresa_Bus();
-
-        List<tb_banco_procesos_bancarios_tipo_Info> list_procesos_bancarios = new List<tb_banco_procesos_bancarios_tipo_Info>();
-        tb_banco_procesos_bancarios_tipo_Bus bus_procesos_bancarios = new tb_banco_procesos_bancarios_tipo_Bus();
         List<ba_tipo_nota_Info> list_tipo_nota = new List<ba_tipo_nota_Info>();
         ba_tipo_nota_Bus bus_tipo_nota = new ba_tipo_nota_Bus();
         string mensaje = "";
@@ -87,9 +82,6 @@ namespace Bizu.Presentation.General
                 Info.Estado = (chkEstado.Checked == true) ? "A" : "I";
                 Info.CodigoLegal = txtCodigoLegal.Text;
                 Info.TieneFormatoTransferencia = chkFormatoTransfer.Checked;
-
-                Info.lst_procesos_bancarios_x_empresa = Get_procesos_x_banco();
-
                 return Info;
             }
             catch (Exception ex)
@@ -100,7 +92,7 @@ namespace Bizu.Presentation.General
                 throw new Exception();
             }
         }
-        
+
         public void Cargar_Datos()
         {
             try
@@ -113,53 +105,13 @@ namespace Bizu.Presentation.General
                 chkFormatoTransfer.Checked = Convert.ToBoolean(BancoInfo.TieneFormatoTransferencia);
                 chkEstado.Checked = (BancoInfo.Estado == "A") ? true : false;
 
-                list_tipo_nota = bus_tipo_nota.Get_List_tipo_nota(param.IdEmpresa,"NDBA");
+                list_tipo_nota = bus_tipo_nota.Get_List_tipo_nota(param.IdEmpresa, "NDBA");
                 cmb_tipo_nota.DataSource = list_tipo_nota;
-
-                blist_procesos_bancarios_x_empresa = new BindingList<tb_banco_procesos_bancarios_x_empresa_Info>(bus_procesos_bancarios_x_empresa.Get_list_procesos_bancarios_x_empresa(param.IdEmpresa, BancoInfo.IdBanco));
-                gridControlProcesosBancarios.DataSource = blist_procesos_bancarios_x_empresa;
-
-                list_procesos_bancarios = bus_procesos_bancarios.Get_list_procesos();
-                cmb_procesos_bancarios.DataSource = list_procesos_bancarios;
-
-                gridControlProcesosBancarios.DataSource = blist_procesos_bancarios_x_empresa;
             }
             catch (Exception ex)
             {
                 Log_Error_bus.Log_Error(ex.ToString());
                 MessageBox.Show("Error comunicarse con Sistemas " + ex.Message + " ", "Sistemas", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private List<tb_banco_procesos_bancarios_x_empresa_Info> Get_procesos_x_banco()
-        {
-            try
-            {
-                List<tb_banco_procesos_bancarios_x_empresa_Info> Lista = new List<tb_banco_procesos_bancarios_x_empresa_Info>();
-
-                foreach (var item in blist_procesos_bancarios_x_empresa)
-                {
-                    tb_banco_procesos_bancarios_x_empresa_Info info = new tb_banco_procesos_bancarios_x_empresa_Info();
-                    
-                    info.IdEmpresa = param.IdEmpresa;
-                    info.IdProceso_bancario_tipo = item.IdProceso_bancario_tipo;
-                    info.IdBanco = txtId.Text == "" ? 0 : Convert.ToInt32(txtId.Text);
-                    info.cod_banco = txtCodigoLegal.Text;
-                    info.Codigo_Empresa = item.Codigo_Empresa;
-                    info.Secuencial_detalle_inicial = item.Secuencial_detalle_inicial;
-                    info.IdTipoNota = item.IdTipoNota;
-                    info.Se_contabiliza = item.Se_contabiliza;
-
-                    Lista.Add(info);
-                }
-
-                return Lista;
-            }
-            catch (Exception ex)
-            {
-                Log_Error_bus.Log_Error(ex.ToString());
-                MessageBox.Show("Error comunicarse con Sistemas " + ex.Message + " ", "Sistemas", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return new List<tb_banco_procesos_bancarios_x_empresa_Info>();
             }
         }
 
@@ -169,11 +121,11 @@ namespace Bizu.Presentation.General
             {
                 bool resultado = false;
                 tb_banco_Info Info = new tb_banco_Info();
-                bus_Banco= new tb_banco_Bus();
+                bus_Banco = new tb_banco_Bus();
                 Info = GetBanco(ref mensaje);
                 IdBanco = Convert.ToInt32(Info.IdBanco);
                 if (resultado = bus_Banco.GrabarDB(Info, ref mensaje))
-                {                    
+                {
                     return resultado;
                 }
                 else
@@ -200,7 +152,7 @@ namespace Bizu.Presentation.General
                 Info = GetBanco(ref mensaje);
                 IdBanco = Convert.ToInt32(Info.IdBanco);
 
-                if (resultado=bus_Banco.ActualizarDB(Info, ref mensaje))
+                if (resultado = bus_Banco.ActualizarDB(Info, ref mensaje))
                 {
                     return resultado;
                 }
@@ -348,7 +300,7 @@ namespace Bizu.Presentation.General
 
         void FrmGe_Banco_Mant_event_FrmGe_Banco_Mant_FormClosing(object sender, FormClosingEventArgs e)
         {
-           
+
         }
 
         private void FrmGe_Banco_Mant_FormClosing(object sender, FormClosingEventArgs e)
@@ -372,7 +324,7 @@ namespace Bizu.Presentation.General
             }
             catch (Exception ex)
             {
-                
+
                 throw;
             }
         }
@@ -432,7 +384,7 @@ namespace Bizu.Presentation.General
             try
             {
                 Cargar_Datos();
-                
+
                 switch (Accion)
                 {
                     case Cl_Enumeradores.eTipo_action.grabar:

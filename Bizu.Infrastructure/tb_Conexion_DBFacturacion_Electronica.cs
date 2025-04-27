@@ -12,17 +12,17 @@ namespace Bizu.Infrastructure
     using System;
     using System.Collections.Generic;
     
-    public partial class tb_Conexion_DBFacturacion_Electronica
+    public partial class tb_conexion_dbfacturacion_electronica
     {
-        public int IdEmpresa { get; set; }
-        public string Tipo_BaseDatos { get; set; }
-        public string Servidor { get; set; }
-        public Nullable<int> Puerto { get; set; }
-        public Nullable<bool> AutenticacionWindows { get; set; }
-        public string Usuario { get; set; }
-        public string Contrasena { get; set; }
-        public string Nombre_BaseDatos { get; set; }
-        public string Cadena_Conexion { get; set; }
-        public string Script_ComprobantesRecibidos { get; set; }
+        public int idempresa { get; set; }
+        public string tipo_basedatos { get; set; }
+        public string servidor { get; set; }
+        public Nullable<int> puerto { get; set; }
+        public Nullable<bool> autenticacionwindows { get; set; }
+        public string usuario { get; set; }
+        public string contrasena { get; set; }
+        public string nombre_basedatos { get; set; }
+        public string cadena_conexion { get; set; }
+        public string script_comprobantesrecibidos { get; set; }
     }
 }

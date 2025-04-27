@@ -12,17 +12,17 @@ namespace Bizu.Infrastructure
     using System;
     using System.Collections.Generic;
     
-    public partial class tb_sis_Log_Error_Vzen
+    public partial class tb_sis_log_error_vzen
     {
-        public decimal Id { get; set; }
-        public Nullable<System.DateTime> Fecha_Trans { get; set; }
-        public string Detalle { get; set; }
-        public string Tipo { get; set; }
-        public string Clase { get; set; }
-        public string Pantalla { get; set; }
-        public string Asamble { get; set; }
-        public string Usuario { get; set; }
-        public string Ip { get; set; }
-        public string PC { get; set; }
+        public decimal id { get; set; }
+        public Nullable<System.DateTime> fecha_trans { get; set; }
+        public string detalle { get; set; }
+        public string tipo { get; set; }
+        public string clase { get; set; }
+        public string pantalla { get; set; }
+        public string asamble { get; set; }
+        public string usuario { get; set; }
+        public string ip { get; set; }
+        public string pc { get; set; }
     }
 }

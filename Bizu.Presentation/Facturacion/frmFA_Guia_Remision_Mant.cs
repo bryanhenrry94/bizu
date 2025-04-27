@@ -25,7 +25,6 @@ namespace Bizu.Presentation.Facturacion
         cl_parametrosGenerales_Bus param = cl_parametrosGenerales_Bus.Instance;
         fa_orden_Desp_Bus BusOrdenDes = new fa_orden_Desp_Bus();
         fa_OrdenDespachoDet_bus BusOrdenDeta = new fa_OrdenDespachoDet_bus();
-        List<tb_transportista_Info> LisTransportista = new List<tb_transportista_Info>();
         in_producto_Bus BusProduCto = new in_producto_Bus();
         UCIn_Sucursal_Bodega ctrl_SucBod = new UCIn_Sucursal_Bodega();
         UCFa_Cliente_Facturacion ctrl_Cliente = new UCFa_Cliente_Facturacion();
@@ -145,20 +144,7 @@ namespace Bizu.Presentation.Facturacion
 
         public void cargarTransportistas()
         {
-            try
-            {
-
-                tb_transportista_Bus Bustransportista = new tb_transportista_Bus();
-                LisTransportista = Bustransportista.Get_List_transportista(param.IdEmpresa);
-                ultraComboEditorTransportista.Properties.DataSource = LisTransportista;
-                ultraComboEditorTransportista.Properties.DisplayMember = "Nombre";
-                ultraComboEditorTransportista.Properties.ValueMember = "IdTransportista";
-
-            }
-            catch (Exception ex)
-            {
-                Log_Error_bus.Log_Error(ex.ToString());
-            }
+           
         }
 
         public void CargarControles()

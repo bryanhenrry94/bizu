@@ -16,10 +16,10 @@ namespace Bizu.Infrastructure.Contabilidad
 
 
         public List<ct_rpt_SaldosxCuentas_Info> Get_list_rpt_SaldosxCuentas(int IdEmpresa, int AnioF, int IdPeriodo, List<string> TipoEstadoFinanciero, int NivelInicial)
-        { 
+        {
             try
             {
-                byte[] logo=null;
+                byte[] logo = null;
                 string speriodo = "";
 
                 List<ct_rpt_SaldosxCuentas_Info> listaSaldoxMovi = new List<ct_rpt_SaldosxCuentas_Info>();
@@ -28,52 +28,52 @@ namespace Bizu.Infrastructure.Contabilidad
 
                 EntitiesGeneral OEselecEmpresa = new EntitiesGeneral();
                 var selectEmpresa = from C in OEselecEmpresa.tb_empresa
-                                    where C.IdEmpresa == IdEmpresa
-                                    select C;                
+                                    where C.idempresa == IdEmpresa
+                                    select C;
 
-                    foreach (var item2 in selectEmpresa)
-                    {
-                        logo = item2.em_logo;
-                    }
+                foreach (var item2 in selectEmpresa)
+                {
+                    logo = item2.em_logo;
+                }
 
 
-                    var select = from A in OEsaldoxCuentas_Movi.vwct_SaldosxCuentas
-                                 join per in OEsaldoxCuentas_Movi.vwct_periodo on new { A.IdEmpresa, A.IdPeriodo } equals new { per.IdEmpresa, per.IdPeriodo }
-                                 where A.IdEmpresa == IdEmpresa
-                                 && A.IdAnioF == AnioF
-                                 && A.IdPeriodo == IdPeriodo
-                                 && TipoEstadoFinanciero.Contains( A.gc_estado_financiero )
-                                 && A.IdNivel <= NivelInicial
-                                 select new
-                                 {
-                                     A.gc_estado_financiero,
-                                     A.gc_GrupoCble,
-                                     A.gc_Orden,
-                                     A.IdAnioF,
-                                     A.IdCtaCble,
-                                     A.IdCtaCblePadre
-                                     ,
-                                     A.IdEmpresa,
-                                     A.IdGrupoCble,
-                                     A.IdNivel,
-                                     A.IdPeriodo,
-                                     A.pc_Cuenta,
-                                     A.pc_Naturaleza,
-                                     A.sc_credito_acum
-                                     ,
-                                     A.sc_credito_mes,
-                                     A.sc_debito_acum,
-                                     A.sc_debito_mes,
-                                     A.sc_saldo_acum,
-                                     A.sc_saldo_anterior,
-                                     A.sc_saldoPeriodo
-                                     ,
-                                     A.SIdPeriodo,
-                                     per.idMes,
-                                     per.Nemonico,
-                                     per.pe_mes,
-                                     per.smes
-                                 };
+                var select = from A in OEsaldoxCuentas_Movi.vwct_SaldosxCuentas
+                             join per in OEsaldoxCuentas_Movi.vwct_periodo on new { A.IdEmpresa, A.IdPeriodo } equals new { per.IdEmpresa, per.IdPeriodo }
+                             where A.IdEmpresa == IdEmpresa
+                             && A.IdAnioF == AnioF
+                             && A.IdPeriodo == IdPeriodo
+                             && TipoEstadoFinanciero.Contains(A.gc_estado_financiero)
+                             && A.IdNivel <= NivelInicial
+                             select new
+                             {
+                                 A.gc_estado_financiero,
+                                 A.gc_GrupoCble,
+                                 A.gc_Orden,
+                                 A.IdAnioF,
+                                 A.IdCtaCble,
+                                 A.IdCtaCblePadre
+                                 ,
+                                 A.IdEmpresa,
+                                 A.IdGrupoCble,
+                                 A.IdNivel,
+                                 A.IdPeriodo,
+                                 A.pc_Cuenta,
+                                 A.pc_Naturaleza,
+                                 A.sc_credito_acum
+                                 ,
+                                 A.sc_credito_mes,
+                                 A.sc_debito_acum,
+                                 A.sc_debito_mes,
+                                 A.sc_saldo_acum,
+                                 A.sc_saldo_anterior,
+                                 A.sc_saldoPeriodo
+                                 ,
+                                 A.SIdPeriodo,
+                                 per.idMes,
+                                 per.Nemonico,
+                                 per.pe_mes,
+                                 per.smes
+                             };
 
                 foreach (var item in select)
                 {
@@ -85,7 +85,7 @@ namespace Bizu.Infrastructure.Contabilidad
 
                     osam.credito_acumulado = item.sc_credito_acum;
                     osam.debito_acumulado = item.sc_debito_acum;
-                    
+
 
                     osam.credito_mes = item.sc_credito_mes;
                     osam.debito_mes = item.sc_debito_mes;
@@ -103,9 +103,9 @@ namespace Bizu.Infrastructure.Contabilidad
                     osam.NomCtaCble = item.pc_Cuenta;
                     osam.Orden = item.gc_Orden;
                     osam.SIdPeriodo = item.SIdPeriodo;
-                    
+
                     osam.em_logo = logo;
-                    osam.NomPeriodo = item.IdAnioF.ToString()+"-"+ item.smes;
+                    osam.NomPeriodo = item.IdAnioF.ToString() + "-" + item.smes;
 
 
                     listaSaldoxMovi.Add(osam);
@@ -145,7 +145,7 @@ namespace Bizu.Infrastructure.Contabilidad
 
                 EntitiesGeneral OEselecEmpresa = new EntitiesGeneral();
                 var selectEmpresa = from C in OEselecEmpresa.tb_empresa
-                                    where C.IdEmpresa == IdEmpresa
+                                    where C.idempresa == IdEmpresa
                                     select C;
 
                 foreach (var item2 in selectEmpresa)

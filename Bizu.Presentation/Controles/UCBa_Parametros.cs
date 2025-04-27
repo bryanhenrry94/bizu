@@ -8,14 +8,11 @@ using System.Text;
 using System.Windows.Forms;
 using Bizu.Domain.Bancos;
 
-using Bizu.Domain.CuentasxCobrar;
 using Bizu.Application.CuentasxCobrar ;
 using Bizu.Application.Bancos;
 using Bizu.Application.Contabilidad;
 using Bizu.Domain.Contabilidad;
 using Bizu.Application.General;
-using Bizu.Domain.General;
-
 
 namespace Bizu.Presentation.Controles
 {
@@ -33,7 +30,6 @@ namespace Bizu.Presentation.Controles
         cxc_cobro_tipo_Bus busTipCob = new cxc_cobro_tipo_Bus();
         vwBA_Sucursal_x_TipoCobro_Bus busSuc_x_Tipo = new vwBA_Sucursal_x_TipoCobro_Bus();
         cxc_cobro_tipo_Param_conta_x_sucursal_Bus busParam = new cxc_cobro_tipo_Param_conta_x_sucursal_Bus();
-        tb_Ciudad_Bus Bus_ciudad = new tb_Ciudad_Bus();
         ba_tipo_nota_Bus tipo_nota_bus = new ba_tipo_nota_Bus();
 
         string MensajeError = "";
@@ -44,10 +40,7 @@ namespace Bizu.Presentation.Controles
         ba_parametros_Bus BusOtrosPara = new ba_parametros_Bus();
 
         List<ct_Plancta_Info> lmCuenta = new List<ct_Plancta_Info>();
-
-
         List<ba_Cbte_Ban_tipo_x_ct_CbteCble_tipo_Info> lista = new List<ba_Cbte_Ban_tipo_x_ct_CbteCble_tipo_Info>();
-        List<tb_ciudad_Info> Lista_Ciudad = new List<tb_ciudad_Info>();
         List<ba_tipo_nota_Info> listas_tipos_notas = new List<ba_tipo_nota_Info>();
         //Infos
         ba_Cbte_Ban_tipo_x_ct_CbteCble_tipo_Info info = new ba_Cbte_Ban_tipo_x_ct_CbteCble_tipo_Info();
@@ -93,17 +86,10 @@ namespace Bizu.Presentation.Controles
                 ba_parametros_Info InfoParam_x_Banco = new ba_parametros_Info();
                 InfoParam_x_Banco = BusOtrosPara.Get_Info_Banco_Otros_Parametros(param.IdEmpresa);
 
-                Lista_Ciudad = new List<tb_ciudad_Info>();
-                Lista_Ciudad = Bus_ciudad.Get_List_Ciudad("");
-                cmbCiudad_Cheques.Properties.DataSource = Lista_Ciudad;
-                cmbCiudad_Cheques.EditValue = InfoParam_x_Banco.CiudadDefaultParaCrearCheques;
-
-
                 lmCuenta = busCuenta.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa, ref MensajeError);
                 cmbCtaCbte_grid.DataSource = lmCuenta;
                 cmbCtaCbte_grid.DisplayMember = "pc_Cuenta2";
                 cmbCtaCbte_grid.ValueMember = "IdCtaCble";
-
 
                 chkDiarioModi.Checked = InfoParam_x_Banco.El_Diario_Contable_es_modificable;
                 txt_rutaDescarga_file_preAvisoChq.Text = InfoParam_x_Banco.Ruta_descarga_fila_x_PreAviso_cheq;

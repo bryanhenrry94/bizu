@@ -837,10 +837,6 @@
             this.cmbTarjeta.ValueMember = "tr_Descripcion";
             this.cmbTarjeta.View = this.repositoryItemSearchLookUpEdit1View;
             // 
-            // tbtarjetaInfoBindingSource
-            // 
-            this.tbtarjetaInfoBindingSource.DataSource = typeof(Bizu.Domain.General.tb_tarjeta_Info);
-            // 
             // repositoryItemSearchLookUpEdit1View
             // 
             this.repositoryItemSearchLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {

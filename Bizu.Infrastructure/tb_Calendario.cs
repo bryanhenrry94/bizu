@@ -12,29 +12,29 @@ namespace Bizu.Infrastructure
     using System;
     using System.Collections.Generic;
     
-    public partial class tb_Calendario
+    public partial class tb_calendario
     {
-        public int IdCalendario { get; set; }
+        public int idcalendario { get; set; }
         public System.DateTime fecha { get; set; }
-        public string NombreFecha { get; set; }
-        public string NombreCortoFecha { get; set; }
+        public string nombrefecha { get; set; }
+        public string nombrecortofecha { get; set; }
         public Nullable<int> dia_x_semana { get; set; }
         public Nullable<int> dia_x_mes { get; set; }
-        public string Inicial_del_Dia { get; set; }
-        public string NombreDia { get; set; }
-        public Nullable<int> Mes_x_anio { get; set; }
-        public string NombreMes { get; set; }
-        public Nullable<int> IdMes { get; set; }
-        public string NombreCortoMes { get; set; }
-        public Nullable<int> AnioFiscal { get; set; }
-        public Nullable<int> Semana_x_anio { get; set; }
-        public string NombreSemana { get; set; }
-        public Nullable<int> IdSemana { get; set; }
-        public Nullable<int> Trimestre_x_Anio { get; set; }
-        public string NombreTrimestre { get; set; }
-        public Nullable<int> IdTrimestre { get; set; }
-        public string IdPeriodo { get; set; }
-        public string EsFeriado { get; set; }
-        public string Descripcion { get; set; }
+        public string inicial_del_dia { get; set; }
+        public string nombredia { get; set; }
+        public Nullable<int> mes_x_anio { get; set; }
+        public string nombremes { get; set; }
+        public Nullable<int> idmes { get; set; }
+        public string nombrecortomes { get; set; }
+        public Nullable<int> aniofiscal { get; set; }
+        public Nullable<int> semana_x_anio { get; set; }
+        public string nombresemana { get; set; }
+        public Nullable<int> idsemana { get; set; }
+        public Nullable<int> trimestre_x_anio { get; set; }
+        public string nombretrimestre { get; set; }
+        public Nullable<int> idtrimestre { get; set; }
+        public string idperiodo { get; set; }
+        public string esferiado { get; set; }
+        public string descripcion { get; set; }
     }
 }

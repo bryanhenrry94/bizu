@@ -12,13 +12,11 @@ namespace Bizu.Infrastructure
     using System;
     using System.Collections.Generic;
     
-    public partial class tb_sis_Impuesto_x_ctacble
+    public partial class tb_sis_impuesto_x_ctacble
     {
-        public string IdCod_Impuesto { get; set; }
-        public int IdEmpresa_cta { get; set; }
-        public string IdCtaCble { get; set; }
+        public string idcod_impuesto { get; set; }
+        public int idempresa_cta { get; set; }
+        public string idctacble { get; set; }
         public string observacion { get; set; }
-    
-        public virtual tb_sis_Impuesto tb_sis_Impuesto { get; set; }
     }
 }

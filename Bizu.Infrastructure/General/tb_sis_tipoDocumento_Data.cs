@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Bizu.Domain.General;
-using Bizu.Infrastructure.General;
 
 namespace Bizu.Infrastructure.General
 {
@@ -16,16 +15,16 @@ namespace Bizu.Infrastructure.General
             {
                 List<tb_sis_tipoDocumento_Info> lm = new List<tb_sis_tipoDocumento_Info>();
                 EntitiesGeneral OEGeneral = new EntitiesGeneral();
-                var q = from A in OEGeneral.tb_sis_Documento_Tipo
-                        orderby A.Posicion
+                var q = from A in OEGeneral.tb_sis_documento_tipo
+                        orderby A.posicion
                         select A;
                 foreach (var item in q)
                 {
                     tb_sis_tipoDocumento_Info info = new tb_sis_tipoDocumento_Info();
-                    info.IdTipoDocumento = item.codDocumentoTipo.Trim();
+                    info.IdTipoDocumento = item.coddocumentotipo.Trim();
                     info.Descripcion = item.descripcion.Trim();
                     info.Estado = item.estado;
-                    info.Posicion=Convert.ToInt32(item.Posicion);
+                    info.Posicion = Convert.ToInt32(item.posicion);
                     lm.Add(info);
                 }
                 return lm;
@@ -42,7 +41,6 @@ namespace Bizu.Infrastructure.General
             }
         }
 
-
         public List<tb_sis_tipoDocumento_Info> Get_List_sis_tipoDocumento(int IdEmpresa)
         {
             try
@@ -51,22 +49,22 @@ namespace Bizu.Infrastructure.General
                 EntitiesGeneral context = new EntitiesGeneral();
                 tb_sis_Documento_Tipo_x_Empresa_Data TipoDocEmpresaData = new tb_sis_Documento_Tipo_x_Empresa_Data();
 
-                var q = from A in context.tb_sis_Documento_Tipo
-                        orderby A.Posicion
+                var q = from A in context.tb_sis_documento_tipo
+                        orderby A.posicion
                         select A;
                 foreach (var item in q)
                 {
 
                     tb_sis_tipoDocumento_Info info = new tb_sis_tipoDocumento_Info();
-                    if (TipoDocEmpresaData.ValidarSiExiste(item.codDocumentoTipo,IdEmpresa))
+                    if (TipoDocEmpresaData.ValidarSiExiste(item.coddocumentotipo, IdEmpresa))
                     {
-                        info.IdTipoDocumento = item.codDocumentoTipo.Trim();
+                        info.IdTipoDocumento = item.coddocumentotipo.Trim();
                         info.Descripcion = item.descripcion.Trim();
                         info.Estado = item.estado;
-                        info.Posicion = Convert.ToInt32(item.Posicion);
+                        info.Posicion = Convert.ToInt32(item.posicion);
                         lst.Add(info);
                     }
-                    
+
                 }
                 return lst;
             }
@@ -87,14 +85,14 @@ namespace Bizu.Infrastructure.General
             try
             {
                 EntitiesGeneral context = new EntitiesGeneral();
-                var address = new tb_sis_Documento_Tipo();
+                var address = new tb_sis_documento_tipo();
 
-                address.codDocumentoTipo = Info.IdTipoDocumento;
+                address.coddocumentotipo = Info.IdTipoDocumento;
                 address.descripcion = Info.Descripcion;
                 address.estado = Info.Estado;
-                address.Posicion = Info.Posicion;
+                address.posicion = Info.Posicion;
 
-                context.tb_sis_Documento_Tipo.Add(address);
+                context.tb_sis_documento_tipo.Add(address);
                 context.SaveChanges();
                 return true;
             }
@@ -115,12 +113,12 @@ namespace Bizu.Infrastructure.General
             try
             {
                 EntitiesGeneral context = new EntitiesGeneral();
-                var address = context.tb_sis_Documento_Tipo.FirstOrDefault(var => var.codDocumentoTipo == Info.IdTipoDocumento);
+                var address = context.tb_sis_documento_tipo.FirstOrDefault(var => var.coddocumentotipo == Info.IdTipoDocumento);
                 if (address != null)
                 {
                     address.descripcion = Info.Descripcion;
                     address.estado = Info.Estado;
-                    address.Posicion = Info.Posicion;
+                    address.posicion = Info.Posicion;
                     context.SaveChanges();
                 }
                 return true;

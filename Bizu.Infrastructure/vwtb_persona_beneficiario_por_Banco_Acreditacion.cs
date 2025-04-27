@@ -12,42 +12,40 @@ namespace Bizu.Infrastructure
     using System;
     using System.Collections.Generic;
     
-    public partial class vwtb_persona_beneficiario_por_Banco_Acreditacion
+    public partial class vwtb_persona_beneficiario_por_banco_acreditacion
     {
-        public int IdEmpresa { get; set; }
-        public string IdBeneficiario { get; set; }
-        public string IdTipo_Persona { get; set; }
-        public decimal IdPersona { get; set; }
-        public decimal IdEntidad { get; set; }
-        public string Codigo { get; set; }
-        public string Nombre { get; set; }
+        public int idempresa { get; set; }
+        public string idbeneficiario { get; set; }
+        public string idtipo_persona { get; set; }
+        public decimal idpersona { get; set; }
+        public decimal identidad { get; set; }
+        public string codigo { get; set; }
+        public string nombre { get; set; }
         public string pr_girar_cheque_a { get; set; }
-        public string pe_razonSocial { get; set; }
-        public string pe_cedulaRuc { get; set; }
-        public string pe_Naturaleza { get; set; }
-        public string IdCtaCble { get; set; }
-        public string IdCentroCosto { get; set; }
-        public string IdSubCentroCosto { get; set; }
-        public string IdCtaCble_Anticipo { get; set; }
-        public string IdCtaCble_Gasto { get; set; }
-        public string Estado { get; set; }
-        public string IdTipoCta_acreditacion_cat { get; set; }
+        public string pe_razonsocial { get; set; }
+        public string pe_cedularuc { get; set; }
+        public string pe_naturaleza { get; set; }
+        public string idctacble { get; set; }
+        public string idctacble_anticipo { get; set; }
+        public string idctacble_gasto { get; set; }
+        public string estado { get; set; }
+        public string idtipocta_acreditacion_cat { get; set; }
         public string num_cta_acreditacion { get; set; }
-        public string IdBanco_acreditacion { get; set; }
-        public string IdTipoDocumento_acreditacion { get; set; }
-        public string cedulaRuc_acreditacion { get; set; }
+        public Nullable<int> idbanco_acreditacion { get; set; }
+        public string idtipodocumento_acreditacion { get; set; }
+        public string cedularuc_acreditacion { get; set; }
         public string beneficiario_acreditacion { get; set; }
         public string correo_acreditacion { get; set; }
         public string pe_apellido { get; set; }
         public string pe_nombre { get; set; }
-        public string pe_nombreCompleto { get; set; }
-        public string IdTipoDocumento { get; set; }
+        public string pe_nombrecompleto { get; set; }
+        public string idtipodocumento { get; set; }
         public string pe_direccion { get; set; }
-        public string pe_telefonoCasa { get; set; }
+        public string pe_telefonocasa { get; set; }
         public string pe_celular { get; set; }
         public string pe_correo { get; set; }
-        public string CodigoLegal { get; set; }
-        public Nullable<bool> TieneFormatoTransferencia { get; set; }
+        public string codigolegal { get; set; }
+        public Nullable<bool> tieneformatotransferencia { get; set; }
         public string ba_descripcion { get; set; }
     }
 }

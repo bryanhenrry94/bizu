@@ -16,17 +16,17 @@ namespace Bizu.Infrastructure.General
             {
                 EntitiesGeneral context = new EntitiesGeneral();
 
-                tb_Conexion_Dashboard obj = new tb_Conexion_Dashboard();
-                obj.Id = getID();
-                obj.Provider = Info.Provider;
-                obj.ServerName = Info.ServerName;
-                obj.PortNumber = Info.PortNumber;
-                obj.DatabaseName = Info.DatabaseName;
-                obj.UserName = Info.UserName;
-                obj.Password = Info.Password;
-                obj.StringConnection = Info.StringConnection;
+                tb_conexion_dashboard obj = new tb_conexion_dashboard();
+                obj.id = getID();
+                obj.provider = Info.Provider;
+                obj.servername = Info.ServerName;
+                obj.portnumber = Info.PortNumber;
+                obj.databasename = Info.DatabaseName;
+                obj.username = Info.UserName;
+                obj.password = Info.Password;
+                obj.stringconnection = Info.StringConnection;
 
-                context.tb_Conexion_Dashboard.Add(obj);
+                context.tb_conexion_dashboard.Add(obj);
                 context.SaveChanges();
 
                 return true;
@@ -43,20 +43,20 @@ namespace Bizu.Infrastructure.General
             {
                 EntitiesGeneral context = new EntitiesGeneral();
 
-                var query = from q in context.tb_Conexion_Dashboard select q;
+                var query = from q in context.tb_conexion_dashboard select q;
 
                 tb_Conexion_Dashboard_Info obj = new tb_Conexion_Dashboard_Info();
 
                 foreach (var item in query)
                 {
-                    obj.Id = item.Id;
-                    obj.Provider = item.Provider;
-                    obj.ServerName = item.ServerName;
-                    obj.PortNumber = item.PortNumber;
-                    obj.DatabaseName = item.DatabaseName;
-                    obj.UserName = item.UserName;
-                    obj.Password = item.Password;
-                    obj.StringConnection = item.StringConnection;
+                    obj.Id = item.id;
+                    obj.Provider = item.provider;
+                    obj.ServerName = item.servername;
+                    obj.PortNumber = item.portnumber;
+                    obj.DatabaseName = item.databasename;
+                    obj.UserName = item.username;
+                    obj.Password = item.password;
+                    obj.StringConnection = item.stringconnection;
                 }
                 
                 return obj;
@@ -73,11 +73,11 @@ namespace Bizu.Infrastructure.General
             {
                 EntitiesGeneral context = new EntitiesGeneral();
 
-                var query = from q in context.tb_Conexion_Dashboard select q;                            
+                var query = from q in context.tb_conexion_dashboard select q;                            
 
                 if(query.Count() > 0)
                 {
-                    return query.Select(t => t.Id).Max() + 1;
+                    return query.Select(t => t.id).Max() + 1;
                 }
 
                 return 1;

@@ -5,19 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Bizu.Domain.General;
-using Bizu.Infrastructure.General;
-
-
-
 
 namespace Bizu.Infrastructure.General
 {
-  public  class tb_sis_impuesto_Data
+    public class tb_sis_impuesto_Data
     {
 
-      string mensaje = "";
+        string mensaje = "";
 
-      public List<tb_sis_impuesto_Info> Get_List_impuesto()
+        public List<tb_sis_impuesto_Info> Get_List_impuesto()
         {
             try
             {
@@ -25,20 +21,20 @@ namespace Bizu.Infrastructure.General
 
                 EntitiesGeneral oEnti = new EntitiesGeneral();
 
-                var bancos = from q in oEnti.tb_sis_Impuesto
+                var bancos = from q in oEnti.tb_sis_impuesto
                              select q;
                 foreach (var item in bancos)
                 {
                     tb_sis_impuesto_Info info = new tb_sis_impuesto_Info();
 
-                    info.IdCod_Impuesto = item.IdCod_Impuesto;
+                    info.IdCod_Impuesto = item.idcod_impuesto;
                     info.nom_impuesto = item.nom_impuesto;
-                    info.Usado_en_Ventas = item.Usado_en_Ventas;
-                    info.Usado_en_Compras = item.Usado_en_Compras;
+                    info.Usado_en_Ventas = item.usado_en_ventas;
+                    info.Usado_en_Compras = item.usado_en_compras;
                     info.porcentaje = item.porcentaje;
-                    info.IdCodigo_SRI = item.IdCodigo_SRI;
+                    info.IdCodigo_SRI = item.idcodigo_sri;
                     info.estado = item.estado;
-                    info.IdTipoImpuesto = item.IdTipoImpuesto;
+                    info.IdTipoImpuesto = item.idtipoimpuesto;
 
 
                     lst.Add(info);
@@ -57,236 +53,242 @@ namespace Bizu.Infrastructure.General
         }
 
 
-      public tb_sis_impuesto_Info Get_Info_impuesto(string IdCod_Impuesto)
-      {
-          try
-          {
-              tb_sis_impuesto_Info info = new tb_sis_impuesto_Info();
+        public tb_sis_impuesto_Info Get_Info_impuesto(string IdCod_Impuesto)
+        {
+            try
+            {
+                tb_sis_impuesto_Info info = new tb_sis_impuesto_Info();
 
-              EntitiesGeneral oEnti = new EntitiesGeneral();
+                EntitiesGeneral oEnti = new EntitiesGeneral();
 
-              var bancos = from q in oEnti.tb_sis_Impuesto
-                           where q.IdCod_Impuesto == IdCod_Impuesto
-                           select q;
-              foreach (var item in bancos)
-              {
+                var bancos = from q in oEnti.tb_sis_impuesto
+                             where q.idcod_impuesto == IdCod_Impuesto
+                             select q;
+                foreach (var item in bancos)
+                {
 
-                  info.IdCod_Impuesto = item.IdCod_Impuesto;
-                  info.nom_impuesto = item.nom_impuesto;
-                  info.Usado_en_Ventas = item.Usado_en_Ventas;
-                  info.Usado_en_Compras = item.Usado_en_Compras;
-                  info.porcentaje = item.porcentaje;
-                  info.IdCodigo_SRI = item.IdCodigo_SRI;
-                  info.estado = item.estado;
-                  info.IdTipoImpuesto = item.IdTipoImpuesto;
+                    info.IdCod_Impuesto = item.idcod_impuesto;
+                    info.nom_impuesto = item.nom_impuesto;
+                    info.Usado_en_Ventas = item.usado_en_ventas;
+                    info.Usado_en_Compras = item.usado_en_compras;
+                    info.porcentaje = item.porcentaje;
+                    info.IdCodigo_SRI = item.idcodigo_sri;
+                    info.estado = item.estado;
+                    info.IdTipoImpuesto = item.idtipoimpuesto;
+                }
+                return info;
+            }
+            catch (Exception ex)
+            {
+                string arreglo = ToString();
+                tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
+                tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", arreglo, "", "", "", "", "", DateTime.Now);
+                oDataLog.Guardar_Log_Error(Log_Error_sis, ref mensaje);
+                mensaje = ex.ToString() + " " + ex.Message;
+                throw new Exception(ex.ToString());
+            }
+        }
 
+        public List<tb_sis_impuesto_Info> Get_List_impuesto(string IdTipoImpuesto)
+        {
+            try
+            {
+                List<tb_sis_impuesto_Info> lst = new List<tb_sis_impuesto_Info>();
 
-                  
-              }
-              return info;
-          }
-          catch (Exception ex)
-          {
-              string arreglo = ToString();
-              tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
-              tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", arreglo, "", "", "", "", "", DateTime.Now);
-              oDataLog.Guardar_Log_Error(Log_Error_sis, ref mensaje);
-              mensaje = ex.ToString() + " " + ex.Message;
-              throw new Exception(ex.ToString());
-          }
-      }
+                EntitiesGeneral oEnti = new EntitiesGeneral();
 
-      public List<tb_sis_impuesto_Info> Get_List_impuesto(string IdTipoImpuesto)
-      {
-          try
-          {
-              List<tb_sis_impuesto_Info> lst = new List<tb_sis_impuesto_Info>();
+                var bancos = from q in oEnti.tb_sis_impuesto
+                             where q.idtipoimpuesto == IdTipoImpuesto
+                             select q;
+                foreach (var item in bancos)
+                {
+                    tb_sis_impuesto_Info info = new tb_sis_impuesto_Info();
 
-              EntitiesGeneral oEnti = new EntitiesGeneral();
+                    info.IdCod_Impuesto = item.idcod_impuesto;
+                    info.nom_impuesto = item.nom_impuesto;
+                    info.Usado_en_Ventas = item.usado_en_ventas;
+                    info.Usado_en_Compras = item.usado_en_compras;
+                    info.porcentaje = item.porcentaje;
+                    info.IdCodigo_SRI = item.idcodigo_sri;
+                    info.estado = item.estado;
+                    info.IdTipoImpuesto = item.idtipoimpuesto;
 
-              var bancos = from q in oEnti.tb_sis_Impuesto
-                           where q.IdTipoImpuesto == IdTipoImpuesto
-                           select q;
-              foreach (var item in bancos)
-              {
-                  tb_sis_impuesto_Info info = new tb_sis_impuesto_Info();
-
-                  info.IdCod_Impuesto = item.IdCod_Impuesto;
-                  info.nom_impuesto = item.nom_impuesto;
-                  info.Usado_en_Ventas = item.Usado_en_Ventas;
-                  info.Usado_en_Compras = item.Usado_en_Compras;
-                  info.porcentaje = item.porcentaje;
-                  info.IdCodigo_SRI = item.IdCodigo_SRI;
-                  info.estado = item.estado;
-                  info.IdTipoImpuesto = item.IdTipoImpuesto;
-
-
-                  lst.Add(info);
-              }
-              return lst;
-          }
-          catch (Exception ex)
-          {
-              string arreglo = ToString();
-              tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
-              tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", arreglo, "", "", "", "", "", DateTime.Now);
-              oDataLog.Guardar_Log_Error(Log_Error_sis, ref mensaje);
-              mensaje = ex.ToString() + " " + ex.Message;
-              throw new Exception(ex.ToString());
-          }
-      }
+                    lst.Add(info);
+                }
+                return lst;
+            }
+            catch (Exception ex)
+            {
+                string arreglo = ToString();
+                tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
+                tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", arreglo, "", "", "", "", "", DateTime.Now);
+                oDataLog.Guardar_Log_Error(Log_Error_sis, ref mensaje);
+                mensaje = ex.ToString() + " " + ex.Message;
+                throw new Exception(ex.ToString());
+            }
+        }
 
 
-      public List<tb_sis_impuesto_Info> Get_List_impuesto_x_CtaCble(int IdEmpresa ,string IdTipoImpuesto)
-      {
-          try
-          {
-              List<tb_sis_impuesto_Info> lst = new List<tb_sis_impuesto_Info>();
+        public List<tb_sis_impuesto_Info> Get_List_impuesto_x_CtaCble(int IdEmpresa, string IdTipoImpuesto)
+        {
+            try
+            {
+                List<tb_sis_impuesto_Info> lst = new List<tb_sis_impuesto_Info>();
 
-              EntitiesGeneral oEnti = new EntitiesGeneral();
+                EntitiesGeneral oEnti = new EntitiesGeneral();
 
-              var bancos = from q in oEnti.tb_sis_Impuesto
-                           join cta in oEnti.tb_sis_Impuesto_x_ctacble on q.IdCod_Impuesto equals cta.IdCod_Impuesto
-                           where q.IdTipoImpuesto == IdTipoImpuesto
-                           && cta.IdEmpresa_cta == IdEmpresa
-                           select new {cta.IdEmpresa_cta, q.IdCod_Impuesto,q.nom_impuesto,q.Usado_en_Ventas,q.Usado_en_Compras,q.porcentaje,q.IdCodigo_SRI,q.estado,q.IdTipoImpuesto
-                           ,cta.IdCtaCble};
+                var bancos = from q in oEnti.tb_sis_impuesto
+                             join cta in oEnti.tb_sis_impuesto_x_ctacble on q.idcod_impuesto equals cta.idcod_impuesto
+                             where q.idtipoimpuesto == IdTipoImpuesto
+                             && cta.idempresa_cta == IdEmpresa
+                             select new
+                             {
+                                 cta.idempresa_cta,
+                                 q.idcod_impuesto,
+                                 q.nom_impuesto,
+                                 q.usado_en_ventas,
+                                 q.usado_en_compras,
+                                 q.porcentaje,
+                                 q.idcodigo_sri,
+                                 q.estado,
+                                 q.idtipoimpuesto,
+                                 cta.idctacble
+                             };
 
-              foreach (var item in bancos)
-              {
-                  tb_sis_impuesto_Info info = new tb_sis_impuesto_Info();
+                foreach (var item in bancos)
+                {
+                    tb_sis_impuesto_Info info = new tb_sis_impuesto_Info();
 
-                  info.IdCod_Impuesto = item.IdCod_Impuesto;
-                  info.nom_impuesto = item.nom_impuesto;
-                  info.Usado_en_Ventas = item.Usado_en_Ventas;
-                  info.Usado_en_Compras = item.Usado_en_Compras;
-                  info.porcentaje = item.porcentaje;
-                  info.IdCodigo_SRI = item.IdCodigo_SRI;
-                  info.estado = item.estado;
-                  info.IdTipoImpuesto = item.IdTipoImpuesto;
-                  info.Info_sis_Impuesto_x_ctacble.IdCod_Impuesto = item.IdCod_Impuesto;
-                  info.Info_sis_Impuesto_x_ctacble.IdCtaCble = item.IdCtaCble;
-                  info.Info_sis_Impuesto_x_ctacble.IdEmpresa_cta = item.IdEmpresa_cta;
+                    info.IdCod_Impuesto = item.idcod_impuesto;
+                    info.nom_impuesto = item.nom_impuesto;
+                    info.Usado_en_Ventas = item.usado_en_ventas;
+                    info.Usado_en_Compras = item.usado_en_compras;
+                    info.porcentaje = item.porcentaje;
+                    info.IdCodigo_SRI = item.idcodigo_sri;
+                    info.estado = item.estado;
+                    info.IdTipoImpuesto = item.idtipoimpuesto;
+                    info.Info_sis_Impuesto_x_ctacble.IdCod_Impuesto = item.idcod_impuesto;
+                    info.Info_sis_Impuesto_x_ctacble.IdCtaCble = item.idctacble;
+                    info.Info_sis_Impuesto_x_ctacble.IdEmpresa_cta = item.idempresa_cta;
 
-                  lst.Add(info);
-              }
-              return lst;
-          }
-          catch (Exception ex)
-          {
-              string arreglo = ToString();
-              tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
-              tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", arreglo, "", "", "", "", "", DateTime.Now);
-              oDataLog.Guardar_Log_Error(Log_Error_sis, ref mensaje);
-              mensaje = ex.ToString() + " " + ex.Message;
-              throw new Exception(ex.ToString());
-          }
-      }
+                    lst.Add(info);
+                }
+                return lst;
+            }
+            catch (Exception ex)
+            {
+                string arreglo = ToString();
+                tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
+                tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", arreglo, "", "", "", "", "", DateTime.Now);
+                oDataLog.Guardar_Log_Error(Log_Error_sis, ref mensaje);
+                mensaje = ex.ToString() + " " + ex.Message;
+                throw new Exception(ex.ToString());
+            }
+        }
 
-      public List<tb_sis_impuesto_Info> Get_List_impuesto_para_Compras(string IdTipoImpuesto)
-      {
-          try
-          {
-              List<tb_sis_impuesto_Info> lst = new List<tb_sis_impuesto_Info>();
+        public List<tb_sis_impuesto_Info> Get_List_impuesto_para_Compras(string IdTipoImpuesto)
+        {
+            try
+            {
+                List<tb_sis_impuesto_Info> lst = new List<tb_sis_impuesto_Info>();
 
-              EntitiesGeneral oEnti = new EntitiesGeneral();
+                EntitiesGeneral oEnti = new EntitiesGeneral();
 
-              var bancos = from q in oEnti.tb_sis_Impuesto
-                           where q.Usado_en_Compras==true
-                           && q.IdTipoImpuesto == IdTipoImpuesto
-                           select q;
-              foreach (var item in bancos)
-              {
-                  tb_sis_impuesto_Info info = new tb_sis_impuesto_Info();
+                var bancos = from q in oEnti.tb_sis_impuesto
+                             where q.usado_en_compras == true
+                             && q.idtipoimpuesto == IdTipoImpuesto
+                             select q;
 
-                  info.IdCod_Impuesto = item.IdCod_Impuesto;
-                  info.nom_impuesto = item.nom_impuesto;
-                  info.Usado_en_Ventas = item.Usado_en_Ventas;
-                  info.Usado_en_Compras = item.Usado_en_Compras;
-                  info.porcentaje = item.porcentaje;
-                  info.IdCodigo_SRI = item.IdCodigo_SRI;
-                  info.estado = item.estado;
-                  info.IdTipoImpuesto = item.IdTipoImpuesto;
+                foreach (var item in bancos)
+                {
+                    tb_sis_impuesto_Info info = new tb_sis_impuesto_Info();
 
-
-                  lst.Add(info);
-              }
-              return lst;
-          }
-          catch (Exception ex)
-          {
-              string arreglo = ToString();
-              tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
-              tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", arreglo, "", "", "", "", "", DateTime.Now);
-              oDataLog.Guardar_Log_Error(Log_Error_sis, ref mensaje);
-              mensaje = ex.ToString() + " " + ex.Message;
-              throw new Exception(ex.ToString());
-          }
-      }
-
-      public List<tb_sis_impuesto_Info> Get_List_impuesto_para_Ventas(string IdTipoImpuesto)
-      {
-          try
-          {
-              List<tb_sis_impuesto_Info> lst = new List<tb_sis_impuesto_Info>();
-
-              EntitiesGeneral oEnti = new EntitiesGeneral();
-
-              var bancos = from q in oEnti.tb_sis_Impuesto
-                           where q.Usado_en_Ventas == true
-                            && q.IdTipoImpuesto == IdTipoImpuesto
-                           select q;
-              foreach (var item in bancos)
-              {
-                  tb_sis_impuesto_Info info = new tb_sis_impuesto_Info();
-
-                  info.IdCod_Impuesto = item.IdCod_Impuesto;
-                  info.nom_impuesto = item.nom_impuesto;
-                  info.Usado_en_Ventas = item.Usado_en_Ventas;
-                  info.Usado_en_Compras = item.Usado_en_Compras;
-                  info.porcentaje = item.porcentaje;
-                  info.IdCodigo_SRI = item.IdCodigo_SRI;
-                  info.estado = item.estado;
-                  info.IdTipoImpuesto = item.IdTipoImpuesto;
+                    info.IdCod_Impuesto = item.idcod_impuesto;
+                    info.nom_impuesto = item.nom_impuesto;
+                    info.Usado_en_Ventas = item.usado_en_ventas;
+                    info.Usado_en_Compras = item.usado_en_compras;
+                    info.porcentaje = item.porcentaje;
+                    info.IdCodigo_SRI = item.idcodigo_sri;
+                    info.estado = item.estado;
+                    info.IdTipoImpuesto = item.idtipoimpuesto;
 
 
-                  lst.Add(info);
-              }
-              return lst;
-          }
-          catch (Exception ex)
-          {
-              string arreglo = ToString();
-              tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
-              tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", arreglo, "", "", "", "", "", DateTime.Now);
-              oDataLog.Guardar_Log_Error(Log_Error_sis, ref mensaje);
-              mensaje = ex.ToString() + " " + ex.Message;
-              throw new Exception(ex.ToString());
-          }
-      }
+                    lst.Add(info);
+                }
+                return lst;
+            }
+            catch (Exception ex)
+            {
+                string arreglo = ToString();
+                tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
+                tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", arreglo, "", "", "", "", "", DateTime.Now);
+                oDataLog.Guardar_Log_Error(Log_Error_sis, ref mensaje);
+                mensaje = ex.ToString() + " " + ex.Message;
+                throw new Exception(ex.ToString());
+            }
+        }
 
-      public Boolean GrabarDB(tb_sis_impuesto_Info Info, ref string msg)
+        public List<tb_sis_impuesto_Info> Get_List_impuesto_para_Ventas(string IdTipoImpuesto)
+        {
+            try
+            {
+                List<tb_sis_impuesto_Info> lst = new List<tb_sis_impuesto_Info>();
+
+                EntitiesGeneral oEnti = new EntitiesGeneral();
+
+                var bancos = from q in oEnti.tb_sis_impuesto
+                             where q.usado_en_ventas == true
+                              && q.idtipoimpuesto == IdTipoImpuesto
+                             select q;
+                foreach (var item in bancos)
+                {
+                    tb_sis_impuesto_Info info = new tb_sis_impuesto_Info();
+
+                    info.IdCod_Impuesto = item.idcod_impuesto;
+                    info.nom_impuesto = item.nom_impuesto;
+                    info.Usado_en_Ventas = item.usado_en_ventas;
+                    info.Usado_en_Compras = item.usado_en_compras;
+                    info.porcentaje = item.porcentaje;
+                    info.IdCodigo_SRI = item.idcodigo_sri;
+                    info.estado = item.estado;
+                    info.IdTipoImpuesto = item.idtipoimpuesto;
+
+                    lst.Add(info);
+                }
+                return lst;
+            }
+            catch (Exception ex)
+            {
+                string arreglo = ToString();
+                tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
+                tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", arreglo, "", "", "", "", "", DateTime.Now);
+                oDataLog.Guardar_Log_Error(Log_Error_sis, ref mensaje);
+                mensaje = ex.ToString() + " " + ex.Message;
+                throw new Exception(ex.ToString());
+            }
+        }
+
+        public Boolean GrabarDB(tb_sis_impuesto_Info Info, ref string msg)
         {
             try
             {
                 Boolean resultado = false;
                 using (EntitiesGeneral context = new EntitiesGeneral())
                 {
-                    var address = new tb_sis_Impuesto();
+                    var address = new tb_sis_impuesto();
 
-                    address.IdCod_Impuesto = Info.IdCod_Impuesto;
+                    address.idcod_impuesto = Info.IdCod_Impuesto;
                     address.nom_impuesto = Info.nom_impuesto;
-                    address.Usado_en_Ventas = Info.Usado_en_Ventas;
-                    address.Usado_en_Compras = Info.Usado_en_Compras;
+                    address.usado_en_ventas = Info.Usado_en_Ventas;
+                    address.usado_en_compras = Info.Usado_en_Compras;
                     address.porcentaje = Info.porcentaje;
-                    address.IdCodigo_SRI = Info.IdCodigo_SRI;
+                    address.idcodigo_sri = Info.IdCodigo_SRI;
                     address.estado = true;
-                    address.IdTipoImpuesto = Info.IdTipoImpuesto;
+                    address.idtipoimpuesto = Info.IdTipoImpuesto;
 
-
-                    context.tb_sis_Impuesto.Add(address);
+                    context.tb_sis_impuesto.Add(address);
                     context.SaveChanges();
-                    msg = "Se ha procedido grabar el Banco #: " + address.IdCod_Impuesto.ToString() + " exitosamente.";
+                    msg = "Se ha procedido grabar el Banco #: " + address.idcod_impuesto.ToString() + " exitosamente.";
                     resultado = true;
                 }
                 return resultado;
@@ -302,29 +304,26 @@ namespace Bizu.Infrastructure.General
             }
         }
 
-      public Boolean ActualizarDB(tb_sis_impuesto_Info Info, ref string msg)
+        public Boolean ActualizarDB(tb_sis_impuesto_Info Info, ref string msg)
         {
             try
             {
                 bool resultado = false;
                 using (EntitiesGeneral context = new EntitiesGeneral())
                 {
-                    var address = context.tb_sis_Impuesto.FirstOrDefault(v => v.IdCod_Impuesto == Info.IdCod_Impuesto);
+                    var address = context.tb_sis_impuesto.FirstOrDefault(v => v.idcod_impuesto == Info.IdCod_Impuesto);
                     if (address != null)
                     {
-
-
                         address.nom_impuesto = Info.nom_impuesto;
-                        address.Usado_en_Ventas = Info.Usado_en_Ventas;
-                        address.Usado_en_Compras = Info.Usado_en_Compras;
+                        address.usado_en_ventas = Info.Usado_en_Ventas;
+                        address.usado_en_compras = Info.Usado_en_Compras;
                         address.porcentaje = Info.porcentaje;
-                        address.IdCodigo_SRI = Info.IdCodigo_SRI;
+                        address.idcodigo_sri = Info.IdCodigo_SRI;
                         address.estado = Info.estado;
-                        address.IdTipoImpuesto = Info.IdTipoImpuesto;
-
+                        address.idtipoimpuesto = Info.IdTipoImpuesto;
 
                         context.SaveChanges();
-                        msg = "Se ha modificado el Banco #: " + address.IdCod_Impuesto.ToString() + " exitosamente.";
+                        msg = "Se ha modificado el Banco #: " + address.idcod_impuesto.ToString() + " exitosamente.";
                         resultado = true;
                     }
                 }
@@ -341,14 +340,14 @@ namespace Bizu.Infrastructure.General
             }
         }
 
-      public Boolean AnulaDB(tb_sis_impuesto_Info Info, ref string msg)
+        public Boolean AnulaDB(tb_sis_impuesto_Info Info, ref string msg)
         {
             try
             {
                 Boolean resultado = false;
                 using (EntitiesGeneral context = new EntitiesGeneral())
                 {
-                    var address = context.tb_sis_Impuesto.FirstOrDefault(q => q.IdCod_Impuesto == Info.IdCod_Impuesto);
+                    var address = context.tb_sis_impuesto.FirstOrDefault(q => q.idcod_impuesto == Info.IdCod_Impuesto);
                     if (address != null)
                     {
                         address.estado = false;
@@ -369,6 +368,5 @@ namespace Bizu.Infrastructure.General
                 throw new Exception(ex.ToString());
             }
         }
-
     }
 }

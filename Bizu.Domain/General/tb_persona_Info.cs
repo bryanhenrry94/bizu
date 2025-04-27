@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-
-
-
 namespace Bizu.Domain.General
 {
 
@@ -68,14 +65,9 @@ namespace Bizu.Domain.General
         public string pe_cargoLaboral { get; set; }
         public string pe_codigoPostar { get; set; } 
 
-        public List<tb_persona_direccion_Info> list_direcciones_x_persona { get; set; }
-
-        
-
 
         public tb_persona_Info()
         {
-            list_direcciones_x_persona = new List<tb_persona_direccion_Info>();
         }
         
     }

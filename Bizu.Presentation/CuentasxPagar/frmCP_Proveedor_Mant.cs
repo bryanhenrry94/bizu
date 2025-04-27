@@ -42,7 +42,7 @@ namespace Bizu.Presentation.CuentasxPagar
         cp_proveedor_Autorizacion_Bus BusProvee_Auto = new cp_proveedor_Autorizacion_Bus();
         List<cp_proveedor_Autorizacion_Info> List_Proveedor_Auto = new List<cp_proveedor_Autorizacion_Info>();
         List<cp_proveedor_Autorizacion_Info> List_Proveedor_Auto_Ant = new List<cp_proveedor_Autorizacion_Info>();
-        BindingList<cp_proveedor_Autorizacion_Info> DataSourceProveedorAutorizacion = new BindingList<cp_proveedor_Autorizacion_Info>();        
+        BindingList<cp_proveedor_Autorizacion_Info> DataSourceProveedorAutorizacion = new BindingList<cp_proveedor_Autorizacion_Info>();
 
         //proveedor_codigo_SRI_
         cp_proveedor_codigo_SRI_Bus Bus_Provee_Cod_Sri = new cp_proveedor_codigo_SRI_Bus();
@@ -67,13 +67,7 @@ namespace Bizu.Presentation.CuentasxPagar
         //cp_parametros_
         cp_parametros_Info paramCP_I = new cp_parametros_Info();
         cp_parametros_Bus paramCP_B = new cp_parametros_Bus();
-
-        //tb_persona_direccion
-        tb_persona_direccion_Info Info_PerDirecc = new tb_persona_direccion_Info();
-        tb_persona_direccion_Bus Bus_PerDirecc = new tb_persona_direccion_Bus();
-        List<tb_persona_direccion_Info> Lista_PerDirecc = new List<tb_persona_direccion_Info>();
-        BindingList<tb_persona_direccion_Info> List_direcciones_x_persona = new BindingList<tb_persona_direccion_Info>();
-
+        
         // Proveedor x CIIU
         cp_proveedor_x_tb_ciiu_Bus BusProveedorXtbciiu = new cp_proveedor_x_tb_ciiu_Bus();
         BindingList<cp_proveedor_x_tb_ciiu_Info> BindingListProveedorXciiu = new BindingList<cp_proveedor_x_tb_ciiu_Info>();
@@ -135,7 +129,7 @@ namespace Bizu.Presentation.CuentasxPagar
                     return false;
 
                 }
-                
+
 
                 if (cmbCtaCbleAnti.cmbPlanCta.EditValue == null)
                 {
@@ -159,15 +153,7 @@ namespace Bizu.Presentation.CuentasxPagar
                     return false;
                 }
 
-                foreach (var item in ucGe_Persona_x_Direcciones_Grid1.Get_list_direcciones_x_persona())
-                {
-                    if (item.IdTipoDireccion == 0 || item.IdTipoDireccion == null)
-                    {
-                        MessageBox.Show("La dirección: " + item.Direccion + " no tiene un tipo seleccionado, por favor corrija", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return false;
-                    }
-                }
-
+               
                 return true;
             }
             catch (Exception ex)
@@ -226,8 +212,7 @@ namespace Bizu.Presentation.CuentasxPagar
                 chk_estado.Checked = true;
                 uccP_Proveedor_Autoriza1.Limpiar_Autorizacion_x_Proveedor();
                 Set_Id_Combos_Ubicacion();
-                ucGe_Persona_x_Direcciones_Grid1.Limpiar_persona_x_direccion();                
-                this.txtCodPostal.Text = ""; 
+                this.txtCodPostal.Text = "";
             }
             catch (Exception ex)
             {
@@ -396,16 +381,6 @@ namespace Bizu.Presentation.CuentasxPagar
                 BinList_codigoSRI = new BindingList<cp_codigo_SRI_Info>(listaAux_codigoSRI_grid);
                 gridControl_SRI.DataSource = BinList_codigoSRI;
 
-                //cmb_banco_acred.set_BancoInfo(Convert.ToInt32(InfoProveedor.IdBanco_acreditacion));
-                //if (InfoProveedor.IdTipoCta_acreditacion_cat != null)
-                //    cmb_tipo_cta_acred.Set_IdCatalogo(InfoProveedor.IdTipoCta_acreditacion_cat);
-                //txtNum_cta_acred.Text = InfoProveedor.num_cta_acreditacion;
-                //cmb_TipoDocumento_Acreditacion.EditValue = InfoProveedor.IdTipoDocumento_acreditacion;
-                //txt_cedulaRuc_Acreditacion.EditValue = InfoProveedor.cedulaRuc_acreditacion;
-                //txt_Beneficiario_Acreditacion.EditValue = InfoProveedor.beneficiario_acreditacion;
-                //txt_correo_acreditacion.EditValue = InfoProveedor.correo_acreditacion;
-
-                ucGe_Persona_x_Direcciones_Grid1.Set_direcciones_x_persona(InfoProveedor.IdPersona);
                 uCct_Pto_Cargo_Grupo1.Set_info_grupo(InfoProveedor.IdPunto_cargo_grupo);
                 uCct_Pto_Cargo_Grupo1.Set_info_punto_cargo(InfoProveedor.IdPunto_cargo);
 
@@ -429,7 +404,7 @@ namespace Bizu.Presentation.CuentasxPagar
                 MessageBox.Show(NameMetodo + " - " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log_Error_bus.Log_Error(NameMetodo + " - " + ex.ToString());
             }
-        }        
+        }
 
         private void LoadDatosBancarios()
         {
@@ -441,7 +416,8 @@ namespace Bizu.Presentation.CuentasxPagar
 
                 gridControlDatosBancarios.DataSource = BindingListProveedorDatosBancarios;
                 gridControlDatosBancarios.RefreshDataSource();
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 string NameMetodo = System.Reflection.MethodBase.GetCurrentMethod().Name;
                 MessageBox.Show(NameMetodo + " - " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -543,10 +519,10 @@ namespace Bizu.Presentation.CuentasxPagar
                 InfoProveedor.lista_codigoSRI_Proveedor_Old = List_Proveedor_Cod_Sri;
 
                 // Recorriendo los datos que estan en el grid gridControlDatosBancarios
-                foreach(var item in BindingListProveedorDatosBancarios)
+                foreach (var item in BindingListProveedorDatosBancarios)
                 {
                     // Solo si la fila esta marcada como predeterminada, asigno los datos de la fila a mi objeto InfoProveedor
-                    if(item.Predefinida == true)
+                    if (item.Predefinida == true)
                     {
                         InfoProveedor.IdBanco_acreditacion = item.IdBanco;
                         InfoProveedor.IdTipoCta_acreditacion_cat = item.IdTipoCuenta;
@@ -557,7 +533,7 @@ namespace Bizu.Presentation.CuentasxPagar
                         InfoProveedor.correo_acreditacion = item.Correo;
                     }
                 }
-                
+
 
                 if (uCct_Pto_Cargo_Grupo1.Get_info_grupo() != null) InfoProveedor.IdPunto_cargo_grupo = uCct_Pto_Cargo_Grupo1.Get_Id_grupo();
                 if (uCct_Pto_Cargo_Grupo1.Get_info_punto_cargo() != null) InfoProveedor.IdPunto_cargo = uCct_Pto_Cargo_Grupo1.Get_Id_punto_cargo();
@@ -654,22 +630,6 @@ namespace Bizu.Presentation.CuentasxPagar
             }
         }
 
-        private List<tb_persona_direccion_Info> GetInfo_Per_Dire()
-        {
-            try
-            {
-                Lista_PerDirecc = ucGe_Persona_x_Direcciones_Grid1.Get_list_direcciones_x_persona();
-                return Lista_PerDirecc;
-            }
-            catch (Exception ex)
-            {
-                string NameMetodo = System.Reflection.MethodBase.GetCurrentMethod().Name;
-                MessageBox.Show(NameMetodo + " - " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log_Error_bus.Log_Error(NameMetodo + " - " + ex.ToString());
-                return new List<Bizu.Domain.General.tb_persona_direccion_Info>();
-            }
-        }
-
         private void txt_codigoProv_Validating(object sender, CancelEventArgs e)
         {
             try
@@ -714,19 +674,6 @@ namespace Bizu.Presentation.CuentasxPagar
                         MessageBox.Show(men);
                         return;
                     }
-
-                    // validar si es gran contriuyente
-                    tb_catastroGranContribuyente_Bus BusGranContribuyente = new tb_catastroGranContribuyente_Bus();
-                    bool EsGranContribuyente = BusGranContribuyente.ValidarRucGranContribuyente(Convert.ToString(txe_cedRucPas.EditValue));
-
-                    if(EsGranContribuyente == true) {
-                        MessageBox.Show("El Ruc ingresado forma parte del catastro Gran Contribuyente", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        chkGranContribuyente.Checked = true;
-                    }
-                    else
-                    {
-                        chkGranContribuyente.Checked = false;
-                    }
                 }
             }
             catch (Exception ex)
@@ -754,10 +701,7 @@ namespace Bizu.Presentation.CuentasxPagar
                     {
                         InfoPersona = BusPersona.Get_Info_Persona(Convert.ToString(txe_cedRucPas.EditValue).Trim());
                         txt_idPersona.Text = InfoPersona.IdPersona.ToString();
-
-                        if (InfoPersona.IdPersona != 0)
-                            ucGe_Persona_x_Direcciones_Grid1.Set_direcciones_x_persona(InfoPersona.IdPersona);
-
+                       
                         txt_direcProve.Text = !String.IsNullOrEmpty(InfoPersona.pe_direccion) ? InfoPersona.pe_direccion.Trim() : txt_direcProve.Text;
                         txt_RazonSocial.Text = !String.IsNullOrEmpty(InfoPersona.pe_razonSocial) ? InfoPersona.pe_razonSocial.Trim() : txt_RazonSocial.Text;
 
@@ -1010,7 +954,6 @@ namespace Bizu.Presentation.CuentasxPagar
 
                 GetInfo_Persona();
                 GetInfo_Proveedor();
-                GetInfo_Per_Dire();
 
                 if (Ya_Existe_Persona == false)//no existe persona grabo la persona
                 {
@@ -1063,8 +1006,6 @@ namespace Bizu.Presentation.CuentasxPagar
                     if (Respuesta_Grabar_Provee)
                     {
 
-                        Respuesta_Graba_Persona_Direccion = Bus_PerDirecc.GuardarDB(Lista_PerDirecc, Convert.ToDecimal(txt_idPersona.Text.Trim()), ref msgErro);
-                        //MessageBox.Show("Se ha Grabado la Dirección", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
@@ -1094,45 +1035,15 @@ namespace Bizu.Presentation.CuentasxPagar
 
                 Boolean Respuesta_Actualizar_Provee = true;
                 Boolean Respuesta_Actualizar_Persona = true;
-                Boolean Respuesta_Actualizar_Per_Direc = true;
 
                 if (validaciones() == false)
                 {
                     return false;
                 }
-                
+
                 GetInfo_Persona();
                 GetInfo_Proveedor();
-                GetInfo_Per_Dire();
-
-                if (Lista_PerDirecc.Count() != 0)
-                {
-                    foreach (var item in Lista_PerDirecc)
-                    {
-                        item.IdPersona = InfoPersona.IdPersona;
-                        if (item.IdDireccion == 0)
-                        {
-                            Info_PerDirecc = new tb_persona_direccion_Info();
-                            Info_PerDirecc.IdPersona = item.IdPersona;
-                            //Info_PerDirecc.IdDireccion = item.IdDireccion;
-                            Info_PerDirecc.Direccion = item.Direccion;
-                            Info_PerDirecc.IdTipoDireccion = item.IdTipoDireccion;
-                            Info_PerDirecc.prioridad = item.prioridad;
-                            Info_PerDirecc.estado = true;
-                            Info_PerDirecc.Ciudad = "";
-                            Info_PerDirecc.calle = "";
-                            Info_PerDirecc.cod_postal = "";
-                            Info_PerDirecc.referencia = "";
-
-                            Bus_PerDirecc.GuardarDB(Info_PerDirecc, Info_PerDirecc.IdPersona, ref MensajeError);
-                        }
-                        else
-                        {
-                            Respuesta_Actualizar_Per_Direc = Bus_PerDirecc.ModificarDB(Lista_PerDirecc, ref MensajeError);
-                        }
-                    }
-                }
-
+                
                 InfoProveedor.IdUsuarioUltMod = param.IdUsuario;
                 InfoProveedor.Fecha_UltMod = param.Fecha_Transac;
 
@@ -1264,7 +1175,7 @@ namespace Bizu.Presentation.CuentasxPagar
             {
                 if (_Accion == 0)
                     _Accion = Bizu.Domain.General.Cl_Enumeradores.eTipo_action.grabar;
-                
+
                 // consulta la tabla parametros del modulo de cxp
                 paramCP_I = paramCP_B.Get_Info_parametros(param.IdEmpresa);
 
@@ -1392,7 +1303,7 @@ namespace Bizu.Presentation.CuentasxPagar
                 foreach (TabPage item in tabGeneral.TabPages)
                 {
                     tabGeneral.SelectedTab = item;
-                }               
+                }
             }
             catch (Exception ex)
             {
@@ -1466,17 +1377,7 @@ namespace Bizu.Presentation.CuentasxPagar
 
                 listaRegimen = CatBus.Get_CatalogoPorTipo(30);
 
-                cmbRegimen.Properties.DataSource = listaRegimen;
-
-                tb_ciiu_Bus busciiu = new tb_ciiu_Bus();
-
-                List<tb_ciiu_Info> Listaciiu = new List<tb_ciiu_Info>();
-                Listaciiu = busciiu.GetList();
-
-                cmbActividadEconomica.Properties.DataSource = Listaciiu;
-
-                cmbActiviadadEconomicaGrid.DataSource = Listaciiu;
-
+                cmbRegimen.Properties.DataSource = listaRegimen;               
             }
             catch (Exception ex)
             {
@@ -1508,7 +1409,7 @@ namespace Bizu.Presentation.CuentasxPagar
         void Frm_event_frmCp_Proveedor_Calificacion_Mant_FormClosing(object sender, FormClosingEventArgs e)
         {
         }
-    
+
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -1523,7 +1424,7 @@ namespace Bizu.Presentation.CuentasxPagar
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            
+
             if (String.IsNullOrEmpty(txt_IdProveedor.Text))
             {
                 MessageBox.Show("Antes de continuar registre el proveedor", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -1613,12 +1514,12 @@ namespace Bizu.Presentation.CuentasxPagar
         }
 
         private void gridViewDatosBancarios_KeyDown(object sender, KeyEventArgs e)
-        {            
+        {
             cp_proveedor_datos_acreditacion_Info RowSelected = gridViewDatosBancarios.GetFocusedRow() as cp_proveedor_datos_acreditacion_Info;
 
             if (RowSelected == null) return;
 
-            if(e.KeyCode == Keys.Delete)
+            if (e.KeyCode == Keys.Delete)
             {
                 if (_Accion == Cl_Enumeradores.eTipo_action.Anular || _Accion == Cl_Enumeradores.eTipo_action.consultar)
                     return;
@@ -1638,7 +1539,7 @@ namespace Bizu.Presentation.CuentasxPagar
 
                     LoadDatosBancarios();
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show("Error: " + ex.Message, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -1680,7 +1581,7 @@ namespace Bizu.Presentation.CuentasxPagar
                     if (string.IsNullOrEmpty(RowSelected.Beneficiario))
                         RowSelected.Beneficiario = InfoPersonaAcreditacion.pe_nombreCompleto;
 
-                    if(string.IsNullOrEmpty(RowSelected.Correo))
+                    if (string.IsNullOrEmpty(RowSelected.Correo))
                         RowSelected.Correo = InfoPersonaAcreditacion.pe_correo;
 
                     SaveRow(RowSelected);
@@ -1721,13 +1622,13 @@ namespace Bizu.Presentation.CuentasxPagar
                 MessageBox.Show("Error: " + ex.Message, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-     
+
         private void gridViewDatosBancarios_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
         {
             cp_proveedor_datos_acreditacion_Info RowSelected = gridViewDatosBancarios.GetFocusedRow() as cp_proveedor_datos_acreditacion_Info;
             if (RowSelected == null) return;
 
-            if(e.Column == colPredeterminada)
+            if (e.Column == colPredeterminada)
             {
                 if (_Accion == Cl_Enumeradores.eTipo_action.Anular || _Accion == Cl_Enumeradores.eTipo_action.consultar)
                     return;

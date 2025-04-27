@@ -14,7 +14,7 @@ namespace Bizu.Infrastructure
     
     public partial class tb_persona_tipo
     {
-        public string IdTipo_Persona { get; set; }
-        public string Descricpion { get; set; }
+        public string idtipo_persona { get; set; }
+        public string descricpion { get; set; }
     }
 }

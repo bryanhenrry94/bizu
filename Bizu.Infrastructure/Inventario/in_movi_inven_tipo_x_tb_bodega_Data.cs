@@ -139,17 +139,17 @@ namespace Bizu.Infrastructure.Inventario
 
                var select = from c in OEBodegaxSucursal.tb_sucursal
                             join b in OEBodegaxSucursal.tb_bodega
-                            on new { c.IdEmpresa, c.IdSucursal } equals new { b.IdEmpresa, b.IdSucursal }
-                            where b.IdEmpresa == IdEmpresa
-                            select new { c.Su_Descripcion, c.IdSucursal, b.bo_Descripcion, b.IdBodega };
+                            on new { c.idempresa, c.idsucursal } equals new { b.idempresa, b.idsucursal }
+                            where b.idempresa == IdEmpresa
+                            select new { c.su_descripcion, c.idsucursal, b.bo_descripcion, b.idbodega };
 
                foreach (var item in select)
                {
                    in_movi_inven_tipo_x_tb_bodega_Info lst = new in_movi_inven_tipo_x_tb_bodega_Info();
-                   lst.Bodega = item.bo_Descripcion;
-                   lst.Sucursal = item.Su_Descripcion;
-                   lst.IdBodega = item.IdBodega;
-                   lst.IdSucucursal = item.IdSucursal;
+                   lst.Bodega = item.bo_descripcion;
+                   lst.Sucursal = item.su_descripcion;
+                   lst.IdBodega = item.idbodega;
+                   lst.IdSucucursal = item.idsucursal;
                    ln.Add(lst);
                }
                return (ln);

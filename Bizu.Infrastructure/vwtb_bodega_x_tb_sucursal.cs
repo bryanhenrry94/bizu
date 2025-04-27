@@ -14,12 +14,12 @@ namespace Bizu.Infrastructure
     
     public partial class vwtb_bodega_x_tb_sucursal
     {
-        public int IdEmpresa { get; set; }
-        public int IdSucursal { get; set; }
-        public int IdBodega { get; set; }
+        public int idempresa { get; set; }
+        public int idsucursal { get; set; }
+        public int idbodega { get; set; }
         public string cod_sucursal { get; set; }
         public string cod_bodega { get; set; }
-        public string Su_Descripcion { get; set; }
-        public string bo_Descripcion { get; set; }
+        public string su_descripcion { get; set; }
+        public string bo_descripcion { get; set; }
     }
 }

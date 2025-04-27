@@ -31,7 +31,7 @@ namespace Bizu.Application.Inventario
                 tb_sis_Documento_Tipo_Talonario_Data Data_sisDocTipoTalo = new tb_sis_Documento_Tipo_Talonario_Data();
                 tb_sis_Documento_Tipo_Talonario_Info Info_sisDocTipoTalo = new tb_sis_Documento_Tipo_Talonario_Info();
                 in_GuiaRemision_Det_Data Data_det = new in_GuiaRemision_Det_Data();
-                in_GuiaRemision_Exportacion_Data Data_GuiaExportacion = new in_GuiaRemision_Exportacion_Data();               
+                in_GuiaRemision_Exportacion_Data Data_GuiaExportacion = new in_GuiaRemision_Exportacion_Data();
 
                 int Secuencia = 0;
 
@@ -75,7 +75,7 @@ namespace Bizu.Application.Inventario
                         Secuencia += 1;
                         item.Secuencia = Secuencia;
                     }
-                    
+
                     in_Parametro_Bus Bus_Parametro = new in_Parametro_Bus();
                     in_Parametro_Info Info_Parametro = new in_Parametro_Info();
 
@@ -131,7 +131,7 @@ namespace Bizu.Application.Inventario
                 Info_Ing_Egr.IdMotivo_Inv = IdMotivo_Inv_x_GuiaRemision;
 
                 #endregion
-                
+
                 //DETALLE
                 #region
                 Info_Ing_Egr.listIng_Egr = new List<in_Ing_Egr_Inven_det_Info>();
@@ -154,7 +154,7 @@ namespace Bizu.Application.Inventario
                     Info_Det.dm_cantidad_sinConversion = Convert.ToDouble(item.Cantidad_sinConversion);
                     Info_Det.IdUnidadMedida_sinConversion = item.IdUnidadMedida_sinConversion;
                     Info_Det.IdMotivo_Inv = Info_Ing_Egr.IdMotivo_Inv;
-                    Info_Det.Lote = item.Lote;                 
+                    Info_Det.Lote = item.Lote;
                     Info_Ing_Egr.listIng_Egr.Add(Info_Det);
                 }
 
@@ -213,7 +213,7 @@ namespace Bizu.Application.Inventario
                     {
                         if (Data_det.Grabar(Info_GuiaRemision.in_GuiaRemision_Det))
                         {
-                           
+
                         }
                     }
                 }
@@ -257,7 +257,7 @@ namespace Bizu.Application.Inventario
 
                         }
                     }
-                }               
+                }
             }
             catch (Exception ex)
             {
@@ -430,9 +430,6 @@ namespace Bizu.Application.Inventario
                 in_GuiaRemision_Info Info_Guia = new in_GuiaRemision_Info();
                 Info_Guia = Get_Info_x_in_GuiaRemision(IdEmpresa, IdGuia);
 
-                tb_transportista_Bus Bus_Transportista = new tb_transportista_Bus();
-                tb_transportista_Info Info_Transportista = new tb_transportista_Info();
-
                 List<guiaRemision> listaaux = new List<guiaRemision>();
                 List<guiaRemision> lista = new List<guiaRemision>();
                 guiaRemisionDestinatarios destinatarios = new guiaRemisionDestinatarios();
@@ -480,40 +477,7 @@ namespace Bizu.Application.Inventario
                 myObject.infoGuiaRemision.dirPartida = string.IsNullOrEmpty(Info_Guia.Origen) ? "" : Info_Guia.Origen.Trim();
                 myObject.infoGuiaRemision.razonSocialTransportista = string.IsNullOrEmpty(Info_Guia.NombreTransportista) ? "" : Info_Guia.NombreTransportista.Trim();
 
-                Info_Transportista = Bus_Transportista.Get_Info_Transportista(Info_Guia.IdEmpresa, Info_Guia.CedulaTransportista);
-
-                if (Info_Transportista != null)
-                {
-                    switch (Info_Transportista.IdTipoDocumento)
-                    {
-                        case "RUC": //RUC
-                            myObject.infoGuiaRemision.tipoIdentificacionTransportista = "04";
-                            break;
-                        case "CED": //CEDULA
-                            myObject.infoGuiaRemision.tipoIdentificacionTransportista = "05";
-                            break;
-                        case "PAS": //PASAPORTE
-                            myObject.infoGuiaRemision.tipoIdentificacionTransportista = "06";
-                            break;
-                        case "FINAL": //VENTAS O CONSUMIDOR FINAL
-                            myObject.infoGuiaRemision.tipoIdentificacionTransportista = "07";
-                            break;
-                        case "EXT": //IDENTIFICACION DEL EXTERIOR
-                            myObject.infoGuiaRemision.tipoIdentificacionTransportista = "08";
-                            break;
-                        case "PLA": //PLACA
-                            myObject.infoGuiaRemision.tipoIdentificacionTransportista = "09";
-                            break;
-                        default:
-                            myObject.infoGuiaRemision.tipoIdentificacionTransportista = "05";//POR DEFAULT CEDULA
-                            break;
-                    }
-                }
-                else
-                {
-                    myObject.infoGuiaRemision.tipoIdentificacionTransportista = "05"; //POR DEFAULT CEDULA
-                }
-
+                myObject.infoGuiaRemision.tipoIdentificacionTransportista = "05"; //POR DEFAULT CEDULA
                 myObject.infoGuiaRemision.rucTransportista = Info_Guia.CedulaTransportista;
                 myObject.infoGuiaRemision.placa = Info_Guia.Placa;
                 myObject.infoGuiaRemision.fechaIniTransporte = Info_Guia.FechaTrasladoIni.ToString(format);
@@ -537,37 +501,6 @@ namespace Bizu.Application.Inventario
                     det.codigoAdicional = item.Codigo;
                     det.descripcion = item.Descripcion;
                     det.cantidad = Convert.ToDecimal(item.Cantidad_sinConversion);
-
-
-                    //if (item.IdUnidadMedida != "" && item.IdUnidadMedida != null)
-                    //{
-                    //    detalleDetAdicional detAdicional = new detalleDetAdicional();
-                    //    in_UnidadMedida_Bus Bus_UnidadMedida = new in_UnidadMedida_Bus();
-                    //    in_UnidadMedida_Info Info_UnidadMedida = new in_UnidadMedida_Info();
-
-                    //    Info_UnidadMedida = Bus_UnidadMedida.Get_Info_UnidadMedida(item.IdUnidadMedida);
-
-                    //    detAdicional.nombre = Info_UnidadMedida.cod_alterno;
-                    //    detAdicional.valor = Convert.ToString(item.Cantidad);
-
-                    //    det.detallesAdicionales = new List<detalleDetAdicional>();
-                    //    det.detallesAdicionales.Add(detAdicional);
-                    //}
-
-                    //if (item.IdUnidadMedida_sinConversion != "" && item.IdUnidadMedida_sinConversion != null)
-                    //{
-                    //    detalleDetAdicional detAdicional = new detalleDetAdicional();
-                    //    in_UnidadMedida_Bus Bus_UnidadMedida = new in_UnidadMedida_Bus();
-                    //    in_UnidadMedida_Info Info_UnidadMedida = new in_UnidadMedida_Info();
-
-                    //    Info_UnidadMedida = Bus_UnidadMedida.Get_Info_UnidadMedida(item.IdUnidadMedida_sinConversion);
-
-                    //    detAdicional.nombre = Info_UnidadMedida.cod_alterno;
-                    //    detAdicional.valor = Convert.ToString(item.Cantidad_sinConversion);
-
-                    //    det.detallesAdicionales = new List<detalleDetAdicional>();
-                    //    det.detallesAdicionales.Add(detAdicional);
-                    //}
 
                     if (item.Peso != null)
                     {
@@ -681,7 +614,7 @@ namespace Bizu.Application.Inventario
 
                     IdEmpresa_Efirm = Bus_Comprobante.Get_IdEmpresa_x_Ruc(param.InfoEmpresa.em_ruc, ref mensaje_error);
 
-                    result = Bus_Comprobante.Get_Xml(IdEmpresa_Efirm, Info_GuiaRemision.pe_cedulaRuc, IdComprobante, ref mensaje_error);                    
+                    result = Bus_Comprobante.Get_Xml(IdEmpresa_Efirm, Info_GuiaRemision.pe_cedulaRuc, IdComprobante, ref mensaje_error);
                 }
                 else
                 {
@@ -709,7 +642,7 @@ namespace Bizu.Application.Inventario
 
                 if (Math.Round(dCantidad, 2) > Math.Round(stock_a_fecha, 2))
                 {
-                    msg = "Stock insuficiente!. Cant. disponible: " + stock_a_fecha + " el " + Fecha.ToShortDateString() + ", cant. solicitada: " + dCantidad  + " en el item: " + IdProducto;
+                    msg = "Stock insuficiente!. Cant. disponible: " + stock_a_fecha + " el " + Fecha.ToShortDateString() + ", cant. solicitada: " + dCantidad + " en el item: " + IdProducto;
                     return false;
                 }
 
@@ -720,6 +653,6 @@ namespace Bizu.Application.Inventario
                 throw new Exception(ex.Message);
             }
         }
-               
+
     }
 }

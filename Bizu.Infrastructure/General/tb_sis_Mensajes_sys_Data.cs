@@ -3,28 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Bizu.Domain.General;
-using Bizu.Infrastructure.General;
 
 namespace Bizu.Infrastructure.General
 {
     public class tb_sis_Mensajes_sys_Data
     {
         string mensaje = "";
-        //CJimenez
+
         public string getId()
         {
             try
             {
                 string Id = "";
-
-                //EntitiesGeneral context = new EntitiesGeneral();
-                //var select = from q in context.vwGe_tb_sis_Mensajes_sys_IdAuto_numeric
-                //             select q;
-
-                //foreach (var item in select)
-                //{
-                //    Id = "msj_"+item.IdMensaje;
-                //}
 
                 return Id;
             }
@@ -48,16 +38,16 @@ namespace Bizu.Infrastructure.General
 
                 EntitiesGeneral oEnti = new EntitiesGeneral();
 
-                var tarjetas = from q in oEnti.tb_sis_Mensajes_sys
+                var tarjetas = from q in oEnti.tb_sis_mensajes_sys
                                select q;
 
                 foreach (var item in tarjetas)
                 {
                     tb_sis_Mensajes_sys_Info info = new tb_sis_Mensajes_sys_Info();
-                    info.IdMensaje = item.IdMensaje;
-                    info.Mensaje_Esp = item.Mensaje_Esp;
-                    info.Mensaje_Englesh = item.Mensaje_Englesh;
-                    info.Estado = item.Estado;
+                    info.IdMensaje = item.idmensaje;
+                    info.Mensaje_Esp = item.mensaje_esp;
+                    info.Mensaje_Englesh = item.mensaje_englesh;
+                    info.Estado = item.estado;
                     lst.Add(info);
                 }
                 return lst;
@@ -73,20 +63,20 @@ namespace Bizu.Infrastructure.General
                 throw new Exception(ex.ToString());
             }
         }
-        
+
 
         public Boolean Guardar(tb_sis_Mensajes_sys_Info Info)
         {
             try
             {
                 EntitiesGeneral context = new EntitiesGeneral();
-                var sms = new tb_sis_Mensajes_sys();
+                var sms = new tb_sis_mensajes_sys();
 
-                sms.IdMensaje = Info.IdMensaje;
-                sms.Mensaje_Esp = Info.Mensaje_Esp;
-                sms.Mensaje_Englesh = Info.Mensaje_Englesh;
-                sms.Estado = Info.Estado;
-                context.tb_sis_Mensajes_sys.Add(sms);
+                sms.idmensaje = Info.IdMensaje;
+                sms.mensaje_esp = Info.Mensaje_Esp;
+                sms.mensaje_englesh = Info.Mensaje_Englesh;
+                sms.estado = Info.Estado;
+                context.tb_sis_mensajes_sys.Add(sms);
                 context.SaveChanges();
 
                 return true;
@@ -102,18 +92,18 @@ namespace Bizu.Infrastructure.General
                 throw new Exception(ex.ToString());
             }
         }
-        
+
         public Boolean Modificar(tb_sis_Mensajes_sys_Info Info)
         {
             try
             {
                 EntitiesGeneral context = new EntitiesGeneral();
-                var sms = context.tb_sis_Mensajes_sys.FirstOrDefault(var => var.IdMensaje == Info.IdMensaje);
+                var sms = context.tb_sis_mensajes_sys.FirstOrDefault(var => var.idmensaje == Info.IdMensaje);
                 if (sms != null)
                 {
-                    sms.Mensaje_Esp = Info.Mensaje_Esp;
-                    sms.Mensaje_Englesh = Info.Mensaje_Englesh;
-                    sms.Estado = Info.Estado;
+                    sms.mensaje_esp = Info.Mensaje_Esp;
+                    sms.mensaje_englesh = Info.Mensaje_Englesh;
+                    sms.estado = Info.Estado;
                     context.SaveChanges();
                 }
                 return true;
@@ -136,8 +126,8 @@ namespace Bizu.Infrastructure.General
             {
                 EntitiesGeneral context = new EntitiesGeneral();
 
-                var Existe = from q in context.tb_sis_Mensajes_sys
-                             where q.IdMensaje == Cod
+                var Existe = from q in context.tb_sis_mensajes_sys
+                             where q.idmensaje == Cod
                              select q;
                 if (Existe.ToList().Count() > 0)
                 {
@@ -158,7 +148,7 @@ namespace Bizu.Infrastructure.General
                 mensaje = ex.ToString() + " " + ex.Message;
                 throw new Exception(ex.ToString());
             }
-            
+
         }
 
         public Boolean Anular(string IdMensaje)
@@ -166,10 +156,10 @@ namespace Bizu.Infrastructure.General
             try
             {
                 EntitiesGeneral context = new EntitiesGeneral();
-                var tarjeta = context.tb_sis_Mensajes_sys.FirstOrDefault(var => var.IdMensaje == IdMensaje);
+                var tarjeta = context.tb_sis_mensajes_sys.FirstOrDefault(var => var.idmensaje == IdMensaje);
                 if (tarjeta != null)
                 {
-                    tarjeta.Estado = "I";
+                    tarjeta.estado = "I";
                     context.SaveChanges();
                 }
                 return true;
@@ -193,8 +183,8 @@ namespace Bizu.Infrastructure.General
                 using (EntitiesGeneral context = new EntitiesGeneral())
                 {
 
-                    var Existe = from q in context.tb_sis_Mensajes_sys
-                                 where q.Mensaje_Esp == Mensaje_Esp && q.IdMensaje == IdMensaje
+                    var Existe = from q in context.tb_sis_mensajes_sys
+                                 where q.mensaje_esp == Mensaje_Esp && q.idmensaje == IdMensaje
                                  select q;
                     if (Existe.ToList().Count() > 0)
                     {

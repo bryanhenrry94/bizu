@@ -1,19 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Bizu.Reports.CuentasxPagar;
 using System.IO;
 using System.Xml;
-using System.Xml.Serialization;
-using Bizu.Application.CuentasxPagar;
-using Bizu.Domain.CuentasxPagar;
-using Bizu.Domain.CuentasxPagar;
 using Bizu.Domain.General;
 using Bizu.Application.General;
 
@@ -26,13 +15,10 @@ namespace Bizu.Reports.CuentasxPagar
         static string result = Path.GetTempPath();
         String RootReporte = result + @"Comprobante de Retencion.repx";
         cl_parametrosGenerales_Bus param = cl_parametrosGenerales_Bus.Instance;
-        tb_sis_Documento_Tipo_Reporte_x_Empresa_Bus busDoc_x_Emp = new tb_sis_Documento_Tipo_Reporte_x_Empresa_Bus();
-        tb_sis_Documento_Tipo_Reporte_x_Empresa_Info InfoDoc_x_Emp = new tb_sis_Documento_Tipo_Reporte_x_Empresa_Info();
-        
 
         public XCXP_Rpt015_frm()
         {
-            InitializeComponent();           
+            InitializeComponent();
         }
 
 
@@ -42,19 +28,9 @@ namespace Bizu.Reports.CuentasxPagar
             commandBarItem31.PerformClick();
             XCXP_Rpt015_rpt reporte = new XCXP_Rpt015_rpt();
 
-            InfoDoc_x_Emp = busDoc_x_Emp.get_DisenioRpt(Info.IdEmpresa, Info.codDocumentoTipo);
-            if (InfoDoc_x_Emp.File_Disenio_Reporte != null)
-            {
-                File.WriteAllBytes(RootReporte, InfoDoc_x_Emp.File_Disenio_Reporte);
-                reporte.LoadLayout(RootReporte);
-            }
-
-            InfoDoc_x_Emp.IdEmpresa = Info.IdEmpresa;
-            InfoDoc_x_Emp.codDocumentoTipo = Info.codDocumentoTipo;
-
             xrDesignDockManager1.XRDesignPanel.OpenReport(reporte);
         }
-        
+
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             try
@@ -72,16 +48,6 @@ namespace Bizu.Reports.CuentasxPagar
                     }
                 }
 
-                InfoDoc_x_Emp.File_Disenio_Reporte = data;
-                String Mensajes = "";
-                if (busDoc_x_Emp.GuardarDatos(InfoDoc_x_Emp, ref Mensajes))
-                {
-                    MessageBox.Show("Se Guardo Exitosamente el Diseño", "SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show(Mensajes, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
             }
             catch (Exception ex)
             {

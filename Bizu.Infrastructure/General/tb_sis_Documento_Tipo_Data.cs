@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Bizu.Domain.General;
-using Bizu.Infrastructure.General;
 
 namespace Bizu.Infrastructure.General
 {
@@ -18,15 +17,15 @@ namespace Bizu.Infrastructure.General
                 List<tb_sis_Documento_Tipo_Info> Lst = new List<tb_sis_Documento_Tipo_Info>();
                 using (EntitiesGeneral General = new EntitiesGeneral())
                 {
-                    var Consutar = from q in General.tb_sis_Documento_Tipo
+                    var Consutar = from q in General.tb_sis_documento_tipo
                                    select q;
                     foreach (var item in Consutar)
                     {
                         tb_sis_Documento_Tipo_Info info = new tb_sis_Documento_Tipo_Info();
-                        info.codDocumentoTipo = item.codDocumentoTipo;
+                        info.codDocumentoTipo = item.coddocumentotipo;
                         info.descripcion = item.descripcion;
                         info.estado = item.estado;
-                        info.Posicion = item.Posicion;
+                        info.Posicion = item.posicion;
                         Lst.Add(info);
                     }
                 }
@@ -51,18 +50,18 @@ namespace Bizu.Infrastructure.General
                 List<tb_sis_Documento_Tipo_Info> Lst = new List<tb_sis_Documento_Tipo_Info>();
                 using (EntitiesGeneral General = new EntitiesGeneral())
                 {
-                    var Consutar = from q in General.tb_sis_Documento_Tipo
-                                   join o in General.tb_sis_Documento_Tipo_x_Empresa
-                                   on q.codDocumentoTipo equals o.codDocumentoTipo
-                                   where o.IdEmpresa == IdEmpresa
+                    var Consutar = from q in General.tb_sis_documento_tipo
+                                   join o in General.tb_sis_documento_tipo_x_empresa
+                                   on q.coddocumentotipo equals o.coddocumentotipo
+                                   where o.idempresa == IdEmpresa
                                    select q;
                     foreach (var item in Consutar)
                     {
                         tb_sis_Documento_Tipo_Info info = new tb_sis_Documento_Tipo_Info();
-                        info.codDocumentoTipo = item.codDocumentoTipo;
+                        info.codDocumentoTipo = item.coddocumentotipo;
                         info.descripcion = item.descripcion;
                         info.estado = item.estado;
-                        info.Posicion = item.Posicion;
+                        info.Posicion = item.posicion;
                         Lst.Add(info);
                     }
                 }
@@ -87,19 +86,19 @@ namespace Bizu.Infrastructure.General
                 List<tb_sis_Documento_Tipo_Info> Lst = new List<tb_sis_Documento_Tipo_Info>();
                 using (EntitiesGeneral General = new EntitiesGeneral())
                 {
-                    var Consutar = from q in General.tb_sis_Documento_Tipo
-                                   join o in General.tb_sis_Documento_Tipo_x_Empresa
-                                   on q.codDocumentoTipo equals o.codDocumentoTipo
-                                   where o.IdEmpresa == IdEmpresa
-                                   && o.ApareceTalonario=="S"
+                    var Consutar = from q in General.tb_sis_documento_tipo
+                                   join o in General.tb_sis_documento_tipo_x_empresa
+                                   on q.coddocumentotipo equals o.coddocumentotipo
+                                   where o.idempresa == IdEmpresa
+                                   && o.aparecetalonario == "S"
                                    select q;
                     foreach (var item in Consutar)
                     {
                         tb_sis_Documento_Tipo_Info info = new tb_sis_Documento_Tipo_Info();
-                        info.codDocumentoTipo = item.codDocumentoTipo;
+                        info.codDocumentoTipo = item.coddocumentotipo;
                         info.descripcion = item.descripcion;
                         info.estado = item.estado;
-                        info.Posicion = item.Posicion;
+                        info.Posicion = item.posicion;
                         Lst.Add(info);
                     }
                 }
@@ -123,8 +122,8 @@ namespace Bizu.Infrastructure.General
             {
                 using (EntitiesGeneral General = new EntitiesGeneral())
                 {
-                    var espe = from q in General.tb_sis_Documento_Tipo
-                               where q.codDocumentoTipo == CodTipoDocu
+                    var espe = from q in General.tb_sis_documento_tipo
+                               where q.coddocumentotipo == CodTipoDocu
                                select q;
                     string descripcion = "";
                     foreach (var item in espe)

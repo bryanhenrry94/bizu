@@ -5,7 +5,6 @@ using System.Text;
 using System.Data.SqlClient;
 using System.Data;
 
-using Bizu.Infrastructure.General;
 using Bizu.Domain.General;
 
 namespace Bizu.Infrastructure.General
@@ -24,33 +23,33 @@ namespace Bizu.Infrastructure.General
 
                     var Address = new tb_sis_reporte();
 
-                    Address.CodReporte = Info.CodReporte;
-                    Address.Nombre = Info.Nombre;
-                    Address.NombreCorto = Info.NombreCorto;
-                    Address.Modulo = Info.Modulo;
-                    Address.VistaRpt = Info.VistaRpt;
-                    Address.Formulario = Info.Formulario;
-                    Address.Orden = Info.Orden;
-                    Address.Estado = Info.Estado;
-                    Address.se_Muestra_Admin_Reporte = Info.se_Muestra_Admin_Reporte;
-                    Address.Observacion = Info.Observacion;
+                    Address.codreporte = Info.CodReporte;
+                    Address.nombre = Info.Nombre;
+                    Address.nombrecorto = Info.NombreCorto;
+                    Address.modulo = Info.Modulo;
+                    Address.vistarpt = Info.VistaRpt;
+                    Address.formulario = Info.Formulario;
+                    Address.orden = Info.Orden;
+                    Address.estado = Info.Estado;
+                    Address.se_muestra_admin_reporte = Info.se_Muestra_Admin_Reporte;
+                    Address.observacion = Info.Observacion;
                     Address.imagen = Info.imgByt;
-                    Address.nom_Asembly = Info.nom_Asembly;
-                    Address.VersionActual = Info.VersionActual;
-                    Address.Tipo_Balance = Info.Tipo_Balance;
-                    Address.SQuery = Info.SQuery;
-                    Address.Class_NomReporte = Info.Class_NomReporte;
-                    Address.Class_Info = Info.Class_Info;
-                    Address.Class_Data = Info.Class_Data;
-                    Address.Class_Bus = Info.Class_Bus;
-                    Address.Store_proce_rpt = Info.Store_proce_rpt;
+                    Address.nom_asembly = Info.nom_Asembly;
+                    Address.versionactual = Info.VersionActual;
+                    Address.tipo_balance = Info.Tipo_Balance;
+                    Address.squery = Info.SQuery;
+                    Address.class_nomreporte = Info.Class_NomReporte;
+                    Address.class_info = Info.Class_Info;
+                    Address.class_data = Info.Class_Data;
+                    Address.class_bus = Info.Class_Bus;
+                    Address.store_proce_rpt = Info.Store_proce_rpt;
 
                     Context.tb_sis_reporte.Add(Address);
                     Context.SaveChanges();
                 }
                 return true;
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 string arreglo = ToString();
                 tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
@@ -70,45 +69,40 @@ namespace Bizu.Infrastructure.General
                 List<tb_sis_reporte_Info> Lst = new List<tb_sis_reporte_Info>();
                 EntitiesGeneral oEnti = new EntitiesGeneral();
                 var Query = from q in oEnti.tb_sis_reporte
-                                                        select q;
+                            select q;
 
                 foreach (var item in Query)
                 {
                     tb_sis_reporte_Info Obj = new tb_sis_reporte_Info();
-                    Obj.CodReporte = item.CodReporte;
-                    Obj.Nombre = item.Nombre;
-                    Obj.NombreCorto = item.NombreCorto;
-                    Obj.Modulo = item.Modulo;
-                    Obj.VistaRpt = item.VistaRpt;
-                    Obj.Formulario = item.Formulario;
-                    Obj.Orden = item.Orden;
-                    Obj.Class_NomReporte = item.Class_NomReporte;
-                    Obj.Observacion = item.Observacion;
+                    Obj.CodReporte = item.codreporte;
+                    Obj.Nombre = item.nombre;
+                    Obj.NombreCorto = item.nombrecorto;
+                    Obj.Modulo = item.modulo;
+                    Obj.VistaRpt = item.vistarpt;
+                    Obj.Formulario = item.formulario;
+                    Obj.Orden = item.orden;
+                    Obj.Class_NomReporte = item.class_nomreporte;
+                    Obj.Observacion = item.observacion;
                     Obj.imgByt = item.imagen;
                     Obj.imagen = Funciones.ArrayAImage(item.imagen);
-                    Obj.nom_Asembly = item.nom_Asembly;
-                    Obj.VersionActual = Convert.ToInt32(item.VersionActual);
-                    Obj.Estado = item.Estado;
-                    Obj.se_Muestra_Admin_Reporte = Convert.ToBoolean(item.se_Muestra_Admin_Reporte);
-
-                    Obj.Tipo_Balance = item.Tipo_Balance;
-                    Obj.SQuery = item.SQuery;
-
-                    Obj.Class_Info = item.Class_Info;
-                    Obj.Class_Bus = item.Class_Bus;
-                    Obj.Class_Data = item.Class_Data;
-                    Obj.Store_proce_rpt = item.Store_proce_rpt;
-
-                    Obj.Disenio_reporte = item.Disenio_reporte;
+                    Obj.nom_Asembly = item.nom_asembly;
+                    Obj.VersionActual = Convert.ToInt32(item.versionactual);
+                    Obj.Estado = item.estado;
+                    Obj.se_Muestra_Admin_Reporte = Convert.ToBoolean(item.se_muestra_admin_reporte);
+                    Obj.Tipo_Balance = item.tipo_balance;
+                    Obj.SQuery = item.squery;
+                    Obj.Class_Info = item.class_info;
+                    Obj.Class_Bus = item.class_bus;
+                    Obj.Class_Data = item.class_data;
+                    Obj.Store_proce_rpt = item.store_proce_rpt;
+                    Obj.Disenio_reporte = item.disenio_reporte;
                     Obj.Se_Muestra_Icono = true;
-                   
-
 
                     Lst.Add(Obj);
                 }
                 return Lst;
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 string arreglo = ToString();
                 tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
@@ -127,41 +121,35 @@ namespace Bizu.Infrastructure.General
                 List<tb_sis_reporte_Info> Lst = new List<tb_sis_reporte_Info>();
                 EntitiesGeneral oEnti = new EntitiesGeneral();
                 var Query = from q in oEnti.tb_sis_reporte
-                            where q.se_Muestra_Admin_Reporte == _se_Muestra_Admin_Reporte
+                            where q.se_muestra_admin_reporte == _se_Muestra_Admin_Reporte
                             select q;
 
                 foreach (var item in Query)
                 {
                     tb_sis_reporte_Info Obj = new tb_sis_reporte_Info();
-                    Obj.CodReporte = item.CodReporte;
-                    Obj.Nombre = item.Nombre;
-                    Obj.NombreCorto = item.NombreCorto;
-                    Obj.Modulo = item.Modulo;
-                    Obj.VistaRpt = item.VistaRpt;
-                    Obj.Formulario = item.Formulario;
-                    Obj.Orden = item.Orden;
-                    Obj.Class_NomReporte = item.Class_NomReporte;
-                    Obj.Observacion = item.Observacion;
+                    Obj.CodReporte = item.codreporte;
+                    Obj.Nombre = item.nombre;
+                    Obj.NombreCorto = item.nombrecorto;
+                    Obj.Modulo = item.modulo;
+                    Obj.VistaRpt = item.vistarpt;
+                    Obj.Formulario = item.formulario;
+                    Obj.Orden = item.orden;
+                    Obj.Class_NomReporte = item.class_nomreporte;
+                    Obj.Observacion = item.observacion;
                     Obj.imgByt = item.imagen;
                     Obj.imagen = Funciones.ArrayAImage(item.imagen);
-                    Obj.nom_Asembly = item.nom_Asembly;
-                    Obj.VersionActual = Convert.ToInt32(item.VersionActual);
-                    Obj.Estado = item.Estado;
-                    Obj.se_Muestra_Admin_Reporte = Convert.ToBoolean(item.se_Muestra_Admin_Reporte);
-
-                    Obj.Tipo_Balance = item.Tipo_Balance;
-                    Obj.SQuery = item.SQuery;
-
-                    Obj.Class_Info = item.Class_Info;
-                    Obj.Class_Bus = item.Class_Bus;
-                    Obj.Class_Data = item.Class_Data;
-                    Obj.Store_proce_rpt = item.Store_proce_rpt;
-
-                    Obj.Disenio_reporte = item.Disenio_reporte;
-
+                    Obj.nom_Asembly = item.nom_asembly;
+                    Obj.VersionActual = Convert.ToInt32(item.versionactual);
+                    Obj.Estado = item.estado;
+                    Obj.se_Muestra_Admin_Reporte = Convert.ToBoolean(item.se_muestra_admin_reporte);
+                    Obj.Tipo_Balance = item.tipo_balance;
+                    Obj.SQuery = item.squery;
+                    Obj.Class_Info = item.class_info;
+                    Obj.Class_Bus = item.class_bus;
+                    Obj.Class_Data = item.class_data;
+                    Obj.Store_proce_rpt = item.store_proce_rpt;
+                    Obj.Disenio_reporte = item.disenio_reporte;
                     Obj.Se_Muestra_Icono = true;
-
-
 
                     Lst.Add(Obj);
                 }
@@ -191,43 +179,37 @@ namespace Bizu.Infrastructure.General
                 }
                 EntitiesGeneral oEnti = new EntitiesGeneral();
                 var Query = from q in oEnti.tb_sis_reporte
-                            where q.se_Muestra_Admin_Reporte == true
-                             && q.Estado == "A" &&  (list.Contains(q.Modulo))
+                            where q.se_muestra_admin_reporte == true
+                             && q.estado == "A" && (list.Contains(q.modulo))
                             select q;
 
-                              
+
                 foreach (var item in Query)
                 {
                     tb_sis_reporte_Info Obj = new tb_sis_reporte_Info();
-                    Obj.CodReporte = item.CodReporte;
-                    Obj.Nombre = item.Nombre;
-                    Obj.NombreCorto = item.NombreCorto;
-                    Obj.Modulo = item.Modulo;
-                    Obj.VistaRpt = item.VistaRpt;
-                    Obj.Formulario = item.Formulario;
-                    Obj.Orden = item.Orden;
-                    Obj.Class_NomReporte = item.Class_NomReporte;
-                    Obj.Observacion = item.Observacion;
+                    Obj.CodReporte = item.codreporte;
+                    Obj.Nombre = item.nombre;
+                    Obj.NombreCorto = item.nombrecorto;
+                    Obj.Modulo = item.modulo;
+                    Obj.VistaRpt = item.vistarpt;
+                    Obj.Formulario = item.formulario;
+                    Obj.Orden = item.orden;
+                    Obj.Class_NomReporte = item.class_nomreporte;
+                    Obj.Observacion = item.observacion;
                     Obj.imgByt = item.imagen;
                     Obj.imagen = Funciones.ArrayAImage(item.imagen);
-                    Obj.nom_Asembly = item.nom_Asembly;
-                    Obj.Tipo_Balance = item.Tipo_Balance;
-                    Obj.Estado = item.Estado;
-                    Obj.se_Muestra_Admin_Reporte = Convert.ToBoolean(item.se_Muestra_Admin_Reporte);
-                    Obj.VersionActual = Convert.ToInt32(item.VersionActual);
-                    
-                    Obj.SQuery = item.SQuery;
-
-
-                    Obj.Class_Info = item.Class_Info;
-                    Obj.Class_Bus = item.Class_Bus;
-                    Obj.Class_Data = item.Class_Data;
-
-                    Obj.Store_proce_rpt = item.Store_proce_rpt;
-                    Obj.Disenio_reporte = item.Disenio_reporte;
-
+                    Obj.nom_Asembly = item.nom_asembly;
+                    Obj.Tipo_Balance = item.tipo_balance;
+                    Obj.Estado = item.estado;
+                    Obj.se_Muestra_Admin_Reporte = Convert.ToBoolean(item.se_muestra_admin_reporte);
+                    Obj.VersionActual = Convert.ToInt32(item.versionactual);
+                    Obj.SQuery = item.squery;
+                    Obj.Class_Info = item.class_info;
+                    Obj.Class_Bus = item.class_bus;
+                    Obj.Class_Data = item.class_data;
+                    Obj.Store_proce_rpt = item.store_proce_rpt;
+                    Obj.Disenio_reporte = item.disenio_reporte;
                     Obj.Se_Muestra_Icono = true;
-
 
                     Lst.Add(Obj);
                 }
@@ -252,45 +234,40 @@ namespace Bizu.Infrastructure.General
                 List<tb_sis_reporte_Info> Lst = new List<tb_sis_reporte_Info>();
                 EntitiesGeneral oEnti = new EntitiesGeneral();
                 var Query = from q in oEnti.tb_sis_reporte
-                            where q.Modulo == CodModulo && q.Tipo_Balance == Tipo
+                            where q.modulo == CodModulo && q.tipo_balance == Tipo
                             select q;
 
                 foreach (var item in Query)
                 {
                     tb_sis_reporte_Info Obj = new tb_sis_reporte_Info();
-                    Obj.CodReporte = item.CodReporte;
-                    Obj.Nombre = item.Nombre;
-                    Obj.NombreCorto = item.NombreCorto;
-                    Obj.Modulo = item.Modulo;
-                    Obj.VistaRpt = item.VistaRpt;
-                    Obj.Formulario = item.Formulario;
-                    Obj.Orden = item.Orden;
-                    Obj.Class_NomReporte = item.Class_NomReporte;
-                    Obj.Observacion = item.Observacion;
+                    Obj.CodReporte = item.codreporte;
+                    Obj.Nombre = item.nombre;
+                    Obj.NombreCorto = item.nombrecorto;
+                    Obj.Modulo = item.modulo;
+                    Obj.VistaRpt = item.vistarpt;
+                    Obj.Formulario = item.formulario;
+                    Obj.Orden = item.orden;
+                    Obj.Class_NomReporte = item.class_nomreporte;
+                    Obj.Observacion = item.observacion;
                     Obj.imgByt = item.imagen;
                     Obj.imagen = Funciones.ArrayAImage(item.imagen);
-                    Obj.nom_Asembly = item.nom_Asembly;
-                    Obj.Tipo_Balance = item.Tipo_Balance;
-                    Obj.VersionActual = Convert.ToInt32(item.VersionActual);
-                    Obj.Estado = item.Estado;
-                    Obj.se_Muestra_Admin_Reporte = Convert.ToBoolean(item.se_Muestra_Admin_Reporte);
-                    Obj.Class_Info = item.Class_Info;
-                    Obj.Class_Bus = item.Class_Bus;
-                    Obj.Class_Data = item.Class_Data;
-
-
-                    Obj.Store_proce_rpt = item.Store_proce_rpt;
-                    Obj.Disenio_reporte = item.Disenio_reporte;
-
-
-
-                    Obj.SQuery = item.SQuery;
+                    Obj.nom_Asembly = item.nom_asembly;
+                    Obj.Tipo_Balance = item.tipo_balance;
+                    Obj.VersionActual = Convert.ToInt32(item.versionactual);
+                    Obj.Estado = item.estado;
+                    Obj.se_Muestra_Admin_Reporte = Convert.ToBoolean(item.se_muestra_admin_reporte);
+                    Obj.Class_Info = item.class_info;
+                    Obj.Class_Bus = item.class_bus;
+                    Obj.Class_Data = item.class_data;
+                    Obj.Store_proce_rpt = item.store_proce_rpt;
+                    Obj.Disenio_reporte = item.disenio_reporte;
+                    Obj.SQuery = item.squery;
                     Obj.Se_Muestra_Icono = true;
                     Lst.Add(Obj);
                 }
                 return Lst;
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 string arreglo = ToString();
                 tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
@@ -298,10 +275,10 @@ namespace Bizu.Infrastructure.General
                                     "", "", "", "", DateTime.Now);
                 oDataLog.Guardar_Log_Error(Log_Error_sis, ref mensaje);
                 mensaje = ex.ToString() + " " + ex.Message;
-                return new List<tb_sis_reporte_Info>(); 
+                return new List<tb_sis_reporte_Info>();
             }
         }
-    
+
         public string Get_Numero(string CodModulo)
         {
             try
@@ -330,7 +307,7 @@ namespace Bizu.Infrastructure.General
                 }
                 return num;
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 string arreglo = ToString();
                 tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
@@ -348,39 +325,37 @@ namespace Bizu.Infrastructure.General
             try
             {
                 tb_sis_reporte_Info Info = new tb_sis_reporte_Info();
-                var Objeto = oEnti.tb_sis_reporte.FirstOrDefault(var => var.CodReporte == CodReporte);
+                var Objeto = oEnti.tb_sis_reporte.FirstOrDefault(var => var.codreporte == CodReporte);
+
                 if (Objeto != null)
                 {
-                    Info.CodReporte = Objeto.CodReporte;
-                    Info.Nombre = Objeto.Nombre;
-                    Info.NombreCorto = Objeto.NombreCorto;
-                    Info.Modulo = Objeto.Modulo;
-                    Info.VistaRpt = Objeto.VistaRpt;
-                    Info.Formulario = Objeto.Formulario;
-                    Info.Orden = Objeto.Orden;
-                    Info.Class_NomReporte = Objeto.Class_NomReporte;
-                    Info.Observacion = Objeto.Observacion;
+                    Info.CodReporte = Objeto.codreporte;
+                    Info.Nombre = Objeto.nombre;
+                    Info.NombreCorto = Objeto.nombrecorto;
+                    Info.Modulo = Objeto.modulo;
+                    Info.VistaRpt = Objeto.vistarpt;
+                    Info.Formulario = Objeto.formulario;
+                    Info.Orden = Objeto.orden;
+                    Info.Class_NomReporte = Objeto.class_nomreporte;
+                    Info.Observacion = Objeto.observacion;
                     Info.imgByt = Objeto.imagen;
                     Info.imagen = Funciones.ArrayAImage(Objeto.imagen);
-                    Info.VersionActual = Convert.ToInt32(Objeto.VersionActual);
-                    Info.Estado = Objeto.Estado;
-                    Info.se_Muestra_Admin_Reporte = Convert.ToBoolean(Objeto.se_Muestra_Admin_Reporte);
-
-                    Info.Tipo_Balance = Objeto.Tipo_Balance;
-                    Info.nom_Asembly = Objeto.nom_Asembly;
-                    Info.SQuery = Objeto.SQuery;
-
-                    Info.Class_Info = Objeto.Class_Info;
-                    Info.Class_Bus = Objeto.Class_Bus;
-                    Info.Class_Data = Objeto.Class_Data;
-
-                    Info.Store_proce_rpt = Objeto.Store_proce_rpt;
+                    Info.VersionActual = Convert.ToInt32(Objeto.versionactual);
+                    Info.Estado = Objeto.estado;
+                    Info.se_Muestra_Admin_Reporte = Convert.ToBoolean(Objeto.se_muestra_admin_reporte);
+                    Info.Tipo_Balance = Objeto.tipo_balance;
+                    Info.nom_Asembly = Objeto.nom_asembly;
+                    Info.SQuery = Objeto.squery;
+                    Info.Class_Info = Objeto.class_info;
+                    Info.Class_Bus = Objeto.class_bus;
+                    Info.Class_Data = Objeto.class_data;
+                    Info.Store_proce_rpt = Objeto.store_proce_rpt;
                     Info.Se_Muestra_Icono = true;
                 }
 
                 return Info;
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 string arreglo = ToString();
                 tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
@@ -398,28 +373,28 @@ namespace Bizu.Infrastructure.General
             {
                 using (EntitiesGeneral context = new EntitiesGeneral())
                 {
-                    var contact = context.tb_sis_reporte.FirstOrDefault(minfo => minfo.CodReporte == info.CodReporte);
+                    var contact = context.tb_sis_reporte.FirstOrDefault(minfo => minfo.codreporte == info.CodReporte);
                     if (contact != null)
                     {
-                        contact.Nombre = info.Nombre;
-                        contact.NombreCorto = info.NombreCorto;
-                        contact.Modulo = info.Modulo;
-                        contact.VistaRpt = info.VistaRpt;
-                        contact.Formulario = info.Formulario;
-                        contact.Orden = info.Orden;
-                        contact.Class_NomReporte = info.Class_NomReporte;
-                        contact.Observacion = info.Observacion;
+                        contact.nombre = info.Nombre;
+                        contact.nombrecorto = info.NombreCorto;
+                        contact.modulo = info.Modulo;
+                        contact.vistarpt = info.VistaRpt;
+                        contact.formulario = info.Formulario;
+                        contact.orden = info.Orden;
+                        contact.class_nomreporte = info.Class_NomReporte;
+                        contact.observacion = info.Observacion;
                         contact.imagen = info.imgByt;
-                        contact.nom_Asembly = info.nom_Asembly;
-                        contact.VersionActual = Convert.ToInt32(info.VersionActual);
-                        contact.Estado = info.Estado;
-                        contact.se_Muestra_Admin_Reporte = Convert.ToBoolean(info.se_Muestra_Admin_Reporte);
-                        contact.Tipo_Balance = info.Tipo_Balance;
-                        contact.SQuery = info.SQuery;
-                        contact.Class_Info = info.Class_Info;
-                        contact.Class_Bus = info.Class_Bus;
-                        contact.Class_Data = info.Class_Data;
-                        contact.Store_proce_rpt = info.Store_proce_rpt;
+                        contact.nom_asembly = info.nom_Asembly;
+                        contact.versionactual = Convert.ToInt32(info.VersionActual);
+                        contact.estado = info.Estado;
+                        contact.se_muestra_admin_reporte = Convert.ToBoolean(info.se_Muestra_Admin_Reporte);
+                        contact.tipo_balance = info.Tipo_Balance;
+                        contact.squery = info.SQuery;
+                        contact.class_info = info.Class_Info;
+                        contact.class_bus = info.Class_Bus;
+                        contact.class_data = info.Class_Data;
+                        contact.store_proce_rpt = info.Store_proce_rpt;
                         context.SaveChanges();
                     }
                 }
@@ -443,10 +418,10 @@ namespace Bizu.Infrastructure.General
             {
                 using (EntitiesGeneral context = new EntitiesGeneral())
                 {
-                    var contact = context.tb_sis_reporte.FirstOrDefault(minfo => minfo.CodReporte == info.CodReporte);
+                    var contact = context.tb_sis_reporte.FirstOrDefault(minfo => minfo.codreporte == info.CodReporte);
                     if (contact != null)
                     {
-                        contact.Disenio_reporte = info.Disenio_reporte;
+                        contact.disenio_reporte = info.Disenio_reporte;
                         context.SaveChanges();
                     }
                 }
@@ -478,12 +453,12 @@ namespace Bizu.Infrastructure.General
                 EntitiesGeneral B = new EntitiesGeneral();
 
                 var select_ = from t in B.tb_sis_reporte
-                              where t.CodReporte == scodigo
+                              where t.codreporte == scodigo
                               select t;
 
                 foreach (var item in select_)
                 {
-                    mensaje = mensaje + " " + item.Nombre;
+                    mensaje = mensaje + " " + item.nombre;
                     Existe = true;
                 }
 
@@ -585,7 +560,7 @@ namespace Bizu.Infrastructure.General
         }
 
 
-        public Boolean Execute_SQL( string query)
+        public Boolean Execute_SQL(string query)
         {
 
             try
@@ -596,7 +571,7 @@ namespace Bizu.Infrastructure.General
                 SqlCommand cmd = new SqlCommand();
                 SqlConnection cc = new SqlConnection(connString);
 
-                
+
                 cmd.Connection = cc;
                 cc.Open();
                 cmd.CommandText = query;
@@ -655,4 +630,3 @@ namespace Bizu.Infrastructure.General
         public tb_sis_reporte_Data() { }
     }
 }
-

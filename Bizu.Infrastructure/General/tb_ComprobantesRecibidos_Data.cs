@@ -18,29 +18,29 @@ namespace Bizu.Infrastructure.General
 
                 Info.Id = GetId();
 
-                tb_ComprobantesRecibidos _comprobante = new tb_ComprobantesRecibidos();
-                _comprobante.Id = Info.Id;
-                _comprobante.RucEmisor = Info.RucEmisor;
-                _comprobante.RazonSocialEmisor = Info.RazonSocialEmisor;
-                _comprobante.TipoComprobante = Info.TipoComprobante;
-                _comprobante.SerieComprobante = Info.SerieComprobante;
-                _comprobante.ClaveAcceso = Info.ClaveAcceso;
-                _comprobante.FechaAutorizacion = Info.FechaAutorizacion;
-                _comprobante.NumeroAutorizacion = Info.NumeroAutorizacion;
-                _comprobante.FechaEmision = Info.FechaEmision;
-                _comprobante.IdentificacionReceptor = Info.IdentificacionReceptor;
-                _comprobante.ValorSinImpuestos = Info.ValorSinImpuestos;
-                _comprobante.Iva = Info.Iva;
-                _comprobante.ImporteTotal = Info.ImporteTotal;
-                _comprobante.NumeroDocumentoModificado = Info.NumeroDocumentoModificado;
-                _comprobante.Estado = Info.Estado;
-                _comprobante.Motivo = Info.Motivo;
-                _comprobante.XML = Info.XML;
-                _comprobante.IdEmpresa_Ogiro = Info.IdEmpresa_Ogiro;
-                _comprobante.IdCbteCble_Ogiro = Info.IdCbteCble_Ogiro;
-                _comprobante.IdTipoCbte_Ogiro = Info.IdTipoCbte_Ogiro;
+                tb_comprobantesrecibidos _comprobante = new tb_comprobantesrecibidos();
+                _comprobante.id = Info.Id;
+                _comprobante.rucemisor = Info.RucEmisor;
+                _comprobante.razonsocialemisor = Info.RazonSocialEmisor;
+                _comprobante.tipocomprobante = Info.TipoComprobante;
+                _comprobante.seriecomprobante = Info.SerieComprobante;
+                _comprobante.claveacceso = Info.ClaveAcceso;
+                _comprobante.fechaautorizacion = Info.FechaAutorizacion;
+                _comprobante.numeroautorizacion = Info.NumeroAutorizacion;
+                _comprobante.fechaemision = Info.FechaEmision;
+                _comprobante.identificacionreceptor = Info.IdentificacionReceptor;
+                _comprobante.valorsinimpuestos = Info.ValorSinImpuestos;
+                _comprobante.iva = Info.Iva;
+                _comprobante.importetotal = Info.ImporteTotal;
+                _comprobante.numerodocumentomodificado = Info.NumeroDocumentoModificado;
+                _comprobante.estado = Info.Estado;
+                _comprobante.motivo = Info.Motivo;
+                _comprobante.xml = Info.XML;
+                _comprobante.idempresa_ogiro = Info.IdEmpresa_Ogiro;
+                _comprobante.idcbtecble_ogiro = Info.IdCbteCble_Ogiro;
+                _comprobante.idtipocbte_ogiro = Info.IdTipoCbte_Ogiro;
 
-                dbContext.tb_ComprobantesRecibidos.Add(_comprobante);
+                dbContext.tb_comprobantesrecibidos.Add(_comprobante);
                 dbContext.SaveChanges();
 
                 return true;
@@ -56,7 +56,7 @@ namespace Bizu.Infrastructure.General
             {
                 EntitiesGeneral dbContext = new EntitiesGeneral();
 
-                var query = dbContext.tb_ComprobantesRecibidos.Where(q => q.RucEmisor == RucEmisor && q.SerieComprobante == SerieComprobante).ToList();
+                var query = dbContext.tb_comprobantesrecibidos.Where(q => q.rucemisor == RucEmisor && q.seriecomprobante == SerieComprobante).ToList();
 
                 if (query.Count > 0)
                     return true;
@@ -75,30 +75,29 @@ namespace Bizu.Infrastructure.General
             {
                 EntitiesGeneral dbContext = new EntitiesGeneral();
 
-                tb_ComprobantesRecibidos _comprobante = dbContext.tb_ComprobantesRecibidos.Where(q => q.Id == Info.Id).First();
+                tb_comprobantesrecibidos _comprobante = dbContext.tb_comprobantesrecibidos.Where(q => q.id == Info.Id).First();
 
                 if(_comprobante != null)
                 {
-                    //_comprobante.Id = Info.Id;
-                    _comprobante.RucEmisor = Info.RucEmisor;
-                    _comprobante.RazonSocialEmisor = Info.RazonSocialEmisor;
-                    _comprobante.TipoComprobante = Info.TipoComprobante;
-                    _comprobante.SerieComprobante = Info.SerieComprobante;
-                    _comprobante.ClaveAcceso = Info.ClaveAcceso;
-                    _comprobante.FechaAutorizacion = Info.FechaAutorizacion;
-                    _comprobante.NumeroAutorizacion = Info.NumeroAutorizacion;
-                    _comprobante.FechaEmision = Info.FechaEmision;
-                    _comprobante.IdentificacionReceptor = Info.IdentificacionReceptor;
-                    _comprobante.ValorSinImpuestos = Info.ValorSinImpuestos;
-                    _comprobante.Iva = Info.Iva;
-                    _comprobante.ImporteTotal = Info.ImporteTotal;
-                    _comprobante.NumeroDocumentoModificado = Info.NumeroDocumentoModificado;
-                    _comprobante.Estado = Info.Estado;
-                    _comprobante.Motivo = Info.Motivo;
-                    _comprobante.XML = Info.XML;
-                    _comprobante.IdEmpresa_Ogiro = Info.IdEmpresa_Ogiro;
-                    _comprobante.IdCbteCble_Ogiro = Info.IdCbteCble_Ogiro;
-                    _comprobante.IdTipoCbte_Ogiro = Info.IdTipoCbte_Ogiro;
+                    _comprobante.rucemisor = Info.RucEmisor;
+                    _comprobante.razonsocialemisor = Info.RazonSocialEmisor;
+                    _comprobante.tipocomprobante = Info.TipoComprobante;
+                    _comprobante.seriecomprobante = Info.SerieComprobante;
+                    _comprobante.claveacceso = Info.ClaveAcceso;
+                    _comprobante.fechaautorizacion = Info.FechaAutorizacion;
+                    _comprobante.numeroautorizacion = Info.NumeroAutorizacion;
+                    _comprobante.fechaemision = Info.FechaEmision;
+                    _comprobante.identificacionreceptor = Info.IdentificacionReceptor;
+                    _comprobante.valorsinimpuestos = Info.ValorSinImpuestos;
+                    _comprobante.iva = Info.Iva;
+                    _comprobante.importetotal = Info.ImporteTotal;
+                    _comprobante.numerodocumentomodificado = Info.NumeroDocumentoModificado;
+                    _comprobante.estado = Info.Estado;
+                    _comprobante.motivo = Info.Motivo;
+                    _comprobante.xml = Info.XML;
+                    _comprobante.idempresa_ogiro = Info.IdEmpresa_Ogiro;
+                    _comprobante.idcbtecble_ogiro = Info.IdCbteCble_Ogiro;
+                    _comprobante.idtipocbte_ogiro = Info.IdTipoCbte_Ogiro;
 
                     dbContext.SaveChanges();
                 }
@@ -129,11 +128,11 @@ namespace Bizu.Infrastructure.General
             {
                 EntitiesGeneral dbContext = new EntitiesGeneral();
 
-                tb_ComprobantesRecibidos _comprobante = dbContext.tb_ComprobantesRecibidos.Where(q => q.Id == Id).First();
+                tb_comprobantesrecibidos _comprobante = dbContext.tb_comprobantesrecibidos.Where(q => q.id == Id).First();
 
                 if (_comprobante != null)
                 {
-                    dbContext.tb_ComprobantesRecibidos.Remove(_comprobante);
+                    dbContext.tb_comprobantesrecibidos.Remove(_comprobante);
                     dbContext.SaveChanges();
                 }
 
@@ -153,30 +152,30 @@ namespace Bizu.Infrastructure.General
 
                 EntitiesGeneral dbContext = new EntitiesGeneral();
 
-                var query = dbContext.tb_ComprobantesRecibidos.Where(q => q.RucEmisor == RucEmisor && q.TipoComprobante == TipoComprobante && q.SerieComprobante == SerieComprobante);
+                var query = dbContext.tb_comprobantesrecibidos.Where(q => q.rucemisor == RucEmisor && q.tipocomprobante == TipoComprobante && q.seriecomprobante == SerieComprobante);
 
                 foreach(var Info in query)
                 {
-                    _comprobante.Id = Info.Id;
-                    _comprobante.RucEmisor = Info.RucEmisor;
-                    _comprobante.RazonSocialEmisor = Info.RazonSocialEmisor;
-                    _comprobante.TipoComprobante = Info.TipoComprobante;
-                    _comprobante.SerieComprobante = Info.SerieComprobante;
-                    _comprobante.ClaveAcceso = Info.ClaveAcceso;
-                    _comprobante.FechaAutorizacion = Info.FechaAutorizacion;
-                    _comprobante.NumeroAutorizacion = Info.NumeroAutorizacion;
-                    _comprobante.FechaEmision = Info.FechaEmision;
-                    _comprobante.IdentificacionReceptor = Info.IdentificacionReceptor;
-                    _comprobante.ValorSinImpuestos = Info.ValorSinImpuestos;
-                    _comprobante.Iva = Info.Iva;
-                    _comprobante.ImporteTotal = Info.ImporteTotal;
-                    _comprobante.NumeroDocumentoModificado = Info.NumeroDocumentoModificado;
-                    _comprobante.Estado = Info.Estado;
-                    _comprobante.Motivo = Info.Motivo;
-                    _comprobante.XML = Info.XML;
-                    _comprobante.IdEmpresa_Ogiro = Info.IdEmpresa_Ogiro;
-                    _comprobante.IdCbteCble_Ogiro = Info.IdCbteCble_Ogiro;
-                    _comprobante.IdTipoCbte_Ogiro = Info.IdTipoCbte_Ogiro;
+                    _comprobante.Id = Info.id;
+                    _comprobante.RucEmisor = Info.rucemisor;
+                    _comprobante.RazonSocialEmisor = Info.razonsocialemisor;
+                    _comprobante.TipoComprobante = Info.tipocomprobante;
+                    _comprobante.SerieComprobante = Info.seriecomprobante;
+                    _comprobante.ClaveAcceso = Info.claveacceso;
+                    _comprobante.FechaAutorizacion = Info.fechaautorizacion;
+                    _comprobante.NumeroAutorizacion = Info.numeroautorizacion;
+                    _comprobante.FechaEmision = Info.fechaemision;
+                    _comprobante.IdentificacionReceptor = Info.identificacionreceptor;
+                    _comprobante.ValorSinImpuestos = Info.valorsinimpuestos;
+                    _comprobante.Iva = Info.iva;
+                    _comprobante.ImporteTotal = Info.importetotal;
+                    _comprobante.NumeroDocumentoModificado = Info.numerodocumentomodificado;
+                    _comprobante.Estado = Info.estado;
+                    _comprobante.Motivo = Info.motivo;
+                    _comprobante.XML = Info.xml;
+                    _comprobante.IdEmpresa_Ogiro = Info.idempresa_ogiro;
+                    _comprobante.IdCbteCble_Ogiro = Info.idcbtecble_ogiro;
+                    _comprobante.IdTipoCbte_Ogiro = Info.idtipocbte_ogiro;
                 }
 
                 return _comprobante;
@@ -195,31 +194,31 @@ namespace Bizu.Infrastructure.General
 
                 EntitiesGeneral dbContext = new EntitiesGeneral();
 
-                var query = dbContext.tb_ComprobantesRecibidos.ToList();
+                var query = dbContext.tb_comprobantesrecibidos.ToList();
 
                 foreach (var Info in query)
                 {
                     tb_ComprobantesRecibidos_Info _comprobante = new tb_ComprobantesRecibidos_Info();
-                    _comprobante.Id = Info.Id;
-                    _comprobante.RucEmisor = Info.RucEmisor;
-                    _comprobante.RazonSocialEmisor = Info.RazonSocialEmisor;
-                    _comprobante.TipoComprobante = Info.TipoComprobante;
-                    _comprobante.SerieComprobante = Info.SerieComprobante;
-                    _comprobante.ClaveAcceso = Info.ClaveAcceso;
-                    _comprobante.FechaAutorizacion = Info.FechaAutorizacion;
-                    _comprobante.NumeroAutorizacion = Info.NumeroAutorizacion;
-                    _comprobante.FechaEmision = Info.FechaEmision;
-                    _comprobante.IdentificacionReceptor = Info.IdentificacionReceptor;
-                    _comprobante.ValorSinImpuestos = Info.ValorSinImpuestos;
-                    _comprobante.Iva = Info.Iva;
-                    _comprobante.ImporteTotal = Info.ImporteTotal;
-                    _comprobante.NumeroDocumentoModificado = Info.NumeroDocumentoModificado;
-                    _comprobante.Estado = Info.Estado;
-                    _comprobante.Motivo = Info.Motivo;
-                    _comprobante.XML = Info.XML;
-                    _comprobante.IdEmpresa_Ogiro = Info.IdEmpresa_Ogiro;
-                    _comprobante.IdCbteCble_Ogiro = Info.IdCbteCble_Ogiro;
-                    _comprobante.IdTipoCbte_Ogiro = Info.IdTipoCbte_Ogiro;
+                    _comprobante.Id = Info.id;
+                    _comprobante.RucEmisor = Info.rucemisor;
+                    _comprobante.RazonSocialEmisor = Info.razonsocialemisor;
+                    _comprobante.TipoComprobante = Info.tipocomprobante;
+                    _comprobante.SerieComprobante = Info.seriecomprobante;
+                    _comprobante.ClaveAcceso = Info.claveacceso;
+                    _comprobante.FechaAutorizacion = Info.fechaautorizacion;
+                    _comprobante.NumeroAutorizacion = Info.numeroautorizacion;
+                    _comprobante.FechaEmision = Info.fechaemision;
+                    _comprobante.IdentificacionReceptor = Info.identificacionreceptor;
+                    _comprobante.ValorSinImpuestos = Info.valorsinimpuestos;
+                    _comprobante.Iva = Info.iva;
+                    _comprobante.ImporteTotal = Info.importetotal;
+                    _comprobante.NumeroDocumentoModificado = Info.numerodocumentomodificado;
+                    _comprobante.Estado = Info.estado;
+                    _comprobante.Motivo = Info.motivo;
+                    _comprobante.XML = Info.xml;
+                    _comprobante.IdEmpresa_Ogiro = Info.idempresa_ogiro;
+                    _comprobante.IdCbteCble_Ogiro = Info.idcbtecble_ogiro;
+                    _comprobante.IdTipoCbte_Ogiro = Info.idtipocbte_ogiro;
 
                     ListComprobantesRecibidos.Add(_comprobante);
                 }
@@ -240,31 +239,31 @@ namespace Bizu.Infrastructure.General
 
                 EntitiesGeneral dbContext = new EntitiesGeneral();
 
-                var query = dbContext.tb_ComprobantesRecibidos.Where(q => q.IdentificacionReceptor == Ruc).ToList();
+                var query = dbContext.tb_comprobantesrecibidos.Where(q => q.identificacionreceptor == Ruc).ToList();
 
                 foreach(var Info in query)
                 {
                     tb_ComprobantesRecibidos_Info _comprobante = new tb_ComprobantesRecibidos_Info();
-                    _comprobante.Id = Info.Id;
-                    _comprobante.RucEmisor = Info.RucEmisor;
-                    _comprobante.RazonSocialEmisor = Info.RazonSocialEmisor;
-                    _comprobante.TipoComprobante = Info.TipoComprobante;
-                    _comprobante.SerieComprobante = Info.SerieComprobante;
-                    _comprobante.ClaveAcceso = Info.ClaveAcceso;
-                    _comprobante.FechaAutorizacion = Info.FechaAutorizacion;
-                    _comprobante.NumeroAutorizacion = Info.NumeroAutorizacion;
-                    _comprobante.FechaEmision = Info.FechaEmision;
-                    _comprobante.IdentificacionReceptor = Info.IdentificacionReceptor;
-                    _comprobante.ValorSinImpuestos = Info.ValorSinImpuestos;
-                    _comprobante.Iva = Info.Iva;
-                    _comprobante.ImporteTotal = Info.ImporteTotal;
-                    _comprobante.NumeroDocumentoModificado = Info.NumeroDocumentoModificado;
-                    _comprobante.Estado = Info.Estado;
-                    _comprobante.Motivo = Info.Motivo;
-                    _comprobante.XML = Info.XML;
-                    _comprobante.IdEmpresa_Ogiro = Info.IdEmpresa_Ogiro;
-                    _comprobante.IdCbteCble_Ogiro = Info.IdCbteCble_Ogiro;
-                    _comprobante.IdTipoCbte_Ogiro = Info.IdTipoCbte_Ogiro;
+                    _comprobante.Id = Info.id;
+                    _comprobante.RucEmisor = Info.rucemisor;
+                    _comprobante.RazonSocialEmisor = Info.razonsocialemisor;
+                    _comprobante.TipoComprobante = Info.tipocomprobante;
+                    _comprobante.SerieComprobante = Info.seriecomprobante;
+                    _comprobante.ClaveAcceso = Info.claveacceso;
+                    _comprobante.FechaAutorizacion = Info.fechaautorizacion;
+                    _comprobante.NumeroAutorizacion = Info.numeroautorizacion;
+                    _comprobante.FechaEmision = Info.fechaemision;
+                    _comprobante.IdentificacionReceptor = Info.identificacionreceptor;
+                    _comprobante.ValorSinImpuestos = Info.valorsinimpuestos;
+                    _comprobante.Iva = Info.iva;
+                    _comprobante.ImporteTotal = Info.importetotal;
+                    _comprobante.NumeroDocumentoModificado = Info.numerodocumentomodificado;
+                    _comprobante.Estado = Info.estado;
+                    _comprobante.Motivo = Info.motivo;
+                    _comprobante.XML = Info.xml;
+                    _comprobante.IdEmpresa_Ogiro = Info.idempresa_ogiro;
+                    _comprobante.IdCbteCble_Ogiro = Info.idcbtecble_ogiro;
+                    _comprobante.IdTipoCbte_Ogiro = Info.idtipocbte_ogiro;
 
                     ListComprobantesRecibidos.Add(_comprobante);
                 }
@@ -285,35 +284,35 @@ namespace Bizu.Infrastructure.General
 
                 EntitiesGeneral dbContext = new EntitiesGeneral();
 
-                var query = dbContext.tb_ComprobantesRecibidos.Where(
-                    q => q.IdentificacionReceptor == Ruc
-                    && q.FechaEmision >= FechaIni
-                    && q.FechaEmision <= FechaFin                    
+                var query = dbContext.tb_comprobantesrecibidos.Where(
+                    q => q.identificacionreceptor == Ruc
+                    && q.fechaemision >= FechaIni
+                    && q.fechaemision <= FechaFin                    
                 ).ToList();
 
                 foreach (var Info in query)
                 {
                     tb_ComprobantesRecibidos_Info _comprobante = new tb_ComprobantesRecibidos_Info();
-                    _comprobante.Id = Info.Id;
-                    _comprobante.RucEmisor = Info.RucEmisor;
-                    _comprobante.RazonSocialEmisor = Info.RazonSocialEmisor;
-                    _comprobante.TipoComprobante = Info.TipoComprobante;
-                    _comprobante.SerieComprobante = Info.SerieComprobante;
-                    _comprobante.ClaveAcceso = Info.ClaveAcceso;
-                    _comprobante.FechaAutorizacion = Info.FechaAutorizacion;
-                    _comprobante.NumeroAutorizacion = Info.NumeroAutorizacion;
-                    _comprobante.FechaEmision = Info.FechaEmision;
-                    _comprobante.IdentificacionReceptor = Info.IdentificacionReceptor;
-                    _comprobante.ValorSinImpuestos = Info.ValorSinImpuestos;
-                    _comprobante.Iva = Info.Iva;
-                    _comprobante.ImporteTotal = Info.ImporteTotal;
-                    _comprobante.NumeroDocumentoModificado = Info.NumeroDocumentoModificado;
-                    _comprobante.Estado = Info.Estado;
-                    _comprobante.Motivo = Info.Motivo;
-                    _comprobante.XML = Info.XML;
-                    _comprobante.IdEmpresa_Ogiro = Info.IdEmpresa_Ogiro;
-                    _comprobante.IdCbteCble_Ogiro = Info.IdCbteCble_Ogiro;
-                    _comprobante.IdTipoCbte_Ogiro = Info.IdTipoCbte_Ogiro;
+                    _comprobante.Id = Info.id;
+                    _comprobante.RucEmisor = Info.rucemisor;
+                    _comprobante.RazonSocialEmisor = Info.razonsocialemisor;
+                    _comprobante.TipoComprobante = Info.tipocomprobante;
+                    _comprobante.SerieComprobante = Info.seriecomprobante;
+                    _comprobante.ClaveAcceso = Info.claveacceso;
+                    _comprobante.FechaAutorizacion = Info.fechaautorizacion;
+                    _comprobante.NumeroAutorizacion = Info.numeroautorizacion;
+                    _comprobante.FechaEmision = Info.fechaemision;
+                    _comprobante.IdentificacionReceptor = Info.identificacionreceptor;
+                    _comprobante.ValorSinImpuestos = Info.valorsinimpuestos;
+                    _comprobante.Iva = Info.iva;
+                    _comprobante.ImporteTotal = Info.importetotal;
+                    _comprobante.NumeroDocumentoModificado = Info.numerodocumentomodificado;
+                    _comprobante.Estado = Info.estado;
+                    _comprobante.Motivo = Info.motivo;
+                    _comprobante.XML = Info.xml;
+                    _comprobante.IdEmpresa_Ogiro = Info.idempresa_ogiro;
+                    _comprobante.IdCbteCble_Ogiro = Info.idcbtecble_ogiro;
+                    _comprobante.IdTipoCbte_Ogiro = Info.idtipocbte_ogiro;
 
                     ListComprobantesRecibidos.Add(_comprobante);
                 }
@@ -334,36 +333,36 @@ namespace Bizu.Infrastructure.General
 
                 EntitiesGeneral dbContext = new EntitiesGeneral();
 
-                var query = dbContext.tb_ComprobantesRecibidos.Where(
-                    q => q.IdentificacionReceptor == Ruc
-                    && q.FechaEmision >= FechaIni
-                    && q.FechaEmision <= FechaFin
-                    && q.TipoComprobante == TipoComprobante
+                var query = dbContext.tb_comprobantesrecibidos.Where(
+                    q => q.identificacionreceptor == Ruc
+                    && q.fechaemision >= FechaIni
+                    && q.fechaemision <= FechaFin
+                    && q.tipocomprobante == TipoComprobante
                 ).ToList();
 
                 foreach (var Info in query)
                 {
                     tb_ComprobantesRecibidos_Info _comprobante = new tb_ComprobantesRecibidos_Info();
-                    _comprobante.Id = Info.Id;
-                    _comprobante.RucEmisor = Info.RucEmisor;
-                    _comprobante.RazonSocialEmisor = Info.RazonSocialEmisor;
-                    _comprobante.TipoComprobante = Info.TipoComprobante;
-                    _comprobante.SerieComprobante = Info.SerieComprobante;
-                    _comprobante.ClaveAcceso = Info.ClaveAcceso;
-                    _comprobante.FechaAutorizacion = Info.FechaAutorizacion;
-                    _comprobante.NumeroAutorizacion = Info.NumeroAutorizacion;
-                    _comprobante.FechaEmision = Info.FechaEmision;
-                    _comprobante.IdentificacionReceptor = Info.IdentificacionReceptor;
-                    _comprobante.ValorSinImpuestos = Info.ValorSinImpuestos;
-                    _comprobante.Iva = Info.Iva;
-                    _comprobante.ImporteTotal = Info.ImporteTotal;
-                    _comprobante.NumeroDocumentoModificado = Info.NumeroDocumentoModificado;
-                    _comprobante.Estado = Info.Estado;
-                    _comprobante.Motivo = Info.Motivo;
-                    _comprobante.XML = Info.XML;
-                    _comprobante.IdEmpresa_Ogiro = Info.IdEmpresa_Ogiro;
-                    _comprobante.IdCbteCble_Ogiro = Info.IdCbteCble_Ogiro;
-                    _comprobante.IdTipoCbte_Ogiro = Info.IdTipoCbte_Ogiro;
+                    _comprobante.Id = Info.id;
+                    _comprobante.RucEmisor = Info.rucemisor;
+                    _comprobante.RazonSocialEmisor = Info.razonsocialemisor;
+                    _comprobante.TipoComprobante = Info.tipocomprobante;
+                    _comprobante.SerieComprobante = Info.seriecomprobante;
+                    _comprobante.ClaveAcceso = Info.claveacceso;
+                    _comprobante.FechaAutorizacion = Info.fechaautorizacion;
+                    _comprobante.NumeroAutorizacion = Info.numeroautorizacion;
+                    _comprobante.FechaEmision = Info.fechaemision;
+                    _comprobante.IdentificacionReceptor = Info.identificacionreceptor;
+                    _comprobante.ValorSinImpuestos = Info.valorsinimpuestos;
+                    _comprobante.Iva = Info.iva;
+                    _comprobante.ImporteTotal = Info.importetotal;
+                    _comprobante.NumeroDocumentoModificado = Info.numerodocumentomodificado;
+                    _comprobante.Estado = Info.estado;
+                    _comprobante.Motivo = Info.motivo;
+                    _comprobante.XML = Info.xml;
+                    _comprobante.IdEmpresa_Ogiro = Info.idempresa_ogiro;
+                    _comprobante.IdCbteCble_Ogiro = Info.idcbtecble_ogiro;
+                    _comprobante.IdTipoCbte_Ogiro = Info.idtipocbte_ogiro;
 
                     ListComprobantesRecibidos.Add(_comprobante);
                 }
@@ -384,37 +383,37 @@ namespace Bizu.Infrastructure.General
 
                 EntitiesGeneral dbContext = new EntitiesGeneral();
 
-                var query = dbContext.tb_ComprobantesRecibidos.Where(
-                    q => q.IdentificacionReceptor == Ruc
-                    && q.FechaEmision >= FechaIni
-                    && q.FechaEmision <= FechaFin
-                    && q.TipoComprobante == TipoComprobante
-                    && q.Estado == Estado
+                var query = dbContext.tb_comprobantesrecibidos.Where(
+                    q => q.identificacionreceptor == Ruc
+                    && q.fechaemision >= FechaIni
+                    && q.fechaemision <= FechaFin
+                    && q.tipocomprobante == TipoComprobante
+                    && q.estado == Estado
                 ).ToList();
 
                 foreach (var Info in query)
                 {
                     tb_ComprobantesRecibidos_Info _comprobante = new tb_ComprobantesRecibidos_Info();
-                    _comprobante.Id = Info.Id;
-                    _comprobante.RucEmisor = Info.RucEmisor;
-                    _comprobante.RazonSocialEmisor = Info.RazonSocialEmisor;
-                    _comprobante.TipoComprobante = Info.TipoComprobante;
-                    _comprobante.SerieComprobante = Info.SerieComprobante;
-                    _comprobante.ClaveAcceso = Info.ClaveAcceso;
-                    _comprobante.FechaAutorizacion = Info.FechaAutorizacion;
-                    _comprobante.NumeroAutorizacion = Info.NumeroAutorizacion;
-                    _comprobante.FechaEmision = Info.FechaEmision;
-                    _comprobante.IdentificacionReceptor = Info.IdentificacionReceptor;
-                    _comprobante.ValorSinImpuestos = Info.ValorSinImpuestos;
-                    _comprobante.Iva = Info.Iva;
-                    _comprobante.ImporteTotal = Info.ImporteTotal;
-                    _comprobante.NumeroDocumentoModificado = Info.NumeroDocumentoModificado;
-                    _comprobante.Estado = Info.Estado;
-                    _comprobante.Motivo = Info.Motivo;
-                    _comprobante.XML = Info.XML;
-                    _comprobante.IdEmpresa_Ogiro = Info.IdEmpresa_Ogiro;
-                    _comprobante.IdCbteCble_Ogiro = Info.IdCbteCble_Ogiro;
-                    _comprobante.IdTipoCbte_Ogiro = Info.IdTipoCbte_Ogiro;
+                    _comprobante.Id = Info.id;
+                    _comprobante.RucEmisor = Info.rucemisor;
+                    _comprobante.RazonSocialEmisor = Info.razonsocialemisor;
+                    _comprobante.TipoComprobante = Info.tipocomprobante;
+                    _comprobante.SerieComprobante = Info.seriecomprobante;
+                    _comprobante.ClaveAcceso = Info.claveacceso;
+                    _comprobante.FechaAutorizacion = Info.fechaautorizacion;
+                    _comprobante.NumeroAutorizacion = Info.numeroautorizacion;
+                    _comprobante.FechaEmision = Info.fechaemision;
+                    _comprobante.IdentificacionReceptor = Info.identificacionreceptor;
+                    _comprobante.ValorSinImpuestos = Info.valorsinimpuestos;
+                    _comprobante.Iva = Info.iva;
+                    _comprobante.ImporteTotal = Info.importetotal;
+                    _comprobante.NumeroDocumentoModificado = Info.numerodocumentomodificado;
+                    _comprobante.Estado = Info.estado;
+                    _comprobante.Motivo = Info.motivo;
+                    _comprobante.XML = Info.xml;
+                    _comprobante.IdEmpresa_Ogiro = Info.idempresa_ogiro;
+                    _comprobante.IdCbteCble_Ogiro = Info.idcbtecble_ogiro;
+                    _comprobante.IdTipoCbte_Ogiro = Info.idtipocbte_ogiro;
 
                     ListComprobantesRecibidos.Add(_comprobante);
                 }
@@ -435,31 +434,31 @@ namespace Bizu.Infrastructure.General
 
                 EntitiesGeneral dbContext = new EntitiesGeneral();
 
-                var query = dbContext.tb_ComprobantesRecibidos.Where(q => q.IdentificacionReceptor == Ruc && q.Estado == Estado).ToList();
+                var query = dbContext.tb_comprobantesrecibidos.Where(q => q.identificacionreceptor == Ruc && q.estado == Estado).ToList();
 
                 foreach (var Info in query)
                 {
                     tb_ComprobantesRecibidos_Info _comprobante = new tb_ComprobantesRecibidos_Info();
-                    _comprobante.Id = Info.Id;
-                    _comprobante.RucEmisor = Info.RucEmisor;
-                    _comprobante.RazonSocialEmisor = Info.RazonSocialEmisor;
-                    _comprobante.TipoComprobante = Info.TipoComprobante;
-                    _comprobante.SerieComprobante = Info.SerieComprobante;
-                    _comprobante.ClaveAcceso = Info.ClaveAcceso;
-                    _comprobante.FechaAutorizacion = Info.FechaAutorizacion;
-                    _comprobante.NumeroAutorizacion = Info.NumeroAutorizacion;
-                    _comprobante.FechaEmision = Info.FechaEmision;
-                    _comprobante.IdentificacionReceptor = Info.IdentificacionReceptor;
-                    _comprobante.ValorSinImpuestos = Info.ValorSinImpuestos;
-                    _comprobante.Iva = Info.Iva;
-                    _comprobante.ImporteTotal = Info.ImporteTotal;
-                    _comprobante.NumeroDocumentoModificado = Info.NumeroDocumentoModificado;
-                    _comprobante.Estado = Info.Estado;
-                    _comprobante.Motivo = Info.Motivo;
-                    _comprobante.XML = Info.XML;
-                    _comprobante.IdEmpresa_Ogiro = Info.IdEmpresa_Ogiro;
-                    _comprobante.IdCbteCble_Ogiro = Info.IdCbteCble_Ogiro;
-                    _comprobante.IdTipoCbte_Ogiro = Info.IdTipoCbte_Ogiro;
+                    _comprobante.Id = Info.id;
+                    _comprobante.RucEmisor = Info.rucemisor;
+                    _comprobante.RazonSocialEmisor = Info.razonsocialemisor;
+                    _comprobante.TipoComprobante = Info.tipocomprobante;
+                    _comprobante.SerieComprobante = Info.seriecomprobante;
+                    _comprobante.ClaveAcceso = Info.claveacceso;
+                    _comprobante.FechaAutorizacion = Info.fechaautorizacion;
+                    _comprobante.NumeroAutorizacion = Info.numeroautorizacion;
+                    _comprobante.FechaEmision = Info.fechaemision;
+                    _comprobante.IdentificacionReceptor = Info.identificacionreceptor;
+                    _comprobante.ValorSinImpuestos = Info.valorsinimpuestos;
+                    _comprobante.Iva = Info.iva;
+                    _comprobante.ImporteTotal = Info.importetotal;
+                    _comprobante.NumeroDocumentoModificado = Info.numerodocumentomodificado;
+                    _comprobante.Estado = Info.estado;
+                    _comprobante.Motivo = Info.motivo;
+                    _comprobante.XML = Info.xml;
+                    _comprobante.IdEmpresa_Ogiro = Info.idempresa_ogiro;
+                    _comprobante.IdCbteCble_Ogiro = Info.idcbtecble_ogiro;
+                    _comprobante.IdTipoCbte_Ogiro = Info.idtipocbte_ogiro;
 
                     ListComprobantesRecibidos.Add(_comprobante);
                 }
@@ -480,10 +479,10 @@ namespace Bizu.Infrastructure.General
 
                 EntitiesGeneral dbContext = new EntitiesGeneral();
 
-                var query = dbContext.tb_ComprobantesRecibidos.ToList();
+                var query = dbContext.tb_comprobantesrecibidos.ToList();
 
                 if (query.Count > 0)
-                    Id = query.Select(q => q.Id).Max() + 1;
+                    Id = query.Select(q => q.id).Max() + 1;
                 else
                     Id = 1;
 

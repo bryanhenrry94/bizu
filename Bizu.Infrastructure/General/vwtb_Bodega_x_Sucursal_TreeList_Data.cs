@@ -17,21 +17,21 @@ namespace Bizu.Infrastructure.General
                 List<vwtb_Bodega_x_Sucursal_TreeList_Info> lstInfo = new List<vwtb_Bodega_x_Sucursal_TreeList_Info>();
                 using (EntitiesGeneral listado = new EntitiesGeneral())
                 {
-                    var select = from q in listado.vwtb_Bodega_x_Sucursal_TreeList
-                                 where q.IdEmpresa == IdEmpresa
+                    var select = from q in listado.vwtb_bodega_x_sucursal_treelist
+                                 where q.idempresa == IdEmpresa
                                  select q;
 
                     foreach (var item in select)
                     {
                         vwtb_Bodega_x_Sucursal_TreeList_Info Info = new vwtb_Bodega_x_Sucursal_TreeList_Info();
-                        Info.IdEmpresa = item.IdEmpresa;
-                        Info.ID = item.Id;
-                        Info.IdPadre = item.IdPadre;
-                        Info.Nombre = item.Nombre;
-                        Info.Estado = item.Estado;
-                        Info.Nivel = item.Nivel;
-                        Info.IdSucursal = item.IdSucursal;
-                        Info.IdBodega = Convert.ToInt32(item.IdBodega);
+                        Info.IdEmpresa = item.idempresa;
+                        Info.ID = item.id;
+                        Info.IdPadre = item.idpadre;
+                        Info.Nombre = item.nombre;
+                        Info.Estado = item.estado;
+                        Info.Nivel = item.nivel;
+                        Info.IdSucursal = item.idsucursal;
+                        Info.IdBodega = Convert.ToInt32(item.idbodega);
                         Info.Checked = true;
 
                         lstInfo.Add(Info);

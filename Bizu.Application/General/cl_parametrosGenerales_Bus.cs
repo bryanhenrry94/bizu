@@ -22,7 +22,6 @@ namespace Bizu.Application.General
     {
         static readonly cl_parametrosGenerales_Bus instance = new cl_parametrosGenerales_Bus();
         tb_sis_Log_Error_Vzen_Bus oLog = new tb_sis_Log_Error_Vzen_Bus();
-        tb_sis_Grupo_empresarial_Cliente_Bus OGrupo_Empresa_para_Reglas_Negocio = new tb_sis_Grupo_empresarial_Cliente_Bus();
         List<tb_sis_Mensajes_sys_Info> listaMensaje = new List<tb_sis_Mensajes_sys_Info>();
         tb_sis_Mensajes_sys_Bus BusMensaje = new tb_sis_Mensajes_sys_Bus();
         List<tb_parametro_Info> listParametros = new List<tb_parametro_Info>();
@@ -49,14 +48,6 @@ namespace Bizu.Application.General
         public bool EmiteNotificacion = false;
         public string em_Email { get; set; }
         IPHostEntry host;
-
-        public List<tb_sis_Grupo_empresarial_Cliente_Info> Grupo_Empresarial_Clientes_Vzen_para_reglas_negocio_list
-        {
-            get
-            {
-                return OGrupo_Empresa_para_Reglas_Negocio.Get_List_Grupo_empresarial_Cliente(ref mensaje);
-            }
-        }
 
         public DateTime Fecha_Transac
         {

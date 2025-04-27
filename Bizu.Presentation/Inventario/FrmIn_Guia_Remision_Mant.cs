@@ -38,7 +38,6 @@ namespace Bizu.Presentation.Inventario
         private Cl_Enumeradores.eTipo_action _Accion;
 
         //BUS
-        tb_transportista_Bus Bustransportista = new tb_transportista_Bus();
         ct_Centro_costo_Bus Bus_CentroCosto = new ct_Centro_costo_Bus();
         in_Ing_Egr_Inven_Bus Bus_Ing_Egr = new in_Ing_Egr_Inven_Bus();
         in_GuiaRemision_Det_Bus BusDetalle = new in_GuiaRemision_Det_Bus();
@@ -62,7 +61,6 @@ namespace Bizu.Presentation.Inventario
         List<in_UnidadMedida_Info> List_UnidadMedida = new List<in_UnidadMedida_Info>();
         List<in_Producto_Info> listProducto = new List<in_Producto_Info>();
         List<in_GuiaRemision_Det_Info> List_GuiaRemision = new List<in_GuiaRemision_Det_Info>();
-        List<tb_transportista_Info> LisTransportista = new List<tb_transportista_Info>();
         BindingList<in_GuiaRemision_Det_Info> BindingList_GuiaRemision = new BindingList<in_GuiaRemision_Det_Info>();
 
         public delegate void Delegate_frmIn_Guia_Remision_Mant_FormClosing(object sender, FormClosingEventArgs e);
@@ -254,12 +252,7 @@ namespace Bizu.Presentation.Inventario
             try
             {
                 string MensajeError = "";
-
-                LisTransportista = Bustransportista.Get_List_transportista(param.IdEmpresa);
-                cmb_Transportista.Properties.DataSource = LisTransportista;
-                cmb_Transportista.Properties.DisplayMember = "Nombre";
-                cmb_Transportista.Properties.ValueMember = "IdTransportista";
-
+                
                 List_UnidadMedida = Bus_UnidadMedida.Get_list_UnidadMedida();
                 cmb_UnidadMedida.DataSource = List_UnidadMedida;
 
@@ -1130,23 +1123,7 @@ namespace Bizu.Presentation.Inventario
 
         private void cmb_Transportista_EditValueChanged(object sender, EventArgs e)
         {
-            try
-            {
-                tb_transportista_Info Info_transportista = LisTransportista.FirstOrDefault(q => q.IdTransportista == Convert.ToInt16(cmb_Transportista.EditValue));
-
-                if (Info_transportista != null)
-                {
-                    txtNumPlaca.Text = Info_transportista.Placa;
-                }
-                else
-                {
-                    txtNumPlaca.Text = "";
-                }
-            }
-            catch (Exception ex)
-            {
-                Log_Error_bus.Log_Error(ex.ToString());
-            }
+            
         }
 
         public void Generar_Xml()

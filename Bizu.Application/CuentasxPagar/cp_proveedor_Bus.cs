@@ -219,7 +219,7 @@ namespace Bizu.Application.CuentasxPagar
                 throw new Bizu.Domain.Log_Exception.DalException(string.Format("", "Get_List_proveedor_Autorizacion", ex.Message), ex) { EntityType = typeof(cp_proveedor_Bus) };
             }
         }
-        
+
         public cp_proveedor_Info Get_Info_Proveedor_Solo_CtasCbles(int IdEmpresa, decimal IdProveedor)
         {
             try
@@ -306,25 +306,6 @@ namespace Bizu.Application.CuentasxPagar
             {
                 IdClaseProveedor_x_default = listaClasProv.FirstOrDefault().IdClaseProveedor;
             }
-
-            tb_Ciudad_Bus busCiudad = new tb_Ciudad_Bus();
-            List<tb_ciudad_Info> listCiudad = new List<tb_ciudad_Info>();
-
-            listCiudad = busCiudad.Get_List_Ciudad();
-            if (listCiudad.FirstOrDefault() == null)
-            {
-                MensajeError = "no existe datos en la tabla  tb_ciudad ";
-                return new List<cp_proveedor_Info>(); ;
-            }
-            else
-            {
-                IdCiudad_x_default = listCiudad.FirstOrDefault().IdCiudad;
-            }
-
-
-
-
-
 
             int COLUMNA_ERROR = 0;
             string FILA_ERROR = "";

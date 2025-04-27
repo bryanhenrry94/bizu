@@ -12,21 +12,18 @@ namespace Bizu.Infrastructure
     using System;
     using System.Collections.Generic;
     
-    public partial class tb_sis_Documento_Tipo_Talonario
+    public partial class tb_sis_documento_tipo_talonario
     {
-        public int IdEmpresa { get; set; }
-        public string CodDocumentoTipo { get; set; }
-        public string Establecimiento { get; set; }
-        public string PuntoEmision { get; set; }
-        public string NumDocumento { get; set; }
-        public Nullable<System.DateTime> FechaCaducidad { get; set; }
-        public Nullable<bool> Usado { get; set; }
-        public string Estado { get; set; }
-        public int IdSucursal { get; set; }
-        public string NumAutorizacion { get; set; }
-        public Nullable<bool> es_Documento_Electronico { get; set; }
-    
-        public virtual tb_sis_Documento_Tipo tb_sis_Documento_Tipo { get; set; }
-        public virtual tb_sis_Documento_Tipo_x_Empresa tb_sis_Documento_Tipo_x_Empresa { get; set; }
+        public int idempresa { get; set; }
+        public string coddocumentotipo { get; set; }
+        public string establecimiento { get; set; }
+        public string puntoemision { get; set; }
+        public string numdocumento { get; set; }
+        public Nullable<System.DateTime> fechacaducidad { get; set; }
+        public Nullable<bool> usado { get; set; }
+        public string estado { get; set; }
+        public int idsucursal { get; set; }
+        public string numautorizacion { get; set; }
+        public Nullable<bool> es_documento_electronico { get; set; }
     }
 }

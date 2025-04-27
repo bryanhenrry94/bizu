@@ -73,7 +73,6 @@ namespace Bizu.Presentation.Facturacion
         fa_pedido_x_formaPago_Bus Bus_PedidoFormaPago = new fa_pedido_x_formaPago_Bus();
         List<fa_pedido_Info> listPedidosNoDespachados = new List<fa_pedido_Info>();
         fa_pedido_det_Info infoTPD = new fa_pedido_det_Info();
-        tb_Calendario_Bus BusCalendario = new tb_Calendario_Bus();
         List<fa_TerminoPago_Distribucion_Info> ListPagoDistri = new List<fa_TerminoPago_Distribucion_Info>();
         List<fa_factura_x_fa_TerminoPago_Info> List = new List<fa_factura_x_fa_TerminoPago_Info>();
         BindingList<fa_factura_x_fa_TerminoPago_Info> DataSource_ForPag = new BindingList<fa_factura_x_fa_TerminoPago_Info>();
@@ -1424,17 +1423,7 @@ namespace Bizu.Presentation.Facturacion
 
         private void txt_plazo_Leave(object sender, EventArgs e)
         {
-            try
-            {
-                var Consulta = BusCalendario.Get_List_DiasSinFeriadoNiSabadosNiDomingos(dtFecha.Value, Convert.ToInt32(txt_plazo.Text));
-                CambioCantidad = false;
-                dtFechaVenc.Value = Consulta.Last().fecha;
-                CambioCantidad = true;
-            }
-            catch (Exception ex)
-            {
-                Log_Error_bus.Log_Error(ex.ToString());
-            }
+            
         }
 
         private void cmbTerminoPago_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)

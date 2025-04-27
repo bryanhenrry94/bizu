@@ -5,16 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Bizu.Domain.General;
-using Bizu.Infrastructure.General;
-
 
 namespace Bizu.Infrastructure.General
 {
-   public class tb_sis_Impuesto_x_ctacble_Data
+    public class tb_sis_Impuesto_x_ctacble_Data
     {
 
         string mensaje = "";
-
 
         public List<tb_sis_Impuesto_x_ctacble_Info> Get_List_impuesto(int IdEmpresa)
         {
@@ -24,16 +21,17 @@ namespace Bizu.Infrastructure.General
 
                 EntitiesGeneral oEnti = new EntitiesGeneral();
 
-                var bancos = from q in oEnti.tb_sis_Impuesto_x_ctacble
-                             where q.IdEmpresa_cta == IdEmpresa
+                var bancos = from q in oEnti.tb_sis_impuesto_x_ctacble
+                             where q.idempresa_cta == IdEmpresa
                              select q;
+
                 foreach (var item in bancos)
                 {
                     tb_sis_Impuesto_x_ctacble_Info info = new tb_sis_Impuesto_x_ctacble_Info();
 
-                    info.IdCod_Impuesto = item.IdCod_Impuesto;
-                    info.IdCtaCble = item.IdCtaCble;
-                    info.IdEmpresa_cta = item.IdEmpresa_cta;
+                    info.IdCod_Impuesto = item.idcod_impuesto;
+                    info.IdCtaCble = item.idctacble;
+                    info.IdEmpresa_cta = item.idempresa_cta;
                     info.observacion = item.observacion;
 
                     lst.Add(info);
@@ -59,16 +57,16 @@ namespace Bizu.Infrastructure.General
 
                 EntitiesGeneral oEnti = new EntitiesGeneral();
 
-                var bancos = from q in oEnti.tb_sis_Impuesto_x_ctacble
-                             where q.IdCod_Impuesto == IdCod_Impuesto
-                             && q.IdEmpresa_cta==IdEmpresa
+                var bancos = from q in oEnti.tb_sis_impuesto_x_ctacble
+                             where q.idcod_impuesto == IdCod_Impuesto
+                             && q.idempresa_cta == IdEmpresa
                              select q;
                 foreach (var item in bancos)
                 {
 
-                    info.IdCod_Impuesto = item.IdCod_Impuesto;
-                    info.IdCtaCble = item.IdCtaCble;
-                    info.IdEmpresa_cta = item.IdEmpresa_cta;
+                    info.IdCod_Impuesto = item.idcod_impuesto;
+                    info.IdCtaCble = item.idctacble;
+                    info.IdEmpresa_cta = item.idempresa_cta;
                     info.observacion = item.observacion;
                 }
                 return info;
@@ -84,7 +82,6 @@ namespace Bizu.Infrastructure.General
             }
         }
 
-
         public Boolean GrabarDB(tb_sis_Impuesto_x_ctacble_Info Info, ref string msg)
         {
             try
@@ -92,17 +89,17 @@ namespace Bizu.Infrastructure.General
                 Boolean resultado = false;
                 using (EntitiesGeneral context = new EntitiesGeneral())
                 {
-                    var address = new tb_sis_Impuesto_x_ctacble();
+                    var address = new tb_sis_impuesto_x_ctacble();
 
-                    
-                    address.IdCod_Impuesto = Info.IdCod_Impuesto;
-                    address.IdCtaCble = Info.IdCtaCble;
-                    address.IdEmpresa_cta = Info.IdEmpresa_cta;
+
+                    address.idcod_impuesto = Info.IdCod_Impuesto;
+                    address.idctacble = Info.IdCtaCble;
+                    address.idempresa_cta = Info.IdEmpresa_cta;
                     address.observacion = "";
 
-                    context.tb_sis_Impuesto_x_ctacble.Add(address);
+                    context.tb_sis_impuesto_x_ctacble.Add(address);
                     context.SaveChanges();
-                    msg = "Se ha procedido grabar el Banco #: " + address.IdCod_Impuesto.ToString() + " exitosamente.";
+                    msg = "Se ha procedido grabar el Banco #: " + address.idcod_impuesto.ToString() + " exitosamente.";
                     resultado = true;
                 }
                 return resultado;
@@ -118,7 +115,6 @@ namespace Bizu.Infrastructure.General
             }
         }
 
-
         public Boolean DeleteDB(int IdEmpresa, string IdCod_Impuesto)
         {
             try
@@ -127,15 +123,15 @@ namespace Bizu.Infrastructure.General
 
                 using (EntitiesGeneral context = new EntitiesGeneral())
                 {
-                    var contact = context.tb_sis_Impuesto_x_ctacble.FirstOrDefault(obj => obj.IdEmpresa_cta == IdEmpresa && obj.IdCod_Impuesto == IdCod_Impuesto);
+                    var contact = context.tb_sis_impuesto_x_ctacble.FirstOrDefault(obj => obj.idempresa_cta == IdEmpresa && obj.idcod_impuesto == IdCod_Impuesto);
                     if (contact != null)
                     {
-                        context.tb_sis_Impuesto_x_ctacble.Remove(contact);
+                        context.tb_sis_impuesto_x_ctacble.Remove(contact);
                         context.SaveChanges();
                         context.Dispose();
                     }
                 }
-                
+
                 return resultado;
             }
             catch (Exception ex)
@@ -156,17 +152,16 @@ namespace Bizu.Infrastructure.General
                 bool resultado = false;
                 using (EntitiesGeneral context = new EntitiesGeneral())
                 {
-                    var address = context.tb_sis_Impuesto_x_ctacble.FirstOrDefault(v => v.IdCod_Impuesto == Info.IdCod_Impuesto && v.IdEmpresa_cta==Info.IdEmpresa_cta);
+                    var address = context.tb_sis_impuesto_x_ctacble.FirstOrDefault(v => v.idcod_impuesto == Info.IdCod_Impuesto && v.idempresa_cta == Info.IdEmpresa_cta);
+
                     if (address != null)
                     {
-
-                        address.IdCtaCble = Info.IdCtaCble;
-                        address.IdEmpresa_cta = Info.IdEmpresa_cta;
+                        address.idctacble = Info.IdCtaCble;
+                        address.idempresa_cta = Info.IdEmpresa_cta;
                         address.observacion = Info.observacion;
 
-
                         context.SaveChanges();
-                        msg = "Se ha modificado el Banco #: " + address.IdCod_Impuesto.ToString() + " exitosamente.";
+                        msg = "Se ha modificado el Banco #: " + address.idcod_impuesto.ToString() + " exitosamente.";
                         resultado = true;
                     }
                 }
@@ -182,8 +177,5 @@ namespace Bizu.Infrastructure.General
                 throw new Exception(ex.ToString());
             }
         }
-
-        
-
     }
 }

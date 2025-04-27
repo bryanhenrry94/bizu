@@ -49,9 +49,6 @@ namespace Bizu.Presentation.Facturacion
         List<fa_catalogo_Info> lista_actividad_economica = new List<fa_catalogo_Info>();
         ct_Centro_costo_Bus BusCostos = new ct_Centro_costo_Bus();
         List<ct_Centro_costo_Info> ListCostos = new List<ct_Centro_costo_Info>();
-        List<tb_persona_direccion_Info> lista_direccion = new List<tb_persona_direccion_Info>();
-        List<tb_persona_direccion_Info> Direccion_Lista = new List<tb_persona_direccion_Info>();
-        tb_persona_direccion_Bus bus_direccion = new tb_persona_direccion_Bus();
         List<fa_cliente_contactos_Info> Lista_Contactos = new List<fa_cliente_contactos_Info>();
         fa_cliente_contactos_Bus Bus_Contactos = new fa_cliente_contactos_Bus();
         BindingList<fa_cliente_pto_emision_cliente_Info> blist_Punto_emision = new BindingList<fa_cliente_pto_emision_cliente_Info>();

@@ -1,9 +1,4 @@
-﻿/*CLASE: tb_Banco_Data
- *MODIFICADO POR: Pedro Salinas
- *FECHA: 19-02-2016
- *DERECHOS RESERVADOS - INNOVATECORP
- */
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,11 +26,11 @@ namespace Bizu.Infrastructure.General
                 {
                     tb_banco_Info info = new tb_banco_Info();
 
-                    info.IdBanco = item.IdBanco;
+                    info.IdBanco = item.idbanco;
                     info.ba_descripcion = item.ba_descripcion;
-                    info.Estado = item.Estado;
-                    info.CodigoLegal = item.CodigoLegal;
-                    info.TieneFormatoTransferencia = item.TieneFormatoTransferencia;
+                    info.Estado = item.estado;
+                    info.CodigoLegal = item.codigolegal;
+                    info.TieneFormatoTransferencia = item.tieneformatotransferencia;
                     lst.Add(info);   
                 }
                 return lst;
@@ -59,15 +54,15 @@ namespace Bizu.Infrastructure.General
                 EntitiesGeneral oEnti = new EntitiesGeneral();
                 
                 var bancos = from q in oEnti.tb_banco
-                             where q.IdBanco == IdBanco
+                             where q.idbanco == IdBanco
                              select q;
                 foreach (var item in bancos)
                 {                   
-                    info.IdBanco = item.IdBanco;
+                    info.IdBanco = item.idbanco;
                     info.ba_descripcion = item.ba_descripcion;
-                    info.Estado = item.Estado;
-                    info.CodigoLegal = item.CodigoLegal;
-                    info.TieneFormatoTransferencia = item.TieneFormatoTransferencia;                    
+                    info.Estado = item.estado;
+                    info.CodigoLegal = item.codigolegal;
+                    info.TieneFormatoTransferencia = item.tieneformatotransferencia;                    
                 }
                 return info;
             }
@@ -99,7 +94,7 @@ namespace Bizu.Infrastructure.General
                     else
                     {
                         var contact1 = (from q in context.tb_banco
-                                        select q.IdBanco).Max();
+                                        select q.idbanco).Max();
                         Id = Convert.ToInt32(contact1.ToString()) + 1;
                     }
                 }
@@ -124,14 +119,14 @@ namespace Bizu.Infrastructure.General
                 using (EntitiesGeneral context = new EntitiesGeneral())
                 {
                     var address = new tb_banco();
-                    address.IdBanco = Info.IdBanco = getId();
+                    address.idbanco = Info.IdBanco = getId();
                     address.ba_descripcion = Info.ba_descripcion;
-                    address.Estado = Info.Estado;
-                    address.CodigoLegal = Info.CodigoLegal;
-                    address.TieneFormatoTransferencia = Convert.ToBoolean(Info.TieneFormatoTransferencia);
+                    address.estado = Info.Estado;
+                    address.codigolegal = Info.CodigoLegal;
+                    address.tieneformatotransferencia = Convert.ToBoolean(Info.TieneFormatoTransferencia);
                     context.tb_banco.Add(address);
                     context.SaveChanges();
-                    msg = "Se ha procedido grabar el Banco #: " + address.IdBanco.ToString() + " exitosamente.";
+                    msg = "Se ha procedido grabar el Banco #: " + address.idbanco.ToString() + " exitosamente.";
                     resultado = true;
                 }
                 return resultado;
@@ -154,15 +149,15 @@ namespace Bizu.Infrastructure.General
                 bool resultado = false;
                 using (EntitiesGeneral context = new EntitiesGeneral())
                 {
-                    var address = context.tb_banco.FirstOrDefault(v => v.IdBanco == Info.IdBanco);
+                    var address = context.tb_banco.FirstOrDefault(v => v.idbanco == Info.IdBanco);
                     if (address != null)
                     {
                         address.ba_descripcion = Info.ba_descripcion;
-                        address.Estado = Info.Estado;
-                        address.CodigoLegal = Info.CodigoLegal;
-                        address.TieneFormatoTransferencia = Convert.ToBoolean(Info.TieneFormatoTransferencia);
+                        address.estado = Info.Estado;
+                        address.codigolegal = Info.CodigoLegal;
+                        address.tieneformatotransferencia = Convert.ToBoolean(Info.TieneFormatoTransferencia);
                         context.SaveChanges();
-                        msg = "Se ha modificado el Banco #: " + address.IdBanco.ToString() + " exitosamente.";
+                        msg = "Se ha modificado el Banco #: " + address.idbanco.ToString() + " exitosamente.";
                         resultado = true;
                     }
                 }
@@ -186,10 +181,10 @@ namespace Bizu.Infrastructure.General
                 Boolean resultado = false;
                 using (EntitiesGeneral context = new EntitiesGeneral())
                 {
-                    var address = context.tb_banco.FirstOrDefault(q => q.IdBanco == Info.IdBanco);
+                    var address = context.tb_banco.FirstOrDefault(q => q.idbanco == Info.IdBanco);
                     if (address != null)
                     {
-                        address.Estado = "I";
+                        address.estado = "I";
                         context.SaveChanges();
                         msg = "Se ha procedido anular el Banco #: " + Info.IdBanco.ToString() + " exitosamente.";
                         resultado = true;

@@ -80,7 +80,6 @@
             this.colpe_FechaIni = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colpe_FechaFin = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colsmes = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.beiProvincia = new DevExpress.XtraBars.BarEditItem();
             this.cmb_Provincia = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
             this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colProvincia = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -163,6 +162,7 @@
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl1.ExpandCollapseItem,
+            this.ribbonControl1.SearchEditItem,
             this.btnSalir,
             this.btnImprimir,
             this.beiSucursal,
@@ -178,14 +178,12 @@
             this.beiDiasCredito,
             this.btnGenerar_File_txt,
             this.bei_Periodo,
-            this.beiProvincia,
             this.btnGenerarReporte,
             this.barEditItem2,
             this.barEditItem3,
             this.badEditItem4,
             this.barEditItem4,
-            this.barEditItem5,
-            this.ribbonControl1.SearchEditItem});
+            this.barEditItem5});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.MaxItemId = 170;
             this.ribbonControl1.Name = "ribbonControl1";
@@ -219,7 +217,7 @@
             this.repositoryItemCheckEdit10,
             this.repositoryItemCheckEdit11});
             this.ribbonControl1.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
-            this.ribbonControl1.Size = new System.Drawing.Size(1529, 95);
+            this.ribbonControl1.Size = new System.Drawing.Size(1529, 100);
             this.ribbonControl1.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             // 
             // btnSalir
@@ -663,14 +661,6 @@
             this.colsmes.VisibleIndex = 4;
             this.colsmes.Width = 150;
             // 
-            // beiProvincia
-            // 
-            this.beiProvincia.Caption = "Provincia";
-            this.beiProvincia.Edit = this.cmb_Provincia;
-            this.beiProvincia.EditWidth = 150;
-            this.beiProvincia.Id = 57;
-            this.beiProvincia.Name = "beiProvincia";
-            // 
             // cmb_Provincia
             // 
             this.cmb_Provincia.AutoHeight = false;
@@ -827,7 +817,6 @@
             // GrupoVendedorProvincia
             // 
             this.GrupoVendedorProvincia.ItemLinks.Add(this.beiVendedor);
-            this.GrupoVendedorProvincia.ItemLinks.Add(this.beiProvincia);
             this.GrupoVendedorProvincia.Name = "GrupoVendedorProvincia";
             this.GrupoVendedorProvincia.Visible = false;
             // 
@@ -1031,7 +1020,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colpe_FechaFin;
         private DevExpress.XtraGrid.Columns.GridColumn colsmes;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
-        public DevExpress.XtraBars.BarEditItem beiProvincia;
         private DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit cmb_Provincia;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
         private DevExpress.XtraGrid.Columns.GridColumn colProvincia;

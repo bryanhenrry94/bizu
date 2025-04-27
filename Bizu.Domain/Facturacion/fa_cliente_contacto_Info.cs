@@ -15,7 +15,6 @@ namespace Bizu.Domain.Facturacion
         public decimal IdContacto { get; set; }
         public string observacion { get; set; }
 
-        public tb_contacto_Info Contacto_Info { get; set; }
         public fa_Cliente_Info  Cliente_Info { get; set; }
 
         public int IdEmpresa { get; set; }
@@ -28,7 +27,6 @@ namespace Bizu.Domain.Facturacion
 
         public fa_cliente_contacto_Info()
         {
-            Contacto_Info = new tb_contacto_Info();
             Cliente_Info = new fa_Cliente_Info();
         }
     }

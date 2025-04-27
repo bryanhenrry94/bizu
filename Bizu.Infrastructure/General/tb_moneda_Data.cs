@@ -10,7 +10,7 @@ namespace Bizu.Infrastructure.General
     public class tb_moneda_Data
     {
         string mensaje = "";
-        public List<tb_moneda_info> Get_List_Moneda() 
+        public List<tb_moneda_info> Get_List_Moneda()
         {
             try
             {
@@ -24,12 +24,12 @@ namespace Bizu.Infrastructure.General
                 foreach (var item in select)
                 {
                     tb_moneda_info info = new tb_moneda_info();
-                    info.IdMoneda = item.IdMoneda;
-                    info.im_descripcion = item.im_descripcion +" "+ item.im_simbolo;
+                    info.IdMoneda = item.idmoneda;
+                    info.im_descripcion = item.im_descripcion + " " + item.im_simbolo;
                     info.im_nemonico = item.im_nemonico;
                     Lista.Add(info);
                 }
-            return Lista;
+                return Lista;
             }
             catch (Exception ex)
             {

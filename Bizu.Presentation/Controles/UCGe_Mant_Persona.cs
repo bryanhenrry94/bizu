@@ -69,23 +69,6 @@ namespace Bizu.Presentation.Controles
 
                     if (perBu.GrabarDB(_PersonaInfo, ref idPersonaOut, ref msgError))
                     {
-
-                        //llenando tipo persona
-                        List<tb_personaxPersonaTipo_Info> lpersonaxPersonaTipo = new List<tb_personaxPersonaTipo_Info>();
-
-                        for (int i = 0; i < chkListTipoPersona.CheckedItems.Count; i++)
-                        {
-                            if (chkListTipoPersona.GetItemChecked(i))
-                            {
-                                tb_personaTipo_Info itemxPer = (tb_personaTipo_Info)chkListTipoPersona.Items[i];
-                                tb_personaxPersonaTipo_Info itemxTipoPero = new tb_personaxPersonaTipo_Info();
-
-                            }
-                        }
-
-
-
-
                         resultB = true;
                     }
                     else

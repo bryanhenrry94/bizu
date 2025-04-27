@@ -16,7 +16,6 @@ namespace Bizu.Application.General
         string mensaje = "";
 
         tb_Banco_Data oData = new tb_Banco_Data();
-        tb_banco_procesos_bancarios_x_empresa_Bus bus_procesos_bancarios_x_empresa = new tb_banco_procesos_bancarios_x_empresa_Bus();
 
         public List<tb_banco_Info> Get_List_Banco()
         {
@@ -52,14 +51,7 @@ namespace Bizu.Application.General
             {
                 bool res = false;
                 res = oData.GrabarDB(Info, ref msg);
-
-                foreach (var item in Info.lst_procesos_bancarios_x_empresa)
-                {
-                    item.IdBanco = Info.IdBanco;
-                }
-
-                res = bus_procesos_bancarios_x_empresa.GuardarDB(Info.lst_procesos_bancarios_x_empresa);
-                
+                               
                 return res;
             }
             catch (Exception ex)
@@ -77,16 +69,7 @@ namespace Bizu.Application.General
                 bool res = false;
 
                 res = oData.ActualizarDB(Info, ref msg);
-
-                foreach (var item in Info.lst_procesos_bancarios_x_empresa)
-                {
-                    item.IdBanco = Info.IdBanco;
-                }
-                if (bus_procesos_bancarios_x_empresa.EliminarDB(param.IdEmpresa,Info.IdBanco))
-                {
-                    res = bus_procesos_bancarios_x_empresa.GuardarDB(Info.lst_procesos_bancarios_x_empresa);    
-                }
-                
+                                
                 return res;
             }
             catch (Exception ex)

@@ -5,12 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Bizu.Domain.General;
-using Bizu.Infrastructure.General;
-
 
 namespace Bizu.Infrastructure.General
 {
-   public class tb_sis_Impuesto_Tipo_Data
+    public class tb_sis_Impuesto_Tipo_Data
     {
 
         string mensaje = "";
@@ -23,15 +21,15 @@ namespace Bizu.Infrastructure.General
 
                 EntitiesGeneral oEnti = new EntitiesGeneral();
 
-                var bancos = from q in oEnti.tb_sis_Impuesto_Tipo
+                var bancos = from q in oEnti.tb_sis_impuesto_tipo
                              select q;
                 foreach (var item in bancos)
                 {
                     tb_sis_Impuesto_Tipo_Info info = new tb_sis_Impuesto_Tipo_Info();
 
-                    info.IdTipoImpuesto = item.IdTipoImpuesto;
-                    info.nom_tipoImpuesto = item.nom_tipoImpuesto;
-                    
+                    info.IdTipoImpuesto = item.idtipoimpuesto;
+                    info.nom_tipoImpuesto = item.nom_tipoimpuesto;
+
 
 
                     lst.Add(info);
@@ -57,13 +55,13 @@ namespace Bizu.Infrastructure.General
 
                 EntitiesGeneral oEnti = new EntitiesGeneral();
 
-                var bancos = from q in oEnti.tb_sis_Impuesto_Tipo
-                             where q.IdTipoImpuesto == IdTipoImpuesto
+                var bancos = from q in oEnti.tb_sis_impuesto_tipo
+                             where q.idtipoimpuesto == IdTipoImpuesto
                              select q;
                 foreach (var item in bancos)
                 {
-                    info.IdTipoImpuesto = item.IdTipoImpuesto;
-                    info.nom_tipoImpuesto = item.nom_tipoImpuesto;
+                    info.IdTipoImpuesto = item.idtipoimpuesto;
+                    info.nom_tipoImpuesto = item.nom_tipoimpuesto;
                 }
                 return info;
             }
@@ -77,8 +75,5 @@ namespace Bizu.Infrastructure.General
                 throw new Exception(ex.ToString());
             }
         }
-
-        
-
     }
 }

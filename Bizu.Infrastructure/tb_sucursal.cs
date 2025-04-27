@@ -14,34 +14,26 @@ namespace Bizu.Infrastructure
     
     public partial class tb_sucursal
     {
-        public tb_sucursal()
-        {
-            this.tb_bodega = new HashSet<tb_bodega>();
-        }
-    
-        public int IdEmpresa { get; set; }
-        public int IdSucursal { get; set; }
+        public int idempresa { get; set; }
+        public int idsucursal { get; set; }
         public string codigo { get; set; }
-        public string Su_Descripcion { get; set; }
-        public string Su_CodigoEstablecimiento { get; set; }
-        public string Su_Ubicacion { get; set; }
-        public string Su_Ruc { get; set; }
-        public string Su_JefeSucursal { get; set; }
-        public string Su_Telefonos { get; set; }
-        public string Su_Direccion { get; set; }
-        public string IdUsuario { get; set; }
-        public Nullable<System.DateTime> Fecha_Transac { get; set; }
-        public string IdUsuarioUltMod { get; set; }
-        public Nullable<System.DateTime> Fecha_UltMod { get; set; }
-        public string IdUsuarioUltAnu { get; set; }
-        public Nullable<System.DateTime> Fecha_UltAnu { get; set; }
+        public string su_descripcion { get; set; }
+        public string su_codigoestablecimiento { get; set; }
+        public string su_ubicacion { get; set; }
+        public string su_ruc { get; set; }
+        public string su_jefesucursal { get; set; }
+        public string su_telefonos { get; set; }
+        public string su_direccion { get; set; }
+        public string idusuario { get; set; }
+        public Nullable<System.DateTime> fecha_transac { get; set; }
+        public string idusuarioultmod { get; set; }
+        public Nullable<System.DateTime> fecha_ultmod { get; set; }
+        public string idusuarioultanu { get; set; }
+        public Nullable<System.DateTime> fecha_ultanu { get; set; }
         public string nom_pc { get; set; }
         public string ip { get; set; }
-        public string Estado { get; set; }
-        public string MotiAnula { get; set; }
-        public Nullable<bool> Es_establecimiento { get; set; }
-    
-        public virtual ICollection<tb_bodega> tb_bodega { get; set; }
-        public virtual tb_empresa tb_empresa { get; set; }
+        public string estado { get; set; }
+        public string motianula { get; set; }
+        public Nullable<bool> es_establecimiento { get; set; }
     }
 }

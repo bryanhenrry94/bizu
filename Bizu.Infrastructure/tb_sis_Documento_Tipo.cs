@@ -12,20 +12,11 @@ namespace Bizu.Infrastructure
     using System;
     using System.Collections.Generic;
     
-    public partial class tb_sis_Documento_Tipo
+    public partial class tb_sis_documento_tipo
     {
-        public tb_sis_Documento_Tipo()
-        {
-            this.tb_sis_Documento_Tipo_Reporte_x_Empresa = new HashSet<tb_sis_Documento_Tipo_Reporte_x_Empresa>();
-            this.tb_sis_Documento_Tipo_Talonario = new HashSet<tb_sis_Documento_Tipo_Talonario>();
-        }
-    
-        public string codDocumentoTipo { get; set; }
+        public string coddocumentotipo { get; set; }
         public string descripcion { get; set; }
         public string estado { get; set; }
-        public Nullable<int> Posicion { get; set; }
-    
-        public virtual ICollection<tb_sis_Documento_Tipo_Reporte_x_Empresa> tb_sis_Documento_Tipo_Reporte_x_Empresa { get; set; }
-        public virtual ICollection<tb_sis_Documento_Tipo_Talonario> tb_sis_Documento_Tipo_Talonario { get; set; }
+        public Nullable<int> posicion { get; set; }
     }
 }

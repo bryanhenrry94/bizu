@@ -14,9 +14,9 @@ namespace Bizu.Infrastructure
     
     public partial class tb_mes
     {
-        public int idMes { get; set; }
+        public int idmes { get; set; }
         public string smes { get; set; }
-        public string Nemonico { get; set; }
-        public string smesIngles { get; set; }
+        public string nemonico { get; set; }
+        public string smesingles { get; set; }
     }
 }

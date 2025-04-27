@@ -12,13 +12,13 @@ namespace Bizu.Infrastructure
     using System;
     using System.Collections.Generic;
     
-    public partial class tb_sis_Datos_Sistema
+    public partial class tb_sis_datos_sistema
     {
-        public int Id { get; set; }
-        public string Nombre_sistema { get; set; }
+        public int id { get; set; }
+        public string nombre_sistema { get; set; }
         public string version { get; set; }
-        public string Propietario { get; set; }
-        public string Desarrolladores { get; set; }
-        public string Observacion { get; set; }
+        public string propietario { get; set; }
+        public string desarrolladores { get; set; }
+        public string observacion { get; set; }
     }
 }
