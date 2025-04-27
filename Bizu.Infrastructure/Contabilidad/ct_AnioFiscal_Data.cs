@@ -28,9 +28,9 @@ namespace Bizu.Infrastructure.Contabilidad
                 foreach (var item in selectanioFiscal)
                 {
                     ct_AnioFiscal_Info aF = new ct_AnioFiscal_Info();
-                    aF.IdanioFiscal = item.IdanioFiscal;
-                    aF.af_fechaIni = Convert.ToDateTime(item.af_fechaIni);
-                    aF.af_fechaFin = Convert.ToDateTime(item.af_fechaFin);
+                    aF.IdanioFiscal = item.idaniofiscal;
+                    aF.af_fechaIni = Convert.ToDateTime(item.af_fechaini);
+                    aF.af_fechaFin = Convert.ToDateTime(item.af_fechafin);
                     aF.af_estado = item.af_estado;
                     lM.Add(aF);
                 }
@@ -64,9 +64,9 @@ namespace Bizu.Infrastructure.Contabilidad
                 foreach (var item in selectanioFiscal)
                 {
                     ct_AnioFiscal_Info aF = new ct_AnioFiscal_Info();
-                    aF.IdanioFiscal = item.IdanioFiscal;
-                    aF.af_fechaIni = Convert.ToDateTime(item.af_fechaIni);
-                    aF.af_fechaFin = Convert.ToDateTime(item.af_fechaFin);
+                    aF.IdanioFiscal = item.idaniofiscal;
+                    aF.af_fechaIni = Convert.ToDateTime(item.af_fechaini);
+                    aF.af_fechaFin = Convert.ToDateTime(item.af_fechafin);
                     aF.af_estado = item.af_estado;
                     lM.Add(aF);
                 }
@@ -91,13 +91,13 @@ namespace Bizu.Infrastructure.Contabilidad
                 Boolean res = false;
                 using (EntitiesDBConta context = new EntitiesDBConta())
                 {
-                    var contact = context.ct_anio_fiscal.FirstOrDefault(vanio => vanio.IdanioFiscal == aif.IdanioFiscal);
+                    var contact = context.ct_anio_fiscal.FirstOrDefault(vanio => vanio.idaniofiscal == aif.IdanioFiscal);
 
                     if (contact != null)
                     {
                         contact.af_estado = aif.af_estado;
-                        contact.af_fechaFin = aif.af_fechaFin;
-                        contact.af_fechaIni = aif.af_fechaIni;
+                        contact.af_fechafin = aif.af_fechaFin;
+                        contact.af_fechaini = aif.af_fechaIni;
                         context.SaveChanges();
                         res = true;
                     }
@@ -129,15 +129,15 @@ namespace Bizu.Infrastructure.Contabilidad
 
 
                     var Q = from per in EDB.ct_anio_fiscal
-                            where per.IdanioFiscal == aif.IdanioFiscal
+                            where per.idaniofiscal == aif.IdanioFiscal
                             select per;
                     if (Q.ToList().Count == 0)
                     {
 
                         ct_anio_fiscal address = new ct_anio_fiscal();
-                        address.IdanioFiscal = aif.IdanioFiscal;
-                        address.af_fechaIni = aif.af_fechaIni;
-                        address.af_fechaFin = aif.af_fechaFin;
+                        address.idaniofiscal = aif.IdanioFiscal;
+                        address.af_fechaini = aif.af_fechaIni;
+                        address.af_fechafin = aif.af_fechaFin;
                         address.af_estado = aif.af_estado;
                         context.ct_anio_fiscal.Add(address);
                         context.SaveChanges();
@@ -170,7 +170,7 @@ namespace Bizu.Infrastructure.Contabilidad
             {
                 using (EntitiesDBConta context = new EntitiesDBConta())
                 {
-                    var contact = context.ct_anio_fiscal.FirstOrDefault(vanio => vanio.IdanioFiscal == aif.IdanioFiscal);
+                    var contact = context.ct_anio_fiscal.FirstOrDefault(vanio => vanio.idaniofiscal == aif.IdanioFiscal);
                     if (contact != null)
                     {
                         contact.af_estado = "I";
@@ -201,7 +201,7 @@ namespace Bizu.Infrastructure.Contabilidad
                 EntitiesDBConta reg = new EntitiesDBConta();
 
                 var q = from Periodo in reg.ct_periodo
-                        where Periodo.IdEmpresa == IdEmpresa && Periodo.IdanioFiscal == IdAnio
+                        where Periodo.idempresa == IdEmpresa && Periodo.idaniofiscal == IdAnio
                         select Periodo;
 
                 if (q.ToList().Count > 0)
@@ -239,20 +239,20 @@ namespace Bizu.Infrastructure.Contabilidad
                 ct_AnioFiscal_Info aF = new ct_AnioFiscal_Info();
 
                 var selectanioFiscal = from A in OEAnioFiscal.vwct_anio_fiscal_x_cuenta_utilidad
-                                       where A.IdanioFiscal == Anio
-                                       && A.IdEmpresa == IdEmpresa
+                                       where A.idaniofiscal == Anio
+                                       && A.idempresa == IdEmpresa
                                        select A;
 
 
                 foreach (var item in selectanioFiscal)
                 {
-                    aF.IdanioFiscal = item.IdanioFiscal;
-                    aF.pc_Cuenta = item.pc_Cuenta;
-                    aF.IdCtaCble = item.IdCtaCble;
-                    aF.IdGrupoCble = item.IdGrupoCble;
-                    aF.IdNivelCta = item.IdNivelCta;
-                    aF.IdEmpresa = item.IdEmpresa;
-                    aF.gc_GrupoCble = item.gc_GrupoCble;
+                    aF.IdanioFiscal = item.idaniofiscal;
+                    aF.pc_Cuenta = item.pc_cuenta;
+                    aF.IdCtaCble = item.idctacble;
+                    aF.IdGrupoCble = item.idgrupocble;
+                    aF.IdNivelCta = item.idnivelcta;
+                    aF.IdEmpresa = item.idempresa;
+                    aF.gc_GrupoCble = item.gc_grupocble;
                 }
                 return aF;
             }
@@ -278,15 +278,15 @@ namespace Bizu.Infrastructure.Contabilidad
                 ct_AnioFiscal_Info aF = new ct_AnioFiscal_Info();
 
                 var selectanioFiscal = from A in OEAnioFiscal.ct_anio_fiscal
-                                       where A.IdanioFiscal == Anio
+                                       where A.idaniofiscal == Anio
                                        select A;
 
 
                 foreach (var item in selectanioFiscal)
                 {
-                    aF.IdanioFiscal = item.IdanioFiscal;
-                    aF.af_fechaIni = item.af_fechaIni;
-                    aF.af_fechaFin = item.af_fechaFin;
+                    aF.IdanioFiscal = item.idaniofiscal;
+                    aF.af_fechaIni = item.af_fechaini;
+                    aF.af_fechaFin = item.af_fechafin;
                     aF.af_estado = item.af_estado;
                 }
                 return aF;

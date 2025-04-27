@@ -652,19 +652,19 @@ namespace Bizu.Infrastructure.ActivoFijo
                 using (EntitiesDBConta listado = new EntitiesDBConta())
                 {
                     var select = from q in listado.vwct_periodo
-                                 where q.IdEmpresa == IdEmpresa
+                                 where q.idempresa == IdEmpresa
                                  select q;
 
                     foreach (var item in select)
                     {
                         ct_Periodo_Info Cbt = new ct_Periodo_Info();
-                        Cbt.IdEmpresa = item.IdEmpresa;
-                        Cbt.IdPeriodo = item.IdPeriodo;
-                        Cbt.nom_periodo = item.IdanioFiscal.ToString() + "-" + item.smes.Trim();
-                        Cbt.IdanioFiscal = item.IdanioFiscal;
+                        Cbt.IdEmpresa = item.idempresa;
+                        Cbt.IdPeriodo = item.idperiodo;
+                        Cbt.nom_periodo = item.idaniofiscal.ToString() + "-" + item.smes.Trim();
+                        Cbt.IdanioFiscal = item.idaniofiscal;
                         Cbt.pe_mes = item.pe_mes;
-                        Cbt.pe_FechaIni = item.pe_FechaIni;
-                        Cbt.pe_FechaFin = item.pe_FechaFin;
+                        Cbt.pe_FechaIni = item.pe_fechaini;
+                        Cbt.pe_FechaFin = item.pe_fechafin;
                         Cbt.pe_cerrado = item.pe_cerrado;
                         Cbt.pe_estado = item.pe_estado;
                         lstInfo.Add(Cbt);

@@ -22,7 +22,7 @@ using DevExpress.XtraReports.UI;
 namespace Bizu.Presentation.Bancos
 {
     public partial class FrmBA_Cheques_Mant : DevExpress.XtraEditors.XtraForm
-    {                
+    {
         public delegate void delegate_frmBA_ChequesMantenimiento_FormClosing(object sender, FormClosingEventArgs e);
         public event delegate_frmBA_ChequesMantenimiento_FormClosing event_frmBA_ChequesMantenimiento_FormClosing;
 
@@ -52,8 +52,8 @@ namespace Bizu.Presentation.Bancos
         List<cp_orden_pago_cancelaciones_Info> ListOrdenPagoCancelacion = new List<cp_orden_pago_cancelaciones_Info>();
         BindingList<vwba_Banco_Movimiento_det_cancelado_Info> BindingDetalleCaja = new BindingList<vwba_Banco_Movimiento_det_cancelado_Info>();
         BindingList<vwcp_orden_pago_con_cancelacion_Info> Obj_DetalleAprob = new BindingList<vwcp_orden_pago_con_cancelacion_Info>();
-        BindingList<vwba_ordenGiroPendientes_Info> BindListOG = new BindingList<vwba_ordenGiroPendientes_Info>();        
-                
+        BindingList<vwba_ordenGiroPendientes_Info> BindListOG = new BindingList<vwba_ordenGiroPendientes_Info>();
+
         ba_Cbte_Ban_Info Info_CbteBan = new ba_Cbte_Ban_Info();
         cp_proveedor_Info InfoProveedor = new cp_proveedor_Info();
         ba_Banco_Cuenta_Info InfoBanco_cta = new ba_Banco_Cuenta_Info();
@@ -63,7 +63,7 @@ namespace Bizu.Presentation.Bancos
         vwtb_persona_beneficiario_Info InfoPersona_beneficiario = new vwtb_persona_beneficiario_Info();
         vwtb_persona_beneficiario_Info InfoBeneficiario = new vwtb_persona_beneficiario_Info();
 
-        int IdBanco = 0;        
+        int IdBanco = 0;
         private Cl_Enumeradores.eTipo_action _Accion;
         string cheque = "";
         decimal chequeID = 0;
@@ -76,7 +76,7 @@ namespace Bizu.Presentation.Bancos
         int IdTipoCbteRev = 0;
         decimal IdCbteCbleRev;
         string Observacion_diario = "";
-        string Observacion_cbte_bancario = "";        
+        string Observacion_cbte_bancario = "";
 
         public FrmBA_Cheques_Mant()
         {
@@ -243,7 +243,7 @@ namespace Bizu.Presentation.Bancos
             try
             {
                 if (_Accion == 0) { _Accion = Cl_Enumeradores.eTipo_action.grabar; }
-                
+
                 listParaBan = paramBa_B.Get_List_Banco_Parametros(param.IdEmpresa);
                 InfoParam_Banco = listParaBan.Find(delegate (ba_Cbte_Ban_tipo_x_ct_CbteCble_tipo_Info P) { return P.CodTipoCbteBan == "CHEQ"; });
 
@@ -839,7 +839,7 @@ namespace Bizu.Presentation.Bancos
                 {
                     case Cl_Enumeradores.eTipo_action.grabar:
                         respuesta = Grabar();
-                        
+
                         break;
                     case Cl_Enumeradores.eTipo_action.actualizar:
                         respuesta = Actualizar();
@@ -945,7 +945,7 @@ namespace Bizu.Presentation.Bancos
                 return false;
             }
         }
-        
+
         private void Impresion_Cheque()
         {
             try
@@ -1057,88 +1057,42 @@ namespace Bizu.Presentation.Bancos
                         fr.ShowDialog();
                         motiAnulacion = fr.motivoAnulacion;
 
-                        switch (param.IdCliente_Ven_x_Default)
+                        if (UC_DiarioContPago.Reverso(IdTipoCbteRev, ref IdCbteCbleRev, ref msg, motiAnulacion))
                         {
-                            case Cl_Enumeradores.eCliente_Vzen.EDEHSA:
-                                fechaAnulacion = fr.fechaAnul;
+                            Info_CbteBan.MotivoAnulacion = motiAnulacion;
+                            Info_CbteBan.IdUsuario_Anu = param.IdUsuario;
+                            Info_CbteBan.FechaAnulacion = param.Fecha_Transac;
+                            Info_CbteBan.IdTipoCbte_Anulacion = IdTipoCbteRev;
+                            Info_CbteBan.IdCbteCble_Anulacion = IdCbteCbleRev;
 
-                                if (UC_DiarioContPago.Reverso_Edehsa(IdTipoCbteRev, ref IdCbteCbleRev, ref msg, motiAnulacion, fechaAnulacion))
+                            if (CbteBan_B.AnularDB(Info_CbteBan, ref MensajeError))
+                            {
+                                GetDetalle_Grid();
+                                if (BusOrdenPagoCancelacion.ModificarDB(ListOrdenPagoCancelacion))
                                 {
-                                    Info_CbteBan.MotivoAnulacion = motiAnulacion;
-                                    Info_CbteBan.IdUsuario_Anu = param.IdUsuario;
-                                    Info_CbteBan.FechaAnulacion = fechaAnulacion;
-                                    Info_CbteBan.IdTipoCbte_Anulacion = IdTipoCbteRev;
-                                    Info_CbteBan.IdCbteCble_Anulacion = IdCbteCbleRev;
 
-                                    if (CbteBan_B.AnularDB(Info_CbteBan, ref MensajeError))
-                                    {
-                                        GetDetalle_Grid();
-                                        if (BusOrdenPagoCancelacion.ModificarDB(ListOrdenPagoCancelacion))
-                                        {
-                                            MessageBox.Show("Comprobante bancario #: " + Info_CbteBan.IdCbteCble + " Anulado correctamente, Con el Tipo de Comprobante de Anulacion #" + IdTipoCbteRev + " y el Comprobante de Anulacion #: " + IdCbteCbleRev);
-                                        }
-                                        else
-                                        {
-                                            MessageBox.Show("No se pudo Eliminar los pagos relacionados a esta Comprobante bancario...", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                            respuesta = false;
-                                        }
-
-
-                                        lblCbt_TipoAnulacion.Visible = true;
-                                        lblCbt_TipoAnulacion.Text = "**ANULADO**   Cbt.Cble. de Anu.: " + IdCbteCbleRev.ToString() + " Tipo Cbt.Cble de Anu.: " + IdTipoCbteRev.ToString();
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("No se pudo Anular el Comprobante bancario " + MensajeError, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                        respuesta = false;
-                                    }
+                                    MessageBox.Show("Comprobante bancario #: " + Info_CbteBan.IdCbteCble + " Anulado correctamente, Con el Tipo de Comprobante de Anulacion #" + IdTipoCbteRev + " y el Comprobante de Anulacion #: " + IdCbteCbleRev);
                                 }
                                 else
                                 {
-                                    MessageBox.Show("No se pudo Reversar el Comprobante ( " + msg + " )", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    MessageBox.Show("No se pudo Eliminar los pagos relacionados a esta Comprobante bancario...", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     respuesta = false;
                                 }
-                                break;
-
-                            default:
-                                if (UC_DiarioContPago.Reverso(IdTipoCbteRev, ref IdCbteCbleRev, ref msg, motiAnulacion))
-                                {
-                                    Info_CbteBan.MotivoAnulacion = motiAnulacion;
-                                    Info_CbteBan.IdUsuario_Anu = param.IdUsuario;
-                                    Info_CbteBan.FechaAnulacion = param.Fecha_Transac;
-                                    Info_CbteBan.IdTipoCbte_Anulacion = IdTipoCbteRev;
-                                    Info_CbteBan.IdCbteCble_Anulacion = IdCbteCbleRev;
-
-                                    if (CbteBan_B.AnularDB(Info_CbteBan, ref MensajeError))
-                                    {
-                                        GetDetalle_Grid();
-                                        if (BusOrdenPagoCancelacion.ModificarDB(ListOrdenPagoCancelacion))
-                                        {
-
-                                            MessageBox.Show("Comprobante bancario #: " + Info_CbteBan.IdCbteCble + " Anulado correctamente, Con el Tipo de Comprobante de Anulacion #" + IdTipoCbteRev + " y el Comprobante de Anulacion #: " + IdCbteCbleRev);
-                                        }
-                                        else
-                                        {
-                                            MessageBox.Show("No se pudo Eliminar los pagos relacionados a esta Comprobante bancario...", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                            respuesta = false;
-                                        }
 
 
-                                        lblCbt_TipoAnulacion.Visible = true;
-                                        lblCbt_TipoAnulacion.Text = "**ANULADO**   Cbt.Cble. de Anu.: " + IdCbteCbleRev.ToString() + " Tipo Cbt.Cble de Anu.: " + IdTipoCbteRev.ToString();
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("No se pudo Anular el Comprobante bancario " + MensajeError, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                        respuesta = false;
-                                    }
-                                }
-                                else
-                                {
-                                    MessageBox.Show("No se pudo Reversar el Comprobante ( " + msg + " )", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    respuesta = false;
-                                }
-                                break;
+                                lblCbt_TipoAnulacion.Visible = true;
+                                lblCbt_TipoAnulacion.Text = "**ANULADO**   Cbt.Cble. de Anu.: " + IdCbteCbleRev.ToString() + " Tipo Cbt.Cble de Anu.: " + IdTipoCbteRev.ToString();
+                            }
+                            else
+                            {
+                                MessageBox.Show("No se pudo Anular el Comprobante bancario " + MensajeError, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                respuesta = false;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se pudo Reversar el Comprobante ( " + msg + " )", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            respuesta = false;
                         }
                     }
                 }

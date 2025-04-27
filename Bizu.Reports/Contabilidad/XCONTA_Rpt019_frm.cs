@@ -56,8 +56,6 @@ namespace Bizu.Reports.Contabilidad
                         int IdPunto_Cargo = 0;
                         string IdCentroCosto = "";
 
-                        IdPunto_Cargo_Grupo = uCct_Menu_Reportes1.Get_info_punto_cargo_grupo() == null ? 0 : uCct_Menu_Reportes1.Get_info_punto_cargo_grupo().IdPunto_cargo_grupo;
-                        IdPunto_Cargo = 0;
                         IdCentroCosto = uCct_Menu_Reportes1.Get_info_Centro_costo() == null ? "" : uCct_Menu_Reportes1.Get_info_Centro_costo().IdCentroCosto;
 
                         FechaIni = uCct_Menu_Reportes1.bei_Desde.EditValue == null ? DateTime.Now : Convert.ToDateTime(uCct_Menu_Reportes1.bei_Desde.EditValue);
@@ -130,12 +128,6 @@ namespace Bizu.Reports.Contabilidad
                 rpt.PIdCentroCosto.Value = uCct_Menu_Reportes1.Get_info_Centro_costo() == null ? "" : uCct_Menu_Reportes1.Get_info_Centro_costo().IdCentroCosto;
                 rpt.PIdCentroCosto.Visible = false;              
 
-                rpt.PIdPunto_Cargo_Grupo.Value = uCct_Menu_Reportes1.Get_info_punto_cargo_grupo() == null ? 0 : Convert.ToInt32(uCct_Menu_Reportes1.Get_info_punto_cargo_grupo().IdPunto_cargo_grupo);
-                rpt.PIdPunto_Cargo_Grupo.Visible = false;
-
-                rpt.PIdPunto_Cargo.Value = 0;
-                rpt.PIdPunto_Cargo.Visible = false;
-
                 rpt.ShowPreview();
                 splashScreenManager.CloseWaitForm();
             }
@@ -175,11 +167,6 @@ namespace Bizu.Reports.Contabilidad
 
                 IdCentroCosto = uCct_Menu_Reportes1.Get_info_Centro_costo() == null ? "" : uCct_Menu_Reportes1.Get_info_Centro_costo().IdCentroCosto;
                 Nom_centro_Costo = uCct_Menu_Reportes1.Get_info_Centro_costo() == null ? "" : uCct_Menu_Reportes1.Get_info_Centro_costo().Centro_costo;                
-
-                IdPunto_cargo_grupo = 0;
-                Nom_Punto_Cargo_Grupo = uCct_Menu_Reportes1.Get_info_punto_cargo_grupo() == null ? "" : uCct_Menu_Reportes1.Get_info_punto_cargo_grupo().nom_punto_cargo_grupo;
-
-                IdPunto_cargo = 0;
 
 
                 lista = Bus.Get_List_Reporte(param.IdEmpresa, FechaIni, FechaFin, IdCentroCosto,

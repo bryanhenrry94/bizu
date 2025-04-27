@@ -20,18 +20,18 @@ namespace Bizu.Infrastructure.Contabilidad
                 List<ct_Grupocble_Info> lM = new List<ct_Grupocble_Info>();
                 EntitiesDBConta OEGrupocble_Info = new EntitiesDBConta();
                 var selectGrupocble = from C in OEGrupocble_Info.ct_grupocble
-                                         
-                                       select C;
+
+                                      select C;
 
                 foreach (var item in selectGrupocble)
                 {
                     ct_Grupocble_Info Cbt = new ct_Grupocble_Info();
-                    Cbt.IdGrupoCble = item.IdGrupoCble;
-                    Cbt.gc_GrupoCble = item.gc_GrupoCble;
-                    Cbt.gc_Orden = Convert.ToInt32(item.gc_Orden);
+                    Cbt.IdGrupoCble = item.idgrupocble;
+                    Cbt.gc_GrupoCble = item.gc_grupocble;
+                    Cbt.gc_Orden = Convert.ToInt32(item.gc_orden);
                     Cbt.gc_estado_financiero = item.gc_estado_financiero;
                     Cbt.gc_signo_operacion = Convert.ToInt32(item.gc_signo_operacion);
-                    Cbt.Estado = item.Estado;
+                    Cbt.Estado = item.estado;
                     lM.Add(Cbt);
                 }
 
@@ -59,15 +59,15 @@ namespace Bizu.Infrastructure.Contabilidad
                 Boolean res = false;
                 using (EntitiesDBConta context = new EntitiesDBConta())
                 {
-                    var contact = context.ct_grupocble.FirstOrDefault(dato => dato.IdGrupoCble == info.IdGrupoCble);
+                    var contact = context.ct_grupocble.FirstOrDefault(dato => dato.idgrupocble == info.IdGrupoCble);
                     if (contact != null)
                     {
-                        contact.IdGrupoCble = info.IdGrupoCble;
-                        contact.gc_GrupoCble = info.gc_GrupoCble;
-                        contact.gc_Orden = Convert.ToByte(info.gc_Orden);
+                        contact.idgrupocble = info.IdGrupoCble;
+                        contact.gc_grupocble = info.gc_GrupoCble;
+                        contact.gc_orden = Convert.ToByte(info.gc_Orden);
                         contact.gc_estado_financiero = info.gc_estado_financiero;
                         contact.gc_signo_operacion = info.gc_signo_operacion;
-                        contact.Estado = info.Estado;
+                        contact.estado = info.Estado;
                         context.SaveChanges();
                         res = true;
                     }
@@ -99,26 +99,26 @@ namespace Bizu.Infrastructure.Contabilidad
                 using (EntitiesDBConta context = new EntitiesDBConta())
                 {
                     var Q = from per in context.ct_grupocble
-                            where per.IdGrupoCble == info.IdGrupoCble
+                            where per.idgrupocble == info.IdGrupoCble
                             select per;
 
                     if (Q.ToList().Count == 0)
                     {
 
                         var address = new ct_grupocble();
-                        address.IdGrupoCble = info.IdGrupoCble;
-                        address.gc_GrupoCble = info.gc_GrupoCble;
-                        address.gc_Orden = Convert.ToByte(info.gc_Orden);
+                        address.idgrupocble = info.IdGrupoCble;
+                        address.gc_grupocble = info.gc_GrupoCble;
+                        address.gc_orden = Convert.ToByte(info.gc_Orden);
                         address.gc_estado_financiero = info.gc_estado_financiero;
                         address.gc_signo_operacion = info.gc_signo_operacion;
-                        address.Estado = info.Estado;
+                        address.estado = info.Estado;
                         context.ct_grupocble.Add(address);
                         context.SaveChanges();
                         res = true;
                     }
                     else
                     {
-                        
+
                         mensaje = "No se pudo guardar el Grupo Cta Cble: " + info.IdGrupoCble + " ,Por favor revise si ya se encuenta ingresado";
                         return false;
                     }
@@ -144,10 +144,10 @@ namespace Bizu.Infrastructure.Contabilidad
                 Boolean res = false;
                 using (EntitiesDBConta context = new EntitiesDBConta())
                 {
-                    var contact = context.ct_grupocble.FirstOrDefault(dato => dato.IdGrupoCble  == info.IdGrupoCble);
+                    var contact = context.ct_grupocble.FirstOrDefault(dato => dato.idgrupocble == info.IdGrupoCble);
                     if (contact != null)
                     {
-                        contact.Estado = "I";
+                        contact.estado = "I";
                         context.SaveChanges();
                         res = true;
                     }

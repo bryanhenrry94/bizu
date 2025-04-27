@@ -14,20 +14,12 @@ namespace Bizu.Infrastructure
     
     public partial class ct_grupocble
     {
-        public ct_grupocble()
-        {
-            this.ct_plancta = new HashSet<ct_plancta>();
-        }
-    
-        public string IdGrupoCble { get; set; }
-        public string gc_GrupoCble { get; set; }
-        public byte gc_Orden { get; set; }
+        public string idgrupocble { get; set; }
+        public string gc_grupocble { get; set; }
+        public byte gc_orden { get; set; }
         public string gc_estado_financiero { get; set; }
         public Nullable<int> gc_signo_operacion { get; set; }
-        public string Estado { get; set; }
-        public string IdGrupo_Mayor { get; set; }
-    
-        public virtual ct_grupocble_Mayor ct_grupocble_Mayor { get; set; }
-        public virtual ICollection<ct_plancta> ct_plancta { get; set; }
+        public string estado { get; set; }
+        public string idgrupo_mayor { get; set; }
     }
 }

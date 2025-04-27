@@ -14,27 +14,13 @@ namespace Bizu.Infrastructure
     
     public partial class ct_periodo
     {
-        public ct_periodo()
-        {
-            this.ct_cbtecble = new HashSet<ct_cbtecble>();
-            this.ct_periodo_x_tb_modulo = new HashSet<ct_periodo_x_tb_modulo>();
-            this.ct_saldoxCuentas = new HashSet<ct_saldoxCuentas>();
-            this.ct_saldoxCuentas_Movi = new HashSet<ct_saldoxCuentas_Movi>();
-        }
-    
-        public int IdEmpresa { get; set; }
-        public int IdPeriodo { get; set; }
-        public int IdanioFiscal { get; set; }
+        public int idempresa { get; set; }
+        public int idperiodo { get; set; }
+        public int idaniofiscal { get; set; }
         public int pe_mes { get; set; }
-        public System.DateTime pe_FechaIni { get; set; }
-        public System.DateTime pe_FechaFin { get; set; }
+        public System.DateTime pe_fechaini { get; set; }
+        public System.DateTime pe_fechafin { get; set; }
         public string pe_cerrado { get; set; }
         public string pe_estado { get; set; }
-    
-        public virtual ct_anio_fiscal ct_anio_fiscal { get; set; }
-        public virtual ICollection<ct_cbtecble> ct_cbtecble { get; set; }
-        public virtual ICollection<ct_periodo_x_tb_modulo> ct_periodo_x_tb_modulo { get; set; }
-        public virtual ICollection<ct_saldoxCuentas> ct_saldoxCuentas { get; set; }
-        public virtual ICollection<ct_saldoxCuentas_Movi> ct_saldoxCuentas_Movi { get; set; }
     }
 }

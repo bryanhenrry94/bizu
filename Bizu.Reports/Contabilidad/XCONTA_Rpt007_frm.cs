@@ -27,7 +27,7 @@ namespace Bizu.Reports.Contabilidad
 
         XCONTA_Rpt007_Info Info_Fila = new XCONTA_Rpt007_Info();
 
-        
+
         int dia_mes = DateTime.Now.Day;
         int mes = DateTime.Now.Month;
         int año = DateTime.Now.Year;
@@ -39,7 +39,7 @@ namespace Bizu.Reports.Contabilidad
         {
             InitializeComponent();
         }
-      
+
         private string Get_nombre_mes(int dia)
         {
             string nombre_mes = "";
@@ -101,7 +101,7 @@ namespace Bizu.Reports.Contabilidad
             try
             {
                 splashScreenManager.ShowWaitForm();//Inicio splash
-                
+
                 XCONTA_Rpt007_Bus Bus = new XCONTA_Rpt007_Bus();
                 List<XCONTA_Rpt007_Info> lista = new List<XCONTA_Rpt007_Info>();
                 string IdCentroCosto = "";
@@ -114,29 +114,23 @@ namespace Bizu.Reports.Contabilidad
 
                 int IdEmpresa = 0;
                 DateTime FechaCorte, FechaInicio;
-                
+
 
                 IdEmpresa = param.IdEmpresa;
                 FechaCorte = dtpFechaHasta.Value;
                 FechaInicio = dt_FechaDesde.Value;
-
-                IdPunto_cargo_grupo = uCct_Pto_Cargo_Grupo.Get_Id_grupo();
-                Nom_Punto_Cargo_Grupo = (uCct_Pto_Cargo_Grupo.Get_info_grupo() == null) ? "" : uCct_Pto_Cargo_Grupo.Get_info_grupo().nom_punto_cargo_grupo;
-
-                IdPunto_cargo = uCct_Pto_Cargo_Grupo.Get_Id_punto_cargo();
-                Nom_Punto_Cargo = (uCct_Pto_Cargo_Grupo.Get_info_punto_cargo() == null) ? "" : uCct_Pto_Cargo_Grupo.Get_info_punto_cargo().nom_punto_cargo;
 
                 IdCentroCosto = cmb_centro_costo.EditValue == null ? "" : cmb_centro_costo.EditValue.ToString();
                 Nom_centro_Costo = cmb_centro_costo.Text;
 
 
                 lista = Bus.Get_List_Reporte(IdEmpresa, FechaInicio, FechaCorte, IdCentroCosto,
-                    IdPunto_cargo_grupo, IdPunto_cargo, chkMostrar_Cero.Checked,chkMostrarCC.Checked,param.IdUsuario);
+                    IdPunto_cargo_grupo, IdPunto_cargo, chkMostrar_Cero.Checked, chkMostrarCC.Checked, param.IdUsuario);
                 gc_balance_comp.DataSource = lista;
 
                 string Titulo = "";
                 Titulo = "BALANCE DE COMPROBACION  \n\n";
-                Titulo = Titulo + "Desde:" +  dt_FechaDesde.Value.ToShortDateString() + " hasta: " + dtpFechaHasta.Value.ToShortDateString() + "\n\n";
+                Titulo = Titulo + "Desde:" + dt_FechaDesde.Value.ToShortDateString() + " hasta: " + dtpFechaHasta.Value.ToShortDateString() + "\n\n";
 
                 if (IdCentroCosto != "")
                 {
@@ -159,7 +153,7 @@ namespace Bizu.Reports.Contabilidad
                 splashScreenManager.CloseWaitForm();//terminar splash
 
             }
-           
+
             catch (Exception ex)
             {
                 splashScreenManager.CloseWaitForm();
@@ -185,7 +179,7 @@ namespace Bizu.Reports.Contabilidad
 
             //}
 
-        }     
+        }
 
         private void dtpFechaCorte_ValueChanged(object sender, EventArgs e)
         {
@@ -244,12 +238,6 @@ namespace Bizu.Reports.Contabilidad
                 IdCentroCosto = cmb_centro_costo.EditValue == null ? "" : cmb_centro_costo.EditValue.ToString();
                 Nom_centro_Costo = cmb_centro_costo.Text;
 
-                IdPunto_cargo_grupo = uCct_Pto_Cargo_Grupo.Get_Id_grupo();
-                Nom_Punto_Cargo_Grupo = (uCct_Pto_Cargo_Grupo.Get_info_grupo() == null) ? "" : uCct_Pto_Cargo_Grupo.Get_info_grupo().nom_punto_cargo_grupo;
-
-                IdPunto_cargo = uCct_Pto_Cargo_Grupo.Get_Id_punto_cargo();
-                Nom_Punto_Cargo = (uCct_Pto_Cargo_Grupo.Get_info_punto_cargo() == null) ? "" : uCct_Pto_Cargo_Grupo.Get_info_punto_cargo().nom_punto_cargo;
-
                 Reporte.PIdEmpresa.Value = IdEmpresa;
                 Reporte.PIdCentroCosto.Value = IdCentroCosto;
                 Reporte.PFechaIni.Value = FechaIni;
@@ -306,16 +294,6 @@ namespace Bizu.Reports.Contabilidad
                 cmb_centro_costo.Properties.DisplayMember = "Centro_costo";
                 cmb_centro_costo.Properties.ValueMember = "IdCentroCosto";
                 cmb_centro_costo.Properties.DataSource = listCentro;
-                uCct_Pto_Cargo_Grupo.Cargar_combos();
-
-
-                //listNiveles = BusNivel.Get_list_Plancta_nivel(param.IdEmpresa);
-
-                //cmb_nivel.DisplayMember = "IdNivelCta";
-                //cmb_nivel.ValueMember = "IdNivelCta";
-                //cmb_nivel.DataSource = listNiveles;
-                //cmb_nivel.SelectedValue = 3;
-
             }
             catch (Exception ex)
             {
@@ -342,9 +320,6 @@ namespace Bizu.Reports.Contabilidad
                         int IdPunto_Cargo = 0;
                         string IdCentroCosto = "";
 
-
-                        IdPunto_Cargo_Grupo = uCct_Pto_Cargo_Grupo.Get_Id_grupo();
-                        IdPunto_Cargo = uCct_Pto_Cargo_Grupo.Get_Id_punto_cargo();
                         IdCentroCosto = cmb_centro_costo.EditValue == null ? "" : cmb_centro_costo.EditValue.ToString();
 
                         FechaIni = dt_FechaDesde.Value.Date;
@@ -417,19 +392,11 @@ namespace Bizu.Reports.Contabilidad
             IdCentroCosto = cmb_centro_costo.EditValue == null ? "" : cmb_centro_costo.EditValue.ToString();
             Nom_centro_Costo = cmb_centro_costo.Text;
 
-            IdPunto_cargo_grupo = uCct_Pto_Cargo_Grupo.Get_Id_grupo();
-            Nom_Punto_Cargo_Grupo = (uCct_Pto_Cargo_Grupo.Get_info_grupo() == null) ? "" : uCct_Pto_Cargo_Grupo.Get_info_grupo().nom_punto_cargo_grupo;
-
-            IdPunto_cargo = uCct_Pto_Cargo_Grupo.Get_Id_punto_cargo();
-            Nom_Punto_Cargo = (uCct_Pto_Cargo_Grupo.Get_info_punto_cargo() == null) ? "" : uCct_Pto_Cargo_Grupo.Get_info_punto_cargo().nom_punto_cargo;
-
             ListaRpt = BusRpt.Get_List_Reporte(IdEmpresa, FechaIni, FechaFin, IdCentroCosto,
                 IdPunto_cargo_grupo, IdPunto_cargo, chkMostrar_Cero.Checked, Mostrar_CC, param.IdUsuario);
 
             gridConsulta.DataSource = ListaRpt.ToArray();
             gridConsulta.ShowPrintPreview();
         }
-   
-
     }
 }

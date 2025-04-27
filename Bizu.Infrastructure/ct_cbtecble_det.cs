@@ -14,26 +14,19 @@ namespace Bizu.Infrastructure
     
     public partial class ct_cbtecble_det
     {
-        public int IdEmpresa { get; set; }
-        public int IdTipoCbte { get; set; }
-        public decimal IdCbteCble { get; set; }
+        public int idempresa { get; set; }
+        public int idtipocbte { get; set; }
+        public decimal idcbtecble { get; set; }
         public int secuencia { get; set; }
-        public string IdCtaCble { get; set; }
-        public string IdCentroCosto { get; set; }
-        public string IdCentroCosto_sub_centro_costo { get; set; }
-        public double dc_Valor { get; set; }
-        public string dc_Observacion { get; set; }
-        public Nullable<decimal> dc_Numconciliacion { get; set; }
-        public string dc_EstaConciliado { get; set; }
-        public Nullable<int> IdPunto_cargo { get; set; }
-        public Nullable<int> IdPunto_cargo_grupo { get; set; }
+        public string idctacble { get; set; }
+        public string idcentrocosto { get; set; }
+        public string idcentrocosto_sub_centro_costo { get; set; }
+        public double dc_valor { get; set; }
+        public string dc_observacion { get; set; }
+        public Nullable<decimal> dc_numconciliacion { get; set; }
+        public string dc_estaconciliado { get; set; }
+        public Nullable<int> idpunto_cargo { get; set; }
+        public Nullable<int> idpunto_cargo_grupo { get; set; }
         public Nullable<bool> dc_para_conciliar { get; set; }
-    
-        public virtual ct_cbtecble ct_cbtecble { get; set; }
-        public virtual ct_centro_costo ct_centro_costo { get; set; }
-        public virtual ct_centro_costo_sub_centro_costo ct_centro_costo_sub_centro_costo { get; set; }
-        public virtual ct_plancta ct_plancta { get; set; }
-        public virtual ct_punto_cargo ct_punto_cargo { get; set; }
-        public virtual ct_punto_cargo_grupo ct_punto_cargo_grupo { get; set; }
     }
 }

@@ -14,11 +14,11 @@ namespace Bizu.Infrastructure
     
     public partial class ct_dashboard_financiero
     {
-        public int IdEmpresa { get; set; }
-        public string IdUsuario { get; set; }
+        public int idempresa { get; set; }
+        public string idusuario { get; set; }
         public int anio_fiscal { get; set; }
-        public int IdMes { get; set; }
-        public string nomMes { get; set; }
+        public int idmes { get; set; }
+        public string nommes { get; set; }
         public Nullable<double> liq_razon_circulante { get; set; }
         public Nullable<double> liq_razon_circulante_objetivo { get; set; }
         public Nullable<double> liq_prueba_acida { get; set; }

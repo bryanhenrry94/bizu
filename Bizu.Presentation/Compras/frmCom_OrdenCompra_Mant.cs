@@ -62,7 +62,6 @@ namespace Bizu.Presentation.Compras
 
 
         com_comprador_Bus bus_Comprador = new com_comprador_Bus();
-        ct_punto_cargo_Bus bus_puntoCargo = new ct_punto_cargo_Bus();
 
         cp_proveedor_Info Info_proveedor = new cp_proveedor_Info();
         cp_proveedor_Bus bus_proveedor = new cp_proveedor_Bus();
@@ -71,10 +70,6 @@ namespace Bizu.Presentation.Compras
         ct_Centro_costo_Bus Bus_CentroCosto = new ct_Centro_costo_Bus();
         List<ct_Centro_costo_Info> list_centroCosto = new List<ct_Centro_costo_Info>();
         ct_Centro_costo_Info Info_CentroCosto = new ct_Centro_costo_Info();
-
-        ct_centro_costo_sub_centro_costo_Bus Bus_SubCentroCosto = new ct_centro_costo_sub_centro_costo_Bus();
-        List<ct_centro_costo_sub_centro_costo_Info> List_SubCentro = new List<ct_centro_costo_sub_centro_costo_Info>();
-        ct_centro_costo_sub_centro_costo_Info Info_SubCentroCosto = new ct_centro_costo_sub_centro_costo_Info();
 
         com_Motivo_Orden_Compra_Bus bus_Motivo = new com_Motivo_Orden_Compra_Bus();
 
@@ -91,11 +86,6 @@ namespace Bizu.Presentation.Compras
 
         List<tb_persona_Info> PersonaList = new List<tb_persona_Info>();
         List<com_comprador_Info> CompradorList = new List<com_comprador_Info>();
-        List<ct_punto_cargo_Info> listPuntoCargo = new List<ct_punto_cargo_Info>();
-        ct_punto_cargo_Info Info_punto_cargo = new ct_punto_cargo_Info();
-
-        ct_punto_cargo_grupo_Bus BusPunto_Cargo_grupo = new ct_punto_cargo_grupo_Bus();
-        List<ct_punto_cargo_grupo_Info> listaPuntoCargo_grupo = new List<ct_punto_cargo_grupo_Info>();
 
         List<com_Motivo_Orden_Compra_Info> listMotivo = new List<com_Motivo_Orden_Compra_Info>();
         List<com_departamento_Info> ListDepartamento = new List<com_departamento_Info>();
@@ -220,18 +210,9 @@ namespace Bizu.Presentation.Compras
                 lst_unidad_medida = bus_unidad_medida.Get_list_UnidadMedida();
                 cmb_unidad_medida.DataSource = lst_unidad_medida;
 
-                listPuntoCargo = bus_puntoCargo.Get_List_PuntoCargo(param.IdEmpresa);
-                cmbPuntoCargo.DataSource = listPuntoCargo;
-
                 Bus_CentroCosto = new ct_Centro_costo_Bus();
                 list_centroCosto = Bus_CentroCosto.Get_list_Centro_Costo_cuentas_de_movimiento(param.IdEmpresa, ref MensajeError);
                 cmbCentroCosto.DataSource = list_centroCosto;
-
-                List_SubCentro = Bus_SubCentroCosto.Get_list_centro_costo_sub_centro_costo(param.IdEmpresa);
-                cmb_subcentroCosto.DataSource = List_SubCentro;
-
-                listaPuntoCargo_grupo = BusPunto_Cargo_grupo.Get_List_punto_cargo_grupo(param.IdEmpresa, ref MensajeError);
-                cmb_grupo_punto_cargo.DataSource = listaPuntoCargo_grupo;
 
                 string sEstadoCierre = "";
 
@@ -1322,58 +1303,12 @@ namespace Bizu.Presentation.Compras
 
         private void Llamar_pantalla_punto_cargo()
         {
-            try
-            {
-                int IdPuntoCargoGrupo = 0;
-                IdPuntoCargoGrupo = Convert.ToInt32(gridViewOrdenCompra.GetRowCellValue(RowHandle, col_IdPunto_cargo_grupo));
-                frmCon_Punto_Cargo_Cons frm_cons = new frmCon_Punto_Cargo_Cons();
-
-                frm_cons.Cargar_grid_x_grupo(IdPuntoCargoGrupo);
-
-
-                frm_cons.ShowDialog();
-                Info_punto_cargo = frm_cons.Get_Info();
-                if (Info_punto_cargo != null)
-                {
-                    gridViewOrdenCompra.SetFocusedRowCellValue(colIdPunto_Cargo, Info_punto_cargo.IdPunto_cargo);
-                }
-                else
-                    gridViewOrdenCompra.SetFocusedRowCellValue(colIdPunto_Cargo, null);
-                frm_cons.disposed();//llama al metodo para liberar memoria
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString(), param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log_Error_bus.Log_Error(ex.ToString());
-            }
+           
         }
 
         private void cmb_subcentroCosto_Click(object sender, EventArgs e)
         {
-            try
-            {
-                com_ordencompra_local_det_Info row = (com_ordencompra_local_det_Info)gridViewOrdenCompra.GetRow(RowHandle);
-                if (row != null)
-                {
-                    List<ct_centro_costo_sub_centro_costo_Info> Lista_subcentro_consulta = new List<ct_centro_costo_sub_centro_costo_Info>();
-                    Lista_subcentro_consulta = List_SubCentro.Where(q => q.IdEmpresa == param.IdEmpresa && q.IdCentroCosto == row.IdCentroCosto).ToList();
-                    if (Lista_subcentro_consulta != null && Lista_subcentro_consulta.Count != 0)
-                    {
-                        frmCon_ct_centro_costo_sub_centro_costo_Cons frm_combo = new frmCon_ct_centro_costo_sub_centro_costo_Cons();
-                        frm_combo.Set_config_combo(Lista_subcentro_consulta);
-                        frm_combo.ShowDialog();
-                        Info_SubCentroCosto = frm_combo.Get_info_centro_sub_centro_costo();
-                        gridViewOrdenCompra.SetRowCellValue(RowHandle, col_IdCentroCosto_sub_centro_costo, Info_SubCentroCosto == null ? null : Info_SubCentroCosto.IdRegistro);
-                        //gridViewIngreso.SetRowCellValue(RowHandle, col_IdCentroCosto_sub_centro_costo, info_subcentro == null ? null : info_subcentro.IdCentroCosto_sub_centro_costo);
-                    }                   
-                }
-            }
-            catch (Exception ex)
-            {
-                string NameMetodo = System.Reflection.MethodBase.GetCurrentMethod().Name;
-                MessageBox.Show(NameMetodo + " - " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log_Error_bus.Log_Error(NameMetodo + " - " + ex.ToString());
-            }
+            
         }
 
         private void cmbPuntoCargo_KeyDown(object sender, KeyEventArgs e)

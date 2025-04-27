@@ -14,13 +14,13 @@ namespace Bizu.Infrastructure
     
     public partial class vwct_anio_fiscal_x_cuenta_utilidad
     {
-        public int IdEmpresa { get; set; }
-        public int IdanioFiscal { get; set; }
-        public string IdCtaCble { get; set; }
-        public string pc_Cuenta { get; set; }
-        public int IdNivelCta { get; set; }
-        public string IdGrupoCble { get; set; }
-        public string IdTipoCtaCble { get; set; }
-        public string gc_GrupoCble { get; set; }
+        public int idempresa { get; set; }
+        public int idaniofiscal { get; set; }
+        public string idctacble { get; set; }
+        public string pc_cuenta { get; set; }
+        public int idnivelcta { get; set; }
+        public string idgrupocble { get; set; }
+        public string idtipoctacble { get; set; }
+        public string gc_grupocble { get; set; }
     }
 }

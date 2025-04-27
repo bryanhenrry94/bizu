@@ -21,17 +21,17 @@ namespace Bizu.Infrastructure.Contabilidad
                 {
 
                     var Select = from q in Context.ct_anio_fiscal_x_cuenta_utilidad
-                                 where q.IdanioFiscal == IdanioFiscal
-                                 && q.IdEmpresa == Idempresa
+                                 where q.idaniofiscal == IdanioFiscal
+                                 && q.idempresa == Idempresa
                                  select q;
                     foreach (var item in Select)
                     {
-                        Info.IdanioFiscal = item.IdanioFiscal;
-                        Info.IdCtaCble = item.IdCtaCble;
+                        Info.IdanioFiscal = item.idaniofiscal;
+                        Info.IdCtaCble = item.idctacble;
                         Info.observacion = item.observacion;
-                        Info.IdEmpresa_cbte_cierre = item.IdEmpresa_cbte_cierre;
-                        Info.IdTipoCbte_cbte_cierre = item.IdTipoCbte_cbte_cierre;
-                        Info.IdCbteCble_cbte_cierre = item.IdCbteCble_cbte_cierre;
+                        Info.IdEmpresa_cbte_cierre = item.idempresa_cbte_cierre;
+                        Info.IdTipoCbte_cbte_cierre = item.idtipocbte_cbte_cierre;
+                        Info.IdCbteCble_cbte_cierre = item.idcbtecble_cbte_cierre;
                     }
                 }
                 return Info;
@@ -56,9 +56,9 @@ namespace Bizu.Infrastructure.Contabilidad
                 {
                     ct_anio_fiscal_x_cuenta_utilidad contact = new ct_anio_fiscal_x_cuenta_utilidad();
 
-                    contact.IdEmpresa = Info.IdEmpresa;
-                    contact.IdanioFiscal = Info.IdanioFiscal;
-                    contact.IdCtaCble = Info.IdCtaCble;
+                    contact.idempresa = Info.IdEmpresa;
+                    contact.idaniofiscal = Info.IdanioFiscal;
+                    contact.idctacble = Info.IdCtaCble;
                     contact.observacion = (Info.observacion == null) ? "" : Info.observacion;
 
                     Context.ct_anio_fiscal_x_cuenta_utilidad.Add(contact);
@@ -86,10 +86,10 @@ namespace Bizu.Infrastructure.Contabilidad
                 Boolean res = false;
                 using (EntitiesDBConta Context = new EntitiesDBConta())
                 {
-                    ct_anio_fiscal_x_cuenta_utilidad contact = Context.ct_anio_fiscal_x_cuenta_utilidad.FirstOrDefault(v => v.IdEmpresa == Info.IdEmpresa && v.IdanioFiscal == Info.IdanioFiscal);                  
+                    ct_anio_fiscal_x_cuenta_utilidad contact = Context.ct_anio_fiscal_x_cuenta_utilidad.FirstOrDefault(v => v.idempresa == Info.IdEmpresa && v.idaniofiscal == Info.IdanioFiscal);                  
                     if (contact != null)
                     {
-                        contact.IdCtaCble = Info.IdCtaCble;
+                        contact.idctacble = Info.IdCtaCble;
                         Context.SaveChanges();
                         res = true;
                     }
@@ -122,12 +122,12 @@ namespace Bizu.Infrastructure.Contabilidad
                 Boolean res = false;
                 using (EntitiesDBConta Context = new EntitiesDBConta())
                 {
-                    ct_anio_fiscal_x_cuenta_utilidad contact = Context.ct_anio_fiscal_x_cuenta_utilidad.FirstOrDefault(v => v.IdEmpresa == Info.IdEmpresa && v.IdanioFiscal == Info.IdanioFiscal);
+                    ct_anio_fiscal_x_cuenta_utilidad contact = Context.ct_anio_fiscal_x_cuenta_utilidad.FirstOrDefault(v => v.idempresa == Info.IdEmpresa && v.idaniofiscal == Info.IdanioFiscal);
                     if (contact != null)
                     {
-                        contact.IdEmpresa_cbte_cierre = Info.IdEmpresa_cbte_cierre;
-                        contact.IdTipoCbte_cbte_cierre = Info.IdTipoCbte_cbte_cierre;
-                        contact.IdCbteCble_cbte_cierre = Info.IdCbteCble_cbte_cierre;
+                        contact.idempresa_cbte_cierre = Info.IdEmpresa_cbte_cierre;
+                        contact.idtipocbte_cbte_cierre = Info.IdTipoCbte_cbte_cierre;
+                        contact.idcbtecble_cbte_cierre = Info.IdCbteCble_cbte_cierre;
 
                         Context.SaveChanges();
                         res = true;

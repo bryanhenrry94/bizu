@@ -59,11 +59,6 @@ namespace Bizu.Reports.Contabilidad
                 FechaIni = dtpFechaIni.Value;
                 FechaFin = dtpFechaFin.Value;
 
-                IdPunto_cargo_grupo = uCct_Pto_Cargo_Grupo.Get_Id_grupo();
-
-                if (IdPunto_cargo_grupo == 0)
-                { MessageBox.Show("Escoja el grupo de punto de cargo", param.Nombre_sistema, MessageBoxButtons.OK); return; }
-
                 Nom_Periodo = cmb_Periodo.Text;
 
                 Reporte.PIdEmpresa.Value = param.IdEmpresa;
@@ -113,8 +108,6 @@ namespace Bizu.Reports.Contabilidad
             try
             {
                 string msg = "";
-
-                uCct_Pto_Cargo_Grupo.Cargar_combos();
 
                 listPeriodo = busPeriodo.Get_List_PeriodoCombo(param.IdEmpresa, ref msg);
                 cmb_Periodo.Properties.DataSource = listPeriodo;

@@ -584,7 +584,7 @@ namespace Bizu.Application.CuentasxCobrar
 
                         foreach (var item in List_Mov_Caja_x_Cbte_Ban_x_Deposito)
                         {
-                            respuesta_rev_cbteCble = bus_Cbte.ReversoCbteCble_Edehsa(item.mba_IdEmpresa, item.mba_IdCbteCble, item.mba_IdTipocbte, IdTipoCbteRev, Convert.ToDateTime(Info.Fecha_Anulac), ref IdCbteCbleRev, ref MensajeError, param.IdUsuario);
+                            respuesta_rev_cbteCble = bus_Cbte.ReversoCbteCble(item.mba_IdEmpresa, item.mba_IdCbteCble, item.mba_IdTipocbte, IdTipoCbteRev, ref IdCbteCbleRev, ref MensajeError, param.IdUsuario);
 
                             if (respuesta_rev_cbteCble)
                             {
@@ -1858,7 +1858,7 @@ namespace Bizu.Application.CuentasxCobrar
                 InfoCOxCT = DataCOxCT.Get_Info_cobro_x_ct_cbtecble(param.IdEmpresa, Info.IdSucursal, Info.IdCobro);
                 string msg = "";
 
-                bus.ReversoCbteCble_Edehsa(param.IdEmpresa, InfoCOxCT.ct_IdCbteCble, InfoCOxCT.ct_IdTipoCbte, Convert.ToInt32(paramInfo.pa_IdTipoCbteCble_CxC_ANU), Convert.ToDateTime(Info.Fecha_Anulac), ref idctctb, ref msg, param.IdUsuario);
+                bus.ReversoCbteCble(param.IdEmpresa, InfoCOxCT.ct_IdCbteCble, InfoCOxCT.ct_IdTipoCbte, Convert.ToInt32(paramInfo.pa_IdTipoCbteCble_CxC_ANU), ref idctctb, ref msg, param.IdUsuario);
 
                 if (idctctb != 0)
                 {

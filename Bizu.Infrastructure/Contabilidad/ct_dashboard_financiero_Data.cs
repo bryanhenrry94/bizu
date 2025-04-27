@@ -16,11 +16,11 @@ namespace Bizu.Infrastructure.Contabilidad
                 using (EntitiesDBConta context = new EntitiesDBConta())
                 {
                     ct_dashboard_financiero _dashboard = new ct_dashboard_financiero();
-                    _dashboard.IdEmpresa = Info.IdEmpresa;
-                    _dashboard.IdUsuario = Info.IdUsuario;
+                    _dashboard.idempresa = Info.IdEmpresa;
+                    _dashboard.idusuario = Info.IdUsuario;
                     _dashboard.anio_fiscal = Info.anio_fiscal;
-                    _dashboard.IdMes = Info.IdMes;
-                    _dashboard.nomMes = Info.nomMes;
+                    _dashboard.idmes = Info.IdMes;
+                    _dashboard.nommes = Info.nomMes;
                     _dashboard.liq_razon_circulante = Info.liq_razon_circulante;
                     _dashboard.liq_razon_circulante_objetivo = Info.liq_razon_circulante_objetivo;
                     _dashboard.liq_prueba_acida = Info.liq_prueba_acida;
@@ -71,7 +71,7 @@ namespace Bizu.Infrastructure.Contabilidad
             {
                 using (EntitiesDBConta context = new EntitiesDBConta())
                 {
-                    int iFilasAfectadas = context.Database.ExecuteSqlCommand("DELETE FROM ct_dashboard_financiero WHERE IdEmpresa = {0} AND IdUsuario = {1}", IdEmpresa, IdUsuario);
+                    int iFilasAfectadas = context.Database.ExecuteSqlCommand("DELETE FROM ct_dashboard_financiero WHERE idempresa = {0} AND idusuario = {1}", IdEmpresa, IdUsuario);
                 }
 
                 return true;
@@ -91,18 +91,18 @@ namespace Bizu.Infrastructure.Contabilidad
                 using (EntitiesDBConta context = new EntitiesDBConta())
                 {
                     var query = from q in context.ct_dashboard_financiero
-                                where q.IdEmpresa == IdEmpresa
-                                && q.IdUsuario == IdUsuario
+                                where q.idempresa == IdEmpresa
+                                && q.idusuario == IdUsuario
                                 select q;
 
                     foreach (var Info in query)
                     {
                         ct_dashboard_financiero_Info _dashboard = new ct_dashboard_financiero_Info();
-                        _dashboard.IdEmpresa = Info.IdEmpresa;
-                        _dashboard.IdUsuario = Info.IdUsuario;
+                        _dashboard.IdEmpresa = Info.idempresa;
+                        _dashboard.IdUsuario = Info.idusuario;
                         _dashboard.anio_fiscal = Info.anio_fiscal;
-                        _dashboard.IdMes = Info.IdMes;
-                        _dashboard.nomMes = Info.nomMes;
+                        _dashboard.IdMes = Info.idmes;
+                        _dashboard.nomMes = Info.nommes;
                         _dashboard.liq_razon_circulante = Info.liq_razon_circulante;
                         _dashboard.liq_razon_circulante_objetivo = Info.liq_razon_circulante_objetivo;
                         _dashboard.liq_prueba_acida = Info.liq_prueba_acida;

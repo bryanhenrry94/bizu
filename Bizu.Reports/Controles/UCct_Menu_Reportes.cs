@@ -36,10 +36,6 @@ namespace Bizu.Reports.Controles
         ct_Centro_costo_Bus bus_Centro_costo = new ct_Centro_costo_Bus();
         List<ct_Centro_costo_Info> lst_Centro_costo = new List<ct_Centro_costo_Info>();
 
-        ct_centro_costo_sub_centro_costo_Info info_Centro_costo_sub_centro_costo = new ct_centro_costo_sub_centro_costo_Info();
-        ct_centro_costo_sub_centro_costo_Bus bus_Centro_costo_sub_centro_costo = new ct_centro_costo_sub_centro_costo_Bus();
-        List<ct_centro_costo_sub_centro_costo_Info> lst_Centro_costo_sub_centro_costo = new List<ct_centro_costo_sub_centro_costo_Info>();
-
         List<string> lst_GrupoCble_chk = new List<string>();
         List<string> lst_id_GrupoCble_chk = new List<string>();
 
@@ -47,14 +43,6 @@ namespace Bizu.Reports.Controles
         List<string> lst_CC_chk = new List<string>();
         List<string> lst_id_CC_chk = new List<string>();
 
-
-        List<ct_punto_cargo_grupo_Info> lst_punto_cargo_grupo = new List<ct_punto_cargo_grupo_Info>();
-        ct_punto_cargo_grupo_Bus bus_punto_cargo_grupo = new ct_punto_cargo_grupo_Bus();
-        ct_punto_cargo_grupo_Info info_punto_cargo_grupo = new ct_punto_cargo_grupo_Info();
-
-        List<ct_punto_cargo_Info> lst_punto_cargo = new List<ct_punto_cargo_Info>();
-        ct_punto_cargo_Bus bus_punto_cargo = new ct_punto_cargo_Bus();
-        ct_punto_cargo_Info info_punto_cargo = new ct_punto_cargo_Info();
         #endregion
 
         #region Delegados
@@ -74,7 +62,7 @@ namespace Bizu.Reports.Controles
 
         #region Visibilidad
 
-        public bool Visible_Grupo_cuentas 
+        public bool Visible_Grupo_cuentas
         {
             get { return this.Grupo_cuentas.Visible; }
             set { this.Grupo_cuentas.Visible = value; }
@@ -159,13 +147,13 @@ namespace Bizu.Reports.Controles
 
         void UCct_Menu_Reportes_event_btn_Mostrar_en_tabla_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            
+
         }
-                
+
         #region Eventos delegados
         void UCct_Menu_Reportes_event_btnConsultar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            
+
         }
         void UCct_Menu_Reportes_event_btnSalir_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -177,7 +165,7 @@ namespace Bizu.Reports.Controles
         }
         private void btnConsultar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-           // Get_list_CentroCosto_Cheked();
+            // Get_list_CentroCosto_Cheked();
 
             //return;
             event_btnConsultar_ItemClick(sender, e);
@@ -199,16 +187,13 @@ namespace Bizu.Reports.Controles
                 string mensaje = "";
 
                 lst_GrupoCble = bus_GrupoCble.Get_list_Grupocble();
-                cmb_GrupoCble.DataSource = lst_GrupoCble;                
+                cmb_GrupoCble.DataSource = lst_GrupoCble;
 
                 lst_Plancta = bus_Plancta.Get_Plancta_x_Grupo(param.IdEmpresa, "");
                 cmb_CtaCble.DataSource = lst_Plancta;
 
                 lst_Centro_costo = bus_Centro_costo.Get_list_Centro_Costo(param.IdEmpresa, ref mensaje);
                 cmb_Centro_costo.DataSource = lst_Centro_costo;
-
-                lst_Centro_costo_sub_centro_costo = bus_Centro_costo_sub_centro_costo.Get_list_centro_costo_sub_centro_costo(param.IdEmpresa);
-                cmb_Centro_costo_sub_centro_costo.DataSource = lst_Centro_costo_sub_centro_costo;
 
                 bei_Desde.EditValue = DateTime.Now.AddMonths(-1);
                 bei_Hasta.EditValue = DateTime.Now;
@@ -226,48 +211,16 @@ namespace Bizu.Reports.Controles
 
 
 
-                lst_punto_cargo_grupo = bus_punto_cargo_grupo.Get_List_punto_cargo_grupo(param.IdEmpresa, ref mensaje);
-                cmb_punto_cargo_grupo.DataSource = lst_punto_cargo_grupo;
-
                 lst_nivel = bus_nivel.Get_list_Plancta_nivel(param.IdEmpresa);
                 foreach (var item in lst_nivel)
                 {
                     cmb_nivel.Items.Add(item.IdNivelCta);
                 }
-                if(lst_nivel.Count > 0)
+                if (lst_nivel.Count > 0)
                     bei_Nivel.EditValue = lst_nivel.Max(q => q.IdNivelCta);
 
-                lst_punto_cargo = bus_punto_cargo.Get_List_PuntoCargo(param.IdEmpresa);
-                cmb_punto_cargo.DataSource = lst_punto_cargo;   
-             
 
-               // ==============================listado check de CC =========================================
-
-
-
-                //List<string> lst_CC = new List<string>();
-
-                //lst_CC = new List<string>();
-                //foreach (var item in lst_Centro_costo)
-                //{
-                //    string tipo_nota = item.Centro_costo2;
-
-                //    lst_CC.Add(tipo_nota);
-                //}
-
-
-
-               // cmb_centro_costo_check.DataSource = lst_CC;
-
-
-                
                 cmb_centro_costo_check.DataSource = lst_Centro_costo;
-
-
-                
-
-                
-
             }
             catch (Exception ex)
             {
@@ -288,13 +241,13 @@ namespace Bizu.Reports.Controles
                 int cont = 0;
                 foreach (var item in listIdTipoCobro_Cheked)
                 {
-                    if(cont==0)
+                    if (cont == 0)
                         nombre += (item.ToString().Trim());
                     else
-                        nombre += " / "+(item.ToString().Trim());
+                        nombre += " / " + (item.ToString().Trim());
                     cont++;
                 }
-                
+
                 return nombre;
             }
             catch (Exception ex)
@@ -319,7 +272,7 @@ namespace Bizu.Reports.Controles
 
                 foreach (var item in listIdTipoCobro_Cheked)
                 {
-                    lst_id_GrupoCble_chk.Add(item.ToString());                        
+                    lst_id_GrupoCble_chk.Add(item.ToString());
                 }
                 foreach (var item in lst_id_GrupoCble_chk)
                 {
@@ -331,7 +284,7 @@ namespace Bizu.Reports.Controles
                     }
                 }
 
-                
+
                 return lista;
             }
             catch (Exception ex)
@@ -363,8 +316,8 @@ namespace Bizu.Reports.Controles
 
 
                 var listIdCC_Cheked = (from CheckedListBoxItem item in cmb_centro_costo_check.Items
-                                              where item.CheckState == CheckState.Checked
-                                              select (string)item.Value).ToArray();
+                                       where item.CheckState == CheckState.Checked
+                                       select (string)item.Value).ToArray();
 
                 foreach (var item in listIdCC_Cheked)
                 {
@@ -372,7 +325,7 @@ namespace Bizu.Reports.Controles
                 }
 
 
-             
+
 
 
                 return listaCC;
@@ -381,7 +334,7 @@ namespace Bizu.Reports.Controles
             catch (Exception ex)
             {
                 Log_Error_bus.Log_Error(ex.ToString());
-                return new List<string >();
+                return new List<string>();
             }
         }
 
@@ -457,29 +410,7 @@ namespace Bizu.Reports.Controles
 
         private void bei_Centro_costo_EditValueChanged(object sender, EventArgs e)
         {
-            try
-            {
-                if (bei_Centro_costo.EditValue != null)
-                {
-                    info_Centro_costo = lst_Centro_costo.FirstOrDefault(q => q.IdCentroCosto == bei_Centro_costo.EditValue.ToString());
-                    if (info_Centro_costo != null)
-                    {
-                        lst_Centro_costo_sub_centro_costo = bus_Centro_costo_sub_centro_costo.Get_list_centro_costo_sub_centro_costo(param.IdEmpresa, info_Centro_costo.IdCentroCosto);
-                    }
-                    else
-                        lst_Centro_costo_sub_centro_costo = bus_Centro_costo_sub_centro_costo.Get_list_centro_costo_sub_centro_costo(param.IdEmpresa);
-                }
-                else
-                    lst_Centro_costo_sub_centro_costo = bus_Centro_costo_sub_centro_costo.Get_list_centro_costo_sub_centro_costo(param.IdEmpresa);
-                cmb_Centro_costo_sub_centro_costo.DataSource = lst_Centro_costo_sub_centro_costo;
-            }
-            catch (Exception ex)
-            {
-                string NameMetodo = System.Reflection.MethodBase.GetCurrentMethod().Name;
-                MessageBox.Show(NameMetodo + " - " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log_Error_bus.Log_Error(NameMetodo + " - " + ex.ToString());
 
-            }
         }
 
         public ct_Centro_costo_Info Get_info_Centro_costo()
@@ -503,26 +434,6 @@ namespace Bizu.Reports.Controles
             }
         }
 
-        public ct_centro_costo_sub_centro_costo_Info Get_info_Centro_costo_sub_centro_costo()
-        {
-            try
-            {
-                if (bei_Centro_costo_sub_centro_costo.EditValue != null)
-                {
-                    info_Centro_costo_sub_centro_costo = lst_Centro_costo_sub_centro_costo.FirstOrDefault(q => q.IdCentroCosto_sub_centro_costo == bei_Centro_costo_sub_centro_costo.EditValue.ToString());
-                    return info_Centro_costo_sub_centro_costo;
-                }
-                else
-                    return null;
-            }
-            catch (Exception ex)
-            {
-                string NameMetodo = System.Reflection.MethodBase.GetCurrentMethod().Name;
-                MessageBox.Show(NameMetodo + " - " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log_Error_bus.Log_Error(NameMetodo + " - " + ex.ToString());
-                return null;
-            }
-        }
 
         private void bei_GrupoCble_chk_EditValueChanged(object sender, EventArgs e)
         {
@@ -531,21 +442,21 @@ namespace Bizu.Reports.Controles
                 lst_Plancta = new List<ct_Plancta_Info>();
                 if (bei_GrupoCble_chk.EditValue != null)
                 {
-                        lst_id_GrupoCble_chk = Get_grupo_checked();
-                        foreach (var item in lst_id_GrupoCble_chk)
+                    lst_id_GrupoCble_chk = Get_grupo_checked();
+                    foreach (var item in lst_id_GrupoCble_chk)
+                    {
+                        List<ct_Plancta_Info> lst_temp_plancta = new List<ct_Plancta_Info>();
+                        lst_temp_plancta = bus_Plancta.Get_Plancta_x_Grupo(param.IdEmpresa, item.ToString());
+                        foreach (var CtaCble in lst_temp_plancta)
                         {
-                            List<ct_Plancta_Info> lst_temp_plancta = new List<ct_Plancta_Info>();
-                            lst_temp_plancta = bus_Plancta.Get_Plancta_x_Grupo(param.IdEmpresa, item.ToString());
-                            foreach (var CtaCble in lst_temp_plancta)
-                            {
-                                lst_Plancta.Add(CtaCble);
-                            }
+                            lst_Plancta.Add(CtaCble);
                         }
+                    }
                 }
                 else
-                    lst_Plancta = bus_Plancta.Get_Plancta_x_Grupo(param.IdEmpresa, "");                
-                
-                cmb_CtaCble.DataSource = lst_Plancta;        
+                    lst_Plancta = bus_Plancta.Get_Plancta_x_Grupo(param.IdEmpresa, "");
+
+                cmb_CtaCble.DataSource = lst_Plancta;
             }
             catch (Exception ex)
             {
@@ -555,47 +466,6 @@ namespace Bizu.Reports.Controles
             }
         }
 
-        public ct_punto_cargo_grupo_Info Get_info_punto_cargo_grupo()
-        {
-            try
-            {
-                if (bei_punto_cargo_grupo.EditValue != null)
-                {
-                    info_punto_cargo_grupo = lst_punto_cargo_grupo.FirstOrDefault(q => q.IdPunto_cargo_grupo == Convert.ToInt32(bei_punto_cargo_grupo.EditValue));
-                    return info_punto_cargo_grupo;
-                }
-                else
-                    return null;
-            }
-            catch (Exception ex)
-            {
-                string NameMetodo = System.Reflection.MethodBase.GetCurrentMethod().Name;
-                MessageBox.Show(NameMetodo + " - " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log_Error_bus.Log_Error(NameMetodo + " - " + ex.ToString());
-                return null;
-            }
-        }
-
-        public ct_punto_cargo_Info Get_info_punto_cargo()
-        {
-            try
-            {
-                if (bei_punto_cargo.EditValue != null)
-                {
-                    info_punto_cargo_grupo = lst_punto_cargo_grupo.FirstOrDefault(q => q.IdPunto_cargo_grupo == Convert.ToInt32(bei_punto_cargo_grupo.EditValue));
-                    return info_punto_cargo;
-                }
-                else
-                    return null;
-            }
-            catch (Exception ex)
-            {
-                string NameMetodo = System.Reflection.MethodBase.GetCurrentMethod().Name;
-                MessageBox.Show(NameMetodo + " - " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log_Error_bus.Log_Error(NameMetodo + " - " + ex.ToString());
-                return null;
-            }
-        }
 
         private void btn_Mostrar_en_tabla_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -613,27 +483,13 @@ namespace Bizu.Reports.Controles
 
         private void bei_punto_cargo_grupo_EditValueChanged(object sender, EventArgs e)
         {
-            try
-            {
-                if (bei_punto_cargo_grupo.EditValue != null)
-                    lst_punto_cargo = bus_punto_cargo.Get_list_PuntoCargo_x_grupo(param.IdEmpresa, Convert.ToInt32(bei_punto_cargo_grupo.EditValue));
-                else                
-                    lst_punto_cargo = bus_punto_cargo.Get_List_PuntoCargo(param.IdEmpresa);                    
-                cmb_punto_cargo.DataSource = lst_punto_cargo;
-                bei_punto_cargo.EditValue = null;
-            }
-            catch (Exception ex)
-            {
-                string NameMetodo = System.Reflection.MethodBase.GetCurrentMethod().Name;
-                MessageBox.Show(NameMetodo + " - " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log_Error_bus.Log_Error(NameMetodo + " - " + ex.ToString());
-            }
+
         }
 
         private void ribbonControl1_Click(object sender, EventArgs e)
         {
 
         }
-        
+
     }
 }

@@ -12,13 +12,13 @@ namespace Bizu.Infrastructure
     using System;
     using System.Collections.Generic;
     
-    public partial class vwct_UtilidadxPeriodo
+    public partial class vwct_utilidadxperiodo
     {
-        public int IdEmpresa { get; set; }
-        public int IdanioFiscal { get; set; }
-        public int IdPeriodo { get; set; }
-        public double Utilidad_Anterior { get; set; }
-        public double Utilidad_Periodo { get; set; }
-        public double Utilidad_acum { get; set; }
+        public int idempresa { get; set; }
+        public int idaniofiscal { get; set; }
+        public int idperiodo { get; set; }
+        public double utilidad_anterior { get; set; }
+        public double utilidad_periodo { get; set; }
+        public double utilidad_acum { get; set; }
     }
 }

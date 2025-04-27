@@ -36,10 +36,8 @@ namespace Bizu.Presentation.Inventario
         in_Ing_Egr_Inven_det_Bus Bus_IngEgrDet;
         in_Ing_Egr_Inven_Bus Bus_IngEgr = new in_Ing_Egr_Inven_Bus();
         ct_Centro_costo_Bus Bus_CentroCosto = new ct_Centro_costo_Bus();
-        ct_punto_cargo_Bus bus_puntoCargo;
         in_movi_inve_x_ct_cbteCble_Bus bus_InMovxCble;
         in_UnidadMedida_Bus Bus_Uni_Med;
-        ct_centro_costo_sub_centro_costo_Bus Bus_SubCentroCosto = new ct_centro_costo_sub_centro_costo_Bus();
         com_parametro_Bus bus_Comparam;
         in_Motivo_Inven_Bus bus_MotivoInv;
         in_movi_inve_Bus bus_MovInv;
@@ -49,16 +47,10 @@ namespace Bizu.Presentation.Inventario
         //List<cp_proveedor_Info> list_Proveedor;
         List<in_Ingreso_x_OrdenCompra_det_Info> list;
         List<ct_Centro_costo_Info> list_centroCosto;
-        List<ct_punto_cargo_Info> listPuntoCargo = new List<ct_punto_cargo_Info>();
         List<in_UnidadMedida_Info> list_UniMe;
         List<in_Motivo_Inven_Info> list_MotivoInv;
         List<in_Ing_Egr_Inven_det_Info> lista_IngEgrInv;
-        List<ct_centro_costo_sub_centro_costo_Info> list_subcentro = new List<ct_centro_costo_sub_centro_costo_Info>();
-        ct_centro_costo_sub_centro_costo_Info info_subcentro = new ct_centro_costo_sub_centro_costo_Info();
         BindingList<in_Ing_Egr_Inven_det_Info> ListaBind;
-        List<ct_centro_costo_sub_centro_costo_Info> list_subcentro_combo = new List<ct_centro_costo_sub_centro_costo_Info>();
-        List<ct_punto_cargo_grupo_Info> list_grupo = new List<ct_punto_cargo_grupo_Info>();
-        ct_punto_cargo_grupo_Bus bus_grupo = new ct_punto_cargo_grupo_Bus();
         //Infos
         in_movi_inve_x_ct_cbteCble_Info info_InMovxCble;
         com_parametro_Info info_Comparam;
@@ -78,7 +70,6 @@ namespace Bizu.Presentation.Inventario
         public event delegate_FrmIn_Ingreso_x_OrdenCompra_Mant_FormClosing event_FrmIn_Ingreso_x_OrdenCompra_Mant_FormClosing;
         vwIn_UnidadMedida_Equivalencia_Bus busUniEqui = new vwIn_UnidadMedida_Equivalencia_Bus();
         BindingList<vwIn_UnidadMedida_Equivalencia_Info> BindListaUnidadMedida = new BindingList<vwIn_UnidadMedida_Equivalencia_Info>();
-        ct_punto_cargo_Info info_punto_cargo = new ct_punto_cargo_Info();
         #endregion
 
         public FrmIn_Ingreso_x_OrdenCompra_Mant()
@@ -415,19 +406,6 @@ namespace Bizu.Presentation.Inventario
                 list_centroCosto = Bus_CentroCosto.Get_list_Centro_Costo_cuentas_de_movimiento(param.IdEmpresa, ref MensajeError);
                 cmbCentroCosto_grid.DataSource = list_centroCosto;
 
-                list_subcentro_combo = Bus_SubCentroCosto.Get_list_centro_costo_sub_centro_costo(param.IdEmpresa);
-                cmb_sub_centro_costo.DataSource = list_subcentro_combo;
-
-                bus_puntoCargo = new ct_punto_cargo_Bus();
-                listPuntoCargo = new List<ct_punto_cargo_Info>();
-                listPuntoCargo = bus_puntoCargo.Get_List_PuntoCargo(param.IdEmpresa);
-                cmbPuntoCargo_grid.DataSource = listPuntoCargo;
-
-                list_grupo = bus_grupo.Get_List_punto_cargo_grupo(param.IdEmpresa, ref MensajeError);
-                cmb_grupo_punto_cargo.DataSource = list_grupo;
-
-
-
                 Bus_Uni_Med = new in_UnidadMedida_Bus();
                 list_UniMe = new List<in_UnidadMedida_Info>();
                 list_UniMe = Bus_Uni_Med.Get_list_UnidadMedida();
@@ -724,7 +702,6 @@ namespace Bizu.Presentation.Inventario
                             info.dm_peso = item.dm_peso;
 
                             info.IdCentroCosto = item.IdCentroCosto;
-                            info.IdCentroCosto_sub_centro_costo = (item.IdCentroCosto_sub_centro_costo == null) ? null : list_subcentro_combo.FirstOrDefault(v => v.IdCentroCosto == item.IdCentroCosto && v.IdCentroCosto_sub_centro_costo == item.IdCentroCosto_sub_centro_costo).IdCentroCosto_sub_centro_costo;
 
                             info.IdPunto_cargo_grupo = item.IdPunto_cargo_grupo;
                             info.IdPunto_cargo = item.IdPunto_cargo;
@@ -1075,16 +1052,6 @@ namespace Bizu.Presentation.Inventario
                 if (Info == null)
                     return;
 
-                if (e.Column == colIdCentroCosto)
-                {
-                    if (!Bus_CentroCosto.Validar_CentroCosto_EstadoObra(param.IdEmpresa, Convert.ToString(Info.IdCentroCosto), ref MensajeError))
-                    {
-                        MessageBox.Show(MensajeError, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        gridViewIngreso.SetFocusedRowCellValue(colIdCentroCosto, null);
-                        return;
-                    }
-                }
-
                 if (e.Column.Name == "coldm_cantidad")
                 {
 
@@ -1343,32 +1310,7 @@ namespace Bizu.Presentation.Inventario
 
         private void Llamar_a_pantalla_subcentro()
         {
-            try
-            {
-                in_Ing_Egr_Inven_det_Info Row = (in_Ing_Egr_Inven_det_Info)gridViewIngreso.GetRow(RowHandle);
-                if (Row != null)
-                {
-                    if (Row.IdCentroCosto != null)
-                    {
-                        List<ct_centro_costo_sub_centro_costo_Info> Lista_subcentro_consulta = new List<ct_centro_costo_sub_centro_costo_Info>();
-                        Lista_subcentro_consulta = list_subcentro_combo.Where(q => q.IdEmpresa == param.IdEmpresa && q.IdCentroCosto == Row.IdCentroCosto).ToList();
-                        if (Lista_subcentro_consulta != null && Lista_subcentro_consulta.Count != 0)
-                        {
-                            frmCon_ct_centro_costo_sub_centro_costo_Cons frm_combo = new frmCon_ct_centro_costo_sub_centro_costo_Cons();
-                            frm_combo.Set_config_combo(Lista_subcentro_consulta);
-                            frm_combo.ShowDialog();
-                            info_subcentro = frm_combo.Get_info_centro_sub_centro_costo();
-                            gridViewIngreso.SetRowCellValue(RowHandle, colIdCentroCosto_sub_centro_costo, info_subcentro == null ? null : info_subcentro.IdRegistro);
-                            gridViewIngreso.SetRowCellValue(RowHandle, col_IDSUBCENTRO, info_subcentro == null ? null : info_subcentro.IdCentroCosto_sub_centro_costo);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-                Log_Error_bus.Log_Error(ex.ToString());
-            }
+
         }
 
         private void cmb_sub_centro_costo_Click(object sender, EventArgs e)
@@ -1386,31 +1328,7 @@ namespace Bizu.Presentation.Inventario
 
         private void cmbPuntoCargo_grid_Click(object sender, EventArgs e)
         {
-            try
-            {
-                in_Ing_Egr_Inven_det_Info Row = (in_Ing_Egr_Inven_det_Info)gridViewIngreso.GetRow(RowHandle);
-                if (Row != null)
-                {
-                    if (Row.IdPunto_cargo_grupo != null)
-                    {
-                        carga_Combos();
-                        frmCon_Punto_Cargo_Cons frm_combo = new frmCon_Punto_Cargo_Cons();
-                        frm_combo.Cargar_grid_x_grupo(Convert.ToInt32(Row.IdPunto_cargo_grupo));
-                        frm_combo.ShowDialog();
-                        info_punto_cargo = frm_combo.Get_Info();
-                        if (info_punto_cargo != null)
-                            gridViewIngreso.SetRowCellValue(RowHandle, colIdPunto_cargo, info_punto_cargo.IdPunto_cargo);
-                        else
-                            gridViewIngreso.SetRowCellValue(RowHandle, colIdPunto_cargo, null);
-                    }
-                    //RowHandle=
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-                Log_Error_bus.Log_Error(ex.ToString());
-            }
+
         }
 
         private void cmbMotivoInv_event_cmbMotivoInv_EditValueChanged(object sender, EventArgs e)

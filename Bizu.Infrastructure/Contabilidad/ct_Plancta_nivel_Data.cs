@@ -30,7 +30,7 @@ namespace Bizu.Infrastructure.Contabilidad
                     else
                     {
                         var select_as = (from q in Base.ct_plancta_nivel
-                                         select q.IdNivelCta).Max();
+                                         select q.idnivelcta).Max();
                         Id = Convert.ToInt32(select_as.ToString()) + 1;
                     }
                 }
@@ -47,7 +47,7 @@ namespace Bizu.Infrastructure.Contabilidad
                 throw new Exception(ex.ToString());
             }
         }
-        
+
         public List<ct_Plancta_nivel_Info> Get_list_Plancta_nivel(int IdEmpresa)
         {
             try
@@ -57,18 +57,18 @@ namespace Bizu.Infrastructure.Contabilidad
                 using (EntitiesDBConta OEselectPlancta_nivel = new EntitiesDBConta())
                 {
                     var selectPlancta_nivel = from C in OEselectPlancta_nivel.ct_plancta_nivel
-                                              where C.IdEmpresa == IdEmpresa
+                                              where C.idempresa == IdEmpresa
                                               select C;
 
                     ct_Plancta_nivel_Info _PlantaCtaNivelInfo;
                     foreach (var item in selectPlancta_nivel)
-                    {   
+                    {
                         _PlantaCtaNivelInfo = new ct_Plancta_nivel_Info();
-                        _PlantaCtaNivelInfo.IdEmpresa = item.IdEmpresa;
-                        _PlantaCtaNivelInfo.IdNivelCta = item.IdNivelCta;
-                        _PlantaCtaNivelInfo.nv_NumDigitos = item.nv_NumDigitos;
-                        _PlantaCtaNivelInfo.nv_Descripcion = item.nv_Descripcion;
-                        _PlantaCtaNivelInfo.Estado = item.Estado;
+                        _PlantaCtaNivelInfo.IdEmpresa = item.idempresa;
+                        _PlantaCtaNivelInfo.IdNivelCta = item.idnivelcta;
+                        _PlantaCtaNivelInfo.nv_NumDigitos = item.nv_numdigitos;
+                        _PlantaCtaNivelInfo.nv_Descripcion = item.nv_descripcion;
+                        _PlantaCtaNivelInfo.Estado = item.estado;
 
                         lM.Add(_PlantaCtaNivelInfo);
                     }
@@ -97,20 +97,20 @@ namespace Bizu.Infrastructure.Contabilidad
                 using (EntitiesDBConta OEselectPlancta_nivel = new EntitiesDBConta())
                 {
                     var selectPlancta_nivel = from C in OEselectPlancta_nivel.vwct_plancta_nivel
-                                              where C.IdEmpresa == IdEmpresa
-                                              && C.IdNivelCta == IdNivelCta
+                                              where C.idempresa == IdEmpresa
+                                              && C.idnivelcta == IdNivelCta
                                               select C;
 
 
                     foreach (var item in selectPlancta_nivel)
                     {
                         info = new ct_Plancta_nivel_Info();
-                        info.IdEmpresa = item.IdEmpresa;
-                        info.IdNivelCta = item.IdNivelCta;
-                        info.nv_NumDigitos = item.nv_NumDigitos;
-                        info.nv_Descripcion = item.nv_Descripcion;
-                        info.nv_NumDigitos_total = Convert.ToInt32(item.nv_NumDigitos_total);
-                        info.Estado = item.Estado;
+                        info.IdEmpresa = item.idempresa;
+                        info.IdNivelCta = item.idnivelcta;
+                        info.nv_NumDigitos = item.nv_numdigitos;
+                        info.nv_Descripcion = item.nv_descripcion;
+                        info.nv_NumDigitos_total = Convert.ToInt32(item.nv_numdigitos_total);
+                        info.Estado = item.estado;
                     }
                 }
 
@@ -134,11 +134,11 @@ namespace Bizu.Infrastructure.Contabilidad
             {
                 using (EntitiesDBConta context = new EntitiesDBConta())
                 {
-                     var Q = from PCta_info in context.ct_plancta
-                             where PCta_info.IdEmpresa == _PCninfo.IdEmpresa && PCta_info.IdNivelCta == _PCninfo.IdNivelCta
-                             select PCta_info;
-                     return (Q.ToList().Count > 0) ? true : false;
-                }   
+                    var Q = from PCta_info in context.ct_plancta
+                            where PCta_info.idempresa == _PCninfo.IdEmpresa && PCta_info.idnivelcta == _PCninfo.IdNivelCta
+                            select PCta_info;
+                    return (Q.ToList().Count > 0) ? true : false;
+                }
             }
             catch (Exception ex)
             {
@@ -158,14 +158,14 @@ namespace Bizu.Infrastructure.Contabilidad
             {
                 using (EntitiesDBConta context = new EntitiesDBConta())
                 {
-                    var contact = context.ct_plancta_nivel.FirstOrDefault(Pcta_info => Pcta_info.IdNivelCta == _PCninfo.IdNivelCta && Pcta_info.IdEmpresa==_PCninfo.IdEmpresa);
+                    var contact = context.ct_plancta_nivel.FirstOrDefault(Pcta_info => Pcta_info.idnivelcta == _PCninfo.IdNivelCta && Pcta_info.idempresa == _PCninfo.IdEmpresa);
                     if (contact != null)
                     {
-                        contact.IdEmpresa = _PCninfo.IdEmpresa;
-                        contact.IdNivelCta = Convert.ToByte(_PCninfo.IdNivelCta);
-                        contact.nv_NumDigitos = Convert.ToByte(_PCninfo.nv_NumDigitos);
-                        contact.nv_Descripcion = _PCninfo.nv_Descripcion;
-                        contact.Estado = _PCninfo.Estado;                        
+                        contact.idempresa = _PCninfo.IdEmpresa;
+                        contact.idnivelcta = Convert.ToByte(_PCninfo.IdNivelCta);
+                        contact.nv_numdigitos = Convert.ToByte(_PCninfo.nv_NumDigitos);
+                        contact.nv_descripcion = _PCninfo.nv_Descripcion;
+                        contact.estado = _PCninfo.Estado;
                         context.SaveChanges();
                     }
                 }
@@ -191,19 +191,19 @@ namespace Bizu.Infrastructure.Contabilidad
                 {
                     EntitiesDBConta EDB = new EntitiesDBConta();
                     var Q = from per in EDB.ct_plancta_nivel
-                            where per.IdNivelCta == _PCninfo.IdNivelCta 
-                            && per.IdEmpresa == _PCninfo.IdEmpresa
+                            where per.idnivelcta == _PCninfo.IdNivelCta
+                            && per.idempresa == _PCninfo.IdEmpresa
                             select per;
                     if (Q.ToList().Count == 0)
                     {
                         var address = new ct_plancta_nivel();
                         int IdNivel = 0;
                         IdNivel = (_PCninfo.IdNivelCta != 0) ? _PCninfo.IdNivelCta : getId_Plancta_nivel();
-                        address.IdEmpresa = _PCninfo.IdEmpresa;
-                        address.IdNivelCta = IdNivel;
-                        address.nv_NumDigitos = _PCninfo.nv_NumDigitos;
-                        address.nv_Descripcion = _PCninfo.nv_Descripcion;
-                        address.Estado = "A";
+                        address.idempresa = _PCninfo.IdEmpresa;
+                        address.idnivelcta = IdNivel;
+                        address.nv_numdigitos = _PCninfo.nv_NumDigitos;
+                        address.nv_descripcion = _PCninfo.nv_Descripcion;
+                        address.estado = "A";
                         context.ct_plancta_nivel.Add(address);
                         context.SaveChanges();
 
@@ -233,7 +233,7 @@ namespace Bizu.Infrastructure.Contabilidad
                 {
                     GrabarDB(item);
                 }
-                
+
                 return true;
             }
             catch (Exception ex)
@@ -254,14 +254,14 @@ namespace Bizu.Infrastructure.Contabilidad
             {
                 using (EntitiesDBConta context = new EntitiesDBConta())
                 {
-                    var contact = context.ct_plancta_nivel.FirstOrDefault(Pcta_info => Pcta_info.IdEmpresa == _PCninfo.IdEmpresa && Pcta_info.IdNivelCta == _PCninfo.IdNivelCta);
+                    var contact = context.ct_plancta_nivel.FirstOrDefault(Pcta_info => Pcta_info.idempresa == _PCninfo.IdEmpresa && Pcta_info.idnivelcta == _PCninfo.IdNivelCta);
 
                     if (contact != null)
                     {
-                        contact.IdUsuarioUltAnu = _PCninfo.IdUsuarioUltAnu;
-                        contact.Fecha_UltAnu = DateTime.Now;
-                        contact.MotivoAnulacion = _PCninfo.MotivoAnulacion;
-                        contact.Estado = "I";
+                        contact.idusuarioultanu = _PCninfo.IdUsuarioUltAnu;
+                        contact.fecha_ultanu = DateTime.Now;
+                        contact.motivoanulacion = _PCninfo.MotivoAnulacion;
+                        contact.estado = "I";
                         context.SaveChanges();
                     }
                 }
@@ -303,7 +303,7 @@ namespace Bizu.Infrastructure.Contabilidad
 
         public ct_Plancta_nivel_Data()
         {
-           
+
         }
     }
 }

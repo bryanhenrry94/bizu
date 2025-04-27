@@ -56,68 +56,56 @@ namespace Bizu.Presentation.Facturacion
         decimal IdCbteVta = 0;
         int rowHandle = 0;
 
-       
+
         fa_parametro_Bus Bus_Param_facturacion = new fa_parametro_Bus();
         in_Parametro_Bus Bus_param_inven = new in_Parametro_Bus();
 
 
         Bizu.Application.Facturacion.fa_factura_Bus Bus_Factura = new Bizu.Application.Facturacion.fa_factura_Bus();
         Bizu.Application.Facturacion.fa_factura_det_Bus Bus_factura_det = new Bizu.Application.Facturacion.fa_factura_det_Bus();
-        
-        
+
         tb_sis_Documento_Tipo_Talonario_Bus BusDoc = new tb_sis_Documento_Tipo_Talonario_Bus();
         in_producto_Bus Bus_Producto = new in_producto_Bus();
         in_producto_x_tb_bodega_Bus Bus_Prod_x_bod = new in_producto_x_tb_bodega_Bus();
-        ct_punto_cargo_Bus Bus_Punto_Cargo = new ct_punto_cargo_Bus();
         fa_factura_x_formaPago_Bus Bus_FacxForPag = new fa_factura_x_formaPago_Bus();
-        
+
         caj_Caja_Bus Bus_Caja = new caj_Caja_Bus();
         fa_TerminoPago_Bus Bus_Termino_pago = new fa_TerminoPago_Bus();
         fa_TerminoPago_Distribucion_Bus Bus_Termi_PagoDistri = new fa_TerminoPago_Distribucion_Bus();
-        
+
         //Clases Info
 
         in_Parametro_Info Info_param_inven = new in_Parametro_Info();
         in_Producto_Info Info_producto = new in_Producto_Info();
         fa_parametro_info Info_Param_fact = new fa_parametro_info();
-        
+
         fa_factura_Info InfoFactura = new fa_factura_Info();
         fa_factura_det_info Info_Fact_Det = new fa_factura_det_info();
-        
+
         fa_Cliente_Info InfoCliente = new fa_Cliente_Info();
 
         tb_sis_Documento_Tipo_Talonario_Info Info_Documento_talonario_Actual = new tb_sis_Documento_Tipo_Talonario_Info();
-        
+
         fa_factura_x_formaPago_Info Info_fac_x_forma_pago = new fa_factura_x_formaPago_Info();
         fa_factura_x_ct_cbtecble_Info Info_Fac_x_cbtecble = new fa_factura_x_ct_cbtecble_Info();
         fa_factura_x_ct_cbtecble_Bus bus_Fac_x_cbtecble = new fa_factura_x_ct_cbtecble_Bus();
 
         fa_TerminoPago_Info Info_TerminoPago = new fa_TerminoPago_Info();
 
-        
         //Listas Info
         List<in_Producto_Info> Lista_producto = new List<in_Producto_Info>();
         List<fa_TerminoPago_Info> list_TerminoPago = new List<fa_TerminoPago_Info>();
-        List<ct_punto_cargo_Info> Lista_PuntoCargo = new List<ct_punto_cargo_Info>();
-        
         List<fa_Documento_Tipo_info> lmTipoDoc = new List<fa_Documento_Tipo_info>();
         List<in_movi_inve_detalle_Info> invList = new List<in_movi_inve_detalle_Info>();
 
-      
+
         List<fa_TerminoPago_Distribucion_Info> List_Termino_Pago_x_Distri = new List<fa_TerminoPago_Distribucion_Info>();
         List<fa_factura_x_formaPago_Info> List_fac_x_forma_pago = new List<fa_factura_x_formaPago_Info>();
-        
+
         //BindingList Info
 
         BindingList<fa_factura_x_fa_TerminoPago_Info> Binding_list_fac_form_pago = new BindingList<fa_factura_x_fa_TerminoPago_Info>();
         BindingList<fa_factura_det_info> Binding_List_Factura_det = new BindingList<fa_factura_det_info>();
-
-        ct_punto_cargo_Bus bus_punto_cargo = new ct_punto_cargo_Bus();
-        ct_punto_cargo_Info info_punto_cargo = new ct_punto_cargo_Info();
-        List<ct_punto_cargo_Info> lst_punto_cargo = new List<ct_punto_cargo_Info>();
-        ct_punto_cargo_grupo_Bus bus_grupo_punto_cargo = new ct_punto_cargo_grupo_Bus();
-        ct_punto_cargo_grupo_Info info_grupo_punto_cargo = new ct_punto_cargo_grupo_Info();
-        List<ct_punto_cargo_grupo_Info> lst_grupo_punto_cargo = new List<ct_punto_cargo_grupo_Info>();
 
         tb_sis_impuesto_Bus BusImp = new tb_sis_impuesto_Bus();
         List<tb_sis_impuesto_Info> listTipoImpu_x_Iva = new List<tb_sis_impuesto_Info>();
@@ -178,7 +166,7 @@ namespace Bizu.Presentation.Facturacion
                 txtIdFactura.EditValue = InfoFactura.IdCbteVta;
                 UCSucursal.cmb_sucursal.EditValue = InfoFactura.IdSucursal;
                 UCSucursal.cmb_bodega.EditValue = InfoFactura.IdBodega;
-                
+
                 cmbCaja.EditValue = InfoFactura.IdCaja;
                 ucFa_ClienteCmb.set_ClienteInfo(InfoFactura.IdCliente);
 
@@ -190,9 +178,9 @@ namespace Bizu.Presentation.Facturacion
                 dateFecha.Value = InfoFactura.vt_fecha;
                 spinEditDiasPlazo.Value = InfoFactura.vt_plazo;
                 dateFechaVencimiento.Value = InfoFactura.vt_fech_venc;
-                
+
                 txtObservacion.Text = InfoFactura.vt_Observacion;
-                
+
                 Info_Documento_talonario_Actual = BusDoc.Verificar_DocumentoElectronico(InfoFactura.IdEmpresa, "FACT", InfoFactura.vt_serie1, InfoFactura.vt_serie2, InfoFactura.vt_NumFactura, Info_Documento_talonario_Actual, ref MensajeError);
 
                 if (Info_Documento_talonario_Actual.es_Documento_electronico != null)//no tiene talonario
@@ -204,10 +192,10 @@ namespace Bizu.Presentation.Facturacion
 
 
                 cmbTerminoPago.EditValue = InfoFactura.vt_tipo_venta;
-               
 
-                
-               
+
+
+
 
                 SumValForPag = 0;
                 SumPorDist = 0;
@@ -222,14 +210,14 @@ namespace Bizu.Presentation.Facturacion
                     SumPorDist = SumPorDist + info.Por_Distribucion;
                 }
 
-                
-                InfoFactura.DetFactura_List=Bus_factura_det.Get_List_factura_det(InfoFactura.IdEmpresa,InfoFactura.IdSucursal,InfoFactura.IdBodega,InfoFactura.IdCbteVta,ref MensajeError);
+
+                InfoFactura.DetFactura_List = Bus_factura_det.Get_List_factura_det(InfoFactura.IdEmpresa, InfoFactura.IdSucursal, InfoFactura.IdBodega, InfoFactura.IdCbteVta, ref MensajeError);
                 Binding_List_Factura_det = new BindingList<fa_factura_det_info>(InfoFactura.DetFactura_List);
                 gridControl_Factura.DataSource = Binding_List_Factura_det;
 
 
                 ucFa_FormaPago_x_Factura.Cargar_grid_x_Factura(InfoFactura.IdEmpresa, InfoFactura.IdSucursal, InfoFactura.IdBodega, InfoFactura.IdCbteVta);
-                
+
             }
             catch (Exception ex)
             {
@@ -270,9 +258,9 @@ namespace Bizu.Presentation.Facturacion
                         //gridView_Factura.OptionsBehavior.ReadOnly = true;
                         UCSucursal.Bloquerar_Combos();
                         Set_Info_in_controls();
-                        
+
                         CalcularTotales();
-              
+
                         ucFa_ClienteCmb.Enabled = false;
                         ucFa_VendedorCmb.Enabled = false;
                         if (lblAnulado.Visible == true)
@@ -286,17 +274,17 @@ namespace Bizu.Presentation.Facturacion
                         cmbTerminoPago.Enabled = false;
                         cmbCaja.Enabled = false;
                         UCNumDoc.Set_Perfil_solo_lectura(true);
-                       // this.gridViewFormaPag.OptionsBehavior.Editable = false;
+                        // this.gridViewFormaPag.OptionsBehavior.Editable = false;
 
                         ucGe_Menu.Visible_bntAnular = DevExpress.XtraBars.BarItemVisibility.Never;
                         ucGe_Menu.Visible_bntImprimir = DevExpress.XtraBars.BarItemVisibility.Never;
                         ucGe_Menu.Visible_bntLimpiar = DevExpress.XtraBars.BarItemVisibility.Never;
                         ucGe_Menu.Visible_btnImprimirSoporte = DevExpress.XtraBars.BarItemVisibility.Never;
-                        
+
                         break;
 
                     case Cl_Enumeradores.eTipo_action.grabar:
-                        UCNumDoc.Set_Perfil_solo_lectura(false);                        
+                        UCNumDoc.Set_Perfil_solo_lectura(false);
                         ucFa_VendedorCmb.Enabled = true;
                         ucFa_ClienteCmb.Enabled = true;
                         cmbTerminoPago.Enabled = true;
@@ -334,9 +322,9 @@ namespace Bizu.Presentation.Facturacion
                         dateFechaVencimiento.Enabled = false;
                         cmbTerminoPago.Enabled = false;
 
-                        
+
                         cmbCaja.Enabled = false;
-                        
+
 
                         break;
                     case Cl_Enumeradores.eTipo_action.Anular:
@@ -348,7 +336,7 @@ namespace Bizu.Presentation.Facturacion
                         ucGe_Menu.Visible_bntGuardar_y_Salir = DevExpress.XtraBars.BarItemVisibility.Never;
                         ucGe_Menu.Visible_btnGuardar = DevExpress.XtraBars.BarItemVisibility.Never;
                         ucGe_Menu.Visible_btnImprimirSoporte = DevExpress.XtraBars.BarItemVisibility.Never;
-                        
+
                         break;
                     default:
                         break;
@@ -364,7 +352,7 @@ namespace Bizu.Presentation.Facturacion
             }
         }
 
-        public  fa_factura_Info Get_Info_Factura()
+        public fa_factura_Info Get_Info_Factura()
         {
             try
             {
@@ -395,7 +383,7 @@ namespace Bizu.Presentation.Facturacion
                 InfoFactura.vt_NumFactura = talonarioInfo.NumDocumento;
                 InfoFactura.IdCaja = Convert.ToInt32(cmbCaja.EditValue);
                 InfoFactura.vt_plazo = Convert.ToInt32(spinEditDiasPlazo.Value);
-                
+
 
                 InfoFactura.vt_Observacion = txtObservacion.Text;
 
@@ -414,7 +402,7 @@ namespace Bizu.Presentation.Facturacion
                 InfoFactura.Vendedor = (ucFa_VendedorCmb.cmb_vendedor.Text == "") ? "" : ucFa_VendedorCmb.cmb_vendedor.Text;
                 InfoFactura.Cliente = ucFa_ClienteCmb.cmb_cliente.Text;
 
-                InfoFactura.DetFactura_List = new List<fa_factura_det_info>(Binding_List_Factura_det.Where(q=>q.IdProducto!=0));
+                InfoFactura.DetFactura_List = new List<fa_factura_det_info>(Binding_List_Factura_det.Where(q => q.IdProducto != 0));
 
                 InfoFactura.DetformaPago_list = Get_List_fact_x_Termino_pago();
                 InfoFactura.lista_formaPago_x_Factura = Get_List_fact_x_forma_pago();
@@ -477,7 +465,7 @@ namespace Bizu.Presentation.Facturacion
 
                 ListaFormaPago = ucFa_FormaPago_x_Factura.Get_List_factura_x_formaPago();
 
-              
+
                 return ListaFormaPago;
             }
             catch (Exception ex)
@@ -505,8 +493,9 @@ namespace Bizu.Presentation.Facturacion
                 {
                     FrmGe_MotivoAnulacion frm = new FrmGe_MotivoAnulacion();
                     if (InfoFactura.Estado == "I" || lblAnulado.Visible == true)
-                    { MessageBox.Show("La Factura se encuentra Anulada.", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return Respuesta;
+                    {
+                        MessageBox.Show("La Factura se encuentra Anulada.", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return Respuesta;
                     }
 
                     Get_Info_Factura();
@@ -514,13 +503,13 @@ namespace Bizu.Presentation.Facturacion
                     InfoFactura.MotivoAnulacion = frm.motivoAnulacion;
                     string mensaje_error = "";
 
-                    Respuesta=Bus_Factura.AnularDB(InfoFactura, param.Fecha_Transac, ref mensaje_error);
+                    Respuesta = Bus_Factura.AnularDB(InfoFactura, param.Fecha_Transac, ref mensaje_error);
                     if (Respuesta)
                     {
                         MessageBox.Show("La Factura se Anuló Correctamente.\n" + "**** " + frm.motivoAnulacion + " ****"); lblAnulado.Visible = true;
                         ucGe_Menu.Visible_bntGuardar_y_Salir = DevExpress.XtraBars.BarItemVisibility.Never;
                         ucGe_Menu.Visible_btnGuardar = DevExpress.XtraBars.BarItemVisibility.Never;
-                        
+
 
                     }
                     else
@@ -534,7 +523,7 @@ namespace Bizu.Presentation.Facturacion
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
@@ -556,8 +545,8 @@ namespace Bizu.Presentation.Facturacion
                 CalcularTotales();
                 cargarNumDoc();
                 txtObservacion.Text = "";
-                
-                
+
+
 
                 _Accion = Cl_Enumeradores.eTipo_action.grabar;
                 Binding_List_Factura_det = new BindingList<fa_factura_det_info>();
@@ -607,7 +596,7 @@ namespace Bizu.Presentation.Facturacion
                             MessageBox.Show("La FACT # " + numDocFactura + "/" + idCbte_vta + " Fue almacenada con Exito", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             ucGe_Menu.Enabled_btn_Generar_XML = true;
-                            
+
                             if (MessageBox.Show("¿Desea Imprimir la Factura # " + numDocFactura + "/" + idCbte_vta + " ?" + "\n" + "Imprimir", param.Nombre_sistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                             {
                                 ucGe_Menu_Superior_Mant1_event_btnImprimir_Click(null, null);
@@ -672,20 +661,20 @@ namespace Bizu.Presentation.Facturacion
                 }
                 else
                 {
-                    
+
                     string msg = "";
 
                     if (MessageBox.Show("La FACT # " + InfoFactura.vt_serie1 + "-" + InfoFactura.vt_serie2 + "-" + InfoFactura.vt_NumFactura + " se procedera a Guardar." + "\n" + "¿Desea Continuar?", "Guardar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        
-                        
+
+
                         bolResult = Bus_Factura.ModificarDB(InfoFactura, ref msg);
                         if (bolResult)
                         {
                             bolResult = true;
                             MessageBox.Show("La FACT # " + InfoFactura.vt_serie1 + "-" + InfoFactura.vt_serie2 + "-" + InfoFactura.vt_NumFactura + " Fue Modificada con Exito", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                            
+
                         }
                         else { MessageBox.Show(msg); };
                     }
@@ -772,7 +761,7 @@ namespace Bizu.Presentation.Facturacion
                 {
                     TotalPorcent = item.Por_Distribucion + TotalPorcent;
                 }
-                if (TotalPorcent > 100) { MessageBox.Show("La suma del porcentaje de formas de cobro no puede exeder el 100% "); ;return false; };
+                if (TotalPorcent > 100) { MessageBox.Show("La suma del porcentaje de formas de cobro no puede exeder el 100% "); ; return false; };
 
                 if (ucFa_VendedorCmb.get_VendedorInfo() == null) { MessageBox.Show("No ha Ingresado Vendedor", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); return false; }
 
@@ -784,7 +773,7 @@ namespace Bizu.Presentation.Facturacion
 
                 if (txtObservacion.Text.Trim() == "") { MessageBox.Show("No ha Ingresado la Observacion"); txtObservacion.Focus(); return false; }
 
-                
+
 
                 if (List_Termino_Pago_x_Distri.Count() == 0)
                 {
@@ -810,7 +799,7 @@ namespace Bizu.Presentation.Facturacion
                     return false;
                 }
 
-                int count1= Binding_List_Factura_det.Count(v => v.IdProducto > 0);
+                int count1 = Binding_List_Factura_det.Count(v => v.IdProducto > 0);
 
                 if (count1 == 0)
                 {
@@ -829,7 +818,7 @@ namespace Bizu.Presentation.Facturacion
                     return false;
                 }
 
-                
+
 
 
                 foreach (var item in Binding_List_Factura_det)
@@ -837,7 +826,7 @@ namespace Bizu.Presentation.Facturacion
                     if (item.IdProducto != 0)
                     {
                         Info_producto = Lista_producto.FirstOrDefault(q => q.IdProducto == item.IdProducto);
-                       
+
 
                         if (item.vt_cantidad == 0)
                         {
@@ -849,19 +838,19 @@ namespace Bizu.Presentation.Facturacion
 
                 if (UCNumDoc.Get_Info_Talonario().NumDocumento == "")
                 {
-                    return false;                    
+                    return false;
                 }
 
                 if (!Validar_CtasCbles_Factura())
                 {
                     return false;
                 }
-                if (_Accion==Cl_Enumeradores.eTipo_action.grabar)
+                if (_Accion == Cl_Enumeradores.eTipo_action.grabar)
                 {
                     UCNumDoc.IdEstablecimiento = UCSucursal.get_sucursal().Su_CodigoEstablecimiento;
                     UCNumDoc.IdPuntoEmision = UCSucursal.get_bodega().cod_punto_emision;
                     UCNumDoc.IdTipoDocumento = Cl_Enumeradores.eTipoDocumento_Talonario.FACT;
-                    UCNumDoc.Get_Primer_Documento_no_usado();    
+                    UCNumDoc.Get_Primer_Documento_no_usado();
                 }
                 return true;
             }
@@ -903,7 +892,7 @@ namespace Bizu.Presentation.Facturacion
             {
                 LoadProductos();
                 cargarNumDoc();
-               // ultraCmb_tipoDoc_ValueChanged(new object(), new EventArgs());
+                // ultraCmb_tipoDoc_ValueChanged(new object(), new EventArgs());
             }
             catch (Exception ex)
             {
@@ -914,7 +903,7 @@ namespace Bizu.Presentation.Facturacion
                 Log_Error_bus.Log_Error(NameMetodo + " - " + ex.ToString());
             }
         }
-        
+
         public void ucGe_Menu_event_btn_Generar_XML_Click(object sender, EventArgs e)
         {
             try
@@ -926,7 +915,7 @@ namespace Bizu.Presentation.Facturacion
 
                 param_info = bus_Param.Get_Info_parametro(param.IdEmpresa);
 
-                if (Bus_Factura.GenerarXml_Factura(param.IdEmpresa, Convert.ToInt32(UCSucursal.cmb_sucursal.EditValue), Convert.ToInt32(UCSucursal.cmb_bodega.EditValue), InfoFactura.IdCbteVta, param_info.pa_ruta_descarga_xml_fac_elct, ref  mensaje))
+                if (Bus_Factura.GenerarXml_Factura(param.IdEmpresa, Convert.ToInt32(UCSucursal.cmb_sucursal.EditValue), Convert.ToInt32(UCSucursal.cmb_bodega.EditValue), InfoFactura.IdCbteVta, param_info.pa_ruta_descarga_xml_fac_elct, ref mensaje))
                 {
                     MessageBox.Show(mensaje);
                 }
@@ -992,7 +981,7 @@ namespace Bizu.Presentation.Facturacion
                 Log_Error_bus.Log_Error(NameMetodo + " - " + ex.ToString());
             }
         }
-        
+
         public void ucGe_Menu_Superior_Mant1_event_btnAnular_Click(object sender, EventArgs e)
         {
             try
@@ -1190,7 +1179,7 @@ namespace Bizu.Presentation.Facturacion
 
                 param_info = bus_Param.Get_Info_parametro(param.IdEmpresa);
 
-                if (Bus_Factura.GenerarXml_Factura(param.IdEmpresa, Convert.ToInt32(UCSucursal.cmb_sucursal.EditValue), Convert.ToInt32(UCSucursal.cmb_bodega.EditValue), InfoFactura.IdCbteVta, param_info.pa_ruta_descarga_xml_fac_elct, ref  mensaje))
+                if (Bus_Factura.GenerarXml_Factura(param.IdEmpresa, Convert.ToInt32(UCSucursal.cmb_sucursal.EditValue), Convert.ToInt32(UCSucursal.cmb_bodega.EditValue), InfoFactura.IdCbteVta, param_info.pa_ruta_descarga_xml_fac_elct, ref mensaje))
                 {
                     MessageBox.Show(mensaje);
                 }
@@ -1212,31 +1201,21 @@ namespace Bizu.Presentation.Facturacion
         {
             try
             {
-                
-                
+
+
                 ValidarParametros();
                 ucFa_FormaPago_x_Factura.Cargar_grid();
 
                 cargar_combo();
-                
-                Info_param_inven = Bus_param_inven.Get_Info_Parametro(param.IdEmpresa);
-                Info_Param_fact=Bus_Param_facturacion.Get_Info_parametro(param.IdEmpresa);
 
-                cmbCaja.Properties.DataSource = Bus_Caja.Get_list_caja(param.IdEmpresa, ref  MensajeError);
-                
+                Info_param_inven = Bus_param_inven.Get_Info_Parametro(param.IdEmpresa);
+                Info_Param_fact = Bus_Param_facturacion.Get_Info_parametro(param.IdEmpresa);
+
+                cmbCaja.Properties.DataSource = Bus_Caja.Get_list_caja(param.IdEmpresa, ref MensajeError);
+
 
                 cmbCaja.EditValue = Info_Param_fact.IdCaja_Default_Factura;
-                //Cargar_Grid();
 
-                lst_grupo_punto_cargo = bus_grupo_punto_cargo.Get_List_punto_cargo_grupo(param.IdEmpresa, ref MensajeError);
-                cmb_Grupo_punto_cargo.DataSource = lst_grupo_punto_cargo;
-
-                lst_punto_cargo = bus_punto_cargo.Get_List_PuntoCargo(param.IdEmpresa);
-                cmb_Punto_Cargo.DataSource = lst_punto_cargo;
-
-
-
-              
                 if (_Accion == 0) { _Accion = Cl_Enumeradores.eTipo_action.grabar; }
 
                 Set_Accion_In_controls();
@@ -1255,16 +1234,12 @@ namespace Bizu.Presentation.Facturacion
         {
             try
             {
-                
-                if (UCSucursal.get_bodega()!=null && UCSucursal.get_sucursal()!=null)
+
+                if (UCSucursal.get_bodega() != null && UCSucursal.get_sucursal() != null)
                 {
                     gridControl_Factura.DataSource = Binding_List_Factura_det;
                     load_Producto(param.IdEmpresa, Convert.ToInt32(UCSucursal.cmb_sucursal.EditValue), Convert.ToInt32(UCSucursal.cmb_bodega.EditValue));
                 }
-
-                
-                Lista_PuntoCargo = Bus_Punto_Cargo.Get_List_PuntoCargo(param.IdEmpresa);
-                cmb_Punto_Cargo.DataSource = Lista_PuntoCargo;
             }
             catch (Exception ex)
             {
@@ -1333,7 +1308,7 @@ namespace Bizu.Presentation.Facturacion
                 double Por_Iva = 0;
                 double Total = 0;
 
-                foreach (var item in Binding_List_Factura_det )
+                foreach (var item in Binding_List_Factura_det)
                 {
                     if (Info_param_inven.Maneja_Stock_Negativo == "N")
                     {
@@ -1342,12 +1317,12 @@ namespace Bizu.Presentation.Facturacion
                         {
                             var ItemProd_Busc = Lista_producto.First(v => v.IdProducto == item.IdProducto);
 
-                           
-                                if (item.vt_cantidad > ItemProd_Busc.pr_stock)
-                                {
-                                    MessageBox.Show("La cantidad Supera Al Stock");
-                                    item.vt_cantidad = item.stock;
-                                }
+
+                            if (item.vt_cantidad > ItemProd_Busc.pr_stock)
+                            {
+                                MessageBox.Show("La cantidad Supera Al Stock");
+                                item.vt_cantidad = item.stock;
+                            }
                             if (item.vt_cantidad < 0)
                             {
                                 item.vt_cantidad = item.vt_cantidad * -1;
@@ -1357,9 +1332,9 @@ namespace Bizu.Presentation.Facturacion
 
 
 
-                    item.vt_DescUnitario = Math.Round((item.vt_PorDescUnitario * (item.vt_Precio )) / 100, 2);
+                    item.vt_DescUnitario = Math.Round((item.vt_PorDescUnitario * (item.vt_Precio)) / 100, 2);
 
-                    item.vt_PrecioFinal = Math.Round(((item.vt_Precio ) - item.vt_DescUnitario), 2);
+                    item.vt_PrecioFinal = Math.Round(((item.vt_Precio) - item.vt_DescUnitario), 2);
 
                     item.vt_Subtotal = item.vt_cantidad * Math.Round((item.vt_PrecioFinal), 2);
 
@@ -1377,7 +1352,7 @@ namespace Bizu.Presentation.Facturacion
 
                     item.vt_iva = ((item.vt_Subtotal) * Por_Iva) / 100;
                     item.vt_total = Math.Round((item.vt_Subtotal + item.vt_iva), 2);
-                    
+
                 }
             }
             catch (Exception ex)
@@ -1514,7 +1489,7 @@ namespace Bizu.Presentation.Facturacion
                     , param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log_Error_bus.Log_Error(NameMetodo + " - " + ex.ToString());
             }
-        }        
+        }
 
         public void btnAnular_Click(object sender, EventArgs e)
         {
@@ -1553,7 +1528,7 @@ namespace Bizu.Presentation.Facturacion
                 txtObservacion.Text = infoGuia.gi_Observacion;
                 dateFecha.Value = Convert.ToDateTime(infoGuia.gi_fecha); spinEditDiasPlazo.Value = Convert.ToDecimal(infoGuia.gi_plazo);
                 dateFechaVencimiento.Value = Convert.ToDateTime(infoGuia.gi_fech_venc);
-             
+
             }
             catch (Exception ex)
             {
@@ -1564,12 +1539,12 @@ namespace Bizu.Presentation.Facturacion
                 Log_Error_bus.Log_Error(NameMetodo + " - " + ex.ToString());
             }
         }
-       
+
         public void ultraComboDoc_KeyPress(object sender, KeyPressEventArgs e)
         {
             try
             {
-               
+
             }
             catch (Exception ex) { Log_Error_bus.Log_Error(ex.ToString()); MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
@@ -1582,7 +1557,7 @@ namespace Bizu.Presentation.Facturacion
                 {
                     btnConsultar_Click(new object(), new EventArgs());
                 }
-               
+
             }
             catch (Exception ex) { Log_Error_bus.Log_Error(ex.ToString()); MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
@@ -1591,17 +1566,17 @@ namespace Bizu.Presentation.Facturacion
         {
             try
             {
-                
+
 
             }
             catch (Exception ex) { Log_Error_bus.Log_Error(ex.ToString()); MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
-       
+
         public void toolStripButton2_Click(object sender, EventArgs e)
         {
             try
             {
-             
+
             }
             catch (Exception ex)
             {
@@ -1613,7 +1588,7 @@ namespace Bizu.Presentation.Facturacion
             }
         }
 
-      
+
 
         public void gridViewFormaPago_RowCountChanged(object sender, EventArgs e)
         {
@@ -1648,7 +1623,7 @@ namespace Bizu.Presentation.Facturacion
         {
             try
             {
-               
+
 
             }
             catch (Exception ex)
@@ -1668,7 +1643,7 @@ namespace Bizu.Presentation.Facturacion
             {
                 if (cmbTerminoPago.EditValue != null)
                 {
-                    if (cmbTerminoPago.Text!= "")
+                    if (cmbTerminoPago.Text != "")
                     {
                         Info_TerminoPago = new fa_TerminoPago_Info();
                         Info_TerminoPago = list_TerminoPago.Where(q => q.IdTerminoPago == Convert.ToString(cmbTerminoPago.EditValue)).FirstOrDefault();
@@ -1780,7 +1755,7 @@ namespace Bizu.Presentation.Facturacion
 
                 in_Producto_Info Info_Producto = new in_Producto_Info();
 
-              
+
                 return true;
             }
             catch (Exception ex)
@@ -1799,7 +1774,7 @@ namespace Bizu.Presentation.Facturacion
             try
             {
                 if (ucFa_ClienteCmb.get_ClienteInfo() != null)
-                {                    
+                {
                     string IdTipoCredito = "";
                     InfoCliente = ucFa_ClienteCmb.get_ClienteInfo();
                     if (InfoCliente.IdTipoCredito == null)
@@ -1836,7 +1811,7 @@ namespace Bizu.Presentation.Facturacion
                 double iva = 0;
                 double Total_Vta = 0;
 
-                
+
 
                 Info_Fact_Det = new fa_factura_det_info();
                 Info_Fact_Det = (fa_factura_det_info)this.gridView_Factura.GetFocusedRow();
@@ -1848,14 +1823,14 @@ namespace Bizu.Presentation.Facturacion
                 Porc_Descuento = Convert.ToDouble(gridView_Factura.GetFocusedRowCellValue(colPorc_Descuento));
                 Descuento_total = ((cantidad * precio) * Porc_Descuento) / 100;
                 Descuento_Unitario = (Porc_Descuento * precio) / 100;
-                subtotal = (precio * cantidad)-Descuento_total;
+                subtotal = (precio * cantidad) - Descuento_total;
                 iva = 0;
                 Porc_Iva = 0;
                 Total_Vta = 0;
 
 
 
-                if (e.Column == colCantidad || e.Column==colPrecio)
+                if (e.Column == colCantidad || e.Column == colPrecio)
                 {
                     gridView_Factura.SetFocusedRowCellValue(colDescuento, Descuento_total);
                     gridView_Factura.SetFocusedRowCellValue(colSubTotal_sin_desc, subtotal);
@@ -1864,7 +1839,7 @@ namespace Bizu.Presentation.Facturacion
 
                     tb_sis_impuesto_Info InfoTipoImpuesto = new tb_sis_impuesto_Info();
                     InfoTipoImpuesto = listTipoImpu_x_Iva.FirstOrDefault(v => v.IdCod_Impuesto == Info_Fact_Det.IdCod_Impuesto_Iva);
-                    
+
 
                     if (InfoTipoImpuesto != null)
                     {
@@ -1879,7 +1854,7 @@ namespace Bizu.Presentation.Facturacion
                     gridView_Factura.SetFocusedRowCellValue(colIva, iva);
                     gridView_Factura.SetFocusedRowCellValue(colPorce_Iva, Porc_Iva);
                     gridView_Factura.SetFocusedRowCellValue(colTotal, Total_Vta);
-                    
+
                 }
 
                 if (e.Column == colIdCod_Impuesto_Iva)
@@ -1919,7 +1894,7 @@ namespace Bizu.Presentation.Facturacion
                     gridView_Factura.SetFocusedRowCellValue(colSubTotal_sin_desc, subtotal);
                     gridView_Factura.SetFocusedRowCellValue(colSubtotal, subtotal - Descuento_total);
 
-                  
+
 
                     tb_sis_impuesto_Info InfoTipoImpuesto = new tb_sis_impuesto_Info();
                     InfoTipoImpuesto = listTipoImpu_x_Iva.FirstOrDefault(v => v.IdCod_Impuesto == Info_Fact_Det.IdCod_Impuesto_Iva);
@@ -1960,7 +1935,7 @@ namespace Bizu.Presentation.Facturacion
                 gridView_Factura.SetFocusedRowCellValue(colIdCtaCble_Ven0, InfoProd.IdCtaCble_Ven0);
                 gridView_Factura.SetFocusedRowCellValue(colIdCtaCble_VenIva, InfoProd.IdCtaCble_VenIva);
                 gridView_Factura.SetFocusedRowCellValue(colDescuento, InfoProd.Porc_Descuento);
-                
+
 
                 tb_sis_impuesto_Info InfoTipoImpuesto = new tb_sis_impuesto_Info();
                 InfoTipoImpuesto = listTipoImpu_x_Iva.FirstOrDefault(v => v.IdCod_Impuesto == InfoProd.IdCod_Impuesto_Iva);
@@ -1973,14 +1948,14 @@ namespace Bizu.Presentation.Facturacion
 
                 gridView_Factura.SetFocusedRowCellValue(colIdCod_Impuesto_Iva, InfoProd.IdCod_Impuesto_Iva);
 
-                
+
 
                 gridView_Factura.SetFocusedRowCellValue(col_vt_estado, 'A');
                 gridView_Factura.SetFocusedRowCellValue(colPorce_Iva, Por_Iva);
-            
-            
-            
-            
+
+
+
+
             }
             catch (Exception ex)
             {
@@ -2059,40 +2034,7 @@ namespace Bizu.Presentation.Facturacion
 
         private void cmb_Punto_Cargo_Click(object sender, EventArgs e)
         {
-            try
-            {
-                fa_factura_det_info row = (fa_factura_det_info)gridView_Factura.GetFocusedRow();
-                if (row != null)
-                {
-                    if (row.IdPunto_cargo_grupo != null)
-                    {
-                        frmCon_Punto_Cargo_Cons frm_cons = new frmCon_Punto_Cargo_Cons();
 
-                        GridViewInfo info = gridView_Factura.GetViewInfo() as GridViewInfo;
-                        GridCellInfo info_cell = info.GetGridCellInfo(rowHandle, ColIdPunto_Cargo);
-
-                        frm_cons.Cargar_grid_x_grupo((int)row.IdPunto_cargo_grupo);
-
-                        //frm_cons.Location = new Point(this.Right, gridControlDiario.Top);                        
-
-                        frm_cons.ShowDialog();
-                        info_punto_cargo = frm_cons.Get_Info();
-                        if (info_punto_cargo != null)
-                        {
-                            gridView_Factura.SetFocusedRowCellValue(ColIdPunto_Cargo, info_punto_cargo.IdPunto_cargo);
-                        }
-                        else
-                            gridView_Factura.SetFocusedRowCellValue(ColIdPunto_Cargo, null);
-                    }
-                }
-
-            }
-            catch (Exception ex)
-            {
-                string NameMetodo = System.Reflection.MethodBase.GetCurrentMethod().Name;
-                MessageBox.Show(NameMetodo + " - " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log_Error_bus.Log_Error(NameMetodo + " - " + ex.ToString());
-            }
         }
 
 
@@ -2100,14 +2042,14 @@ namespace Bizu.Presentation.Facturacion
         {
             try
             {
-                
+
                 listTipoImpu_x_Iva = BusImp.Get_List_impuesto_para_Ventas("IVA");
                 cmbImp_Iva.DataSource = listTipoImpu_x_Iva;
 
-                
-                    list_TerminoPago = new List<fa_TerminoPago_Info>();
-                    list_TerminoPago = Bus_Termino_pago.Get_List_TerminoPago("");
-                
+
+                list_TerminoPago = new List<fa_TerminoPago_Info>();
+                list_TerminoPago = Bus_Termino_pago.Get_List_TerminoPago("");
+
                 cmbTerminoPago.Properties.DataSource = list_TerminoPago;
 
             }
@@ -2126,7 +2068,7 @@ namespace Bizu.Presentation.Facturacion
                     if (MessageBox.Show("Está seguro que desea eliminar el registro", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         gridView_Factura.DeleteSelectedRows();
-                        
+
 
                     }
                 }
@@ -2148,7 +2090,7 @@ namespace Bizu.Presentation.Facturacion
                 fa_factura_x_ct_cbtecble_Info Info_Fac_x_cbtecble = new fa_factura_x_ct_cbtecble_Info();
                 fa_factura_x_ct_cbtecble_Bus Bus_Fac_x_cbtecble = new fa_factura_x_ct_cbtecble_Bus();
 
-                Info_Fac_x_cbtecble = Bus_Fac_x_cbtecble.Get_info_fa_factura_x_ct_cbtecble(InfoFactura.IdEmpresa, InfoFactura.IdSucursal, InfoFactura.IdBodega, InfoFactura.IdCbteVta,Cl_Enumeradores.eMotivo_Diario_x_Vta.X_FACT);
+                Info_Fac_x_cbtecble = Bus_Fac_x_cbtecble.Get_info_fa_factura_x_ct_cbtecble(InfoFactura.IdEmpresa, InfoFactura.IdSucursal, InfoFactura.IdBodega, InfoFactura.IdCbteVta, Cl_Enumeradores.eMotivo_Diario_x_Vta.X_FACT);
 
                 ucCon_GridDiario.setInfo(Info_Fac_x_cbtecble.ct_IdEmpresa, Info_Fac_x_cbtecble.ct_IdTipoCbte, Info_Fac_x_cbtecble.ct_IdCbteCble);
 

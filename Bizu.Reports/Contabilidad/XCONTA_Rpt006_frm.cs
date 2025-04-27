@@ -55,8 +55,6 @@ namespace Bizu.Reports.Contabilidad
                 cmb_cuentas_inicio.Properties.DataSource = lista_planCta;
                 cmb_cuentas_fin.Properties.DataSource = lista_planCta;
 
-                cmb_Pto_Cargo_Grupo.Cargar_combos();
-
                 ct_Centro_costo_Bus BusCentro = new ct_Centro_costo_Bus();
                 List<ct_Centro_costo_Info> listCentro = new List<ct_Centro_costo_Info>();
                 listCentro = BusCentro.Get_list_Centro_Costo_cuentas_de_movimiento(param.IdEmpresa, ref MensajeError);
@@ -137,9 +135,6 @@ namespace Bizu.Reports.Contabilidad
                 }
                 FechaIni = dtpFechaIni.Value;
                 FechaFin = dtpFechaFin.Value;
-
-                IdGrupo_Punto_cargo = cmb_Pto_Cargo_Grupo.Get_Id_grupo();
-                IdPunto_Cargo = cmb_Pto_Cargo_Grupo.Get_Id_punto_cargo();
 
                 IdCentro_costo = cmb_centro_costo.EditValue == null ? "" : cmb_centro_costo.EditValue.ToString();
 

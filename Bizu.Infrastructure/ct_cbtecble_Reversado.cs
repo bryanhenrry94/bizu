@@ -12,17 +12,14 @@ namespace Bizu.Infrastructure
     using System;
     using System.Collections.Generic;
     
-    public partial class ct_cbtecble_Reversado
+    public partial class ct_cbtecble_reversado
     {
-        public int IdEmpresa { get; set; }
-        public int IdTipoCbte { get; set; }
-        public decimal IdCbteCble { get; set; }
-        public int IdEmpresa_Anu { get; set; }
-        public int IdTipoCbte_Anu { get; set; }
-        public decimal IdCbteCble_Anu { get; set; }
+        public int idempresa { get; set; }
+        public int idtipocbte { get; set; }
+        public decimal idcbtecble { get; set; }
+        public int idempresa_anu { get; set; }
+        public int idtipocbte_anu { get; set; }
+        public decimal idcbtecble_anu { get; set; }
         public string ip { get; set; }
-    
-        public virtual ct_cbtecble ct_cbtecble { get; set; }
-        public virtual ct_cbtecble ct_cbtecble1 { get; set; }
     }
 }

@@ -76,68 +76,7 @@ namespace Bizu.Application.Contabilidad
 
         public string Get_IdCentroCosto(int IdEmpresa, ct_Centro_costo_Info idCentro_Costo_padre, ref string MensajeError)
         {
-            try
-            {
-                decimal idCta = 0;
-                string MiNumConCeros = "";
-              
-                List<ct_Centro_costo_nivel_Info> listaNivel = new List<ct_Centro_costo_nivel_Info>();
-                List<ct_Centro_costo_Info> listaCta = new List<ct_Centro_costo_Info>();
-                ct_Centro_costo_nivel_Data Nive_D = new ct_Centro_costo_nivel_Data();
-
-                listaNivel = Nive_D.Get_Info_Centro_Costo_nivel(IdEmpresa);
-                listaCta = data.Get_list_Centro_Costo(IdEmpresa, ref MensajeError);
-
-
-                //int digitosPadre = (from cta in listaNivel where cta.IdNivel == idCentro_Costo_padre.IdNivel select cta.ni_digitos).ToList().First();
-                int digitosHijo = (from cta in listaNivel where cta.IdNivel == idCentro_Costo_padre.IdNivel + 1 select cta.ni_digitos).ToList().FirstOrDefault();
-
-
-                var NumCtaHija_Ulti = (from cta in listaCta
-                                       where cta.IdCentroCostoPadre == idCentro_Costo_padre.IdCentroCosto 
-                                       select cta.IdCentroCosto).Max();
-
-                string NumCtaHija_Ultima_sinPadre = "";
-
-                if (NumCtaHija_Ulti == null)
-                {
-                    NumCtaHija_Ultima_sinPadre = "0";
-                }
-                else
-                {
-                    NumCtaHija_Ultima_sinPadre = Convert.ToString(NumCtaHija_Ulti.Substring(NumCtaHija_Ulti.Length - digitosHijo, digitosHijo));
-                }
-
-                string validaNumCtaHijo = "";
-                string val = "9";
-
-
-                for (int i = 0; i < digitosHijo; i++)
-                {
-                    validaNumCtaHijo = val + validaNumCtaHijo;
-                }
-
-                idCta = Convert.ToDecimal(NumCtaHija_Ultima_sinPadre) + 1;
-
-                if (validaNumCtaHijo != "")
-                {
-                    if (idCta > Convert.ToDecimal(validaNumCtaHijo))
-                        return "";
-                    else
-                    {
-                        MiNumConCeros = "000000000000" + idCta;
-                        MiNumConCeros = MiNumConCeros.Remove(0, MiNumConCeros.Length - digitosHijo);
-                    }
-                }
-                
-                return MiNumConCeros;
-            }
-            catch (Exception ex)
-            {
-
-                Bizu.Domain.Log_Exception.LoggingManager.Logger.Log(Bizu.Domain.Log_Exception.LoggingCategory.Error, ex.Message);
-                throw new Bizu.Domain.Log_Exception.DalException(string.Format("", "Get_IdCentroCosto", ex.Message), ex) { EntityType = typeof(ct_Centro_costo_Bus) };
-            }
+            return "";
         }
 
         public string Get_IdCentroCosto_x_Raiz(int IdEmpresa, ref string MensajeError)
@@ -220,43 +159,7 @@ namespace Bizu.Application.Contabilidad
                 throw new Bizu.Domain.Log_Exception.DalException(string.Format("", "GrabarDB", ex.Message), ex) { EntityType = typeof(ct_Centro_costo_Bus) };
             }
         }
-
-        public List<ct_Centro_costo_Info> Get_list_Centro_Costo_cuentas_de_movimiento_x_EstadoObra(int IdEmpresa, ref string MensajeError)
-        {
-            try
-            {                
-                return data.Get_list_Centro_Costo_cuentas_de_movimiento_x_EstadoObra(IdEmpresa, ref MensajeError);
-            }
-            catch (Exception ex)
-            {
-                throw new Bizu.Domain.Log_Exception.DalException(string.Format("", "Get_list_Centro_Costo_cuentas_de_movimiento_x_EstadoObra", ex.Message), ex) { EntityType = typeof(ct_Centro_costo_Bus) };
-            }
-        }
-
-        public List<ct_Centro_costo_Info> Get_list_Centro_Costo_cuentas_de_movimiento_x_EstadoObra(int IdEmpresa, string IdEstadoObra, ref string MensajeError)
-        {
-            try
-            {
-                return data.Get_list_Centro_Costo_cuentas_de_movimiento_x_EstadoObra(IdEmpresa, IdEstadoObra, ref MensajeError);
-            }
-            catch (Exception ex)
-            {
-                throw new Bizu.Domain.Log_Exception.DalException(string.Format("", "Get_list_Centro_Costo_cuentas_de_movimiento_x_EstadoObra", ex.Message), ex) { EntityType = typeof(ct_Centro_costo_Bus) };
-            }
-        }
-
-        public Boolean Validar_CentroCosto_EstadoObra(int IdEmpresa, string IdCentroCosto, ref string mensaje)
-        {
-            try
-            {
-                return data.Validar_CentroCosto_EstadoObra(IdEmpresa, IdCentroCosto, ref mensaje);
-            }
-            catch (Exception ex)
-            {
-                throw new Bizu.Domain.Log_Exception.DalException(string.Format("", "Validar_CentroCosto_EstadoObra", ex.Message), ex) { EntityType = typeof(ct_Centro_costo_Bus) };
-            }
-        }
-
+        
         public ct_Centro_costo_Bus()
         {
             

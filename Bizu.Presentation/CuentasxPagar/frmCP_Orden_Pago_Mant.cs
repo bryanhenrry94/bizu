@@ -136,7 +136,7 @@ namespace Bizu.Presentation.CuentasxPagar
         void ucGe_Beneficiario_event_cmb_beneficiario_EditValueChanged(object sender, EventArgs e)
         {
             try
-            {               
+            {
                 if (_Accion == Cl_Enumeradores.eTipo_action.grabar)
                 {
                     decimal idProveedor = 0;
@@ -853,7 +853,7 @@ namespace Bizu.Presentation.CuentasxPagar
 
 
 
-                        Cab.Detalle = Listdet;                       
+                        Cab.Detalle = Listdet;
 
                         break;
                     case Cl_Enumeradores.eTipo_action.actualizar:
@@ -1163,54 +1163,26 @@ namespace Bizu.Presentation.CuentasxPagar
 
                         if (Info_Orden_Pago.IdTipo_op != "FACT_PROVEE")
                         {
-                            switch (param.IdCliente_Ven_x_Default)
+                            if (BusCbteCble.ReversoCbteCble(Convert.ToInt32(infoDetPago.IdEmpresa_cxp), Convert.ToDecimal(infoDetPago.IdCbteCble_cxp), Convert.ToInt32(infoDetPago.IdTipoCbte_cxp), IdTipoCbteRev,
+                      ref IdCbteCbleRev, ref msg, Info_Orden_Pago.IdUsuarioUltAnu, Info_Orden_Pago.MotiAnula))
                             {
-                                case Cl_Enumeradores.eCliente_Vzen.EDEHSA:
-                                    if (BusCbteCble.ReversoCbteCble_Edehsa(Convert.ToInt32(infoDetPago.IdEmpresa_cxp), Convert.ToDecimal(infoDetPago.IdCbteCble_cxp), Convert.ToInt32(infoDetPago.IdTipoCbte_cxp), IdTipoCbteRev, fechaAnulacion,
-                      ref IdCbteCbleRev, ref msg, Info_Orden_Pago.IdUsuarioUltAnu, Info_Orden_Pago.MotiAnula))
-                                    {
-                                        if (Bus_OrdenPago.AnularDB(Info_Orden_Pago))
-                                        {
-                                            MessageBox.Show("Orden de Pago #: " + Info_Orden_Pago.IdOrdenPago + " Anulado correctamente, Con el Tipo de Comprobante de Anulación #" + IdTipoCbteRev + " y el Comprobante de Anulacion #: " + IdCbteCbleRev);
+                                if (Bus_OrdenPago.AnularDB(Info_Orden_Pago))
+                                {
+                                    //string smensaje = string.Format("{0} # {1} se anuló con éxito.", "Orden de Pago ", SETINFO_.IdOrdenPago);
+                                    //MessageBox.Show(smensaje, param.Nombre_sistema);
+                                    MessageBox.Show("Orden de Pago #: " + Info_Orden_Pago.IdOrdenPago + " Anulado correctamente, Con el Tipo de Comprobante de Anulación #" + IdTipoCbteRev + " y el Comprobante de Anulacion #: " + IdCbteCbleRev);
 
-                                            lblAnulado.Visible = true;
-                                            ucGe_Menu.Visible_btnGuardar = DevExpress.XtraBars.BarItemVisibility.Never;
-                                            ucGe_Menu.Visible_bntGuardar_y_Salir = DevExpress.XtraBars.BarItemVisibility.Never;
-                                        }
-                                        else MessageBox.Show("No se pudo anular la orden de pago #: " + Info_Orden_Pago.IdOrdenPago, "Anulación", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("No se pudo Reversar el Comprobante: " + infoDetPago.IdCbteCble_cxp + "(" + msg + ")", "SISTEMAS", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                        return;
-                                    }
-                                    break;
+                                    lblAnulado.Visible = true;
+                                    ucGe_Menu.Visible_btnGuardar = DevExpress.XtraBars.BarItemVisibility.Never;
+                                    ucGe_Menu.Visible_bntGuardar_y_Salir = DevExpress.XtraBars.BarItemVisibility.Never;
+                                }
+                                else MessageBox.Show("No se pudo anular la orden de pago #: " + Info_Orden_Pago.IdOrdenPago, "Anulación", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                                default:
-
-                                    if (BusCbteCble.ReversoCbteCble(Convert.ToInt32(infoDetPago.IdEmpresa_cxp), Convert.ToDecimal(infoDetPago.IdCbteCble_cxp), Convert.ToInt32(infoDetPago.IdTipoCbte_cxp), IdTipoCbteRev,
-                      ref IdCbteCbleRev, ref msg, Info_Orden_Pago.IdUsuarioUltAnu, Info_Orden_Pago.MotiAnula))
-                                    {
-                                        if (Bus_OrdenPago.AnularDB(Info_Orden_Pago))
-                                        {
-                                            //string smensaje = string.Format("{0} # {1} se anuló con éxito.", "Orden de Pago ", SETINFO_.IdOrdenPago);
-                                            //MessageBox.Show(smensaje, param.Nombre_sistema);
-                                            MessageBox.Show("Orden de Pago #: " + Info_Orden_Pago.IdOrdenPago + " Anulado correctamente, Con el Tipo de Comprobante de Anulación #" + IdTipoCbteRev + " y el Comprobante de Anulacion #: " + IdCbteCbleRev);
-
-                                            lblAnulado.Visible = true;
-                                            ucGe_Menu.Visible_btnGuardar = DevExpress.XtraBars.BarItemVisibility.Never;
-                                            ucGe_Menu.Visible_bntGuardar_y_Salir = DevExpress.XtraBars.BarItemVisibility.Never;
-                                        }
-                                        else MessageBox.Show("No se pudo anular la orden de pago #: " + Info_Orden_Pago.IdOrdenPago, "Anulación", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("No se pudo Reversar el Comprobante: " + infoDetPago.IdCbteCble_cxp + "(" + msg + ")", "SISTEMAS", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                        return;
-                                    }
-
-                                    break;
+                            }
+                            else
+                            {
+                                MessageBox.Show("No se pudo Reversar el Comprobante: " + infoDetPago.IdCbteCble_cxp + "(" + msg + ")", "SISTEMAS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
                             }
                         }
                         else
@@ -1270,7 +1242,7 @@ namespace Bizu.Presentation.CuentasxPagar
                 GetCabecera();
 
 
-                if (Bus_OrdenPago.ModificarDB(Cab, ref  mensaje))
+                if (Bus_OrdenPago.ModificarDB(Cab, ref mensaje))
                 {
                     res = true;
                     string smensaje = string.Format("{0} # {1} se modificó con éxito.", "Orden de Pago ", Cab.IdOrdenPago);
@@ -1376,7 +1348,7 @@ namespace Bizu.Presentation.CuentasxPagar
                             return false;
                         }
                         break;
-                }               
+                }
                 return true;
             }
             catch (Exception ex)

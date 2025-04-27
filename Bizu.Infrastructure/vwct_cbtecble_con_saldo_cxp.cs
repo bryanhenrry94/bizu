@@ -14,23 +14,23 @@ namespace Bizu.Infrastructure
     
     public partial class vwct_cbtecble_con_saldo_cxp
     {
-        public Nullable<int> IdEmpresa { get; set; }
-        public Nullable<decimal> IdCbteCble { get; set; }
-        public Nullable<int> IdTipocbte { get; set; }
-        public System.DateTime cb_Fecha { get; set; }
-        public string cb_Observacion { get; set; }
+        public Nullable<int> idempresa { get; set; }
+        public Nullable<decimal> idcbtecble { get; set; }
+        public Nullable<int> idtipocbte { get; set; }
+        public System.DateTime cb_fecha { get; set; }
+        public string cb_observacion { get; set; }
         public string referencia { get; set; }
-        public string tc_TipoCbte { get; set; }
-        public Nullable<double> Valor_cbte { get; set; }
-        public double Valor_cancelado_cbte { get; set; }
-        public Nullable<double> valor_Saldo_cbte { get; set; }
-        public string Tipo { get; set; }
-        public Nullable<int> IdEmpresaOP { get; set; }
-        public Nullable<decimal> IdOrdenPagoOP { get; set; }
-        public Nullable<int> SecuenciaOP { get; set; }
-        public string IdCtaCble { get; set; }
-        public string IdCtaCble_Anticipo { get; set; }
-        public string Beneficiario { get; set; }
-        public Nullable<decimal> IdBeneficiario { get; set; }
+        public string tc_tipocbte { get; set; }
+        public Nullable<double> valor_cbte { get; set; }
+        public double valor_cancelado_cbte { get; set; }
+        public Nullable<double> valor_saldo_cbte { get; set; }
+        public string tipo { get; set; }
+        public Nullable<int> idempresaop { get; set; }
+        public Nullable<decimal> idordenpagoop { get; set; }
+        public Nullable<int> secuenciaop { get; set; }
+        public string idctacble { get; set; }
+        public string idctacble_anticipo { get; set; }
+        public string beneficiario { get; set; }
+        public Nullable<decimal> idbeneficiario { get; set; }
     }
 }

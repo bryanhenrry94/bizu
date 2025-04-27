@@ -63,18 +63,6 @@ namespace Bizu.Reports.Contabilidad
                 rpt.P_IdNivel_a_mostrar.Value = uCct_Menu_Reportes1.bei_Nivel.EditValue;
                 rpt.P_IdNivel_a_mostrar.Visible = false;
 
-                rpt.P_IdPuntoCargo_grupo.Value = uCct_Menu_Reportes1.Get_info_punto_cargo_grupo() == null ? 0 : Convert.ToInt32(uCct_Menu_Reportes1.Get_info_punto_cargo_grupo().IdPunto_cargo_grupo);
-                rpt.P_IdPuntoCargo_grupo.Visible = false;
-
-                rpt.P_IdPuntoCargo.Value = 0;
-                rpt.P_IdPuntoCargo.Visible = false;
-
-                
-
-                //ReportPrintTool pt = new ReportPrintTool(rpt);
-                //printControl1.PrintingSystem = rpt.PrintingSystem;
-                //rpt.RequestParameters = false;
-                //rpt.CreateDocument();
                 rpt.ShowPreview();                
                     splashScreenManager1.CloseWaitForm();
             }
@@ -137,13 +125,6 @@ namespace Bizu.Reports.Contabilidad
                 Nom_centro_Costo = uCct_Menu_Reportes1.Get_info_Centro_costo() == null ? "" : uCct_Menu_Reportes1.Get_info_Centro_costo().Centro_costo;
                 IdNivel_a_mostrar = (int)uCct_Menu_Reportes1.bei_Nivel.EditValue;
 
-                IdPunto_cargo_grupo = 0;
-                Nom_Punto_Cargo_Grupo = uCct_Menu_Reportes1.Get_info_punto_cargo_grupo() == null ? "" : uCct_Menu_Reportes1.Get_info_punto_cargo_grupo().nom_punto_cargo_grupo;
-
-                IdPunto_cargo = 0;
-                Nom_Punto_Cargo = "";
-
-
                 lista = Bus.consultar_data(IdEmpresa, FechaIni, FechaFin, IdCentroCosto, IdNivel_a_mostrar,
                     IdPunto_cargo_grupo, IdPunto_cargo, Mostrar_reg_cero, Mostrar_cc, Considerar_asiento_cierre, param.IdUsuario, ref msg);
 
@@ -202,8 +183,6 @@ namespace Bizu.Reports.Contabilidad
                         int IdPunto_Cargo = 0;
                         string IdCentroCosto = "";                        
 
-                        IdPunto_Cargo_Grupo = uCct_Menu_Reportes1.Get_info_punto_cargo_grupo() == null ? 0 : uCct_Menu_Reportes1.Get_info_punto_cargo_grupo().IdPunto_cargo_grupo;
-                        IdPunto_Cargo = 0;
                         IdCentroCosto = uCct_Menu_Reportes1.Get_info_Centro_costo() == null ? "" : uCct_Menu_Reportes1.Get_info_Centro_costo().IdCentroCosto;
 
                         FechaIni = uCct_Menu_Reportes1.bei_Desde.EditValue == null ? DateTime.Now : Convert.ToDateTime(uCct_Menu_Reportes1.bei_Desde.EditValue);

@@ -146,14 +146,6 @@ namespace Bizu.Presentation.Inventario
         List<in_Producto_Info> listProducto = new List<in_Producto_Info>();
         in_producto_Bus Bus_Producto = new in_producto_Bus();
         
-        ct_centro_costo_sub_centro_costo_Bus Bus_SubCentroCosto = new ct_centro_costo_sub_centro_costo_Bus();        
-        ct_Centro_costo_Bus BusCentroCosto = new ct_Centro_costo_Bus();
-        BindingList<ct_centro_costo_sub_centro_costo_Info> BindListaSubCentro = new BindingList<ct_centro_costo_sub_centro_costo_Info>();
-        
-        List<ct_Centro_costo_Info> ListCentro_Costo = new List<ct_Centro_costo_Info>();
-        List<ct_centro_costo_sub_centro_costo_Info> list_subcentro_combo = new List<ct_centro_costo_sub_centro_costo_Info>();
-        ct_centro_costo_sub_centro_costo_Info info_subcentro = new ct_centro_costo_sub_centro_costo_Info();
-
         List<in_UnidadMedida_Info> lst_unidad_medida_para_combo = new List<in_UnidadMedida_Info>();
         in_UnidadMedida_Bus bus_unidad_medida = new in_UnidadMedida_Bus();
         in_UnidadMedida_Info info_unidad_medida = new in_UnidadMedida_Info();
@@ -672,25 +664,7 @@ namespace Bizu.Presentation.Inventario
 
         public void Cargar_Centro_Subcentro()
         {
-            try
-            {
-                //Centro de costo
-                ListCentro_Costo = BusCentroCosto.Get_list_Centro_Costo(param.IdEmpresa, ref msg);
-                cmbCentroCosto_grid.DataSource = ListCentro_Costo;
-                cmbCentroCosto_grid.DisplayMember = "Centro_costo2";
-                cmbCentroCosto_grid.ValueMember = "IdCentroCosto";
-                //Sub Centro de Costo
-                list_subcentro_combo = Bus_SubCentroCosto.Get_list_centro_costo_sub_centro_costo(param.IdEmpresa);
-                cmbSubcentro_costo.DataSource = list_subcentro_combo;
-
-                lst_unidad_medida_para_combo = bus_unidad_medida.Get_list_UnidadMedida();
-                cmbUnidadMedida.DataSource = lst_unidad_medida_para_combo;
-            }
-            catch (Exception ex)
-            {
-                Log_Error_bus.Log_Error(ex.ToString());
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
         }
 
         public void CargarTipoMovimiento()
@@ -1437,32 +1411,7 @@ namespace Bizu.Presentation.Inventario
 
         private void Llamar_pantalla_subcentro()
         {
-            try
-            {
-                in_Ing_Egr_Inven_det_Info Row = (in_Ing_Egr_Inven_det_Info)gridViewProductos.GetRow(RowHandle);
-                if (Row != null)
-                {
-                    if (Row.IdCentroCosto != null)
-                    {
-                        List<ct_centro_costo_sub_centro_costo_Info> Lista_subcentro_consulta = new List<ct_centro_costo_sub_centro_costo_Info>();
-                        Lista_subcentro_consulta = list_subcentro_combo.Where(q => q.IdEmpresa == param.IdEmpresa && q.IdCentroCosto == Row.IdCentroCosto).ToList();
-                        if (Lista_subcentro_consulta != null && Lista_subcentro_consulta.Count != 0)
-                        {
-                            frmCon_ct_centro_costo_sub_centro_costo_Cons frm_combo = new frmCon_ct_centro_costo_sub_centro_costo_Cons();
-                            frm_combo.Set_config_combo(Lista_subcentro_consulta);
-                            frm_combo.ShowDialog();
-                            info_subcentro = frm_combo.Get_info_centro_sub_centro_costo();
-                            gridViewProductos.SetRowCellValue(RowHandle, colIdRegistro_subcentro, info_subcentro == null ? null : info_subcentro.IdRegistro);
-                            gridViewProductos.SetRowCellValue(RowHandle, colIdSubcentro, info_subcentro == null ? null : info_subcentro.IdCentroCosto_sub_centro_costo);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-                Log_Error_bus.Log_Error(ex.ToString());
-            }
+            
         }
 
         private void Llamar_pantalla_unidad_medida()

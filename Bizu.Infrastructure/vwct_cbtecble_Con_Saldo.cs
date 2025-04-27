@@ -12,16 +12,16 @@ namespace Bizu.Infrastructure
     using System;
     using System.Collections.Generic;
     
-    public partial class vwct_cbtecble_Con_Saldo
+    public partial class vwct_cbtecble_con_saldo
     {
-        public int IdEmpresa { get; set; }
-        public int IdTipoCbte { get; set; }
-        public decimal IdCbteCble { get; set; }
-        public Nullable<double> dc_Valor { get; set; }
-        public Nullable<double> MontoOG { get; set; }
-        public Nullable<double> SaldoDiario { get; set; }
-        public string Detalle { get; set; }
-        public string cb_Observacion { get; set; }
-        public System.DateTime cb_Fecha { get; set; }
+        public int idempresa { get; set; }
+        public int idtipocbte { get; set; }
+        public decimal idcbtecble { get; set; }
+        public Nullable<double> dc_valor { get; set; }
+        public Nullable<double> montoog { get; set; }
+        public Nullable<double> saldodiario { get; set; }
+        public string detalle { get; set; }
+        public string cb_observacion { get; set; }
+        public System.DateTime cb_fecha { get; set; }
     }
 }

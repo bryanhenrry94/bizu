@@ -12,24 +12,24 @@ namespace Bizu.Infrastructure
     using System;
     using System.Collections.Generic;
     
-    public partial class vwct_cbtecble_con_saldo_cxp_ANTI_PROVEE
+    public partial class vwct_cbtecble_con_saldo_cxp_anti_provee
     {
-        public Nullable<int> IdEmpresa { get; set; }
-        public Nullable<decimal> IdCbteCble { get; set; }
-        public Nullable<int> IdTipoCbte { get; set; }
-        public System.DateTime Fecha { get; set; }
-        public string Observacion { get; set; }
-        public string tc_TipoCbte { get; set; }
-        public double Valor_cbte { get; set; }
+        public Nullable<int> idempresa { get; set; }
+        public Nullable<decimal> idcbtecble { get; set; }
+        public Nullable<int> idtipocbte { get; set; }
+        public System.DateTime fecha { get; set; }
+        public string observacion { get; set; }
+        public string tc_tipocbte { get; set; }
+        public double valor_cbte { get; set; }
         public double valor_cancelado { get; set; }
         public double valor_saldo_cbte { get; set; }
-        public string Tipo { get; set; }
-        public int IdEmpresaOP { get; set; }
-        public decimal IdOrdenPagoOP { get; set; }
-        public int SecuenciaOP { get; set; }
-        public string IdCtaCble { get; set; }
-        public string IdCtaCble_Anticipo { get; set; }
-        public string Beneficiario { get; set; }
-        public decimal IdProveedor { get; set; }
+        public string tipo { get; set; }
+        public int idempresaop { get; set; }
+        public decimal idordenpagoop { get; set; }
+        public int secuenciaop { get; set; }
+        public string idctacble { get; set; }
+        public string idctacble_anticipo { get; set; }
+        public string beneficiario { get; set; }
+        public decimal idproveedor { get; set; }
     }
 }

@@ -37,7 +37,6 @@ namespace Bizu.Reports.Inventario
                 date_Fecha_Fin.Value = DateTime.Now;
                 ucGe_Sucursal1.Get_IdSucursal();
                 uCct_CentroCosto1.Get_IdCentroCosto();//error en el control usuario
-                uCct_Pto_Cargo1.Get_Id_Pto_Cargo();
                 uCin_Producto1.Get_Id_ProductoIni();
             }
             catch (Exception ex)

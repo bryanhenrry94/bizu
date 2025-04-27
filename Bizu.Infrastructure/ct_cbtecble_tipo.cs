@@ -14,33 +14,20 @@ namespace Bizu.Infrastructure
     
     public partial class ct_cbtecble_tipo
     {
-        public ct_cbtecble_tipo()
-        {
-            this.ct_cbtecble = new HashSet<ct_cbtecble>();
-            this.ct_cbtecble_Plantilla = new HashSet<ct_cbtecble_Plantilla>();
-            this.ct_parametro = new HashSet<ct_parametro>();
-            this.ct_parametro1 = new HashSet<ct_parametro>();
-        }
-    
-        public int IdEmpresa { get; set; }
-        public int IdTipoCbte { get; set; }
-        public string CodTipoCbte { get; set; }
-        public string tc_TipoCbte { get; set; }
-        public string tc_Estado { get; set; }
-        public string tc_Interno { get; set; }
-        public string tc_Nemonico { get; set; }
-        public Nullable<int> IdTipoCbte_Anul { get; set; }
-        public string IdUsuario { get; set; }
-        public Nullable<System.DateTime> Fecha_Transac { get; set; }
-        public string IdUsuarioUltMod { get; set; }
-        public Nullable<System.DateTime> Fecha_UltMod { get; set; }
-        public string IdUsuarioUltAnu { get; set; }
-        public Nullable<System.DateTime> Fecha_UltAnu { get; set; }
-        public string MotiAnula { get; set; }
-    
-        public virtual ICollection<ct_cbtecble> ct_cbtecble { get; set; }
-        public virtual ICollection<ct_cbtecble_Plantilla> ct_cbtecble_Plantilla { get; set; }
-        public virtual ICollection<ct_parametro> ct_parametro { get; set; }
-        public virtual ICollection<ct_parametro> ct_parametro1 { get; set; }
+        public int idempresa { get; set; }
+        public int idtipocbte { get; set; }
+        public string codtipocbte { get; set; }
+        public string tc_tipocbte { get; set; }
+        public string tc_estado { get; set; }
+        public string tc_interno { get; set; }
+        public string tc_nemonico { get; set; }
+        public Nullable<int> idtipocbte_anul { get; set; }
+        public string idusuario { get; set; }
+        public Nullable<System.DateTime> fecha_transac { get; set; }
+        public string idusuarioultmod { get; set; }
+        public Nullable<System.DateTime> fecha_ultmod { get; set; }
+        public string idusuarioultanu { get; set; }
+        public Nullable<System.DateTime> fecha_ultanu { get; set; }
+        public string motianula { get; set; }
     }
 }

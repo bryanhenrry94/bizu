@@ -176,10 +176,7 @@ namespace Bizu.Presentation.Caja
                 caja_I.ip=param.ip;
                 caja_I.nom_pc=param.nom_pc;
                 caja_I.IdSucursal = ucGe_Sucursal_combo1.get_SucursalInfo().IdSucursal;
-
-                if (uCct_Pto_Cargo_Grupo1.Get_info_grupo() != null) caja_I.IdPunto_cargo_grupo = uCct_Pto_Cargo_Grupo1.Get_info_grupo().IdPunto_cargo_grupo;
-                if (uCct_Pto_Cargo_Grupo1.Get_info_punto_cargo() != null) caja_I.IdPunto_cargo = uCct_Pto_Cargo_Grupo1.Get_info_punto_cargo().IdPunto_cargo;
-
+                
                 return caja_I;
             }
             catch (Exception ex)
@@ -194,8 +191,6 @@ namespace Bizu.Presentation.Caja
         {
             try
             {
-                uCct_Pto_Cargo_Grupo1.Cargar_combos();
-
                 txt_idCaja.Text = info.IdCaja.ToString();
                 txt_codigo.Text = info.ca_Codigo;
                 txt_descripcion.Text = info.ca_Descripcion;
@@ -205,8 +200,6 @@ namespace Bizu.Presentation.Caja
                 ucCon_PlanCtaCmb1.set_PlanCtarInfo(info.IdCtaCble);
                 ultraCmbE_responsable.EditValue = info.IdUsuario_Responsable;
                 ucGe_Sucursal_combo1.set_SucursalInfo(Convert.ToInt32(info.IdSucursal));
-                uCct_Pto_Cargo_Grupo1.Set_info_grupo(info.IdPunto_cargo_grupo);
-                uCct_Pto_Cargo_Grupo1.Set_info_punto_cargo(info.IdPunto_cargo);
 
                 caja_I = info;
 
@@ -386,7 +379,6 @@ namespace Bizu.Presentation.Caja
                 ucCon_PlanCtaCmb1.Inicializar_cmbPlanCta();
                 caja_I.IdSucursal = ucGe_Sucursal_combo1.get_SucursalInfo().IdSucursal;
 
-                uCct_Pto_Cargo_Grupo1.Inicializar_combos();
             }
             catch (Exception ex)
             {
@@ -400,10 +392,7 @@ namespace Bizu.Presentation.Caja
             try
             {
                 this.event_FrmCa_Caja_FormClosing+=new delegate_FrmCa_Caja_FormClosing(FrmCa_Caja_event_FrmCa_Caja_FormClosing);
-                if (_Accion==Cl_Enumeradores.eTipo_action.grabar)
-                {
-                    uCct_Pto_Cargo_Grupo1.Cargar_combos();
-                }
+                
             }
             catch (Exception ex)
             {

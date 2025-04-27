@@ -14,16 +14,16 @@ namespace Bizu.Infrastructure
     
     public partial class vwct_centro_costo
     {
-        public int IdEmpresa { get; set; }
-        public string IdCentroCosto { get; set; }
-        public string CodCentroCosto { get; set; }
-        public string Centro_costo { get; set; }
-        public string Centro_costoPadre { get; set; }
-        public string IdCentroCostoPadre { get; set; }
-        public Nullable<decimal> IdCatalogo { get; set; }
-        public string pc_EsMovimiento { get; set; }
-        public int IdNivel { get; set; }
-        public string pc_Estado { get; set; }
-        public string IdCtaCble { get; set; }
+        public int idempresa { get; set; }
+        public string idcentrocosto { get; set; }
+        public string codcentrocosto { get; set; }
+        public string centro_costo { get; set; }
+        public string centro_costopadre { get; set; }
+        public string idcentrocostopadre { get; set; }
+        public Nullable<decimal> idcatalogo { get; set; }
+        public string pc_esmovimiento { get; set; }
+        public int idnivel { get; set; }
+        public string pc_estado { get; set; }
+        public string idctacble { get; set; }
     }
 }

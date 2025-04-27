@@ -49,48 +49,7 @@ namespace Bizu.Infrastructure.Facturacion
             }
         }
 
-
-        public decimal GetIdCbteCble(int idempresa, int idTipoCbte)
-        {
-            try
-            {
-                decimal IdcbteCble = 0;
-                EntitiesDBConta OECbtecble = new EntitiesDBConta();
-
-
-                var selecte = OECbtecble.ct_cbtecble.Count(q => q.IdEmpresa == idempresa && q.IdTipoCbte == idTipoCbte);
-
-
-                if (selecte == 0)
-                {
-                    IdcbteCble = 1;
-                }
-                else
-                {
-                    OECbtecble = new EntitiesDBConta();
-                    var selectCbtecble = (from CbtCble in OECbtecble.ct_cbtecble
-                                          where CbtCble.IdEmpresa == idempresa
-                                          && CbtCble.IdTipoCbte == idTipoCbte
-                                          select CbtCble.IdCbteCble).Max();
-                    IdcbteCble = Convert.ToDecimal(selectCbtecble.ToString()) + 1;
-
-
-
-                }
-                return IdcbteCble;
-            }
-            catch (Exception ex)
-            {
-                string arreglo = ToString();
-                tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
-                tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", arreglo, "",
-                                    "", "", "", "", DateTime.Now);
-                oDataLog.Guardar_Log_Error(Log_Error_sis, ref mensaje);
-                mensaje = ex.ToString();
-                throw new Exception(ex.ToString());
-            }
-        }
-
+        
         public List<fa_venta_telefonica_Info> Get_List_venta_telefonica(int IdEmpresa)
         {
             try

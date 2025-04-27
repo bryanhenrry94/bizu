@@ -49,7 +49,6 @@
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.uCct_Pto_Cargo_Grupo = new Bizu.Reports.Controles.UCct_Pto_Cargo_Grupo();
             this.chkMostrar_Reg_Cero = new System.Windows.Forms.CheckBox();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.dtpFechaDesde = new System.Windows.Forms.DateTimePicker();
@@ -253,15 +252,7 @@
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 3;
-            this.gridColumn4.Width = 218;
-            // 
-            // uCct_Pto_Cargo_Grupo
-            // 
-            this.uCct_Pto_Cargo_Grupo.Location = new System.Drawing.Point(653, 24);
-            this.uCct_Pto_Cargo_Grupo.Name = "uCct_Pto_Cargo_Grupo";
-            this.uCct_Pto_Cargo_Grupo.Size = new System.Drawing.Size(369, 54);
-            this.uCct_Pto_Cargo_Grupo.TabIndex = 17;
-            this.uCct_Pto_Cargo_Grupo.Visible = false;
+            this.gridColumn4.Width = 218;            
             // 
             // chkMostrar_Reg_Cero
             // 
@@ -318,7 +309,6 @@
             this.panel1.Controls.Add(this.dtpFechaDesde);
             this.panel1.Controls.Add(this.labelControl1);
             this.panel1.Controls.Add(this.chkMostrar_Reg_Cero);
-            this.panel1.Controls.Add(this.uCct_Pto_Cargo_Grupo);
             this.panel1.Controls.Add(this.cmb_Periodo);
             this.panel1.Controls.Add(this.lblPeriodo);
             this.panel1.Controls.Add(this.cmb_centro_costo);
@@ -389,7 +379,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
-        private Controles.UCct_Pto_Cargo_Grupo uCct_Pto_Cargo_Grupo;
         private System.Windows.Forms.CheckBox chkMostrar_Reg_Cero;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private System.Windows.Forms.DateTimePicker dtpFechaDesde;

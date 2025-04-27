@@ -509,18 +509,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bancos\FrmBA_DepositoBancario_Varios_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Bancos\FrmBA_DepositoBancario_Varios_Mant.Designer.cs">
-      <DependentUpon>FrmBA_DepositoBancario_Varios_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Bancos\FrmBA_DepositoBancario_Varios_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Bancos\FrmBA_DepositoBancario_Varios_Cons.Designer.cs">
-      <DependentUpon>FrmBA_DepositoBancario_Varios_Cons.cs</DependentUpon>
-    </Compile>
     <Compile Include="Bancos\FrmBA_Cheque_Notificacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -538,12 +526,6 @@
     </Compile>
     <Compile Include="Caja\FrmCa_Caja_Talonario_Recibo_Mant.Designer.cs">
       <DependentUpon>FrmCa_Caja_Talonario_Recibo_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Compras\FrmCom_Solicitante_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Compras\FrmCom_Solicitante_Cons.Designer.cs">
-      <DependentUpon>FrmCom_Solicitante_Cons.cs</DependentUpon>
     </Compile>
     <Compile Include="Compras\FrmCom_Dashboard.cs">
       <SubType>Form</SubType>
@@ -635,30 +617,6 @@
     <Compile Include="Inventario\FrmIn_Dashboard_GuiaRemision.Designer.cs">
       <DependentUpon>FrmIn_Dashboard_GuiaRemision.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inventario\FrmIn_Ingreso_x_GuiaRemision_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Inventario\FrmIn_Ingreso_x_GuiaRemision_Cons.Designer.cs">
-      <DependentUpon>FrmIn_Ingreso_x_GuiaRemision_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Inventario\FrmIn_Ingreso_x_GuiaRemision_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Inventario\FrmIn_Ingreso_x_GuiaRemision_Mant.Designer.cs">
-      <DependentUpon>FrmIn_Ingreso_x_GuiaRemision_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Inventario\FrmIn_Egresos_x_Ajuste_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Inventario\FrmIn_Egresos_x_Ajuste_Cons.Designer.cs">
-      <DependentUpon>FrmIn_Egresos_x_Ajuste_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Inventario\FrmIn_Egresos_x_Ajuste_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Inventario\FrmIn_Egresos_x_Ajuste_Mant.Designer.cs">
-      <DependentUpon>FrmIn_Egresos_x_Ajuste_Mant.cs</DependentUpon>
-    </Compile>
     <Compile Include="Mail\FrmMail_BandejaSalida.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -682,18 +640,6 @@
     </Compile>
     <Compile Include="Mail\FrmMail_Plantilla_Mensaje.Designer.cs">
       <DependentUpon>FrmMail_Plantilla_Mensaje.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Compras\frmCom_SolicitudCompra_PreAprobacion_Saldos_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Compras\frmCom_SolicitudCompra_PreAprobacion_Saldos_Mant.Designer.cs">
-      <DependentUpon>frmCom_SolicitudCompra_PreAprobacion_Saldos_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controles\UCCon_TipoCosto.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCCon_TipoCosto.Designer.cs">
-      <DependentUpon>UCCon_TipoCosto.cs</DependentUpon>
     </Compile>
     <Compile Include="Controles\UCCp_cuotas_x_doc.cs">
       <SubType>UserControl</SubType>
@@ -827,255 +773,17 @@
     <Compile Include="Facturacion\frmFa_Aprobacion_Motivo_Consulta.Designer.cs">
       <DependentUpon>frmFa_Aprobacion_Motivo_Consulta.cs</DependentUpon>
     </Compile>
-    <Compile Include="Facturacion\FrmFa_CotizacionCliente_consu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion\FrmFa_CotizacionCliente_consu.Designer.cs">
-      <DependentUpon>FrmFa_CotizacionCliente_consu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion\FrmFa_CotizacionCliente_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion\FrmFa_CotizacionCliente_Mant.Designer.cs">
-      <DependentUpon>FrmFa_CotizacionCliente_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion\frmFa_Descuento_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion\frmFa_Descuento_Cons.Designer.cs">
-      <DependentUpon>frmFa_Descuento_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion\frmFa_Descuento_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion\frmFa_Descuento_Mant.Designer.cs">
-      <DependentUpon>frmFa_Descuento_Mant.cs</DependentUpon>
-    </Compile>
     <Compile Include="Facturacion\frmFa_factura_det_x_fa_descuento.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Facturacion\frmFa_factura_det_x_fa_descuento.Designer.cs">
       <DependentUpon>frmFa_factura_det_x_fa_descuento.cs</DependentUpon>
     </Compile>
-    <Compile Include="Facturacion\frmFa_Pedido_consu_GE.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion\frmFa_Pedido_consu_GE.Designer.cs">
-      <DependentUpon>frmFa_Pedido_consu_GE.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion\frmFa_Pedido_Mant_GE.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion\frmFa_Pedido_Mant_GE.Designer.cs">
-      <DependentUpon>frmFa_Pedido_Mant_GE.cs</DependentUpon>
-    </Compile>
     <Compile Include="Facturacion\frmFa_Aprobacion_Motivo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Facturacion\frmFa_Aprobacion_Motivo.Designer.cs">
       <DependentUpon>frmFa_Aprobacion_Motivo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_ActivoFijoTipo_General.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_ActivoFijoTipo_General.designer.cs">
-      <DependentUpon>frmAF_ActivoFijoTipo_General.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_ActivoFijoTipo_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_ActivoFijoTipo_Mant.designer.cs">
-      <DependentUpon>frmAF_ActivoFijoTipo_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_ActivoFijo_General.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_ActivoFijo_General.designer.cs">
-      <DependentUpon>frmAF_ActivoFijo_General.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_ActivoFijo_General_Handler.cs" />
-    <Compile Include="ActivoFijo\frmAF_ActivoFijo_ImportWizard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_ActivoFijo_ImportWizard.Designer.cs">
-      <DependentUpon>frmAF_ActivoFijo_ImportWizard.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_ActivoFijo_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_ActivoFijo_Mant.designer.cs">
-      <DependentUpon>frmAF_ActivoFijo_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_ActivoFijo_Mant_Handler.cs" />
-    <Compile Include="ActivoFijo\frmAF_ActivoFijo_x_OC_x_Factura.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_ActivoFijo_x_OC_x_Factura.Designer.cs">
-      <DependentUpon>frmAF_ActivoFijo_x_OC_x_Factura.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAf_Activo_fijo_Categoria_Consul.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAf_Activo_fijo_Categoria_Consul.Designer.cs">
-      <DependentUpon>frmAf_Activo_fijo_Categoria_Consul.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAf_Activo_fijo_Categoria_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAf_Activo_fijo_Categoria_Mant.Designer.cs">
-      <DependentUpon>frmAf_Activo_fijo_Categoria_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAf_Activo_Fijo_Grupo_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAf_Activo_Fijo_Grupo_Cons.Designer.cs">
-      <DependentUpon>frmAf_Activo_Fijo_Grupo_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAf_Activo_Fijo_Grupo_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAf_Activo_Fijo_Grupo_Mant.Designer.cs">
-      <DependentUpon>frmAf_Activo_Fijo_Grupo_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_AdministradorReporte.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_AdministradorReporte.Designer.cs">
-      <DependentUpon>frmAF_AdministradorReporte.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_BajaActivo_Consul.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_BajaActivo_Consul.Designer.cs">
-      <DependentUpon>frmAF_BajaActivo_Consul.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_BajaActivo_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_BajaActivo_Mant.Designer.cs">
-      <DependentUpon>frmAF_BajaActivo_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_Cambio_Ubicacion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_Cambio_Ubicacion.Designer.cs">
-      <DependentUpon>frmAF_Cambio_Ubicacion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_Cambio_Ubicacion_Consul.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_Cambio_Ubicacion_Consul.Designer.cs">
-      <DependentUpon>frmAF_Cambio_Ubicacion_Consul.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_Cambio_Ubicacion_Consul_Handler.cs" />
-    <Compile Include="ActivoFijo\frmAF_Cambio_Ubicacion_Handler.cs" />
-    <Compile Include="ActivoFijo\frmAF_Catalogo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_Catalogo.designer.cs">
-      <DependentUpon>frmAF_Catalogo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_CatalogoTipo_Mantenimiento.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_CatalogoTipo_Mantenimiento.designer.cs">
-      <DependentUpon>frmAF_CatalogoTipo_Mantenimiento.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_Catalogo_Mantenimiento.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_Catalogo_Mantenimiento.designer.cs">
-      <DependentUpon>frmAF_Catalogo_Mantenimiento.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_Departamento_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_Departamento_Mant.Designer.cs">
-      <DependentUpon>frmAF_Departamento_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_DepreLineaRecta_Consul.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_DepreLineaRecta_Consul.Designer.cs">
-      <DependentUpon>frmAF_DepreLineaRecta_Consul.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_DepreLineaRecta_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_DepreLineaRecta_Mant.Designer.cs">
-      <DependentUpon>frmAF_DepreLineaRecta_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_DepreUnidades_Consul.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_DepreUnidades_Consul.Designer.cs">
-      <DependentUpon>frmAF_DepreUnidades_Consul.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_DepreUnidades_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_DepreUnidades_Mant.Designer.cs">
-      <DependentUpon>frmAF_DepreUnidades_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAf_Encargado_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAf_Encargado_Mant.Designer.cs">
-      <DependentUpon>frmAf_Encargado_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_MejoraActivo_Consul.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_MejoraActivo_Consul.Designer.cs">
-      <DependentUpon>frmAF_MejoraActivo_Consul.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_MejoraActivo_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_MejoraActivo_Mant.Designer.cs">
-      <DependentUpon>frmAF_MejoraActivo_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_Parametros.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_Parametros.Designer.cs">
-      <DependentUpon>frmAF_Parametros.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_RetiroActivo_Consul.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_RetiroActivo_Consul.Designer.cs">
-      <DependentUpon>frmAF_RetiroActivo_Consul.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_RetiroActivo_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_RetiroActivo_Mant.Designer.cs">
-      <DependentUpon>frmAF_RetiroActivo_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_Tipo_Depreciacion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_Tipo_Depreciacion.Designer.cs">
-      <DependentUpon>frmAF_Tipo_Depreciacion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_Tipo_Depreciacion_Consul.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_Tipo_Depreciacion_Consul.Designer.cs">
-      <DependentUpon>frmAF_Tipo_Depreciacion_Consul.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_VentaActivo_Consul.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_VentaActivo_Consul.Designer.cs">
-      <DependentUpon>frmAF_VentaActivo_Consul.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_VentaActivo_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_VentaActivo_Mant.Designer.cs">
-      <DependentUpon>frmAF_VentaActivo_Mant.cs</DependentUpon>
     </Compile>
     <Compile Include="Bancos\frmBA_AdministradorReporte.cs">
       <SubType>Form</SubType>
@@ -1413,12 +1121,6 @@
     <Compile Include="Compras\FrmCom_CompradorMantenimiento.Designer.cs">
       <DependentUpon>FrmCom_CompradorMantenimiento.cs</DependentUpon>
     </Compile>
-    <Compile Include="Compras\FrmCom_Confirmacion_SC_para_OC.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Compras\FrmCom_Confirmacion_SC_para_OC.Designer.cs">
-      <DependentUpon>FrmCom_Confirmacion_SC_para_OC.cs</DependentUpon>
-    </Compile>
     <Compile Include="Compras\FrmCom_Consulta_OrdenCompra.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1503,48 +1205,6 @@
     <Compile Include="Compras\FrmCom_ProveedorBusqueda.designer.cs">
       <DependentUpon>FrmCom_ProveedorBusqueda.cs</DependentUpon>
     </Compile>
-    <Compile Include="Compras\FrmCom_Solicitante_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Compras\FrmCom_Solicitante_Mant.Designer.cs">
-      <DependentUpon>FrmCom_Solicitante_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Compras\FrmCom_SolicitudCompra_Aprobacion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Compras\FrmCom_SolicitudCompra_Aprobacion.Designer.cs">
-      <DependentUpon>FrmCom_SolicitudCompra_Aprobacion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Compras\FrmCom_SolicitudCompra_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Compras\FrmCom_SolicitudCompra_Cons.Designer.cs">
-      <DependentUpon>FrmCom_SolicitudCompra_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Compras\FrmCom_SolicitudCompra_det_pre_Aprobacion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Compras\FrmCom_SolicitudCompra_det_pre_Aprobacion.Designer.cs">
-      <DependentUpon>FrmCom_SolicitudCompra_det_pre_Aprobacion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Compras\FrmCom_SolicitudCompra_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Compras\FrmCom_SolicitudCompra_Mant.Designer.cs">
-      <DependentUpon>FrmCom_SolicitudCompra_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Compras\FrmCom_SolicitudConsulta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Compras\FrmCom_SolicitudConsulta.Designer.cs">
-      <DependentUpon>FrmCom_SolicitudConsulta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Compras\FrmCom_Solicitud_x_OC.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Compras\FrmCom_Solicitud_x_OC.Designer.cs">
-      <DependentUpon>FrmCom_Solicitud_x_OC.cs</DependentUpon>
-    </Compile>
     <Compile Include="Compras\FrmCom_TerminoPagos_Mant.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1587,18 +1247,6 @@
     <Compile Include="Contabilidad\frmCon_CbteCble_Mant.Designer.cs">
       <DependentUpon>frmCon_CbteCble_Mant.cs</DependentUpon>
     </Compile>
-    <Compile Include="Contabilidad\frmCon_cbtecble_Plantilla.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Contabilidad\frmCon_cbtecble_Plantilla.Designer.cs">
-      <DependentUpon>frmCon_cbtecble_Plantilla.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Contabilidad\frmCon_cbtecble_Plantilla_Consulta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Contabilidad\frmCon_cbtecble_Plantilla_Consulta.Designer.cs">
-      <DependentUpon>frmCon_cbtecble_Plantilla_Consulta.cs</DependentUpon>
-    </Compile>
     <Compile Include="Contabilidad\frmCon_CentroCostos_Consulta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1612,104 +1260,18 @@
     <Compile Include="Contabilidad\frmCon_CentroCostos_Man.Designer.cs">
       <DependentUpon>frmCon_CentroCostos_Man.cs</DependentUpon>
     </Compile>
-    <Compile Include="Contabilidad\frmCon_CentroCostos_Nivel_Consulta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Contabilidad\frmCon_CentroCostos_Nivel_Consulta.Designer.cs">
-      <DependentUpon>frmCon_CentroCostos_Nivel_Consulta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Contabilidad\frmCon_CentroCostos_Nivel_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Contabilidad\frmCon_CentroCostos_Nivel_Mant.Designer.cs">
-      <DependentUpon>frmCon_CentroCostos_Nivel_Mant.cs</DependentUpon>
-    </Compile>
     <Compile Include="Contabilidad\frmCon_CentroCosto_Mant_Handler.cs" />
-    <Compile Include="Contabilidad\frmCon_CentroCosto_SubCentroCosto_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Contabilidad\frmCon_CentroCosto_SubCentroCosto_Mant.designer.cs">
-      <DependentUpon>frmCon_CentroCosto_SubCentroCosto_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Contabilidad\frmCon_CentroCosto_SubCentroCosto_Mant_FJ.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Contabilidad\frmCon_CentroCosto_SubCentroCosto_Mant_FJ.Designer.cs">
-      <DependentUpon>frmCon_CentroCosto_SubCentroCosto_Mant_FJ.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Contabilidad\frmCon_CentroCosto_SubCentroCosto_Mant_Handler.cs" />
     <Compile Include="Contabilidad\frmCon_Cierre_Periodo_x_Modulo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Contabilidad\frmCon_Cierre_Periodo_x_Modulo.Designer.cs">
       <DependentUpon>frmCon_Cierre_Periodo_x_Modulo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Contabilidad\frmCon_ct_centro_costo_sub_centro_costo_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Contabilidad\frmCon_ct_centro_costo_sub_centro_costo_Cons.Designer.cs">
-      <DependentUpon>frmCon_ct_centro_costo_sub_centro_costo_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Contabilidad\frmCon_ct_centro_costo_sub_centro_costo_Cons_FJ.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Contabilidad\frmCon_ct_centro_costo_sub_centro_costo_Cons_FJ.Designer.cs">
-      <DependentUpon>frmCon_ct_centro_costo_sub_centro_costo_Cons_FJ.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Contabilidad\frmCon_ct_centro_costo_sub_centro_costo_Cons_Handler.cs" />
     <Compile Include="Contabilidad\frmCon_GrupoContable.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Contabilidad\frmCon_GrupoContable.Designer.cs">
       <DependentUpon>frmCon_GrupoContable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Contabilidad\frmCon_GrupoEmpresarial.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Contabilidad\frmCon_GrupoEmpresarial.Designer.cs">
-      <DependentUpon>frmCon_GrupoEmpresarial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Contabilidad\frmCon_GrupoEmpresarial_Consulta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Contabilidad\frmCon_GrupoEmpresarial_Consulta.Designer.cs">
-      <DependentUpon>frmCon_GrupoEmpresarial_Consulta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Contabilidad\frmCon_GrupoEmpresarial_grupocble.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Contabilidad\frmCon_GrupoEmpresarial_grupocble.Designer.cs">
-      <DependentUpon>frmCon_GrupoEmpresarial_grupocble.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Contabilidad\frmCon_GrupoEmpresarial_grupocble_Consulta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Contabilidad\frmCon_GrupoEmpresarial_grupocble_Consulta.Designer.cs">
-      <DependentUpon>frmCon_GrupoEmpresarial_grupocble_Consulta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Contabilidad\frmCon_GrupoEmpresarial_plancta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Contabilidad\frmCon_GrupoEmpresarial_plancta.Designer.cs">
-      <DependentUpon>frmCon_GrupoEmpresarial_plancta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Contabilidad\frmCon_GrupoEmpresarial_plancta_Consulta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Contabilidad\frmCon_GrupoEmpresarial_plancta_Consulta.Designer.cs">
-      <DependentUpon>frmCon_GrupoEmpresarial_plancta_Consulta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Contabilidad\frmCon_GrupoEmpresarial_plancta_nivel.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Contabilidad\frmCon_GrupoEmpresarial_plancta_nivel.Designer.cs">
-      <DependentUpon>frmCon_GrupoEmpresarial_plancta_nivel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Contabilidad\frmCon_GrupoEmpresarial_plancta_nivel_Consulta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Contabilidad\frmCon_GrupoEmpresarial_plancta_nivel_Consulta.Designer.cs">
-      <DependentUpon>frmCon_GrupoEmpresarial_plancta_nivel_Consulta.cs</DependentUpon>
     </Compile>
     <Compile Include="Contabilidad\frmCon_Grupo_CtaCble_Mant.cs">
       <SubType>Form</SubType>
@@ -1722,18 +1284,6 @@
     </Compile>
     <Compile Include="Contabilidad\frmCon_Grupo_CtaCbl_Cons.designer.cs">
       <DependentUpon>frmCon_Grupo_CtaCbl_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Contabilidad\frmCon_grupo_x_Tipo_Gasto_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Contabilidad\frmCon_grupo_x_Tipo_Gasto_Cons.Designer.cs">
-      <DependentUpon>frmCon_grupo_x_Tipo_Gasto_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Contabilidad\frmCon_grupo_x_Tipo_Gasto_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Contabilidad\frmCon_grupo_x_Tipo_Gasto_Mant.Designer.cs">
-      <DependentUpon>frmCon_grupo_x_Tipo_Gasto_Mant.cs</DependentUpon>
     </Compile>
     <Compile Include="Contabilidad\frmCon_Parametro.cs">
       <SubType>Form</SubType>
@@ -1783,30 +1333,6 @@
     <Compile Include="Contabilidad\frmCon_PlanCuenta_Niveles_Mant.Designer.cs">
       <DependentUpon>frmCon_PlanCuenta_Niveles_Mant.cs</DependentUpon>
     </Compile>
-    <Compile Include="Contabilidad\frmCon_Punto_Cargo_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Contabilidad\frmCon_Punto_Cargo_Cons.Designer.cs">
-      <DependentUpon>frmCon_Punto_Cargo_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Contabilidad\frmCon_Punto_Cargo_Grupo_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Contabilidad\frmCon_Punto_Cargo_Grupo_Cons.Designer.cs">
-      <DependentUpon>frmCon_Punto_Cargo_Grupo_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Contabilidad\frmCon_Punto_Cargo_Grupo_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Contabilidad\frmCon_Punto_Cargo_Grupo_Mant.Designer.cs">
-      <DependentUpon>frmCon_Punto_Cargo_Grupo_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Contabilidad\frmCon_Punto_Cargo_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Contabilidad\frmCon_Punto_Cargo_Mant.Designer.cs">
-      <DependentUpon>frmCon_Punto_Cargo_Mant.cs</DependentUpon>
-    </Compile>
     <Compile Include="Contabilidad\frmCon_TipoCbteCble_Cons.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1830,48 +1356,6 @@
     </Compile>
     <Compile Include="Contabilidad\frmCon_WaitForm.Designer.cs">
       <DependentUpon>frmCon_WaitForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controles\UCAF_Activo_Categoria_cmb.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCAF_Activo_Categoria_cmb.Designer.cs">
-      <DependentUpon>UCAF_Activo_Categoria_cmb.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controles\UCAF_Activo_Fijo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCAF_Activo_Fijo.Designer.cs">
-      <DependentUpon>UCAF_Activo_Fijo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controles\UCAf_Activo_Fijo_Grupo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCAf_Activo_Fijo_Grupo.Designer.cs">
-      <DependentUpon>UCAf_Activo_Fijo_Grupo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controles\UCAF_Activo_fijo_Tipo_cmb.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCAF_Activo_fijo_Tipo_cmb.Designer.cs">
-      <DependentUpon>UCAF_Activo_fijo_Tipo_cmb.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controles\UCAF_Catalogos.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCAF_Catalogos.Designer.cs">
-      <DependentUpon>UCAF_Catalogos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controles\UCAf_DepartamentoCmb.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCAf_DepartamentoCmb.Designer.cs">
-      <DependentUpon>UCAf_DepartamentoCmb.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controles\UCAf_Encargado.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCAf_Encargado.Designer.cs">
-      <DependentUpon>UCAf_Encargado.cs</DependentUpon>
     </Compile>
     <Compile Include="Controles\UCBa_CuentaBanco.cs">
       <SubType>UserControl</SubType>
@@ -1927,12 +1411,6 @@
     <Compile Include="Controles\UCCom_MotivoCompraCmb.Designer.cs">
       <DependentUpon>UCCom_MotivoCompraCmb.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controles\UCCom_Solicitante_cmb.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCCom_Solicitante_cmb.Designer.cs">
-      <DependentUpon>UCCom_Solicitante_cmb.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controles\UCCom_TerminoPagoCmb.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1962,12 +1440,6 @@
     </Compile>
     <Compile Include="Controles\UCCon_Plan_de_Cuenta_x_Movimiento.Designer.cs">
       <DependentUpon>UCCon_Plan_de_Cuenta_x_Movimiento.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controles\UCCon_SubCentroCosto.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCCon_SubCentroCosto.Designer.cs">
-      <DependentUpon>UCCon_SubCentroCosto.cs</DependentUpon>
     </Compile>
     <Compile Include="Controles\UCCon_TipoCbteCble.cs">
       <SubType>UserControl</SubType>
@@ -2947,12 +2419,6 @@
     <Compile Include="Facturacion\frmFa_ClienteTipo_Mant.Designer.cs">
       <DependentUpon>frmFa_ClienteTipo_Mant.cs</DependentUpon>
     </Compile>
-    <Compile Include="Facturacion\frmFa_Facturas_x_Relacionar_NC_ND_Consul.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion\frmFa_Facturas_x_Relacionar_NC_ND_Consul.Designer.cs">
-      <DependentUpon>frmFa_Facturas_x_Relacionar_NC_ND_Consul.cs</DependentUpon>
-    </Compile>
     <Compile Include="Facturacion\frmFa_factura_NotaDeb_a_cruzar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3055,12 +2521,6 @@
     <Compile Include="Facturacion\frmFa_CausalesdeModificacio_Anulacion.Designer.cs">
       <DependentUpon>frmFa_CausalesdeModificacio_Anulacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Facturacion\frmFa_Cotizacion_Consulta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion\frmFa_Cotizacion_Consulta.Designer.cs">
-      <DependentUpon>frmFa_Cotizacion_Consulta.cs</DependentUpon>
-    </Compile>
     <Compile Include="Facturacion\frmFa_Clientes_consul.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3078,24 +2538,6 @@
     </Compile>
     <Compile Include="Facturacion\frmFa_Bodega.designer.cs">
       <DependentUpon>frmFa_Bodega.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion\frmFa_Cotizacion_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion\frmFa_Cotizacion_Mant.designer.cs">
-      <DependentUpon>frmFa_Cotizacion_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion\frmFa_devol_venta_mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion\frmFa_devol_venta_mant.Designer.cs">
-      <DependentUpon>frmFa_devol_venta_mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion\frmFa_devol_venta_consulta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion\frmFa_devol_venta_consulta.Designer.cs">
-      <DependentUpon>frmFa_devol_venta_consulta.cs</DependentUpon>
     </Compile>
     <Compile Include="Facturacion\frmFa_Documentos_Consulta.cs">
       <SubType>Form</SubType>
@@ -3156,18 +2598,6 @@
     </Compile>
     <Compile Include="Facturacion\frmFa_ParametrizacionContableFacturacion.Designer.cs">
       <DependentUpon>frmFa_ParametrizacionContableFacturacion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion\frmFa_Pedido_consu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion\frmFa_Pedido_consu.designer.cs">
-      <DependentUpon>frmFa_Pedido_consu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion\frmFa_Pedido_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion\frmFa_Pedido_Mant.designer.cs">
-      <DependentUpon>frmFa_Pedido_Mant.cs</DependentUpon>
     </Compile>
     <Compile Include="Facturacion\frmFa_Secuencia_Documento_Talonario_Mant.cs">
       <SubType>Form</SubType>
@@ -3469,12 +2899,6 @@
     <Compile Include="Contabilidad\frmCon_PlanCuenta_Consulta.Designer.cs">
       <DependentUpon>frmCon_PlanCuenta_Consulta.cs</DependentUpon>
     </Compile>
-    <Compile Include="Contabilidad\frmCon_ProcesosContables.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Contabilidad\frmCon_ProcesosContables.designer.cs">
-      <DependentUpon>frmCon_ProcesosContables.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controles\UCCon_Mant_CbteCble.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -3606,18 +3030,6 @@
     </Compile>
     <Compile Include="Inventario\FrmIn_Devolucion_Inven_Mant.Designer.cs">
       <DependentUpon>FrmIn_Devolucion_Inven_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Inventario\FrmIn_Egresos_Inv_Multi_Bodega_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Inventario\FrmIn_Egresos_Inv_Multi_Bodega_Cons.Designer.cs">
-      <DependentUpon>FrmIn_Egresos_Inv_Multi_Bodega_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Inventario\FrmIn_Egresos_Inv_Multi_Bodega_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Inventario\FrmIn_Egresos_Inv_Multi_Bodega_Mant.Designer.cs">
-      <DependentUpon>FrmIn_Egresos_Inv_Multi_Bodega_Mant.cs</DependentUpon>
     </Compile>
     <Compile Include="Inventario\FrmIn_Egresos_Varios_Cons.cs">
       <SubType>Form</SubType>
@@ -4030,12 +3442,6 @@
     <Compile Include="WaitForm2.Designer.cs">
       <DependentUpon>WaitForm2.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Bancos\FrmBA_DepositoBancario_Varios_Mant.resx">
-      <DependentUpon>FrmBA_DepositoBancario_Varios_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Bancos\FrmBA_DepositoBancario_Varios_Cons.resx">
-      <DependentUpon>FrmBA_DepositoBancario_Varios_Cons.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Bancos\FrmBA_Cheque_Notificacion.resx">
       <DependentUpon>FrmBA_Cheque_Notificacion.cs</DependentUpon>
     </EmbeddedResource>
@@ -4044,9 +3450,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Caja\FrmCa_Caja_Talonario_Recibo_Mant.resx">
       <DependentUpon>FrmCa_Caja_Talonario_Recibo_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Compras\FrmCom_Solicitante_Cons.resx">
-      <DependentUpon>FrmCom_Solicitante_Cons.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\FrmCom_Dashboard.resx">
       <DependentUpon>FrmCom_Dashboard.cs</DependentUpon>
@@ -4093,18 +3496,6 @@
     <EmbeddedResource Include="Inventario\FrmIn_Dashboard_GuiaRemision.resx">
       <DependentUpon>FrmIn_Dashboard_GuiaRemision.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inventario\FrmIn_Ingreso_x_GuiaRemision_Cons.resx">
-      <DependentUpon>FrmIn_Ingreso_x_GuiaRemision_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Inventario\FrmIn_Ingreso_x_GuiaRemision_Mant.resx">
-      <DependentUpon>FrmIn_Ingreso_x_GuiaRemision_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Inventario\FrmIn_Egresos_x_Ajuste_Cons.resx">
-      <DependentUpon>FrmIn_Egresos_x_Ajuste_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Inventario\FrmIn_Egresos_x_Ajuste_Mant.resx">
-      <DependentUpon>FrmIn_Egresos_x_Ajuste_Mant.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Mail\FrmMail_BandejaSalida.resx">
       <DependentUpon>FrmMail_BandejaSalida.cs</DependentUpon>
     </EmbeddedResource>
@@ -4116,12 +3507,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mail\FrmMail_Plantilla_Mensaje.resx">
       <DependentUpon>FrmMail_Plantilla_Mensaje.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Compras\frmCom_SolicitudCompra_PreAprobacion_Saldos_Mant.resx">
-      <DependentUpon>frmCom_SolicitudCompra_PreAprobacion_Saldos_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCCon_TipoCosto.resx">
-      <DependentUpon>UCCon_TipoCosto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controles\UCCp_cuotas_x_doc.resx">
       <DependentUpon>UCCp_cuotas_x_doc.cs</DependentUpon>
@@ -4190,140 +3575,11 @@
     <EmbeddedResource Include="Facturacion\frmFa_Aprobacion_Motivo_Consulta.resx">
       <DependentUpon>frmFa_Aprobacion_Motivo_Consulta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion\FrmFa_CotizacionCliente_consu.resx">
-      <DependentUpon>FrmFa_CotizacionCliente_consu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion\FrmFa_CotizacionCliente_Mant.resx">
-      <DependentUpon>FrmFa_CotizacionCliente_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion\frmFa_Descuento_Cons.resx">
-      <DependentUpon>frmFa_Descuento_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion\frmFa_Descuento_Mant.resx">
-      <DependentUpon>frmFa_Descuento_Mant.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\frmFa_factura_det_x_fa_descuento.resx">
       <DependentUpon>frmFa_factura_det_x_fa_descuento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion\frmFa_Pedido_consu_GE.resx">
-      <DependentUpon>frmFa_Pedido_consu_GE.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion\frmFa_Pedido_Mant_GE.resx">
-      <DependentUpon>frmFa_Pedido_Mant_GE.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\frmFa_Aprobacion_Motivo.resx">
       <DependentUpon>frmFa_Aprobacion_Motivo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\frmAF_ActivoFijoTipo_General.resx">
-      <DependentUpon>frmAF_ActivoFijoTipo_General.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\frmAF_ActivoFijoTipo_Mant.resx">
-      <DependentUpon>frmAF_ActivoFijoTipo_Mant.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\frmAF_ActivoFijo_General.resx">
-      <DependentUpon>frmAF_ActivoFijo_General.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\frmAF_ActivoFijo_ImportWizard.resx">
-      <DependentUpon>frmAF_ActivoFijo_ImportWizard.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\frmAF_ActivoFijo_Mant.resx">
-      <DependentUpon>frmAF_ActivoFijo_Mant.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\frmAF_ActivoFijo_x_OC_x_Factura.resx">
-      <DependentUpon>frmAF_ActivoFijo_x_OC_x_Factura.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\frmAf_Activo_fijo_Categoria_Consul.resx">
-      <DependentUpon>frmAf_Activo_fijo_Categoria_Consul.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\frmAf_Activo_fijo_Categoria_Mant.resx">
-      <DependentUpon>frmAf_Activo_fijo_Categoria_Mant.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\frmAf_Activo_Fijo_Grupo_Cons.resx">
-      <DependentUpon>frmAf_Activo_Fijo_Grupo_Cons.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\frmAf_Activo_Fijo_Grupo_Mant.resx">
-      <DependentUpon>frmAf_Activo_Fijo_Grupo_Mant.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\frmAF_AdministradorReporte.resx">
-      <DependentUpon>frmAF_AdministradorReporte.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\frmAF_BajaActivo_Consul.resx">
-      <DependentUpon>frmAF_BajaActivo_Consul.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\frmAF_BajaActivo_Mant.resx">
-      <DependentUpon>frmAF_BajaActivo_Mant.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\frmAF_Cambio_Ubicacion.resx">
-      <DependentUpon>frmAF_Cambio_Ubicacion.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\frmAF_Cambio_Ubicacion_Consul.resx">
-      <DependentUpon>frmAF_Cambio_Ubicacion_Consul.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\frmAF_Catalogo.resx">
-      <DependentUpon>frmAF_Catalogo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\frmAF_CatalogoTipo_Mantenimiento.resx">
-      <DependentUpon>frmAF_CatalogoTipo_Mantenimiento.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\frmAF_Catalogo_Mantenimiento.resx">
-      <DependentUpon>frmAF_Catalogo_Mantenimiento.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\frmAF_Departamento_Mant.resx">
-      <DependentUpon>frmAF_Departamento_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\frmAF_DepreLineaRecta_Consul.resx">
-      <DependentUpon>frmAF_DepreLineaRecta_Consul.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\frmAF_DepreLineaRecta_Mant.resx">
-      <DependentUpon>frmAF_DepreLineaRecta_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\frmAF_DepreUnidades_Consul.resx">
-      <DependentUpon>frmAF_DepreUnidades_Consul.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\frmAf_Encargado_Mant.resx">
-      <DependentUpon>frmAf_Encargado_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\frmAF_MejoraActivo_Consul.resx">
-      <DependentUpon>frmAF_MejoraActivo_Consul.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\frmAF_MejoraActivo_Mant.resx">
-      <DependentUpon>frmAF_MejoraActivo_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\frmAF_Parametros.resx">
-      <DependentUpon>frmAF_Parametros.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\frmAF_RetiroActivo_Consul.resx">
-      <DependentUpon>frmAF_RetiroActivo_Consul.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\frmAF_RetiroActivo_Mant.resx">
-      <DependentUpon>frmAF_RetiroActivo_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\frmAF_Tipo_Depreciacion.resx">
-      <DependentUpon>frmAF_Tipo_Depreciacion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\frmAF_Tipo_Depreciacion_Consul.resx">
-      <DependentUpon>frmAF_Tipo_Depreciacion_Consul.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\frmAF_VentaActivo_Consul.resx">
-      <DependentUpon>frmAF_VentaActivo_Consul.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\frmAF_VentaActivo_Mant.resx">
-      <DependentUpon>frmAF_VentaActivo_Mant.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Bancos\frmBA_AdministradorReporte.resx">
       <DependentUpon>frmBA_AdministradorReporte.cs</DependentUpon>
@@ -4493,9 +3749,6 @@
     <EmbeddedResource Include="Compras\FrmCom_CompradorMantenimiento.resx">
       <DependentUpon>FrmCom_CompradorMantenimiento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Compras\FrmCom_Confirmacion_SC_para_OC.resx">
-      <DependentUpon>FrmCom_Confirmacion_SC_para_OC.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Compras\FrmCom_Consulta_OrdenCompra.resx">
       <DependentUpon>FrmCom_Consulta_OrdenCompra.cs</DependentUpon>
     </EmbeddedResource>
@@ -4539,27 +3792,6 @@
     <EmbeddedResource Include="Compras\FrmCom_ProveedorBusqueda.resx">
       <DependentUpon>FrmCom_ProveedorBusqueda.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Compras\FrmCom_Solicitante_Mant.resx">
-      <DependentUpon>FrmCom_Solicitante_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Compras\FrmCom_SolicitudCompra_Aprobacion.resx">
-      <DependentUpon>FrmCom_SolicitudCompra_Aprobacion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Compras\FrmCom_SolicitudCompra_Cons.resx">
-      <DependentUpon>FrmCom_SolicitudCompra_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Compras\FrmCom_SolicitudCompra_det_pre_Aprobacion.resx">
-      <DependentUpon>FrmCom_SolicitudCompra_det_pre_Aprobacion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Compras\FrmCom_SolicitudCompra_Mant.resx">
-      <DependentUpon>FrmCom_SolicitudCompra_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Compras\FrmCom_SolicitudConsulta.resx">
-      <DependentUpon>FrmCom_SolicitudConsulta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Compras\FrmCom_Solicitud_x_OC.resx">
-      <DependentUpon>FrmCom_Solicitud_x_OC.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Compras\FrmCom_TerminoPagos_Mant.resx">
       <DependentUpon>FrmCom_TerminoPagos_Mant.cs</DependentUpon>
     </EmbeddedResource>
@@ -4581,77 +3813,23 @@
     <EmbeddedResource Include="Contabilidad\frmCon_CbteCble_Mant.resx">
       <DependentUpon>frmCon_CbteCble_Mant.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Contabilidad\frmCon_cbtecble_Plantilla.resx">
-      <DependentUpon>frmCon_cbtecble_Plantilla.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Contabilidad\frmCon_cbtecble_Plantilla_Consulta.resx">
-      <DependentUpon>frmCon_cbtecble_Plantilla_Consulta.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Contabilidad\frmCon_CentroCostos_Consulta.resx">
       <DependentUpon>frmCon_CentroCostos_Consulta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Contabilidad\frmCon_CentroCostos_Man.resx">
       <DependentUpon>frmCon_CentroCostos_Man.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Contabilidad\frmCon_CentroCostos_Nivel_Consulta.resx">
-      <DependentUpon>frmCon_CentroCostos_Nivel_Consulta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Contabilidad\frmCon_CentroCostos_Nivel_Mant.resx">
-      <DependentUpon>frmCon_CentroCostos_Nivel_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Contabilidad\frmCon_CentroCosto_SubCentroCosto_Mant.resx">
-      <DependentUpon>frmCon_CentroCosto_SubCentroCosto_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Contabilidad\frmCon_CentroCosto_SubCentroCosto_Mant_FJ.resx">
-      <DependentUpon>frmCon_CentroCosto_SubCentroCosto_Mant_FJ.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Contabilidad\frmCon_Cierre_Periodo_x_Modulo.resx">
       <DependentUpon>frmCon_Cierre_Periodo_x_Modulo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Contabilidad\frmCon_ct_centro_costo_sub_centro_costo_Cons.resx">
-      <DependentUpon>frmCon_ct_centro_costo_sub_centro_costo_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Contabilidad\frmCon_ct_centro_costo_sub_centro_costo_Cons_FJ.resx">
-      <DependentUpon>frmCon_ct_centro_costo_sub_centro_costo_Cons_FJ.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Contabilidad\frmCon_GrupoContable.resx">
       <DependentUpon>frmCon_GrupoContable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Contabilidad\frmCon_GrupoEmpresarial.resx">
-      <DependentUpon>frmCon_GrupoEmpresarial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Contabilidad\frmCon_GrupoEmpresarial_Consulta.resx">
-      <DependentUpon>frmCon_GrupoEmpresarial_Consulta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Contabilidad\frmCon_GrupoEmpresarial_grupocble.resx">
-      <DependentUpon>frmCon_GrupoEmpresarial_grupocble.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Contabilidad\frmCon_GrupoEmpresarial_grupocble_Consulta.resx">
-      <DependentUpon>frmCon_GrupoEmpresarial_grupocble_Consulta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Contabilidad\frmCon_GrupoEmpresarial_plancta.resx">
-      <DependentUpon>frmCon_GrupoEmpresarial_plancta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Contabilidad\frmCon_GrupoEmpresarial_plancta_Consulta.resx">
-      <DependentUpon>frmCon_GrupoEmpresarial_plancta_Consulta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Contabilidad\frmCon_GrupoEmpresarial_plancta_nivel.resx">
-      <DependentUpon>frmCon_GrupoEmpresarial_plancta_nivel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Contabilidad\frmCon_GrupoEmpresarial_plancta_nivel_Consulta.resx">
-      <DependentUpon>frmCon_GrupoEmpresarial_plancta_nivel_Consulta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Contabilidad\frmCon_Grupo_CtaCble_Mant.resx">
       <DependentUpon>frmCon_Grupo_CtaCble_Mant.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Contabilidad\frmCon_Grupo_CtaCbl_Cons.resx">
       <DependentUpon>frmCon_Grupo_CtaCbl_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Contabilidad\frmCon_grupo_x_Tipo_Gasto_Cons.resx">
-      <DependentUpon>frmCon_grupo_x_Tipo_Gasto_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Contabilidad\frmCon_grupo_x_Tipo_Gasto_Mant.resx">
-      <DependentUpon>frmCon_grupo_x_Tipo_Gasto_Mant.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Contabilidad\frmCon_Parametro.resx">
       <DependentUpon>frmCon_Parametro.cs</DependentUpon>
@@ -4677,18 +3855,6 @@
     <EmbeddedResource Include="Contabilidad\frmCon_PlanCuenta_Niveles_Mant.resx">
       <DependentUpon>frmCon_PlanCuenta_Niveles_Mant.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Contabilidad\frmCon_Punto_Cargo_Cons.resx">
-      <DependentUpon>frmCon_Punto_Cargo_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Contabilidad\frmCon_Punto_Cargo_Grupo_Cons.resx">
-      <DependentUpon>frmCon_Punto_Cargo_Grupo_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Contabilidad\frmCon_Punto_Cargo_Grupo_Mant.resx">
-      <DependentUpon>frmCon_Punto_Cargo_Grupo_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Contabilidad\frmCon_Punto_Cargo_Mant.resx">
-      <DependentUpon>frmCon_Punto_Cargo_Mant.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Contabilidad\frmCon_TipoCbteCble_Cons.resx">
       <DependentUpon>frmCon_TipoCbteCble_Cons.cs</DependentUpon>
     </EmbeddedResource>
@@ -4700,27 +3866,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Contabilidad\frmCon_WaitForm.resx">
       <DependentUpon>frmCon_WaitForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCAF_Activo_Categoria_cmb.resx">
-      <DependentUpon>UCAF_Activo_Categoria_cmb.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCAF_Activo_Fijo.resx">
-      <DependentUpon>UCAF_Activo_Fijo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCAf_Activo_Fijo_Grupo.resx">
-      <DependentUpon>UCAf_Activo_Fijo_Grupo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCAF_Activo_fijo_Tipo_cmb.resx">
-      <DependentUpon>UCAF_Activo_fijo_Tipo_cmb.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCAF_Catalogos.resx">
-      <DependentUpon>UCAF_Catalogos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCAf_DepartamentoCmb.resx">
-      <DependentUpon>UCAf_DepartamentoCmb.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCAf_Encargado.resx">
-      <DependentUpon>UCAf_Encargado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controles\UCBa_CuentaBanco.resx">
       <DependentUpon>UCBa_CuentaBanco.cs</DependentUpon>
@@ -4749,9 +3894,6 @@
     <EmbeddedResource Include="Controles\UCCom_MotivoCompraCmb.resx">
       <DependentUpon>UCCom_MotivoCompraCmb.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCCom_Solicitante_cmb.resx">
-      <DependentUpon>UCCom_Solicitante_cmb.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Controles\UCCom_TerminoPagoCmb.resx">
       <DependentUpon>UCCom_TerminoPagoCmb.cs</DependentUpon>
     </EmbeddedResource>
@@ -4766,9 +3908,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controles\UCCon_Plan_de_Cuenta_x_Movimiento.resx">
       <DependentUpon>UCCon_Plan_de_Cuenta_x_Movimiento.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCCon_SubCentroCosto.resx">
-      <DependentUpon>UCCon_SubCentroCosto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controles\UCCon_TipoCbteCble.resx">
       <DependentUpon>UCCon_TipoCbteCble.cs</DependentUpon>
@@ -5261,9 +4400,6 @@
     <EmbeddedResource Include="Facturacion\frmFa_ClienteTipo_Mant.resx">
       <DependentUpon>frmFa_ClienteTipo_Mant.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion\frmFa_Facturas_x_Relacionar_NC_ND_Consul.resx">
-      <DependentUpon>frmFa_Facturas_x_Relacionar_NC_ND_Consul.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\frmFa_factura_NotaDeb_a_cruzar.resx">
       <DependentUpon>frmFa_factura_NotaDeb_a_cruzar.cs</DependentUpon>
     </EmbeddedResource>
@@ -5315,9 +4451,6 @@
     <EmbeddedResource Include="Facturacion\frmFa_CausalesdeModificacio_Anulacion.resx">
       <DependentUpon>frmFa_CausalesdeModificacio_Anulacion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion\frmFa_Cotizacion_Consulta.resx">
-      <DependentUpon>frmFa_Cotizacion_Consulta.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\frmFa_Clientes_consul.resx">
       <DependentUpon>frmFa_Clientes_consul.cs</DependentUpon>
     </EmbeddedResource>
@@ -5326,15 +4459,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\frmFa_Bodega.resx">
       <DependentUpon>frmFa_Bodega.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion\frmFa_Cotizacion_Mant.resx">
-      <DependentUpon>frmFa_Cotizacion_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion\frmFa_devol_venta_mant.resx">
-      <DependentUpon>frmFa_devol_venta_mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion\frmFa_devol_venta_consulta.resx">
-      <DependentUpon>frmFa_devol_venta_consulta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\frmFa_Documentos_Consulta.resx">
       <DependentUpon>frmFa_Documentos_Consulta.cs</DependentUpon>
@@ -5365,12 +4489,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\frmFa_ParametrizacionContableFacturacion.resx">
       <DependentUpon>frmFa_ParametrizacionContableFacturacion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion\frmFa_Pedido_consu.resx">
-      <DependentUpon>frmFa_Pedido_consu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion\frmFa_Pedido_Mant.resx">
-      <DependentUpon>frmFa_Pedido_Mant.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\frmFa_Secuencia_Documento_Talonario_Mant.resx">
       <DependentUpon>frmFa_Secuencia_Documento_Talonario_Mant.cs</DependentUpon>
@@ -5522,9 +4640,6 @@
     <EmbeddedResource Include="Contabilidad\frmCon_PlanCuenta_Consulta.resx">
       <DependentUpon>frmCon_PlanCuenta_Consulta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Contabilidad\frmCon_ProcesosContables.resx">
-      <DependentUpon>frmCon_ProcesosContables.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Controles\UCCon_Mant_CbteCble.resx">
       <DependentUpon>UCCon_Mant_CbteCble.cs</DependentUpon>
     </EmbeddedResource>
@@ -5590,12 +4705,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inventario\FrmIn_Devolucion_Inven_Mant.resx">
       <DependentUpon>FrmIn_Devolucion_Inven_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Inventario\FrmIn_Egresos_Inv_Multi_Bodega_Cons.resx">
-      <DependentUpon>FrmIn_Egresos_Inv_Multi_Bodega_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Inventario\FrmIn_Egresos_Inv_Multi_Bodega_Mant.resx">
-      <DependentUpon>FrmIn_Egresos_Inv_Multi_Bodega_Mant.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventario\FrmIn_Egresos_Varios_Cons.resx">
       <DependentUpon>FrmIn_Egresos_Varios_Cons.cs</DependentUpon>

@@ -14,17 +14,17 @@ namespace Bizu.Infrastructure
     
     public partial class vwct_periodo
     {
-        public int IdEmpresa { get; set; }
-        public int IdPeriodo { get; set; }
-        public int IdanioFiscal { get; set; }
+        public int idempresa { get; set; }
+        public int idperiodo { get; set; }
+        public int idaniofiscal { get; set; }
         public int pe_mes { get; set; }
-        public System.DateTime pe_FechaIni { get; set; }
-        public System.DateTime pe_FechaFin { get; set; }
+        public System.DateTime pe_fechaini { get; set; }
+        public System.DateTime pe_fechafin { get; set; }
         public string pe_cerrado { get; set; }
         public string pe_estado { get; set; }
-        public int idMes { get; set; }
+        public int idmes { get; set; }
         public string smes { get; set; }
-        public string Nemonico { get; set; }
-        public string smesIngles { get; set; }
+        public string nemonico { get; set; }
+        public string smesingles { get; set; }
     }
 }

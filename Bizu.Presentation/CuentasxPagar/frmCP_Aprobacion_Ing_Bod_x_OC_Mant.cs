@@ -26,10 +26,8 @@ namespace Bizu.Presentation.CuentasxPagar
 
         tb_sis_Log_Error_Vzen_Bus Log_Error_bus;
         cl_parametrosGenerales_Bus param = cl_parametrosGenerales_Bus.Instance;
-        ct_centro_costo_sub_centro_costo_Bus bus_subcentro = new ct_centro_costo_sub_centro_costo_Bus();
         ct_Centro_costo_Bus Bus_CentroCosto = new ct_Centro_costo_Bus();
         ct_Plancta_Bus BusPlanCta = new ct_Plancta_Bus();
-        ct_punto_cargo_Bus bus_puntoCargo = new ct_punto_cargo_Bus();
         cp_Aprobacion_Ing_Bod_x_OC_Bus Bus_Aprob = new cp_Aprobacion_Ing_Bod_x_OC_Bus();
         cp_orden_giro_pagos_sri_Bus pagoSRI_B = new cp_orden_giro_pagos_sri_Bus();
         cp_parametros_Bus data_cpParam = new cp_parametros_Bus();
@@ -39,8 +37,6 @@ namespace Bizu.Presentation.CuentasxPagar
         tb_persona_bus BusPersona = new tb_persona_bus();
 
         List<ct_Plancta_Info> listPlanCta = new List<ct_Plancta_Info>();
-        List<ct_centro_costo_sub_centro_costo_Info> listaSubcentero = new List<ct_centro_costo_sub_centro_costo_Info>();
-        List<ct_punto_cargo_Info> listPuntoCargo = new List<ct_punto_cargo_Info>();
         List<ct_Centro_costo_Info> list_centroCosto = new List<ct_Centro_costo_Info>();
         List<cp_TipoDocumento_Info> LstTipDoc = new List<cp_TipoDocumento_Info>();
         List<cp_orden_giro_pagos_sri_Info> lst_formasPagoSRI = new List<cp_orden_giro_pagos_sri_Info>();
@@ -196,18 +192,10 @@ namespace Bizu.Presentation.CuentasxPagar
                 listPlanCta = BusPlanCta.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa, ref MensajeError);
                 cmbCtaCtble_Gasto_x_cxp.DataSource = listPlanCta;
 
-                // carga punto de cargo
-                listPuntoCargo = bus_puntoCargo.Get_List_PuntoCargo(param.IdEmpresa);
-                CmbPuntoCargo.DataSource = listPuntoCargo;
-
                 // carga centro de costo
                 list_centroCosto = new List<ct_Centro_costo_Info>();
                 list_centroCosto = Bus_CentroCosto.Get_list_Centro_Costo_cuentas_de_movimiento(param.IdEmpresa, ref MensajeError);
                 cmb_centroCosoto.DataSource = list_centroCosto;
-
-                // carga subcentro de costo
-                listaSubcentero = bus_subcentro.Get_list_centro_costo_sub_centro_costo(param.IdEmpresa);
-                cmbSubcentro.DataSource = listaSubcentero;
 
                 // carga orden giro pagos sri
                 BindingList_pagosSRI = new BindingList<cp_orden_giro_pagos_sri_Info>();
@@ -1199,19 +1187,7 @@ namespace Bizu.Presentation.CuentasxPagar
                             gridViewAproIngEgrxOC.SetFocusedRowCellValue(colIdCtaCtble_Gasto_x_cxp, null);
                         }
                     }
-                }
-
-                if (e.Column == Col_CentroCosto)
-                {
-                    string MensajeError = "";
-
-                    if (!Bus_CentroCosto.Validar_CentroCosto_EstadoObra(param.IdEmpresa, Convert.ToString(fila_OC_det.IdCentro_Costo), ref MensajeError))
-                    {
-                        MessageBox.Show(MensajeError, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        gridViewAproIngEgrxOC.SetFocusedRowCellValue(Col_CentroCosto, null);
-                        return;
-                    }
-                }
+                }                
             }
             catch (Exception ex)
             {

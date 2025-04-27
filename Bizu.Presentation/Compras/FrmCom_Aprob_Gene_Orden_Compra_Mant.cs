@@ -33,7 +33,6 @@ namespace Bizu.Presentation.Compras
         tb_Sucursal_Bus bus_sucursal;
         cp_proveedor_Bus bus_proveedor;
         com_solicitud_compra_Bus bus_solicitid;
-        ct_punto_cargo_Bus bus_puntocargo;
         vwcom_solicitud_compra_x_items_con_saldos_Bus bus_solicitudxItems;
         com_ordencompra_local_det_x_com_solicitud_compra_det_Bus busOCxSCDet;
         in_UnidadMedida_Bus bus_UniMedida;
@@ -45,7 +44,6 @@ namespace Bizu.Presentation.Compras
         List<tb_Sucursal_Info> listSucursal;
         List<cp_proveedor_Info> listProveedor;
         List<com_solicitud_compra_Info> listSolicitud = new List<com_solicitud_compra_Info>();
-        List<ct_punto_cargo_Info> listpuntoCargo;
         List<vwcom_solicitud_compra_x_items_con_saldos_Info> listSolicitudxItems;
         List<com_ordencompra_local_det_x_com_solicitud_compra_det_Info> listOCxSCDet = new List<com_ordencompra_local_det_x_com_solicitud_compra_det_Info>();
         List<in_UnidadMedida_Info> listUniMedidad;
@@ -59,7 +57,6 @@ namespace Bizu.Presentation.Compras
 
         ct_Centro_costo_Bus BusCentroCosto;
         List<ct_Centro_costo_Info> listCentroCosto;
-        BindingList<ct_centro_costo_sub_centro_costo_Info> BindListaSubCentro;
         //Variables
         int IdSucursal = 0;
 
@@ -68,7 +65,6 @@ namespace Bizu.Presentation.Compras
         string validaMotivo = "";
         decimal IdComprador = 0;
 
-        ct_centro_costo_sub_centro_costo_Bus Bus_SubCentroCosto;
         com_solicitud_compra_det_Bus bus;
         string Graba_Estado = "";
 
@@ -286,12 +282,6 @@ namespace Bizu.Presentation.Compras
                 listProveedor = BusProve.Get_List_proveedor(param.IdEmpresa);
                 cmbProveedor_grid.DataSource = listProveedor;
 
-                // carga combo Punto de cargo en el grid
-                bus_puntocargo = new ct_punto_cargo_Bus();
-                listpuntoCargo = new List<ct_punto_cargo_Info>();
-                listpuntoCargo = bus_puntocargo.Get_List_PuntoCargo(param.IdEmpresa);
-                cmbIdPunto_cargo_grid.DataSource = listpuntoCargo;
-
                 //carga combo Motivo en grid
                 //List<com_Motivo_Orden_Compra_Info> listMotivo = new List<com_Motivo_Orden_Compra_Info>();
                 com_Motivo_Orden_Compra_Bus bus_Motivo = new com_Motivo_Orden_Compra_Bus();
@@ -308,8 +298,6 @@ namespace Bizu.Presentation.Compras
                 cmbUniMedida_grid.DisplayMember = "Descripcion";
                 cmbUniMedida_grid.ValueMember = "IdUnidadMedida";
 
-                //carga centro costo                           
-                BindListaSubCentro = new BindingList<ct_centro_costo_sub_centro_costo_Info>();
                 BusCentroCosto = new ct_Centro_costo_Bus();
                 listCentroCosto = new List<ct_Centro_costo_Info>();
                 listCentroCosto = BusCentroCosto.Get_list_Centro_Costo_cuentas_de_movimiento(param.IdEmpresa, ref MensajeError);
@@ -727,37 +715,7 @@ namespace Bizu.Presentation.Compras
 
                 }
 
-                ct_centro_costo_sub_centro_costo_Bus busSubCen = new ct_centro_costo_sub_centro_costo_Bus();
-                if (e.Column == colNomsub_centro_costo)
-
-                {
-                    if (!String.IsNullOrEmpty(Convert.ToString(Info.Nomsub_centro_costo)))
-                    {
-                        foreach (var item in ListaBind)
-                        {
-                            if (item.IdProducto == info.IdProducto && item.Secuencia == info.Secuencia && item.IdSolicitudCompra == info.IdSolicitudCompra && item.IdSucursal == info.IdSucursal /*&& (item.IdEstadoAprobacion == "PEN_SOL" || item.IdEstadoAprobacion == "REP_SOL")*/)
-                            {
-
-                                if (item.IdCentroCosto == null)
-                                {
-                                    item.Nomsub_centro_costo = null;
-                                    item.IdCentroCosto_sub_centro_costo = null;
-                                    return;
-                                }
-
-                                BindListaSubCentro = new BindingList<ct_centro_costo_sub_centro_costo_Info>();
-                                BindListaSubCentro = new BindingList<ct_centro_costo_sub_centro_costo_Info>
-                              (busSubCen.Get_list_centro_costo_sub_centro_costo(param.IdEmpresa, item.IdCentroCosto));
-
-                                string idSubcentro = "";
-                                idSubcentro = BindListaSubCentro.FirstOrDefault
-                                (q => Info.Nomsub_centro_costo == "[" + q.IdCentroCosto_sub_centro_costo.Trim() + "] - " + q.Centro_costo.Trim()).IdCentroCosto_sub_centro_costo;
-
-                                item.IdCentroCosto_sub_centro_costo = idSubcentro;
-                            }
-                        }
-                    }
-                }
+                
                 calculos(ListaBind);
 
             }
@@ -802,27 +760,6 @@ namespace Bizu.Presentation.Compras
         {
             try
             {
-                if (e.Column.Name == "colIdCentroCosto")
-                {
-                    cmb_sub_centro_grid.Items.Clear();
-                    Bus_SubCentroCosto = new ct_centro_costo_sub_centro_costo_Bus();
-
-                    foreach (var item in Bus_SubCentroCosto.Get_list_centro_costo_sub_centro_costo(param.IdEmpresa, Convert.ToString(e.Value)))
-                    {
-                        item.NomSubCentroCosto = "[" + item.IdCentroCosto_sub_centro_costo.Trim() + "] - " + item.Centro_costo.Trim();
-                        cmb_sub_centro_grid.Items.Add(item.NomSubCentroCosto);
-                    }
-
-                    gridViewConsulta.SetFocusedRowCellValue(colIdCentroCosto, Convert.ToString(e.Value));
-                    gridViewConsulta.SetFocusedRowCellValue(colNomsub_centro_costo, null);
-
-                    if (gridViewConsulta.GetFocusedRowCellValue(colIdCentroCosto) == "" ||
-                        gridViewConsulta.GetFocusedRowCellValue(colIdCentroCosto) == null)
-                    {
-                        gridViewConsulta.SetFocusedRowCellValue(colIdCentroCosto_sub_centro_costo, null);
-                    }
-                }
-
                 if (e.Column.Name == colcmbProveedor_grid.Name)
                 {
                     if (e.Value != null)
@@ -838,8 +775,6 @@ namespace Bizu.Presentation.Compras
                         }
                     }
                 }
-
-
             }
             catch (Exception ex)
             {
@@ -901,23 +836,7 @@ namespace Bizu.Presentation.Compras
 
         private void gridViewConsulta_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            try
-            {
-                cmb_sub_centro_grid.Items.Clear();
-                Bus_SubCentroCosto = new ct_centro_costo_sub_centro_costo_Bus();
-
-                foreach (var item in Bus_SubCentroCosto.Get_list_centro_costo_sub_centro_costo(param.IdEmpresa, Convert.ToString(gridViewConsulta.GetFocusedRowCellValue(colIdCentroCosto))))
-                {
-                    item.NomSubCentroCosto = "[" + item.IdCentroCosto_sub_centro_costo.Trim() + "] - " + item.Centro_costo.Trim();
-                    cmb_sub_centro_grid.Items.Add(item.NomSubCentroCosto);
-                }
-            }
-            catch (Exception ex)
-            {
-
-                Log_Error_bus.Log_Error(ex.ToString());
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
         }
 
         void frmManProd_event_FrmIn_Producto_Mant_FormClosing(object sender, FormClosingEventArgs e, in_Producto_Info info)

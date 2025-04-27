@@ -103,7 +103,6 @@
             this.uCin_Producto1 = new Bizu.Reports.Controles.UCin_Producto();
             this.date_Fecha_Ini = new System.Windows.Forms.DateTimePicker();
             this.date_Fecha_Fin = new System.Windows.Forms.DateTimePicker();
-            this.uCct_Pto_Cargo1 = new Bizu.Reports.Controles.UCct_Pto_Cargo();
             this.uCct_CentroCosto1 = new Bizu.Reports.Controles.UCct_CentroCosto();
             this.label3 = new System.Windows.Forms.Label();
             this.ucGe_Sucursal1 = new Bizu.Reports.Controles.UCGe_Sucursal();
@@ -940,7 +939,6 @@
             this.splitContainer1.Panel1.Controls.Add(this.uCin_Producto1);
             this.splitContainer1.Panel1.Controls.Add(this.date_Fecha_Ini);
             this.splitContainer1.Panel1.Controls.Add(this.date_Fecha_Fin);
-            this.splitContainer1.Panel1.Controls.Add(this.uCct_Pto_Cargo1);
             this.splitContainer1.Panel1.Controls.Add(this.uCct_CentroCosto1);
             this.splitContainer1.Panel1.Controls.Add(this.label3);
             this.splitContainer1.Panel1.Controls.Add(this.ucGe_Sucursal1);
@@ -979,15 +977,7 @@
             this.date_Fecha_Fin.Location = new System.Drawing.Point(281, 6);
             this.date_Fecha_Fin.Name = "date_Fecha_Fin";
             this.date_Fecha_Fin.Size = new System.Drawing.Size(126, 20);
-            this.date_Fecha_Fin.TabIndex = 24;
-            // 
-            // uCct_Pto_Cargo1
-            // 
-            this.uCct_Pto_Cargo1.Location = new System.Drawing.Point(526, 30);
-            this.uCct_Pto_Cargo1.Mostrar_Registro_Todos = false;
-            this.uCct_Pto_Cargo1.Name = "uCct_Pto_Cargo1";
-            this.uCct_Pto_Cargo1.Size = new System.Drawing.Size(247, 27);
-            this.uCct_Pto_Cargo1.TabIndex = 21;
+            this.date_Fecha_Fin.TabIndex = 24;           
             // 
             // uCct_CentroCosto1
             // 
@@ -1165,7 +1155,6 @@
         private Controles.UCGe_Sucursal ucGe_Sucursal1;
         private System.Windows.Forms.Label label3;
         private Controles.UCct_CentroCosto uCct_CentroCosto1;
-        private Controles.UCct_Pto_Cargo uCct_Pto_Cargo1;
         private System.Windows.Forms.DateTimePicker date_Fecha_Ini;
         private System.Windows.Forms.DateTimePicker date_Fecha_Fin;
         private Controles.UCin_Producto uCin_Producto1;

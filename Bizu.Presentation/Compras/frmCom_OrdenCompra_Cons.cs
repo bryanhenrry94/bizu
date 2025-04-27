@@ -272,30 +272,7 @@ namespace Bizu.Presentation.Compras
 
         private void gridViewOrdenCompra_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
-            try
-            {
-                Info_OC = (com_ordencompra_local_Info)gridViewOrdenCompra.GetFocusedRow();
-
-                if (e.HitInfo.Column != null)
-                {
-                    if (gridViewOrdenCompra.FocusedColumn.Name == colSolicitudes_x_OC.Name)
-                    {
-                        com_solicitud_compra_Bus BusSolicitud = new com_solicitud_compra_Bus();
-                        List<com_solicitud_compra_Info> ListSolicitud = new List<com_solicitud_compra_Info>();
-                        ListSolicitud = BusSolicitud.Get_List_Solicitud_x_OC(param.IdEmpresa, Info_OC.IdSucursal, Info_OC.oc_NumDocumento);
-                        FrmCom_Solicitud_x_OC frm = new FrmCom_Solicitud_x_OC();
-                        frm.set_grid_x_oc(ListSolicitud);
-                        //frm.MdiParent = this.MdiParent;
-                        frm.ShowDialog();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                string NameMetodo = System.Reflection.MethodBase.GetCurrentMethod().Name;
-                MessageBox.Show(param.Get_Mensaje_sys(enum_Mensajes_sys.Error_comunicarse_con_sistemas) + ex.Message + " ", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log_Error_bus.Log_Error(NameMetodo + " - " + ex.ToString());
-            }
+            
         }
                    
         private void gridViewOrdenCompra_DoubleClick(object sender, EventArgs e)

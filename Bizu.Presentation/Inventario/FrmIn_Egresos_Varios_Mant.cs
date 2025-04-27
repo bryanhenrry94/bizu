@@ -31,7 +31,6 @@ namespace Bizu.Presentation.Inventario
         tb_sis_Log_Error_Vzen_Bus Log_Error_bus;
         cl_parametrosGenerales_Bus param = cl_parametrosGenerales_Bus.Instance;
         in_producto_Bus Bus_Producto;        
-        ct_centro_costo_sub_centro_costo_Bus Bus_SubCentroCosto = new ct_centro_costo_sub_centro_costo_Bus();
         in_Ing_Egr_Inven_det_Bus bus_IngEgrDet;
         in_Ing_Egr_Inven_Bus bus_IngEgr;
         ct_Centro_costo_Bus bus_centro_costo = new ct_Centro_costo_Bus();        
@@ -43,8 +42,6 @@ namespace Bizu.Presentation.Inventario
         List<in_movi_inven_tipo_Info> listInMovTip = new List<in_movi_inven_tipo_Info>();
 
         List<ct_Centro_costo_Info> list_centro_costo = new List<ct_Centro_costo_Info>();
-        List<ct_centro_costo_sub_centro_costo_Info> list_subcentro_combo = new List<ct_centro_costo_sub_centro_costo_Info>();        
-        ct_centro_costo_sub_centro_costo_Info info_subcentro = new ct_centro_costo_sub_centro_costo_Info();
         in_Producto_Info Info_validar_cantidades = new in_Producto_Info();
 
         //Variables PRINCIPALES DE LA PANTALLA
@@ -55,16 +52,9 @@ namespace Bizu.Presentation.Inventario
         public delegate void delegate_FrmIn_Egreso_varios_Mant_FormClosing(object sender, FormClosingEventArgs e);
         public event delegate_FrmIn_Egreso_varios_Mant_FormClosing event_FrmIn_Egreso_varios_Mant_FormClosing;
 
-        BindingList<ct_centro_costo_sub_centro_costo_Info> BindListaSubCentro = new BindingList<ct_centro_costo_sub_centro_costo_Info>();
-
         Cl_Enumeradores.eTipo_action Accion;
         int RowHandle = 0;
-        ct_punto_cargo_Info info_punto_cargo = new ct_punto_cargo_Info();
-        ct_punto_cargo_Bus bus_punto_cargo = new ct_punto_cargo_Bus();
-        List<ct_punto_cargo_Info> list_punto_cargo = new List<ct_punto_cargo_Info>();
-        ct_punto_cargo_grupo_Info info_grupo_punto_cargo = new ct_punto_cargo_grupo_Info();
-        List<ct_punto_cargo_grupo_Info> list_grupo_punto_cargo = new List<ct_punto_cargo_grupo_Info>();
-        ct_punto_cargo_grupo_Bus bus_grupo_punto_cargo = new ct_punto_cargo_grupo_Bus();
+        
         List<in_Motivo_Inven_Info> list_MotivoInv = new List<in_Motivo_Inven_Info>();
         in_Motivo_Inven_Info info_MotivoInv = new in_Motivo_Inven_Info();
         in_Motivo_Inven_Bus bus_MotivoInv = new in_Motivo_Inven_Bus();
@@ -406,18 +396,7 @@ namespace Bizu.Presentation.Inventario
                 cmbCentroCosto_grid.DataSource = list_centro_costo;
                 cmbCentroCosto_grid.DisplayMember = "Centro_costo2";
                 cmbCentroCosto_grid.ValueMember = "IdCentroCosto";
-                //subcentro de costo
-                list_subcentro_combo = Bus_SubCentroCosto.Get_list_centro_costo_sub_centro_costo(param.IdEmpresa);
-                cmb_subcentrocosto.DataSource = list_subcentro_combo;
-
-                bus_punto_cargo = new ct_punto_cargo_Bus();
-                list_punto_cargo = new List<ct_punto_cargo_Info>();
-                list_punto_cargo = bus_punto_cargo.Get_List_PuntoCargo(param.IdEmpresa);
-                cmbPuntoCargo_grid.DataSource = list_punto_cargo;
-                cmbPuntoCargo_grid.DisplayMember = "nom_punto_cargo";
-                cmbPuntoCargo_grid.ValueMember = "IdPunto_cargo";
-                list_grupo_punto_cargo = bus_grupo_punto_cargo.Get_List_punto_cargo_grupo(param.IdEmpresa, ref MensajeError);
-                cmb_Punto_cargo_grupo.DataSource = list_grupo_punto_cargo;
+                
                 list_MotivoInv = bus_MotivoInv.Get_List_Motivo_Inven(param.IdEmpresa);
                 cmb_Motivo_Inv.DataSource = list_MotivoInv;
                 cmb_Motivo_Inv.ValueMember = "IdMotivo_Inv";
@@ -993,16 +972,6 @@ namespace Bizu.Presentation.Inventario
                     }
                 }
 
-                if (e.Column == colIdCentroCosto_grid)
-                {
-                    if (!bus_centro_costo.Validar_CentroCosto_EstadoObra(param.IdEmpresa, Convert.ToString(InfoDet.IdCentroCosto), ref MensajeError))
-                    {
-                        MessageBox.Show(MensajeError, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        gridViewProductos.SetFocusedRowCellValue(colIdCentroCosto_grid, null);
-                        return;
-                    }
-                }
-
                 if (e.Column == coldm_cantidad_sin_conversion || e.Column == colIdProducto || e.Column == col_IdUnidadMedida)
                 {
                     if (InfoDet.IdUnidadMedida_sinConversion != null)
@@ -1345,71 +1314,12 @@ namespace Bizu.Presentation.Inventario
 
         private void cmb_punto_cargo_Click(object sender, EventArgs e)
         {
-            try
-            {
-                in_Ing_Egr_Inven_det_Info row = (in_Ing_Egr_Inven_det_Info)gridViewProductos.GetFocusedRow();
-                if (row != null)
-                {
-                    if (row.IdPunto_cargo_grupo != null)
-                    {
-                        frmCon_Punto_Cargo_Cons frm_cons = new frmCon_Punto_Cargo_Cons();
-
-                        GridViewInfo info = gridViewProductos.GetViewInfo() as GridViewInfo;
-                        GridCellInfo info_cell = info.GetGridCellInfo(RowHandle, colIdPunto_cargo);
-
-                        frm_cons.Cargar_grid_x_grupo((int)row.IdPunto_cargo_grupo);
-
-                        //frm_cons.Location = new Point(this.Right, gridControlDiario.Top);                        
-
-                        frm_cons.ShowDialog();
-                        info_punto_cargo = frm_cons.Get_Info();
-                        if (info_punto_cargo != null)
-                        {
-                            gridViewProductos.SetFocusedRowCellValue(colIdPunto_cargo, info_punto_cargo.IdPunto_cargo);
-                        }
-                        else
-                            gridViewProductos.SetFocusedRowCellValue(colIdPunto_cargo, null);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                string NameMetodo = System.Reflection.MethodBase.GetCurrentMethod().Name;
-                NameMetodo = NameMetodo + " - " + ex.ToString();
-                MessageBox.Show(NameMetodo + " " + param.Get_Mensaje_sys(enum_Mensajes_sys.Error_comunicarse_con_sistemas)
-                    , param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log_Error_bus.Log_Error(NameMetodo + " - " + ex.ToString());
-            }
+            
         }
 
         private void Llamar_pantalla_subcentro()
         {
-            try
-            {
-                in_Ing_Egr_Inven_det_Info Row = (in_Ing_Egr_Inven_det_Info)gridViewProductos.GetRow(RowHandle);
-                if (Row != null)
-                {
-                    if (Row.IdCentroCosto != null)
-                    {
-                        List<ct_centro_costo_sub_centro_costo_Info> Lista_subcentro_consulta = new List<ct_centro_costo_sub_centro_costo_Info>();
-                        Lista_subcentro_consulta = list_subcentro_combo.Where(q => q.IdEmpresa == param.IdEmpresa && q.IdCentroCosto == Row.IdCentroCosto).ToList();
-                        if (Lista_subcentro_consulta != null && Lista_subcentro_consulta.Count != 0)
-                        {
-                            frmCon_ct_centro_costo_sub_centro_costo_Cons frm_combo = new frmCon_ct_centro_costo_sub_centro_costo_Cons();
-                            frm_combo.Set_config_combo(Lista_subcentro_consulta);
-                            frm_combo.ShowDialog();
-                            info_subcentro = frm_combo.Get_info_centro_sub_centro_costo();
-                            gridViewProductos.SetRowCellValue(RowHandle, colIdRegistro_subcentro, info_subcentro == null ? null : info_subcentro.IdRegistro);
-                            gridViewProductos.SetRowCellValue(RowHandle, col_IdCentroCosto_sub_centro_costo, info_subcentro == null ? null : info_subcentro.IdCentroCosto_sub_centro_costo);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-                Log_Error_bus.Log_Error(ex.ToString());
-            }
+            
         }
 
         private void cmb_subcentro_costo_Click(object sender, EventArgs e)

@@ -45,8 +45,6 @@ namespace Bizu.Presentation.Inventario
         ct_Plancta_Bus BusPlanCta = new ct_Plancta_Bus();
         List<ct_Centro_costo_Info> listCentroCosto_Info = new List<ct_Centro_costo_Info>();
         ct_Centro_costo_Bus BusCentroCosto = new ct_Centro_costo_Bus();
-        List<ct_centro_costo_sub_centro_costo_Info> list_SubCentroCosto_Info = new List<ct_centro_costo_sub_centro_costo_Info>();
-        ct_centro_costo_sub_centro_costo_Bus BusSubCentroCosto = new ct_centro_costo_sub_centro_costo_Bus();
         string MensajeError = "";
         ct_Plancta_Bus _PlanCta_bus1 = new ct_Plancta_Bus();
         List<ct_Plancta_Info> listaPlan = new List<ct_Plancta_Info>();

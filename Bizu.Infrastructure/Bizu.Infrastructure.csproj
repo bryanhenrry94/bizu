@@ -718,13 +718,7 @@
     <Compile Include="ct_cbtecble_det.cs">
       <DependentUpon>ModelConta.tt</DependentUpon>
     </Compile>
-    <Compile Include="ct_cbtecble_Plantilla.cs">
-      <DependentUpon>ModelConta.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ct_cbtecble_Plantilla_det.cs">
-      <DependentUpon>ModelConta.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ct_cbtecble_Reversado.cs">
+    <Compile Include="ct_cbtecble_reversado.cs">
       <DependentUpon>ModelConta.tt</DependentUpon>
     </Compile>
     <Compile Include="ct_cbtecble_tipo.cs">
@@ -733,40 +727,10 @@
     <Compile Include="ct_centro_costo.cs">
       <DependentUpon>ModelConta.tt</DependentUpon>
     </Compile>
-    <Compile Include="ct_centro_costo_nivel.cs">
-      <DependentUpon>ModelConta.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ct_centro_costo_sub_centro_costo.cs">
-      <DependentUpon>ModelConta.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ct_centro_costo_sub_centro_costo_x_Af_Activo_fijo.cs">
-      <DependentUpon>ModelConta.tt</DependentUpon>
-    </Compile>
     <Compile Include="ct_dashboard_financiero.cs">
       <DependentUpon>ModelConta.tt</DependentUpon>
     </Compile>
     <Compile Include="ct_grupocble.cs">
-      <DependentUpon>ModelConta.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ct_grupocble_Mayor.cs">
-      <DependentUpon>ModelConta.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ct_GrupoEmpresarial.cs">
-      <DependentUpon>ModelConta.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ct_GrupoEmpresarial_grupocble.cs">
-      <DependentUpon>ModelConta.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ct_GrupoEmpresarial_plancta.cs">
-      <DependentUpon>ModelConta.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ct_GrupoEmpresarial_plancta_nivel.cs">
-      <DependentUpon>ModelConta.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ct_GrupoEmpresarial_plancta_x_ct_plancta.cs">
-      <DependentUpon>ModelConta.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ct_grupo_x_Tipo_Gasto.cs">
       <DependentUpon>ModelConta.tt</DependentUpon>
     </Compile>
     <Compile Include="ct_parametro.cs">
@@ -782,42 +746,6 @@
       <DependentUpon>ModelConta.tt</DependentUpon>
     </Compile>
     <Compile Include="ct_plancta_nivel.cs">
-      <DependentUpon>ModelConta.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ct_punto_cargo.cs">
-      <DependentUpon>ModelConta.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ct_punto_cargo_grupo.cs">
-      <DependentUpon>ModelConta.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ct_rpt_Empresas_A_mostrar.cs">
-      <DependentUpon>ModelConta.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ct_rpt_MovxCta.cs">
-      <DependentUpon>ModelConta.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ct_rpt_SaldoxCta.cs">
-      <DependentUpon>ModelConta.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ct_saldoxCuentas.cs">
-      <DependentUpon>ModelConta.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ct_saldoxCuentas_Movi.cs">
-      <DependentUpon>ModelConta.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ct_saldoxCuentas_Movi_tmp.cs">
-      <DependentUpon>ModelConta.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ct_saldoxCuentas_Movi_x_RangoFecha.cs">
-      <DependentUpon>ModelConta.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ct_saldoxCuentas_TMP.cs">
-      <DependentUpon>ModelConta.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ct_Tipo_costo.cs">
-      <DependentUpon>ModelConta.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ct_tipo_ctacble.cs">
       <DependentUpon>ModelConta.tt</DependentUpon>
     </Compile>
     <Compile Include="CuentasxCobrar\cxc_anticipo_facturado_Data.cs" />
@@ -1325,38 +1253,17 @@
     <Compile Include="Compras\vwcom_solicitud_compra_x_items_con_saldos_Data.cs" />
     <Compile Include="Contabilidad\ct_AnioFiscal_Data.cs" />
     <Compile Include="Contabilidad\ct_anio_fiscal_x_cuenta_utilidad_Data.cs" />
-    <Compile Include="Contabilidad\ct_Balance_x_Estado_Resultado_x_Usuario_Data.cs" />
-    <Compile Include="Contabilidad\ct_Balance_x_General_x_Usuario_Data.cs" />
     <Compile Include="Contabilidad\ct_Cbtecble_Data.cs" />
     <Compile Include="Contabilidad\ct_Cbtecble_det_Data.cs" />
-    <Compile Include="Contabilidad\ct_cbtecble_Plantilla_Data.cs" />
-    <Compile Include="Contabilidad\ct_cbtecble_Plantilla_det_Data.cs" />
     <Compile Include="Contabilidad\ct_cbtecble_Reversado_Data.cs" />
     <Compile Include="Contabilidad\ct_Cbtecble_tipo_Data.cs" />
-    <Compile Include="Contabilidad\ct_Centro_costo_nivel_Data.cs" />
-    <Compile Include="Contabilidad\ct_centro_costo_sub_centro_costo_Data.cs" />
     <Compile Include="Contabilidad\ct_Grupocble_Data.cs" />
-    <Compile Include="Contabilidad\ct_GrupoEmpresarial_Data.cs" />
-    <Compile Include="Contabilidad\ct_GrupoEmpresarial_grupocble_Data.cs" />
-    <Compile Include="Contabilidad\ct_GrupoEmpresarial_plancta_Data.cs" />
-    <Compile Include="Contabilidad\ct_GrupoEmpresarial_plancta_nivel_Data.cs" />
-    <Compile Include="Contabilidad\ct_grupo_x_Tipo_Gasto_Data.cs" />
     <Compile Include="Contabilidad\ct_Parametro_Data.cs" />
     <Compile Include="Contabilidad\ct_Periodo_Data.cs" />
     <Compile Include="Contabilidad\ct_Centro_costo_Data.cs" />
     <Compile Include="Contabilidad\ct_periodo_x_tb_modulo_Data.cs" />
     <Compile Include="Contabilidad\ct_Plancta_Data.cs" />
     <Compile Include="Contabilidad\ct_Plancta_nivel_Data.cs" />
-    <Compile Include="Contabilidad\ct_ProcesosContables_Data.cs" />
-    <Compile Include="Contabilidad\ct_punto_cargo_Data.cs" />
-    <Compile Include="Contabilidad\ct_punto_cargo_grupo_Data.cs" />
-    <Compile Include="Contabilidad\ct_rpt_Empresas_A_mostrar_Data.cs" />
-    <Compile Include="Contabilidad\ct_rpt_MovxCta_Data.cs" />
-    <Compile Include="Contabilidad\ct_rpt_SaldosxCuentas_data.cs" />
-    <Compile Include="Contabilidad\ct_rpt_SaldoxCta_Data.cs" />
-    <Compile Include="Contabilidad\ct_saldoxCuentas_Data.cs" />
-    <Compile Include="Contabilidad\ct_saldoxCuentas_Movi_Data.cs" />
-    <Compile Include="Contabilidad\ct_Tipo_costo_Data.cs" />
     <Compile Include="Contabilidad\vwct_cbtecble_con_saldo_cxp_Data.cs" />
     <Compile Include="CuentasxCobrar\cxc_cancelacion_Intercompany_Data.cs" />
     <Compile Include="CuentasxCobrar\cxc_cancelacion_Intercompany_Det_Data.cs" />
@@ -2489,46 +2396,34 @@
     <Compile Include="vwct_cbtecble_con_ctacble_acreedora.cs">
       <DependentUpon>ModelConta.tt</DependentUpon>
     </Compile>
-    <Compile Include="vwct_cbtecble_Con_Saldo.cs">
+    <Compile Include="vwct_cbtecble_con_saldo.cs">
       <DependentUpon>ModelConta.tt</DependentUpon>
     </Compile>
     <Compile Include="vwct_cbtecble_con_saldo_cxp.cs">
       <DependentUpon>ModelConta.tt</DependentUpon>
     </Compile>
-    <Compile Include="vwct_cbtecble_con_saldo_cxp_ANTI_PROVEE.cs">
+    <Compile Include="vwct_cbtecble_con_saldo_cxp_anti_provee.cs">
       <DependentUpon>ModelConta.tt</DependentUpon>
     </Compile>
     <Compile Include="vwct_cbtecble_con_saldo_cxp_consulta.cs">
       <DependentUpon>ModelConta.tt</DependentUpon>
     </Compile>
-    <Compile Include="vwct_cbtecble_con_saldo_cxp_DIARIO.cs">
+    <Compile Include="vwct_cbtecble_con_saldo_cxp_diario.cs">
       <DependentUpon>ModelConta.tt</DependentUpon>
     </Compile>
-    <Compile Include="vwct_cbtecble_con_saldo_cxp_NOTA.cs">
+    <Compile Include="vwct_cbtecble_con_saldo_cxp_nota.cs">
       <DependentUpon>ModelConta.tt</DependentUpon>
     </Compile>
     <Compile Include="vwct_cbtecble_det.cs">
       <DependentUpon>ModelConta.tt</DependentUpon>
     </Compile>
-    <Compile Include="vwct_cbtecble_det_TotalDiario.cs">
-      <DependentUpon>ModelConta.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwct_cbtecble_x_cp_Conciliacion_caja.cs">
+    <Compile Include="vwct_cbtecble_det_totaldiario.cs">
       <DependentUpon>ModelConta.tt</DependentUpon>
     </Compile>
     <Compile Include="vwct_centro_costo.cs">
       <DependentUpon>ModelConta.tt</DependentUpon>
     </Compile>
-    <Compile Include="vwct_centro_costo_sub_centro_costo.cs">
-      <DependentUpon>ModelConta.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwct_centro_costo_x_fa_cliente_obra.cs">
-      <DependentUpon>ModelConta.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwct_ComprobanteContable.cs">
-      <DependentUpon>ModelConta.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwct_grupo_x_Tipo_Gasto.cs">
+    <Compile Include="vwct_comprobantecontable.cs">
       <DependentUpon>ModelConta.tt</DependentUpon>
     </Compile>
     <Compile Include="vwct_periodo.cs">
@@ -2540,19 +2435,19 @@
     <Compile Include="vwct_plancta_nivel.cs">
       <DependentUpon>ModelConta.tt</DependentUpon>
     </Compile>
-    <Compile Include="vwct_SaldosxCuentas.cs">
+    <Compile Include="vwct_saldosxcuentas.cs">
       <DependentUpon>ModelConta.tt</DependentUpon>
     </Compile>
-    <Compile Include="vwct_UtilidadxPeriodo.cs">
+    <Compile Include="vwct_utilidadxperiodo.cs">
       <DependentUpon>ModelConta.tt</DependentUpon>
     </Compile>
-    <Compile Include="vwct_UtilidadxPeriodo_Saldo_Acumulado.cs">
+    <Compile Include="vwct_utilidadxperiodo_saldo_acumulado.cs">
       <DependentUpon>ModelConta.tt</DependentUpon>
     </Compile>
-    <Compile Include="vwct_UtilidadxPeriodo_Saldo_Anterior.cs">
+    <Compile Include="vwct_utilidadxperiodo_saldo_anterior.cs">
       <DependentUpon>ModelConta.tt</DependentUpon>
     </Compile>
-    <Compile Include="vwct_UtilidadxPeriodo_Saldo_PeriodoActual.cs">
+    <Compile Include="vwct_utilidadxperiodo_saldo_periodoactual.cs">
       <DependentUpon>ModelConta.tt</DependentUpon>
     </Compile>
     <Compile Include="vwcxc_anticipos_x_cruzar.cs">

@@ -125,12 +125,6 @@ namespace Bizu.Reports.Contabilidad
                 Nom_centro_Costo = cmb_centro_costo.Text;
                 IdNivel_a_mostrar = (int)cmb_nivel.SelectedValue;
 
-                IdPunto_cargo_grupo = uCct_Pto_Cargo_Grupo.Get_Id_grupo();
-                Nom_Punto_Cargo_Grupo = (uCct_Pto_Cargo_Grupo.Get_info_grupo() == null) ? "" : uCct_Pto_Cargo_Grupo.Get_info_grupo().nom_punto_cargo_grupo;
-
-                IdPunto_cargo = uCct_Pto_Cargo_Grupo.Get_Id_punto_cargo();
-                Nom_Punto_Cargo = (uCct_Pto_Cargo_Grupo.Get_info_punto_cargo() == null) ? "" : uCct_Pto_Cargo_Grupo.Get_info_punto_cargo().nom_punto_cargo;
-
                 Reporte.PIdEmpresa.Value = IdEmpresa;
                 Reporte.PIdPeriodo.Value = Info_Periodo.IdPeriodo;
                 Reporte.PIdCentroCosto.Value = IdCentroCosto;
@@ -180,12 +174,6 @@ namespace Bizu.Reports.Contabilidad
                 IdCentroCosto = cmb_centro_costo.EditValue == null ? "" : cmb_centro_costo.EditValue.ToString();
                 Nom_centro_Costo = cmb_centro_costo.Text;
                 IdNivel_a_mostrar = (int)cmb_nivel.SelectedValue;
-
-                IdPunto_cargo_grupo = uCct_Pto_Cargo_Grupo.Get_Id_grupo();
-                Nom_Punto_Cargo_Grupo = (uCct_Pto_Cargo_Grupo.Get_info_grupo() == null) ? "" : uCct_Pto_Cargo_Grupo.Get_info_grupo().nom_punto_cargo_grupo;
-
-                IdPunto_cargo = uCct_Pto_Cargo_Grupo.Get_Id_punto_cargo();
-                Nom_Punto_Cargo = (uCct_Pto_Cargo_Grupo.Get_info_punto_cargo() == null) ? "" : uCct_Pto_Cargo_Grupo.Get_info_punto_cargo().nom_punto_cargo;
 
                 Reporte.PIdEmpresa.Value = IdEmpresa;
                 Reporte.PIdPeriodo.Value = Info_Periodo.IdPeriodo;
@@ -243,8 +231,6 @@ namespace Bizu.Reports.Contabilidad
             try
             {
                 string msg = "";
-
-                uCct_Pto_Cargo_Grupo.Cargar_combos();
 
                 ct_Plancta_nivel_Bus BusNivel = new ct_Plancta_nivel_Bus();
                 List<ct_Plancta_nivel_Info> listNiveles = new List<ct_Plancta_nivel_Info>();

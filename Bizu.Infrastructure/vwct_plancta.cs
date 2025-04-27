@@ -14,20 +14,20 @@ namespace Bizu.Infrastructure
     
     public partial class vwct_plancta
     {
-        public int IdEmpresa { get; set; }
-        public string IdCtaCble { get; set; }
-        public string pc_Cuenta { get; set; }
-        public string IdCtaCblePadre { get; set; }
-        public Nullable<decimal> IdCatalogo { get; set; }
-        public string pc_Naturaleza { get; set; }
-        public int IdNivelCta { get; set; }
-        public string IdGrupoCble { get; set; }
-        public string pc_Estado { get; set; }
-        public string pc_EsMovimiento { get; set; }
+        public int idempresa { get; set; }
+        public string idctacble { get; set; }
+        public string pc_cuenta { get; set; }
+        public string idctacblepadre { get; set; }
+        public Nullable<decimal> idcatalogo { get; set; }
+        public string pc_naturaleza { get; set; }
+        public int idnivelcta { get; set; }
+        public string idgrupocble { get; set; }
+        public string pc_estado { get; set; }
+        public string pc_esmovimiento { get; set; }
         public string pc_es_flujo_efectivo { get; set; }
         public string pc_clave_corta { get; set; }
-        public string CuentaPadre { get; set; }
-        public string IdTipoCtaCble { get; set; }
-        public Nullable<int> IdTipo_Costo { get; set; }
+        public string cuentapadre { get; set; }
+        public string idtipoctacble { get; set; }
+        public Nullable<int> idtipo_costo { get; set; }
     }
 }

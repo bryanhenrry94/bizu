@@ -1047,12 +1047,6 @@
     <Compile Include="Controles\UCct_Menu_Reportes.Designer.cs">
       <DependentUpon>UCct_Menu_Reportes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controles\UCct_Pto_Cargo_Grupo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCct_Pto_Cargo_Grupo.Designer.cs">
-      <DependentUpon>UCct_Pto_Cargo_Grupo.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controles\UCInv_MenuReportes_2.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -2115,12 +2109,6 @@
     </Compile>
     <Compile Include="Controles\UCct_CentroCosto.Designer.cs">
       <DependentUpon>UCct_CentroCosto.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controles\UCct_Pto_Cargo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCct_Pto_Cargo.Designer.cs">
-      <DependentUpon>UCct_Pto_Cargo.cs</DependentUpon>
     </Compile>
     <Compile Include="Controles\UCCXC_MenuReportes.cs">
       <SubType>UserControl</SubType>
@@ -4357,9 +4345,6 @@
     <EmbeddedResource Include="Controles\UCct_Menu_Reportes.resx">
       <DependentUpon>UCct_Menu_Reportes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCct_Pto_Cargo_Grupo.resx">
-      <DependentUpon>UCct_Pto_Cargo_Grupo.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Controles\UCInv_MenuReportes_2.resx">
       <DependentUpon>UCInv_MenuReportes_2.cs</DependentUpon>
     </EmbeddedResource>
@@ -4794,9 +4779,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controles\UCct_CentroCosto.resx">
       <DependentUpon>UCct_CentroCosto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCct_Pto_Cargo.resx">
-      <DependentUpon>UCct_Pto_Cargo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controles\UCCXC_MenuReportes.resx">
       <DependentUpon>UCCXC_MenuReportes.cs</DependentUpon>

@@ -47,7 +47,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.chkMostrar_col_Punto_Cargo = new DevExpress.XtraEditors.CheckEdit();
             this.chkMostrar_col_centro_costo = new DevExpress.XtraEditors.CheckEdit();
-            this.cmb_Pto_Cargo_Grupo = new Bizu.Reports.Controles.UCct_Pto_Cargo_Grupo();
             this.label2 = new System.Windows.Forms.Label();
             this.dtpFechaIni = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaFin = new System.Windows.Forms.DateTimePicker();
@@ -213,7 +212,6 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.chkMostrar_col_Punto_Cargo);
             this.groupBox1.Controls.Add(this.chkMostrar_col_centro_costo);
-            this.groupBox1.Controls.Add(this.cmb_Pto_Cargo_Grupo);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.dtpFechaIni);
             this.groupBox1.Controls.Add(this.dtpFechaFin);
@@ -289,14 +287,7 @@
             this.chkMostrar_col_centro_costo.Name = "chkMostrar_col_centro_costo";
             this.chkMostrar_col_centro_costo.Properties.Caption = "Mostrar Columna Centro Costo";
             this.chkMostrar_col_centro_costo.Size = new System.Drawing.Size(205, 19);
-            this.chkMostrar_col_centro_costo.TabIndex = 9;
-            // 
-            // cmb_Pto_Cargo_Grupo
-            // 
-            this.cmb_Pto_Cargo_Grupo.Location = new System.Drawing.Point(270, 35);
-            this.cmb_Pto_Cargo_Grupo.Name = "cmb_Pto_Cargo_Grupo";
-            this.cmb_Pto_Cargo_Grupo.Size = new System.Drawing.Size(374, 52);
-            this.cmb_Pto_Cargo_Grupo.TabIndex = 8;
+            this.chkMostrar_col_centro_costo.TabIndex = 9;           
             // 
             // label2
             // 
@@ -693,7 +684,6 @@
         private System.Windows.Forms.Panel panel1;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private Controles.UCct_Pto_Cargo_Grupo cmb_Pto_Cargo_Grupo;
         private DevExpress.XtraEditors.CheckEdit chkMostrar_col_centro_costo;
         private DevExpress.XtraEditors.CheckEdit chkMostrar_col_Punto_Cargo;
         private DevExpress.XtraEditors.SearchLookUpEdit cmb_centro_costo;

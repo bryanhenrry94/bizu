@@ -21,103 +21,103 @@ namespace Bizu.Infrastructure.Contabilidad
                     switch (tipo)
                     {
                         case "DIARIO":
-                            var consulta = from q in conta.vwct_cbtecble_con_saldo_cxp_DIARIO
-                                           where q.IdEmpresa == IdEmpresa
-                                           && q.Tipo.Contains(tipo)
-                                           && q.cb_Fecha >= cb_fechaDesde
-                                           && q.cb_Fecha <= cb_fechaHasta
-                                           && q.Valor_saldo_cbte > 0
+                            var consulta = from q in conta.vwct_cbtecble_con_saldo_cxp_diario
+                                           where q.idempresa == IdEmpresa
+                                           && q.tipo.Contains(tipo)
+                                           && q.cb_fecha >= cb_fechaDesde
+                                           && q.cb_fecha <= cb_fechaHasta
+                                           && q.valor_saldo_cbte > 0
                                            select q;
 
                             foreach (var item in consulta)
                             {
                                 vwct_cbtecble_con_saldo_cxp_Info info = new vwct_cbtecble_con_saldo_cxp_Info();
-                                info.IdEmpresa = item.IdEmpresa;
-                                info.IdCbteCble = item.IdCbteCble;
-                                info.IdTipocbte = item.IdTipoCbte;
-                                info.cb_Fecha = item.cb_Fecha;
-                                info.cb_Observacion = item.cb_Observacion;
+                                info.IdEmpresa = item.idempresa;
+                                info.IdCbteCble = item.idcbtecble;
+                                info.IdTipocbte = item.idtipocbte;
+                                info.cb_Fecha = item.cb_fecha;
+                                info.cb_Observacion = item.cb_observacion;
                                 info.referencia = item.referencia;
-                                info.tc_TipoCbte = item.tc_TipoCbte;
-                                info.Valor_cbte = item.Valor_Cbte;
-                                info.Valor_cancelado_cbte = item.Valor_Cancelado_cbte;
-                                info.valor_Saldo_cbte = item.Valor_saldo_cbte;
-                                info.tipo = item.Tipo;
+                                info.tc_TipoCbte = item.tc_tipocbte;
+                                info.Valor_cbte = item.valor_cbte;
+                                info.Valor_cancelado_cbte = item.valor_cancelado_cbte;
+                                info.valor_Saldo_cbte = item.valor_saldo_cbte;
+                                info.tipo = item.tipo;
                                 info.IdEmpresaOP = null;
                                 info.IdOrdenPagoOP = null;
                                 info.SecuenciaOP = null;
                                 info.IdCtaCble = null;
                                 info.IdCtaCble_Anticipo = null;
-                                info.Beneficiario = item.Beneficiario;
-                                info.IdBeneficiario = item.IdProveedor;
+                                info.Beneficiario = item.beneficiario;
+                                info.IdBeneficiario = item.idproveedor;
                                 Lst.Add(info);
                             }
                             break;
                         case "NOTA-CRED":
                         case "NOTA-DEB":
-                            var consulta2 = from q in conta.vwct_cbtecble_con_saldo_cxp_NOTA
-                                            where q.IdEmpresa == IdEmpresa
-                                            && q.Tipo.Contains(tipo)
+                            var consulta2 = from q in conta.vwct_cbtecble_con_saldo_cxp_nota
+                                            where q.idempresa == IdEmpresa
+                                            && q.tipo.Contains(tipo)
                                             && q.cn_fecha >= cb_fechaDesde
                                             && q.cn_fecha <= cb_fechaHasta
-                                            && q.Valor_saldo_cbte > 0
+                                            && q.valor_saldo_cbte > 0
                                             select q;
 
                             foreach (var item in consulta2)
                             {
                                 vwct_cbtecble_con_saldo_cxp_Info info = new vwct_cbtecble_con_saldo_cxp_Info();
-                                info.IdEmpresa = item.IdEmpresa;
-                                info.IdCbteCble = item.IdCbteCble_Nota;
-                                info.IdTipocbte = item.IdTipoCbte_Nota;
+                                info.IdEmpresa = item.idempresa;
+                                info.IdCbteCble = item.idcbtecble_nota;
+                                info.IdTipocbte = item.idtipocbte_nota;
                                 info.cb_Fecha = item.cn_fecha;
                                 info.cb_Observacion = item.cn_observacion;
                                 info.referencia = item.referncia;
-                                info.tc_TipoCbte = item.tc_TipoCbte;
-                                info.Valor_cbte = Convert.ToDouble(item.Valor_Cbte);
-                                info.Valor_cancelado_cbte = item.Valor_Cancelado_cbte;
-                                info.valor_Saldo_cbte = item.Valor_saldo_cbte;
-                                info.tipo = item.Tipo;
+                                info.tc_TipoCbte = item.tc_tipocbte;
+                                info.Valor_cbte = Convert.ToDouble(item.valor_cbte);
+                                info.Valor_cancelado_cbte = item.valor_cancelado_cbte;
+                                info.valor_Saldo_cbte = item.valor_saldo_cbte;
+                                info.tipo = item.tipo;
                                 info.IdEmpresaOP = null;
                                 info.IdOrdenPagoOP = null;
                                 info.SecuenciaOP = null;
-                                info.IdCtaCble = item.IdCtaCble;
-                                info.IdCtaCble_Anticipo = item.IdCtaAnticipo;
-                                info.Beneficiario = item.Beneficiario;
-                                info.IdBeneficiario = item.IdProveedor;
+                                info.IdCtaCble = item.idctacble;
+                                info.IdCtaCble_Anticipo = item.idctaanticipo;
+                                info.Beneficiario = item.beneficiario;
+                                info.IdBeneficiario = item.idproveedor;
                                 Lst.Add(info);
                             }
                             break;
 
                         default:
                             var consulta3 = from q in conta.vwct_cbtecble_con_saldo_cxp
-                                            where q.IdEmpresa == IdEmpresa
-                                            && q.Tipo.Contains(tipo)
-                                            && q.cb_Fecha >= cb_fechaDesde
-                                            && q.cb_Fecha <= cb_fechaHasta
-                                            && q.valor_Saldo_cbte > 0
+                                            where q.idempresa == IdEmpresa
+                                            && q.tipo.Contains(tipo)
+                                            && q.cb_fecha >= cb_fechaDesde
+                                            && q.cb_fecha <= cb_fechaHasta
+                                            && q.valor_saldo_cbte > 0
                                             select q;
 
                             foreach (var item in consulta3)
                             {
                                 vwct_cbtecble_con_saldo_cxp_Info info = new vwct_cbtecble_con_saldo_cxp_Info();
-                                info.IdEmpresa = item.IdEmpresa;
-                                info.IdCbteCble = item.IdCbteCble;
-                                info.IdTipocbte = item.IdTipocbte;
-                                info.cb_Fecha = item.cb_Fecha;
-                                info.cb_Observacion = item.cb_Observacion;
+                                info.IdEmpresa = item.idempresa;
+                                info.IdCbteCble = item.idcbtecble;
+                                info.IdTipocbte = item.idtipocbte;
+                                info.cb_Fecha = item.cb_fecha;
+                                info.cb_Observacion = item.cb_observacion;
                                 info.referencia = item.referencia;
-                                info.tc_TipoCbte = item.tc_TipoCbte;
-                                info.Valor_cbte = item.Valor_cbte;
-                                info.Valor_cancelado_cbte = item.Valor_cancelado_cbte;
-                                info.valor_Saldo_cbte = item.valor_Saldo_cbte;
-                                info.tipo = item.Tipo;
-                                info.IdEmpresaOP = item.IdEmpresaOP;
-                                info.IdOrdenPagoOP = item.IdOrdenPagoOP;
-                                info.SecuenciaOP = item.SecuenciaOP;
-                                info.IdCtaCble = item.IdCtaCble;
-                                info.IdCtaCble_Anticipo = item.IdCtaCble_Anticipo;
-                                info.Beneficiario = item.Beneficiario;
-                                info.IdBeneficiario = item.IdBeneficiario;
+                                info.tc_TipoCbte = item.tc_tipocbte;
+                                info.Valor_cbte = item.valor_cbte;
+                                info.Valor_cancelado_cbte = item.valor_cancelado_cbte;
+                                info.valor_Saldo_cbte = item.valor_saldo_cbte;
+                                info.tipo = item.tipo;
+                                info.IdEmpresaOP = item.idempresaop;
+                                info.IdOrdenPagoOP = item.idordenpagoop;
+                                info.SecuenciaOP = item.secuenciaop;
+                                info.IdCtaCble = item.idctacble;
+                                info.IdCtaCble_Anticipo = item.idctacble_anticipo;
+                                info.Beneficiario = item.beneficiario;
+                                info.IdBeneficiario = item.idbeneficiario;
                                 Lst.Add(info);
                             }
                             break;
@@ -145,26 +145,26 @@ namespace Bizu.Infrastructure.Contabilidad
                 vwct_cbtecble_con_saldo_cxp_Info info = new vwct_cbtecble_con_saldo_cxp_Info();
                 using (EntitiesDBConta conta = new EntitiesDBConta())
                 {
-                    var item = conta.vwct_cbtecble_con_saldo_cxp_ANTI_PROVEE.FirstOrDefault(q => q.IdEmpresaOP == IdEmpresa_op && q.IdOrdenPagoOP == IdOrdenPago_op && q.Tipo == tipo);
+                    var item = conta.vwct_cbtecble_con_saldo_cxp_anti_provee.FirstOrDefault(q => q.idempresaop == IdEmpresa_op && q.idordenpagoop == IdOrdenPago_op && q.tipo == tipo);
 
-                    info.IdEmpresa = item.IdEmpresa;
-                    info.IdCbteCble = item.IdCbteCble;
-                    info.IdTipocbte = item.IdTipoCbte;
-                    info.cb_Fecha = item.Fecha;
-                    info.cb_Observacion = item.Observacion;
+                    info.IdEmpresa = item.idempresa;
+                    info.IdCbteCble = item.idcbtecble;
+                    info.IdTipocbte = item.idtipocbte;
+                    info.cb_Fecha = item.fecha;
+                    info.cb_Observacion = item.observacion;
                     info.referencia = "";
-                    info.tc_TipoCbte = item.tc_TipoCbte;
-                    info.Valor_cbte = item.Valor_cbte;
+                    info.tc_TipoCbte = item.tc_tipocbte;
+                    info.Valor_cbte = item.valor_cbte;
                     info.Valor_cancelado_cbte = item.valor_cancelado;
                     info.valor_Saldo_cbte = item.valor_saldo_cbte;
-                    info.tipo = item.Tipo;
-                    info.IdEmpresaOP = item.IdEmpresaOP;
-                    info.IdOrdenPagoOP = item.IdOrdenPagoOP;
-                    info.SecuenciaOP = item.SecuenciaOP;
-                    info.IdCtaCble = item.IdCtaCble;
-                    info.IdCtaCble_Anticipo = item.IdCtaCble_Anticipo;
-                    info.Beneficiario = item.Beneficiario;
-                    info.IdBeneficiario = item.IdProveedor;
+                    info.tipo = item.tipo;
+                    info.IdEmpresaOP = item.idempresaop;
+                    info.IdOrdenPagoOP = item.idordenpagoop;
+                    info.SecuenciaOP = item.secuenciaop;
+                    info.IdCtaCble = item.idctacble;
+                    info.IdCtaCble_Anticipo = item.idctacble_anticipo;
+                    info.Beneficiario = item.beneficiario;
+                    info.IdBeneficiario = item.idproveedor;
                 }
 
                 return info;

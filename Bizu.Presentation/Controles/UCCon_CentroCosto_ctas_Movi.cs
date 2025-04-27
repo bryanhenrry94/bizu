@@ -56,20 +56,7 @@ namespace Bizu.Presentation.Controles
 
         public void cargaCmb_centroCostos()
         {
-            try
-            {
-                listCentroCosto_Info = BusCC.Get_list_Centro_Costo_cuentas_de_movimiento_x_EstadoObra(param.IdEmpresa, Convert.ToString(Cl_Enumeradores.eTipoEstado_Obra.ABI), ref MensajeError);
-                cmbCentroCosto.Properties.DataSource = listCentroCosto_Info;
-                cmbCentroCosto.Properties.DisplayMember = "Centro_costo2";
-                cmbCentroCosto.Properties.ValueMember = "IdCentroCosto";
-            }
-            catch (Exception ex)
-            {
-                string NameMetodo = System.Reflection.MethodBase.GetCurrentMethod().Name;
-                MessageBox.Show(NameMetodo + " - " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log_Error_bus.Log_Error(NameMetodo + " - " + ex.ToString());
-            }
-
+            
 
         }
 

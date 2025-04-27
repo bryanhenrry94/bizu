@@ -22,14 +22,7 @@ namespace Bizu.Infrastructure
             : base("name=EntitiesDBConta")
         {
         }
-
-        //poner esta funcion dentro de la clase entities no viene por defecto
-        //10000 timeout 1 minutos
-        public void SetCommandTimeOut(int TimeOut)
-        {
-            ((IObjectContextAdapter)this).ObjectContext.CommandTimeout = TimeOut;
-        }
-
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -39,64 +32,36 @@ namespace Bizu.Infrastructure
         public DbSet<ct_anio_fiscal_x_cuenta_utilidad> ct_anio_fiscal_x_cuenta_utilidad { get; set; }
         public DbSet<ct_cbtecble> ct_cbtecble { get; set; }
         public DbSet<ct_cbtecble_det> ct_cbtecble_det { get; set; }
-        public DbSet<ct_cbtecble_Plantilla> ct_cbtecble_Plantilla { get; set; }
-        public DbSet<ct_cbtecble_Plantilla_det> ct_cbtecble_Plantilla_det { get; set; }
-        public DbSet<ct_cbtecble_Reversado> ct_cbtecble_Reversado { get; set; }
+        public DbSet<ct_cbtecble_reversado> ct_cbtecble_reversado { get; set; }
         public DbSet<ct_cbtecble_tipo> ct_cbtecble_tipo { get; set; }
         public DbSet<ct_centro_costo> ct_centro_costo { get; set; }
-        public DbSet<ct_centro_costo_nivel> ct_centro_costo_nivel { get; set; }
-        public DbSet<ct_centro_costo_sub_centro_costo> ct_centro_costo_sub_centro_costo { get; set; }
-        public DbSet<ct_centro_costo_sub_centro_costo_x_Af_Activo_fijo> ct_centro_costo_sub_centro_costo_x_Af_Activo_fijo { get; set; }
-        public DbSet<ct_grupo_x_Tipo_Gasto> ct_grupo_x_Tipo_Gasto { get; set; }
+        public DbSet<ct_dashboard_financiero> ct_dashboard_financiero { get; set; }
         public DbSet<ct_grupocble> ct_grupocble { get; set; }
-        public DbSet<ct_grupocble_Mayor> ct_grupocble_Mayor { get; set; }
-        public DbSet<ct_GrupoEmpresarial> ct_GrupoEmpresarial { get; set; }
-        public DbSet<ct_GrupoEmpresarial_grupocble> ct_GrupoEmpresarial_grupocble { get; set; }
-        public DbSet<ct_GrupoEmpresarial_plancta> ct_GrupoEmpresarial_plancta { get; set; }
-        public DbSet<ct_GrupoEmpresarial_plancta_nivel> ct_GrupoEmpresarial_plancta_nivel { get; set; }
-        public DbSet<ct_GrupoEmpresarial_plancta_x_ct_plancta> ct_GrupoEmpresarial_plancta_x_ct_plancta { get; set; }
         public DbSet<ct_parametro> ct_parametro { get; set; }
         public DbSet<ct_periodo> ct_periodo { get; set; }
         public DbSet<ct_periodo_x_tb_modulo> ct_periodo_x_tb_modulo { get; set; }
         public DbSet<ct_plancta> ct_plancta { get; set; }
         public DbSet<ct_plancta_nivel> ct_plancta_nivel { get; set; }
-        public DbSet<ct_punto_cargo> ct_punto_cargo { get; set; }
-        public DbSet<ct_punto_cargo_grupo> ct_punto_cargo_grupo { get; set; }
-        public DbSet<ct_rpt_Empresas_A_mostrar> ct_rpt_Empresas_A_mostrar { get; set; }
-        public DbSet<ct_saldoxCuentas> ct_saldoxCuentas { get; set; }
-        public DbSet<ct_saldoxCuentas_Movi> ct_saldoxCuentas_Movi { get; set; }
-        public DbSet<ct_saldoxCuentas_Movi_x_RangoFecha> ct_saldoxCuentas_Movi_x_RangoFecha { get; set; }
-        public DbSet<ct_Tipo_costo> ct_Tipo_costo { get; set; }
-        public DbSet<ct_tipo_ctacble> ct_tipo_ctacble { get; set; }
         public DbSet<vwct_anio_fiscal_x_cuenta_utilidad> vwct_anio_fiscal_x_cuenta_utilidad { get; set; }
         public DbSet<vwct_cbtecble_con_ctacble_acreedora> vwct_cbtecble_con_ctacble_acreedora { get; set; }
-        public DbSet<vwct_cbtecble_Con_Saldo> vwct_cbtecble_Con_Saldo { get; set; }
+        public DbSet<vwct_cbtecble_con_saldo> vwct_cbtecble_con_saldo { get; set; }
         public DbSet<vwct_cbtecble_con_saldo_cxp> vwct_cbtecble_con_saldo_cxp { get; set; }
+        public DbSet<vwct_cbtecble_con_saldo_cxp_anti_provee> vwct_cbtecble_con_saldo_cxp_anti_provee { get; set; }
         public DbSet<vwct_cbtecble_con_saldo_cxp_consulta> vwct_cbtecble_con_saldo_cxp_consulta { get; set; }
+        public DbSet<vwct_cbtecble_con_saldo_cxp_diario> vwct_cbtecble_con_saldo_cxp_diario { get; set; }
+        public DbSet<vwct_cbtecble_con_saldo_cxp_nota> vwct_cbtecble_con_saldo_cxp_nota { get; set; }
         public DbSet<vwct_cbtecble_det> vwct_cbtecble_det { get; set; }
-        public DbSet<vwct_cbtecble_det_TotalDiario> vwct_cbtecble_det_TotalDiario { get; set; }
-        public DbSet<vwct_cbtecble_x_cp_Conciliacion_caja> vwct_cbtecble_x_cp_Conciliacion_caja { get; set; }
+        public DbSet<vwct_cbtecble_det_totaldiario> vwct_cbtecble_det_totaldiario { get; set; }
         public DbSet<vwct_centro_costo> vwct_centro_costo { get; set; }
-        public DbSet<vwct_centro_costo_sub_centro_costo> vwct_centro_costo_sub_centro_costo { get; set; }
-        public DbSet<vwct_centro_costo_x_fa_cliente_obra> vwct_centro_costo_x_fa_cliente_obra { get; set; }
-        public DbSet<vwct_ComprobanteContable> vwct_ComprobanteContable { get; set; }
-        public DbSet<vwct_grupo_x_Tipo_Gasto> vwct_grupo_x_Tipo_Gasto { get; set; }
+        public DbSet<vwct_comprobantecontable> vwct_comprobantecontable { get; set; }
         public DbSet<vwct_periodo> vwct_periodo { get; set; }
         public DbSet<vwct_plancta> vwct_plancta { get; set; }
         public DbSet<vwct_plancta_nivel> vwct_plancta_nivel { get; set; }
-        public DbSet<vwct_SaldosxCuentas> vwct_SaldosxCuentas { get; set; }
-        public DbSet<vwct_UtilidadxPeriodo> vwct_UtilidadxPeriodo { get; set; }
-        public DbSet<vwct_UtilidadxPeriodo_Saldo_Acumulado> vwct_UtilidadxPeriodo_Saldo_Acumulado { get; set; }
-        public DbSet<vwct_UtilidadxPeriodo_Saldo_Anterior> vwct_UtilidadxPeriodo_Saldo_Anterior { get; set; }
-        public DbSet<vwct_UtilidadxPeriodo_Saldo_PeriodoActual> vwct_UtilidadxPeriodo_Saldo_PeriodoActual { get; set; }
-        public DbSet<ct_rpt_MovxCta> ct_rpt_MovxCta { get; set; }
-        public DbSet<ct_saldoxCuentas_Movi_tmp> ct_saldoxCuentas_Movi_tmp { get; set; }
-        public DbSet<ct_saldoxCuentas_TMP> ct_saldoxCuentas_TMP { get; set; }
-        public DbSet<ct_rpt_SaldoxCta> ct_rpt_SaldoxCta { get; set; }
-        public DbSet<ct_dashboard_financiero> ct_dashboard_financiero { get; set; }
-        public DbSet<vwct_cbtecble_con_saldo_cxp_DIARIO> vwct_cbtecble_con_saldo_cxp_DIARIO { get; set; }
-        public DbSet<vwct_cbtecble_con_saldo_cxp_NOTA> vwct_cbtecble_con_saldo_cxp_NOTA { get; set; }
-        public DbSet<vwct_cbtecble_con_saldo_cxp_ANTI_PROVEE> vwct_cbtecble_con_saldo_cxp_ANTI_PROVEE { get; set; }
+        public DbSet<vwct_saldosxcuentas> vwct_saldosxcuentas { get; set; }
+        public DbSet<vwct_utilidadxperiodo> vwct_utilidadxperiodo { get; set; }
+        public DbSet<vwct_utilidadxperiodo_saldo_acumulado> vwct_utilidadxperiodo_saldo_acumulado { get; set; }
+        public DbSet<vwct_utilidadxperiodo_saldo_anterior> vwct_utilidadxperiodo_saldo_anterior { get; set; }
+        public DbSet<vwct_utilidadxperiodo_saldo_periodoactual> vwct_utilidadxperiodo_saldo_periodoactual { get; set; }
     
         public virtual int spCON_Saldo_Inicial_x_cta_cble(Nullable<int> p_IdEmpresa, Nullable<System.DateTime> p_FechaCorte, string p_IdCentroCosto)
         {

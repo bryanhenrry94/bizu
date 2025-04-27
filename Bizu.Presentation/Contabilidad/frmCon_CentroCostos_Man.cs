@@ -22,8 +22,6 @@ namespace Bizu.Presentation.Contabilidad
 
         string MensajeError = "";
 
-        ct_Centro_costo_nivel_Bus BusNivel = new ct_Centro_costo_nivel_Bus();
-        List<ct_Centro_costo_nivel_Info> ListNivelCta = new List<ct_Centro_costo_nivel_Info>();
         ct_Centro_costo_Bus Centro_costo_Bus = new ct_Centro_costo_Bus();
 
         List<ct_Centro_costo_Info> listCentro_costo_padre = new List<ct_Centro_costo_Info>();
@@ -49,7 +47,7 @@ namespace Bizu.Presentation.Contabilidad
             ucGe_Menu.event_btnSalir_Click += this.ucGe_Menu_Superior_event_btnSalir_Click;
             ucGe_Menu.event_btnAnular_Click += this.ucGe_Menu_Superior_event_btnAnular_Click;
 
-            event_frmCon_CentroCostos_Man_FormClosing+=frmCon_CentroCostos_Man_event_frmCon_CentroCostos_Man_FormClosing;
+            event_frmCon_CentroCostos_Man_FormClosing += frmCon_CentroCostos_Man_event_frmCon_CentroCostos_Man_FormClosing;
             this.Load += new System.EventHandler(this.frmCon_CentroCostos_Man_Load);
             this.cmb_centro_costo_padre.EditValueChanged += new System.EventHandler(this.cmb_centro_costo_padre_EditValueChanged);
         }
@@ -60,7 +58,7 @@ namespace Bizu.Presentation.Contabilidad
 
         }
         #region Handler
-        
+
         #region "set"
         public void setAccion(Cl_Enumeradores.eTipo_action iAccion)
         {
@@ -131,10 +129,10 @@ namespace Bizu.Presentation.Contabilidad
             }
         }
 
-       
+
 
         #endregion
-        
+
         #region "eventos" 
         public void frmCon_CentroCostos_Man_Load(object sender, EventArgs e)
         {
@@ -143,9 +141,9 @@ namespace Bizu.Presentation.Contabilidad
                 if (_Accion == 0)
                 {
                     _Accion = Cl_Enumeradores.eTipo_action.grabar;
-                }             
-                    cargar_combo();
-                    set_accionGe();      
+                }
+                cargar_combo();
+                set_accionGe();
             }
             catch (Exception ex)
             {
@@ -250,7 +248,7 @@ namespace Bizu.Presentation.Contabilidad
             try
             {
                 Boolean res = true;
-              
+
                 if (txt_nombre.Text == "")
                 {
                     MessageBox.Show(param.Get_Mensaje_sys(enum_Mensajes_sys.Por_Favor_ingrese_el) + " el nombre del centro costo ", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -407,14 +405,9 @@ namespace Bizu.Presentation.Contabilidad
             try
             {
                 listCentro_costo_padre = Centro_costo_Bus.Get_list_Centro_Costo_cuentas_padre(param.IdEmpresa, ref MensajeError);
-              
-                    cmb_centro_costo_padre.Properties.DataSource = listCentro_costo_padre;
-                    ListNivelCta = BusNivel.Get_list_Centro_costo_nivel(param.IdEmpresa);
-                    cmb_nivel.DataSource = ListNivelCta;
-                    cmb_nivel.ValueMember = "IdNivel";
-                    cmb_nivel.DisplayMember = "IdNivel";
-                    cmb_nivel.SelectedValue = 1;
-             }
+
+                cmb_centro_costo_padre.Properties.DataSource = listCentro_costo_padre;                
+            }
             catch (Exception ex)
             {
                 string NameMetodo = System.Reflection.MethodBase.GetCurrentMethod().Name;
@@ -433,17 +426,17 @@ namespace Bizu.Presentation.Contabilidad
             try
             {
                 Boolean Res = false;
-                
+
                 Info_centro_costo.Fecha_Transac = DateTime.Now;
                 Info_centro_costo.IdUsuario = param.IdUsuario;
-                Res = Centro_costo_Bus.GrabarDB(Info_centro_costo, ref  MensajeError);
+                Res = Centro_costo_Bus.GrabarDB(Info_centro_costo, ref MensajeError);
                 if (Res)
                 {
                     string smensaje = string.Format("{0} # {1} se guardó con éxito.", "", Info_centro_costo.IdCtaCble + "-" + Info_centro_costo.Centro_costo);
                     MessageBox.Show(smensaje, param.Nombre_sistema);
                     ucGe_Menu.Visible_btnGuardar = DevExpress.XtraBars.BarItemVisibility.Always;
                     ucGe_Menu.Visible_bntGuardar_y_Salir = DevExpress.XtraBars.BarItemVisibility.Always;
-                        limpiarGe();
+                    limpiarGe();
                 }
                 else
                 {
@@ -471,13 +464,13 @@ namespace Bizu.Presentation.Contabilidad
                 Boolean Res = false;
                 Info_centro_costo.Fecha_UltMod = DateTime.Now;
                 Info_centro_costo.IdUsuarioUltMod = param.IdUsuario;
-                Res = Centro_costo_Bus.ModificarDB(Info_centro_costo, ref  MensajeError);
+                Res = Centro_costo_Bus.ModificarDB(Info_centro_costo, ref MensajeError);
                 if (Res)
                 {
                     MessageBox.Show(param.Get_Mensaje_sys(enum_Mensajes_sys.Se_modifico_corrrectamente), param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ucGe_Menu.Visible_btnGuardar = DevExpress.XtraBars.BarItemVisibility.Always;
                     ucGe_Menu.Visible_bntGuardar_y_Salir = DevExpress.XtraBars.BarItemVisibility.Always;
-                        limpiarGe();
+                    limpiarGe();
                 }
                 else
                 {
@@ -502,11 +495,11 @@ namespace Bizu.Presentation.Contabilidad
         {
             try
             {
-                Boolean Res = false;            
-                
-                 if (validarGe() == false)
-                    { return false; }
-                    get_infoGe();
+                Boolean Res = false;
+
+                if (validarGe() == false)
+                { return false; }
+                get_infoGe();
                 switch (_Accion)
                 {
                     case Cl_Enumeradores.eTipo_action.grabar:
@@ -593,11 +586,7 @@ namespace Bizu.Presentation.Contabilidad
                     txt_nombre.Text = Info_padre_centro_costo.Centro_costo;
                     cmb_nivel.SelectedValue = Info_padre_centro_costo.IdNivel + 1;
                     chk_estado.Checked = true;
-
-                    var maxvalue = ListNivelCta.Max(x => x.IdNivel);
-
-                    if ((Int32)maxvalue == Info_padre_centro_costo.IdNivel + 1)
-                    { chk_es_cta_movi.Checked = true; }
+                    chk_es_cta_movi.Checked = true; 
                 }
             }
             catch (Exception ex)

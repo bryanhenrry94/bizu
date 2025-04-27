@@ -381,10 +381,6 @@ namespace Bizu.Presentation.CuentasxPagar
                 BinList_codigoSRI = new BindingList<cp_codigo_SRI_Info>(listaAux_codigoSRI_grid);
                 gridControl_SRI.DataSource = BinList_codigoSRI;
 
-                uCct_Pto_Cargo_Grupo1.Set_info_grupo(InfoProveedor.IdPunto_cargo_grupo);
-                uCct_Pto_Cargo_Grupo1.Set_info_punto_cargo(InfoProveedor.IdPunto_cargo);
-
-
                 chk_parte_relacionada.Checked = InfoProveedor.es_empresa_relacionada;
                 this.txtCodPostal.Text = InfoProveedor.Persona_Info.pe_codigoPostar;  //rth
 
@@ -534,9 +530,6 @@ namespace Bizu.Presentation.CuentasxPagar
                     }
                 }
 
-
-                if (uCct_Pto_Cargo_Grupo1.Get_info_grupo() != null) InfoProveedor.IdPunto_cargo_grupo = uCct_Pto_Cargo_Grupo1.Get_Id_grupo();
-                if (uCct_Pto_Cargo_Grupo1.Get_info_punto_cargo() != null) InfoProveedor.IdPunto_cargo = uCct_Pto_Cargo_Grupo1.Get_Id_punto_cargo();
 
                 InfoProveedor.es_empresa_relacionada = chk_parte_relacionada.Checked;
                 InfoProveedor.pr_GranContribuyente = chkGranContribuyente.Checked ? "S" : "N";
@@ -1370,8 +1363,6 @@ namespace Bizu.Presentation.CuentasxPagar
                 List<tb_banco_Info> ListBanco = new List<tb_banco_Info>();
                 ListBanco = BusBanco.Get_List_Banco();
                 cmbBancoAcreditacionGrid.DataSource = ListBanco;
-
-                uCct_Pto_Cargo_Grupo1.Cargar_combos();
 
                 List<tb_Catalogo_Info> listaRegimen = new List<tb_Catalogo_Info>();
 

@@ -38,7 +38,6 @@
             this.chkMostrar_Reg_Cero = new System.Windows.Forms.CheckBox();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.uCct_Pto_Cargo_Grupo = new Bizu.Reports.Controles.UCct_Pto_Cargo_Grupo();
             this.cmb_Periodo = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -106,7 +105,6 @@
             this.panel1.Controls.Add(this.labelControl1);
             this.panel1.Controls.Add(this.chkMostrar_Reg_Cero);
             this.panel1.Controls.Add(this.simpleButton1);
-            this.panel1.Controls.Add(this.uCct_Pto_Cargo_Grupo);
             this.panel1.Controls.Add(this.cmb_Periodo);
             this.panel1.Controls.Add(this.lblPeriodo);
             this.panel1.Controls.Add(this.cmb_Mostrar_a);
@@ -195,14 +193,7 @@
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "report_ventas_128x128.png");
-            // 
-            // uCct_Pto_Cargo_Grupo
-            // 
-            this.uCct_Pto_Cargo_Grupo.Location = new System.Drawing.Point(642, 32);
-            this.uCct_Pto_Cargo_Grupo.Name = "uCct_Pto_Cargo_Grupo";
-            this.uCct_Pto_Cargo_Grupo.Size = new System.Drawing.Size(369, 54);
-            this.uCct_Pto_Cargo_Grupo.TabIndex = 17;
+            this.imageList1.Images.SetKeyName(0, "report_ventas_128x128.png");           
             // 
             // cmb_Periodo
             // 
@@ -703,7 +694,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
-        private Controles.UCct_Pto_Cargo_Grupo uCct_Pto_Cargo_Grupo;
         private System.Windows.Forms.ImageList imageList1;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private System.Windows.Forms.CheckBox chkMostrar_Reg_Cero;

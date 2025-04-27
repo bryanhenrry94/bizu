@@ -28,8 +28,6 @@ namespace Bizu.Presentation.Inventario
         List<in_Ing_Egr_Inven_estado_apro_Info> lstEstadoApro = new List<in_Ing_Egr_Inven_estado_apro_Info>();
         List<vwin_Ing_Egr_Inven_det_Info> list_validar = new List<vwin_Ing_Egr_Inven_det_Info>();
         vwin_Ing_Egr_Inven_det_Info Info_validar = new vwin_Ing_Egr_Inven_det_Info();
-        List<ct_punto_cargo_Info> lst_punto_cargo = new List<ct_punto_cargo_Info>();
-        ct_punto_cargo_Bus bus_punto_cargo = new ct_punto_cargo_Bus();
         BindingList<vwin_Ing_Egr_Inven_det_Info> ListaBind;
         string tipo = "";
         vwin_Ing_Egr_Inven_det_Info Info;
@@ -225,9 +223,6 @@ namespace Bizu.Presentation.Inventario
                 lstEstadoApro = busEstado.Get_List_Ing_Egr_Inven_estado_apro();
                 cmbEstadoAproba.DataSource = lstEstadoApro;
 
-                lst_punto_cargo = bus_punto_cargo.Get_List_PuntoCargo(param.IdEmpresa);
-                cmb_punto_cargo.DataSource = lst_punto_cargo;
-                
             }
             catch (Exception ex)
             {

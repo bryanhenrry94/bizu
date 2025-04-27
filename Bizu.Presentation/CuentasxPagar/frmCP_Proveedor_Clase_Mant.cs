@@ -29,9 +29,6 @@ namespace Bizu.Presentation.CuentasxPagar
         public event delegate_frmCP_Proveedor_Clase_Mant_FormClosing event_frmCP_Proveedor_Clase_Mant_FormClosing;
         ct_Plancta_Bus Bus_Plancta = new ct_Plancta_Bus();
         ct_Centro_costo_Bus Bus_centro_costo = new ct_Centro_costo_Bus();
-        ct_centro_costo_sub_centro_costo_Bus Bus_sub_centro_costo = new ct_centro_costo_sub_centro_costo_Bus();
-   
-        List<ct_centro_costo_sub_centro_costo_Info> listSubCentroCosto = new List<ct_centro_costo_sub_centro_costo_Info>();
         cp_proveedor_clase_Bus Bus_Prove_clase = new cp_proveedor_clase_Bus();
         #endregion
 
@@ -55,16 +52,7 @@ namespace Bizu.Presentation.CuentasxPagar
            {
                 string IdCentroCosto = "";
 
-             
                 IdCentroCosto = ucCon_CentroCosto_ctas_Movi1.get_item();
-                listSubCentroCosto = Bus_sub_centro_costo.Get_list_centro_costo_sub_centro_costo(param.IdEmpresa, IdCentroCosto);
-
-                if (listSubCentroCosto.Count !=0)
-                {
-                    cmb_sub_centro_costo.Properties.DataSource = listSubCentroCosto;
-                    cmb_sub_centro_costo.EditValue = listSubCentroCosto.First().IdCentroCosto_sub_centro_costo;
-                }
-                
 
             }
             catch (Exception ex)

@@ -37,9 +37,6 @@ namespace Bizu.Reports.Controles_CG
         List<cp_proveedor_Info> listProveedor = new List<cp_proveedor_Info>();
         ct_Centro_costo_Bus busCentro_costo = new ct_Centro_costo_Bus();
         List<ct_Centro_costo_Info> lstCentro_costo = new List<ct_Centro_costo_Info>();
-        List<ct_centro_costo_sub_centro_costo_Info> lstSubcentro_costo = new List<ct_centro_costo_sub_centro_costo_Info>();
-        ct_centro_costo_sub_centro_costo_Bus busSubcentro_costo = new ct_centro_costo_sub_centro_costo_Bus();
-
         List<in_categorias_Info> lst_Categoria = new List<in_categorias_Info>();
         in_categorias_Info info_Categoria = new in_categorias_Info();
         in_categorias_bus bus_Categoria = new in_categorias_bus();
@@ -222,7 +219,6 @@ namespace Bizu.Reports.Controles_CG
                 in_movi_inven_tipo_Info infoMoviTipi = new in_movi_inven_tipo_Info();
                 cp_proveedor_Info infoProvee = new cp_proveedor_Info();
                 ct_Centro_costo_Info infoCentro_costo = new ct_Centro_costo_Info();
-                ct_centro_costo_sub_centro_costo_Info infoSubcentro_costo = new ct_centro_costo_sub_centro_costo_Info();
                 in_movi_inven_tipo_Info info_movimiento = new in_movi_inven_tipo_Info();
 
                 string msg="";
@@ -248,9 +244,6 @@ namespace Bizu.Reports.Controles_CG
                 infoCentro_costo.IdCentroCosto = "Todos";
                 infoCentro_costo.Centro_costo = "Todos";
 
-                infoSubcentro_costo.IdCentroCosto_sub_centro_costo = "Todos";
-                infoSubcentro_costo.Centro_costo = "Todos";
-
                 lstProductoInfo = busProducto.Get_list_Producto(param.IdEmpresa);
                 lstProductoInfo.Add(infoProducto);
                 cmbProducto_Grid.DataSource = lstProductoInfo.OrderBy(q => q.IdProducto).ToList();
@@ -266,10 +259,6 @@ namespace Bizu.Reports.Controles_CG
                 lstCentro_costo = busCentro_costo.Get_list_Centro_Costo(param.IdEmpresa,ref msg);
                 lstCentro_costo.Add(infoCentro_costo);
                 cmb_centroCosto.DataSource = lstCentro_costo;
-
-                lstSubcentro_costo = busSubcentro_costo.Get_list_centro_costo_sub_centro_costo(param.IdEmpresa);
-                lstSubcentro_costo.Add(infoSubcentro_costo);
-                cmb_subCentro_costo.DataSource = lstSubcentro_costo;
 
                 lst_Categoria = bus_Categoria.Get_List_categorias(param.IdEmpresa);
                 cmb_Categoria.DataSource = lst_Categoria;
@@ -391,38 +380,7 @@ namespace Bizu.Reports.Controles_CG
 
         private void barEditItemCentroCosto_EditValueChanged(object sender, EventArgs e)
         {
-            try
-            {
-                ct_Centro_costo_Info Info = new ct_Centro_costo_Info();
-                ct_centro_costo_sub_centro_costo_Info InfoSubcentro_costo = new ct_centro_costo_sub_centro_costo_Info();
-                string centro_costo = (string)barEditItemCentroCosto.EditValue;
-                
-                InfoSubcentro_costo.IdCentroCosto_sub_centro_costo = "Todos";
-                InfoSubcentro_costo.Centro_costo = "Todos";
-                
-                if (centro_costo == "Todos" || centro_costo == null)
-                {
-                    
-                    lstSubcentro_costo = busSubcentro_costo.Get_list_centro_costo_sub_centro_costo(param.IdEmpresa);
-                    
-                    cmb_subCentro_costo.DataSource = lstSubcentro_costo;
-                    lstSubcentro_costo.Add(InfoSubcentro_costo);
-                    barEditItemCentroCosto.EditValue = centro_costo;
-                    barEditItemSubCentroCosto.EditValue = "Todos";
-                }
-                else
-                {
-                    lstSubcentro_costo =busSubcentro_costo.Get_list_centro_costo_sub_centro_costo(param.IdEmpresa, centro_costo);
-                    lstSubcentro_costo.Add(InfoSubcentro_costo);
-                    cmb_subCentro_costo.DataSource = lstSubcentro_costo;
-                    barEditItemSubCentroCosto.EditValue = "Todos";
-                    
-                }
-            }
-            catch (Exception ex)
-            {
-                Log_Error_bus.Log_Error(ex.ToString());
-            }
+           
         }
 
         private void cmbSucursal_EditValueChanged(object sender, EventArgs e)

@@ -44,8 +44,6 @@ namespace Bizu.Reports.Controles
         List<ct_Centro_costo_Info> lst_centro_costo = new List<ct_Centro_costo_Info>();
         ct_Centro_costo_Info info_centro_costo = new ct_Centro_costo_Info();
         ct_Centro_costo_Bus bus_centro_costo = new ct_Centro_costo_Bus();
-        List<ct_centro_costo_sub_centro_costo_Info> lst_sub_centro_costo = new List<ct_centro_costo_sub_centro_costo_Info>();
-        ct_centro_costo_sub_centro_costo_Bus bus_sub_centro_costo = new ct_centro_costo_sub_centro_costo_Bus();
         string MensajeError = "";
         #endregion
 
@@ -239,7 +237,7 @@ namespace Bizu.Reports.Controles
         }
 
         #endregion
-        
+
         public UCInv_MenuReportes()
         {
             InitializeComponent();
@@ -264,7 +262,7 @@ namespace Bizu.Reports.Controles
         {
             try
             {
-                
+
             }
             catch (Exception ex)
             {
@@ -292,7 +290,7 @@ namespace Bizu.Reports.Controles
 
                 foreach (var item in cmb_chk_bodega.Items.GetCheckedValues())
                 {
-                    string s_IdBodega = item.ToString().Substring(item.ToString().Length-10,10);
+                    string s_IdBodega = item.ToString().Substring(item.ToString().Length - 10, 10);
                     lst_chk_bodegas.Add(Convert.ToInt32(s_IdBodega));
                 }
 
@@ -309,19 +307,7 @@ namespace Bizu.Reports.Controles
 
         private void Cargar_subcentros_x_centro()
         {
-            try
-            {
-                cmb_subcentro_costo_chk.Items.Clear();
-                foreach (var item in lst_sub_centro_costo)
-                {
-                    cmb_subcentro_costo_chk.Items.Add(item.IdCentroCosto_sub_centro_costo, item.Centro_costo2);
-                }
-            }
-            catch (Exception ex)
-            {
-                Log_Error_bus.Log_Error(ex.ToString());
-                MessageBox.Show("Error comunicarse con Sistemas " + ex.Message + " ", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+
         }
 
         public List<string> Get_list_sub_centro_chk()
@@ -348,9 +334,9 @@ namespace Bizu.Reports.Controles
         {
             try
             {
-                cmb_chk_bodega.Items.Clear();                
+                cmb_chk_bodega.Items.Clear();
                 foreach (var item in lstBodega)
-                {                    
+                {
                     if (item.IdBodega != 0)
                     {
                         string linea = item.bo_Descripcion + "                                                                                                                                                          " + item.IdBodega.ToString().PadLeft(10, '0');
@@ -383,7 +369,7 @@ namespace Bizu.Reports.Controles
                 cmbSucursal_Grid.DataSource = lstSucuInfo;
 
                 lstBodegaInfo = busBodega.Get_List_Bodega(param.IdEmpresa, Cl_Enumeradores.eTipoFiltro.todos);
-                cmbBodega_Grid.DataSource = lstBodegaInfo;                
+                cmbBodega_Grid.DataSource = lstBodegaInfo;
 
                 infoProducto.IdProducto = 0;
                 infoProducto.pr_descripcion = "Todos";
@@ -412,7 +398,7 @@ namespace Bizu.Reports.Controles
                 listProveedor.Add(infoProvee);
                 cmbProveedor_Grid.DataSource = listProveedor;
 
-                ListCategoria = Bus_Categoria.Get_List_categorias(param.IdEmpresa);                
+                ListCategoria = Bus_Categoria.Get_List_categorias(param.IdEmpresa);
                 cmb_categoria_grid.DataSource = ListCategoria;
 
                 ListLinea = BusLinea.Get_List_Linea(param.IdEmpresa, "");
@@ -470,12 +456,12 @@ namespace Bizu.Reports.Controles
 
         private void cmbSucursal_Grid_EditValueChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void cmbBodega_Grid_EditValueChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void cmbBodega_EditValueChanged(object sender, EventArgs e)
@@ -518,7 +504,7 @@ namespace Bizu.Reports.Controles
 
                     ListLinea_temp = ListLinea.Where(q => q.IdCategoria.Contains(idCategoria)).ToList();
                     cmb_Linea.DataSource = null;
-                    cmb_Linea.DataSource = ListLinea_temp;                    
+                    cmb_Linea.DataSource = ListLinea_temp;
 
                     cmb_Linea_multiple.DataSource = null;
                     cmb_Linea_multiple.DataSource = ListLinea_temp;
@@ -622,7 +608,7 @@ namespace Bizu.Reports.Controles
         {
             try
             {
-                if (beiCentro_costo.EditValue == null) 
+                if (beiCentro_costo.EditValue == null)
                     return null;
                 info_centro_costo = lst_centro_costo.FirstOrDefault(q => q.IdEmpresa == param.IdEmpresa && q.IdCentroCosto == beiCentro_costo.EditValue.ToString());
                 return info_centro_costo;
@@ -637,18 +623,7 @@ namespace Bizu.Reports.Controles
 
         private void beiCentro_costo_EditValueChanged(object sender, EventArgs e)
         {
-            try
-            {
-                if (beiCentro_costo.EditValue == null)
-                    lst_sub_centro_costo = new List<ct_centro_costo_sub_centro_costo_Info>();
-                else
-                    lst_sub_centro_costo = bus_sub_centro_costo.Get_list_centro_costo_sub_centro_costo(param.IdEmpresa,beiCentro_costo.EditValue.ToString());
-                Cargar_subcentros_x_centro();
-            }
-            catch (Exception ex)
-            {
-                Log_Error_bus.Log_Error(ex.ToString());
-            }
+
         }
 
         public List<int> Get_list_Linea_Cheked()

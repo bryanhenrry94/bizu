@@ -14,12 +14,9 @@ namespace Bizu.Infrastructure
     
     public partial class ct_parametro
     {
-        public int IdEmpresa { get; set; }
-        public Nullable<int> IdTipoCbte_SaldoInicial { get; set; }
-        public Nullable<int> IdTipoCbte_AsientoCierre_Anual { get; set; }
-        public Nullable<bool> P_Se_Muestra_Todas_las_ctas_en_combos { get; set; }
-    
-        public virtual ct_cbtecble_tipo ct_cbtecble_tipo { get; set; }
-        public virtual ct_cbtecble_tipo ct_cbtecble_tipo1 { get; set; }
+        public int idempresa { get; set; }
+        public Nullable<int> idtipocbte_saldoinicial { get; set; }
+        public Nullable<int> idtipocbte_asientocierre_anual { get; set; }
+        public Nullable<bool> p_se_muestra_todas_las_ctas_en_combos { get; set; }
     }
 }

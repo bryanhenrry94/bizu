@@ -92,8 +92,6 @@ namespace Bizu.Reports.Contabilidad
 
                         string[] cadena = Info_Fila.IdCtaCble.Split();
 
-                        IdPunto_Cargo_Grupo = uCct_Menu_Reportes1.Get_info_punto_cargo_grupo() == null ? 0 : uCct_Menu_Reportes1.Get_info_punto_cargo_grupo().IdPunto_cargo_grupo;
-                        IdPunto_Cargo = uCct_Menu_Reportes1.Get_info_punto_cargo() == null ? 0 : uCct_Menu_Reportes1.Get_info_punto_cargo().IdPunto_cargo;
                         IdCentroCosto = uCct_Menu_Reportes1.Get_info_Centro_costo() == null ? "" : uCct_Menu_Reportes1.Get_info_Centro_costo().IdCentroCosto;
 
                         FechaIni = uCct_Menu_Reportes1.bei_Desde.EditValue == null ? DateTime.Now : Convert.ToDateTime(uCct_Menu_Reportes1.bei_Desde.EditValue);
@@ -188,10 +186,6 @@ namespace Bizu.Reports.Contabilidad
 
                 //SETEAMOS LOS VALORES A LAS VARIABLES
                 IdNivel_a_mostrar = uCct_Menu_Reportes1.bei_Nivel.EditValue == null ? 0 : Convert.ToInt32(uCct_Menu_Reportes1.bei_Nivel.EditValue);
-                IdPunto_cargo_grupo = uCct_Menu_Reportes1.Get_info_punto_cargo_grupo() == null ? 0 : uCct_Menu_Reportes1.Get_info_punto_cargo_grupo().IdPunto_cargo_grupo;
-                Nom_Punto_Cargo_Grupo = uCct_Menu_Reportes1.Get_info_punto_cargo_grupo() == null ? "" : uCct_Menu_Reportes1.Get_info_punto_cargo_grupo().nom_punto_cargo_grupo;
-                IdPunto_cargo = uCct_Menu_Reportes1.Get_info_punto_cargo() == null ? 0 : uCct_Menu_Reportes1.Get_info_punto_cargo().IdPunto_cargo;
-                Nom_Punto_Cargo = uCct_Menu_Reportes1.Get_info_punto_cargo() == null ? "" : uCct_Menu_Reportes1.Get_info_punto_cargo().nom_punto_cargo;
                 Mostrar_saldo_0 = uCct_Menu_Reportes1.bei_Check.EditValue == null ? false : Convert.ToBoolean(uCct_Menu_Reportes1.bei_Check.EditValue);
                 Mostrar_CC = uCct_Menu_Reportes1.bei_Check2.EditValue == null ? false : Convert.ToBoolean(uCct_Menu_Reportes1.bei_Check2.EditValue);
                 Considerar_Asiento_cierre_anual = uCct_Menu_Reportes1.bei_Check3.EditValue == null ? false : Convert.ToBoolean(uCct_Menu_Reportes1.bei_Check3.EditValue);
@@ -262,12 +256,6 @@ namespace Bizu.Reports.Contabilidad
                 ListIdCentroCosto.Add(Convert.ToString(uCct_Menu_Reportes1.bei_Centro_costo.EditValue));  //PARA UN SOLO CENTRO DE COSTO
 
                 IdNivel_a_mostrar = uCct_Menu_Reportes1.bei_Nivel.EditValue == null ? 0 : Convert.ToInt32(uCct_Menu_Reportes1.bei_Nivel.EditValue);
-
-                IdPunto_cargo_grupo = uCct_Menu_Reportes1.Get_info_punto_cargo_grupo() == null ? 0 : uCct_Menu_Reportes1.Get_info_punto_cargo_grupo().IdPunto_cargo_grupo;
-                Nom_Punto_Cargo_Grupo = uCct_Menu_Reportes1.Get_info_punto_cargo_grupo() == null ? "" : uCct_Menu_Reportes1.Get_info_punto_cargo_grupo().nom_punto_cargo_grupo;
-
-                IdPunto_cargo = uCct_Menu_Reportes1.Get_info_punto_cargo() == null ? 0 : uCct_Menu_Reportes1.Get_info_punto_cargo().IdPunto_cargo;
-                Nom_Punto_Cargo = uCct_Menu_Reportes1.Get_info_punto_cargo() == null ? "" : uCct_Menu_Reportes1.Get_info_punto_cargo().nom_punto_cargo;
 
                 Mostrar_saldo_0 = uCct_Menu_Reportes1.bei_Check.EditValue == null ? false : Convert.ToBoolean(uCct_Menu_Reportes1.bei_Check.EditValue);
                 Mostrar_CC = uCct_Menu_Reportes1.bei_Check2.EditValue == null ? false : Convert.ToBoolean(uCct_Menu_Reportes1.bei_Check2.EditValue);
@@ -381,12 +369,6 @@ namespace Bizu.Reports.Contabilidad
             //ListIdCentroCosto = uCct_Menu_Reportes1.Get_list_CentroCosto_Cheked(); //PARA MULTIPLES CENTROS DE COSTO
 
             IdNivel_a_mostrar = uCct_Menu_Reportes1.bei_Nivel.EditValue == null ? 0 : Convert.ToInt32(uCct_Menu_Reportes1.bei_Nivel.EditValue);
-
-            IdPunto_cargo_grupo = uCct_Menu_Reportes1.Get_info_punto_cargo_grupo() == null ? 0 : uCct_Menu_Reportes1.Get_info_punto_cargo_grupo().IdPunto_cargo_grupo;
-            Nom_Punto_Cargo_Grupo = uCct_Menu_Reportes1.Get_info_punto_cargo_grupo() == null ? "" : uCct_Menu_Reportes1.Get_info_punto_cargo_grupo().nom_punto_cargo_grupo;
-
-            IdPunto_cargo = uCct_Menu_Reportes1.Get_info_punto_cargo() == null ? 0 : uCct_Menu_Reportes1.Get_info_punto_cargo().IdPunto_cargo;
-            Nom_Punto_Cargo = uCct_Menu_Reportes1.Get_info_punto_cargo() == null ? "" : uCct_Menu_Reportes1.Get_info_punto_cargo().nom_punto_cargo;
 
             Mostrar_saldo_0 = uCct_Menu_Reportes1.bei_Check.EditValue == null ? false : Convert.ToBoolean(uCct_Menu_Reportes1.bei_Check.EditValue);
             Mostrar_CC = uCct_Menu_Reportes1.bei_Check2.EditValue == null ? false : Convert.ToBoolean(uCct_Menu_Reportes1.bei_Check2.EditValue);

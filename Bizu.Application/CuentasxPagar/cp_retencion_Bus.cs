@@ -518,32 +518,14 @@ namespace Bizu.Application.CuentasxPagar
                 {
                     info.Info_CbteCble_x_RT = CbteCble_B.Get_Info_CbteCble(info_x_cbte.ct_IdEmpresa, info_x_cbte.ct_IdTipoCbte, info_x_cbte.ct_IdCbteCble, ref mensaje);
 
-                    switch (param.IdCliente_Ven_x_Default)
+                    if (CbteCble_B.ReversoCbteCble(info.Info_CbteCble_x_RT.IdEmpresa, info.Info_CbteCble_x_RT.IdCbteCble, info.Info_CbteCble_x_RT.IdTipoCbte
+                             , Convert.ToInt32(InfoParam.pa_IdTipoCbte_x_Anu_Retencion),
+                             ref idCbteCble_anu, ref mensaje, info.IdUsuarioUltAnu, info.MotivoAnulacion))
                     {
-                        case Cl_Enumeradores.eCliente_Vzen.EDEHSA:
-                            if (CbteCble_B.ReversoCbteCble_Edehsa(info.Info_CbteCble_x_RT.IdEmpresa, info.Info_CbteCble_x_RT.IdCbteCble, info.Info_CbteCble_x_RT.IdTipoCbte
-                            , Convert.ToInt32(InfoParam.pa_IdTipoCbte_x_Anu_Retencion),Convert.ToDateTime(info.Fecha_UltAnu),
-                            ref idCbteCble_anu, ref mensaje, info.IdUsuarioUltAnu, info.MotivoAnulacion))
-                            {
-                                info.ct_IdEmpresa_Anu = info.Info_CbteCble_x_RT.IdEmpresa;
-                                info.ct_IdCbteCble_Anu = idCbteCble_anu;
-                                info.ct_IdTipoCbte_Anu = InfoParam.pa_IdTipoCbte_x_Anu_Retencion;
-                            }
-                         
-                            break;
-
-                        default:
-                            if (CbteCble_B.ReversoCbteCble(info.Info_CbteCble_x_RT.IdEmpresa, info.Info_CbteCble_x_RT.IdCbteCble, info.Info_CbteCble_x_RT.IdTipoCbte
-                            , Convert.ToInt32(InfoParam.pa_IdTipoCbte_x_Anu_Retencion),
-                            ref idCbteCble_anu, ref mensaje, info.IdUsuarioUltAnu, info.MotivoAnulacion))
-                             {
-                                info.ct_IdEmpresa_Anu = info.Info_CbteCble_x_RT.IdEmpresa;
-                                info.ct_IdCbteCble_Anu = idCbteCble_anu;
-                                info.ct_IdTipoCbte_Anu = InfoParam.pa_IdTipoCbte_x_Anu_Retencion;
-                            }
-                            break;
+                        info.ct_IdEmpresa_Anu = info.Info_CbteCble_x_RT.IdEmpresa;
+                        info.ct_IdCbteCble_Anu = idCbteCble_anu;
+                        info.ct_IdTipoCbte_Anu = InfoParam.pa_IdTipoCbte_x_Anu_Retencion;
                     }
-                    
                 }
                 return data_retencion.AnularDB(info, ref mensaje);                
             }

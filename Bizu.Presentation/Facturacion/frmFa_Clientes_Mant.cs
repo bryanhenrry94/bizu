@@ -326,8 +326,6 @@ namespace Bizu.Presentation.Facturacion
                 cmb_actividad_economica.set_CatalogosInfo(info.IdActividadComercial);
                 this.chk_Estado.Checked = (info.Estado == "A") ? true : false;
 
-                ucFa_Cliente_x_Contacto1.Set_Info_Cliente(info);
-                
                 this.txtCargoLaboral.Text = info.Persona_Info.pe_cargoLaboral;
                 this.txtExtension.Text = info.Persona_Info.pe_extTelOficina;
                 this.txtCodPostal.Text = info.Persona_Info.pe_codigoPostar;
@@ -392,7 +390,6 @@ namespace Bizu.Presentation.Facturacion
 
                 info.IdCtaCble_cxc_Credito = cmb_PlanCta_Credito.get_PlanCtaInfo().IdCtaCble;
                 info.IdCentroCosto_CXC_Credito = (cmbCentroCosto_Credito.get_item() == "") ? null : cmbCentroCosto_Credito.get_item();
-                info.list_contactos_x_cliente = ucFa_Cliente_x_Contacto1.Get_List_cliente_contactos();
 
                 info.IdCiudad = null;
                 info.IdParroquia = null;

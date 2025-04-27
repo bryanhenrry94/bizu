@@ -24,9 +24,6 @@ namespace Bizu.Presentation.Controles
         #region declaracion de variable
         string MensajeError = "";
         int rowHandle = 0;
-        ct_punto_cargo_Info info_punto_cargo = new ct_punto_cargo_Info();
-        ct_punto_cargo_Bus bus_punto_cargo = new ct_punto_cargo_Bus();
-
         tb_sis_Log_Error_Vzen_Bus Log_Error_bus = new tb_sis_Log_Error_Vzen_Bus();
 
         ct_Cbtecble_tipo_Bus busTipo = new ct_Cbtecble_tipo_Bus();
@@ -34,11 +31,6 @@ namespace Bizu.Presentation.Controles
 
         ct_Centro_costo_Bus BusCostos = new ct_Centro_costo_Bus();
         List<ct_Centro_costo_Info> ListCostos = new List<ct_Centro_costo_Info>();
-        ct_centro_costo_sub_centro_costo_Bus busSubCen = new ct_centro_costo_sub_centro_costo_Bus();
-        List<ct_centro_costo_sub_centro_costo_Info> Lista_SubCentro = new List<ct_centro_costo_sub_centro_costo_Info>();
-        ct_centro_costo_sub_centro_costo_Info Info_subCentro_costo = new ct_centro_costo_sub_centro_costo_Info();
-        List<ct_centro_costo_sub_centro_costo_Info> Lista_SubCentroCombo = new List<ct_centro_costo_sub_centro_costo_Info>();
-
 
         ct_Cbtecble_Bus BusCbteCble = new ct_Cbtecble_Bus();
         ct_Cbtecble_Info Info_CbteCble = new ct_Cbtecble_Info();
@@ -50,13 +42,6 @@ namespace Bizu.Presentation.Controles
         List<ct_Plancta_Info> listaPlan = new List<ct_Plancta_Info>();
         List<ct_Plancta_Info> listaPlanPoli = new List<ct_Plancta_Info>();
         ct_Plancta_Info Info_cuenta_validar = new ct_Plancta_Info();
-
-        ct_punto_cargo_Bus BusPunto_Cargo = new ct_punto_cargo_Bus();
-        List<ct_punto_cargo_Info> listaPuntoCargo = new List<ct_punto_cargo_Info>();
-        ct_punto_cargo_Info Info_punto_cargo = new ct_punto_cargo_Info();
-
-        ct_punto_cargo_grupo_Bus BusPunto_Cargo_grupo = new ct_punto_cargo_grupo_Bus();
-        List<ct_punto_cargo_grupo_Info> listaPuntoCargo_grupo = new List<ct_punto_cargo_grupo_Info>();
 
         cl_parametrosGenerales_Bus param = cl_parametrosGenerales_Bus.Instance;
         Cl_Enumeradores.eTipo_action _Accion;
@@ -384,38 +369,7 @@ namespace Bizu.Presentation.Controles
             }
             return res;
         }
-
-        public Boolean Reverso_Edehsa(int IdTipoCbteRev, ref decimal IdCbteCbleRev, ref string msjGrabado, string MotivoAnulacion, DateTime fechaAnulacion)
-        {
-            string msg = ""; decimal idCbteCble = 0;
-            Boolean res = true;
-            try
-            {
-                Get_Info_CbteCble();
-
-                if (BusCbteCble.ReversoCbteCble_Edehsa(param.IdEmpresa, Info_CbteCble.IdCbteCble, Info_CbteCble.IdTipoCbte, IdTipoCbteRev, fechaAnulacion,
-                    ref IdCbteCbleRev, ref msg, param.IdUsuario, MotivoAnulacion))
-                {
-                    msjGrabado = "La Reversión se realizó correctamente con el Cbte. Cble. : " + IdCbteCbleRev;
-                    return true;
-                }
-                else
-                {
-                    msjGrabado = "Error en la Reversión del Cbte. Cble. : " + idCbteCble;
-                    return false;
-                }
-
-            }
-            catch (Exception ex)
-            {
-                string NameMetodo = System.Reflection.MethodBase.GetCurrentMethod().Name;
-                MessageBox.Show(NameMetodo + " - " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log_Error_bus.Log_Error(NameMetodo + " - " + ex.ToString());
-                res = false;
-            }
-            return res;
-        }
-
+        
         public void LimpiarGrid()
         {
             try
@@ -484,22 +438,6 @@ namespace Bizu.Presentation.Controles
 
                 busTipo.Get_list_Cbtecble_tipo(param.IdEmpresa, Cl_Enumeradores.eTipoFiltro.Normal, ref MensajeError);
                 cmbTipoComp.Properties.DataSource = listaTipoCbteCble;
-
-                listaPuntoCargo = BusPunto_Cargo.Get_List_PuntoCargo(param.IdEmpresa);
-                cmb_punto_cargo.DataSource = listaPuntoCargo;
-
-                cmb_punto_cargo_val_fj.DataSource = listaPuntoCargo;
-                cmb_punto_cargo_val_fj.ValueMember = "IdPunto_cargo";
-                cmb_punto_cargo_val_fj.DisplayMember = "nom_punto_cargo";
-
-                Lista_SubCentroCombo = busSubCen.Get_list_centro_costo_sub_centro_costo(param.IdEmpresa);
-                col_sub_centro_costo.DataSource = Lista_SubCentroCombo;
-
-                listaPuntoCargo_grupo = BusPunto_Cargo_grupo.Get_List_punto_cargo_grupo(param.IdEmpresa, ref MensajeError);
-                cmb_Grupo.DataSource = listaPuntoCargo_grupo;
-                cmb_Grupo.ValueMember = "IdPunto_cargo_grupo";
-                cmb_Grupo.DisplayMember = "nom_punto_cargo_grupo";
-
             }
             catch (Exception ex)
             {
@@ -528,12 +466,7 @@ namespace Bizu.Presentation.Controles
                 List<ct_Cbtecble_tipo_Info> listaTipoCbteCble =
                 busTipo.Get_list_Cbtecble_tipo(param.IdEmpresa, Cl_Enumeradores.eTipoFiltro.Normal, ref MensajeError);
 
-                cmbTipoComp.Properties.DataSource = listaTipoCbteCble;
-
-                listaPuntoCargo_grupo = BusPunto_Cargo_grupo.Get_List_punto_cargo_grupo(param.IdEmpresa, ref MensajeError);
-                cmb_Grupo.DataSource = listaPuntoCargo_grupo;
-                cmb_Grupo.ValueMember = "IdPunto_cargo_grupo";
-                cmb_Grupo.DisplayMember = "nom_punto_cargo_grupo";
+                cmbTipoComp.Properties.DataSource = listaTipoCbteCble;                
             }
             catch (Exception ex)
             {
@@ -630,30 +563,6 @@ namespace Bizu.Presentation.Controles
                             item.dc_Valor_D = Math.Round(item.dc_Valor, 2);
                         else if (item.dc_Valor < 0)
                             item.dc_Valor_H = Math.Round(item.dc_Valor, 2) * -1;
-
-
-                        //BindListaSubCentro = new BindingList<ct_centro_costo_sub_centro_costo_Info>(busSubCen.Get_list_centro_costo_sub_centro_costo(idempresa, Convert.ToString(item.IdCentroCosto)));
-
-                        Lista_SubCentro = busSubCen.Get_list_centro_costo_sub_centro_costo(idempresa, Convert.ToString(item.IdCentroCosto));
-
-                        if (Lista_SubCentro.Count != 0)
-                        {
-                            ct_centro_costo_sub_centro_costo_Info idSubcentro = new ct_centro_costo_sub_centro_costo_Info();
-                            try
-                            {
-
-                                idSubcentro = Lista_SubCentro.FirstOrDefault(q => (q.IdCentroCosto == item.IdCentroCosto &&
-                                   q.IdCentroCosto_sub_centro_costo == item.IdCentroCosto_sub_centro_costo));
-                                item.NomSubCentroCosto = "[" + idSubcentro.IdCentroCosto_sub_centro_costo.Trim() + "] - " + idSubcentro.Centro_costo.Trim();
-
-                            }
-                            catch (Exception ex)
-                            {
-                                // no guardar en el log esto no es error sino controlamos el null
-                                //Log_Error_bus.Log_Error(ex.ToString());
-                                idSubcentro = new ct_centro_costo_sub_centro_costo_Info();
-                            }
-                        }
                     }
                     gridControlDiario.DataSource = BindingList_cbtecble_det;
                 }
@@ -941,40 +850,7 @@ namespace Bizu.Presentation.Controles
 
         private void gridViewDiario_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            try
-            {
-                ct_Cbtecble_det_Info row = new ct_Cbtecble_det_Info();
-                row = (ct_Cbtecble_det_Info)gridViewDiario.GetFocusedRow();
 
-                Lista_SubCentro = new List<ct_centro_costo_sub_centro_costo_Info>();
-                rowHandle = e.FocusedRowHandle;
-                if (row != null)
-                {
-                    if (!String.IsNullOrEmpty(row.IdCentroCosto))
-                    {
-
-                        Lista_SubCentro = busSubCen.Get_list_centro_costo_sub_centro_costo(param.IdEmpresa, Convert.ToString(row.IdCentroCosto));
-                    }
-                }
-                cmbSubCentro.Items.Clear();
-                foreach (ct_centro_costo_sub_centro_costo_Info item in Lista_SubCentro)
-                {
-                    item.NomSubCentroCosto = "[" + item.IdCentroCosto_sub_centro_costo.Trim() + "] - " + item.Centro_costo.Trim();
-                }
-                foreach (var item in Lista_SubCentro)
-                {
-                    cmbSubCentro.Items.Add(item.NomSubCentroCosto);
-                }
-
-
-
-            }
-            catch (Exception ex)
-            {
-                string NameMetodo = System.Reflection.MethodBase.GetCurrentMethod().Name;
-                MessageBox.Show(NameMetodo + " - " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log_Error_bus.Log_Error(NameMetodo + " - " + ex.ToString());
-            }
         }
 
         private void gridViewDiario_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
@@ -1011,28 +887,6 @@ namespace Bizu.Presentation.Controles
                     {
                         if (Convert.ToDouble(e.Value) != 0) row.dc_Valor = Math.Round(Convert.ToDouble(e.Value), 2, MidpointRounding.AwayFromZero) * -1;
                         if (row.dc_Valor_H != 0) gridViewDiario.SetFocusedRowCellValue(colDebe, 0);
-                    }
-
-                    if (e.Column == colIdCentroCosto)
-                    {
-                        if (!BusCostos.Validar_CentroCosto_EstadoObra(param.IdEmpresa, Convert.ToString(row.IdCentroCosto), ref MensajeError))
-                        {
-                            MessageBox.Show(MensajeError, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                            gridViewDiario.SetFocusedRowCellValue(colIdCentroCosto, null);
-                            return;
-                        }
-
-                        //ct_Centro_costo_Info Info_Costo = ListCostos.Find(q => q.IdCentroCosto == row.IdCentroCosto);
-
-                        //if (Info_Costo != null)
-                        //{
-                        //    if (Info_Costo.IdEstadoObra == Convert.ToString(Cl_Enumeradores.eTipoEstado_Obra.CERR))
-                        //    {
-                        //        MessageBox.Show("El centro de Costo seleccionado se encuentra cerrado, pongase en contacto con sistemas", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        //        gridViewDiario.SetFocusedRowCellValue(colIdCentroCosto, null);
-                        //        return;
-                        //    }
-                        //}
                     }
 
                     if (e.Column == colGrupo_punto_cargo)
@@ -1406,71 +1260,12 @@ namespace Bizu.Presentation.Controles
 
         private void gridViewDiario_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
         {
-            try
-            {
-                ct_Cbtecble_det_Info row = (ct_Cbtecble_det_Info)gridViewDiario.GetRow(e.RowHandle);
-                if (e.Column == ColIdPunto_Cargo)
-                {
-                    if (row.IdPunto_cargo_grupo != null)
-                    {
-                        frmCon_Punto_Cargo_Cons frm_cons = new frmCon_Punto_Cargo_Cons();
-                        frm_cons.Cargar_grid_x_grupo((int)row.IdPunto_cargo_grupo);
-                        frm_cons.ShowDialog();
-                        Info_punto_cargo = frm_cons.Get_Info();
 
-                        if (Info_punto_cargo != null)
-                        {
-                            gridViewDiario.SetRowCellValue(e.RowHandle, ColIdPunto_Cargo, Info_punto_cargo.IdPunto_cargo);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                string NameMetodo = System.Reflection.MethodBase.GetCurrentMethod().Name;
-                MessageBox.Show(NameMetodo + " - " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log_Error_bus.Log_Error(NameMetodo + " - " + ex.ToString());
-            }
         }
 
         private void cmb_punto_cargo_Click(object sender, EventArgs e)
         {
-            try
-            {
-                ct_Cbtecble_det_Info row = (ct_Cbtecble_det_Info)gridViewDiario.GetFocusedRow();
-                if (row != null)
-                {
-                    if (row.IdPunto_cargo_grupo != null)
-                    {
-                        loadCombos();
 
-                        frmCon_Punto_Cargo_Cons frm_cons = new frmCon_Punto_Cargo_Cons();
-
-                        GridViewInfo info = gridViewDiario.GetViewInfo() as GridViewInfo;
-                        GridCellInfo info_cell = info.GetGridCellInfo(rowHandle, ColIdPunto_Cargo);
-
-                        frm_cons.Cargar_grid_x_grupo((int)row.IdPunto_cargo_grupo);
-
-                        //frm_cons.Location = new Point(this.Right, gridControlDiario.Top);                        
-
-                        frm_cons.ShowDialog();
-                        Info_punto_cargo = frm_cons.Get_Info();
-                        if (Info_punto_cargo != null)
-                        {
-                            gridViewDiario.SetFocusedRowCellValue(ColIdPunto_Cargo, Info_punto_cargo.IdPunto_cargo);
-                        }
-                        else
-                            gridViewDiario.SetFocusedRowCellValue(ColIdPunto_Cargo, null);
-                    }
-                }
-
-            }
-            catch (Exception ex)
-            {
-                string NameMetodo = System.Reflection.MethodBase.GetCurrentMethod().Name;
-                MessageBox.Show(NameMetodo + " - " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log_Error_bus.Log_Error(NameMetodo + " - " + ex.ToString());
-            }
         }
 
         GridViewInfo GetGridViewInfo(GridView view)
@@ -1486,34 +1281,7 @@ namespace Bizu.Presentation.Controles
 
         private void col_sub_centro_costo_Click(object sender, EventArgs e)
         {
-            try
-            {
-                ct_centro_costo_sub_centro_costo_Info Info_subCentro = new ct_centro_costo_sub_centro_costo_Info();
-                ct_Cbtecble_det_Info row = (ct_Cbtecble_det_Info)gridViewDiario.GetRow(rowHandle);
-                if (row != null)
-                {
-                    if (row.IdCentroCosto != null)
-                    {
-                        List<ct_centro_costo_sub_centro_costo_Info> Lista_subcentro_consulta = new List<ct_centro_costo_sub_centro_costo_Info>();
-                        Lista_subcentro_consulta = Lista_SubCentroCombo.Where(q => q.IdEmpresa == param.IdEmpresa && q.IdCentroCosto == row.IdCentroCosto).ToList();
-                        if (Lista_subcentro_consulta != null && Lista_subcentro_consulta.Count != 0)
-                        {
-                            frmCon_ct_centro_costo_sub_centro_costo_Cons frm_combo = new frmCon_ct_centro_costo_sub_centro_costo_Cons();
-                            frm_combo.Set_config_combo(Lista_subcentro_consulta);
-                            frm_combo.ShowDialog();
-                            Info_subCentro = frm_combo.Get_info_centro_sub_centro_costo();
-                            gridViewDiario.SetRowCellValue(rowHandle, ColIdRegistro_subcentro, Info_subCentro == null ? null : Info_subCentro.IdRegistro);
-                            gridViewDiario.SetRowCellValue(rowHandle, col_IdCentroCosto_sub_centro_costo, Info_subCentro == null ? null : Info_subCentro.IdCentroCosto_sub_centro_costo);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                string NameMetodo = System.Reflection.MethodBase.GetCurrentMethod().Name;
-                MessageBox.Show(NameMetodo + " - " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log_Error_bus.Log_Error(NameMetodo + " - " + ex.ToString());
-            }
+
         }
 
         private void gridViewDiario_RowCountChanged_1(object sender, EventArgs e)

@@ -26,19 +26,6 @@ namespace Bizu.Presentation.Contabilidad
         List<ct_Plancta_nivel_Info> ListNivelCta = new List<ct_Plancta_nivel_Info>();
         ct_Plancta_Bus PlanCtaBus = new ct_Plancta_Bus();
         List<ct_Plancta_Info> listPlanCta = new List<ct_Plancta_Info>();
-        
-        ct_grupo_x_Tipo_Gasto_Bus bus_grupo_x_tipo_gasto = new ct_grupo_x_Tipo_Gasto_Bus();
-        ct_grupo_x_Tipo_Gasto_Info info_grupo_x_tipo_gasto = new ct_grupo_x_Tipo_Gasto_Info();
-        List<ct_grupo_x_Tipo_Gasto_Info> list_grupo_x_tipo_gasto = new List<ct_grupo_x_Tipo_Gasto_Info>();
-
-
-
-        ct_Tipo_costo_Bus bus_tipo_costo = new ct_Tipo_costo_Bus();
-        ct_Tipo_costo_Info info_tipo_costo = new ct_Tipo_costo_Info();
-        List<ct_Tipo_costo_Info> list_tipo_costo = new List<ct_Tipo_costo_Info>();
-
-
-
 
         public ct_Plancta_Info InfoPlanCta { get; set; }
         public ct_Plancta_Info InfoPlanCta_padre { get; set; }
@@ -47,7 +34,7 @@ namespace Bizu.Presentation.Contabilidad
         cl_parametrosGenerales_Bus param = cl_parametrosGenerales_Bus.Instance;
         frmCon_PlanCuenta_Mant frm;
         public delegate void delegate_frmCon_PlanCuenta_Mant_FormClosing(object sender, FormClosingEventArgs e);
-        public event delegate_frmCon_PlanCuenta_Mant_FormClosing event_frmCon_PlanCuenta_Mant_FormClosing; 
+        public event delegate_frmCon_PlanCuenta_Mant_FormClosing event_frmCon_PlanCuenta_Mant_FormClosing;
         #endregion
 
         public frmCon_PlanCuenta_Mant()
@@ -74,14 +61,14 @@ namespace Bizu.Presentation.Contabilidad
             catch (Exception ex)
             {
                 Log_Error_bus.Log_Error(ex.ToString());
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
         }
 
         void frmCon_PlanCuenta_Mant_event_frmCon_PlanCuenta_Mant_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
+
         }
 
         void ucGe_Menu_Superior_event_btnSalir_Click(object sender, EventArgs e)
@@ -93,8 +80,8 @@ namespace Bizu.Presentation.Contabilidad
             catch (Exception ex)
             {
                 Log_Error_bus.Log_Error(ex.ToString());
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
-            }            
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         void ucGe_Menu_Superior_event_btnlimpiar_Click(object sender, EventArgs e)
@@ -106,15 +93,15 @@ namespace Bizu.Presentation.Contabilidad
             catch (Exception ex)
             {
                 Log_Error_bus.Log_Error(ex.ToString());
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
-            }            
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         void ucGe_Menu_Superior_event_btnGuardar_y_Salir_Click(object sender, EventArgs e)
         {
             try
             {
-                if (grabar()==true)
+                if (grabar() == true)
                 {
                     this.Close();
                 }
@@ -122,7 +109,7 @@ namespace Bizu.Presentation.Contabilidad
             catch (Exception ex)
             {
                 Log_Error_bus.Log_Error(ex.ToString());
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);                 
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -137,8 +124,8 @@ namespace Bizu.Presentation.Contabilidad
             catch (Exception ex)
             {
                 Log_Error_bus.Log_Error(ex.ToString());
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
-                
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
         }
 
@@ -152,8 +139,8 @@ namespace Bizu.Presentation.Contabilidad
             catch (Exception ex)
             {
                 Log_Error_bus.Log_Error(ex.ToString());
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
-                
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
         }
 
@@ -166,7 +153,7 @@ namespace Bizu.Presentation.Contabilidad
 
                 if (txt_codigo.Text == "")
                 {
-                    MessageBox.Show( "No Ha Ingresado el Codigo de la Cuenta",param.Nombre_sistema,MessageBoxButtons.OK);
+                    MessageBox.Show("No Ha Ingresado el Codigo de la Cuenta", param.Nombre_sistema, MessageBoxButtons.OK);
                     return false;
                 }
 
@@ -177,7 +164,7 @@ namespace Bizu.Presentation.Contabilidad
                 }
 
 
-                if (cmb_nivel.ValueMember=="0")
+                if (cmb_nivel.ValueMember == "0")
                 {
                     MessageBox.Show("El nivel no puede ser 0", param.Nombre_sistema, MessageBoxButtons.OK);
                     return false;
@@ -191,7 +178,7 @@ namespace Bizu.Presentation.Contabilidad
             catch (Exception ex)
             {
                 Log_Error_bus.Log_Error(ex.ToString());
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
@@ -230,7 +217,7 @@ namespace Bizu.Presentation.Contabilidad
             catch (Exception ex)
             {
                 Log_Error_bus.Log_Error(ex.ToString());
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
 
@@ -246,16 +233,16 @@ namespace Bizu.Presentation.Contabilidad
                 InfoPlanCta.IdCtaCble = txt_codigo.Text;
                 InfoPlanCta.pc_clave_corta = txt_clave.Text;
                 InfoPlanCta.pc_Cuenta = txt_nom_cta.Text;
-                InfoPlanCta.IdCtaCblePadre = (cmb_cuenta_padre.EditValue == null) ? null :(string) cmb_cuenta_padre.EditValue;
-                InfoPlanCta.pc_Naturaleza =(cmb_naturaleza.Text=="Deudora")?"D" : "C";
-                InfoPlanCta.IdGrupoCble=cmb_grupo_cble.SelectedValue.ToString();
-                InfoPlanCta.IdNivelCta =(Int32) cmb_nivel.SelectedValue;
-                InfoPlanCta.pc_EsMovimiento =   (chk_es_cta_movi.Checked) ? "S": "N";
-                InfoPlanCta.pc_es_flujo_efectivo  =   (chk_esta_cta_afecta_flujo.Checked) ? "S" : "N";
-                InfoPlanCta.pc_Estado  =   (chk_estado.Checked) ? "A": "I";
+                InfoPlanCta.IdCtaCblePadre = (cmb_cuenta_padre.EditValue == null) ? null : (string)cmb_cuenta_padre.EditValue;
+                InfoPlanCta.pc_Naturaleza = (cmb_naturaleza.Text == "Deudora") ? "D" : "C";
+                InfoPlanCta.IdGrupoCble = cmb_grupo_cble.SelectedValue.ToString();
+                InfoPlanCta.IdNivelCta = (Int32)cmb_nivel.SelectedValue;
+                InfoPlanCta.pc_EsMovimiento = (chk_es_cta_movi.Checked) ? "S" : "N";
+                InfoPlanCta.pc_es_flujo_efectivo = (chk_esta_cta_afecta_flujo.Checked) ? "S" : "N";
+                InfoPlanCta.pc_Estado = (chk_estado.Checked) ? "A" : "I";
                 InfoPlanCta.IdUsuario = param.IdUsuario;
                 InfoPlanCta.IdUsuarioUltMod = param.IdUsuario;
-                
+
 
                 if (cmb_Grupo_x_tipo_gasto.EditValue != null) InfoPlanCta.IdTipo_Gasto = Convert.ToInt32(cmb_Grupo_x_tipo_gasto.EditValue); else InfoPlanCta.IdTipo_Gasto = null;
 
@@ -267,7 +254,7 @@ namespace Bizu.Presentation.Contabilidad
             catch (Exception ex)
             {
                 Log_Error_bus.Log_Error(ex.ToString());
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
 
@@ -281,9 +268,9 @@ namespace Bizu.Presentation.Contabilidad
                 switch (_Accion)
                 {
                     case Cl_Enumeradores.eTipo_action.grabar:
-                                                
+
                         limpiar();
-                        ucGe_Menu.Visible_bntAnular = DevExpress.XtraBars.BarItemVisibility.Never;                       
+                        ucGe_Menu.Visible_bntAnular = DevExpress.XtraBars.BarItemVisibility.Never;
 
                         break;
                     case Cl_Enumeradores.eTipo_action.actualizar:
@@ -309,7 +296,7 @@ namespace Bizu.Presentation.Contabilidad
                         this.txt_codigo.BackColor = System.Drawing.Color.White;
                         this.txt_codigo.ForeColor = System.Drawing.Color.Black;
 
-                        
+
                         set_info();
 
                         break;
@@ -325,7 +312,7 @@ namespace Bizu.Presentation.Contabilidad
                         this.txt_codigo.BackColor = System.Drawing.Color.White;
                         this.txt_codigo.ForeColor = System.Drawing.Color.Black;
 
-                        
+
 
                         set_info();
                         break;
@@ -338,7 +325,7 @@ namespace Bizu.Presentation.Contabilidad
             catch (Exception ex)
             {
                 Log_Error_bus.Log_Error(ex.ToString());
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -355,7 +342,7 @@ namespace Bizu.Presentation.Contabilidad
                 cmb_cuenta_padre.EditValue = "";
                 cmb_naturaleza.SelectedText = "";
                 cmb_grupo_cble.SelectedValue = "";
-                cmb_nivel.SelectedValue= 1;
+                cmb_nivel.SelectedValue = 1;
                 chk_es_cta_movi.Checked = false;
                 chk_esta_cta_afecta_flujo.Checked = false;
                 InfoPlanCta = new ct_Plancta_Info();
@@ -365,12 +352,12 @@ namespace Bizu.Presentation.Contabilidad
                 cmbTipoCosto.EditValue = null;
 
                 cargar_combo();
-             }
+            }
             catch (Exception ex)
             {
                 Log_Error_bus.Log_Error(ex.ToString());
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
-                
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
         }
 
@@ -380,18 +367,18 @@ namespace Bizu.Presentation.Contabilidad
             {
 
                 listPlanCta = PlanCtaBus.Get_List_Plan_ctaPadre(param.IdEmpresa, ref MensajeError);
-                cmb_cuenta_padre.Properties.DataSource= listPlanCta;
+                cmb_cuenta_padre.Properties.DataSource = listPlanCta;
 
                 ct_Grupocble_Bus GrupoCbteBus = new ct_Grupocble_Bus();
                 List<ct_Grupocble_Info> listGrupoCble = new List<ct_Grupocble_Info>();
 
-                if (cmb_grupo_cble.DataSource==null)
+                if (cmb_grupo_cble.DataSource == null)
                 {
                     listGrupoCble = GrupoCbteBus.Get_list_Grupocble();
                     cmb_grupo_cble.DataSource = listGrupoCble;
                     cmb_grupo_cble.ValueMember = "IdGrupoCble";
-                    cmb_grupo_cble.DisplayMember = "gc_GrupoCble";    
-                }                
+                    cmb_grupo_cble.DisplayMember = "gc_GrupoCble";
+                }
 
                 if (cmb_naturaleza.DataSource == null)
                 {
@@ -410,28 +397,11 @@ namespace Bizu.Presentation.Contabilidad
                     cmb_nivel.ValueMember = "IdNivelCta";
                     cmb_nivel.DisplayMember = "IdNivelCta";
                 }
-                
-
-
-                list_grupo_x_tipo_gasto = bus_grupo_x_tipo_gasto.Get_list_grupo_x_tipo_Gasto_nivel_3(param.IdEmpresa);
-                cmb_Grupo_x_tipo_gasto.Properties.DataSource = list_grupo_x_tipo_gasto;
-                cmb_Grupo_x_tipo_gasto.Properties.ValueMember = "IdTipo_Gasto";
-                cmb_Grupo_x_tipo_gasto.Properties.DisplayMember = "nom_tipo_Gasto";
-
-
-                list_tipo_costo  = bus_tipo_costo.Get_list_Tipo_costo(param.IdEmpresa);
-                cmbTipoCosto.Properties.DataSource = list_tipo_costo;
-                cmbTipoCosto.Properties.ValueMember = "IdTipo_Costo";
-                cmbTipoCosto.Properties.DisplayMember = "nom_tipo_Costo";
-
-
-                 
-
             }
             catch (Exception ex)
             {
                 Log_Error_bus.Log_Error(ex.ToString());
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -447,8 +417,8 @@ namespace Bizu.Presentation.Contabilidad
             {
                 string IdCbleHijo = "";
 
-                InfoPlanCta_padre  = listPlanCta.FirstOrDefault(v => v.IdCtaCble == Convert.ToString(cmb_cuenta_padre.EditValue));
-                string MensajeError="";
+                InfoPlanCta_padre = listPlanCta.FirstOrDefault(v => v.IdCtaCble == Convert.ToString(cmb_cuenta_padre.EditValue));
+                string MensajeError = "";
 
                 if (_Accion == Bizu.Domain.General.Cl_Enumeradores.eTipo_action.grabar)
                 {
@@ -474,8 +444,8 @@ namespace Bizu.Presentation.Contabilidad
             catch (Exception ex)
             {
                 Log_Error_bus.Log_Error(ex.ToString());
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
-                
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
         }
 
@@ -484,22 +454,22 @@ namespace Bizu.Presentation.Contabilidad
             try
             {
                 Boolean Res = false;
-                ct_Plancta_Info Cuenta= new ct_Plancta_Info();
+                ct_Plancta_Info Cuenta = new ct_Plancta_Info();
                 get_info();
-                
-                if(PlanCtaBus.ValidaIdCtaCble(InfoPlanCta.IdEmpresa, InfoPlanCta.IdCtaCble, ref MensajeError))
+
+                if (PlanCtaBus.ValidaIdCtaCble(InfoPlanCta.IdEmpresa, InfoPlanCta.IdCtaCble, ref MensajeError))
                 {
-                    InfoPlanCta_padre  = listPlanCta.FirstOrDefault(v => v.IdCtaCble == Convert.ToString(cmb_cuenta_padre.EditValue));
+                    InfoPlanCta_padre = listPlanCta.FirstOrDefault(v => v.IdCtaCble == Convert.ToString(cmb_cuenta_padre.EditValue));
                     IdCbleHijo = PlanCtaBus.Get_Id(InfoPlanCta_padre.IdEmpresa, InfoPlanCta_padre.IdCtaCble, ref MensajeError);
                     InfoPlanCta.IdCtaCble = InfoPlanCta_padre.IdCtaCble + IdCbleHijo;
                 }
 
-                Res =PlanCtaBus.GrabarDB(InfoPlanCta, ref  MensajeError);
+                Res = PlanCtaBus.GrabarDB(InfoPlanCta, ref MensajeError);
 
                 if (Res)
                 {
                     string smensaje = string.Format("{0} # {1} se guardó con éxito.", "Cuenta Contable", InfoPlanCta.IdCtaCble + "-" + InfoPlanCta.pc_Cuenta);
-                    MessageBox.Show(smensaje, param.Nombre_sistema,MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    MessageBox.Show(smensaje, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
                     limpiar();
@@ -507,7 +477,7 @@ namespace Bizu.Presentation.Contabilidad
                 else
                 {
                     string smensaje = string.Format("Error al Grabar:  {0}");
-                    MessageBox.Show(MensajeError +" " + smensaje, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(MensajeError + " " + smensaje, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
                 return true;
@@ -516,8 +486,8 @@ namespace Bizu.Presentation.Contabilidad
             catch (Exception ex)
             {
                 Log_Error_bus.Log_Error(ex.ToString());
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
-                return false;               
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
 
         }
@@ -527,13 +497,13 @@ namespace Bizu.Presentation.Contabilidad
             try
             {
                 Boolean Res = false;
-                Res =PlanCtaBus.ModificarDB(InfoPlanCta, ref  MensajeError);
+                Res = PlanCtaBus.ModificarDB(InfoPlanCta, ref MensajeError);
 
                 if (Res)
                 {
-                    string smensaje = string.Format("{0} # {1} se modificó con éxito.", "la Cuenta ","");
+                    string smensaje = string.Format("{0} # {1} se modificó con éxito.", "la Cuenta ", "");
                     MessageBox.Show(smensaje, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                        limpiar();
+                    limpiar();
                 }
                 else
                 {
@@ -546,7 +516,7 @@ namespace Bizu.Presentation.Contabilidad
             catch (Exception ex)
             {
                 Log_Error_bus.Log_Error(ex.ToString());
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
@@ -556,20 +526,20 @@ namespace Bizu.Presentation.Contabilidad
             try
             {
                 Boolean Res = false;
-                
+
                 get_info();
 
 
                 switch (_Accion)
                 {
                     case Cl_Enumeradores.eTipo_action.grabar:
-                        Res =Guardar();
+                        Res = Guardar();
                         break;
                     case Cl_Enumeradores.eTipo_action.actualizar:
-                        Res =Actualizar();
+                        Res = Actualizar();
                         break;
                     case Cl_Enumeradores.eTipo_action.Anular:
-                         break;
+                        break;
                     default:
                         break;
                 }
@@ -579,8 +549,8 @@ namespace Bizu.Presentation.Contabilidad
             catch (Exception ex)
             {
                 Log_Error_bus.Log_Error(ex.ToString());
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
-                return false;                
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
         }
 
@@ -598,7 +568,7 @@ namespace Bizu.Presentation.Contabilidad
                         {
                             string msg = "";
                             oFrm.ShowDialog();
-                            
+
                             InfoPlanCta.MotivoAnulacion = oFrm.motivoAnulacion;
                             InfoPlanCta.Fecha_UltAnu = param.Fecha_Transac;
                             InfoPlanCta.IdUsuarioUltAnu = param.IdUsuario;
@@ -612,7 +582,7 @@ namespace Bizu.Presentation.Contabilidad
                                 _Accion = Cl_Enumeradores.eTipo_action.consultar;
                                 return true;
                             }
-                            else 
+                            else
                                 return false;
                         }
                     }
@@ -643,8 +613,8 @@ namespace Bizu.Presentation.Contabilidad
             catch (Exception ex)
             {
                 Log_Error_bus.Log_Error(ex.ToString());
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
-            }            
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void cmb_nivel_SelectedIndexChanged(object sender, EventArgs e)
@@ -662,7 +632,7 @@ namespace Bizu.Presentation.Contabilidad
             {
                 Log_Error_bus.Log_Error(ex.ToString());
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }  
+            }
         }
 
         private void btn_Modificar_Click(object sender, EventArgs e)
@@ -672,23 +642,17 @@ namespace Bizu.Presentation.Contabilidad
                 if (cmb_Grupo_x_tipo_gasto.EditValue == null)
                 {
                     MessageBox.Show("Seleccione un registro", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return;                    
-                }
-                
-                info_grupo_x_tipo_gasto = list_grupo_x_tipo_gasto.FirstOrDefault(q => q.IdTipo_Gasto == Convert.ToInt32(cmb_Grupo_x_tipo_gasto.EditValue));
-
-                if (info_grupo_x_tipo_gasto.estado==false)
-                {
-                    MessageBox.Show("El registro se encuentra anulado y no se puede modificar", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
+
+
                 Llamar_formulario_tipo_gasto(Bizu.Domain.General.Cl_Enumeradores.eTipo_action.actualizar);
             }
             catch (Exception ex)
             {
                 Log_Error_bus.Log_Error(ex.ToString());
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }  
+            }
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)
@@ -701,34 +665,18 @@ namespace Bizu.Presentation.Contabilidad
                     return;
                 }
 
-                info_grupo_x_tipo_gasto = list_grupo_x_tipo_gasto.FirstOrDefault(q => q.IdTipo_Gasto == Convert.ToInt32(cmb_Grupo_x_tipo_gasto.EditValue));
                 Llamar_formulario_tipo_gasto(Bizu.Domain.General.Cl_Enumeradores.eTipo_action.consultar);
             }
             catch (Exception ex)
             {
                 Log_Error_bus.Log_Error(ex.ToString());
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }  
+            }
         }
 
         private void Llamar_formulario_tipo_gasto(Cl_Enumeradores.eTipo_action Accion)
         {
-            try
-            {
-                frmCon_grupo_x_Tipo_Gasto_Mant frm_tipo_gasto = new frmCon_grupo_x_Tipo_Gasto_Mant();
-                frm_tipo_gasto.Set_Accion(Accion);
-                if (Accion!=Bizu.Domain.General.Cl_Enumeradores.eTipo_action.grabar)
-                {
-                    frm_tipo_gasto.Set_info(info_grupo_x_tipo_gasto);
-                }
-                frm_tipo_gasto.ShowDialog();
-                cargar_combo();
-            }
-            catch (Exception ex)
-            {
-                Log_Error_bus.Log_Error(ex.ToString());
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }  
+
         }
 
         private void btn_accion_tipo_gasto_Click(object sender, EventArgs e)
@@ -741,9 +689,7 @@ namespace Bizu.Presentation.Contabilidad
             {
                 Log_Error_bus.Log_Error(ex.ToString());
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }  
+            }
         }
-
-       
     }
 }

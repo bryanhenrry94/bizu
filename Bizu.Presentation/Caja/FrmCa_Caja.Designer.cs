@@ -52,7 +52,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.ucGe_Menu = new Bizu.Presentation.Controles.UCGe_Menu_Superior_Mant();
-            this.uCct_Pto_Cargo_Grupo1 = new Bizu.Reports.Controles.UCct_Pto_Cargo_Grupo();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chk_estado.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraCmbE_responsable.Properties)).BeginInit();
@@ -63,7 +62,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.uCct_Pto_Cargo_Grupo1);
             this.panel1.Controls.Add(this.chk_estado);
             this.panel1.Controls.Add(this.ucCon_PlanCtaCmb1);
             this.panel1.Controls.Add(this.ucGe_Sucursal_combo1);
@@ -338,13 +336,7 @@
             this.ucGe_Menu.Visible_btnImpRep = DevExpress.XtraBars.BarItemVisibility.Never;
             this.ucGe_Menu.Visible_btnImprimirSoporte = DevExpress.XtraBars.BarItemVisibility.Never;
             this.ucGe_Menu.Visible_btnproductos = DevExpress.XtraBars.BarItemVisibility.Never;
-            // 
-            // uCct_Pto_Cargo_Grupo1
-            // 
-            this.uCct_Pto_Cargo_Grupo1.Location = new System.Drawing.Point(498, 70);
-            this.uCct_Pto_Cargo_Grupo1.Name = "uCct_Pto_Cargo_Grupo1";
-            this.uCct_Pto_Cargo_Grupo1.Size = new System.Drawing.Size(366, 60);
-            this.uCct_Pto_Cargo_Grupo1.TabIndex = 156;
+           
             // 
             // FrmCa_Caja
             // 
@@ -395,6 +387,5 @@
         private Controles.UCCon_PlanCtaCmb ucCon_PlanCtaCmb1;
         private DevExpress.XtraEditors.CheckEdit chk_estado;
         private DevExpress.XtraGrid.Columns.GridColumn colNombre;
-        private Reports.Controles.UCct_Pto_Cargo_Grupo uCct_Pto_Cargo_Grupo1;
     }
 }

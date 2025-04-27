@@ -20,10 +20,10 @@ namespace Bizu.Infrastructure.Contabilidad
                 {
                     ct_parametro Address = new ct_parametro();
 
-                    Address.IdEmpresa = Info.IdEmpresa;
-                    Address.IdTipoCbte_SaldoInicial= Info.IdTipoCbte_SaldoInicial;
-                    Address.IdTipoCbte_AsientoCierre_Anual = Info.IdTipoCbte_AsientoCierre_Anual;
-                    Address.P_Se_Muestra_Todas_las_ctas_en_combos = Info.P_Se_Muestra_Todas_las_ctas_en_combos;
+                    Address.idempresa = Info.IdEmpresa;
+                    Address.idtipocbte_saldoinicial= Info.IdTipoCbte_SaldoInicial;
+                    Address.idtipocbte_asientocierre_anual = Info.IdTipoCbte_AsientoCierre_Anual;
+                    Address.p_se_muestra_todas_las_ctas_en_combos = Info.P_Se_Muestra_Todas_las_ctas_en_combos;
                     Context.ct_parametro.Add(Address);
                     Context.SaveChanges();
                 }
@@ -49,29 +49,29 @@ namespace Bizu.Infrastructure.Contabilidad
                 {
                     EntitiesDBConta param = new EntitiesDBConta();
                     var selectBaParam = (from C in param.ct_parametro
-                                         where C.IdEmpresa == info.IdEmpresa
+                                         where C.idempresa == info.IdEmpresa
                                          select C).Count();
 
                     if (selectBaParam == 0)
                     {
                         ct_parametro addressG = new ct_parametro();
-                        addressG.IdEmpresa = info.IdEmpresa;
-                        addressG.IdTipoCbte_AsientoCierre_Anual = info.IdTipoCbte_AsientoCierre_Anual;
-                        addressG.IdTipoCbte_SaldoInicial = info.IdTipoCbte_SaldoInicial;
-                        addressG.P_Se_Muestra_Todas_las_ctas_en_combos = info.P_Se_Muestra_Todas_las_ctas_en_combos;
+                        addressG.idempresa = info.IdEmpresa;
+                        addressG.idtipocbte_asientocierre_anual = info.IdTipoCbte_AsientoCierre_Anual;
+                        addressG.idtipocbte_saldoinicial = info.IdTipoCbte_SaldoInicial;
+                        addressG.p_se_muestra_todas_las_ctas_en_combos = info.P_Se_Muestra_Todas_las_ctas_en_combos;
 
                         Context.ct_parametro.Add(addressG);
                         Context.SaveChanges();
                     }
                     else
                     {
-                        var contact = Context.ct_parametro.FirstOrDefault(para => para.IdEmpresa == info.IdEmpresa);
+                        var contact = Context.ct_parametro.FirstOrDefault(para => para.idempresa == info.IdEmpresa);
                         if (contact != null)
                         {
-                            contact.IdEmpresa = info.IdEmpresa;
-                            contact.IdTipoCbte_SaldoInicial = info.IdTipoCbte_SaldoInicial;
-                            contact.IdTipoCbte_AsientoCierre_Anual = info.IdTipoCbte_AsientoCierre_Anual;
-                            contact.P_Se_Muestra_Todas_las_ctas_en_combos = info.P_Se_Muestra_Todas_las_ctas_en_combos;
+                            contact.idempresa = info.IdEmpresa;
+                            contact.idtipocbte_saldoinicial = info.IdTipoCbte_SaldoInicial;
+                            contact.idtipocbte_asientocierre_anual = info.IdTipoCbte_AsientoCierre_Anual;
+                            contact.p_se_muestra_todas_las_ctas_en_combos = info.P_Se_Muestra_Todas_las_ctas_en_combos;
                             Context.SaveChanges();
                         }
                     }
@@ -96,16 +96,16 @@ namespace Bizu.Infrastructure.Contabilidad
                 ct_Parametro_Info Cbt = new ct_Parametro_Info();
                 EntitiesDBConta param = new EntitiesDBConta();
                 var selectBaParam = from C in param.ct_parametro
-                                    where C.IdEmpresa == IdEmpresa
+                                    where C.idempresa == IdEmpresa
                                     select C;
 
                 foreach (var item in selectBaParam)
                 {
 
-                    Cbt.IdEmpresa = item.IdEmpresa;
-                    Cbt.IdTipoCbte_SaldoInicial = Convert.ToInt32(item.IdTipoCbte_SaldoInicial);
-                    Cbt.IdTipoCbte_AsientoCierre_Anual = Convert.ToInt32(item.IdTipoCbte_AsientoCierre_Anual);
-                    Cbt.P_Se_Muestra_Todas_las_ctas_en_combos = Convert.ToBoolean(item.P_Se_Muestra_Todas_las_ctas_en_combos);
+                    Cbt.IdEmpresa = item.idempresa;
+                    Cbt.IdTipoCbte_SaldoInicial = Convert.ToInt32(item.idtipocbte_saldoinicial);
+                    Cbt.IdTipoCbte_AsientoCierre_Anual = Convert.ToInt32(item.idtipocbte_asientocierre_anual);
+                    Cbt.P_Se_Muestra_Todas_las_ctas_en_combos = Convert.ToBoolean(item.p_se_muestra_todas_las_ctas_en_combos);
 
                 }
                 return (Cbt);

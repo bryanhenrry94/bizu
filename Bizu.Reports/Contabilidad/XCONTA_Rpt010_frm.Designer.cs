@@ -46,7 +46,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblFechaIni = new System.Windows.Forms.Label();
-            this.uCct_Pto_Cargo_Grupo = new Bizu.Reports.Controles.UCct_Pto_Cargo_Grupo();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             //this.splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Bizu.Reports.frmEspere), true, true);
             this.gbFecha = new System.Windows.Forms.GroupBox();
@@ -202,14 +201,7 @@
             this.lblFechaIni.Location = new System.Drawing.Point(106, 81);
             this.lblFechaIni.Name = "lblFechaIni";
             this.lblFechaIni.Size = new System.Drawing.Size(0, 13);
-            this.lblFechaIni.TabIndex = 7;
-            // 
-            // uCct_Pto_Cargo_Grupo
-            // 
-            this.uCct_Pto_Cargo_Grupo.Location = new System.Drawing.Point(12, 178);
-            this.uCct_Pto_Cargo_Grupo.Name = "uCct_Pto_Cargo_Grupo";
-            this.uCct_Pto_Cargo_Grupo.Size = new System.Drawing.Size(364, 32);
-            this.uCct_Pto_Cargo_Grupo.TabIndex = 17;
+            this.lblFechaIni.TabIndex = 7;            
             // 
             // statusStrip1
             // 
@@ -284,7 +276,6 @@
             this.Controls.Add(this.chkMostrar_Saldo_cero);
             this.Controls.Add(this.gbperiodo);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.uCct_Pto_Cargo_Grupo);
             this.Controls.Add(this.toolStripMenu);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblFechaFin);
@@ -322,7 +313,6 @@
         private System.Windows.Forms.DateTimePicker dtpFechaFin;
         private System.Windows.Forms.Label lblFechaFin;
         private System.Windows.Forms.Label label5;
-        private Controles.UCct_Pto_Cargo_Grupo uCct_Pto_Cargo_Grupo;
         private System.Windows.Forms.Label lblFechaIni;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.StatusStrip statusStrip1;

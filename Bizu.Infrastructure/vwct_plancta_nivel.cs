@@ -14,11 +14,11 @@ namespace Bizu.Infrastructure
     
     public partial class vwct_plancta_nivel
     {
-        public int IdEmpresa { get; set; }
-        public int IdNivelCta { get; set; }
-        public int nv_NumDigitos { get; set; }
-        public string nv_Descripcion { get; set; }
-        public string Estado { get; set; }
-        public Nullable<decimal> nv_NumDigitos_total { get; set; }
+        public int idempresa { get; set; }
+        public int idnivelcta { get; set; }
+        public int nv_numdigitos { get; set; }
+        public string nv_descripcion { get; set; }
+        public string estado { get; set; }
+        public Nullable<decimal> nv_numdigitos_total { get; set; }
     }
 }

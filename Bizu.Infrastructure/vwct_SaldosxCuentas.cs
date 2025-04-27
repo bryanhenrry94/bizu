@@ -12,27 +12,27 @@ namespace Bizu.Infrastructure
     using System;
     using System.Collections.Generic;
     
-    public partial class vwct_SaldosxCuentas
+    public partial class vwct_saldosxcuentas
     {
-        public int IdEmpresa { get; set; }
-        public int IdAnioF { get; set; }
-        public int IdPeriodo { get; set; }
-        public string IdCtaCble { get; set; }
-        public string pc_Cuenta { get; set; }
-        public string pc_Naturaleza { get; set; }
-        public long IdNivel { get; set; }
-        public string IdCtaCblePadre { get; set; }
+        public int idempresa { get; set; }
+        public int idaniof { get; set; }
+        public int idperiodo { get; set; }
+        public string idctacble { get; set; }
+        public string pc_cuenta { get; set; }
+        public string pc_naturaleza { get; set; }
+        public long idnivel { get; set; }
+        public string idctacblepadre { get; set; }
         public double sc_saldo_anterior { get; set; }
         public double sc_debito_mes { get; set; }
         public double sc_credito_mes { get; set; }
-        public double sc_saldoPeriodo { get; set; }
+        public double sc_saldoperiodo { get; set; }
         public long sc_debito_acum { get; set; }
         public long sc_credito_acum { get; set; }
         public double sc_saldo_acum { get; set; }
-        public string IdGrupoCble { get; set; }
-        public string gc_GrupoCble { get; set; }
-        public long gc_Orden { get; set; }
+        public string idgrupocble { get; set; }
+        public string gc_grupocble { get; set; }
+        public long gc_orden { get; set; }
         public string gc_estado_financiero { get; set; }
-        public string SIdPeriodo { get; set; }
+        public string sidperiodo { get; set; }
     }
 }

@@ -23,15 +23,15 @@ namespace Bizu.Infrastructure.Contabilidad
                 List<ct_periodo_x_tb_modulo_Info> lM = new List<ct_periodo_x_tb_modulo_Info>();
                 EntitiesDBConta OEPeriodo = new EntitiesDBConta();
                 var selectPeriodo = from C in OEPeriodo.ct_periodo_x_tb_modulo
-                                    where C.IdEmpresa == IdEmpresa
+                                    where C.idempresa == IdEmpresa
                                     select C;
                 foreach (var item in selectPeriodo)
                 {
                     ct_periodo_x_tb_modulo_Info Cbt = new ct_periodo_x_tb_modulo_Info();
-                    Cbt.IdEmpresa = item.IdEmpresa;
-                    Cbt.IdPeriodo = item.IdPeriodo;
-                    Cbt.Cerrado = item.Cerrado;
-                    Cbt.IdModulo = item.IdModulo;
+                    Cbt.IdEmpresa = item.idempresa;
+                    Cbt.IdPeriodo = item.idperiodo;
+                    Cbt.Cerrado = item.cerrado;
+                    Cbt.IdModulo = item.idmodulo;
 
                     lM.Add(Cbt);
                 }
@@ -56,16 +56,16 @@ namespace Bizu.Infrastructure.Contabilidad
                 List<ct_periodo_x_tb_modulo_Info> lM = new List<ct_periodo_x_tb_modulo_Info>();
                 EntitiesDBConta OEPeriodo = new EntitiesDBConta();
                 var selectPeriodo = from C in OEPeriodo.ct_periodo_x_tb_modulo
-                                    where C.IdEmpresa == IdEmpresa
-                                    && C.IdPeriodo == IdPeriodo
+                                    where C.idempresa == IdEmpresa
+                                    && C.idperiodo == IdPeriodo
                                     select C;
                 foreach (var item in selectPeriodo)
                 {
                     ct_periodo_x_tb_modulo_Info Cbt = new ct_periodo_x_tb_modulo_Info();
-                    Cbt.IdEmpresa = item.IdEmpresa;
-                    Cbt.IdPeriodo = item.IdPeriodo;
-                    Cbt.Cerrado = item.Cerrado;
-                    Cbt.IdModulo = item.IdModulo;
+                    Cbt.IdEmpresa = item.idempresa;
+                    Cbt.IdPeriodo = item.idperiodo;
+                    Cbt.Cerrado = item.cerrado;
+                    Cbt.IdModulo = item.idmodulo;
 
                     lM.Add(Cbt);
                 }
@@ -92,10 +92,10 @@ namespace Bizu.Infrastructure.Contabilidad
                 using (EntitiesDBConta Context = new EntitiesDBConta())
                 {
                     var lst = from q in Context.ct_periodo_x_tb_modulo
-                              where IdEmpresa == q.IdEmpresa
-                              && Modulo == q.IdModulo
-                              && IdPeriodo == q.IdPeriodo
-                              && q.Cerrado == true
+                              where IdEmpresa == q.idempresa
+                              && Modulo == q.idmodulo
+                              && IdPeriodo == q.idperiodo
+                              && q.cerrado == true
                               select q;
 
                     if (lst.Count() == 0) return false; else return true;
@@ -123,15 +123,15 @@ namespace Bizu.Infrastructure.Contabilidad
 
                 EntitiesDBConta OEPeriodo = new EntitiesDBConta();
                 var selectPeriodo = from C in OEPeriodo.ct_periodo_x_tb_modulo
-                                    where C.IdEmpresa == IdEmpresa
-                                    && C.IdPeriodo == IdPeriodo
+                                    where C.idempresa == IdEmpresa
+                                    && C.idperiodo == IdPeriodo
                                     select C;
                 if (selectPeriodo.ToList().Count > 0)
                 {
                     foreach (var item in selectPeriodo)
                     {
-                        _PeriodoInfo.IdEmpresa = item.IdEmpresa;
-                        _PeriodoInfo.IdPeriodo = item.IdPeriodo;
+                        _PeriodoInfo.IdEmpresa = item.idempresa;
+                        _PeriodoInfo.IdPeriodo = item.idperiodo;
 
 
                     }
@@ -180,12 +180,12 @@ namespace Bizu.Infrastructure.Contabilidad
             {
                 using (EntitiesDBConta context = new EntitiesDBConta())
                 {
-                    var contact = context.ct_periodo_x_tb_modulo.FirstOrDefault(minfo => minfo.IdPeriodo == info.IdPeriodo
-                        && minfo.IdEmpresa == info.IdEmpresa);
+                    var contact = context.ct_periodo_x_tb_modulo.FirstOrDefault(minfo => minfo.idperiodo == info.IdPeriodo
+                        && minfo.idempresa == info.IdEmpresa);
                     if (contact != null)
                     {
-                        contact.IdEmpresa = info.IdEmpresa;
-                        contact.IdPeriodo = info.IdPeriodo;
+                        contact.idempresa = info.IdEmpresa;
+                        contact.idperiodo = info.IdPeriodo;
 
                         context.SaveChanges();
                     }
@@ -212,21 +212,21 @@ namespace Bizu.Infrastructure.Contabilidad
                 {
                     EntitiesDBConta EDB = new EntitiesDBConta();
                     var Q = from per in EDB.ct_periodo_x_tb_modulo
-                            where per.IdPeriodo == info.IdPeriodo
-                            && per.IdEmpresa == info.IdEmpresa
-                            && per.IdModulo == info.IdModulo
+                            where per.idperiodo == info.IdPeriodo
+                            && per.idempresa == info.IdEmpresa
+                            && per.idmodulo == info.IdModulo
                             select per;
 
                     if (Q.ToList().Count == 0)
                     {
                         var address = new ct_periodo_x_tb_modulo();
 
-                        address.IdEmpresa = info.IdEmpresa;
-                        address.IdPeriodo = Convert.ToInt32(info.IdPeriodo);
-                        address.IdModulo = info.IdModulo;
-                        address.Cerrado = info.Cerrado;
-                        address.FechaTransac = DateTime.Now;
-                        address.IdUsuario = info.IdUsuario;
+                        address.idempresa = info.IdEmpresa;
+                        address.idperiodo = Convert.ToInt32(info.IdPeriodo);
+                        address.idmodulo = info.IdModulo;
+                        address.cerrado = info.Cerrado;
+                        address.fechatransac = DateTime.Now;
+                        address.idusuario = info.IdUsuario;
 
                         context.ct_periodo_x_tb_modulo.Add(address);
                         context.SaveChanges();
@@ -277,7 +277,7 @@ namespace Bizu.Infrastructure.Contabilidad
             {
                 using (EntitiesDBConta context = new EntitiesDBConta())
                 {
-                    var contact = context.ct_periodo_x_tb_modulo.FirstOrDefault(dinfo => dinfo.IdPeriodo == info.IdPeriodo && dinfo.IdEmpresa == info.IdEmpresa);
+                    var contact = context.ct_periodo_x_tb_modulo.FirstOrDefault(dinfo => dinfo.idperiodo == info.IdPeriodo && dinfo.idempresa == info.IdEmpresa);
 
                     if (contact != null)
                     {
@@ -304,7 +304,7 @@ namespace Bizu.Infrastructure.Contabilidad
             {
                 using (EntitiesDBConta context = new EntitiesDBConta())
                 {
-                    string comando = "DELETE FROM ct_periodo_x_tb_modulo where IdEmpresa = " + IdEmpresa + " and IdPeriodo = " + IdPeriodo;
+                    string comando = "DELETE FROM ct_periodo_x_tb_modulo where idempresa = " + IdEmpresa + " and idperiodo = " + IdPeriodo;
                     context.Database.ExecuteSqlCommand(comando);
                 }
                 return true;

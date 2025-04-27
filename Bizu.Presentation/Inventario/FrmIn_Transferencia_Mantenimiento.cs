@@ -36,7 +36,6 @@ namespace Bizu.Presentation.Inventario
         in_Ing_Egr_Inven_Bus bus_ing_egr = new in_Ing_Egr_Inven_Bus();
         in_Ing_Egr_Inven_det_Bus Bus_IngEgrDet = new in_Ing_Egr_Inven_det_Bus();
         in_producto_Bus Bus_Producto = new in_producto_Bus();
-        ct_centro_costo_sub_centro_costo_Bus Bus_SubCentroCosto = new ct_centro_costo_sub_centro_costo_Bus();
         ct_Centro_costo_Bus Bus_CentroCosto = new ct_Centro_costo_Bus();
         in_UnidadMedida_Bus Bus_Uni_Med = new in_UnidadMedida_Bus();
         in_producto_x_tb_bodega_Bus _BusProXBod = new in_producto_x_tb_bodega_Bus();
@@ -48,7 +47,6 @@ namespace Bizu.Presentation.Inventario
         List<in_Ing_Egr_Inven_det_Info> _ListaDetalleMoviInventario = new List<in_Ing_Egr_Inven_det_Info>();
         List<ct_Centro_costo_Info> List_CentroCosto = new List<ct_Centro_costo_Info>();
         BindingList<in_Ing_Egr_Inven_det_Info> ListaBind = new BindingList<in_Ing_Egr_Inven_det_Info>();
-        BindingList<ct_centro_costo_sub_centro_costo_Info> BindListaSubCentro = new BindingList<ct_centro_costo_sub_centro_costo_Info>();
 
         in_Parametro_Info InfoParamInv = new in_Parametro_Info();
         in_Ing_Egr_Inven_det_Info InfoDet = new in_Ing_Egr_Inven_det_Info();
@@ -814,7 +812,6 @@ namespace Bizu.Presentation.Inventario
             {
                 in_UnidadMedida_Bus BusUniM = new in_UnidadMedida_Bus();
                 cmbUniMedida_grid.DataSource = BusUniM.Get_list_UnidadMedida();
-                cmbCentroCosto_grid.DataSource = Bus_CentroCosto.Get_list_Centro_Costo_cuentas_de_movimiento_x_EstadoObra(param.IdEmpresa, Convert.ToString(Cl_Enumeradores.eTipoEstado_Obra.ABI), ref MensajeError);
 
                 ucIn_Catalogos_Cmb1.cargar_Catalogos(1);
                 ucIn_Catalogos_Cmb1.set_CatalogosInfo("APRO");
@@ -924,46 +921,6 @@ namespace Bizu.Presentation.Inventario
 
                         }
                     }
-
-
-                    if (e.Column == colIdCentroCosto_grid)
-                    {
-                        BindListaSubCentro = new BindingList<ct_centro_costo_sub_centro_costo_Info>();
-                        BindListaSubCentro = new BindingList<ct_centro_costo_sub_centro_costo_Info>
-                            (Bus_SubCentroCosto.Get_list_centro_costo_sub_centro_costo(param.IdEmpresa, Convert.ToString(e.Value)));
-
-                        foreach (ct_centro_costo_sub_centro_costo_Info item in BindListaSubCentro)
-                        {
-                            item.NomSubCentroCosto = "[" + item.IdCentroCosto_sub_centro_costo.Trim() + "] - " + item.Centro_costo.Trim();
-                        }
-
-                        cmbSubCentroCosto_grid.Items.Clear();
-                        foreach (var item in BindListaSubCentro)
-                        {
-                            cmbSubCentroCosto_grid.Items.Add(item.NomSubCentroCosto);
-                        }
-                    }
-                    else
-
-                        if (e.Column == colNomSubCentroCosto)
-                    {
-                        if (!String.IsNullOrEmpty(Convert.ToString(InfoDet.NomSubCentroCosto)))
-                        {
-                            string idSubcentro = "";
-                            try
-                            {
-                                idSubcentro = BindListaSubCentro.FirstOrDefault
-                               (q => InfoDet.NomSubCentroCosto == "[" + q.IdCentroCosto_sub_centro_costo.Trim() + "] - " + q.Centro_costo.Trim()).IdCentroCosto_sub_centro_costo;
-
-                            }
-                            catch (Exception ex)
-                            {
-                                Log_Error_bus.Log_Error(ex.ToString());
-                                idSubcentro = "";
-                            }
-                            gridView_Transferencia.SetFocusedRowCellValue(colIdCentroCosto_sub_centro_costo, idSubcentro);
-                        }
-                    }
                 }
 
                 if (e.Column == coldm_cantidad)
@@ -1006,13 +963,6 @@ namespace Bizu.Presentation.Inventario
             try
             {
                 var Item = (in_Ing_Egr_Inven_det_Info)gridView_Transferencia.GetRow(e.FocusedRowHandle);
-                cmbSubCentroCosto_grid.Items.Clear();
-                Bus_SubCentroCosto = new ct_centro_costo_sub_centro_costo_Bus();
-                foreach (var item in Bus_SubCentroCosto.Get_list_centro_costo_sub_centro_costo(param.IdEmpresa, Convert.ToString(gridView_Transferencia.GetFocusedRowCellValue(colIdCentroCosto_grid))))
-                {
-                    item.NomSubCentroCosto = "[" + item.IdCentroCosto_sub_centro_costo.Trim() + "] - " + item.Centro_costo.Trim();
-                    cmbSubCentroCosto_grid.Items.Add(item.NomSubCentroCosto);
-                }
 
                 if (Item.IdEstadoAproba == Cl_Enumeradores.eEstadoAprobacion_Ing_Egr.APRO.ToString())
                 {

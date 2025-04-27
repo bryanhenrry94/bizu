@@ -59,7 +59,6 @@
             this.colIdCentroCosto = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCentro_costo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.label4 = new System.Windows.Forms.Label();
-            this.uCct_Pto_Cargo_Grupo = new Bizu.Reports.Controles.UCct_Pto_Cargo_Grupo();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.dt_FechaDesde = new System.Windows.Forms.DateTimePicker();
             this.chkMostrar_Cero = new System.Windows.Forms.CheckBox();
@@ -348,7 +347,6 @@
             this.panel1.Controls.Add(this.btn_Generar_Reporte);
             this.panel1.Controls.Add(this.cmb_centro_costo);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.uCct_Pto_Cargo_Grupo);
             this.panel1.Controls.Add(this.labelControl1);
             this.panel1.Controls.Add(this.dt_FechaDesde);
             this.panel1.Controls.Add(this.chkMostrar_Cero);
@@ -431,14 +429,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 13);
             this.label4.TabIndex = 21;
-            this.label4.Text = "Centro Costo:";
-            // 
-            // uCct_Pto_Cargo_Grupo
-            // 
-            this.uCct_Pto_Cargo_Grupo.Location = new System.Drawing.Point(586, 37);
-            this.uCct_Pto_Cargo_Grupo.Name = "uCct_Pto_Cargo_Grupo";
-            this.uCct_Pto_Cargo_Grupo.Size = new System.Drawing.Size(369, 54);
-            this.uCct_Pto_Cargo_Grupo.TabIndex = 20;
+            this.label4.Text = "Centro Costo:";           
             // 
             // labelControl1
             // 
@@ -855,7 +846,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn col_pc_EsMovimiento;
         private DevExpress.XtraGrid.Columns.GridColumn colDebito_Mes;
         private DevExpress.XtraGrid.Columns.GridColumn colCredito_Mes;
-        private Controles.UCct_Pto_Cargo_Grupo uCct_Pto_Cargo_Grupo;
         private DevExpress.XtraEditors.SearchLookUpEdit cmb_centro_costo;
         private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
         private DevExpress.XtraGrid.Columns.GridColumn colIdCentroCosto;

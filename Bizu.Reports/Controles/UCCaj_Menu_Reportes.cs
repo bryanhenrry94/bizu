@@ -77,10 +77,7 @@ namespace Bizu.Reports.Controles
         ba_TipoFlujo_Bus BusTipoFlujo = new ba_TipoFlujo_Bus();
         List<ba_TipoFlujo_Info> List_TipoFlujo = new List<ba_TipoFlujo_Info>();
         ba_TipoFlujo_Info Info_TipoFlujo = new ba_TipoFlujo_Info();
-
-        List<ct_punto_cargo_Info> lst_punto_cargo = new List<ct_punto_cargo_Info>();
-        ct_punto_cargo_Bus bus_punto_cargo = new ct_punto_cargo_Bus();
-
+        
         cl_parametrosGenerales_Bus param = cl_parametrosGenerales_Bus.Instance;
 
         string MensajeError = "";
@@ -205,9 +202,6 @@ namespace Bizu.Reports.Controles
                 cmb_TipoFlujo.EditValue = 0;
 
                 cmb_TipoIngEgr.EditValue = "Todos";
-
-                lst_punto_cargo = bus_punto_cargo.Get_List_PuntoCargo(param.IdEmpresa);
-                cmb_punto_cargo.DataSource = lst_punto_cargo;
             }
             catch (Exception ex)
             {

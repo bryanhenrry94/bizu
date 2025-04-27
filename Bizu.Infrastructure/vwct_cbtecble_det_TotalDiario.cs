@@ -12,11 +12,11 @@ namespace Bizu.Infrastructure
     using System;
     using System.Collections.Generic;
     
-    public partial class vwct_cbtecble_det_TotalDiario
+    public partial class vwct_cbtecble_det_totaldiario
     {
-        public int IdEmpresa { get; set; }
-        public int IdTipoCbte { get; set; }
-        public decimal IdCbteCble { get; set; }
-        public Nullable<double> dc_Valor { get; set; }
+        public int idempresa { get; set; }
+        public int idtipocbte { get; set; }
+        public decimal idcbtecble { get; set; }
+        public Nullable<double> dc_valor { get; set; }
     }
 }

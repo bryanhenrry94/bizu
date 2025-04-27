@@ -19,22 +19,22 @@ namespace Bizu.Infrastructure.Contabilidad
                 List<ct_Cbtecble_tipo_Info> lM = new List<ct_Cbtecble_tipo_Info>();
                 EntitiesDBConta OECbtecble_tipo_Info = new EntitiesDBConta();
                 var selectCbtecble_tipo = from C in OECbtecble_tipo_Info.ct_cbtecble_tipo
-                                          where C.IdEmpresa == IdEmpresa
+                                          where C.idempresa == IdEmpresa
                                           select C;
 
                 foreach (var item in selectCbtecble_tipo)
                 {
                     ct_Cbtecble_tipo_Info Cbt = new ct_Cbtecble_tipo_Info();
-                    Cbt.IdTipoCbte = Convert.ToInt32(item.IdTipoCbte);
-                    Cbt.CodTipoCbte = item.CodTipoCbte.Trim();
-                    Cbt.tc_TipoCbte = item.tc_TipoCbte.Trim();
-                    Cbt.tc_TipoCbte2 = "[" + item.IdTipoCbte + "]" + item.tc_TipoCbte.Trim();
-                    Cbt.tc_Estado = item.tc_Estado;
-                    Cbt.tc_Interno = item.tc_Interno;
-                    Cbt.tc_Nemonico = item.tc_Nemonico;
-                    Cbt.IdTipoCbte_Anul = item.IdTipoCbte_Anul;
-                    Cbt.SEstado = (item.tc_Estado == "A") ? "ACTIVO" : "*ANULADO*";
-                    Cbt.IdEmpresa = item.IdEmpresa;
+                    Cbt.IdTipoCbte = Convert.ToInt32(item.idtipocbte);
+                    Cbt.CodTipoCbte = item.codtipocbte.Trim();
+                    Cbt.tc_TipoCbte = item.tc_tipocbte.Trim();
+                    Cbt.tc_TipoCbte2 = "[" + item.idtipocbte + "]" + item.tc_tipocbte.Trim();
+                    Cbt.tc_Estado = item.tc_estado;
+                    Cbt.tc_Interno = item.tc_interno;
+                    Cbt.tc_Nemonico = item.tc_nemonico;
+                    Cbt.IdTipoCbte_Anul = item.idtipocbte_anul;
+                    Cbt.SEstado = (item.tc_estado == "A") ? "ACTIVO" : "*ANULADO*";
+                    Cbt.IdEmpresa = item.idempresa;
 
                     lM.Add(Cbt);
                 }
@@ -61,7 +61,7 @@ namespace Bizu.Infrastructure.Contabilidad
                 List<ct_Cbtecble_tipo_Info> lM = new List<ct_Cbtecble_tipo_Info>();
                 EntitiesDBConta OECbtecble_tipo_Info = new EntitiesDBConta();
                 var selectCbtecble_tipo = from C in OECbtecble_tipo_Info.ct_cbtecble_tipo
-                                          where C.IdEmpresa == IdEmpresa
+                                          where C.idempresa == IdEmpresa
                                           select C;
 
 
@@ -82,16 +82,16 @@ namespace Bizu.Infrastructure.Contabilidad
                 foreach (var item in selectCbtecble_tipo)
                 {
                     ct_Cbtecble_tipo_Info Cbt = new ct_Cbtecble_tipo_Info();
-                    Cbt.IdEmpresa = item.IdEmpresa;
-                    Cbt.IdTipoCbte = Convert.ToInt32(item.IdTipoCbte);
-                    Cbt.CodTipoCbte = item.CodTipoCbte.Trim();
-                    Cbt.tc_TipoCbte = item.tc_TipoCbte.Trim();
-                    Cbt.tc_TipoCbte2 = "["+item.CodTipoCbte+"]" + item.tc_TipoCbte.Trim();
-                    Cbt.tc_Estado = item.tc_Estado;
-                    Cbt.tc_Interno = item.tc_Interno;
-                    Cbt.tc_Nemonico = item.tc_Nemonico;
-                    Cbt.IdTipoCbte_Anul = item.IdTipoCbte_Anul;
-                    Cbt.SEstado = (item.tc_Estado == "A") ? "ACTIVO" : "*ANULADO*";
+                    Cbt.IdEmpresa = item.idempresa;
+                    Cbt.IdTipoCbte = Convert.ToInt32(item.idtipocbte);
+                    Cbt.CodTipoCbte = item.codtipocbte.Trim();
+                    Cbt.tc_TipoCbte = item.tc_tipocbte.Trim();
+                    Cbt.tc_TipoCbte2 = "["+item.codtipocbte+"]" + item.tc_tipocbte.Trim();
+                    Cbt.tc_Estado = item.tc_estado;
+                    Cbt.tc_Interno = item.tc_interno;
+                    Cbt.tc_Nemonico = item.tc_nemonico;
+                    Cbt.IdTipoCbte_Anul = item.idtipocbte_anul;
+                    Cbt.SEstado = (item.tc_estado == "A") ? "ACTIVO" : "*ANULADO*";
                     
 
                     lM.Add(Cbt);
@@ -118,18 +118,18 @@ namespace Bizu.Infrastructure.Contabilidad
             {
                 using (EntitiesDBConta context = new EntitiesDBConta())
                 {
-                    var contact = context.ct_cbtecble_tipo.FirstOrDefault(minfo => minfo.IdTipoCbte == info.IdTipoCbte && minfo.IdEmpresa == info.IdEmpresa);
+                    var contact = context.ct_cbtecble_tipo.FirstOrDefault(minfo => minfo.idtipocbte == info.IdTipoCbte && minfo.idempresa == info.IdEmpresa);
 
                     if (contact != null)
                     {
 
-                        contact.CodTipoCbte = (info.CodTipoCbte == null || info.CodTipoCbte == "") ? info.CodTipoCbte.ToString() : info.CodTipoCbte;
-                        contact.CodTipoCbte = info.CodTipoCbte;
-                        contact.tc_TipoCbte = info.tc_TipoCbte;
-                        contact.tc_Estado = info.tc_Estado;
-                        contact.tc_Interno = info.tc_Interno;
-                        contact.tc_Nemonico = info.tc_Nemonico;
-                        contact.IdTipoCbte_Anul = info.IdTipoCbte_Anul;
+                        contact.codtipocbte = (info.CodTipoCbte == null || info.CodTipoCbte == "") ? info.CodTipoCbte.ToString() : info.CodTipoCbte;
+                        contact.codtipocbte = info.CodTipoCbte;
+                        contact.tc_tipocbte = info.tc_TipoCbte;
+                        contact.tc_estado = info.tc_Estado;
+                        contact.tc_interno = info.tc_Interno;
+                        contact.tc_nemonico = info.tc_Nemonico;
+                        contact.idtipocbte_anul = info.IdTipoCbte_Anul;
                         context.SaveChanges();
                     }
 
@@ -156,8 +156,8 @@ namespace Bizu.Infrastructure.Contabilidad
             {
                 EntitiesDBConta tabla = new EntitiesDBConta();
                 var q = (from reg in tabla.ct_cbtecble_tipo
-                         where reg.IdEmpresa == IdEmpresa
-                         select reg.IdTipoCbte).Max();
+                         where reg.idempresa == IdEmpresa
+                         select reg.idtipocbte).Max();
                 codigo = Convert.ToInt32(q.ToString()) + 1;
                 return codigo;
             }
@@ -179,8 +179,8 @@ namespace Bizu.Infrastructure.Contabilidad
             {
                 EntitiesDBConta tabla = new EntitiesDBConta();
                 var q = from reg in tabla.ct_cbtecble_tipo
-                        where reg.IdTipoCbte == IdTipoCbte && reg.tc_Interno == "S"
-                        && reg.IdEmpresa == IdEmpresa
+                        where reg.idtipocbte == IdTipoCbte && reg.tc_interno == "S"
+                        && reg.idempresa == IdEmpresa
                         select reg;
                 if (q.ToList().Count > 0)
                 {
@@ -209,8 +209,8 @@ namespace Bizu.Infrastructure.Contabilidad
             {
                 EntitiesDBConta tabla = new EntitiesDBConta();
                 var q = from reg in tabla.ct_cbtecble_tipo
-                        where reg.IdTipoCbte == IdTipoCbte
-                        && reg.IdEmpresa == IdEmpresa
+                        where reg.idtipocbte == IdTipoCbte
+                        && reg.idempresa == IdEmpresa
                         select reg;
                 if (q.ToList().Count > 0)
                 {
@@ -242,14 +242,14 @@ namespace Bizu.Infrastructure.Contabilidad
 
                 EntitiesDBConta tabla = new EntitiesDBConta();
                 var q = from reg in tabla.ct_cbtecble_tipo
-                        where reg.IdTipoCbte == IdTipoCbte
-                        && reg.IdEmpresa == IdEmpresa
+                        where reg.idtipocbte == IdTipoCbte
+                        && reg.idempresa == IdEmpresa
                         select reg;
                 if (q.ToList().Count > 0)
                 {
                     foreach (var item in q)
                     {
-                        codigoCBTECBLE = item.CodTipoCbte;
+                        codigoCBTECBLE = item.codtipocbte;
                     }
                 }
                 return codigoCBTECBLE;
@@ -274,20 +274,20 @@ namespace Bizu.Infrastructure.Contabilidad
                 {
                     EntitiesDBConta EDB = new EntitiesDBConta();
                     var Q = from per in EDB.ct_cbtecble_tipo
-                            where per.IdTipoCbte == info.IdTipoCbte
+                            where per.idtipocbte == info.IdTipoCbte
                             select per;
                     if (Q.ToList().Count == 0)
                     {
                        
                         ct_cbtecble_tipo address = new ct_cbtecble_tipo();
-                        address.IdEmpresa = info.IdEmpresa;
-                        address.IdTipoCbte = info.IdTipoCbte= Get_Id(info.IdEmpresa,ref MensajeError);
-                        address.CodTipoCbte = (info.CodTipoCbte == "") ? Convert.ToString( info.IdTipoCbte) : info.CodTipoCbte;
-                        address.tc_TipoCbte = info.tc_TipoCbte;
-                        address.tc_Estado = info.tc_Estado;
-                        address.tc_Interno = info.tc_Interno;
-                        address.tc_Nemonico = info.tc_Nemonico;
-                        address.IdTipoCbte_Anul = info.IdTipoCbte_Anul;
+                        address.idempresa = info.IdEmpresa;
+                        address.idtipocbte = info.IdTipoCbte= Get_Id(info.IdEmpresa,ref MensajeError);
+                        address.codtipocbte = (info.CodTipoCbte == "") ? Convert.ToString( info.IdTipoCbte) : info.CodTipoCbte;
+                        address.tc_tipocbte = info.tc_TipoCbte;
+                        address.tc_estado = info.tc_Estado;
+                        address.tc_interno = info.tc_Interno;
+                        address.tc_nemonico = info.tc_Nemonico;
+                        address.idtipocbte_anul = info.IdTipoCbte_Anul;
 
                         context.ct_cbtecble_tipo.Add(address);
                         context.SaveChanges();
@@ -315,14 +315,14 @@ namespace Bizu.Infrastructure.Contabilidad
             {
                 using (EntitiesDBConta context = new EntitiesDBConta())
                 {
-                    var contact = context.ct_cbtecble_tipo.FirstOrDefault(minfo => minfo.IdTipoCbte == info.IdTipoCbte && minfo.IdEmpresa == info.IdEmpresa);
+                    var contact = context.ct_cbtecble_tipo.FirstOrDefault(minfo => minfo.idtipocbte == info.IdTipoCbte && minfo.idempresa == info.IdEmpresa);
 
                     if (contact != null)
                     {
-                        contact.tc_Estado = "I";
-                        contact.IdUsuarioUltAnu = info.IdUsuarioUltAnu;
-                        contact.Fecha_UltAnu = DateTime.Now;
-                        contact.MotiAnula = info.MotiAnula;
+                        contact.tc_estado = "I";
+                        contact.idusuarioultanu = info.IdUsuarioUltAnu;
+                        contact.fecha_ultanu = DateTime.Now;
+                        contact.motianula = info.MotiAnula;
                         context.SaveChanges();
                     }
                 }

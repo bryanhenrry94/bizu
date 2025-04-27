@@ -11,14 +11,14 @@ using Bizu.Application.Bancos;
 namespace Bizu.Application.Contabilidad
 {
     public class ct_Cbtecble_Bus
-    {        
+    {
         tb_sis_Log_Error_Vzen_Bus oLog = new tb_sis_Log_Error_Vzen_Bus();
         ba_Conciliacion_det_IngEgr_Bus bus_Conci_bancaria = new ba_Conciliacion_det_IngEgr_Bus();
         cl_parametrosGenerales_Bus param = cl_parametrosGenerales_Bus.Instance;
         ct_Cbtecble_det_Data data_det = new ct_Cbtecble_det_Data();
         ct_Cbtecble_Data data = new ct_Cbtecble_Data();
 
-        public Boolean ModificarDB_CbteMayorizado(int IdEmpresa, DateTime FechaIni, DateTime FechaFin, char Mayorizado,ref string  MensajeError)
+        public Boolean ModificarDB_CbteMayorizado(int IdEmpresa, DateTime FechaIni, DateTime FechaFin, char Mayorizado, ref string MensajeError)
         {
             try
             {
@@ -34,38 +34,6 @@ namespace Bizu.Application.Contabilidad
         }
 
         public Boolean ReversoCbteCble(int IdEmpresa, decimal idcbtecble, int idtipocble, int idtipocble_rev,
-            ref decimal idcbtecble_rev, ref string msg, string user, string MotivoAnulacion ="")
-        {
-            try
-            {
-                Boolean respuesta=true;
-
-                ct_cbtecble_Reversado_Data _dataReversado = new ct_cbtecble_Reversado_Data();
-                ct_cbtecble_Reversado_Info _InfoReversado = new ct_cbtecble_Reversado_Info();
-
-                _InfoReversado =_dataReversado.Get_CbteCble_Reversado_Info(IdEmpresa, idtipocble, idcbtecble);
-
-                if (_InfoReversado.IdCbteCble_Anu == 0)//no esta reversado se puede reversar
-                {
-                    respuesta = data.ReversoCbteCble(IdEmpresa, idcbtecble, idtipocble, idtipocble_rev, ref idcbtecble_rev,
-                    ref msg, param.IdUsuario, MotivoAnulacion, param.Fecha_Transac.ToString());
-                }
-                else
-                { 
-                    respuesta=true;
-
-                }
-
-                return respuesta;
-            }
-            catch (Exception ex)
-            {
-                Bizu.Domain.Log_Exception.LoggingManager.Logger.Log(Bizu.Domain.Log_Exception.LoggingCategory.Error, ex.Message);
-                throw new Bizu.Domain.Log_Exception.DalException(string.Format("", "ReversoCbteCble", ex.Message), ex) { EntityType = typeof(ct_Cbtecble_Bus) };
-            }
-        }
-
-        public Boolean ReversoCbteCble_Edehsa(int IdEmpresa, decimal idcbtecble, int idtipocble, int idtipocble_rev, DateTime fechaAnulacion,
             ref decimal idcbtecble_rev, ref string msg, string user, string MotivoAnulacion = "")
         {
             try
@@ -79,8 +47,8 @@ namespace Bizu.Application.Contabilidad
 
                 if (_InfoReversado.IdCbteCble_Anu == 0)//no esta reversado se puede reversar
                 {
-                    respuesta = data.ReversoCbteCble_Edehsa(IdEmpresa, idcbtecble, idtipocble, idtipocble_rev, fechaAnulacion, ref idcbtecble_rev,
-                    ref msg, param.IdUsuario, MotivoAnulacion);
+                    respuesta = data.ReversoCbteCble(IdEmpresa, idcbtecble, idtipocble, idtipocble_rev, ref idcbtecble_rev,
+                    ref msg, param.IdUsuario, MotivoAnulacion, param.Fecha_Transac.ToString());
                 }
                 else
                 {
@@ -117,7 +85,7 @@ namespace Bizu.Application.Contabilidad
         public List<ct_Cbtecble_Info> Get_list_Cbtecble_ParaSaldoInicial(int IdEmpresa, DateTime iFechaIni, DateTime iFechaFin, ref string MensajeError)
         {
 
-            
+
             List<ct_Cbtecble_Info> lM = new List<ct_Cbtecble_Info>();
             try
             {
@@ -134,29 +102,29 @@ namespace Bizu.Application.Contabilidad
 
         public List<ct_Cbtecble_Info> Get_list_Cbtecble(int IdEmpresa, DateTime iFechaIni, DateTime iFechaFin,
             int IdCbteCble1, string CodCbteCble1, string IdTipoCbte1, string observacion, string IdUsuario, ref string MensajeError)
-              {
-                  try
-                  {
-                        
-                            List<ct_Cbtecble_Info> lM = new List<ct_Cbtecble_Info>();
-                            lM = data.Get_list_Cbtecble(IdEmpresa, iFechaIni, iFechaFin, IdCbteCble1,
-                                CodCbteCble1, IdTipoCbte1, observacion, IdUsuario, ref MensajeError);
-                            return lM;
-                  }
-                  catch (Exception ex)
-                  {
-                      Bizu.Domain.Log_Exception.LoggingManager.Logger.Log(Bizu.Domain.Log_Exception.LoggingCategory.Error, ex.Message);
-                      throw new Bizu.Domain.Log_Exception.DalException(string.Format("", "Get_list_Cbtecble", ex.Message), ex) { EntityType = typeof(ct_Cbtecble_Bus) };
-                  }
+        {
+            try
+            {
+
+                List<ct_Cbtecble_Info> lM = new List<ct_Cbtecble_Info>();
+                lM = data.Get_list_Cbtecble(IdEmpresa, iFechaIni, iFechaFin, IdCbteCble1,
+                    CodCbteCble1, IdTipoCbte1, observacion, IdUsuario, ref MensajeError);
+                return lM;
+            }
+            catch (Exception ex)
+            {
+                Bizu.Domain.Log_Exception.LoggingManager.Logger.Log(Bizu.Domain.Log_Exception.LoggingCategory.Error, ex.Message);
+                throw new Bizu.Domain.Log_Exception.DalException(string.Format("", "Get_list_Cbtecble", ex.Message), ex) { EntityType = typeof(ct_Cbtecble_Bus) };
+            }
         }
 
-        public List<ct_Cbtecble_Info>Get_list_Cbtecble(int IdEmpresa, DateTime iFechaIni, DateTime iFechaFin,
+        public List<ct_Cbtecble_Info> Get_list_Cbtecble(int IdEmpresa, DateTime iFechaIni, DateTime iFechaFin,
         decimal IdCbteCbleIni, decimal IdCbteCbleFin, string CodCbteCble, int IdTipoCbteIni,
             int IdTipoCbteFin, string observacion, string IdUsuario, ref string MensajeError)
         {
             try
             {
-               
+
                 List<ct_Cbtecble_Info> lM = new List<ct_Cbtecble_Info>();
 
                 lM = data.Get_list_Cbtecble(IdEmpresa, iFechaIni, iFechaFin, IdCbteCbleIni,
@@ -174,18 +142,18 @@ namespace Bizu.Application.Contabilidad
         public decimal Get_IdCbteCble(int IdEmpresa, int idTipoCbte, ref string MensajeError)
         {
             decimal IdcbteCble;
-            
-            try 
-	        {
+
+            try
+            {
                 IdcbteCble = data.Get_IdCbteCble(IdEmpresa, idTipoCbte, ref MensajeError);
                 return IdcbteCble;
-	        }
-	        catch (Exception ex)
-	        {
+            }
+            catch (Exception ex)
+            {
                 Bizu.Domain.Log_Exception.LoggingManager.Logger.Log(Bizu.Domain.Log_Exception.LoggingCategory.Error, ex.Message);
                 throw new Bizu.Domain.Log_Exception.DalException(string.Format("", "Get_IdCbteCble", ex.Message), ex) { EntityType = typeof(ct_Cbtecble_Bus) };
-	        }
-            
+            }
+
         }
 
         public decimal Get_IdSecuencia(ref string MensajeError)
@@ -202,7 +170,7 @@ namespace Bizu.Application.Contabilidad
                 Bizu.Domain.Log_Exception.LoggingManager.Logger.Log(Bizu.Domain.Log_Exception.LoggingCategory.Error, ex.Message);
                 throw new Bizu.Domain.Log_Exception.DalException(string.Format("", "Get_IdSecuencia", ex.Message), ex) { EntityType = typeof(ct_Cbtecble_Bus) };
             }
-            
+
         }
 
         public DateTime Get_fecha_min_cbtes_no_Contabilizados(int IdEmpresa, DateTime fecha_Ini, DateTime fecha_fin, ref string MensajeError)
@@ -226,7 +194,7 @@ namespace Bizu.Application.Contabilidad
             try
             {
 
-                return data.Get_Numeros_Cbtes_no_Contabilizados(IdEmpresa, fecha_Ini,fecha_Fin, ref MensajeError);
+                return data.Get_Numeros_Cbtes_no_Contabilizados(IdEmpresa, fecha_Ini, fecha_Fin, ref MensajeError);
             }
             catch (Exception ex)
             {
@@ -238,7 +206,7 @@ namespace Bizu.Application.Contabilidad
 
         public List<ct_Cbtecble_Info> Get_list_Cbtecble_ParaMayorizar(int IdEmpresa, DateTime iFechaIni, DateTime iFechaFin, ref string MensajeError)
         {
-           try
+            try
             {
                 List<ct_Cbtecble_Info> lM = new List<ct_Cbtecble_Info>();
                 lM = data.Get_list_Cbtecble_ParaMayorizar(IdEmpresa, iFechaIni, iFechaFin, ref MensajeError);
@@ -257,7 +225,7 @@ namespace Bizu.Application.Contabilidad
 
             try
             {
-                
+
                 List<ct_Cbtecble_Info> lM = new List<ct_Cbtecble_Info>();
                 lM = data.Get_list_Cbtecble_Pendientes_ParaMayorizacion(IdEmpresa, iFechaIni, iFechaFin, ref MensajeError);
                 return lM;
@@ -285,15 +253,15 @@ namespace Bizu.Application.Contabilidad
 
         }
 
-        
+
         public Boolean ModificarDB(ct_Cbtecble_Info _CbteCbleInfo, ref string MensajeError)
         {
-            
+
             try
             {
                 bool res = false;
 
-                if (!ValidarObjeto(_CbteCbleInfo, ref  MensajeError))
+                if (!ValidarObjeto(_CbteCbleInfo, ref MensajeError))
                     return false;
                 //Valido si la cabecera esta conciliada
                 if (!bus_Conci_bancaria.Cbte_existe_en_conciliacion(_CbteCbleInfo.IdEmpresa, _CbteCbleInfo.IdTipoCbte, _CbteCbleInfo.IdCbteCble))
@@ -307,20 +275,21 @@ namespace Bizu.Application.Contabilidad
                         {
                             // Elimino todas las lineas que no sean de la conciliacion
                             if (!bus_Conci_bancaria.Cbte_existe_en_conciliacion(item.IdEmpresa, item.IdTipoCbte, item.IdCbteCble, item.secuencia))
-                            { 
-                                if (!data_det.ModificarDB(item, ref MensajeError)) { return false; } }
+                            {
+                                if (!data_det.ModificarDB(item, ref MensajeError)) { return false; }
+                            }
                             else
                             {
-                                if (!data_det.ModificarDB_conciliado(item, ref MensajeError)) { return false; } 
+                                if (!data_det.ModificarDB_conciliado(item, ref MensajeError)) { return false; }
                             }
                         }
-                        
+
                         res = true;
                     }
                 }
                 return res;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Bizu.Domain.Log_Exception.LoggingManager.Logger.Log(Bizu.Domain.Log_Exception.LoggingCategory.Error, ex.Message);
                 throw new Bizu.Domain.Log_Exception.DalException(string.Format("", "ModificarDB", ex.Message), ex) { EntityType = typeof(ct_Cbtecble_Bus) };
@@ -328,7 +297,7 @@ namespace Bizu.Application.Contabilidad
 
         }
 
-        public Boolean Eliminar(ct_Cbtecble_Info _CbteCbleInfo,ref string MensajeError)
+        public Boolean Eliminar(ct_Cbtecble_Info _CbteCbleInfo, ref string MensajeError)
         {
             try
             {
@@ -349,7 +318,7 @@ namespace Bizu.Application.Contabilidad
             {
                 string codigo = "";
 
-                if (!ValidarObjeto(_CbteCbleInfo, ref  MensajeError))
+                if (!ValidarObjeto(_CbteCbleInfo, ref MensajeError))
                     return false;
                 return data.GrabarDB(_CbteCbleInfo, ref IdCbteCble, ref codigo, ref MensajeError);
 
@@ -359,7 +328,7 @@ namespace Bizu.Application.Contabilidad
                 Bizu.Domain.Log_Exception.LoggingManager.Logger.Log(Bizu.Domain.Log_Exception.LoggingCategory.Error, ex.Message);
                 throw new Bizu.Domain.Log_Exception.DalException(string.Format("", "GrabarDB", ex.Message), ex) { EntityType = typeof(ct_Cbtecble_Bus) };
             }
-        }        
+        }
 
         public ct_Cbtecble_Info Get_Info_CbteCble(int IdEmpresa, int IdTipoCbte, decimal IdCbteCbl, ref string MensajeError)
         {
@@ -378,14 +347,14 @@ namespace Bizu.Application.Contabilidad
 
         public Boolean ValidarObjeto(ct_Cbtecble_Info Info_CbteCble, ref string MensajeError)
         {
-           
+
             try
             {
 
                 Boolean res = true;
 
 
-                if (Info_CbteCble.IdEmpresa == 0 || Info_CbteCble.IdTipoCbte==0  )
+                if (Info_CbteCble.IdEmpresa == 0 || Info_CbteCble.IdTipoCbte == 0)
                 {
                     MensajeError = "el objeto esta errado los PK IdEmpresa , IdTipoCbte no pueden estar en cero";
                     res = false;
@@ -412,24 +381,24 @@ namespace Bizu.Application.Contabilidad
                 {
                     MensajeError = "El Valor del Comprobante contable no puede ser 0.";
                     return false;
-                    
+
                 }
 
-                if ( Info_CbteCble.IdPeriodo == 0)
+                if (Info_CbteCble.IdPeriodo == 0)
                 {
                     MensajeError = "Periodo Fiscal es invalido, por favor verifique.";
-                    res =false;
+                    res = false;
                 }
 
 
                 if (Info_CbteCble.IdSucursal == 0)
                 {
                     tb_Sucursal_Bus busSucu = new tb_Sucursal_Bus();
-                    Info_CbteCble.IdSucursal  =busSucu.Get_List_Sucursal(Info_CbteCble.IdEmpresa).FirstOrDefault().IdSucursal;
-                   
+                    Info_CbteCble.IdSucursal = busSucu.Get_List_Sucursal(Info_CbteCble.IdEmpresa).FirstOrDefault().IdSucursal;
+
                 }
 
-               
+
 
                 if (Info_CbteCble.cb_Fecha == (new DateTime()))
                 {
@@ -437,7 +406,7 @@ namespace Bizu.Application.Contabilidad
                     res = false;
                 }
 
-                
+
 
                 foreach (var item in Info_CbteCble._cbteCble_det_lista_info)
                 {
@@ -450,12 +419,13 @@ namespace Bizu.Application.Contabilidad
 
 
 
-                var Sum_Total_debito = (from tb in Info_CbteCble._cbteCble_det_lista_info where tb.dc_Valor>0
-                             select tb.dc_Valor ).Sum();
+                var Sum_Total_debito = (from tb in Info_CbteCble._cbteCble_det_lista_info
+                                        where tb.dc_Valor > 0
+                                        select tb.dc_Valor).Sum();
 
                 var Sum_Total_credito = (from tb in Info_CbteCble._cbteCble_det_lista_info
-                                        where tb.dc_Valor < 0
-                                        select tb.dc_Valor).Sum();
+                                         where tb.dc_Valor < 0
+                                         select tb.dc_Valor).Sum();
 
 
                 double Total_Debito = Math.Round(Convert.ToDouble(Convert.ToString(Sum_Total_debito)), 2, MidpointRounding.AwayFromZero);
@@ -465,18 +435,18 @@ namespace Bizu.Application.Contabilidad
                 Diferencia = Math.Round(Diferencia, 2, MidpointRounding.AwayFromZero);
 
 
-                
+
                 if (Diferencia >= -0.02 || Diferencia <= 0.02)//Se cambio a 2 ctvs porque  
                 {
                     if (Diferencia > 0)// 1 ctv de mas
                     {
                         Info_CbteCble._cbteCble_det_lista_info.FirstOrDefault(v => v.dc_Valor > 0).dc_Valor -= Diferencia;// le resto 1
                     }
-                    else 
+                    else
                     {
                         Info_CbteCble._cbteCble_det_lista_info.FirstOrDefault(v => v.dc_Valor < 0).dc_Valor -= Diferencia;// le resto a los negativos
                     }
-                    Diferencia = 0; 
+                    Diferencia = 0;
                 }
 
                 if (Convert.ToDouble(Convert.ToString(Diferencia)) != 0)  // si es diferente de 0 quiere decir q no esta cuadrado el CBTE CBLE
@@ -509,14 +479,14 @@ namespace Bizu.Application.Contabilidad
                 //MODIFICA FUNCION ToShortDateTimeString() DEBIDO A PROBLEMA DE FORMATI DE FECHA
                 //Info_CbteCble.cb_Fecha = Convert.ToDateTime(Info_CbteCble.cb_Fecha.ToShortDateTimeString());
                 Info_CbteCble.cb_Fecha = Info_CbteCble.cb_Fecha.Date;
-                if (Info_CbteCble.cb_Valor == 0) { Info_CbteCble.cb_Valor =Math.Round( TotalCbte,2); };
+                if (Info_CbteCble.cb_Valor == 0) { Info_CbteCble.cb_Valor = Math.Round(TotalCbte, 2); };
 
 
 
                 if (res == false)
-                {  oLog.Log_Error(MensajeError); }
-                
-                return res;    
+                { oLog.Log_Error(MensajeError); }
+
+                return res;
 
 
             }
@@ -525,12 +495,13 @@ namespace Bizu.Application.Contabilidad
                 Bizu.Domain.Log_Exception.LoggingManager.Logger.Log(Bizu.Domain.Log_Exception.LoggingCategory.Error, ex.Message);
                 throw new Bizu.Domain.Log_Exception.DalException(string.Format("", "ValidarObjeto", ex.Message), ex) { EntityType = typeof(ct_Cbtecble_Bus) };
             }
-            
-        
+
+
         }
-        
-        public ct_Cbtecble_Bus() {
-            
+
+        public ct_Cbtecble_Bus()
+        {
+
         }
 
     }

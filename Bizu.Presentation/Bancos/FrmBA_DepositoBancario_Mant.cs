@@ -746,7 +746,7 @@ namespace Bizu.Presentation.Bancos
                         DateTime fechaAnulac;
                         fechaAnulac = fr.fechaAnul;
                         
-                        respuesta_rev_cbteCble = CbteCble_B.ReversoCbteCble_Edehsa(param.IdEmpresa, Convert.ToDecimal(CbteBan_I.IdCbteCble), CbteBan_I.IdTipocbte, IdTipoCbteRev, fechaAnulac, ref IdCbteCbleRev, ref msg2, param.IdUsuario);                                               
+                        respuesta_rev_cbteCble = CbteCble_B.ReversoCbteCble(param.IdEmpresa, Convert.ToDecimal(CbteBan_I.IdCbteCble), CbteBan_I.IdTipocbte, IdTipoCbteRev, ref IdCbteCbleRev, ref msg2, param.IdUsuario);                                               
 
                         if (respuesta_rev_cbteCble)
                         {

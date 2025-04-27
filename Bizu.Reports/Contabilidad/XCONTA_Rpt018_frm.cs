@@ -34,12 +34,6 @@ namespace Bizu.Reports.Contabilidad
                 rpt.P_Mostrar_detalle.Value = Menu.bei_Check.EditValue;
                 rpt.P_Mostrar_detalle.Visible = false;
 
-                rpt.P_IdPunto_cargo_grupo.Value = Menu.Get_info_punto_cargo_grupo() == null ? 0 : Menu.Get_info_punto_cargo_grupo().IdPunto_cargo_grupo;
-                rpt.P_IdPunto_cargo_grupo.Visible = false;
-
-                rpt.PS_Punto_cargo_grupo.Value = Menu.Get_info_punto_cargo_grupo() == null ? "TODOS" : Menu.Get_info_punto_cargo_grupo().nom_punto_cargo_grupo2;
-                rpt.PS_Punto_cargo_grupo.Visible = false;
-
                 ReportPrintTool pt = new ReportPrintTool(rpt);
                 printControl1.PrintingSystem = rpt.PrintingSystem;
                 rpt.RequestParameters = false;

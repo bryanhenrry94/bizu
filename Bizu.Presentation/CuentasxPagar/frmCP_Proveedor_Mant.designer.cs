@@ -73,7 +73,6 @@
             this.label22 = new System.Windows.Forms.Label();
             this.tabPageDatosContabls = new System.Windows.Forms.TabPage();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
-            this.uCct_Pto_Cargo_Grupo1 = new Bizu.Reports.Controles.UCct_Pto_Cargo_Grupo();
             this.UCTipoGasto = new Bizu.Presentation.Controles.UCCp_TipoGasto();
             this.UCTipoSer = new Bizu.Presentation.Controles.UCCp_TipoServicioxProve();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -722,7 +721,6 @@
             // 
             // panelControl4
             // 
-            this.panelControl4.Controls.Add(this.uCct_Pto_Cargo_Grupo1);
             this.panelControl4.Controls.Add(this.UCTipoGasto);
             this.panelControl4.Controls.Add(this.UCTipoSer);
             this.panelControl4.Controls.Add(this.groupBox3);
@@ -734,15 +732,7 @@
             this.panelControl4.Location = new System.Drawing.Point(3, 3);
             this.panelControl4.Name = "panelControl4";
             this.panelControl4.Size = new System.Drawing.Size(849, 297);
-            this.panelControl4.TabIndex = 41;
-            // 
-            // uCct_Pto_Cargo_Grupo1
-            // 
-            this.uCct_Pto_Cargo_Grupo1.Location = new System.Drawing.Point(316, 183);
-            this.uCct_Pto_Cargo_Grupo1.Margin = new System.Windows.Forms.Padding(4);
-            this.uCct_Pto_Cargo_Grupo1.Name = "uCct_Pto_Cargo_Grupo1";
-            this.uCct_Pto_Cargo_Grupo1.Size = new System.Drawing.Size(308, 55);
-            this.uCct_Pto_Cargo_Grupo1.TabIndex = 41;
+            this.panelControl4.TabIndex = 41;            
             // 
             // UCTipoGasto
             // 
@@ -2365,7 +2355,6 @@
         private System.Windows.Forms.Label label8;
         private DevExpress.XtraEditors.TextEdit txt_Plazo;
         private System.Windows.Forms.TabPage tabPageInfoCtaBancaria;
-        private Reports.Controles.UCct_Pto_Cargo_Grupo uCct_Pto_Cargo_Grupo1;
         private System.Windows.Forms.TextBox txt_celular_secundario;
         private System.Windows.Forms.Label label34;
         private DevExpress.XtraEditors.CheckEdit chk_parte_relacionada;

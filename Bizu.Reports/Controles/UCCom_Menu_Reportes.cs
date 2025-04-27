@@ -35,12 +35,6 @@ namespace Bizu.Reports.Controles
         List<tb_Sucursal_Info> lst_sucursal = new List<tb_Sucursal_Info>();
         tb_Sucursal_Bus bus_sucursal = new tb_Sucursal_Bus();
 
-        List<ct_punto_cargo_Info> lst_punto_cargo = new List<ct_punto_cargo_Info>();
-        ct_punto_cargo_Bus bus_punto_cargo = new ct_punto_cargo_Bus();
-
-        List<ct_punto_cargo_grupo_Info> lst_grupo = new List<ct_punto_cargo_grupo_Info>();
-        ct_punto_cargo_grupo_Bus bus_grupo = new ct_punto_cargo_grupo_Bus();
-
         List<in_Producto_Info> lst_producto = new List<in_Producto_Info>();
         in_producto_Bus bus_producto = new in_producto_Bus();
 
@@ -91,15 +85,6 @@ namespace Bizu.Reports.Controles
             {
                 lst_sucursal = bus_sucursal.Get_List_Sucursal(param.IdEmpresa);
                 cmb_sucursal.DataSource = lst_sucursal;
-
-                lst_grupo = bus_grupo.Get_List_punto_cargo_grupo(param.IdEmpresa, ref msg);
-                cmb_grupo.DataSource = lst_grupo;
-
-                lst_punto_cargo = bus_punto_cargo.Get_List_PuntoCargo(param.IdEmpresa);
-                cmb_punto_cargo.DataSource = lst_punto_cargo;
-
-                lst_grupo = bus_grupo.Get_List_punto_cargo_grupo(param.IdEmpresa, ref msg);
-                cmb_grupo.DataSource = lst_grupo;
 
                 lst_proveedor = bus_proveedor.Get_List_proveedor(param.IdEmpresa);
                 cmb_proveedor.DataSource = lst_proveedor;
@@ -280,48 +265,7 @@ namespace Bizu.Reports.Controles
             }
         }
 
-        public ct_punto_cargo_Info Get_info_punto_cargo()
-        {
-            try
-            {
-                ct_punto_cargo_Info info_punto_cargo = new ct_punto_cargo_Info();
-
-                if (bei_punto_cargo.EditValue == null)
-                    info_punto_cargo = null;
-                else
-                    info_punto_cargo = lst_punto_cargo.FirstOrDefault(q => q.IdEmpresa == param.IdEmpresa && q.IdPunto_cargo == Convert.ToInt32(bei_punto_cargo.EditValue));
-
-                return info_punto_cargo;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-                Log_Error_bus.Log_Error(ex.ToString());
-                return null;
-            }
-        }
-
-        public ct_punto_cargo_grupo_Info Get_info_punto_cargo_grupo()
-        {
-            try
-            {
-                ct_punto_cargo_grupo_Info info_punto_cargo_grupo = new ct_punto_cargo_grupo_Info();
-
-                if (bei_grupo.EditValue == null)
-                    info_punto_cargo_grupo = null;
-                else
-                    info_punto_cargo_grupo = lst_grupo.FirstOrDefault(q => q.IdEmpresa == param.IdEmpresa && q.IdPunto_cargo_grupo == Convert.ToInt32(bei_grupo.EditValue));
-
-                return info_punto_cargo_grupo;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-                Log_Error_bus.Log_Error(ex.ToString());
-                return null;
-            }
-        }
-
+        
         public tb_Sucursal_Info Get_info_sucursal()
         {
             try
@@ -399,19 +343,7 @@ namespace Bizu.Reports.Controles
 
         private void bei_grupo_EditValueChanged(object sender, EventArgs e)
         {
-            try
-            {
-                if (bei_grupo.EditValue == null)
-                    lst_punto_cargo = bus_punto_cargo.Get_List_PuntoCargo(param.IdEmpresa);
-                else
-                    lst_punto_cargo = bus_punto_cargo.Get_list_PuntoCargo_x_grupo(param.IdEmpresa, Convert.ToInt32(bei_grupo.EditValue));
-                cmb_punto_cargo.DataSource = lst_punto_cargo;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-                Log_Error_bus.Log_Error(ex.ToString());
-            }
+            
         }
 
         private void bei_Categoria_EditValueChanged(object sender, EventArgs e)

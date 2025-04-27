@@ -100,26 +100,26 @@ namespace Bizu.Infrastructure.CuentasxPagar
                 using (EntitiesDBConta CxP = new EntitiesDBConta())
                 {
                     var consulta = from q in CxP.vwct_cbtecble_con_saldo_cxp_consulta
-                                   where q.IdEmpresa == IdEmpresa
-                                   && q.IdConciliacion == IdConciliacion                                 
+                                   where q.idempresa == IdEmpresa
+                                   && q.idconciliacion == IdConciliacion                                 
                                    select q;
 
                     foreach (var item in consulta)
                     {
                         cp_conciliacion_det_Info info = new cp_conciliacion_det_Info();
-                        info.IdEmpresa = item.IdEmpresa;
-                        info.IdCbteCble = item.IdCbteCble;
-                        info.IdTipocbte = item.IdTipocbte;
-                        info.cb_Fecha = item.cb_Fecha;
-                        info.cb_Observacion = item.cb_Observacion;
+                        info.IdEmpresa = item.idempresa;
+                        info.IdCbteCble = item.idcbtecble;
+                        info.IdTipocbte = item.idtipocbte;
+                        info.cb_Fecha = item.cb_fecha;
+                        info.cb_Observacion = item.cb_observacion;
                         info.referencia = item.referencia;
-                        info.tc_TipoCbte = item.tc_TipoCbte;
-                        info.Valor_cbte = item.Valor_cbte;                        
-                        info.Valor_cancelado_cbte = item.Valor_cancelado_cbte;                        
-                        info.valor_Saldo_cbte = item.valor_Saldo_cbte;
-                        info.Tipo = item.Tipo;
+                        info.tc_TipoCbte = item.tc_tipocbte;
+                        info.Valor_cbte = item.valor_cbte;                        
+                        info.Valor_cancelado_cbte = item.valor_cancelado_cbte;                        
+                        info.valor_Saldo_cbte = item.valor_saldo_cbte;
+                        info.Tipo = item.tipo;
 
-                        info.Beneficiario = item.Beneficiario;
+                        info.Beneficiario = item.beneficiario;
                         Lst.Add(info);
                     }
                 }

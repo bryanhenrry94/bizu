@@ -18,9 +18,7 @@ namespace Bizu.Reports.Controles
     {
         cl_parametrosGenerales_Bus param = cl_parametrosGenerales_Bus.Instance;
         List<ct_Centro_costo_Info> ListaCentroCosto = new List<ct_Centro_costo_Info>();
-        List<ct_centro_costo_sub_centro_costo_Info> List_SubCentroCosto = new List<ct_centro_costo_sub_centro_costo_Info>();
         ct_Centro_costo_Bus BusCentroCosto = new ct_Centro_costo_Bus();
-        ct_centro_costo_sub_centro_costo_Bus Bus_SubCentro_Costo = new ct_centro_costo_sub_centro_costo_Bus();
         tb_sis_Log_Error_Vzen_Bus Log_Error_bus = new tb_sis_Log_Error_Vzen_Bus();
 
         public Boolean Mostrar_Registro_Todos { get; set; }
@@ -118,25 +116,7 @@ namespace Bizu.Reports.Controles
 
         private void Cargar_SubCentroCosto()
         {
-            try
-            {
-                List_SubCentroCosto = Bus_SubCentro_Costo.Get_list_centro_costo_sub_centro_costo(param.IdEmpresa);
-                if (Mostrar_Registro_Todos == true)
-                {
-                    ct_centro_costo_sub_centro_costo_Info InfoTodos = new ct_centro_costo_sub_centro_costo_Info();
-                    InfoTodos.IdEmpresa = param.IdEmpresa;
-                    InfoTodos.IdCentroCosto_sub_centro_costo = "";
-                    InfoTodos.Centro_costo2 = "TODOS";
-                    List_SubCentroCosto.Add(InfoTodos);
-                }
-                cmb_SubCentro_Costo.Properties.DataSource = List_SubCentroCosto;
-            }
-            catch (Exception ex)
-            {
-                string NameMetodo = System.Reflection.MethodBase.GetCurrentMethod().Name;
-                MessageBox.Show(NameMetodo + " - " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log_Error_bus.Log_Error(NameMetodo + " - " + ex.ToString());
-            }
+            
         }
 
         public void Set_centro_costo(string IdCentroCosto)

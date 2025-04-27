@@ -21,22 +21,22 @@ namespace Bizu.Infrastructure.Contabilidad
                 List<ct_Cbtecble_det_Info> lM = new List<ct_Cbtecble_det_Info>();
                 EntitiesDBConta OECbtecble_det = new EntitiesDBConta();
                 var selectCbtecble_det = from C in OECbtecble_det.ct_cbtecble_det
-                                         where C.IdEmpresa == IdEmpresa 
+                                         where C.idempresa == IdEmpresa 
                                        select C;
 
                 foreach (ct_cbtecble_det item in selectCbtecble_det)
                 {
                     ct_Cbtecble_det_Info Cbt = new ct_Cbtecble_det_Info();
-                    Cbt.IdEmpresa = item.IdEmpresa;
-                    Cbt.IdTipoCbte = item.IdTipoCbte;
-                    Cbt.IdCbteCble = item.IdCbteCble;
+                    Cbt.IdEmpresa = item.idempresa;
+                    Cbt.IdTipoCbte = item.idtipocbte;
+                    Cbt.IdCbteCble = item.idcbtecble;
                     Cbt.secuencia = item.secuencia;
-                    Cbt.IdCtaCble = item.IdCtaCble;
-                    Cbt.IdCentroCosto = item.IdCentroCosto;
-                    Cbt.IdCentroCosto_sub_centro_costo = item.IdCentroCosto_sub_centro_costo;
-                    Cbt.dc_Valor = item.dc_Valor;
-                    Cbt.dc_Observacion = item.dc_Observacion;
-                    Cbt.IdPunto_cargo = item.IdPunto_cargo;
+                    Cbt.IdCtaCble = item.idctacble;
+                    Cbt.IdCentroCosto = item.idcentrocosto;
+                    Cbt.IdCentroCosto_sub_centro_costo = item.idcentrocosto_sub_centro_costo;
+                    Cbt.dc_Valor = item.dc_valor;
+                    Cbt.dc_Observacion = item.dc_observacion;
+                    Cbt.IdPunto_cargo = item.idpunto_cargo;
                     Cbt.dc_para_conciliar = (item.dc_para_conciliar == null) ? false : Convert.ToBoolean(item.dc_para_conciliar);
 
                     lM.Add(Cbt);
@@ -66,25 +66,25 @@ namespace Bizu.Infrastructure.Contabilidad
                 List<ct_Cbtecble_det_Info> lM = new List<ct_Cbtecble_det_Info>();
                 EntitiesDBConta OECbtecble_det = new EntitiesDBConta();
                 var selectCbtecble_det = from C in OECbtecble_det.ct_cbtecble_det
-                                         join Cc in OECbtecble_det.ct_centro_costo on new { C.IdEmpresa, C.IdCentroCosto } equals new { Cc.IdEmpresa, Cc.IdCentroCosto } into cen
+                                         join Cc in OECbtecble_det.ct_centro_costo on new { C.idempresa, C.idcentrocosto } equals new { Cc.idempresa, Cc.idcentrocosto } into cen
                                          from subquerry in cen.DefaultIfEmpty()
-                                         join Ct in OECbtecble_det.ct_plancta on new { C.IdEmpresa, C.IdCtaCble } equals new { Ct.IdEmpresa, Ct.IdCtaCble }
-                                         where C.IdEmpresa == IdEmpresa && C.IdCbteCble == IdCbteCble && C.IdTipoCbte == IdTipoCbte
+                                         join Ct in OECbtecble_det.ct_plancta on new { C.idempresa, C.idctacble } equals new { Ct.idempresa, Ct.idctacble }
+                                         where C.idempresa == IdEmpresa && C.idcbtecble == IdCbteCble && C.idtipocbte == IdTipoCbte
                                          select new
                                          {
-                                             C.IdEmpresa,
-                                             C.IdTipoCbte,
-                                             C.IdCbteCble,
+                                             C.idempresa,
+                                             C.idtipocbte,
+                                             C.idcbtecble,
                                              C.secuencia,
-                                             C.IdCtaCble,
-                                             C.IdCentroCosto,
-                                             C.IdCentroCosto_sub_centro_costo,
-                                             C.dc_Valor,
-                                             C.dc_Observacion,
-                                             subquerry.Centro_costo,
-                                             Ct.pc_Cuenta,
-                                             C.IdPunto_cargo,
-                                             C.IdPunto_cargo_grupo,
+                                             C.idctacble,
+                                             C.idcentrocosto,
+                                             C.idcentrocosto_sub_centro_costo,
+                                             C.dc_valor,
+                                             C.dc_observacion,
+                                             subquerry.centro_costo,
+                                             Ct.pc_cuenta,
+                                             C.idpunto_cargo,
+                                             C.idpunto_cargo_grupo,
                                              C.dc_para_conciliar 
 
                                          };
@@ -92,20 +92,20 @@ namespace Bizu.Infrastructure.Contabilidad
                 foreach (var item in selectCbtecble_det)
                 {
                     ct_Cbtecble_det_Info Cbt = new ct_Cbtecble_det_Info();
-                    Cbt.IdEmpresa = item.IdEmpresa;
-                    Cbt.IdTipoCbte = item.IdTipoCbte;
-                    Cbt.IdCbteCble = item.IdCbteCble;
-                    Cbt.IdCentroCosto_sub_centro_costo = item.IdCentroCosto_sub_centro_costo;
-                    Cbt.IdCtaCble = item.IdCtaCble;
+                    Cbt.IdEmpresa = item.idempresa;
+                    Cbt.IdTipoCbte = item.idtipocbte;
+                    Cbt.IdCbteCble = item.idcbtecble;
+                    Cbt.IdCentroCosto_sub_centro_costo = item.idcentrocosto_sub_centro_costo;
+                    Cbt.IdCtaCble = item.idctacble;
                     Cbt.secuencia = item.secuencia;
-                    Cbt.IdCentroCosto = item.IdCentroCosto;
-                    Cbt.dc_Valor = item.dc_Valor;
-                    Cbt.dc_Observacion = item.dc_Observacion;
-                    Cbt.NomCtaCble =item.pc_Cuenta ;
-                    Cbt.NomCentroCosto=(item.Centro_costo!=null)? item.Centro_costo : "" ;
-                    Cbt.IdPunto_cargo = item.IdPunto_cargo;
-                    Cbt.IdPunto_cargo_grupo = item.IdPunto_cargo_grupo;
-                    Cbt.IdRegistro = item.IdCentroCosto_sub_centro_costo == null ? null : item.IdCentroCosto + "-" + item.IdCentroCosto_sub_centro_costo;
+                    Cbt.IdCentroCosto = item.idcentrocosto;
+                    Cbt.dc_Valor = item.dc_valor;
+                    Cbt.dc_Observacion = item.dc_observacion;
+                    Cbt.NomCtaCble =item.pc_cuenta ;
+                    Cbt.NomCentroCosto=(item.centro_costo!=null)? item.centro_costo : "" ;
+                    Cbt.IdPunto_cargo = item.idpunto_cargo;
+                    Cbt.IdPunto_cargo_grupo = item.idpunto_cargo_grupo;
+                    Cbt.IdRegistro = item.idcentrocosto_sub_centro_costo == null ? null : item.idcentrocosto + "-" + item.idcentrocosto_sub_centro_costo;
                     Cbt.dc_para_conciliar = (item.dc_para_conciliar == null) ? false : Convert.ToBoolean(item.dc_para_conciliar);
                     lM.Add(Cbt);
                 }
@@ -134,21 +134,21 @@ namespace Bizu.Infrastructure.Contabilidad
 
                  using (EntitiesDBConta context = new EntitiesDBConta())
                  {
-                     var contact = context.ct_cbtecble_det.FirstOrDefault(tbCbteCble => tbCbteCble.IdEmpresa == _CbteCbleInfo.IdEmpresa 
-                         && tbCbteCble.IdTipoCbte==_CbteCbleInfo.IdTipoCbte 
-                         &&  tbCbteCble.IdCbteCble == _CbteCbleInfo.IdCbteCble 
+                     var contact = context.ct_cbtecble_det.FirstOrDefault(tbCbteCble => tbCbteCble.idempresa == _CbteCbleInfo.IdEmpresa 
+                         && tbCbteCble.idtipocbte==_CbteCbleInfo.IdTipoCbte 
+                         &&  tbCbteCble.idcbtecble == _CbteCbleInfo.IdCbteCble 
                          && tbCbteCble.secuencia==_CbteCbleInfo.secuencia);
 
                      if (contact != null)
                      {
-                         contact.IdCentroCosto = _CbteCbleInfo.IdCentroCosto;
-                         contact.IdCentroCosto_sub_centro_costo = _CbteCbleInfo.IdCentroCosto_sub_centro_costo;
-                         contact.IdPunto_cargo_grupo = _CbteCbleInfo.IdPunto_cargo_grupo;
-                         contact.IdPunto_cargo = _CbteCbleInfo.IdPunto_cargo;
-                         contact.IdCtaCble = _CbteCbleInfo.IdCtaCble;
-                         contact.dc_Observacion = _CbteCbleInfo.dc_Observacion;
+                         contact.idcentrocosto = _CbteCbleInfo.IdCentroCosto;
+                         contact.idcentrocosto_sub_centro_costo = _CbteCbleInfo.IdCentroCosto_sub_centro_costo;
+                         contact.idpunto_cargo_grupo = _CbteCbleInfo.IdPunto_cargo_grupo;
+                         contact.idpunto_cargo = _CbteCbleInfo.IdPunto_cargo;
+                         contact.idctacble = _CbteCbleInfo.IdCtaCble;
+                         contact.dc_observacion = _CbteCbleInfo.dc_Observacion;
                          contact.dc_para_conciliar = _CbteCbleInfo.dc_para_conciliar;
-                         contact.dc_Valor = _CbteCbleInfo.dc_Valor;
+                         contact.dc_valor = _CbteCbleInfo.dc_Valor;
                          context.SaveChanges();
                      }
                      else
@@ -181,21 +181,21 @@ namespace Bizu.Infrastructure.Contabilidad
                  {
                      foreach (ct_Cbtecble_det_Info item in _CbteCbleInfo)
                      {                         
-                         var contact = context.ct_cbtecble_det.FirstOrDefault(tbCbteCble => tbCbteCble.IdEmpresa == item.IdEmpresa
-                             && tbCbteCble.IdTipoCbte == item.IdTipoCbte
-                             && tbCbteCble.IdCbteCble == item.IdCbteCble
+                         var contact = context.ct_cbtecble_det.FirstOrDefault(tbCbteCble => tbCbteCble.idempresa == item.IdEmpresa
+                             && tbCbteCble.idtipocbte == item.IdTipoCbte
+                             && tbCbteCble.idcbtecble == item.IdCbteCble
                              && tbCbteCble.secuencia == item.secuencia);
 
                          if (contact != null)
                          {
-                             contact.IdCentroCosto = item.IdCentroCosto;
-                             contact.IdCentroCosto_sub_centro_costo = item.IdCentroCosto_sub_centro_costo;
-                             contact.IdPunto_cargo_grupo = item.IdPunto_cargo_grupo;
-                             contact.IdPunto_cargo = item.IdPunto_cargo;
-                             contact.IdCtaCble = item.IdCtaCble;
-                             contact.dc_Observacion = item.dc_Observacion;
+                             contact.idcentrocosto = item.IdCentroCosto;
+                             contact.idcentrocosto_sub_centro_costo = item.IdCentroCosto_sub_centro_costo;
+                             contact.idpunto_cargo_grupo = item.IdPunto_cargo_grupo;
+                             contact.idpunto_cargo = item.IdPunto_cargo;
+                             contact.idctacble = item.IdCtaCble;
+                             contact.dc_observacion = item.dc_Observacion;
                              contact.dc_para_conciliar = item.dc_para_conciliar;
-                             contact.dc_Valor = item.dc_Valor;
+                             contact.dc_valor = item.dc_Valor;
                              context.SaveChanges();
                          }
                          else
@@ -224,20 +224,20 @@ namespace Bizu.Infrastructure.Contabilidad
              {
                  using (EntitiesDBConta context = new EntitiesDBConta())
                  {
-                     var contact = context.ct_cbtecble_det.FirstOrDefault(tbCbteCble => tbCbteCble.IdEmpresa == _CbteCbleInfo.IdEmpresa
-                         && tbCbteCble.IdTipoCbte == _CbteCbleInfo.IdTipoCbte
-                         && tbCbteCble.IdCbteCble == _CbteCbleInfo.IdCbteCble
+                     var contact = context.ct_cbtecble_det.FirstOrDefault(tbCbteCble => tbCbteCble.idempresa == _CbteCbleInfo.IdEmpresa
+                         && tbCbteCble.idtipocbte == _CbteCbleInfo.IdTipoCbte
+                         && tbCbteCble.idcbtecble == _CbteCbleInfo.IdCbteCble
                          && tbCbteCble.secuencia == _CbteCbleInfo.secuencia);
 
                      if (contact != null)
                      {
-                         contact.IdCentroCosto = _CbteCbleInfo.IdCentroCosto;
-                         contact.IdCentroCosto_sub_centro_costo = _CbteCbleInfo.IdCentroCosto_sub_centro_costo;
-                         contact.IdPunto_cargo_grupo = _CbteCbleInfo.IdPunto_cargo_grupo;
-                         contact.IdPunto_cargo = _CbteCbleInfo.IdPunto_cargo;
-                         contact.dc_Observacion = _CbteCbleInfo.dc_Observacion;
+                         contact.idcentrocosto = _CbteCbleInfo.IdCentroCosto;
+                         contact.idcentrocosto_sub_centro_costo = _CbteCbleInfo.IdCentroCosto_sub_centro_costo;
+                         contact.idpunto_cargo_grupo = _CbteCbleInfo.IdPunto_cargo_grupo;
+                         contact.idpunto_cargo = _CbteCbleInfo.IdPunto_cargo;
+                         contact.dc_observacion = _CbteCbleInfo.dc_Observacion;
                          contact.dc_para_conciliar = _CbteCbleInfo.dc_para_conciliar;
-                         contact.dc_Valor = _CbteCbleInfo.dc_Valor;
+                         contact.dc_valor = _CbteCbleInfo.dc_Valor;
                          context.SaveChanges();
                      }
                  }
@@ -263,26 +263,26 @@ namespace Bizu.Infrastructure.Contabilidad
                  using (EntitiesDBConta contexto = new EntitiesDBConta())
                  {
                      var lst = from q in contexto.ct_cbtecble_det
-                               where q.IdEmpresa == _CbteCbleInfo.IdEmpresa
-                               && q.IdTipoCbte == _CbteCbleInfo.IdTipoCbte
-                               && q.IdCbteCble == _CbteCbleInfo.IdCbteCble
+                               where q.idempresa == _CbteCbleInfo.IdEmpresa
+                               && q.idtipocbte == _CbteCbleInfo.IdTipoCbte
+                               && q.idcbtecble == _CbteCbleInfo.IdCbteCble
                                && q.secuencia == _CbteCbleInfo.secuencia
                                select q;
 
                      if (lst.Count()== 0)
                      {
                          var address_tabla = new ct_cbtecble_det();
-                         address_tabla.IdEmpresa = _CbteCbleInfo.IdEmpresa;
-                         address_tabla.IdTipoCbte = _CbteCbleInfo.IdTipoCbte;
-                         address_tabla.IdCbteCble = _CbteCbleInfo.IdCbteCble;
-                         address_tabla.IdCtaCble = _CbteCbleInfo.IdCtaCble;
-                         address_tabla.IdCentroCosto = (String.IsNullOrEmpty(_CbteCbleInfo.IdCentroCosto)) ? null : _CbteCbleInfo.IdCentroCosto;
-                         address_tabla.IdCentroCosto_sub_centro_costo = (String.IsNullOrEmpty(_CbteCbleInfo.IdCentroCosto_sub_centro_costo)) ? null : _CbteCbleInfo.IdCentroCosto_sub_centro_costo;
+                         address_tabla.idempresa = _CbteCbleInfo.IdEmpresa;
+                         address_tabla.idtipocbte = _CbteCbleInfo.IdTipoCbte;
+                         address_tabla.idcbtecble = _CbteCbleInfo.IdCbteCble;
+                         address_tabla.idctacble = _CbteCbleInfo.IdCtaCble;
+                         address_tabla.idcentrocosto = (String.IsNullOrEmpty(_CbteCbleInfo.IdCentroCosto)) ? null : _CbteCbleInfo.IdCentroCosto;
+                         address_tabla.idcentrocosto_sub_centro_costo = (String.IsNullOrEmpty(_CbteCbleInfo.IdCentroCosto_sub_centro_costo)) ? null : _CbteCbleInfo.IdCentroCosto_sub_centro_costo;
                          address_tabla.secuencia = _CbteCbleInfo.secuencia;
-                         address_tabla.dc_Valor = _CbteCbleInfo.dc_Valor;
-                         address_tabla.dc_Observacion = (_CbteCbleInfo.dc_Observacion == null) ? "" : _CbteCbleInfo.dc_Observacion;
-                         address_tabla.IdPunto_cargo = _CbteCbleInfo.IdPunto_cargo;
-                         address_tabla.IdPunto_cargo_grupo = _CbteCbleInfo.IdPunto_cargo_grupo;
+                         address_tabla.dc_valor = _CbteCbleInfo.dc_Valor;
+                         address_tabla.dc_observacion = (_CbteCbleInfo.dc_Observacion == null) ? "" : _CbteCbleInfo.dc_Observacion;
+                         address_tabla.idpunto_cargo = _CbteCbleInfo.IdPunto_cargo;
+                         address_tabla.idpunto_cargo_grupo = _CbteCbleInfo.IdPunto_cargo_grupo;
                          address_tabla.dc_para_conciliar = _CbteCbleInfo.dc_para_conciliar;
 
                          contexto.ct_cbtecble_det.Add(address_tabla);
@@ -343,7 +343,7 @@ namespace Bizu.Infrastructure.Contabilidad
              {
                  using (EntitiesDBConta context = new EntitiesDBConta())
                  {
-                     var contact = context.ct_cbtecble_det.FirstOrDefault(tbCbteCble => tbCbteCble.IdEmpresa == _CbteCbleInfo.IdEmpresa && tbCbteCble.IdTipoCbte==_CbteCbleInfo.IdTipoCbte && tbCbteCble.IdCbteCble == _CbteCbleInfo.IdCbteCble);
+                     var contact = context.ct_cbtecble_det.FirstOrDefault(tbCbteCble => tbCbteCble.idempresa == _CbteCbleInfo.IdEmpresa && tbCbteCble.idtipocbte==_CbteCbleInfo.IdTipoCbte && tbCbteCble.idcbtecble == _CbteCbleInfo.IdCbteCble);
                      if (contact != null)
                      {
                          context.ct_cbtecble_det.Remove(contact);
@@ -373,7 +373,7 @@ namespace Bizu.Infrastructure.Contabilidad
                      return true;
 
 
-                 string comando = "DELETE FROM ct_Cbtecble_det WHERE IdEmpresa = " + lm.First().IdEmpresa + " and IdTipoCbte = " + lm.First().IdTipoCbte + " and IdCbteCble = " + lm.First().IdCbteCble + " and secuencia not in ("+lm.First().secuencia;
+                 string comando = "DELETE FROM ct_cbtecble_det WHERE IdEmpresa = " + lm.First().IdEmpresa + " and Idtipocbte = " + lm.First().IdTipoCbte + " and idcbtecble = " + lm.First().IdCbteCble + " and secuencia not in ("+lm.First().secuencia;
                  int cont = 0;
                  foreach (var item in lm)
                  {
@@ -434,14 +434,14 @@ namespace Bizu.Infrastructure.Contabilidad
              {
                      EntitiesDBConta db = new EntitiesDBConta();
                      var select_ = from A in db.ct_cbtecble
-                                   join B in db.ct_cbtecble_det on new { A.IdEmpresa, A.IdCbteCble, A.IdTipoCbte } equals new { B.IdEmpresa, B.IdCbteCble, B.IdTipoCbte }
+                                   join B in db.ct_cbtecble_det on new { A.idempresa, A.idcbtecble, A.idtipocbte } equals new { B.idempresa, B.idcbtecble, B.idtipocbte }
                                    where
-                                        A.IdEmpresa == idempresa
-                                        && B.IdCtaCble == IdCtaCble
-                                        && A.cb_Fecha < Fecha
-                                   group B by new  { B.IdEmpresa}
+                                        A.idempresa == idempresa
+                                        && B.idctacble == IdCtaCble
+                                        && A.cb_fecha < Fecha
+                                   group B by new  { B.idempresa}
                                    into grupvalor
-                                   select new { grupvalor.Key, total = grupvalor.Sum(p => p.dc_Valor ) };
+                                   select new { grupvalor.Key, total = grupvalor.Sum(p => p.dc_valor ) };
                                
 
                      foreach (var item in select_)
@@ -468,41 +468,41 @@ namespace Bizu.Infrastructure.Contabilidad
              {
                  List<vwct_cbtecble_Con_Saldo_Info> lM = new List<vwct_cbtecble_Con_Saldo_Info>();
                  EntitiesDBConta OECbtecble_det = new EntitiesDBConta();
-                 var select_ = from c in OECbtecble_det.vwct_cbtecble_Con_Saldo
+                var select_ = from c in OECbtecble_det.vwct_cbtecble_con_saldo
                               join cc in OECbtecble_det.ct_cbtecble
-                                        on new { c.IdEmpresa, c.IdCbteCble, c.IdTipoCbte } equals new { cc.IdEmpresa, cc.IdCbteCble, cc.IdTipoCbte }
+                                        on new { c.idempresa, c.idcbtecble, c.idtipocbte } equals new { cc.idempresa, cc.idcbtecble, cc.idtipocbte }
                               join cte in OECbtecble_det.ct_cbtecble_tipo
-                                        on new { c.IdEmpresa, c.IdTipoCbte } equals new { cte.IdEmpresa, cte.IdTipoCbte }
+                                        on new { c.idempresa, c.idtipocbte } equals new { cte.idempresa, cte.idtipocbte }
                               join ct in OECbtecble_det.ct_cbtecble_tipo
-                                        on new { cte.IdTipoCbte } equals new { ct.IdTipoCbte }
-                               where c.IdEmpresa == IdEmpresa && c.SaldoDiario > 0 && cc.cb_Fecha > FechaIni && cc.cb_Fecha <FechaFin
+                                        on new { cte.idtipocbte } equals new { ct.idtipocbte }
+                              where c.idempresa == IdEmpresa && c.saldodiario > 0 && cc.cb_fecha > FechaIni && cc.cb_fecha < FechaFin
                               select new
                               {
-                                  c.IdEmpresa,
-                                  c.IdTipoCbte,
-                                  c.IdCbteCble,
-                                  c.dc_Valor,
-                                  c.MontoOG,
-                                  c.SaldoDiario,
-                                  c.Detalle,
-                                  cc.cb_Observacion,
-                                  ct.tc_TipoCbte,
-                                  cc.cb_Fecha 
+                                  c.idempresa,
+                                  c.idtipocbte,
+                                  c.idcbtecble,
+                                  c.dc_valor,
+                                  c.montoog,
+                                  c.saldodiario,
+                                  c.detalle,
+                                  cc.cb_observacion,
+                                  ct.tc_tipocbte,
+                                  cc.cb_fecha
                               };
 
                  foreach (var item in select_)
                  {
                      vwct_cbtecble_Con_Saldo_Info dato = new vwct_cbtecble_Con_Saldo_Info();
-                     dato.Detalle = item.Detalle;
-                     dato.IdCbteCble = item.IdCbteCble;
-                     dato.IdEmpresa = item.IdEmpresa;
-                     dato.IdTipoCbte = item.IdTipoCbte;
-                     dato.MontoOG = item.MontoOG;
-                     dato.Observacion = item.cb_Observacion;
-                     dato.SaldoDiario = item.SaldoDiario;
-                     dato.TipoCbte = item.tc_TipoCbte;
-                     dato.ValorDiario = item.dc_Valor;
-                     dato.Fecha = item.cb_Fecha;
+                     dato.Detalle = item.detalle;
+                     dato.IdCbteCble = item.idcbtecble;
+                     dato.IdEmpresa = item.idempresa;
+                     dato.IdTipoCbte = item.idtipocbte;
+                     dato.MontoOG = item.montoog;
+                     dato.Observacion = item.cb_observacion;
+                     dato.SaldoDiario = item.saldodiario;
+                     dato.TipoCbte = item.tc_tipocbte;
+                     dato.ValorDiario = item.dc_valor;
+                     dato.Fecha = item.cb_fecha;
                      dato.chek = false;
                      
 
@@ -530,41 +530,40 @@ namespace Bizu.Infrastructure.Contabilidad
              {
                  
                  EntitiesDBConta OECbtecble_det = new EntitiesDBConta();
-                 var select_ = from c in OECbtecble_det.vwct_cbtecble_Con_Saldo
+                 var select_ = from c in OECbtecble_det.vwct_cbtecble_con_saldo
                                join cc in OECbtecble_det.ct_cbtecble
-                                         on new { c.IdEmpresa, c.IdCbteCble, c.IdTipoCbte } equals new { cc.IdEmpresa, cc.IdCbteCble, cc.IdTipoCbte }
+                                         on new { c.idempresa, c.idcbtecble, c.idtipocbte } equals new { cc.idempresa, cc.idcbtecble, cc.idtipocbte }
                                join cte in OECbtecble_det.ct_cbtecble_tipo
-                                         on new { c.IdEmpresa, c.IdTipoCbte } equals new { cte.IdEmpresa, cte.IdTipoCbte }
-                               where c.IdEmpresa == IdEmpresa && c.IdTipoCbte == IdTipoCbte && c.IdCbteCble == IdCbteCble
+                                         on new { c.idempresa, c.idtipocbte } equals new { cte.idempresa, cte.idtipocbte }
+                               where c.idempresa == IdEmpresa && c.idtipocbte == IdTipoCbte && c.idcbtecble == IdCbteCble
                                select new
                                {
-                                   c.IdEmpresa,
-                                   c.IdTipoCbte,
-                                   c.IdCbteCble,
-                                   c.dc_Valor,
-                                   c.MontoOG,
-                                   c.SaldoDiario,
-                                   c.Detalle,
-                                   cc.cb_Observacion,
-                                   cte.tc_TipoCbte,
-                                   cc.cb_Fecha
+                                   c.idempresa,
+                                   c.idtipocbte,
+                                   c.idcbtecble,
+                                   c.dc_valor,
+                                   c.montoog,
+                                   c.saldodiario,
+                                   c.detalle,
+                                   cc.cb_observacion,
+                                   cte.tc_tipocbte,
+                                   cc.cb_fecha
                                };
 
                  foreach (var item in select_)
                  {
                      vwct_cbtecble_Con_Saldo_Info dato = new vwct_cbtecble_Con_Saldo_Info();
-                     dato.Detalle = item.Detalle;
-                     dato.IdCbteCble = item.IdCbteCble;
-                     dato.IdEmpresa = item.IdEmpresa;
-                     dato.IdTipoCbte = item.IdTipoCbte;
-                     dato.MontoOG = item.MontoOG;
-                     dato.Observacion = item.cb_Observacion;
-                     dato.SaldoDiario = item.SaldoDiario;
-                     dato.TipoCbte = item.tc_TipoCbte;
-                     dato.ValorDiario = item.dc_Valor;
-                     dato.Fecha = item.cb_Fecha;
+                     dato.Detalle = item.detalle;
+                     dato.IdCbteCble = item.idcbtecble;
+                     dato.IdEmpresa = item.idempresa;
+                     dato.IdTipoCbte = item.idtipocbte;
+                     dato.MontoOG = item.montoog;
+                     dato.Observacion = item.cb_observacion;
+                     dato.SaldoDiario = item.saldodiario;
+                     dato.TipoCbte = item.tc_tipocbte;
+                     dato.ValorDiario = item.dc_valor;
+                     dato.Fecha = item.cb_fecha;
                      dato.chek = true;
-                     
 
                      lM.Add(dato);
                  }
@@ -595,38 +594,39 @@ namespace Bizu.Infrastructure.Contabilidad
             {
                 List<ct_Cbtecble_det_Info> Lista = new List<ct_Cbtecble_det_Info>();
 
-                using (EntitiesDBConta Context = new EntitiesDBConta())
-                {
-                    var lst = from q in Context.vwct_cbtecble_x_cp_Conciliacion_caja
-                              where IdEmpresa == q.IdEmpresa && 
-                              IdConciliacion_caja == q.IdConciliacion_Caja
-                              select q;
-                    foreach (var item in lst)
-                    {
-                        ct_Cbtecble_det_Info info = new ct_Cbtecble_det_Info();
-                        info.IdEmpresa_conci = item.IdEmpresa;
-                        info.IdConciliacion_Caja = item.IdConciliacion_Caja;
-                        info.tipo = item.tc_TipoCbte;
-                        info.IdEmpresa = item.IdEmpresa_cbte;
-                        info.IdTipoCbte = item.IdTipoCbte;
-                        info.IdCbteCble = item.IdCbteCble;
-                        info.secuencia = item.secuencia;
-                        info.IdCtaCble = item.IdCtaCble;
-                        info.NomCtaCble = item.nom_Cuenta;
-                        info.IdCentroCosto = item.IdCentroCosto;
-                        info.NomCentroCosto = item.nom_Centro_costo;
-                        info.IdCentroCosto_sub_centro_costo = item.IdCentroCosto_sub_centro_costo;
-                        info.NomSubCentroCosto = item.nom_Centro_costo_sub_centro_costo;
-                        info.dc_Valor_D = item.Debe;
-                        info.dc_Valor_H = item.Haber;
-                        info.dc_Observacion = item.dc_Observacion;
-                        info.IdPunto_cargo = item.IdPunto_cargo;
-                        info.IdPunto_cargo_grupo = item.IdPunto_cargo_grupo;
-                        info.nom_punto_cargo_grupo = item.nom_punto_cargo_grupo;
-                        info.nom_punto_cargo = item.nom_punto_cargo;                        
-                        Lista.Add(info);
-                    }
-                }
+                // PASAR EN PROCESO DE MIGRACION 2025-04-27
+                //using (EntitiesDBConta Context = new EntitiesDBConta())
+                //{
+                //    var lst = from q in Context.vwct_cbtecble_x_cp_Conciliacion_caja
+                //              where IdEmpresa == q.IdEmpresa && 
+                //              IdConciliacion_caja == q.IdConciliacion_Caja
+                //              select q;
+                //    foreach (var item in lst)
+                //    {
+                //        ct_Cbtecble_det_Info info = new ct_Cbtecble_det_Info();
+                //        info.IdEmpresa_conci = item.IdEmpresa;
+                //        info.IdConciliacion_Caja = item.IdConciliacion_Caja;
+                //        info.tipo = item.tc_TipoCbte;
+                //        info.IdEmpresa = item.IdEmpresa_cbte;
+                //        info.IdTipoCbte = item.IdTipoCbte;
+                //        info.IdCbteCble = item.IdCbteCble;
+                //        info.secuencia = item.secuencia;
+                //        info.IdCtaCble = item.IdCtaCble;
+                //        info.NomCtaCble = item.nom_Cuenta;
+                //        info.IdCentroCosto = item.IdCentroCosto;
+                //        info.NomCentroCosto = item.nom_Centro_costo;
+                //        info.IdCentroCosto_sub_centro_costo = item.IdCentroCosto_sub_centro_costo;
+                //        info.NomSubCentroCosto = item.nom_Centro_costo_sub_centro_costo;
+                //        info.dc_Valor_D = item.Debe;
+                //        info.dc_Valor_H = item.Haber;
+                //        info.dc_Observacion = item.dc_Observacion;
+                //        info.IdPunto_cargo = item.IdPunto_cargo;
+                //        info.IdPunto_cargo_grupo = item.IdPunto_cargo_grupo;
+                //        info.nom_punto_cargo_grupo = item.nom_punto_cargo_grupo;
+                //        info.nom_punto_cargo = item.nom_punto_cargo;                        
+                //        Lista.Add(info);
+                //    }
+                //}
 
                 return Lista;
             }

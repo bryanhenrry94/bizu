@@ -488,8 +488,8 @@ namespace Bizu.Application.CuentasxPagar
             Boolean res = true;
             try
             {
-                if (CbteCble_B.ReversoCbteCble_Edehsa(ordenGiro_I.IdEmpresa, ordenGiro_I.IdCbteCble_Ogiro, ordenGiro_I.IdTipoCbte_Ogiro,
-                    Convert.ToInt32(ordenGiro_I.IdTipoCbte_Anulacion), Convert.ToDateTime(ordenGiro_I.Fecha_UltAnu), ref IdCbteCbleRev, ref msg2, ordenGiro_I.IdUsuarioUltAnu))
+                if (CbteCble_B.ReversoCbteCble(ordenGiro_I.IdEmpresa, ordenGiro_I.IdCbteCble_Ogiro, ordenGiro_I.IdTipoCbte_Ogiro,
+                    Convert.ToInt32(ordenGiro_I.IdTipoCbte_Anulacion), ref IdCbteCbleRev, ref msg2, ordenGiro_I.IdUsuarioUltAnu))
                 {
                     ordenGiro_I.IdCbteCble_Anulacion = IdCbteCbleRev;
                     if (data.EliminarDB(ordenGiro_I, ref msg2))

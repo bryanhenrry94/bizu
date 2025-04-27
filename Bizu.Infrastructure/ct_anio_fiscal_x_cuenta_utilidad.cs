@@ -14,16 +14,12 @@ namespace Bizu.Infrastructure
     
     public partial class ct_anio_fiscal_x_cuenta_utilidad
     {
-        public int IdEmpresa { get; set; }
-        public int IdanioFiscal { get; set; }
-        public string IdCtaCble { get; set; }
+        public int idempresa { get; set; }
+        public int idaniofiscal { get; set; }
+        public string idctacble { get; set; }
         public string observacion { get; set; }
-        public Nullable<int> IdEmpresa_cbte_cierre { get; set; }
-        public Nullable<int> IdTipoCbte_cbte_cierre { get; set; }
-        public Nullable<decimal> IdCbteCble_cbte_cierre { get; set; }
-    
-        public virtual ct_anio_fiscal ct_anio_fiscal { get; set; }
-        public virtual ct_cbtecble ct_cbtecble { get; set; }
-        public virtual ct_plancta ct_plancta { get; set; }
+        public Nullable<int> idempresa_cbte_cierre { get; set; }
+        public Nullable<int> idtipocbte_cbte_cierre { get; set; }
+        public Nullable<decimal> idcbtecble_cbte_cierre { get; set; }
     }
 }

@@ -40,19 +40,16 @@ namespace Bizu.Presentation.Contabilidad
 
         ct_Cbtecble_tipo_Bus cbtipobus = new ct_Cbtecble_tipo_Bus();
         List<ct_Cbtecble_tipo_Info> List_Tipo_Comprobante = new List<ct_Cbtecble_tipo_Info>();
-       
+
         ct_Periodo_Bus BusPeriodo = new ct_Periodo_Bus();
         ct_Periodo_Info InfoPeriodo = new ct_Periodo_Info();
 
-        ct_cbtecble_Plantilla_Bus Plantilla_Bus = new ct_cbtecble_Plantilla_Bus();
-        List<ct_cbtecble_Plantilla_Info> list_Plantilla = new List<ct_cbtecble_Plantilla_Info>();
-
         #endregion
-        
+
         void inhabilitar()
         {
             try
-            {                
+            {
                 txt_codCbteCble.Enabled = false; txt_codCbteCble.ForeColor = Color.Black;
                 txt_concepto.Enabled = false; txt_concepto.ForeColor = Color.Black;
                 cmb_tipocomprobante.Enabled = false; cmb_tipocomprobante.ForeColor = Color.Black;
@@ -65,7 +62,7 @@ namespace Bizu.Presentation.Contabilidad
                 MessageBox.Show(NameMetodo + " - " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log_Error_bus.Log_Error(NameMetodo + " - " + ex.ToString());
             }
-        
+
         }
 
         private void set_Accion_x_Controles()
@@ -85,7 +82,7 @@ namespace Bizu.Presentation.Contabilidad
                         this.Text = this.Text + "***Actualizar***";
                         ucGe_Menu.Visible_bntImprimir = DevExpress.XtraBars.BarItemVisibility.Always;
                         this.Text = this.Text + "***Guardar***";
-                        cmb_tipocomprobante.Enabled = false; 
+                        cmb_tipocomprobante.Enabled = false;
                         cmb_tipocomprobante.ForeColor = Color.Black;
                         ucGe_Menu.Visible_bntAnular = DevExpress.XtraBars.BarItemVisibility.Never;
                         UC_Diario.setAccion(Cl_Enumeradores.eTipo_action.actualizar);
@@ -114,8 +111,8 @@ namespace Bizu.Presentation.Contabilidad
             }
             catch (Exception ex)
             {
-                
-                
+
+
             }
 
         }
@@ -140,7 +137,7 @@ namespace Bizu.Presentation.Contabilidad
             try
             {
                 InitializeComponent();
-                
+
                 ucGe_Menu.event_btnAnular_Click += ucGe_Menu_event_btnAnular_Click;
                 ucGe_Menu.event_btnGuardar_Click += ucGe_Menu_event_btnGuardar_Click;
                 ucGe_Menu.event_btnGuardar_y_Salir_Click += ucGe_Menu_event_btnGuardar_y_Salir_Click;
@@ -175,7 +172,7 @@ namespace Bizu.Presentation.Contabilidad
 
         void frmCon_CbteCble_Mant_event_frmCon_CbteCble_Mant_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
+
         }
 
         void ucGe_Menu_event_btnSalir_Click(object sender, EventArgs e)
@@ -273,7 +270,7 @@ namespace Bizu.Presentation.Contabilidad
                         MessageBox.Show("No se puede anular el Comprobante Contable porque ya se encuentra Mayorizado, deberia reversar la mayorización para poder efectuar dicha anulación", "Anulación de Cbte", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-                    
+
 
                     if (BusPeriodo.Get_Periodo_Esta_Cerrado(InfoCbteCble.IdEmpresa, InfoCbteCble.cb_Fecha, ref MensajeError) == true)
                     {
@@ -292,7 +289,7 @@ namespace Bizu.Presentation.Contabilidad
                             fechaAnulacion = frmAnul.fechaAnul;
                             break;
                     }
-           
+
                     InfoCbteCble.IdUsuarioAnu = param.IdUsuario;
                     InfoCbteCble.cb_FechaAnu = fechaAnulacion;
                     InfoCbteCble.cb_MotivoAnu = frmAnul.motivoAnulacion;
@@ -301,42 +298,20 @@ namespace Bizu.Presentation.Contabilidad
                     decimal IdCbteCntablerev = 0;
                     string msj = "";
 
-                    switch (param.IdCliente_Ven_x_Default)
-                    {
-                        case Cl_Enumeradores.eCliente_Vzen.EDEHSA:
-                            if (BusCbteCble.ReversoCbteCble_Edehsa(param.IdEmpresa, Convert.ToDecimal(lbl_no_comprobante.Text), (int)cmb_tipocomprobante.EditValue,
-                    Convert.ToInt16(tipoComp.IdTipoCbte_Anul), fechaAnulacion, ref IdCbteCntablerev, ref msj, param.IdUsuario, Cl_Motivo.motivo_anulacion))
-                            {
-                                // se procede actualizar los campos 
-                                string smensaje = string.Format("{0} # {1} se anuló con éxito.", "Comprobante Contable: ", InfoCbteCble.IdCbteCble.ToString());
-                                MessageBox.Show(smensaje, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                                set_Info_en_Controles();
-                            }
-                            else
-                            {
-                                MessageBox.Show("No se pudo anular el Comprobante Contable: " + InfoCbteCble.IdCbteCble.ToString(), "Anulación de Cbte", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-
-                        default:
-                            if (BusCbteCble.ReversoCbteCble(param.IdEmpresa, Convert.ToDecimal(lbl_no_comprobante.Text), (int)cmb_tipocomprobante.EditValue,
+                    if (BusCbteCble.ReversoCbteCble(param.IdEmpresa, Convert.ToDecimal(lbl_no_comprobante.Text), (int)cmb_tipocomprobante.EditValue,
                         Convert.ToInt16(tipoComp.IdTipoCbte_Anul), ref IdCbteCntablerev, ref msj, param.IdUsuario, Cl_Motivo.motivo_anulacion))
-                            {
-                                // se procede actualizar los campos 
-                                string smensaje = string.Format("{0} # {1} se anuló con éxito.", "Comprobante Contable: ", InfoCbteCble.IdCbteCble.ToString());
-                                MessageBox.Show(smensaje, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    {
+                        // se procede actualizar los campos 
+                        string smensaje = string.Format("{0} # {1} se anuló con éxito.", "Comprobante Contable: ", InfoCbteCble.IdCbteCble.ToString());
+                        MessageBox.Show(smensaje, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                                set_Info_en_Controles();
+                        set_Info_en_Controles();
 
-                            }
-                            else
-                            {
-                                MessageBox.Show("No se pudo anular el Comprobante Contable: " + InfoCbteCble.IdCbteCble.ToString(), "Anulación de Cbte", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-
-                            break;
-                    }                    
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo anular el Comprobante Contable: " + InfoCbteCble.IdCbteCble.ToString(), "Anulación de Cbte", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
             catch (Exception ex)
@@ -373,7 +348,7 @@ namespace Bizu.Presentation.Contabilidad
                 {
                     InfoCbteCble.IdEmpresa = param.IdEmpresa;
                     InfoCbteCble.IdUsuario = param.IdUsuario;
-                    codigo = cbtipobus.Get_Codigo_x_CbtCble_tipo(param.IdEmpresa,Convert.ToInt32(this.cmb_tipocomprobante.EditValue), ref MensajeError).Trim();
+                    codigo = cbtipobus.Get_Codigo_x_CbtCble_tipo(param.IdEmpresa, Convert.ToInt32(this.cmb_tipocomprobante.EditValue), ref MensajeError).Trim();
                     InfoCbteCble.IdPeriodo = InfoPeriodo.IdPeriodo;
                     InfoCbteCble.Anio = InfoPeriodo.IdanioFiscal;
                     InfoCbteCble.Mes = InfoPeriodo.pe_mes;
@@ -412,7 +387,7 @@ namespace Bizu.Presentation.Contabilidad
             try
             {
                 ct_Cbtecble_tipo_Bus _CbteCbleTipo_bus = new ct_Cbtecble_tipo_Bus();
-                List_Tipo_Comprobante = _CbteCbleTipo_bus.Get_list_Cbtecble_tipo(param.IdEmpresa,Cl_Enumeradores.eTipoFiltro.Normal, ref MensajeError);
+                List_Tipo_Comprobante = _CbteCbleTipo_bus.Get_list_Cbtecble_tipo(param.IdEmpresa, Cl_Enumeradores.eTipoFiltro.Normal, ref MensajeError);
                 List_Tipo_Comprobante.ForEach(var => var.tc_TipoCbte = "[" + var.CodTipoCbte + "]- " + var.tc_TipoCbte + " -[" + var.IdTipoCbte + "]");
                 this.cmb_tipocomprobante.Properties.DataSource = List_Tipo_Comprobante;
                 this.cmb_tipocomprobante.EditValue = List_Tipo_Comprobante.First().IdTipoCbte;
@@ -432,7 +407,7 @@ namespace Bizu.Presentation.Contabilidad
             {
                 txt_concepto.Focus();
 
-                
+
                 switch (_Accion)
                 {
                     case Cl_Enumeradores.eTipo_action.grabar:
@@ -461,16 +436,16 @@ namespace Bizu.Presentation.Contabilidad
                 if (InfoPeriodo == null || InfoPeriodo.pe_cerrado == "S")
                 {
                     MessageBox.Show("No se puede grabar el comprobante contable debido a que el periodo se encuentra cerrado", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    respuesta= false;
+                    respuesta = false;
                 }
 
                 if (cmb_tipocomprobante.EditValue == null || cmb_tipocomprobante.EditValue == "")
                 {
-                    MessageBox.Show("Debe Seleecionar un Tipo de Comprobante ",param.Nombre_sistema,MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                    MessageBox.Show("Debe Seleecionar un Tipo de Comprobante ", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     respuesta = false;
                 }
 
-                if (!param.Validar_periodo_cerrado_x_modulo(param.IdEmpresa,Cl_Enumeradores.eModulos.CONTA, Convert.ToDateTime(dtFecha.Value)))
+                if (!param.Validar_periodo_cerrado_x_modulo(param.IdEmpresa, Cl_Enumeradores.eModulos.CONTA, Convert.ToDateTime(dtFecha.Value)))
                     return false;
 
                 return respuesta;
@@ -484,17 +459,17 @@ namespace Bizu.Presentation.Contabilidad
                 return false;
             }
         }
-        
-        private Boolean  Guardar()
+
+        private Boolean Guardar()
         {
             Boolean res = false;
             try
             {
                 string codContable2 = "";
 
-                res=Validar();
+                res = Validar();
 
-                
+
                 if (res)
                 {
 
@@ -523,7 +498,7 @@ namespace Bizu.Presentation.Contabilidad
 
 
                     }
-                    else { MessageBox.Show(msg,param.NombreEmpresa,MessageBoxButtons.OK,MessageBoxIcon.Warning); }
+                    else { MessageBox.Show(msg, param.NombreEmpresa, MessageBoxButtons.OK, MessageBoxIcon.Warning); }
 
                 }
                 return res;
@@ -544,7 +519,7 @@ namespace Bizu.Presentation.Contabilidad
                 string msj = "";
 
 
-                res=Validar();
+                res = Validar();
 
                 if (res)
                 {
@@ -584,7 +559,7 @@ namespace Bizu.Presentation.Contabilidad
             {
                 Log_Error_bus.Log_Error(ex.ToString());
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } 
+            }
             return res;
         }
 
@@ -592,14 +567,14 @@ namespace Bizu.Presentation.Contabilidad
         {
             try
             {
-                
-                InfoCbteCble =  new ct_Cbtecble_Info();
-                 this.cmb_tipocomprobante.EditValue = "";
+
+                InfoCbteCble = new ct_Cbtecble_Info();
+                this.cmb_tipocomprobante.EditValue = "";
                 lbl_no_comprobante.Text = "";
                 txt_codCbteCble.Text = "";
                 this.txt_concepto.Text = "";
                 UC_Diario.LimpiarGrid();
-                
+
 
             }
             catch (Exception ex)
@@ -631,7 +606,7 @@ namespace Bizu.Presentation.Contabilidad
             }
             catch (Exception ex)
             {
-                
+
             }
         }
 
@@ -679,7 +654,7 @@ namespace Bizu.Presentation.Contabilidad
                 if (_Accion != Cl_Enumeradores.eTipo_action.consultar)
                 {
                     // verifica si el tipo de comprobante es interno o no
-                    if (!_CbteCbleTipo_bus.Get_Es_Interno(param.IdEmpresa,Convert.ToInt32(this.cmb_tipocomprobante.EditValue), ref MensajeError)) 
+                    if (!_CbteCbleTipo_bus.Get_Es_Interno(param.IdEmpresa, Convert.ToInt32(this.cmb_tipocomprobante.EditValue), ref MensajeError))
                     {
                         ucGe_Menu.Visible_bntGuardar_y_Salir = DevExpress.XtraBars.BarItemVisibility.Never;
                         ucGe_Menu.Visible_btnGuardar = DevExpress.XtraBars.BarItemVisibility.Never;
@@ -698,12 +673,12 @@ namespace Bizu.Presentation.Contabilidad
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-                
+
         private void cmb_tipocomprobante_EditValueChanged(object sender, EventArgs e)
         {
             try
             {
-                if (_Accion==Cl_Enumeradores.eTipo_action.actualizar)
+                if (_Accion == Cl_Enumeradores.eTipo_action.actualizar)
                 {
                     if (cmb_tipocomprobante.EditValue != null)
                     {
@@ -722,7 +697,7 @@ namespace Bizu.Presentation.Contabilidad
                                 ucGe_Menu.Visible_bntGuardar_y_Salir = DevExpress.XtraBars.BarItemVisibility.Always;
                             }
                         }
-                    }    
+                    }
                 }
             }
             catch (Exception ex)
@@ -743,8 +718,8 @@ namespace Bizu.Presentation.Contabilidad
 
                 switch (param.IdCliente_Ven_x_Default)
                 {
-                    case Cl_Enumeradores.eCliente_Vzen.EDEHSA: 
-                        cmb_tipocomprobante.Enabled = true; 
+                    case Cl_Enumeradores.eCliente_Vzen.EDEHSA:
+                        cmb_tipocomprobante.Enabled = true;
                         break;
                 }
             }
@@ -759,7 +734,7 @@ namespace Bizu.Presentation.Contabilidad
         {
             try
             {
-                event_frmCon_CbteCble_Mant_FormClosing(sender,e);
+                event_frmCon_CbteCble_Mant_FormClosing(sender, e);
             }
             catch (Exception ex)
             {
@@ -793,7 +768,7 @@ namespace Bizu.Presentation.Contabilidad
 
         private void ucCon_PlantillaComprobanteCont_event_cmb_EditValueChanged(object sender, EventArgs e)
         {
-            
+
         }
     }
 }

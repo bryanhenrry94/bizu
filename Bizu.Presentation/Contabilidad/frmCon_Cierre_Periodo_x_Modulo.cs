@@ -12,8 +12,6 @@ using Bizu.Application.Contabilidad;
 using Bizu.Domain.General;
 using Bizu.Application.General;
 
-
-
 namespace Bizu.Presentation.Contabilidad
 {
     public partial class frmCon_Cierre_Periodo_x_Modulo : DevExpress.XtraEditors.XtraForm
@@ -50,7 +48,7 @@ namespace Bizu.Presentation.Contabilidad
 
                 lst_modulo = bus_modulo.Get_list_Modulo(true);
 
-                
+
             }
             catch (Exception ex)
             {
@@ -59,10 +57,7 @@ namespace Bizu.Presentation.Contabilidad
             }
         }
 
-
-       
-
-       private void cmb_periodo_EditValueChanged(object sender, EventArgs e)
+        private void cmb_periodo_EditValueChanged(object sender, EventArgs e)
         {
             try
             {
@@ -82,7 +77,7 @@ namespace Bizu.Presentation.Contabilidad
                     }
                     else
                     {
-                        Anio_a_buscar = InfoPeriodo.IdanioFiscal-1;
+                        Anio_a_buscar = InfoPeriodo.IdanioFiscal - 1;
                         btn_cierre_anual.Enabled = false;
 
 
@@ -110,13 +105,13 @@ namespace Bizu.Presentation.Contabilidad
                             lblmensaje_no_cierra.Text = "";
                             lblmensaje_no_cierra.ForeColor = Color.Red;
                         }
-                        
+
                     }
                     else
                     {
                         lblmensaje_no_cierra.Text = "El año " + Anio_a_buscar + " ESTA CERRADO..";
                         lblmensaje_no_cierra.ForeColor = Color.Blue;
-                        
+
                     }
 
 
@@ -164,20 +159,20 @@ namespace Bizu.Presentation.Contabilidad
                 if (!Validar()) return false;
 
                 Boolean respuesta = false;
-                
+
                 Get_periodo_x_modulo();
 
                 if (bus_periodo_x_modulo.EliminarDB(param.IdEmpresa, Convert.ToInt32(cmb_periodo.EditValue), ref MensajeError))
                 {
                     respuesta = bus_periodo_x_modulo.GrabarDB(lst_periodo_x_modulo, ref MensajeError);
 
-                    string SPeriodoCerrado=  (chk_periodo_cerrado.Checked ==true)?"S":"N";
+                    string SPeriodoCerrado = (chk_periodo_cerrado.Checked == true) ? "S" : "N";
                     BusPeriodo.Modificar_Estado_CierreDB(param.IdEmpresa, InfoPeriodo.IdPeriodo, SPeriodoCerrado, ref MensajeError);
 
                 }
 
 
-               
+
                 if (respuesta)
                 {
                     MessageBox.Show("Transacción realizada exitosamente", param.Nombre_sistema, MessageBoxButtons.OK);
@@ -190,17 +185,17 @@ namespace Bizu.Presentation.Contabilidad
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-        }        
+        }
 
         private bool Validar()
         {
             try
             {
-                if (cmb_periodo.EditValue == null )
+                if (cmb_periodo.EditValue == null)
                 {
                     MessageBox.Show("Seleccione el periodo", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return false;
-                }               
+                }
                 return true;
             }
             catch (Exception ex)
@@ -246,7 +241,7 @@ namespace Bizu.Presentation.Contabilidad
             {
                 if (Guardar())
                 {
-                    this.Close();   
+                    this.Close();
                 }
             }
             catch (Exception ex)
@@ -292,30 +287,7 @@ namespace Bizu.Presentation.Contabilidad
 
         private void btn_cierre_anual_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string MensajeError="";
 
-                ct_ProcesosContables_Bus BusProcesosContables = new ct_ProcesosContables_Bus(InfoPeriodo);
-                if (BusProcesosContables.ProcesoCierreAnual(InfoPeriodo, ref MensajeError))
-                {
-                    MessageBox.Show("Diario por cierre fue creado Correctamente..." + MensajeError, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Error al Generar el diario por cierre Anual Consulte con sistemas " + MensajeError, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-
-            }
-            catch (Exception ex)
-            {
-                Log_Error_bus.Log_Error(ex.ToString());
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
-
-        
-
     }
 }

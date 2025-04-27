@@ -92,14 +92,6 @@ namespace Bizu.Presentation.Facturacion
         fa_notaCreDeb_x_ct_cbtecble_Bus Bus_notaCreDeb_x_ct_cbtecble = new fa_notaCreDeb_x_ct_cbtecble_Bus();
         fa_notaCreDeb_x_ct_cbtecble_Info info_CreDeb_cbtecble = new fa_notaCreDeb_x_ct_cbtecble_Info();
 
-        ct_punto_cargo_Bus bus_Punto_cargo = new ct_punto_cargo_Bus();
-        ct_punto_cargo_Info info_Punto_cargo = new ct_punto_cargo_Info();
-        List<ct_punto_cargo_Info> lst_Punto_cargo = new List<ct_punto_cargo_Info>();
-
-        ct_punto_cargo_grupo_Bus bus_Grupo_punto_cargo = new ct_punto_cargo_grupo_Bus();
-        ct_punto_cargo_grupo_Info info_Grupo_punto_cargo = new ct_punto_cargo_grupo_Info();
-        List<ct_punto_cargo_grupo_Info> lst_Grupo_punto_cargo = new List<ct_punto_cargo_grupo_Info>();
-
 
         tb_sis_impuesto_Bus BusImpuesto = new tb_sis_impuesto_Bus();
         List<tb_sis_impuesto_Info> List_Imp_Iva = new List<tb_sis_impuesto_Info>();
@@ -448,17 +440,8 @@ namespace Bizu.Presentation.Facturacion
                 gridControlDocRelacionados.DataSource = BList_Documentos_relacionados;
                 
 
-                lst_Grupo_punto_cargo = bus_Grupo_punto_cargo.Get_List_punto_cargo_grupo(param.IdEmpresa,ref MensajeError);
-                cmb_Grupo.DataSource = lst_Grupo_punto_cargo;
-
-                lst_Punto_cargo = bus_Punto_cargo.Get_List_PuntoCargo(param.IdEmpresa);
-                cmb_Punto_cargo.DataSource = lst_Punto_cargo;
-
-                
                 List_Imp_Iva = BusImpuesto.Get_List_impuesto_para_Ventas("IVA");
                 cmbImpuestoIva.DataSource = List_Imp_Iva;
-
-
             }
             catch (Exception ex)
             {
@@ -1712,41 +1695,7 @@ namespace Bizu.Presentation.Facturacion
 
         private void cmb_Punto_cargo_Click(object sender, EventArgs e)
         {
-            try
-            {
-                fa_notaCreDeb_det_Info row = (fa_notaCreDeb_det_Info)gridViewNotaCreDeb.GetFocusedRow();
-                if (row != null)
-                {
-                    if (row.IdPunto_cargo_grupo != null)
-                    {
-                        frmCon_Punto_Cargo_Cons frm_cons = new frmCon_Punto_Cargo_Cons();
-
-                        GridViewInfo info = gridViewNotaCreDeb.GetViewInfo() as GridViewInfo;
-                        GridCellInfo info_cell = info.GetGridCellInfo(rowHandle, ColIdPunto_Cargo);
-
-                        frm_cons.Cargar_grid_x_grupo((int)row.IdPunto_cargo_grupo);
-
-                        //frm_cons.Location = new Point(this.Right, gridControlDiario.Top);                        
-
-                        frm_cons.ShowDialog();
-                        info_Punto_cargo = frm_cons.Get_Info();
-                        if (info_Punto_cargo != null)
-                        {
-                            gridViewNotaCreDeb.SetFocusedRowCellValue(ColIdPunto_Cargo, info_Punto_cargo.IdPunto_cargo);
-                        }
-                        else
-                            gridViewNotaCreDeb.SetFocusedRowCellValue(ColIdPunto_Cargo, null);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                string NameMetodo = System.Reflection.MethodBase.GetCurrentMethod().Name;
-                NameMetodo = NameMetodo + " - " + ex.ToString();
-                MessageBox.Show(NameMetodo + " " + param.Get_Mensaje_sys(enum_Mensajes_sys.Error_comunicarse_con_sistemas)
-                    , param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log_Error_bus.Log_Error(NameMetodo + " - " + ex.ToString());
-            }
+            
         }
 
         private void gridViewNotaCreDeb_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)

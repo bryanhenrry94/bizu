@@ -17,17 +17,17 @@ namespace Bizu.Infrastructure.Contabilidad
                 EntitiesDBConta OECbtecble_Info = new EntitiesDBConta();
 
                 var selectCbtecble = from C in OECbtecble_Info.vwct_cbtecble_con_ctacble_acreedora
-                                     where C.IdEmpresa == IdEmpresa
-                                     && C.IdTipoCbte == IdTipoCbte
-                                     && C.IdCbteCble == IdCbteCble
+                                     where C.idempresa == IdEmpresa
+                                     && C.idtipocbte == IdTipoCbte
+                                     && C.idcbtecble == IdCbteCble
                                      select C;
 
                 foreach (var item in selectCbtecble)
                 {
-                    Info.IdEmpresa = item.IdEmpresa;
-                    Info.IdTipoCbte = item.IdTipoCbte;
-                    Info.IdCbteCble = item.IdCbteCble;
-                    Info.IdCtaCble_Acreedora = item.IdCtaCble_Acreedora;
+                    Info.IdEmpresa = item.idempresa;
+                    Info.IdTipoCbte = item.idtipocbte;
+                    Info.IdCbteCble = item.idcbtecble;
+                    Info.IdCtaCble_Acreedora = item.idctacble_acreedora;
                 }
 
                 return Info;

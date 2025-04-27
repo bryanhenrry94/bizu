@@ -2074,19 +2074,7 @@ namespace Bizu.Presentation.CuentasxPagar
                             gridViewAproIngEgrxOC.SetFocusedRowCellValue(colIdCtaCtble_Gasto_x_cxp, null);
                         }
                     }
-                }
-
-                if (e.Column == Col_CentroCosto)
-                {
-                    string MensajeError = "";
-
-                    if (!_CentroCostoBus.Validar_CentroCosto_EstadoObra(param.IdEmpresa, Convert.ToString(fila_OC_det.IdCentro_Costo), ref MensajeError))
-                    {
-                        MessageBox.Show(MensajeError, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        gridViewAproIngEgrxOC.SetFocusedRowCellValue(Col_CentroCosto, null);
-                        return;
-                    }
-                }
+                }               
             }
             catch (Exception ex)
             {

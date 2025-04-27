@@ -14,24 +14,17 @@ namespace Bizu.Infrastructure
     
     public partial class ct_plancta_nivel
     {
-        public ct_plancta_nivel()
-        {
-            this.ct_plancta = new HashSet<ct_plancta>();
-        }
-    
-        public int IdEmpresa { get; set; }
-        public int IdNivelCta { get; set; }
-        public int nv_NumDigitos { get; set; }
-        public string nv_Descripcion { get; set; }
-        public string Estado { get; set; }
-        public string IdUsuario { get; set; }
-        public Nullable<System.DateTime> Fecha_Transaccion { get; set; }
-        public string IdUsuarioUltModi { get; set; }
-        public Nullable<System.DateTime> Fecha_UltMod { get; set; }
-        public string IdUsuarioUltAnu { get; set; }
-        public Nullable<System.DateTime> Fecha_UltAnu { get; set; }
-        public string MotivoAnulacion { get; set; }
-    
-        public virtual ICollection<ct_plancta> ct_plancta { get; set; }
+        public int idempresa { get; set; }
+        public int idnivelcta { get; set; }
+        public int nv_numdigitos { get; set; }
+        public string nv_descripcion { get; set; }
+        public string estado { get; set; }
+        public string idusuario { get; set; }
+        public Nullable<System.DateTime> fecha_transaccion { get; set; }
+        public string idusuarioultmodi { get; set; }
+        public Nullable<System.DateTime> fecha_ultmod { get; set; }
+        public string idusuarioultanu { get; set; }
+        public Nullable<System.DateTime> fecha_ultanu { get; set; }
+        public string motivoanulacion { get; set; }
     }
 }

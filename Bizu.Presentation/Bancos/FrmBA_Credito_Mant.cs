@@ -798,7 +798,7 @@ namespace Bizu.Presentation.Bancos
                     fechaAnul = param.Fecha_Transac;
                     fechaAnul = fr.fechaAnul;
 
-                    Respuesta = UC_Diario_x_NC.Reverso_Edehsa(IdTipoCbteRev, ref IdCbteCbleRev, ref MensajeError, motiAnulacion, fechaAnul);
+                    Respuesta = UC_Diario_x_NC.Reverso(IdTipoCbteRev, ref IdCbteCbleRev, ref MensajeError, motiAnulacion);
 
                     if (Respuesta)
                     {

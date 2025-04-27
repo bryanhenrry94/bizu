@@ -12,20 +12,20 @@ namespace Bizu.Infrastructure
     using System;
     using System.Collections.Generic;
     
-    public partial class vwct_cbtecble_con_saldo_cxp_DIARIO
+    public partial class vwct_cbtecble_con_saldo_cxp_diario
     {
-        public int IdEmpresa { get; set; }
-        public decimal IdCbteCble { get; set; }
-        public int IdTipoCbte { get; set; }
-        public System.DateTime cb_Fecha { get; set; }
-        public string cb_Observacion { get; set; }
+        public int idempresa { get; set; }
+        public decimal idcbtecble { get; set; }
+        public int idtipocbte { get; set; }
+        public System.DateTime cb_fecha { get; set; }
+        public string cb_observacion { get; set; }
         public string referencia { get; set; }
-        public string tc_TipoCbte { get; set; }
-        public Nullable<double> Valor_Cbte { get; set; }
-        public double Valor_Cancelado_cbte { get; set; }
-        public Nullable<double> Valor_saldo_cbte { get; set; }
-        public string Tipo { get; set; }
-        public string Beneficiario { get; set; }
-        public Nullable<decimal> IdProveedor { get; set; }
+        public string tc_tipocbte { get; set; }
+        public Nullable<double> valor_cbte { get; set; }
+        public double valor_cancelado_cbte { get; set; }
+        public Nullable<double> valor_saldo_cbte { get; set; }
+        public string tipo { get; set; }
+        public string beneficiario { get; set; }
+        public Nullable<decimal> idproveedor { get; set; }
     }
 }

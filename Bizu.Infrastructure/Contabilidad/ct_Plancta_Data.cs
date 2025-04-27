@@ -10,8 +10,8 @@ using Bizu.Infrastructure.General;
 using System.Data.Entity.Validation;
 
 namespace Bizu.Infrastructure.Contabilidad
-{ 
-    
+{
+
     public class ct_Plancta_Data
     {
         public List<ct_Plancta_Info> Get_List_Plancta(int IdEmpresa, ref string MensajeError)
@@ -23,117 +23,27 @@ namespace Bizu.Infrastructure.Contabilidad
 
                 List<ct_Plancta_Info> lM = new List<ct_Plancta_Info>();
                 EntitiesDBConta OEselectPlancta = new EntitiesDBConta();
-                var selectPlancta = from C in OEselectPlancta.ct_plancta 
-                                    join N in OEselectPlancta.ct_plancta_nivel on new {C.IdEmpresa,C.IdNivelCta} equals new {N.IdEmpresa,N.IdNivelCta}
-                                    where C.IdEmpresa == IdEmpresa
-                                    select new {C.IdEmpresa,
-                                                C.IdCtaCble,
-                                                C.pc_Cuenta,
-                                                C.IdCtaCblePadre,
-                                                C.IdCatalogo,
-                                                C.pc_Naturaleza,
-                                                C.IdNivelCta,
-                                                C.IdGrupoCble,
-                                                C.pc_Estado,
-                                                C.pc_EsMovimiento,
-                                                C.pc_es_flujo_efectivo,
-                                                N.nv_NumDigitos
-                                                ,C.pc_clave_corta
-                                                ,C.IdTipoCtaCble
-                                                ,C.IdTipo_Gasto
-                                                ,C.IdTipo_Costo
-                                    }; 
-
-                foreach (var item in selectPlancta)
-                {
-
-                    ct_Plancta_Info _PlantaCtaInfo = new ct_Plancta_Info();
-                    ct_Plancta_nivel_Info NivelO = new ct_Plancta_nivel_Info();
-
-
-                    
-                    ClaveCorta = (item.pc_clave_corta == null || item.pc_clave_corta == "") ? "" : "{" + item.pc_clave_corta + "}";
-
-                    _PlantaCtaInfo.IdEmpresa = item.IdEmpresa;
-                    _PlantaCtaInfo.IdCtaCble = item.IdCtaCble.Trim();
-                    _PlantaCtaInfo.pc_Cuenta = item.pc_Cuenta.Trim();
-                    _PlantaCtaInfo.pc_Cuenta2 =ClaveCorta +  "[" + item.IdCtaCble.Trim() + "] - "+  item.pc_Cuenta.Trim();
-                    _PlantaCtaInfo.IdCtaCblePadre = (item.IdCtaCblePadre==null)?"":item.IdCtaCblePadre.Trim();
-                    _PlantaCtaInfo.IdCatalogo = Convert.ToDecimal(item.IdCatalogo);
-                    _PlantaCtaInfo.pc_Naturaleza = item.pc_Naturaleza;
-                    _PlantaCtaInfo.IdNivelCta = item.IdNivelCta;
-                    _PlantaCtaInfo.IdGrupoCble = item.IdGrupoCble.Trim();
-                    _PlantaCtaInfo.pc_Estado = item.pc_Estado;
-                    _PlantaCtaInfo.pc_EsMovimiento = item.pc_EsMovimiento;
-                    _PlantaCtaInfo._Plancta_nivel_Info = NivelO;
-                    _PlantaCtaInfo._Plancta_nivel_Info.IdEmpresa = item.IdEmpresa;
-                    _PlantaCtaInfo._Plancta_nivel_Info.IdNivelCta = item.IdNivelCta;
-                    _PlantaCtaInfo.pc_es_flujo_efectivo = item.pc_es_flujo_efectivo;
-                    _PlantaCtaInfo._Plancta_nivel_Info.nv_NumDigitos = item.nv_NumDigitos;
-
-                    _PlantaCtaInfo.pc_clave_corta = item.pc_clave_corta;
-                    _PlantaCtaInfo.IdTipoCtaCble = item.IdTipoCtaCble;
-                    _PlantaCtaInfo.IdTipo_Gasto = item.IdTipo_Gasto;
-                    _PlantaCtaInfo.IdTipo_Costo = item.IdTipo_Costo;
-                    
-                    lM.Add(_PlantaCtaInfo);
-                }
-
-                return (lM);
-            }
-
-            catch (Exception ex)
-            {
-                MensajeError = ex.Message;
-                tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
-                tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", MensajeError, "",
-                                    "", "", "", "", DateTime.Now);
-                oDataLog.Guardar_Log_Error(Log_Error_sis, ref MensajeError);
-                MensajeError = ex.ToString();
-                throw new Exception(ex.ToString());
-            }
-        }
-
-        public List<ct_Plancta_Info> Get_List_Plancta_x_Tipo_Balance(int IdEmpresa,string Tipo_Balance, ref string MensajeError)
-        {
-            try
-            {
-
-                string ClaveCorta = "";
-
-                List<ct_Plancta_Info> lM = new List<ct_Plancta_Info>();
-                EntitiesDBConta OEselectPlancta = new EntitiesDBConta();
                 var selectPlancta = from C in OEselectPlancta.ct_plancta
-                                    join N in OEselectPlancta.ct_plancta_nivel on new { C.IdEmpresa, C.IdNivelCta } equals new { N.IdEmpresa, N.IdNivelCta }
-                                    join G in OEselectPlancta.ct_grupocble on new { C.IdGrupoCble } equals new { G.IdGrupoCble }
-                                    join M in OEselectPlancta.ct_grupocble_Mayor on new { G.IdGrupo_Mayor } equals new { M.IdGrupo_Mayor}
-                                    where C.IdEmpresa == IdEmpresa
-                                    && G.gc_estado_financiero == Tipo_Balance
-                                    orderby C.IdCtaCble
+                                    join N in OEselectPlancta.ct_plancta_nivel on new { C.idempresa, C.idnivelcta } equals new { N.idempresa, N.idnivelcta }
+                                    where C.idempresa == IdEmpresa
                                     select new
                                     {
-                                        C.IdEmpresa,
-                                        C.IdCtaCble,
-                                        C.pc_Cuenta,
-                                        C.IdCtaCblePadre,
-                                        C.IdCatalogo,
-                                        C.pc_Naturaleza,
-                                        C.IdNivelCta,
-                                        C.IdGrupoCble,
-                                        C.pc_Estado,
-                                        C.pc_EsMovimiento,
+                                        C.idempresa,
+                                        C.idctacble,
+                                        C.pc_cuenta,
+                                        C.idctacblepadre,
+                                        C.idcatalogo,
+                                        C.pc_naturaleza,
+                                        C.idnivelcta,
+                                        C.idgrupocble,
+                                        C.pc_estado,
+                                        C.pc_esmovimiento,
                                         C.pc_es_flujo_efectivo,
-                                        N.nv_NumDigitos,
+                                        N.nv_numdigitos,
                                         C.pc_clave_corta,
-                                        C.IdTipoCtaCble,
-                                        G.gc_GrupoCble,
-                                        G.gc_estado_financiero,
-                                        G.gc_Orden,
-                                        M.IdGrupo_Mayor,
-                                        M.nom_grupo_mayor,
-                                        M.orden,
-                                        C.IdTipo_Gasto,
-                                        C.IdTipo_Costo
+                                        C.idtipoctacble,
+                                        C.idtipo_gasto,
+                                        C.idtipo_costo
                                     };
 
                 foreach (var item in selectPlancta)
@@ -142,36 +52,29 @@ namespace Bizu.Infrastructure.Contabilidad
                     ct_Plancta_Info _PlantaCtaInfo = new ct_Plancta_Info();
                     ct_Plancta_nivel_Info NivelO = new ct_Plancta_nivel_Info();
 
-
                     ClaveCorta = (item.pc_clave_corta == null || item.pc_clave_corta == "") ? "" : "{" + item.pc_clave_corta + "}";
 
-                    _PlantaCtaInfo.IdEmpresa = item.IdEmpresa;
-                    _PlantaCtaInfo.IdCtaCble = item.IdCtaCble.Trim();
-                    _PlantaCtaInfo.pc_Cuenta = item.pc_Cuenta.Trim();
-                    _PlantaCtaInfo.pc_Cuenta2 = ClaveCorta + "[" + item.IdCtaCble.Trim() + "] - " + item.pc_Cuenta.Trim();
-                    _PlantaCtaInfo.IdCtaCblePadre = (item.IdCtaCblePadre == null) ? "" : item.IdCtaCblePadre.Trim();
-                    _PlantaCtaInfo.IdCatalogo = Convert.ToDecimal(item.IdCatalogo);
-                    _PlantaCtaInfo.pc_Naturaleza = item.pc_Naturaleza;
-                    _PlantaCtaInfo.IdNivelCta = item.IdNivelCta;
-                    _PlantaCtaInfo.IdGrupoCble = item.IdGrupoCble.Trim();
-                    _PlantaCtaInfo.pc_Estado = item.pc_Estado;
-                    _PlantaCtaInfo.pc_EsMovimiento = item.pc_EsMovimiento;
+                    _PlantaCtaInfo.IdEmpresa = item.idempresa;
+                    _PlantaCtaInfo.IdCtaCble = item.idctacble.Trim();
+                    _PlantaCtaInfo.pc_Cuenta = item.pc_cuenta.Trim();
+                    _PlantaCtaInfo.pc_Cuenta2 = ClaveCorta + "[" + item.idctacble.Trim() + "] - " + item.pc_cuenta.Trim();
+                    _PlantaCtaInfo.IdCtaCblePadre = (item.idctacblepadre == null) ? "" : item.idctacblepadre.Trim();
+                    _PlantaCtaInfo.IdCatalogo = Convert.ToDecimal(item.idcatalogo);
+                    _PlantaCtaInfo.pc_Naturaleza = item.pc_naturaleza;
+                    _PlantaCtaInfo.IdNivelCta = item.idnivelcta;
+                    _PlantaCtaInfo.IdGrupoCble = item.idgrupocble.Trim();
+                    _PlantaCtaInfo.pc_Estado = item.pc_estado;
+                    _PlantaCtaInfo.pc_EsMovimiento = item.pc_esmovimiento;
                     _PlantaCtaInfo._Plancta_nivel_Info = NivelO;
-                    _PlantaCtaInfo._Plancta_nivel_Info.IdEmpresa = item.IdEmpresa;
-                    _PlantaCtaInfo._Plancta_nivel_Info.IdNivelCta = item.IdNivelCta;
+                    _PlantaCtaInfo._Plancta_nivel_Info.IdEmpresa = item.idempresa;
+                    _PlantaCtaInfo._Plancta_nivel_Info.IdNivelCta = item.idnivelcta;
                     _PlantaCtaInfo.pc_es_flujo_efectivo = item.pc_es_flujo_efectivo;
-                    _PlantaCtaInfo._Plancta_nivel_Info.nv_NumDigitos = item.nv_NumDigitos;
-
+                    _PlantaCtaInfo._Plancta_nivel_Info.nv_NumDigitos = item.nv_numdigitos;
                     _PlantaCtaInfo.pc_clave_corta = item.pc_clave_corta;
-                    _PlantaCtaInfo.IdTipoCtaCble = item.IdTipoCtaCble;
-                    _PlantaCtaInfo.Nom_GrupoCble = item.gc_GrupoCble;
-                    _PlantaCtaInfo.gc_estado_financiero = item.gc_estado_financiero;
-                    _PlantaCtaInfo.OrderGrupoCble = item.gc_Orden;
-                    
-                    _PlantaCtaInfo.orden = item.orden;
-                    _PlantaCtaInfo.IdGrupo_Mayor = item.IdGrupo_Mayor;
-                    _PlantaCtaInfo.nom_grupo_mayor = item.nom_grupo_mayor;
-                    _PlantaCtaInfo.IdTipo_Gasto = item.IdTipo_Gasto;
+                    _PlantaCtaInfo.IdTipoCtaCble = item.idtipoctacble;
+                    _PlantaCtaInfo.IdTipo_Gasto = item.idtipo_gasto;
+                    _PlantaCtaInfo.IdTipo_Costo = item.idtipo_costo;
+
                     lM.Add(_PlantaCtaInfo);
                 }
 
@@ -208,15 +111,15 @@ namespace Bizu.Infrastructure.Contabilidad
 
                         foreach (DataRow row in ds.Rows)
                         {
-                            
+
                             ct_Plancta_Info info = new ct_Plancta_Info();
                             //RECORRE C/U DE LAS COLUMNAS
                             info.IdEmpresa = idempresa;
                             object[] arreglo = row.ItemArray;
                             c = c + 1;
-                            if (c == 430) 
-                            { 
-                                c++; 
+                            if (c == 430)
+                            {
+                                c++;
                             }
                             for (int col = 0; col < ds.Columns.Count + 1; col++)
                             {
@@ -284,8 +187,8 @@ namespace Bizu.Infrastructure.Contabilidad
                 throw new Exception(ex.ToString());
             }
         }
-        
-        public List<ct_Plancta_Info> Get_List_Plan_ctaPadre(int IdEmpresa ,ref string MensajeError)
+
+        public List<ct_Plancta_Info> Get_List_Plan_ctaPadre(int IdEmpresa, ref string MensajeError)
         {
             try
             {
@@ -294,9 +197,9 @@ namespace Bizu.Infrastructure.Contabilidad
                 List<ct_Plancta_Info> lM = new List<ct_Plancta_Info>();
                 EntitiesDBConta OEselectPlancta = new EntitiesDBConta();
                 var selectPlancta = from C in OEselectPlancta.ct_plancta
-                                    where C.IdEmpresa == IdEmpresa && C.pc_EsMovimiento == "N"
+                                    where C.idempresa == IdEmpresa && C.pc_esmovimiento == "N"
                                     select C;
-                                        
+
 
                 foreach (var item in selectPlancta)
                 {
@@ -304,22 +207,22 @@ namespace Bizu.Infrastructure.Contabilidad
 
                     ClaveCorta = (item.pc_clave_corta == null) ? "" : "{" + item.pc_clave_corta + "}";
 
-                    _PlantaCtaInfo.IdCtaCble = item.IdCtaCble.Trim();
-                    _PlantaCtaInfo.pc_Cuenta = item.pc_Cuenta.Trim();
-                    _PlantaCtaInfo.pc_Cuenta2 = ClaveCorta+ "[" + item.IdCtaCble.Trim() + "] - " + item.pc_Cuenta.Trim();
-                    _PlantaCtaInfo.IdEmpresa = item.IdEmpresa;
-                    _PlantaCtaInfo.IdCtaCblePadre = (item.IdCtaCblePadre!=null)?item.IdCtaCblePadre.Trim():"";
-                    _PlantaCtaInfo.IdCatalogo = Convert.ToDecimal(item.IdCatalogo);
-                    _PlantaCtaInfo.pc_Naturaleza = item.pc_Naturaleza;
-                    _PlantaCtaInfo.IdNivelCta = item.IdNivelCta;
-                    _PlantaCtaInfo.IdGrupoCble = item.IdGrupoCble;
-                    _PlantaCtaInfo.pc_Estado = item.pc_Estado;
-                    _PlantaCtaInfo.pc_EsMovimiento = item.pc_EsMovimiento;
+                    _PlantaCtaInfo.IdCtaCble = item.idctacble.Trim();
+                    _PlantaCtaInfo.pc_Cuenta = item.pc_cuenta.Trim();
+                    _PlantaCtaInfo.pc_Cuenta2 = ClaveCorta + "[" + item.idctacble.Trim() + "] - " + item.pc_cuenta.Trim();
+                    _PlantaCtaInfo.IdEmpresa = item.idempresa;
+                    _PlantaCtaInfo.IdCtaCblePadre = (item.idctacblepadre != null) ? item.idctacblepadre.Trim() : "";
+                    _PlantaCtaInfo.IdCatalogo = Convert.ToDecimal(item.idcatalogo);
+                    _PlantaCtaInfo.pc_Naturaleza = item.pc_naturaleza;
+                    _PlantaCtaInfo.IdNivelCta = item.idnivelcta;
+                    _PlantaCtaInfo.IdGrupoCble = item.idgrupocble;
+                    _PlantaCtaInfo.pc_Estado = item.pc_estado;
+                    _PlantaCtaInfo.pc_EsMovimiento = item.pc_esmovimiento;
                     _PlantaCtaInfo.pc_es_flujo_efectivo = item.pc_es_flujo_efectivo;
                     _PlantaCtaInfo.pc_clave_corta = item.pc_clave_corta;
-                    _PlantaCtaInfo.IdTipoCtaCble = item.IdTipoCtaCble;
-                    _PlantaCtaInfo.IdTipo_Gasto = item.IdTipo_Gasto;
-                    _PlantaCtaInfo.IdTipo_Costo = item.IdTipo_Costo;
+                    _PlantaCtaInfo.IdTipoCtaCble = item.idtipoctacble;
+                    _PlantaCtaInfo.IdTipo_Gasto = item.idtipo_gasto;
+                    _PlantaCtaInfo.IdTipo_Costo = item.idtipo_costo;
                     lM.Add(_PlantaCtaInfo);
                 }
 
@@ -337,9 +240,9 @@ namespace Bizu.Infrastructure.Contabilidad
             }
         }
 
-        public List<ct_Plancta_Info> Get_List_Plancta_x_ctas_Movimiento(int IdEmpresa, ref string MensajeError,Boolean Mostrar_Todo_El_Plan_cta=false)
+        public List<ct_Plancta_Info> Get_List_Plancta_x_ctas_Movimiento(int IdEmpresa, ref string MensajeError, Boolean Mostrar_Todo_El_Plan_cta = false)
         {
-            
+
             try
             {
                 List<ct_Plancta_Info> lM = new List<ct_Plancta_Info>();
@@ -353,15 +256,15 @@ namespace Bizu.Infrastructure.Contabilidad
                 if (Mostrar_Todo_El_Plan_cta == true)
                 {
                     selectPlancta = from C in OEselectPlancta.vwct_plancta
-                                    where C.IdEmpresa == IdEmpresa
+                                    where C.idempresa == IdEmpresa
                                     select C;
                 }
                 else
                 {
 
                     selectPlancta = from C in OEselectPlancta.vwct_plancta
-                                    where C.IdEmpresa == IdEmpresa
-                                    && C.pc_EsMovimiento == "S"
+                                    where C.idempresa == IdEmpresa
+                                    && C.pc_esmovimiento == "S"
                                     select C;
                 }
 
@@ -372,23 +275,23 @@ namespace Bizu.Infrastructure.Contabilidad
 
                     ClaveCorta = (item.pc_clave_corta == null) ? "" : "{" + item.pc_clave_corta + "}";
 
-                    _PlantaCtaInfo.IdCtaCble = item.IdCtaCble.Trim();
-                    _PlantaCtaInfo.pc_Cuenta = item.pc_Cuenta.Trim();
-                    _PlantaCtaInfo.pc_Cuenta2 = ClaveCorta + "[" + item.IdCtaCble.Trim() + "] - " + item.pc_Cuenta.Trim();
-                    _PlantaCtaInfo.IdEmpresa = item.IdEmpresa;
-                    _PlantaCtaInfo.IdCtaCblePadre = item.IdCtaCblePadre;
-                    _PlantaCtaInfo.IdCatalogo = Convert.ToDecimal(item.IdCatalogo);
-                    _PlantaCtaInfo.pc_Naturaleza = item.pc_Naturaleza;
-                    _PlantaCtaInfo.IdNivelCta = item.IdNivelCta;
-                    _PlantaCtaInfo.IdGrupoCble = item.IdGrupoCble;
-                    _PlantaCtaInfo.pc_Estado = item.pc_Estado;
-                    _PlantaCtaInfo.pc_EsMovimiento = item.pc_EsMovimiento;
+                    _PlantaCtaInfo.IdCtaCble = item.idctacble.Trim();
+                    _PlantaCtaInfo.pc_Cuenta = item.pc_cuenta.Trim();
+                    _PlantaCtaInfo.pc_Cuenta2 = ClaveCorta + "[" + item.idctacble.Trim() + "] - " + item.pc_cuenta.Trim();
+                    _PlantaCtaInfo.IdEmpresa = item.idempresa;
+                    _PlantaCtaInfo.IdCtaCblePadre = item.idctacblepadre;
+                    _PlantaCtaInfo.IdCatalogo = Convert.ToDecimal(item.idcatalogo);
+                    _PlantaCtaInfo.pc_Naturaleza = item.pc_naturaleza;
+                    _PlantaCtaInfo.IdNivelCta = item.idnivelcta;
+                    _PlantaCtaInfo.IdGrupoCble = item.idgrupocble;
+                    _PlantaCtaInfo.pc_Estado = item.pc_estado;
+                    _PlantaCtaInfo.pc_EsMovimiento = item.pc_esmovimiento;
                     _PlantaCtaInfo.pc_es_flujo_efectivo = item.pc_es_flujo_efectivo;
                     _PlantaCtaInfo.pc_clave_corta = item.pc_clave_corta;
-                    _PlantaCtaInfo.CuentaPadre = item.CuentaPadre;
-                    _PlantaCtaInfo.IdTipoCtaCble = item.IdTipoCtaCble;
-                    _PlantaCtaInfo.SEstado = (item.pc_Estado == "A") ? "ACTIVO" : "*ANULADO*";
-                    _PlantaCtaInfo.IdTipo_Costo = item.IdTipo_Costo;
+                    _PlantaCtaInfo.CuentaPadre = item.cuentapadre;
+                    _PlantaCtaInfo.IdTipoCtaCble = item.idtipoctacble;
+                    _PlantaCtaInfo.SEstado = (item.pc_estado == "A") ? "ACTIVO" : "*ANULADO*";
+                    _PlantaCtaInfo.IdTipo_Costo = item.idtipo_costo;
 
 
                     lM.Add(_PlantaCtaInfo);
@@ -404,8 +307,8 @@ namespace Bizu.Infrastructure.Contabilidad
                 oDataLog.Guardar_Log_Error(Log_Error_sis, ref MensajeError);
                 MensajeError = ex.ToString();
                 throw new Exception(ex.ToString());
-            } 
-            
+            }
+
         }
 
         public List<ct_Plancta_Info> Get_List_Plancta(int IdEmpresa, string IdCtaIni, string IdCtaFin, ref string MensajeError)
@@ -416,29 +319,29 @@ namespace Bizu.Infrastructure.Contabilidad
                 List<ct_Plancta_Info> lM = new List<ct_Plancta_Info>();
                 EntitiesDBConta OEselectPlancta = new EntitiesDBConta();
                 var selectPlancta = from C in OEselectPlancta.ct_plancta
-                                    where C.IdEmpresa == IdEmpresa && C.pc_EsMovimiento == "S" && (C.IdCtaCble.CompareTo(IdCtaIni.Trim()) >= 0 && C.IdCtaCble.CompareTo(IdCtaFin.Trim()) <= 0)
+                                    where C.idempresa == IdEmpresa && C.pc_esmovimiento == "S" && (C.idctacble.CompareTo(IdCtaIni.Trim()) >= 0 && C.idctacble.CompareTo(IdCtaFin.Trim()) <= 0)
                                     select C;
                 foreach (var item in selectPlancta)
                 {
                     ct_Plancta_Info _PlantaCtaInfo = new ct_Plancta_Info();
 
-                    ClaveCorta = (item.pc_clave_corta == null || item.pc_clave_corta=="") ? "" : "{" + item.pc_clave_corta + "}";
+                    ClaveCorta = (item.pc_clave_corta == null || item.pc_clave_corta == "") ? "" : "{" + item.pc_clave_corta + "}";
 
-                    _PlantaCtaInfo.IdCtaCble = item.IdCtaCble;// se quito el trim
-                    _PlantaCtaInfo.pc_Cuenta = item.pc_Cuenta.Trim();
-                    _PlantaCtaInfo.pc_Cuenta2 = ClaveCorta+ "[" + item.IdCtaCble.Trim() + "] - " + item.pc_Cuenta.Trim();
-                    _PlantaCtaInfo.IdEmpresa = item.IdEmpresa;
-                    _PlantaCtaInfo.IdCtaCblePadre = item.IdCtaCblePadre;
-                    _PlantaCtaInfo.IdCatalogo = Convert.ToDecimal(item.IdCatalogo);
-                    _PlantaCtaInfo.pc_Naturaleza = item.pc_Naturaleza;
-                    _PlantaCtaInfo.IdNivelCta = item.IdNivelCta;
-                    _PlantaCtaInfo.IdGrupoCble = item.IdGrupoCble;
-                    _PlantaCtaInfo.pc_Estado = item.pc_Estado;
-                    _PlantaCtaInfo.pc_EsMovimiento = item.pc_EsMovimiento;
+                    _PlantaCtaInfo.IdCtaCble = item.idctacble;// se quito el trim
+                    _PlantaCtaInfo.pc_Cuenta = item.pc_cuenta.Trim();
+                    _PlantaCtaInfo.pc_Cuenta2 = ClaveCorta + "[" + item.idctacble.Trim() + "] - " + item.pc_cuenta.Trim();
+                    _PlantaCtaInfo.IdEmpresa = item.idempresa;
+                    _PlantaCtaInfo.IdCtaCblePadre = item.idctacblepadre;
+                    _PlantaCtaInfo.IdCatalogo = Convert.ToDecimal(item.idcatalogo);
+                    _PlantaCtaInfo.pc_Naturaleza = item.pc_naturaleza;
+                    _PlantaCtaInfo.IdNivelCta = item.idnivelcta;
+                    _PlantaCtaInfo.IdGrupoCble = item.idgrupocble;
+                    _PlantaCtaInfo.pc_Estado = item.pc_estado;
+                    _PlantaCtaInfo.pc_EsMovimiento = item.pc_esmovimiento;
                     _PlantaCtaInfo.pc_es_flujo_efectivo = item.pc_es_flujo_efectivo;
                     _PlantaCtaInfo.pc_clave_corta = item.pc_clave_corta;
-                    _PlantaCtaInfo.IdTipoCtaCble = item.IdTipoCtaCble;
-                    _PlantaCtaInfo.IdTipo_Costo = item.IdTipo_Costo ;
+                    _PlantaCtaInfo.IdTipoCtaCble = item.idtipoctacble;
+                    _PlantaCtaInfo.IdTipo_Costo = item.idtipo_costo;
 
                     lM.Add(_PlantaCtaInfo);
                 }
@@ -463,53 +366,50 @@ namespace Bizu.Infrastructure.Contabilidad
                 List<ct_Plancta_Info> Lista = new List<ct_Plancta_Info>();
                 ct_Plancta_Info lM = new ct_Plancta_Info();
                 EntitiesDBConta OEselectPlancta = new EntitiesDBConta();
-                var selectPlancta = from C in OEselectPlancta.ct_plancta                                    
-                                    where C.IdEmpresa == IdEmpresa
-                                    && C.IdNivelCta == IdNivel
+                var selectPlancta = from C in OEselectPlancta.ct_plancta
+                                    where C.idempresa == IdEmpresa
+                                    && C.idnivelcta == IdNivel
                                     select new
                                     {
-                                        C.IdEmpresa,
-                                        C.IdCtaCble,
-                                        C.pc_Cuenta,
-                                        C.IdCtaCblePadre,
-                                        C.IdCatalogo,
-                                        C.pc_Naturaleza,
-                                        C.IdNivelCta,
-                                        C.IdGrupoCble,
-                                        C.pc_Estado,
-                                        C.pc_EsMovimiento,
-                                        C.pc_es_flujo_efectivo,                                 
+                                        C.idempresa,
+                                        C.idctacble,
+                                        C.pc_cuenta,
+                                        C.idctacblepadre,
+                                        C.idcatalogo,
+                                        C.pc_naturaleza,
+                                        C.idnivelcta,
+                                        C.idgrupocble,
+                                        C.pc_estado,
+                                        C.pc_esmovimiento,
+                                        C.pc_es_flujo_efectivo,
                                         C.pc_clave_corta,
-                                        C.IdTipoCtaCble,
-                                        C.IdTipo_Gasto,
-                                        C.IdTipo_Costo 
+                                        C.idtipoctacble,
+                                        C.idtipo_gasto,
+                                        C.idtipo_costo
                                     };
 
                 foreach (var item in selectPlancta)
                 {
                     lM = new ct_Plancta_Info();
-                    lM.IdEmpresa = item.IdEmpresa;
-                    lM.IdCtaCble = item.IdCtaCble.Trim();
-                    lM.pc_Cuenta = item.pc_Cuenta.Trim();
-                    lM.IdCtaCblePadre = (item.IdCtaCblePadre == null) ? "" : item.IdCtaCblePadre.Trim();
-                    lM.IdCatalogo = Convert.ToDecimal(item.IdCatalogo);
-                    lM.pc_Naturaleza = item.pc_Naturaleza;
-                    lM.IdNivelCta = item.IdNivelCta;
-                    lM.IdGrupoCble = item.IdGrupoCble.Trim();
-                    lM.pc_Estado = item.pc_Estado;
-                    lM.pc_EsMovimiento = item.pc_EsMovimiento;
+                    lM.IdEmpresa = item.idempresa;
+                    lM.IdCtaCble = item.idctacble.Trim();
+                    lM.pc_Cuenta = item.pc_cuenta.Trim();
+                    lM.IdCtaCblePadre = (item.idctacblepadre == null) ? "" : item.idctacblepadre.Trim();
+                    lM.IdCatalogo = Convert.ToDecimal(item.idcatalogo);
+                    lM.pc_Naturaleza = item.pc_naturaleza;
+                    lM.IdNivelCta = item.idnivelcta;
+                    lM.IdGrupoCble = item.idgrupocble.Trim();
+                    lM.pc_Estado = item.pc_estado;
+                    lM.pc_EsMovimiento = item.pc_esmovimiento;
                     lM.pc_es_flujo_efectivo = item.pc_es_flujo_efectivo;
                     lM.pc_clave_corta = item.pc_clave_corta;
-                    lM.IdTipoCtaCble = item.IdTipoCtaCble;
-                    lM.IdTipo_Gasto = item.IdTipo_Gasto;
-                    lM.IdTipo_Costo = item.IdTipo_Costo;
-
-                   
+                    lM.IdTipoCtaCble = item.idtipoctacble;
+                    lM.IdTipo_Gasto = item.idtipo_gasto;
+                    lM.IdTipo_Costo = item.idtipo_costo;
 
                     Lista.Add(lM);
-
                 }
-            
+
                 return Lista;
             }
 
@@ -550,7 +450,7 @@ namespace Bizu.Infrastructure.Contabilidad
                         Lista.Add(info);
                     }
                 }
-                
+
                 return Lista;
             }
 
@@ -569,35 +469,36 @@ namespace Bizu.Infrastructure.Contabilidad
 
         public string Get_Id(int IdEmpresa, string codPadre, ref string MensajeError)
         {
-            string idHijo="";
+            string idHijo = "";
 
             try
             {
                 //declaracion de variables
-                int numDigitosxPadre=0;
-                int i_nivelPadre=0;
-                int numDigitosxHijo=0;
-                int i_nivelHijo=0;
+                int numDigitosxPadre = 0;
+                int i_nivelPadre = 0;
+                int numDigitosxHijo = 0;
+                int i_nivelHijo = 0;
 
                 EntitiesDBConta OEPlanCta = new EntitiesDBConta();
                 var tb = from C in OEPlanCta.ct_plancta
-                         where C.IdEmpresa == IdEmpresa && C.IdCtaCble == codPadre
-                         select new { C.IdNivelCta };
+                         where C.idempresa == IdEmpresa && C.idctacble == codPadre
+                         select new { C.idnivelcta };
+
                 foreach (var item in tb)
                 {
                     //obtengo el nivel del padre de dicha cta
-                    i_nivelPadre = Convert.ToInt32(item.IdNivelCta); 
+                    i_nivelPadre = Convert.ToInt32(item.idnivelcta);
                 }
-                                         
+
                 OEPlanCta.Dispose();
                 OEPlanCta = new EntitiesDBConta();
                 var tb1 = from D in OEPlanCta.ct_plancta_nivel
-                          where D.IdEmpresa == IdEmpresa && D.IdNivelCta == i_nivelPadre
-                          select new { D.nv_NumDigitos };
+                          where D.idempresa == IdEmpresa && D.idnivelcta == i_nivelPadre
+                          select new { D.nv_numdigitos };
                 foreach (var item in tb1)
                 {
                     // obtengo los numeros de digitos del padre
-                    numDigitosxPadre = Convert.ToInt32(item.nv_NumDigitos);
+                    numDigitosxPadre = Convert.ToInt32(item.nv_numdigitos);
                 }
                 // al nivel del hijo le sumo uno
                 i_nivelHijo = i_nivelPadre + 1;
@@ -605,19 +506,20 @@ namespace Bizu.Infrastructure.Contabilidad
                 OEPlanCta.Dispose();
                 OEPlanCta = new EntitiesDBConta();
                 var tb2 = from E in OEPlanCta.ct_plancta_nivel
-                          where E.IdEmpresa == IdEmpresa && E.IdNivelCta == i_nivelHijo
-                          select new { E.nv_NumDigitos };
+                          where E.idempresa == IdEmpresa && E.idnivelcta == i_nivelHijo
+                          select new { E.nv_numdigitos };
                 foreach (var item in tb2)
                 {
                     //Obtengo los numeros de digitos del hijo
-                    numDigitosxHijo = Convert.ToInt32(item.nv_NumDigitos);
+                    numDigitosxHijo = Convert.ToInt32(item.nv_numdigitos);
                 }
-                
+
                 OEPlanCta.Dispose();
                 OEPlanCta = new EntitiesDBConta();
                 var tb3 = from F in OEPlanCta.ct_plancta
-                          where F.IdEmpresa == IdEmpresa && F.IdCtaCblePadre==codPadre && F.IdNivelCta == i_nivelHijo
-                          select new { id = F.IdCtaCble.Substring(F.IdCtaCblePadre.Trim().Length)};   
+                          where F.idempresa == IdEmpresa && F.idctacblepadre == codPadre && F.idnivelcta == i_nivelHijo
+                          select new { id = F.idctacble.Substring(F.idctacblepadre.Trim().Length) };
+
                 List<int> lista = new List<int>();
                 foreach (var item in tb3)
                 {
@@ -635,7 +537,7 @@ namespace Bizu.Infrastructure.Contabilidad
                 else
                 {
                     //asigno el primer valor cuando no obtengo nada de la lista
-                    idHijo = "000000001" ;
+                    idHijo = "000000001";
                 }
                 int value = idHijo.Length - numDigitosxHijo;
                 string result = idHijo.Substring(value, numDigitosxHijo);
@@ -645,7 +547,7 @@ namespace Bizu.Infrastructure.Contabilidad
             catch (Exception ex)
             {
                 MensajeError = ex.Message;
-                
+
                 tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
                 tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", MensajeError, "",
                                     "", "", "", "", DateTime.Now);
@@ -654,39 +556,39 @@ namespace Bizu.Infrastructure.Contabilidad
                 throw new Exception(ex.ToString());
             }
         }
-        
+
         public Boolean ModificarDB(ct_Plancta_Info info, ref string MensajeError)
         {
             try
             {
                 using (EntitiesDBConta context = new EntitiesDBConta())
                 {
-                    var contact = context.ct_plancta.FirstOrDefault(minfo => minfo.IdCtaCble == info.IdCtaCble && minfo.IdEmpresa == info.IdEmpresa);
+                    var contact = context.ct_plancta.FirstOrDefault(minfo => minfo.idctacble == info.IdCtaCble && minfo.idempresa == info.IdEmpresa);
 
                     if (contact != null)
                     {
-                        contact.IdEmpresa = info.IdEmpresa;
-                        contact.pc_Cuenta = info.pc_Cuenta;
+                        contact.idempresa = info.IdEmpresa;
+                        contact.pc_cuenta = info.pc_Cuenta;
 
                         if (info.IdCtaCblePadre == "")
                         {
-                            contact.IdCtaCblePadre = null;
+                            contact.idctacblepadre = null;
                         }
 
 
-                        contact.IdCatalogo = info.IdCatalogo;
-                        contact.pc_Naturaleza = info.pc_Naturaleza;
-                        contact.IdNivelCta = Convert.ToInt32(info.IdNivelCta);
-                        contact.IdGrupoCble = info.IdGrupoCble;
-                        contact.pc_Estado = info.pc_Estado;
-                        contact.pc_EsMovimiento = info.pc_EsMovimiento;
+                        contact.idcatalogo = info.IdCatalogo;
+                        contact.pc_naturaleza = info.pc_Naturaleza;
+                        contact.idnivelcta = Convert.ToInt32(info.IdNivelCta);
+                        contact.idgrupocble = info.IdGrupoCble;
+                        contact.pc_estado = info.pc_Estado;
+                        contact.pc_esmovimiento = info.pc_EsMovimiento;
                         contact.pc_es_flujo_efectivo = info.pc_es_flujo_efectivo;
 
-                        contact.IdUsuarioUltMod = info.IdUsuario;
-                        contact.Fecha_UltMod = DateTime.Now;
-                        contact.IdTipoCtaCble = info.IdTipoCtaCble;
-                        contact.IdTipo_Gasto = info.IdTipo_Gasto;
-                        contact.IdTipo_Costo = info.IdTipo_Costo;
+                        contact.idusuarioultmod = info.IdUsuario;
+                        contact.fecha_ultmod = DateTime.Now;
+                        contact.idtipoctacble = info.IdTipoCtaCble;
+                        contact.idtipo_gasto = info.IdTipo_Gasto;
+                        contact.idtipo_costo = info.IdTipo_Costo;
 
                         contact.pc_clave_corta = info.pc_clave_corta;
                         context.SaveChanges();
@@ -714,11 +616,12 @@ namespace Bizu.Infrastructure.Contabilidad
                 {
                     EntitiesDBConta EDB = new EntitiesDBConta();
                     var Q = from per in EDB.ct_plancta
-                            where per.IdEmpresa == IdEmpresa 
-                            && per.IdCtaCble.Trim() == IdCuenta.Trim()
+                            where per.idempresa == IdEmpresa
+                            && per.idctacble.Trim() == IdCuenta.Trim()
                             select per;
+
                     return (Q.ToList().Count > 0) ? true : false;
-                }  
+                }
 
             }
             catch (Exception ex)
@@ -743,23 +646,23 @@ namespace Bizu.Infrastructure.Contabilidad
                 {
                     EntitiesDBConta EDB = new EntitiesDBConta();
                     var Q = from per in EDB.ct_plancta
-                            where per.IdEmpresa == info.IdEmpresa 
-                            && per.IdCtaCble == info.IdCtaCble
+                            where per.idempresa == info.IdEmpresa
+                            && per.idctacble == info.IdCtaCble
                             select per;
+
                     if (Q.ToList().Count == 0)
                     {
-
                         var address = new ct_plancta();
-                        address.IdEmpresa = info.IdEmpresa;
-                        address.IdCtaCble = info.IdCtaCble;
-                        address.pc_Cuenta = info.pc_Cuenta;
-                        address.IdCtaCblePadre = info.IdCtaCblePadre == "" ? null : info.IdCtaCblePadre;
-                        address.IdCatalogo = info.IdCatalogo;
-                        address.pc_Naturaleza = info.pc_Naturaleza;
-                        address.IdNivelCta = Convert.ToByte(info.IdNivelCta);
-                        address.IdGrupoCble = info.IdGrupoCble;
-                        address.pc_Estado = info.pc_Estado;
-                        address.pc_EsMovimiento = info.pc_EsMovimiento;
+                        address.idempresa = info.IdEmpresa;
+                        address.idctacble = info.IdCtaCble;
+                        address.pc_cuenta = info.pc_Cuenta;
+                        address.idctacblepadre = info.IdCtaCblePadre == "" ? null : info.IdCtaCblePadre;
+                        address.idcatalogo = info.IdCatalogo;
+                        address.pc_naturaleza = info.pc_Naturaleza;
+                        address.idnivelcta = Convert.ToByte(info.IdNivelCta);
+                        address.idgrupocble = info.IdGrupoCble;
+                        address.pc_estado = info.pc_Estado;
+                        address.pc_esmovimiento = info.pc_EsMovimiento;
                         address.pc_es_flujo_efectivo = info.pc_es_flujo_efectivo;
 
                         decimal Idpc_clave_corta = 0;
@@ -774,21 +677,19 @@ namespace Bizu.Infrastructure.Contabilidad
                             {
                                 address.pc_clave_corta = info.pc_clave_corta;
                             }
-                        }else
+                        }
+                        else
                             address.pc_clave_corta = "0";
 
-                        address.IdUsuario = info.IdUsuario;
+                        address.idusuario = info.IdUsuario;
                         address.nom_pc = info.nom_pc;
                         address.ip = info.ip;
-                        address.Fecha_Transac = DateTime.Now;
-
-                        address.IdUsuarioUltMod = info.IdUsuario;
-                        address.Fecha_UltMod = DateTime.Now;
-
-                        address.IdTipoCtaCble = info.IdTipoCtaCble;
-                        address.IdTipo_Gasto = info.IdTipo_Gasto;
-
-                        address.IdTipo_Costo  = info.IdTipo_Costo;
+                        address.fecha_transac = DateTime.Now;
+                        address.idusuarioultmod = info.IdUsuario;
+                        address.fecha_ultmod = DateTime.Now;
+                        address.idtipoctacble = info.IdTipoCtaCble;
+                        address.idtipo_gasto = info.IdTipo_Gasto;
+                        address.idtipo_costo = info.IdTipo_Costo;
 
                         context.ct_plancta.Add(address);
                         context.SaveChanges();
@@ -800,7 +701,7 @@ namespace Bizu.Infrastructure.Contabilidad
                 }
                 return true;
             }
-           
+
 
             catch (DbEntityValidationException ex)
             {
@@ -820,7 +721,7 @@ namespace Bizu.Infrastructure.Contabilidad
                 }
                 return false;
                 //throw new Exception(ex.ToString());
-            }   
+            }
         }
 
         public Boolean EliminarDB(int IdEmpresa, ref string MensajeError)
@@ -829,7 +730,7 @@ namespace Bizu.Infrastructure.Contabilidad
             {
                 using (EntitiesDBConta context = new EntitiesDBConta())
                 {
-                    context.SetCommandTimeOut(6000);
+                    //context.SetCommandTimeOut(6000);
                     context.Database.ExecuteSqlCommand("delete from ct_plancta where IdEmpresa = " + IdEmpresa);
                 }
                 return true;
@@ -854,26 +755,26 @@ namespace Bizu.Infrastructure.Contabilidad
 
                 using (EntitiesDBConta context = new EntitiesDBConta())
                 {
-                    var contact = context.ct_plancta.FirstOrDefault(minfo => minfo.IdCtaCble == info.IdCtaCble && minfo.IdEmpresa == info.IdEmpresa);
+                    var contact = context.ct_plancta.FirstOrDefault(minfo => minfo.idctacble == info.IdCtaCble && minfo.idempresa == info.IdEmpresa);
 
                     if (contact != null)
                     {
                         var padre = (from C in context.ct_plancta
-                                     where C.IdCtaCblePadre == info.IdCtaCble
-                                     select C.IdCtaCble).Count();
+                                     where C.idctacblepadre == info.IdCtaCble
+                                     select C.idctacble).Count();
                         if (padre == 0)
                         {
-                            contact.pc_Estado = "I";
-                            contact.IdUsuarioUltAnu = info.IdUsuarioUltAnu;
-                            contact.Fecha_UltAnu = DateTime.Now;
-                            contact.MotivoAnulacion = info.MotivoAnulacion;
+                            contact.pc_estado = "I";
+                            contact.idusuarioultanu = info.IdUsuarioUltAnu;
+                            contact.fecha_ultanu = DateTime.Now;
+                            contact.motivoanulacion = info.MotivoAnulacion;
 
                             context.SaveChanges();
-                            res= true;
+                            res = true;
                         }
                         else
                         {
-                            res= false;
+                            res = false;
                         }
                     }
                 }
@@ -893,13 +794,13 @@ namespace Bizu.Infrastructure.Contabilidad
 
         public Boolean VerificaNivel(int idnivel, int idempresa, ref string MensajeError)
         {
-            
+
             try
             {
                 EntitiesDBConta tabla = new EntitiesDBConta();
                 var q = (from reg in tabla.ct_plancta_nivel
-                         where reg.IdEmpresa==idempresa
-                         select reg.IdNivelCta).Max();
+                         where reg.idempresa == idempresa
+                         select reg.idnivelcta).Max();
                 return (Convert.ToInt32(q.ToString()) == idnivel) ? true : false;
             }
             catch (Exception ex)
@@ -922,12 +823,12 @@ namespace Bizu.Infrastructure.Contabilidad
                 using (EntitiesDBConta Context = new EntitiesDBConta())
                 {
                     var lst = from q in Context.ct_plancta
-                              where q.IdEmpresa == IdEmpresa
+                              where q.idempresa == IdEmpresa
                               select q;
-                    
-                    if (IdGrupoCble!="")
+
+                    if (IdGrupoCble != "")
                     {
-                        lst = lst.Where(q => q.IdGrupoCble == IdGrupoCble);
+                        lst = lst.Where(q => q.idgrupocble == IdGrupoCble);
                     }
                     string ClaveCorta = "";
                     foreach (var item in lst)
@@ -935,22 +836,22 @@ namespace Bizu.Infrastructure.Contabilidad
                         ct_Plancta_Info info = new ct_Plancta_Info();
                         ClaveCorta = (item.pc_clave_corta == null || item.pc_clave_corta == "") ? "" : "{" + item.pc_clave_corta + "}";
 
-                        info.IdEmpresa = item.IdEmpresa;
-                        info.IdCtaCble = item.IdCtaCble.Trim();
-                        info.pc_Cuenta = item.pc_Cuenta.Trim();
-                        info.pc_Cuenta2 = ClaveCorta + "[" + item.IdCtaCble.Trim() + "] - " + item.pc_Cuenta.Trim();
-                        info.IdCtaCblePadre = (item.IdCtaCblePadre == null) ? "" : item.IdCtaCblePadre.Trim();
-                        info.IdCatalogo = Convert.ToDecimal(item.IdCatalogo);
-                        info.pc_Naturaleza = item.pc_Naturaleza;
-                        info.IdNivelCta = item.IdNivelCta;
-                        info.IdGrupoCble = item.IdGrupoCble.Trim();
-                        info.pc_Estado = item.pc_Estado;
-                        info.pc_EsMovimiento = item.pc_EsMovimiento;
+                        info.IdEmpresa = item.idempresa;
+                        info.IdCtaCble = item.idctacble.Trim();
+                        info.pc_Cuenta = item.pc_cuenta.Trim();
+                        info.pc_Cuenta2 = ClaveCorta + "[" + item.idctacble.Trim() + "] - " + item.pc_cuenta.Trim();
+                        info.IdCtaCblePadre = (item.idctacblepadre == null) ? "" : item.idctacblepadre.Trim();
+                        info.IdCatalogo = Convert.ToDecimal(item.idcatalogo);
+                        info.pc_Naturaleza = item.pc_naturaleza;
+                        info.IdNivelCta = item.idnivelcta;
+                        info.IdGrupoCble = item.idgrupocble.Trim();
+                        info.pc_Estado = item.pc_estado;
+                        info.pc_EsMovimiento = item.pc_esmovimiento;
                         info.pc_clave_corta = item.pc_clave_corta;
-                        info.IdTipoCtaCble = item.IdTipoCtaCble;
-                        info.IdGrupoCble = item.IdGrupoCble;
-                        info.IdTipo_Gasto = item.IdTipo_Gasto;
-                        info.IdTipo_Costo = item.IdTipo_Costo;
+                        info.IdTipoCtaCble = item.idtipoctacble;
+                        info.IdGrupoCble = item.idgrupocble;
+                        info.IdTipo_Gasto = item.idtipo_gasto;
+                        info.IdTipo_Costo = item.idtipo_costo;
                         Lista.Add(info);
                     }
                 }
@@ -958,7 +859,7 @@ namespace Bizu.Infrastructure.Contabilidad
             }
             catch (Exception ex)
             {
-                string MensajeError="";
+                string MensajeError = "";
                 MensajeError = ex.Message;
                 tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
                 tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", MensajeError, "",
@@ -971,7 +872,7 @@ namespace Bizu.Infrastructure.Contabilidad
 
         public ct_Plancta_Data()
         {
-            
+
         }
 
         private decimal GetIdClave(int IdEmpresa)
@@ -985,16 +886,16 @@ namespace Bizu.Infrastructure.Contabilidad
 
                 EntitiesDBConta contex = new EntitiesDBConta();
                 var selecte = (from q in contex.ct_plancta
-                              where q.IdEmpresa == IdEmpresa
-                              && q.pc_clave_corta != ""
-                              && q.pc_clave_corta != null                              
-                              select q.pc_clave_corta).ToList();
+                               where q.idempresa == IdEmpresa
+                               && q.pc_clave_corta != ""
+                               && q.pc_clave_corta != null
+                               select q.pc_clave_corta).ToList();
 
                 var coinciden = (from v in selecte
-                                where numero.Matches(v).Count > 0
-                                select v);
+                                 where numero.Matches(v).Count > 0
+                                 select v);
 
-                    
+
                 if (coinciden.ToList().Count() == 0)
                 {
                     Id = 1;

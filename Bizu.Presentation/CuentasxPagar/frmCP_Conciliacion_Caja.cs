@@ -66,11 +66,8 @@ namespace Bizu.Presentation.CuentasxPagar
         ct_Cbtecble_det_Bus bus_CbteCble_x_OG = new ct_Cbtecble_det_Bus();
         ct_Cbtecble_det_Bus CbtDet_B = new ct_Cbtecble_det_Bus();
         ct_Cbtecble_det_Bus bus_CbteCble_det = new ct_Cbtecble_det_Bus();
-        ct_centro_costo_sub_centro_costo_Bus Bus_SubCentroCosto = new ct_centro_costo_sub_centro_costo_Bus();
         ct_Periodo_Bus Bus_Periodo = new ct_Periodo_Bus();
         ct_Plancta_Bus Bus_PlanCta = new ct_Plancta_Bus();
-        ct_punto_cargo_Bus punto_cargo_bus = new ct_punto_cargo_Bus();
-        ct_punto_cargo_grupo_Bus bus_Grupo_PC = new ct_punto_cargo_grupo_Bus();
         vwtb_persona_beneficiario_Bus Bus_Beneficiario_x_Vale_Caja = new vwtb_persona_beneficiario_Bus();
 
         //LISTAS
@@ -85,14 +82,11 @@ namespace Bizu.Presentation.CuentasxPagar
         List<ct_Cbtecble_det_Info> list_CbteCble_x_Conci_caja = new List<ct_Cbtecble_det_Info>();
         List<ct_Periodo_Info> list_Periodo = new List<ct_Periodo_Info>();
         List<ct_Plancta_Info> List_PlanCta = new List<ct_Plancta_Info>();
-        List<ct_punto_cargo_Info> lista_punto_cargo = new List<ct_punto_cargo_Info>();
-        List<ct_punto_cargo_grupo_Info> list_Grupo_PC = new List<ct_punto_cargo_grupo_Info>();
         List<cp_orden_pago_tipo_Info> list_OrdenTipPago = new List<cp_orden_pago_tipo_Info>();
         List<cp_proveedor_Info> List_Prove_Info = new List<cp_proveedor_Info>();
         List<cp_retencion_det_Info> LstRetencion = new List<cp_retencion_det_Info>();
         List<vwtb_persona_beneficiario_Info> list_Beneficiario_ValeCaj = new List<vwtb_persona_beneficiario_Info>();
         BindingList<caj_Caja_Movimiento_Info> BindingList_conciliacion_det_x_ValeCaja = new BindingList<caj_Caja_Movimiento_Info>();
-        BindingList<ct_centro_costo_sub_centro_costo_Info> BindListaSubCentro = new BindingList<ct_centro_costo_sub_centro_costo_Info>();
         BindingList<cp_conciliacion_Caja_det_Info> BindingList_Conciliacion_det_x_FP = new BindingList<cp_conciliacion_Caja_det_Info>();
         BindingList<cp_conciliacion_Caja_det_Ing_Caja_Info> BindingList_conciliacion_det_x_Ing = new BindingList<cp_conciliacion_Caja_det_Ing_Caja_Info>();
 
@@ -105,8 +99,6 @@ namespace Bizu.Presentation.CuentasxPagar
         caj_Caja_Movimiento_Info Fila_x_ValeCaja = new caj_Caja_Movimiento_Info();
         caj_parametro_Info Info_CajaParametro = new caj_parametro_Info();
         cp_orden_giro_Info Info_OG = new cp_orden_giro_Info();
-        ct_punto_cargo_Info info_punto_cargo = new ct_punto_cargo_Info();
-        ct_punto_cargo_grupo_Info info_Grupo_PC = new ct_punto_cargo_grupo_Info();
         ct_Periodo_Info InfoPeriodo = new ct_Periodo_Info();
         ct_Cbtecble_Info info_CbteCble_x_OG = new ct_Cbtecble_Info();
         ct_Cbtecble_Info InfoCbte_CbteCble_I = new ct_Cbtecble_Info();
@@ -315,7 +307,7 @@ namespace Bizu.Presentation.CuentasxPagar
         {
             try
             {
-                List_Caja_Movimiento_Tipo = Bus_CajaMoviTipo_B.Get_list_Caja_Movimiento_Tipo(param.IdEmpresa, Cl_Enumeradores.eTipo_Ing_Egr.EGRESOS, ref  MensajeError);
+                List_Caja_Movimiento_Tipo = Bus_CajaMoviTipo_B.Get_list_Caja_Movimiento_Tipo(param.IdEmpresa, Cl_Enumeradores.eTipo_Ing_Egr.EGRESOS, ref MensajeError);
                 cmb_Motivo.DataSource = List_Caja_Movimiento_Tipo;
                 cmb_Motivo.DisplayMember = "tm_descripcion";
                 cmb_Motivo.ValueMember = "IdTipoMovi";
@@ -422,28 +414,10 @@ namespace Bizu.Presentation.CuentasxPagar
 
                 lista_Caja = new List<caj_Caja_Info>();
 
-                lista_Caja = Bus_Caja.Get_list_caja(param.IdEmpresa, ref  MensajeError);
+                lista_Caja = Bus_Caja.Get_list_caja(param.IdEmpresa, ref MensajeError);
                 this.ultraCmbE_caja.Properties.DataSource = lista_Caja;
                 this.ultraCmbE_caja.Properties.DisplayMember = "ca_Descripcion";
                 this.ultraCmbE_caja.Properties.ValueMember = "IdCaja";
-
-                list_Grupo_PC = bus_Grupo_PC.Get_List_punto_cargo_grupo(param.IdEmpresa, ref MensajeError);
-                cmb_Grupo_PC_val.DataSource = list_Grupo_PC;
-                cmb_Grupo_PC_val.ValueMember = "IdPunto_cargo_grupo";
-                cmb_Grupo_PC_val.DisplayMember = "nom_punto_cargo_grupo";
-
-
-
-                lista_punto_cargo = punto_cargo_bus.Get_List_PuntoCargo(param.IdEmpresa);
-                cmbpunto_cargo.DataSource = lista_punto_cargo;
-                cmbpunto_cargo.ValueMember = "IdPunto_cargo";
-                cmbpunto_cargo.DisplayMember = "nom_punto_cargo";
-                //Para fj
-                cmb_punto_cargo_val_fj.DataSource = lista_punto_cargo;
-
-                cmb_Punto_cargo_val.DataSource = lista_punto_cargo;
-                cmb_Punto_cargo_val.ValueMember = "IdPunto_cargo";
-                cmb_Punto_cargo_val.DisplayMember = "nom_punto_cargo";
             }
             catch (Exception ex)
             {
@@ -522,7 +496,7 @@ namespace Bizu.Presentation.CuentasxPagar
                     MessageBox.Show("No puede continuar porque están incompletos los parámetros de Cuentas por Pagar, Falta ingresar el Tipo de Movimiento Egreso de Caja.. \nIngréselos desde la pantalla de Parámetros Cuentas por Pagar,o comuníquese con sistemas", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.Close(); return;
                 }
-                Info_CajaMoviTipo_I = Bus_CajaMoviTipo_B.Get_Info_Movimiento_Tipo((Info_Param_cxp.pa_TipoEgrMoviCaja_Conciliacion == null) ? 0 : Convert.ToInt32(Info_Param_cxp.pa_TipoEgrMoviCaja_Conciliacion), param.IdEmpresa, ref  MensajeError);
+                Info_CajaMoviTipo_I = Bus_CajaMoviTipo_B.Get_Info_Movimiento_Tipo((Info_Param_cxp.pa_TipoEgrMoviCaja_Conciliacion == null) ? 0 : Convert.ToInt32(Info_Param_cxp.pa_TipoEgrMoviCaja_Conciliacion), param.IdEmpresa, ref MensajeError);
 
                 if (Info_CajaMoviTipo_I == null)
                 {
@@ -777,40 +751,8 @@ namespace Bizu.Presentation.CuentasxPagar
                         }
 
                     }
-
                 }
-                if (e.Column == colIdCentroCosto1)
-                {
-                    BindListaSubCentro = new BindingList<ct_centro_costo_sub_centro_costo_Info>();
-                    BindListaSubCentro = new BindingList<ct_centro_costo_sub_centro_costo_Info>
-                        (Bus_SubCentroCosto.Get_list_centro_costo_sub_centro_costo(param.IdEmpresa, Convert.ToString(e.Value)));
 
-                    cmbSubCentroCosto.Items.Clear();
-                    foreach (ct_centro_costo_sub_centro_costo_Info item in BindListaSubCentro)
-                    {
-                        item.NomSubCentroCosto = "[" + item.IdCentroCosto_sub_centro_costo.Trim() + "] - " + item.Centro_costo.Trim();
-                        cmbSubCentroCosto.Items.Add(item.NomSubCentroCosto);
-                    }
-
-                }
-                else
-
-                    if (e.Column == colNomSubCentroCosto)
-                    {
-                        if (row_conciliacion_det_FP != null)
-                        {
-
-                        }
-
-                    }
-
-                if (e.Column == colTipoMovi)
-                {
-                    if (row_conciliacion_det_FP != null)
-                    {
-
-                    }
-                }
                 CalcularEgresos();
                 CalcularDiferencia();
             }
@@ -1892,23 +1834,7 @@ namespace Bizu.Presentation.CuentasxPagar
                         }
                     }
                 }
-                if (e.Column == colIdCentroCosto2)
-                {
-                    BindListaSubCentro = new BindingList<ct_centro_costo_sub_centro_costo_Info>();
-                    BindListaSubCentro = new BindingList<ct_centro_costo_sub_centro_costo_Info>
-                        (Bus_SubCentroCosto.Get_list_centro_costo_sub_centro_costo(param.IdEmpresa, Convert.ToString(e.Value)));
 
-                    cmbSubCentroCosto2.Items.Clear();
-                    foreach (ct_centro_costo_sub_centro_costo_Info item in BindListaSubCentro)
-                    {
-                        item.NomSubCentroCosto = "[" + item.IdCentroCosto_sub_centro_costo.Trim() + "] - " + item.Centro_costo.Trim();
-                        cmbSubCentroCosto2.Items.Add(item.NomSubCentroCosto);
-                    }
-                }
-                if (e.Column == col_IdPunto_cargo_val_FJ)
-                {
-
-                }
             }
             catch (Exception ex)
             {
@@ -2504,37 +2430,7 @@ namespace Bizu.Presentation.CuentasxPagar
 
         private void cmb_Punto_cargo_val_Click(object sender, EventArgs e)
         {
-            try
-            {
-                caj_Caja_Movimiento_Info row = (caj_Caja_Movimiento_Info)gridViewValeCaja.GetFocusedRow();
-                if (row != null)
-                {
-                    if (row.IdPunto_cargo_grupo != null)
-                    {
-                        frmCon_Punto_Cargo_Cons frm_cons = new frmCon_Punto_Cargo_Cons();
 
-                        GridViewInfo info = gridViewValeCaja.GetViewInfo() as GridViewInfo;
-                        GridCellInfo info_cell = info.GetGridCellInfo(rowHandle_val, colPunto_cargo_val);
-
-                        frm_cons.Cargar_grid_x_grupo((int)row.IdPunto_cargo_grupo);
-                        frm_cons.ShowDialog();
-
-                        info_punto_cargo = frm_cons.Get_Info();
-                        if (info_punto_cargo != null)
-                        {
-                            gridViewValeCaja.SetFocusedRowCellValue(colPunto_cargo_val, info_punto_cargo.IdPunto_cargo);
-                        }
-                        else
-                            gridViewValeCaja.SetFocusedRowCellValue(colPunto_cargo_val, null);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                string NameMetodo = System.Reflection.MethodBase.GetCurrentMethod().Name;
-                MessageBox.Show(NameMetodo + " - " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log_Error_bus.Log_Error(NameMetodo + " - " + ex.ToString());
-            }
         }
 
         private void btn_Recalcular_Click(object sender, EventArgs e)

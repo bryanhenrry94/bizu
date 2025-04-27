@@ -14,9 +14,9 @@ namespace Bizu.Infrastructure
     
     public partial class vwct_cbtecble_con_ctacble_acreedora
     {
-        public int IdEmpresa { get; set; }
-        public int IdTipoCbte { get; set; }
-        public decimal IdCbteCble { get; set; }
-        public string IdCtaCble_Acreedora { get; set; }
+        public int idempresa { get; set; }
+        public int idtipocbte { get; set; }
+        public decimal idcbtecble { get; set; }
+        public string idctacble_acreedora { get; set; }
     }
 }

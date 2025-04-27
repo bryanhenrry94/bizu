@@ -14,15 +14,13 @@ namespace Bizu.Infrastructure
     
     public partial class ct_periodo_x_tb_modulo
     {
-        public int IdEmpresa { get; set; }
-        public int IdPeriodo { get; set; }
-        public string IdModulo { get; set; }
-        public bool Cerrado { get; set; }
-        public string IdUsuario { get; set; }
-        public string IdUsuarioUltModi { get; set; }
-        public Nullable<System.DateTime> FechaTransac { get; set; }
-        public Nullable<System.DateTime> FechaUltModi { get; set; }
-    
-        public virtual ct_periodo ct_periodo { get; set; }
+        public int idempresa { get; set; }
+        public int idperiodo { get; set; }
+        public string idmodulo { get; set; }
+        public bool cerrado { get; set; }
+        public string idusuario { get; set; }
+        public string idusuarioultmodi { get; set; }
+        public Nullable<System.DateTime> fechatransac { get; set; }
+        public Nullable<System.DateTime> fechaultmodi { get; set; }
     }
 }

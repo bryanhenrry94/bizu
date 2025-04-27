@@ -1264,39 +1264,17 @@ namespace Bizu.Presentation.CuentasxPagar
                         int IdTipoCbte_rev = Convert.ToInt32(paramCP_I.pa_TipoCbte_para_conci_anulacion_x_antcipo);
                         decimal IdCbteCble_rev = 0;
 
-                        switch (param.IdCliente_Ven_x_Default)
+                        ct_Cbtecble_Bus bus_CbteCble = new ct_Cbtecble_Bus();
+                        if (bus_CbteCble.ReversoCbteCble(Convert.ToInt32(item.IdEmpresa_pago), Convert.ToDecimal(item.IdCbteCble_pago), Convert.ToInt32(item.IdTipoCbte_pago), IdTipoCbte_rev, ref IdCbteCble_rev, ref mensaje, param.IdUsuario, ""))
                         {
-                            case Cl_Enumeradores.eCliente_Vzen.EDEHSA:
-                                ct_Cbtecble_Bus bus_CbteCble_Edehsa = new ct_Cbtecble_Bus();
-                                if (!rb_NotaCred.Checked)
-                                {
-                                    if (bus_CbteCble_Edehsa.ReversoCbteCble_Edehsa(Convert.ToInt32(item.IdEmpresa_pago), Convert.ToDecimal(item.IdCbteCble_pago), Convert.ToInt32(item.IdTipoCbte_pago), IdTipoCbte_rev, fechaAnul, ref IdCbteCble_rev, ref mensaje, param.IdUsuario, ""))
-                                    {
-                                        if (OrdenPagoCancesBus.Eliminar_OrdenPagoCancelaciones(item, ref mensaje))
-                                        {
-                                            /*
-                                            SETINFO_.IdEmpresa_cbtecble = item.IdEmpresa;
-                                            SETINFO_.IdTipoCbte_cbtecble = IdTipoCbte_rev;
-                                            SETINFO_.IdCbteCble_cbtecble = IdCbteCble_rev;
-                                            */
-                                        }
-                                    }
-                                }
-                                break;
-                            default:
-                                ct_Cbtecble_Bus bus_CbteCble = new ct_Cbtecble_Bus();
-                                if (bus_CbteCble.ReversoCbteCble(Convert.ToInt32(item.IdEmpresa_pago), Convert.ToDecimal(item.IdCbteCble_pago), Convert.ToInt32(item.IdTipoCbte_pago), IdTipoCbte_rev, ref IdCbteCble_rev, ref mensaje, param.IdUsuario, ""))
-                                {
-                                    if (OrdenPagoCancesBus.Eliminar_OrdenPagoCancelaciones(item, ref mensaje))
-                                    {
-                                        /*
-                                        SETINFO_.IdEmpresa_cbtecble = item.IdEmpresa;
-                                        SETINFO_.IdTipoCbte_cbtecble = IdTipoCbte_rev;
-                                        SETINFO_.IdCbteCble_cbtecble = IdCbteCble_rev;
-                                        */
-                                    }
-                                }
-                                break;
+                            if (OrdenPagoCancesBus.Eliminar_OrdenPagoCancelaciones(item, ref mensaje))
+                            {
+                                /*
+                                SETINFO_.IdEmpresa_cbtecble = item.IdEmpresa;
+                                SETINFO_.IdTipoCbte_cbtecble = IdTipoCbte_rev;
+                                SETINFO_.IdCbteCble_cbtecble = IdCbteCble_rev;
+                                */
+                            }
                         }
                     }
                     if (ConciliacionBus.AnularDB(SETINFO_, ref mensaje))
