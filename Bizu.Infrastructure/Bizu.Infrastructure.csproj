@@ -162,111 +162,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActivoFijo\Af_Activo_fijo_Categoria_Data.cs" />
-    <Compile Include="ActivoFijo\Af_Activo_fijo_CtasCbles_Data.cs" />
-    <Compile Include="ActivoFijo\Af_Activo_fijo_CtasCbles_Tipo_Data.cs" />
-    <Compile Include="ActivoFijo\Af_Activo_fijo_Data.cs" />
-    <Compile Include="ActivoFijo\Af_Activo_Fijo_Grupo_Data.cs" />
-    <Compile Include="ActivoFijo\Af_Activo_fijo_tipo_Data.cs" />
-    <Compile Include="ActivoFijo\Af_Activo_fijo_x_Af_Activo_fijo_Data.cs" />
-    <Compile Include="ActivoFijo\Af_CambioUbicacion_Activo_Data.cs" />
-    <Compile Include="ActivoFijo\Af_CatalogoTipo_Data.cs" />
-    <Compile Include="ActivoFijo\Af_Catalogo_Data.cs" />
-    <Compile Include="ActivoFijo\Af_Departamento_Data.cs" />
-    <Compile Include="ActivoFijo\Af_Depreciacion_Data.cs" />
-    <Compile Include="ActivoFijo\Af_Depreciacion_Det_Data.cs" />
-    <Compile Include="ActivoFijo\Af_Depreciacion_x_cta_cbtecble_Data.cs" />
-    <Compile Include="ActivoFijo\Af_Encargado_Data.cs" />
-    <Compile Include="ActivoFijo\Af_Mej_Baj_Activo_Data.cs" />
-    <Compile Include="ActivoFijo\Af_Parametros_Data.cs" />
-    <Compile Include="ActivoFijo\Af_PeriodoDepreciacion_Data.cs" />
-    <Compile Include="ActivoFijo\Af_Retiro_Activo_Data.cs" />
-    <Compile Include="ActivoFijo\Af_TipoTransac_x_Cta_CbteCble_Data.cs" />
-    <Compile Include="ActivoFijo\Af_Tipo_Depreciacion_Data.cs" />
-    <Compile Include="ActivoFijo\Af_Venta_Activo_Data.cs" />
-    <Compile Include="ActivoFijo\vwAf_ActivoFijo_Data.cs" />
-    <Compile Include="ActivoFijo\vwAF_OrdenCompra_x_Proveedor_Factura_SinCruce_ActivoFijo_Data.cs" />
-    <Compile Include="Af_Activo_fijo.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Af_Activo_fijo_Categoria.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Af_Activo_fijo_CtasCbles.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Af_Activo_fijo_CtasCbles_Tipo.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Af_Activo_fijo_tipo.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Af_Activo_fijo_x_Af_Activo_fijo.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Af_CambioUbicacion_Activo.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Af_Catalogo.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Af_CatalogoTipo.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Af_Departamento.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Af_Depreciacion.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Af_Depreciacion_Det.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Af_Depreciacion_Det_His_Anulacion.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Af_Depreciacion_His_Anulacion.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Af_Depreciacion_x_cta_cbtecble.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Af_Encargado.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Af_Mej_Baj_Activo.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Af_Parametros.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Af_PeriodoDepreciacion.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Af_proceso_depreciacion.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Af_Retiro_Activo.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Af_spACTF_activos_a_depreciar.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Af_spACTF_Rpt012.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Af_spACTF_Rpt014.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Af_TipoTransac_x_Cta_CbteCble.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Af_Tipo_Depreciacion.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Af_Venta_Activo.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
     <Compile Include="Bancos\ba_Archivo_Transferencia_Data.cs" />
     <Compile Include="Bancos\ba_Archivo_Transferencia_Det_Data.cs" />
     <Compile Include="Bancos\ba_Archivo_Transferencia_x_PreAviso_Cheq_Data.cs" />
@@ -1215,11 +1110,6 @@
     <Compile Include="mail_Plantilla_Mensaje.cs">
       <DependentUpon>ModelMail.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModelActivoFijo1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
     <Compile Include="ModelFacturacion.Context1.cs">
       <DependentUpon>ModelFacturacion.Context.tt</DependentUpon>
       <DesignTime>True</DesignTime>
@@ -1605,21 +1495,6 @@
     <Compile Include="Inventario\in_producto_x_cp_proveedor_Data.cs" />
     <Compile Include="Inventario\in_producto_x_tb_bodega_Data.cs" />
     <Compile Include="Inventario\in_transferencia_Data.cs" />
-    <Compile Include="ModelActivoFijo.Context1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelActivoFijo.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModelActivoFijo.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModelActivoFijo.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelActivoFijo.edmx</DependentUpon>
-    </Compile>
     <Compile Include="ModelBancos.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1779,12 +1654,6 @@
     <Compile Include="seg_usuario_x_tb_sis_reporte.cs">
       <DependentUpon>ModelSeguAcceso.tt</DependentUpon>
     </Compile>
-    <Compile Include="spACTF_activos_a_depreciar_mes_contable_Result.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="spACTF_activos_a_depreciar_Result.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
     <Compile Include="spCON_Mayorizar_x_fecha_corte_Result.cs">
       <DependentUpon>ModelConta.tt</DependentUpon>
     </Compile>
@@ -1936,51 +1805,6 @@
     </Compile>
     <Compile Include="tb_sucursal.cs">
       <DependentUpon>ModelGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwAf_ActivoCtasCbles.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwAf_ActivoFijo.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwAf_Activo_fijo.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwAf_Activo_fijo_Categoria.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwAf_Activo_fijo_CtasCbles.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwAf_Catalogo_IdAuto_numeric.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwAf_Depreciacion.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwAf_Depreciacion_Detalle.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwAf_Depre_x_Ciclo_Valor.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwAf_Mej_Baj_Activo.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwAF_OrdenCompra_x_Proveedor_Factura_ActivoFijo.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwAf_Retiro_Activo.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwAf_ValoresDepre_x_AF.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwAf_Valores_Depre_Contabilizar.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwAf_Venta_Activo.cs">
-      <DependentUpon>ModelActivoFijo.tt</DependentUpon>
     </Compile>
     <Compile Include="vwba_Archivo_Transferencia.cs">
       <DependentUpon>ModelBancos.tt</DependentUpon>
@@ -3090,23 +2914,6 @@
   <ItemGroup>
     <None Include="App.Config">
       <SubType>Designer</SubType>
-    </None>
-    <EntityDeploy Include="ModelActivoFijo.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelActivoFijo.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="ModelActivoFijo.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelActivoFijo.edmx</DependentUpon>
-      <LastGenOutput>ModelActivoFijo.Context1.cs</LastGenOutput>
-    </None>
-    <None Include="ModelActivoFijo.edmx.diagram">
-      <DependentUpon>ModelActivoFijo.edmx</DependentUpon>
-    </None>
-    <None Include="ModelActivoFijo.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelActivoFijo.edmx</DependentUpon>
-      <LastGenOutput>ModelActivoFijo1.cs</LastGenOutput>
     </None>
     <EntityDeploy Include="ModelBancos.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

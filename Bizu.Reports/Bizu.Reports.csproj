@@ -164,216 +164,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActivoFijo\XACTF_Rpt016_Bus.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt016_Data.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt016_Info.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt016_Rpt.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt016_Rpt.Designer.cs">
-      <DependentUpon>XACTF_Rpt016_Rpt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt015_frm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt015_frm.Designer.cs">
-      <DependentUpon>XACTF_Rpt015_frm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt015_rpt.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt015_rpt.Designer.cs">
-      <DependentUpon>XACTF_Rpt015_rpt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt001_Bus.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt001_Data.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt001_Info.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt001_rpt.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt001_rpt.Designer.cs">
-      <DependentUpon>XACTF_Rpt001_rpt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt002_Bus.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt002_Data.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt002_frm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt002_frm.Designer.cs">
-      <DependentUpon>XACTF_Rpt002_frm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt002_Info.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt002_rpt.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt002_rpt.Designer.cs">
-      <DependentUpon>XACTF_Rpt002_rpt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt003_Bus.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt003_Data.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt003_frm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt003_frm.Designer.cs">
-      <DependentUpon>XACTF_Rpt003_frm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt003_Info.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt003_rpt.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt003_rpt.Designer.cs">
-      <DependentUpon>XACTF_Rpt003_rpt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt004_Bus.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt004_Data.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt004_frm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt004_frm.Designer.cs">
-      <DependentUpon>XACTF_Rpt004_frm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt004_Info.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt004_rpt.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt004_rpt.Designer.cs">
-      <DependentUpon>XACTF_Rpt004_rpt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt005_Bus.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt005_Data.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt005_frm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt005_frm.Designer.cs">
-      <DependentUpon>XACTF_Rpt005_frm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt005_Info.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt005_rpt.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt005_rpt.Designer.cs">
-      <DependentUpon>XACTF_Rpt005_rpt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt006_Bus.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt006_Data.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt006_frm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt006_frm.Designer.cs">
-      <DependentUpon>XACTF_Rpt006_frm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt006_Info.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt006_rpt.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt006_rpt.Designer.cs">
-      <DependentUpon>XACTF_Rpt006_rpt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt007_Bus.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt007_Data.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt007_frm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt007_frm.Designer.cs">
-      <DependentUpon>XACTF_Rpt007_frm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt007_Info.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt007_rpt.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt007_rpt.Designer.cs">
-      <DependentUpon>XACTF_Rpt007_rpt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt008_Bus.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt008_Data.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt008_frm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt008_frm.Designer.cs">
-      <DependentUpon>XACTF_Rpt008_frm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt008_Info.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt008_rpt.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt008_rpt.Designer.cs">
-      <DependentUpon>XACTF_Rpt008_rpt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt009_Bus.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt009_Data.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt009_Info.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt009_rpt.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt009_rpt.Designer.cs">
-      <DependentUpon>XACTF_Rpt009_rpt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt010_Bus.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt010_Data.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt010_frm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt010_frm.Designer.cs">
-      <DependentUpon>XACTF_Rpt010_frm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt010_Info.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt010_rpt.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt010_rpt.Designer.cs">
-      <DependentUpon>XACTF_Rpt010_rpt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt011_Bus.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt011_Data.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt011_frm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt011_frm.Designer.cs">
-      <DependentUpon>XACTF_Rpt011_frm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt011_Info.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt011_rpt.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt011_rpt.Designer.cs">
-      <DependentUpon>XACTF_Rpt011_rpt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt012_Bus.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt012_Data.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt012_frm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt012_frm.Designer.cs">
-      <DependentUpon>XACTF_Rpt012_frm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt012_Info.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt012_rpt.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt012_rpt.Designer.cs">
-      <DependentUpon>XACTF_Rpt012_rpt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt013_Bus.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt013_Data.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt013_Info.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt013_Rpt.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt013_Rpt.Designer.cs">
-      <DependentUpon>XACTF_Rpt013_Rpt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt014_Bus.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt014_Data.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt014_Info.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt014_Rpt.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt014_Rpt.Designer.cs">
-      <DependentUpon>XACTF_Rpt014_Rpt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\XACTF_Rpt015_Bus.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt015_Data.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt015_Info.cs" />
     <Compile Include="Bancos\ChequeComprobante.cs" />
     <Compile Include="Bancos\XBAN_Rpt013_rpt_A5.cs">
       <SubType>Component</SubType>
@@ -1972,21 +1762,6 @@
     <Compile Include="Compras\XCOMP_Rpt006_rpt.Designer.cs">
       <DependentUpon>XCOMP_Rpt006_rpt.cs</DependentUpon>
     </Compile>
-    <Compile Include="Compras\XCOMP_Rpt007_Bus.cs" />
-    <Compile Include="Compras\XCOMP_Rpt007_Data.cs" />
-    <Compile Include="Compras\XCOMP_Rpt007_frm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Compras\XCOMP_Rpt007_frm.Designer.cs">
-      <DependentUpon>XCOMP_Rpt007_frm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Compras\XCOMP_Rpt007_Info.cs" />
-    <Compile Include="Compras\XCOMP_Rpt007_Rpt.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Compras\XCOMP_Rpt007_Rpt.Designer.cs">
-      <DependentUpon>XCOMP_Rpt007_Rpt.cs</DependentUpon>
-    </Compile>
     <Compile Include="Contabilidad\XCONTA_Rpt001_Bus.cs" />
     <Compile Include="Contabilidad\XCONTA_Rpt001_Data.cs" />
     <Compile Include="Contabilidad\XCONTA_Rpt001_frm.cs">
@@ -2079,12 +1854,6 @@
     </Compile>
     <Compile Include="Contabilidad\XCONTA_Rpt007_Rpt.Designer.cs">
       <DependentUpon>XCONTA_Rpt007_Rpt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controles\UCACTF_Menu_Reportes.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCACTF_Menu_Reportes.Designer.cs">
-      <DependentUpon>UCACTF_Menu_Reportes.cs</DependentUpon>
     </Compile>
     <Compile Include="Controles\UCBa_Menu_Reportes.cs">
       <SubType>UserControl</SubType>
@@ -3041,21 +2810,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model_Academico_Reportes.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Model_ActivoFijo_Reportes.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model_ActivoFijo_Reportes.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model_ActivoFijo_Reportes.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model_ActivoFijo_Reportes.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model_ActivoFijo_Reportes.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model_ActivoFijo_Reportes.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Model_CuentasxCobrar_Reportes.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -3107,15 +2861,6 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-    <Compile Include="spACTF_Rpt012_Poli_Result.cs">
-      <DependentUpon>Model_ActivoFijo_Reportes.tt</DependentUpon>
-    </Compile>
-    <Compile Include="spACTF_Rpt012_Result.cs">
-      <DependentUpon>Model_ActivoFijo_Reportes.tt</DependentUpon>
-    </Compile>
-    <Compile Include="spACTF_Rpt014_Result.cs">
-      <DependentUpon>Model_ActivoFijo_Reportes.tt</DependentUpon>
     </Compile>
     <Compile Include="spBAN_Rpt007_Result.cs">
       <DependentUpon>ModelBancos_Reportes_General.tt</DependentUpon>
@@ -3287,57 +3032,6 @@
     </Compile>
     <Compile Include="vwACA_Rpt001.cs">
       <DependentUpon>Model_Academico_Reportes.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwACTF_Rpt001.cs">
-      <DependentUpon>Model_ActivoFijo_Reportes.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwACTF_Rpt002.cs">
-      <DependentUpon>Model_ActivoFijo_Reportes.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwACTF_Rpt003.cs">
-      <DependentUpon>Model_ActivoFijo_Reportes.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwACTF_Rpt004.cs">
-      <DependentUpon>Model_ActivoFijo_Reportes.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwACTF_Rpt005.cs">
-      <DependentUpon>Model_ActivoFijo_Reportes.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwACTF_Rpt006.cs">
-      <DependentUpon>Model_ActivoFijo_Reportes.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwACTF_Rpt007.cs">
-      <DependentUpon>Model_ActivoFijo_Reportes.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwACTF_Rpt008.cs">
-      <DependentUpon>Model_ActivoFijo_Reportes.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwACTF_Rpt009.cs">
-      <DependentUpon>Model_ActivoFijo_Reportes.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwACTF_Rpt010.cs">
-      <DependentUpon>Model_ActivoFijo_Reportes.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwACTF_Rpt011.cs">
-      <DependentUpon>Model_ActivoFijo_Reportes.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwACTF_Rpt012.cs">
-      <DependentUpon>Model_ActivoFijo_Reportes.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwACTF_Rpt013.cs">
-      <DependentUpon>Model_ActivoFijo_Reportes.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwACTF_Rpt014.cs">
-      <DependentUpon>Model_ActivoFijo_Reportes.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwACTF_Rpt014_1.cs">
-      <DependentUpon>Model_ActivoFijo_Reportes.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwACTF_Rpt015.cs">
-      <DependentUpon>Model_ActivoFijo_Reportes.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwACTF_Rpt016.cs">
-      <DependentUpon>Model_ActivoFijo_Reportes.tt</DependentUpon>
     </Compile>
     <Compile Include="vwBAN_Rpt001.cs">
       <DependentUpon>ModelBancos_Reportes_General.tt</DependentUpon>
@@ -3840,10 +3534,6 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model_CuentasxCobrar_Reportes.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <EntityDeploy Include="Model_ActivoFijo_Reportes.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model_ActivoFijo_Reportes.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <EntityDeploy Include="Model_Academico_Reportes.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model_Academico_Reportes.Designer.cs</LastGenOutput>
@@ -3860,19 +3550,6 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model_Academico_Reportes.edmx</DependentUpon>
       <LastGenOutput>Model_Academico_Reportes.cs</LastGenOutput>
-    </None>
-    <None Include="Model_ActivoFijo_Reportes.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model_ActivoFijo_Reportes.edmx</DependentUpon>
-      <LastGenOutput>Model_ActivoFijo_Reportes.Context.cs</LastGenOutput>
-    </None>
-    <None Include="Model_ActivoFijo_Reportes.edmx.diagram">
-      <DependentUpon>Model_ActivoFijo_Reportes.edmx</DependentUpon>
-    </None>
-    <None Include="Model_ActivoFijo_Reportes.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model_ActivoFijo_Reportes.edmx</DependentUpon>
-      <LastGenOutput>Model_ActivoFijo_Reportes.cs</LastGenOutput>
     </None>
     <None Include="Model_CuentasxCobrar_Reportes.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -4012,84 +3689,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt016_Rpt.resx">
-      <DependentUpon>XACTF_Rpt016_Rpt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt015_frm.resx">
-      <DependentUpon>XACTF_Rpt015_frm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt015_rpt.resx">
-      <DependentUpon>XACTF_Rpt015_rpt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt001_rpt.resx">
-      <DependentUpon>XACTF_Rpt001_rpt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt002_frm.resx">
-      <DependentUpon>XACTF_Rpt002_frm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt002_rpt.resx">
-      <DependentUpon>XACTF_Rpt002_rpt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt003_frm.resx">
-      <DependentUpon>XACTF_Rpt003_frm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt003_rpt.resx">
-      <DependentUpon>XACTF_Rpt003_rpt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt004_frm.resx">
-      <DependentUpon>XACTF_Rpt004_frm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt004_rpt.resx">
-      <DependentUpon>XACTF_Rpt004_rpt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt005_frm.resx">
-      <DependentUpon>XACTF_Rpt005_frm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt005_rpt.resx">
-      <DependentUpon>XACTF_Rpt005_rpt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt006_frm.resx">
-      <DependentUpon>XACTF_Rpt006_frm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt006_rpt.resx">
-      <DependentUpon>XACTF_Rpt006_rpt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt007_frm.resx">
-      <DependentUpon>XACTF_Rpt007_frm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt007_rpt.resx">
-      <DependentUpon>XACTF_Rpt007_rpt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt008_frm.resx">
-      <DependentUpon>XACTF_Rpt008_frm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt008_rpt.resx">
-      <DependentUpon>XACTF_Rpt008_rpt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt009_rpt.resx">
-      <DependentUpon>XACTF_Rpt009_rpt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt010_frm.resx">
-      <DependentUpon>XACTF_Rpt010_frm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt010_rpt.resx">
-      <DependentUpon>XACTF_Rpt010_rpt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt011_frm.resx">
-      <DependentUpon>XACTF_Rpt011_frm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt011_rpt.resx">
-      <DependentUpon>XACTF_Rpt011_rpt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt012_frm.resx">
-      <DependentUpon>XACTF_Rpt012_frm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt012_rpt.resx">
-      <DependentUpon>XACTF_Rpt012_rpt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt014_Rpt.resx">
-      <DependentUpon>XACTF_Rpt014_Rpt.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Bancos\XBAN_Rpt013_rpt_A5.resx">
       <DependentUpon>XBAN_Rpt013_rpt_A5.cs</DependentUpon>
     </EmbeddedResource>
@@ -4723,12 +4322,6 @@
     <EmbeddedResource Include="Compras\XCOMP_Rpt006_rpt.resx">
       <DependentUpon>XCOMP_Rpt006_rpt.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Compras\XCOMP_Rpt007_frm.resx">
-      <DependentUpon>XCOMP_Rpt007_frm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Compras\XCOMP_Rpt007_Rpt.resx">
-      <DependentUpon>XCOMP_Rpt007_Rpt.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Contabilidad\XCONTA_Rpt001_frm.resx">
       <DependentUpon>XCONTA_Rpt001_frm.cs</DependentUpon>
     </EmbeddedResource>
@@ -4764,9 +4357,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Contabilidad\XCONTA_Rpt007_Rpt.resx">
       <DependentUpon>XCONTA_Rpt007_Rpt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCACTF_Menu_Reportes.resx">
-      <DependentUpon>UCACTF_Menu_Reportes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controles\UCBa_Menu_Reportes.resx">
       <DependentUpon>UCBa_Menu_Reportes.cs</DependentUpon>
