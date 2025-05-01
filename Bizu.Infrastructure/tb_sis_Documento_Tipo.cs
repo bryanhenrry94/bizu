@@ -14,9 +14,16 @@ namespace Bizu.Infrastructure
     
     public partial class tb_sis_documento_tipo
     {
+        public tb_sis_documento_tipo()
+        {
+            this.tb_sis_documento_tipo_x_empresa = new HashSet<tb_sis_documento_tipo_x_empresa>();
+        }
+    
         public string coddocumentotipo { get; set; }
         public string descripcion { get; set; }
         public string estado { get; set; }
         public Nullable<int> posicion { get; set; }
+    
+        public virtual ICollection<tb_sis_documento_tipo_x_empresa> tb_sis_documento_tipo_x_empresa { get; set; }
     }
 }

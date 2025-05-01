@@ -14,6 +14,13 @@ namespace Bizu.Infrastructure
     
     public partial class seg_usuario
     {
+        public seg_usuario()
+        {
+            this.seg_menu_x_empresa_x_usuario = new HashSet<seg_menu_x_empresa_x_usuario>();
+            this.seg_usuario_x_empresa = new HashSet<seg_usuario_x_empresa>();
+            this.seg_usuario_x_tb_sis_reporte = new HashSet<seg_usuario_x_tb_sis_reporte>();
+        }
+    
         public string idusuario { get; set; }
         public string contrasena { get; set; }
         public string estado { get; set; }
@@ -27,5 +34,9 @@ namespace Bizu.Infrastructure
         public Nullable<bool> exigirdirectivacontrasenia { get; set; }
         public Nullable<bool> cambiarcontraseniasgtsesion { get; set; }
         public Nullable<int> iddepartamento { get; set; }
+    
+        public virtual ICollection<seg_menu_x_empresa_x_usuario> seg_menu_x_empresa_x_usuario { get; set; }
+        public virtual ICollection<seg_usuario_x_empresa> seg_usuario_x_empresa { get; set; }
+        public virtual ICollection<seg_usuario_x_tb_sis_reporte> seg_usuario_x_tb_sis_reporte { get; set; }
     }
 }

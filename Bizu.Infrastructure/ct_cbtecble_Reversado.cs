@@ -21,5 +21,8 @@ namespace Bizu.Infrastructure
         public int idtipocbte_anu { get; set; }
         public decimal idcbtecble_anu { get; set; }
         public string ip { get; set; }
+    
+        public virtual ct_cbtecble ct_cbtecble { get; set; }
+        public virtual ct_cbtecble ct_cbtecble1 { get; set; }
     }
 }

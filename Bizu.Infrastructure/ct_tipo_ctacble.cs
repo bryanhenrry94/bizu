@@ -12,16 +12,10 @@ namespace Bizu.Infrastructure
     using System;
     using System.Collections.Generic;
     
-    public partial class seg_menu_x_empresa_x_usuario
+    public partial class ct_tipo_ctacble
     {
-        public int idempresa { get; set; }
-        public string idusuario { get; set; }
-        public int idmenu { get; set; }
-        public bool lectura { get; set; }
-        public bool escritura { get; set; }
-        public bool eliminacion { get; set; }
-    
-        public virtual seg_menu seg_menu { get; set; }
-        public virtual seg_usuario seg_usuario { get; set; }
+        public string idtipoctacble { get; set; }
+        public string nom_tipoctacble { get; set; }
+        public string estado { get; set; }
     }
 }

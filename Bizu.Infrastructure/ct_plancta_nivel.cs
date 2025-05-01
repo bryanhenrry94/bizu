@@ -14,6 +14,11 @@ namespace Bizu.Infrastructure
     
     public partial class ct_plancta_nivel
     {
+        public ct_plancta_nivel()
+        {
+            this.ct_plancta = new HashSet<ct_plancta>();
+        }
+    
         public int idempresa { get; set; }
         public int idnivelcta { get; set; }
         public int nv_numdigitos { get; set; }
@@ -26,5 +31,7 @@ namespace Bizu.Infrastructure
         public string idusuarioultanu { get; set; }
         public Nullable<System.DateTime> fecha_ultanu { get; set; }
         public string motivoanulacion { get; set; }
+    
+        public virtual ICollection<ct_plancta> ct_plancta { get; set; }
     }
 }

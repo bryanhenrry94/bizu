@@ -14,6 +14,11 @@ namespace Bizu.Infrastructure
     
     public partial class ct_grupocble
     {
+        public ct_grupocble()
+        {
+            this.ct_plancta = new HashSet<ct_plancta>();
+        }
+    
         public string idgrupocble { get; set; }
         public string gc_grupocble { get; set; }
         public byte gc_orden { get; set; }
@@ -21,5 +26,7 @@ namespace Bizu.Infrastructure
         public Nullable<int> gc_signo_operacion { get; set; }
         public string estado { get; set; }
         public string idgrupo_mayor { get; set; }
+    
+        public virtual ICollection<ct_plancta> ct_plancta { get; set; }
     }
 }

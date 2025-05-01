@@ -5,15 +5,9 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="DBERPModelGeneral.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="8.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_banco' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="tb_banco">
           <Key>
             <PropertyRef Name="idbanco" />
-            <PropertyRef Name="ba_descripcion" />
-            <PropertyRef Name="estado" />
-            <PropertyRef Name="codigolegal" />
-            <PropertyRef Name="tieneformatotransferencia" />
           </Key>
           <Property Name="idbanco" Type="int" Nullable="false" />
           <Property Name="ba_descripcion" Type="varchar" MaxLength="100" Nullable="false" />
@@ -21,16 +15,11 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_banco' no tiene definid
           <Property Name="codigolegal" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="tieneformatotransferencia" Type="bool" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_bodega' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="tb_bodega">
           <Key>
             <PropertyRef Name="idempresa" />
             <PropertyRef Name="idsucursal" />
             <PropertyRef Name="idbodega" />
-            <PropertyRef Name="bo_descripcion" />
-            <PropertyRef Name="fecha_transac" />
-            <PropertyRef Name="estado" />
           </Key>
           <Property Name="idempresa" Type="int" Nullable="false" />
           <Property Name="idsucursal" Type="int" Nullable="false" />
@@ -54,52 +43,13 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_bodega' no tiene defini
           <Property Name="idctactble_inve" Type="varchar" MaxLength="20" />
           <Property Name="idctactble_costo" Type="varchar" MaxLength="20" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_calendario' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
-        <EntityType Name="tb_calendario">
-          <Key>
-            <PropertyRef Name="idcalendario" />
-            <PropertyRef Name="fecha" />
-            <PropertyRef Name="nombrefecha" />
-            <PropertyRef Name="nombrecortofecha" />
-          </Key>
-          <Property Name="idcalendario" Type="int" Nullable="false" />
-          <Property Name="fecha" Type="date" Nullable="false" />
-          <Property Name="nombrefecha" Type="varchar" MaxLength="30" Nullable="false" />
-          <Property Name="nombrecortofecha" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="dia_x_semana" Type="int" />
-          <Property Name="dia_x_mes" Type="int" />
-          <Property Name="inicial_del_dia" Type="char" MaxLength="2" />
-          <Property Name="nombredia" Type="varchar" MaxLength="20" />
-          <Property Name="mes_x_anio" Type="int" />
-          <Property Name="nombremes" Type="varchar" MaxLength="30" />
-          <Property Name="idmes" Type="int" />
-          <Property Name="nombrecortomes" Type="varchar" MaxLength="15" />
-          <Property Name="aniofiscal" Type="int" />
-          <Property Name="semana_x_anio" Type="int" />
-          <Property Name="nombresemana" Type="varchar" MaxLength="25" />
-          <Property Name="idsemana" Type="int" />
-          <Property Name="trimestre_x_anio" Type="int" />
-          <Property Name="nombretrimestre" Type="varchar" MaxLength="20" />
-          <Property Name="idtrimestre" Type="int" />
-          <Property Name="idperiodo" Type="varchar" MaxLength="20" />
-          <Property Name="esferiado" Type="char" MaxLength="1" />
-          <Property Name="descripcion" Type="varchar" MaxLength="200" />
-        </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_catalogo' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="tb_catalogo">
           <Key>
-            <PropertyRef Name="codcatalogo" />
-            <PropertyRef Name="idtipocatalogo" />
             <PropertyRef Name="idcatalogo" />
-            <PropertyRef Name="ca_descripcion" />
-            <PropertyRef Name="ca_estado" />
-            <PropertyRef Name="ca_orden" />
           </Key>
-          <Property Name="codcatalogo" Type="varchar" MaxLength="25" Nullable="false" />
-          <Property Name="idtipocatalogo" Type="int" Nullable="false" />
           <Property Name="idcatalogo" Type="int" Nullable="false" />
+          <Property Name="idtipocatalogo" Type="int" Nullable="false" />
+          <Property Name="codcatalogo" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="ca_descripcion" Type="varchar" MaxLength="250" Nullable="false" />
           <Property Name="ca_estado" Type="varchar" MaxLength="1" Nullable="false" />
           <Property Name="ca_orden" Type="int" Nullable="false" />
@@ -111,12 +61,9 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_catalogo' no tiene defi
           <Property Name="fecha_ultanu" Type="datetime" Precision="6" />
           <Property Name="motivoanulacion" Type="varchar" MaxLength="100" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_catalogotipo' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="tb_catalogotipo">
           <Key>
             <PropertyRef Name="idtipocatalogo" />
-            <PropertyRef Name="codigo" />
           </Key>
           <Property Name="idtipocatalogo" Type="int" Nullable="false" />
           <Property Name="codigo" Type="varchar" MaxLength="10" Nullable="false" />
@@ -129,20 +76,9 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_catalogotipo' no tiene 
           <Property Name="fecha_ultanu" Type="datetime" Precision="6" />
           <Property Name="motivoanulacion" Type="varchar" MaxLength="100" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_comprobantesrecibidos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="tb_comprobantesrecibidos">
           <Key>
             <PropertyRef Name="id" />
-            <PropertyRef Name="rucemisor" />
-            <PropertyRef Name="razonsocialemisor" />
-            <PropertyRef Name="tipocomprobante" />
-            <PropertyRef Name="seriecomprobante" />
-            <PropertyRef Name="fechaemision" />
-            <PropertyRef Name="claveacceso" />
-            <PropertyRef Name="fechaautorizacion" />
-            <PropertyRef Name="identificacionreceptor" />
-            <PropertyRef Name="estado" />
           </Key>
           <Property Name="id" Type="int" Nullable="false" />
           <Property Name="rucemisor" Type="varchar" MaxLength="13" Nullable="false" />
@@ -165,18 +101,9 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_comprobantesrecibidos' 
           <Property Name="idtipocbte_ogiro" Type="int" />
           <Property Name="numeroautorizacion" Type="varchar" MaxLength="49" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_conexion_dashboard' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="tb_conexion_dashboard">
           <Key>
             <PropertyRef Name="id" />
-            <PropertyRef Name="provider" />
-            <PropertyRef Name="servername" />
-            <PropertyRef Name="portnumber" />
-            <PropertyRef Name="databasename" />
-            <PropertyRef Name="username" />
-            <PropertyRef Name="password" />
-            <PropertyRef Name="stringconnection" />
           </Key>
           <Property Name="id" Type="int" Nullable="false" />
           <Property Name="provider" Type="varchar" MaxLength="50" Nullable="false" />
@@ -187,8 +114,6 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_conexion_dashboard' no 
           <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="stringconnection" Type="varchar" MaxLength="200" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_conexion_dbfacturacion_electronica' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="tb_conexion_dbfacturacion_electronica">
           <Key>
             <PropertyRef Name="idempresa" />
@@ -204,8 +129,6 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_conexion_dbfacturacion_
           <Property Name="cadena_conexion" Type="varchar" MaxLength="150" />
           <Property Name="script_comprobantesrecibidos" Type="longtext" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_dia' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="tb_dia">
           <Key>
             <PropertyRef Name="iddia" />
@@ -215,20 +138,9 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_dia' no tiene definida 
           <Property Name="nemonico" Type="char" MaxLength="5" />
           <Property Name="sdiaingles" Type="varchar" MaxLength="15" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_empresa' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="tb_empresa">
           <Key>
             <PropertyRef Name="idempresa" />
-            <PropertyRef Name="codigo" />
-            <PropertyRef Name="em_nombre" />
-            <PropertyRef Name="razonsocial" />
-            <PropertyRef Name="nombrecomercial" />
-            <PropertyRef Name="obligadoallevarconta" />
-            <PropertyRef Name="em_ruc" />
-            <PropertyRef Name="em_direccion" />
-            <PropertyRef Name="em_fechainiciocontable" />
-            <PropertyRef Name="estado" />
           </Key>
           <Property Name="idempresa" Type="int" Nullable="false" />
           <Property Name="codigo" Type="varchar" MaxLength="50" Nullable="false" />
@@ -256,33 +168,24 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_empresa' no tiene defin
           <Property Name="em_email_contacto" Type="varchar" MaxLength="300" />
           <Property Name="sitio_web" Type="varchar" MaxLength="300" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_mes' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="tb_mes">
           <Key>
             <PropertyRef Name="idmes" />
-            <PropertyRef Name="smes" />
-            <PropertyRef Name="nemonico" />
           </Key>
           <Property Name="idmes" Type="int" Nullable="false" />
           <Property Name="smes" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="nemonico" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="smesingles" Type="varchar" MaxLength="20" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_modulo' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="tb_modulo">
           <Key>
             <PropertyRef Name="codmodulo" />
-            <PropertyRef Name="descripcion" />
           </Key>
           <Property Name="codmodulo" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="descripcion" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="nom_carpeta" Type="varchar" MaxLength="50" />
           <Property Name="se_cierra" Type="bool" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_moneda' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="tb_moneda">
           <Key>
             <PropertyRef Name="idmoneda" />
@@ -293,46 +196,25 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_moneda' no tiene defini
           <Property Name="im_nemonico" Type="char" MaxLength="5" />
           <Property Name="estado" Type="char" MaxLength="1" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_parametro' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="tb_parametro">
           <Key>
             <PropertyRef Name="idparametro" />
-            <PropertyRef Name="idtipoparam" />
-            <PropertyRef Name="valor" />
           </Key>
           <Property Name="idparametro" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="idtipoparam" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="valor" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="descripcion" Type="varchar" MaxLength="400" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_parametro_tipo' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="tb_parametro_tipo">
           <Key>
             <PropertyRef Name="idtipoparam" />
-            <PropertyRef Name="nom_tipoparam" />
           </Key>
           <Property Name="idtipoparam" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="nom_tipoparam" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_persona' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="tb_persona">
           <Key>
             <PropertyRef Name="idpersona" />
-            <PropertyRef Name="codpersona" />
-            <PropertyRef Name="pe_naturaleza" />
-            <PropertyRef Name="pe_nombrecompleto" />
-            <PropertyRef Name="pe_apellido" />
-            <PropertyRef Name="pe_nombre" />
-            <PropertyRef Name="idtipopersona" />
-            <PropertyRef Name="idtipodocumento" />
-            <PropertyRef Name="pe_cedularuc" />
-            <PropertyRef Name="pe_direccion" />
-            <PropertyRef Name="pe_sexo" />
-            <PropertyRef Name="idestadocivil" />
-            <PropertyRef Name="pe_estado" />
           </Key>
           <Property Name="idpersona" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="codpersona" Type="varchar" MaxLength="20" Nullable="false" />
@@ -374,8 +256,6 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_persona' no tiene defin
           <Property Name="beneficiario_acreditacion" Type="varchar" MaxLength="200" />
           <Property Name="correo_acreditacion" Type="varchar" MaxLength="200" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_persona_tipo' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="tb_persona_tipo">
           <Key>
             <PropertyRef Name="idtipo_persona" />
@@ -383,16 +263,9 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_persona_tipo' no tiene 
           <Property Name="idtipo_persona" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="descricpion" Type="varchar" MaxLength="50" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_sis_datos_sistema' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="tb_sis_datos_sistema">
           <Key>
             <PropertyRef Name="id" />
-            <PropertyRef Name="nombre_sistema" />
-            <PropertyRef Name="version" />
-            <PropertyRef Name="propietario" />
-            <PropertyRef Name="desarrolladores" />
-            <PropertyRef Name="observacion" />
           </Key>
           <Property Name="id" Type="int" Nullable="false" />
           <Property Name="nombre_sistema" Type="varchar" MaxLength="50" Nullable="false" />
@@ -401,8 +274,6 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_sis_datos_sistema' no t
           <Property Name="desarrolladores" Type="varchar" MaxLength="500" Nullable="false" />
           <Property Name="observacion" Type="varchar" MaxLength="500" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_sis_documento_tipo' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="tb_sis_documento_tipo">
           <Key>
             <PropertyRef Name="coddocumentotipo" />
@@ -412,8 +283,6 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_sis_documento_tipo' no 
           <Property Name="estado" Type="char" MaxLength="1" />
           <Property Name="posicion" Type="int" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_sis_documento_tipo_talonario' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="tb_sis_documento_tipo_talonario">
           <Key>
             <PropertyRef Name="idempresa" />
@@ -421,7 +290,6 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_sis_documento_tipo_talo
             <PropertyRef Name="establecimiento" />
             <PropertyRef Name="puntoemision" />
             <PropertyRef Name="numdocumento" />
-            <PropertyRef Name="idsucursal" />
           </Key>
           <Property Name="idempresa" Type="int" Nullable="false" />
           <Property Name="coddocumentotipo" Type="varchar" MaxLength="20" Nullable="false" />
@@ -435,18 +303,10 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_sis_documento_tipo_talo
           <Property Name="numautorizacion" Type="varchar" MaxLength="150" />
           <Property Name="es_documento_electronico" Type="bool" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_sis_documento_tipo_x_empresa' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="tb_sis_documento_tipo_x_empresa">
           <Key>
             <PropertyRef Name="idempresa" />
             <PropertyRef Name="coddocumentotipo" />
-            <PropertyRef Name="aparececombofac_tipofact" />
-            <PropertyRef Name="aparececombofac_import" />
-            <PropertyRef Name="aparecetalonario" />
-            <PropertyRef Name="descripcion" />
-            <PropertyRef Name="posicion" />
-            <PropertyRef Name="aparececombo_filereporte" />
           </Key>
           <Property Name="idempresa" Type="int" Nullable="false" />
           <Property Name="coddocumentotipo" Type="varchar" MaxLength="20" Nullable="false" />
@@ -457,17 +317,9 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_sis_documento_tipo_x_em
           <Property Name="posicion" Type="int" Nullable="false" />
           <Property Name="aparececombo_filereporte" Type="char" MaxLength="1" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_sis_impuesto' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="tb_sis_impuesto">
           <Key>
             <PropertyRef Name="idcod_impuesto" />
-            <PropertyRef Name="nom_impuesto" />
-            <PropertyRef Name="usado_en_ventas" />
-            <PropertyRef Name="usado_en_compras" />
-            <PropertyRef Name="porcentaje" />
-            <PropertyRef Name="estado" />
-            <PropertyRef Name="idtipoimpuesto" />
           </Key>
           <Property Name="idcod_impuesto" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="nom_impuesto" Type="varchar" MaxLength="50" Nullable="false" />
@@ -478,32 +330,24 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_sis_impuesto' no tiene 
           <Property Name="estado" Type="bool" Nullable="false" />
           <Property Name="idtipoimpuesto" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_sis_impuesto_tipo' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="tb_sis_impuesto_tipo">
           <Key>
             <PropertyRef Name="idtipoimpuesto" />
-            <PropertyRef Name="nom_tipoimpuesto" />
           </Key>
           <Property Name="idtipoimpuesto" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="nom_tipoimpuesto" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_sis_impuesto_x_ctacble' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="tb_sis_impuesto_x_ctacble">
           <Key>
             <PropertyRef Name="idcod_impuesto" />
             <PropertyRef Name="idempresa_cta" />
             <PropertyRef Name="idctacble" />
-            <PropertyRef Name="observacion" />
           </Key>
           <Property Name="idcod_impuesto" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="idempresa_cta" Type="int" Nullable="false" />
           <Property Name="idctacble" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="observacion" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_sis_log_error_vzen' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="tb_sis_log_error_vzen">
           <Key>
             <PropertyRef Name="id" />
@@ -519,34 +363,19 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_sis_log_error_vzen' no 
           <Property Name="ip" Type="varchar" MaxLength="50" />
           <Property Name="pc" Type="varchar" MaxLength="50" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_sis_mensajes_sys' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="tb_sis_mensajes_sys">
           <Key>
-            <PropertyRef Name="idsecuencia" />
             <PropertyRef Name="idmensaje" />
-            <PropertyRef Name="mensaje_esp" />
-            <PropertyRef Name="mensaje_englesh" />
-            <PropertyRef Name="estado" />
           </Key>
-          <Property Name="idsecuencia" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="idmensaje" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="idsecuencia" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="mensaje_esp" Type="varchar" MaxLength="500" Nullable="false" />
           <Property Name="mensaje_englesh" Type="varchar" MaxLength="500" Nullable="false" />
           <Property Name="estado" Type="char" MaxLength="1" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_sis_reporte' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="tb_sis_reporte">
           <Key>
             <PropertyRef Name="codreporte" />
-            <PropertyRef Name="nombre" />
-            <PropertyRef Name="nombrecorto" />
-            <PropertyRef Name="modulo" />
-            <PropertyRef Name="vistarpt" />
-            <PropertyRef Name="formulario" />
-            <PropertyRef Name="orden" />
-            <PropertyRef Name="class_data" />
           </Key>
           <Property Name="codreporte" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="150" Nullable="false" />
@@ -571,14 +400,10 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_sis_reporte' no tiene d
           <Property Name="store_proce_rpt" Type="varchar" MaxLength="50" />
           <Property Name="disenio_reporte" Type="longblob" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.tb_sucursal' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="tb_sucursal">
           <Key>
             <PropertyRef Name="idempresa" />
             <PropertyRef Name="idsucursal" />
-            <PropertyRef Name="su_descripcion" />
-            <PropertyRef Name="estado" />
           </Key>
           <Property Name="idempresa" Type="int" Nullable="false" />
           <Property Name="idsucursal" Type="int" Nullable="false" />
@@ -936,418 +761,130 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwtb_tb_sis_documento_tipo
           <Property Name="puntoemision" Type="varchar" MaxLength="3" Nullable="false" />
           <Property Name="numdocumento" Type="varchar" MaxLength="20" Nullable="false" />
         </EntityType>
+        <Association Name="tb_catalogo_tb_catalogotipo_FK">
+          <End Role="tb_catalogotipo" Type="Self.tb_catalogotipo" Multiplicity="1" />
+          <End Role="tb_catalogo" Type="Self.tb_catalogo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_catalogotipo">
+              <PropertyRef Name="idtipocatalogo" />
+            </Principal>
+            <Dependent Role="tb_catalogo">
+              <PropertyRef Name="idtipocatalogo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_conexion_dbfacturacion_electronica_tb_empresa_FK">
+          <End Role="tb_empresa" Type="Self.tb_empresa" Multiplicity="1" />
+          <End Role="tb_conexion_dbfacturacion_electronica" Type="Self.tb_conexion_dbfacturacion_electronica" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="tb_empresa">
+              <PropertyRef Name="idempresa" />
+            </Principal>
+            <Dependent Role="tb_conexion_dbfacturacion_electronica">
+              <PropertyRef Name="idempresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_parametro_tb_parametro_tipo_FK">
+          <End Role="tb_parametro_tipo" Type="Self.tb_parametro_tipo" Multiplicity="1" />
+          <End Role="tb_parametro" Type="Self.tb_parametro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_parametro_tipo">
+              <PropertyRef Name="idtipoparam" />
+            </Principal>
+            <Dependent Role="tb_parametro">
+              <PropertyRef Name="idtipoparam" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_sis_documento_tipo_talonario_tb_empresa_FK">
+          <End Role="tb_empresa" Type="Self.tb_empresa" Multiplicity="1" />
+          <End Role="tb_sis_documento_tipo_talonario" Type="Self.tb_sis_documento_tipo_talonario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_empresa">
+              <PropertyRef Name="idempresa" />
+            </Principal>
+            <Dependent Role="tb_sis_documento_tipo_talonario">
+              <PropertyRef Name="idempresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_sis_documento_tipo_x_empresa_tb_empresa_FK">
+          <End Role="tb_empresa" Type="Self.tb_empresa" Multiplicity="1" />
+          <End Role="tb_sis_documento_tipo_x_empresa" Type="Self.tb_sis_documento_tipo_x_empresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_empresa">
+              <PropertyRef Name="idempresa" />
+            </Principal>
+            <Dependent Role="tb_sis_documento_tipo_x_empresa">
+              <PropertyRef Name="idempresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_sis_documento_tipo_x_empresa_tb_sis_documento_tipo_FK">
+          <End Role="tb_sis_documento_tipo" Type="Self.tb_sis_documento_tipo" Multiplicity="1" />
+          <End Role="tb_sis_documento_tipo_x_empresa" Type="Self.tb_sis_documento_tipo_x_empresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_sis_documento_tipo">
+              <PropertyRef Name="coddocumentotipo" />
+            </Principal>
+            <Dependent Role="tb_sis_documento_tipo_x_empresa">
+              <PropertyRef Name="coddocumentotipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_sis_impuesto_tb_sis_impuesto_tipo_FK">
+          <End Role="tb_sis_impuesto_tipo" Type="Self.tb_sis_impuesto_tipo" Multiplicity="1" />
+          <End Role="tb_sis_impuesto" Type="Self.tb_sis_impuesto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_sis_impuesto_tipo">
+              <PropertyRef Name="idtipoimpuesto" />
+            </Principal>
+            <Dependent Role="tb_sis_impuesto">
+              <PropertyRef Name="idtipoimpuesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_sis_impuesto_x_ctacble_tb_sis_impuesto_FK">
+          <End Role="tb_sis_impuesto" Type="Self.tb_sis_impuesto" Multiplicity="1" />
+          <End Role="tb_sis_impuesto_x_ctacble" Type="Self.tb_sis_impuesto_x_ctacble" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_sis_impuesto">
+              <PropertyRef Name="idcod_impuesto" />
+            </Principal>
+            <Dependent Role="tb_sis_impuesto_x_ctacble">
+              <PropertyRef Name="idcod_impuesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="DBERPModelGeneralStoreContainer">
-          <EntitySet Name="tb_banco" EntityType="Self.tb_banco" store:Type="Tables" store:Schema="">
-            <DefiningQuery>SELECT 
-`tb_banco`.`idbanco`, 
-`tb_banco`.`ba_descripcion`, 
-`tb_banco`.`estado`, 
-`tb_banco`.`codigolegal`, 
-`tb_banco`.`tieneformatotransferencia`
- FROM `tb_banco` AS `tb_banco`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="tb_bodega" EntityType="Self.tb_bodega" store:Type="Tables" store:Schema="">
-            <DefiningQuery>SELECT 
-`tb_bodega`.`idempresa`, 
-`tb_bodega`.`idsucursal`, 
-`tb_bodega`.`idbodega`, 
-`tb_bodega`.`cod_bodega`, 
-`tb_bodega`.`bo_descripcion`, 
-`tb_bodega`.`cod_punto_emision`, 
-`tb_bodega`.`bo_manejafacturacion`, 
-`tb_bodega`.`bo_esbodega`, 
-`tb_bodega`.`idusuario`, 
-`tb_bodega`.`fecha_transac`, 
-`tb_bodega`.`idusuarioultmod`, 
-`tb_bodega`.`fecha_ultmod`, 
-`tb_bodega`.`idusuarioultanu`, 
-`tb_bodega`.`fecha_ultanu`, 
-`tb_bodega`.`nom_pc`, 
-`tb_bodega`.`ip`, 
-`tb_bodega`.`estado`, 
-`tb_bodega`.`idestadoaproba_x_ing_egr_inven`, 
-`tb_bodega`.`idcentrocosto`, 
-`tb_bodega`.`idctactble_inve`, 
-`tb_bodega`.`idctactble_costo`
- FROM `tb_bodega` AS `tb_bodega`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="tb_calendario" EntityType="Self.tb_calendario" store:Type="Tables" store:Schema="">
-            <DefiningQuery>SELECT 
-`tb_calendario`.`idcalendario`, 
-`tb_calendario`.`fecha`, 
-`tb_calendario`.`nombrefecha`, 
-`tb_calendario`.`nombrecortofecha`, 
-`tb_calendario`.`dia_x_semana`, 
-`tb_calendario`.`dia_x_mes`, 
-`tb_calendario`.`inicial_del_dia`, 
-`tb_calendario`.`nombredia`, 
-`tb_calendario`.`mes_x_anio`, 
-`tb_calendario`.`nombremes`, 
-`tb_calendario`.`idmes`, 
-`tb_calendario`.`nombrecortomes`, 
-`tb_calendario`.`aniofiscal`, 
-`tb_calendario`.`semana_x_anio`, 
-`tb_calendario`.`nombresemana`, 
-`tb_calendario`.`idsemana`, 
-`tb_calendario`.`trimestre_x_anio`, 
-`tb_calendario`.`nombretrimestre`, 
-`tb_calendario`.`idtrimestre`, 
-`tb_calendario`.`idperiodo`, 
-`tb_calendario`.`esferiado`, 
-`tb_calendario`.`descripcion`
- FROM `tb_calendario` AS `tb_calendario`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="tb_catalogo" EntityType="Self.tb_catalogo" store:Type="Tables" store:Schema="">
-            <DefiningQuery>SELECT 
-`tb_catalogo`.`codcatalogo`, 
-`tb_catalogo`.`idtipocatalogo`, 
-`tb_catalogo`.`idcatalogo`, 
-`tb_catalogo`.`ca_descripcion`, 
-`tb_catalogo`.`ca_estado`, 
-`tb_catalogo`.`ca_orden`, 
-`tb_catalogo`.`idusuario`, 
-`tb_catalogo`.`fecha_transaccion`, 
-`tb_catalogo`.`idusuarioultmodi`, 
-`tb_catalogo`.`fecha_ultmod`, 
-`tb_catalogo`.`idusuarioultanu`, 
-`tb_catalogo`.`fecha_ultanu`, 
-`tb_catalogo`.`motivoanulacion`
- FROM `tb_catalogo` AS `tb_catalogo`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="tb_catalogotipo" EntityType="Self.tb_catalogotipo" store:Type="Tables" store:Schema="">
-            <DefiningQuery>SELECT 
-`tb_catalogotipo`.`idtipocatalogo`, 
-`tb_catalogotipo`.`codigo`, 
-`tb_catalogotipo`.`tc_descripcion`, 
-`tb_catalogotipo`.`idusuario`, 
-`tb_catalogotipo`.`fecha_transaccion`, 
-`tb_catalogotipo`.`idusuarioultmodi`, 
-`tb_catalogotipo`.`fecha_ultmod`, 
-`tb_catalogotipo`.`idusuarioultanu`, 
-`tb_catalogotipo`.`fecha_ultanu`, 
-`tb_catalogotipo`.`motivoanulacion`
- FROM `tb_catalogotipo` AS `tb_catalogotipo`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="tb_comprobantesrecibidos" EntityType="Self.tb_comprobantesrecibidos" store:Type="Tables" store:Schema="">
-            <DefiningQuery>SELECT 
-`tb_comprobantesrecibidos`.`id`, 
-`tb_comprobantesrecibidos`.`rucemisor`, 
-`tb_comprobantesrecibidos`.`razonsocialemisor`, 
-`tb_comprobantesrecibidos`.`tipocomprobante`, 
-`tb_comprobantesrecibidos`.`seriecomprobante`, 
-`tb_comprobantesrecibidos`.`fechaemision`, 
-`tb_comprobantesrecibidos`.`claveacceso`, 
-`tb_comprobantesrecibidos`.`fechaautorizacion`, 
-`tb_comprobantesrecibidos`.`identificacionreceptor`, 
-`tb_comprobantesrecibidos`.`valorsinimpuestos`, 
-`tb_comprobantesrecibidos`.`iva`, 
-`tb_comprobantesrecibidos`.`importetotal`, 
-`tb_comprobantesrecibidos`.`numerodocumentomodificado`, 
-`tb_comprobantesrecibidos`.`estado`, 
-`tb_comprobantesrecibidos`.`motivo`, 
-`tb_comprobantesrecibidos`.`xml`, 
-`tb_comprobantesrecibidos`.`idempresa_ogiro`, 
-`tb_comprobantesrecibidos`.`idcbtecble_ogiro`, 
-`tb_comprobantesrecibidos`.`idtipocbte_ogiro`, 
-`tb_comprobantesrecibidos`.`numeroautorizacion`
- FROM `tb_comprobantesrecibidos` AS `tb_comprobantesrecibidos`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="tb_conexion_dashboard" EntityType="Self.tb_conexion_dashboard" store:Type="Tables" store:Schema="">
-            <DefiningQuery>SELECT 
-`tb_conexion_dashboard`.`id`, 
-`tb_conexion_dashboard`.`provider`, 
-`tb_conexion_dashboard`.`servername`, 
-`tb_conexion_dashboard`.`portnumber`, 
-`tb_conexion_dashboard`.`databasename`, 
-`tb_conexion_dashboard`.`username`, 
-`tb_conexion_dashboard`.`password`, 
-`tb_conexion_dashboard`.`stringconnection`
- FROM `tb_conexion_dashboard` AS `tb_conexion_dashboard`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="tb_conexion_dbfacturacion_electronica" EntityType="Self.tb_conexion_dbfacturacion_electronica" store:Type="Tables" store:Schema="">
-            <DefiningQuery>SELECT 
-`tb_conexion_dbfacturacion_electronica`.`idempresa`, 
-`tb_conexion_dbfacturacion_electronica`.`tipo_basedatos`, 
-`tb_conexion_dbfacturacion_electronica`.`servidor`, 
-`tb_conexion_dbfacturacion_electronica`.`puerto`, 
-`tb_conexion_dbfacturacion_electronica`.`autenticacionwindows`, 
-`tb_conexion_dbfacturacion_electronica`.`usuario`, 
-`tb_conexion_dbfacturacion_electronica`.`contrasena`, 
-`tb_conexion_dbfacturacion_electronica`.`nombre_basedatos`, 
-`tb_conexion_dbfacturacion_electronica`.`cadena_conexion`, 
-`tb_conexion_dbfacturacion_electronica`.`script_comprobantesrecibidos`
- FROM `tb_conexion_dbfacturacion_electronica` AS `tb_conexion_dbfacturacion_electronica`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="tb_dia" EntityType="Self.tb_dia" store:Type="Tables" store:Schema="">
-            <DefiningQuery>SELECT 
-`tb_dia`.`iddia`, 
-`tb_dia`.`sdia`, 
-`tb_dia`.`nemonico`, 
-`tb_dia`.`sdiaingles`
- FROM `tb_dia` AS `tb_dia`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="tb_empresa" EntityType="Self.tb_empresa" store:Type="Tables" store:Schema="">
-            <DefiningQuery>SELECT 
-`tb_empresa`.`idempresa`, 
-`tb_empresa`.`codigo`, 
-`tb_empresa`.`em_nombre`, 
-`tb_empresa`.`razonsocial`, 
-`tb_empresa`.`nombrecomercial`, 
-`tb_empresa`.`contribuyenteespecial`, 
-`tb_empresa`.`obligadoallevarconta`, 
-`tb_empresa`.`em_ruc`, 
-`tb_empresa`.`em_gerente`, 
-`tb_empresa`.`em_contador`, 
-`tb_empresa`.`em_ruccontador`, 
-`tb_empresa`.`em_telefonos`, 
-`tb_empresa`.`em_fax`, 
-`tb_empresa`.`em_notificacion`, 
-`tb_empresa`.`em_direccion`, 
-`tb_empresa`.`em_tel_int`, 
-`tb_empresa`.`em_logo`, 
-`tb_empresa`.`em_fondo`, 
-`tb_empresa`.`em_fechainiciocontable`, 
-`tb_empresa`.`estado`, 
-`tb_empresa`.`em_fechainicioactividad`, 
-`tb_empresa`.`cod_entidad_dinardap`, 
-`tb_empresa`.`em_email`, 
-`tb_empresa`.`em_email_contacto`, 
-`tb_empresa`.`sitio_web`
- FROM `tb_empresa` AS `tb_empresa`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="tb_mes" EntityType="Self.tb_mes" store:Type="Tables" store:Schema="">
-            <DefiningQuery>SELECT 
-`tb_mes`.`idmes`, 
-`tb_mes`.`smes`, 
-`tb_mes`.`nemonico`, 
-`tb_mes`.`smesingles`
- FROM `tb_mes` AS `tb_mes`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="tb_modulo" EntityType="Self.tb_modulo" store:Type="Tables" store:Schema="">
-            <DefiningQuery>SELECT 
-`tb_modulo`.`codmodulo`, 
-`tb_modulo`.`descripcion`, 
-`tb_modulo`.`nom_carpeta`, 
-`tb_modulo`.`se_cierra`
- FROM `tb_modulo` AS `tb_modulo`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="tb_moneda" EntityType="Self.tb_moneda" store:Type="Tables" store:Schema="">
-            <DefiningQuery>SELECT 
-`tb_moneda`.`idmoneda`, 
-`tb_moneda`.`im_descripcion`, 
-`tb_moneda`.`im_simbolo`, 
-`tb_moneda`.`im_nemonico`, 
-`tb_moneda`.`estado`
- FROM `tb_moneda` AS `tb_moneda`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="tb_parametro" EntityType="Self.tb_parametro" store:Type="Tables" store:Schema="">
-            <DefiningQuery>SELECT 
-`tb_parametro`.`idparametro`, 
-`tb_parametro`.`idtipoparam`, 
-`tb_parametro`.`valor`, 
-`tb_parametro`.`descripcion`
- FROM `tb_parametro` AS `tb_parametro`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="tb_parametro_tipo" EntityType="Self.tb_parametro_tipo" store:Type="Tables" store:Schema="">
-            <DefiningQuery>SELECT 
-`tb_parametro_tipo`.`idtipoparam`, 
-`tb_parametro_tipo`.`nom_tipoparam`
- FROM `tb_parametro_tipo` AS `tb_parametro_tipo`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="tb_persona" EntityType="Self.tb_persona" store:Type="Tables" store:Schema="">
-            <DefiningQuery>SELECT 
-`tb_persona`.`idpersona`, 
-`tb_persona`.`codpersona`, 
-`tb_persona`.`pe_naturaleza`, 
-`tb_persona`.`pe_nombrecompleto`, 
-`tb_persona`.`pe_razonsocial`, 
-`tb_persona`.`pe_apellido`, 
-`tb_persona`.`pe_nombre`, 
-`tb_persona`.`idtipopersona`, 
-`tb_persona`.`idtipodocumento`, 
-`tb_persona`.`pe_cedularuc`, 
-`tb_persona`.`pe_direccion`, 
-`tb_persona`.`pe_telefonocasa`, 
-`tb_persona`.`pe_telefonoofic`, 
-`tb_persona`.`pe_telefonointer`, 
-`tb_persona`.`pe_telfono_contacto`, 
-`tb_persona`.`pe_celular`, 
-`tb_persona`.`pe_correo`, 
-`tb_persona`.`pe_fax`, 
-`tb_persona`.`pe_casilla`, 
-`tb_persona`.`pe_sexo`, 
-`tb_persona`.`idestadocivil`, 
-`tb_persona`.`pe_fechanacimiento`, 
-`tb_persona`.`pe_estado`, 
-`tb_persona`.`pe_fechacreacion`, 
-`tb_persona`.`pe_fechamodificacion`, 
-`tb_persona`.`pe_ultusuariomodi`, 
-`tb_persona`.`pe_celularsecundario`, 
-`tb_persona`.`idusuarioultanu`, 
-`tb_persona`.`fecha_ultanu`, 
-`tb_persona`.`motivoanulacion`, 
-`tb_persona`.`pe_correo_secundario1`, 
-`tb_persona`.`pe_correo_secundario2`, 
-`tb_persona`.`idtipocta_acreditacion_cat`, 
-`tb_persona`.`num_cta_acreditacion`, 
-`tb_persona`.`idbanco_acreditacion`, 
-`tb_persona`.`idtipodocumento_acreditacion`, 
-`tb_persona`.`cedularuc_acreditacion`, 
-`tb_persona`.`beneficiario_acreditacion`, 
-`tb_persona`.`correo_acreditacion`
- FROM `tb_persona` AS `tb_persona`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="tb_persona_tipo" EntityType="Self.tb_persona_tipo" store:Type="Tables" store:Schema="">
-            <DefiningQuery>SELECT 
-`tb_persona_tipo`.`idtipo_persona`, 
-`tb_persona_tipo`.`descricpion`
- FROM `tb_persona_tipo` AS `tb_persona_tipo`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="tb_sis_datos_sistema" EntityType="Self.tb_sis_datos_sistema" store:Type="Tables" store:Schema="">
-            <DefiningQuery>SELECT 
-`tb_sis_datos_sistema`.`id`, 
-`tb_sis_datos_sistema`.`nombre_sistema`, 
-`tb_sis_datos_sistema`.`version`, 
-`tb_sis_datos_sistema`.`propietario`, 
-`tb_sis_datos_sistema`.`desarrolladores`, 
-`tb_sis_datos_sistema`.`observacion`
- FROM `tb_sis_datos_sistema` AS `tb_sis_datos_sistema`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="tb_sis_documento_tipo" EntityType="Self.tb_sis_documento_tipo" store:Type="Tables" store:Schema="">
-            <DefiningQuery>SELECT 
-`tb_sis_documento_tipo`.`coddocumentotipo`, 
-`tb_sis_documento_tipo`.`descripcion`, 
-`tb_sis_documento_tipo`.`estado`, 
-`tb_sis_documento_tipo`.`posicion`
- FROM `tb_sis_documento_tipo` AS `tb_sis_documento_tipo`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="tb_sis_documento_tipo_talonario" EntityType="Self.tb_sis_documento_tipo_talonario" store:Type="Tables" store:Schema="">
-            <DefiningQuery>SELECT 
-`tb_sis_documento_tipo_talonario`.`idempresa`, 
-`tb_sis_documento_tipo_talonario`.`coddocumentotipo`, 
-`tb_sis_documento_tipo_talonario`.`establecimiento`, 
-`tb_sis_documento_tipo_talonario`.`puntoemision`, 
-`tb_sis_documento_tipo_talonario`.`numdocumento`, 
-`tb_sis_documento_tipo_talonario`.`fechacaducidad`, 
-`tb_sis_documento_tipo_talonario`.`usado`, 
-`tb_sis_documento_tipo_talonario`.`estado`, 
-`tb_sis_documento_tipo_talonario`.`idsucursal`, 
-`tb_sis_documento_tipo_talonario`.`numautorizacion`, 
-`tb_sis_documento_tipo_talonario`.`es_documento_electronico`
- FROM `tb_sis_documento_tipo_talonario` AS `tb_sis_documento_tipo_talonario`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="tb_sis_documento_tipo_x_empresa" EntityType="Self.tb_sis_documento_tipo_x_empresa" store:Type="Tables" store:Schema="">
-            <DefiningQuery>SELECT 
-`tb_sis_documento_tipo_x_empresa`.`idempresa`, 
-`tb_sis_documento_tipo_x_empresa`.`coddocumentotipo`, 
-`tb_sis_documento_tipo_x_empresa`.`aparececombofac_tipofact`, 
-`tb_sis_documento_tipo_x_empresa`.`aparececombofac_import`, 
-`tb_sis_documento_tipo_x_empresa`.`aparecetalonario`, 
-`tb_sis_documento_tipo_x_empresa`.`descripcion`, 
-`tb_sis_documento_tipo_x_empresa`.`posicion`, 
-`tb_sis_documento_tipo_x_empresa`.`aparececombo_filereporte`
- FROM `tb_sis_documento_tipo_x_empresa` AS `tb_sis_documento_tipo_x_empresa`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="tb_sis_impuesto" EntityType="Self.tb_sis_impuesto" store:Type="Tables" store:Schema="">
-            <DefiningQuery>SELECT 
-`tb_sis_impuesto`.`idcod_impuesto`, 
-`tb_sis_impuesto`.`nom_impuesto`, 
-`tb_sis_impuesto`.`usado_en_ventas`, 
-`tb_sis_impuesto`.`usado_en_compras`, 
-`tb_sis_impuesto`.`porcentaje`, 
-`tb_sis_impuesto`.`idcodigo_sri`, 
-`tb_sis_impuesto`.`estado`, 
-`tb_sis_impuesto`.`idtipoimpuesto`
- FROM `tb_sis_impuesto` AS `tb_sis_impuesto`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="tb_sis_impuesto_tipo" EntityType="Self.tb_sis_impuesto_tipo" store:Type="Tables" store:Schema="">
-            <DefiningQuery>SELECT 
-`tb_sis_impuesto_tipo`.`idtipoimpuesto`, 
-`tb_sis_impuesto_tipo`.`nom_tipoimpuesto`
- FROM `tb_sis_impuesto_tipo` AS `tb_sis_impuesto_tipo`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="tb_sis_impuesto_x_ctacble" EntityType="Self.tb_sis_impuesto_x_ctacble" store:Type="Tables" store:Schema="">
-            <DefiningQuery>SELECT 
-`tb_sis_impuesto_x_ctacble`.`idcod_impuesto`, 
-`tb_sis_impuesto_x_ctacble`.`idempresa_cta`, 
-`tb_sis_impuesto_x_ctacble`.`idctacble`, 
-`tb_sis_impuesto_x_ctacble`.`observacion`
- FROM `tb_sis_impuesto_x_ctacble` AS `tb_sis_impuesto_x_ctacble`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="tb_sis_log_error_vzen" EntityType="Self.tb_sis_log_error_vzen" store:Type="Tables" store:Schema="">
-            <DefiningQuery>SELECT 
-`tb_sis_log_error_vzen`.`id`, 
-`tb_sis_log_error_vzen`.`fecha_trans`, 
-`tb_sis_log_error_vzen`.`detalle`, 
-`tb_sis_log_error_vzen`.`tipo`, 
-`tb_sis_log_error_vzen`.`clase`, 
-`tb_sis_log_error_vzen`.`pantalla`, 
-`tb_sis_log_error_vzen`.`asamble`, 
-`tb_sis_log_error_vzen`.`usuario`, 
-`tb_sis_log_error_vzen`.`ip`, 
-`tb_sis_log_error_vzen`.`pc`
- FROM `tb_sis_log_error_vzen` AS `tb_sis_log_error_vzen`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="tb_sis_mensajes_sys" EntityType="Self.tb_sis_mensajes_sys" store:Type="Tables" store:Schema="">
-            <DefiningQuery>SELECT 
-`tb_sis_mensajes_sys`.`idsecuencia`, 
-`tb_sis_mensajes_sys`.`idmensaje`, 
-`tb_sis_mensajes_sys`.`mensaje_esp`, 
-`tb_sis_mensajes_sys`.`mensaje_englesh`, 
-`tb_sis_mensajes_sys`.`estado`
- FROM `tb_sis_mensajes_sys` AS `tb_sis_mensajes_sys`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="tb_sis_reporte" EntityType="Self.tb_sis_reporte" store:Type="Tables" store:Schema="">
-            <DefiningQuery>SELECT 
-`tb_sis_reporte`.`codreporte`, 
-`tb_sis_reporte`.`nombre`, 
-`tb_sis_reporte`.`nombrecorto`, 
-`tb_sis_reporte`.`modulo`, 
-`tb_sis_reporte`.`vistarpt`, 
-`tb_sis_reporte`.`formulario`, 
-`tb_sis_reporte`.`class_nomreporte`, 
-`tb_sis_reporte`.`nom_asembly`, 
-`tb_sis_reporte`.`orden`, 
-`tb_sis_reporte`.`observacion`, 
-`tb_sis_reporte`.`imagen`, 
-`tb_sis_reporte`.`versionactual`, 
-`tb_sis_reporte`.`tipo_balance`, 
-`tb_sis_reporte`.`squery`, 
-`tb_sis_reporte`.`class_info`, 
-`tb_sis_reporte`.`class_bus`, 
-`tb_sis_reporte`.`class_data`, 
-`tb_sis_reporte`.`idgrupo_reporte`, 
-`tb_sis_reporte`.`se_muestra_admin_reporte`, 
-`tb_sis_reporte`.`estado`, 
-`tb_sis_reporte`.`store_proce_rpt`, 
-`tb_sis_reporte`.`disenio_reporte`
- FROM `tb_sis_reporte` AS `tb_sis_reporte`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="tb_sucursal" EntityType="Self.tb_sucursal" store:Type="Tables" store:Schema="">
-            <DefiningQuery>SELECT 
-`tb_sucursal`.`idempresa`, 
-`tb_sucursal`.`idsucursal`, 
-`tb_sucursal`.`codigo`, 
-`tb_sucursal`.`su_descripcion`, 
-`tb_sucursal`.`su_codigoestablecimiento`, 
-`tb_sucursal`.`su_ubicacion`, 
-`tb_sucursal`.`su_ruc`, 
-`tb_sucursal`.`su_jefesucursal`, 
-`tb_sucursal`.`su_telefonos`, 
-`tb_sucursal`.`su_direccion`, 
-`tb_sucursal`.`idusuario`, 
-`tb_sucursal`.`fecha_transac`, 
-`tb_sucursal`.`idusuarioultmod`, 
-`tb_sucursal`.`fecha_ultmod`, 
-`tb_sucursal`.`idusuarioultanu`, 
-`tb_sucursal`.`fecha_ultanu`, 
-`tb_sucursal`.`nom_pc`, 
-`tb_sucursal`.`ip`, 
-`tb_sucursal`.`estado`, 
-`tb_sucursal`.`motianula`, 
-`tb_sucursal`.`es_establecimiento`
- FROM `tb_sucursal` AS `tb_sucursal`</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="tb_banco" EntityType="Self.tb_banco" Schema="" store:Type="Tables" />
+          <EntitySet Name="tb_bodega" EntityType="Self.tb_bodega" Schema="" store:Type="Tables" />
+          <EntitySet Name="tb_catalogo" EntityType="Self.tb_catalogo" Schema="" store:Type="Tables" />
+          <EntitySet Name="tb_catalogotipo" EntityType="Self.tb_catalogotipo" Schema="" store:Type="Tables" />
+          <EntitySet Name="tb_comprobantesrecibidos" EntityType="Self.tb_comprobantesrecibidos" Schema="" store:Type="Tables" />
+          <EntitySet Name="tb_conexion_dashboard" EntityType="Self.tb_conexion_dashboard" Schema="" store:Type="Tables" />
+          <EntitySet Name="tb_conexion_dbfacturacion_electronica" EntityType="Self.tb_conexion_dbfacturacion_electronica" Schema="" store:Type="Tables" />
+          <EntitySet Name="tb_dia" EntityType="Self.tb_dia" Schema="" store:Type="Tables" />
+          <EntitySet Name="tb_empresa" EntityType="Self.tb_empresa" Schema="" store:Type="Tables" />
+          <EntitySet Name="tb_mes" EntityType="Self.tb_mes" Schema="" store:Type="Tables" />
+          <EntitySet Name="tb_modulo" EntityType="Self.tb_modulo" Schema="" store:Type="Tables" />
+          <EntitySet Name="tb_moneda" EntityType="Self.tb_moneda" Schema="" store:Type="Tables" />
+          <EntitySet Name="tb_parametro" EntityType="Self.tb_parametro" Schema="" store:Type="Tables" />
+          <EntitySet Name="tb_parametro_tipo" EntityType="Self.tb_parametro_tipo" Schema="" store:Type="Tables" />
+          <EntitySet Name="tb_persona" EntityType="Self.tb_persona" Schema="" store:Type="Tables" />
+          <EntitySet Name="tb_persona_tipo" EntityType="Self.tb_persona_tipo" Schema="" store:Type="Tables" />
+          <EntitySet Name="tb_sis_datos_sistema" EntityType="Self.tb_sis_datos_sistema" Schema="" store:Type="Tables" />
+          <EntitySet Name="tb_sis_documento_tipo" EntityType="Self.tb_sis_documento_tipo" Schema="" store:Type="Tables" />
+          <EntitySet Name="tb_sis_documento_tipo_talonario" EntityType="Self.tb_sis_documento_tipo_talonario" Schema="" store:Type="Tables" />
+          <EntitySet Name="tb_sis_documento_tipo_x_empresa" EntityType="Self.tb_sis_documento_tipo_x_empresa" Schema="" store:Type="Tables" />
+          <EntitySet Name="tb_sis_impuesto" EntityType="Self.tb_sis_impuesto" Schema="" store:Type="Tables" />
+          <EntitySet Name="tb_sis_impuesto_tipo" EntityType="Self.tb_sis_impuesto_tipo" Schema="" store:Type="Tables" />
+          <EntitySet Name="tb_sis_impuesto_x_ctacble" EntityType="Self.tb_sis_impuesto_x_ctacble" Schema="" store:Type="Tables" />
+          <EntitySet Name="tb_sis_log_error_vzen" EntityType="Self.tb_sis_log_error_vzen" Schema="" store:Type="Tables" />
+          <EntitySet Name="tb_sis_mensajes_sys" EntityType="Self.tb_sis_mensajes_sys" Schema="" store:Type="Tables" />
+          <EntitySet Name="tb_sis_reporte" EntityType="Self.tb_sis_reporte" Schema="" store:Type="Tables" />
+          <EntitySet Name="tb_sucursal" EntityType="Self.tb_sucursal" Schema="" store:Type="Tables" />
           <EntitySet Name="vw_estadocivil" EntityType="Self.vw_estadocivil" store:Type="Views" store:Schema="">
             <DefiningQuery>SELECT 
 `vw_estadocivil`.`id`, 
@@ -1561,6 +1098,38 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwtb_tb_sis_documento_tipo
 `vwtb_tb_sis_documento_tipo_talonario`.`numdocumento`
  FROM `vwtb_tb_sis_documento_tipo_talonario` AS `vwtb_tb_sis_documento_tipo_talonario`</DefiningQuery>
           </EntitySet>
+          <AssociationSet Name="tb_catalogo_tb_catalogotipo_FK" Association="Self.tb_catalogo_tb_catalogotipo_FK">
+            <End Role="tb_catalogotipo" EntitySet="tb_catalogotipo" />
+            <End Role="tb_catalogo" EntitySet="tb_catalogo" />
+          </AssociationSet>
+          <AssociationSet Name="tb_conexion_dbfacturacion_electronica_tb_empresa_FK" Association="Self.tb_conexion_dbfacturacion_electronica_tb_empresa_FK">
+            <End Role="tb_empresa" EntitySet="tb_empresa" />
+            <End Role="tb_conexion_dbfacturacion_electronica" EntitySet="tb_conexion_dbfacturacion_electronica" />
+          </AssociationSet>
+          <AssociationSet Name="tb_parametro_tb_parametro_tipo_FK" Association="Self.tb_parametro_tb_parametro_tipo_FK">
+            <End Role="tb_parametro_tipo" EntitySet="tb_parametro_tipo" />
+            <End Role="tb_parametro" EntitySet="tb_parametro" />
+          </AssociationSet>
+          <AssociationSet Name="tb_sis_documento_tipo_talonario_tb_empresa_FK" Association="Self.tb_sis_documento_tipo_talonario_tb_empresa_FK">
+            <End Role="tb_empresa" EntitySet="tb_empresa" />
+            <End Role="tb_sis_documento_tipo_talonario" EntitySet="tb_sis_documento_tipo_talonario" />
+          </AssociationSet>
+          <AssociationSet Name="tb_sis_documento_tipo_x_empresa_tb_empresa_FK" Association="Self.tb_sis_documento_tipo_x_empresa_tb_empresa_FK">
+            <End Role="tb_empresa" EntitySet="tb_empresa" />
+            <End Role="tb_sis_documento_tipo_x_empresa" EntitySet="tb_sis_documento_tipo_x_empresa" />
+          </AssociationSet>
+          <AssociationSet Name="tb_sis_documento_tipo_x_empresa_tb_sis_documento_tipo_FK" Association="Self.tb_sis_documento_tipo_x_empresa_tb_sis_documento_tipo_FK">
+            <End Role="tb_sis_documento_tipo" EntitySet="tb_sis_documento_tipo" />
+            <End Role="tb_sis_documento_tipo_x_empresa" EntitySet="tb_sis_documento_tipo_x_empresa" />
+          </AssociationSet>
+          <AssociationSet Name="tb_sis_impuesto_tb_sis_impuesto_tipo_FK" Association="Self.tb_sis_impuesto_tb_sis_impuesto_tipo_FK">
+            <End Role="tb_sis_impuesto_tipo" EntitySet="tb_sis_impuesto_tipo" />
+            <End Role="tb_sis_impuesto" EntitySet="tb_sis_impuesto" />
+          </AssociationSet>
+          <AssociationSet Name="tb_sis_impuesto_x_ctacble_tb_sis_impuesto_FK" Association="Self.tb_sis_impuesto_x_ctacble_tb_sis_impuesto_FK">
+            <End Role="tb_sis_impuesto" EntitySet="tb_sis_impuesto" />
+            <End Role="tb_sis_impuesto_x_ctacble" EntitySet="tb_sis_impuesto_x_ctacble" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -1578,7 +1147,6 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwtb_tb_sis_documento_tipo
           </FunctionImport>
           <EntitySet Name="tb_banco" EntityType="DBERPModelGeneral.tb_banco" />
           <EntitySet Name="tb_bodega" EntityType="DBERPModelGeneral.tb_bodega" />
-          <EntitySet Name="tb_calendario" EntityType="DBERPModelGeneral.tb_calendario" />
           <EntitySet Name="tb_catalogo" EntityType="DBERPModelGeneral.tb_catalogo" />
           <EntitySet Name="tb_catalogotipo" EntityType="DBERPModelGeneral.tb_catalogotipo" />
           <EntitySet Name="tb_comprobantesrecibidos" EntityType="DBERPModelGeneral.tb_comprobantesrecibidos" />
@@ -1609,13 +1177,45 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwtb_tb_sis_documento_tipo
           <EntitySet Name="vw_persona" EntityType="DBERPModelGeneral.vw_persona" />
           <EntitySet Name="vw_tipoctabancos" EntityType="DBERPModelGeneral.vw_tipoctabancos" />
           <EntitySet Name="vw_tipodocumento" EntityType="DBERPModelGeneral.vw_tipodocumento" />
+          <EntitySet Name="vwge_tb_sis_documento_tipo_talonario" EntityType="DBERPModelGeneral.vwge_tb_sis_documento_tipo_talonario" />
           <EntitySet Name="vwtb_bodega_x_sucursal_treelist" EntityType="DBERPModelGeneral.vwtb_bodega_x_sucursal_treelist" />
           <EntitySet Name="vwtb_bodega_x_tb_sucursal" EntityType="DBERPModelGeneral.vwtb_bodega_x_tb_sucursal" />
           <EntitySet Name="vwtb_empresa_x_usuario" EntityType="DBERPModelGeneral.vwtb_empresa_x_usuario" />
           <EntitySet Name="vwtb_persona_beneficiario" EntityType="DBERPModelGeneral.vwtb_persona_beneficiario" />
           <EntitySet Name="vwtb_persona_beneficiario_por_banco_acreditacion" EntityType="DBERPModelGeneral.vwtb_persona_beneficiario_por_banco_acreditacion" />
           <EntitySet Name="vwtb_tb_sis_documento_tipo_talonario" EntityType="DBERPModelGeneral.vwtb_tb_sis_documento_tipo_talonario" />
-          <EntitySet Name="vwge_tb_sis_documento_tipo_talonario" EntityType="DBERPModelGeneral.vwge_tb_sis_documento_tipo_talonario" />
+          <AssociationSet Name="tb_catalogo_tb_catalogotipo_FK" Association="DBERPModelGeneral.tb_catalogo_tb_catalogotipo_FK">
+            <End Role="tb_catalogotipo" EntitySet="tb_catalogotipo" />
+            <End Role="tb_catalogo" EntitySet="tb_catalogo" />
+          </AssociationSet>
+          <AssociationSet Name="tb_conexion_dbfacturacion_electronica_tb_empresa_FK" Association="DBERPModelGeneral.tb_conexion_dbfacturacion_electronica_tb_empresa_FK">
+            <End Role="tb_empresa" EntitySet="tb_empresa" />
+            <End Role="tb_conexion_dbfacturacion_electronica" EntitySet="tb_conexion_dbfacturacion_electronica" />
+          </AssociationSet>
+          <AssociationSet Name="tb_sis_documento_tipo_talonario_tb_empresa_FK" Association="DBERPModelGeneral.tb_sis_documento_tipo_talonario_tb_empresa_FK">
+            <End Role="tb_empresa" EntitySet="tb_empresa" />
+            <End Role="tb_sis_documento_tipo_talonario" EntitySet="tb_sis_documento_tipo_talonario" />
+          </AssociationSet>
+          <AssociationSet Name="tb_sis_documento_tipo_x_empresa_tb_empresa_FK" Association="DBERPModelGeneral.tb_sis_documento_tipo_x_empresa_tb_empresa_FK">
+            <End Role="tb_empresa" EntitySet="tb_empresa" />
+            <End Role="tb_sis_documento_tipo_x_empresa" EntitySet="tb_sis_documento_tipo_x_empresa" />
+          </AssociationSet>
+          <AssociationSet Name="tb_parametro_tb_parametro_tipo_FK" Association="DBERPModelGeneral.tb_parametro_tb_parametro_tipo_FK">
+            <End Role="tb_parametro_tipo" EntitySet="tb_parametro_tipo" />
+            <End Role="tb_parametro" EntitySet="tb_parametro" />
+          </AssociationSet>
+          <AssociationSet Name="tb_sis_documento_tipo_x_empresa_tb_sis_documento_tipo_FK" Association="DBERPModelGeneral.tb_sis_documento_tipo_x_empresa_tb_sis_documento_tipo_FK">
+            <End Role="tb_sis_documento_tipo" EntitySet="tb_sis_documento_tipo" />
+            <End Role="tb_sis_documento_tipo_x_empresa" EntitySet="tb_sis_documento_tipo_x_empresa" />
+          </AssociationSet>
+          <AssociationSet Name="tb_sis_impuesto_tb_sis_impuesto_tipo_FK" Association="DBERPModelGeneral.tb_sis_impuesto_tb_sis_impuesto_tipo_FK">
+            <End Role="tb_sis_impuesto_tipo" EntitySet="tb_sis_impuesto_tipo" />
+            <End Role="tb_sis_impuesto" EntitySet="tb_sis_impuesto" />
+          </AssociationSet>
+          <AssociationSet Name="tb_sis_impuesto_x_ctacble_tb_sis_impuesto_FK" Association="DBERPModelGeneral.tb_sis_impuesto_x_ctacble_tb_sis_impuesto_FK">
+            <End Role="tb_sis_impuesto" EntitySet="tb_sis_impuesto" />
+            <End Role="tb_sis_impuesto_x_ctacble" EntitySet="tb_sis_impuesto_x_ctacble" />
+          </AssociationSet>
           </EntityContainer>
         <ComplexType Name="spSys_ObtenerFecha_SinFeriadoTampocoSabDom_Result">
           <Property Type="Int32" Name="IdCalendario" Nullable="false" />
@@ -1674,10 +1274,6 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwtb_tb_sis_documento_tipo
         <EntityType Name="tb_banco">
           <Key>
             <PropertyRef Name="idbanco" />
-            <PropertyRef Name="ba_descripcion" />
-            <PropertyRef Name="estado" />
-            <PropertyRef Name="codigolegal" />
-            <PropertyRef Name="tieneformatotransferencia" />
           </Key>
           <Property Name="idbanco" Type="Int32" Nullable="false" />
           <Property Name="ba_descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
@@ -1690,9 +1286,6 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwtb_tb_sis_documento_tipo
             <PropertyRef Name="idempresa" />
             <PropertyRef Name="idsucursal" />
             <PropertyRef Name="idbodega" />
-            <PropertyRef Name="bo_descripcion" />
-            <PropertyRef Name="fecha_transac" />
-            <PropertyRef Name="estado" />
           </Key>
           <Property Name="idempresa" Type="Int32" Nullable="false" />
           <Property Name="idsucursal" Type="Int32" Nullable="false" />
@@ -1716,48 +1309,13 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwtb_tb_sis_documento_tipo
           <Property Name="idctactble_inve" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="idctactble_costo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="tb_calendario">
-          <Key>
-            <PropertyRef Name="idcalendario" />
-            <PropertyRef Name="fecha" />
-            <PropertyRef Name="nombrefecha" />
-            <PropertyRef Name="nombrecortofecha" />
-          </Key>
-          <Property Name="idcalendario" Type="Int32" Nullable="false" />
-          <Property Name="fecha" Type="DateTime" Nullable="false" />
-          <Property Name="nombrefecha" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="nombrecortofecha" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="dia_x_semana" Type="Int32" />
-          <Property Name="dia_x_mes" Type="Int32" />
-          <Property Name="inicial_del_dia" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
-          <Property Name="nombredia" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="mes_x_anio" Type="Int32" />
-          <Property Name="nombremes" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="idmes" Type="Int32" />
-          <Property Name="nombrecortomes" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="aniofiscal" Type="Int32" />
-          <Property Name="semana_x_anio" Type="Int32" />
-          <Property Name="nombresemana" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Name="idsemana" Type="Int32" />
-          <Property Name="trimestre_x_anio" Type="Int32" />
-          <Property Name="nombretrimestre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="idtrimestre" Type="Int32" />
-          <Property Name="idperiodo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="esferiado" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="tb_catalogo">
           <Key>
-            <PropertyRef Name="codcatalogo" />
-            <PropertyRef Name="idtipocatalogo" />
             <PropertyRef Name="idcatalogo" />
-            <PropertyRef Name="ca_descripcion" />
-            <PropertyRef Name="ca_estado" />
-            <PropertyRef Name="ca_orden" />
           </Key>
-          <Property Name="codcatalogo" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Name="idtipocatalogo" Type="Int32" Nullable="false" />
           <Property Name="idcatalogo" Type="Int32" Nullable="false" />
+          <Property Name="idtipocatalogo" Type="Int32" Nullable="false" />
+          <Property Name="codcatalogo" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="ca_descripcion" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="ca_estado" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="ca_orden" Type="Int32" Nullable="false" />
@@ -1768,11 +1326,11 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwtb_tb_sis_documento_tipo
           <Property Name="idusuarioultanu" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="fecha_ultanu" Type="DateTime" />
           <Property Name="motivoanulacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_catalogotipo" Relationship="DBERPModelGeneral.tb_catalogo_tb_catalogotipo_FK" FromRole="tb_catalogo" ToRole="tb_catalogotipo" />
         </EntityType>
         <EntityType Name="tb_catalogotipo">
           <Key>
             <PropertyRef Name="idtipocatalogo" />
-            <PropertyRef Name="codigo" />
           </Key>
           <Property Name="idtipocatalogo" Type="Int32" Nullable="false" />
           <Property Name="codigo" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
@@ -1784,19 +1342,11 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwtb_tb_sis_documento_tipo
           <Property Name="idusuarioultanu" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="fecha_ultanu" Type="DateTime" />
           <Property Name="motivoanulacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_catalogo" Relationship="DBERPModelGeneral.tb_catalogo_tb_catalogotipo_FK" FromRole="tb_catalogotipo" ToRole="tb_catalogo" />
         </EntityType>
         <EntityType Name="tb_comprobantesrecibidos">
           <Key>
             <PropertyRef Name="id" />
-            <PropertyRef Name="rucemisor" />
-            <PropertyRef Name="razonsocialemisor" />
-            <PropertyRef Name="tipocomprobante" />
-            <PropertyRef Name="seriecomprobante" />
-            <PropertyRef Name="fechaemision" />
-            <PropertyRef Name="claveacceso" />
-            <PropertyRef Name="fechaautorizacion" />
-            <PropertyRef Name="identificacionreceptor" />
-            <PropertyRef Name="estado" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="rucemisor" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
@@ -1822,13 +1372,6 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwtb_tb_sis_documento_tipo
         <EntityType Name="tb_conexion_dashboard">
           <Key>
             <PropertyRef Name="id" />
-            <PropertyRef Name="provider" />
-            <PropertyRef Name="servername" />
-            <PropertyRef Name="portnumber" />
-            <PropertyRef Name="databasename" />
-            <PropertyRef Name="username" />
-            <PropertyRef Name="password" />
-            <PropertyRef Name="stringconnection" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="provider" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -1853,6 +1396,7 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwtb_tb_sis_documento_tipo
           <Property Name="nombre_basedatos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="cadena_conexion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="script_comprobantesrecibidos" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_empresa" Relationship="DBERPModelGeneral.tb_conexion_dbfacturacion_electronica_tb_empresa_FK" FromRole="tb_conexion_dbfacturacion_electronica" ToRole="tb_empresa" />
         </EntityType>
         <EntityType Name="tb_dia">
           <Key>
@@ -1866,15 +1410,6 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwtb_tb_sis_documento_tipo
         <EntityType Name="tb_empresa">
           <Key>
             <PropertyRef Name="idempresa" />
-            <PropertyRef Name="codigo" />
-            <PropertyRef Name="em_nombre" />
-            <PropertyRef Name="razonsocial" />
-            <PropertyRef Name="nombrecomercial" />
-            <PropertyRef Name="obligadoallevarconta" />
-            <PropertyRef Name="em_ruc" />
-            <PropertyRef Name="em_direccion" />
-            <PropertyRef Name="em_fechainiciocontable" />
-            <PropertyRef Name="estado" />
           </Key>
           <Property Name="idempresa" Type="Int32" Nullable="false" />
           <Property Name="codigo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -1901,12 +1436,13 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwtb_tb_sis_documento_tipo
           <Property Name="em_email" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
           <Property Name="em_email_contacto" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
           <Property Name="sitio_web" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_conexion_dbfacturacion_electronica" Relationship="DBERPModelGeneral.tb_conexion_dbfacturacion_electronica_tb_empresa_FK" FromRole="tb_empresa" ToRole="tb_conexion_dbfacturacion_electronica" />
+          <NavigationProperty Name="tb_sis_documento_tipo_talonario" Relationship="DBERPModelGeneral.tb_sis_documento_tipo_talonario_tb_empresa_FK" FromRole="tb_empresa" ToRole="tb_sis_documento_tipo_talonario" />
+          <NavigationProperty Name="tb_sis_documento_tipo_x_empresa" Relationship="DBERPModelGeneral.tb_sis_documento_tipo_x_empresa_tb_empresa_FK" FromRole="tb_empresa" ToRole="tb_sis_documento_tipo_x_empresa" />
         </EntityType>
         <EntityType Name="tb_mes">
           <Key>
             <PropertyRef Name="idmes" />
-            <PropertyRef Name="smes" />
-            <PropertyRef Name="nemonico" />
           </Key>
           <Property Name="idmes" Type="Int32" Nullable="false" />
           <Property Name="smes" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
@@ -1916,7 +1452,6 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwtb_tb_sis_documento_tipo
         <EntityType Name="tb_modulo">
           <Key>
             <PropertyRef Name="codmodulo" />
-            <PropertyRef Name="descripcion" />
           </Key>
           <Property Name="codmodulo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -1936,37 +1471,24 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwtb_tb_sis_documento_tipo
         <EntityType Name="tb_parametro">
           <Key>
             <PropertyRef Name="idparametro" />
-            <PropertyRef Name="idtipoparam" />
-            <PropertyRef Name="valor" />
           </Key>
           <Property Name="idparametro" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="idtipoparam" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="valor" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="descripcion" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_parametro_tipo" Relationship="DBERPModelGeneral.tb_parametro_tb_parametro_tipo_FK" FromRole="tb_parametro" ToRole="tb_parametro_tipo" />
         </EntityType>
         <EntityType Name="tb_parametro_tipo">
           <Key>
             <PropertyRef Name="idtipoparam" />
-            <PropertyRef Name="nom_tipoparam" />
           </Key>
           <Property Name="idtipoparam" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="nom_tipoparam" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_parametro" Relationship="DBERPModelGeneral.tb_parametro_tb_parametro_tipo_FK" FromRole="tb_parametro_tipo" ToRole="tb_parametro" />
         </EntityType>
         <EntityType Name="tb_persona">
           <Key>
             <PropertyRef Name="idpersona" />
-            <PropertyRef Name="codpersona" />
-            <PropertyRef Name="pe_naturaleza" />
-            <PropertyRef Name="pe_nombrecompleto" />
-            <PropertyRef Name="pe_apellido" />
-            <PropertyRef Name="pe_nombre" />
-            <PropertyRef Name="idtipopersona" />
-            <PropertyRef Name="idtipodocumento" />
-            <PropertyRef Name="pe_cedularuc" />
-            <PropertyRef Name="pe_direccion" />
-            <PropertyRef Name="pe_sexo" />
-            <PropertyRef Name="idestadocivil" />
-            <PropertyRef Name="pe_estado" />
           </Key>
           <Property Name="idpersona" Type="Decimal" Nullable="false" />
           <Property Name="codpersona" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
@@ -2018,11 +1540,6 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwtb_tb_sis_documento_tipo
         <EntityType Name="tb_sis_datos_sistema">
           <Key>
             <PropertyRef Name="id" />
-            <PropertyRef Name="nombre_sistema" />
-            <PropertyRef Name="version" />
-            <PropertyRef Name="propietario" />
-            <PropertyRef Name="desarrolladores" />
-            <PropertyRef Name="observacion" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="nombre_sistema" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -2039,6 +1556,7 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwtb_tb_sis_documento_tipo
           <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="estado" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="posicion" Type="Int32" />
+          <NavigationProperty Name="tb_sis_documento_tipo_x_empresa" Relationship="DBERPModelGeneral.tb_sis_documento_tipo_x_empresa_tb_sis_documento_tipo_FK" FromRole="tb_sis_documento_tipo" ToRole="tb_sis_documento_tipo_x_empresa" />
         </EntityType>
         <EntityType Name="tb_sis_documento_tipo_talonario">
           <Key>
@@ -2047,7 +1565,6 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwtb_tb_sis_documento_tipo
             <PropertyRef Name="establecimiento" />
             <PropertyRef Name="puntoemision" />
             <PropertyRef Name="numdocumento" />
-            <PropertyRef Name="idsucursal" />
           </Key>
           <Property Name="idempresa" Type="Int32" Nullable="false" />
           <Property Name="coddocumentotipo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
@@ -2060,17 +1577,12 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwtb_tb_sis_documento_tipo
           <Property Name="idsucursal" Type="Int32" Nullable="false" />
           <Property Name="numautorizacion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="es_documento_electronico" Type="Boolean" />
+          <NavigationProperty Name="tb_empresa" Relationship="DBERPModelGeneral.tb_sis_documento_tipo_talonario_tb_empresa_FK" FromRole="tb_sis_documento_tipo_talonario" ToRole="tb_empresa" />
         </EntityType>
         <EntityType Name="tb_sis_documento_tipo_x_empresa">
           <Key>
             <PropertyRef Name="idempresa" />
             <PropertyRef Name="coddocumentotipo" />
-            <PropertyRef Name="aparececombofac_tipofact" />
-            <PropertyRef Name="aparececombofac_import" />
-            <PropertyRef Name="aparecetalonario" />
-            <PropertyRef Name="descripcion" />
-            <PropertyRef Name="posicion" />
-            <PropertyRef Name="aparececombo_filereporte" />
           </Key>
           <Property Name="idempresa" Type="Int32" Nullable="false" />
           <Property Name="coddocumentotipo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
@@ -2080,16 +1592,12 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwtb_tb_sis_documento_tipo
           <Property Name="descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="posicion" Type="Int32" Nullable="false" />
           <Property Name="aparececombo_filereporte" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_empresa" Relationship="DBERPModelGeneral.tb_sis_documento_tipo_x_empresa_tb_empresa_FK" FromRole="tb_sis_documento_tipo_x_empresa" ToRole="tb_empresa" />
+          <NavigationProperty Name="tb_sis_documento_tipo" Relationship="DBERPModelGeneral.tb_sis_documento_tipo_x_empresa_tb_sis_documento_tipo_FK" FromRole="tb_sis_documento_tipo_x_empresa" ToRole="tb_sis_documento_tipo" />
         </EntityType>
         <EntityType Name="tb_sis_impuesto">
           <Key>
             <PropertyRef Name="idcod_impuesto" />
-            <PropertyRef Name="nom_impuesto" />
-            <PropertyRef Name="usado_en_ventas" />
-            <PropertyRef Name="usado_en_compras" />
-            <PropertyRef Name="porcentaje" />
-            <PropertyRef Name="estado" />
-            <PropertyRef Name="idtipoimpuesto" />
           </Key>
           <Property Name="idcod_impuesto" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="nom_impuesto" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -2099,26 +1607,28 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwtb_tb_sis_documento_tipo
           <Property Name="idcodigo_sri" Type="Int32" />
           <Property Name="estado" Type="Boolean" Nullable="false" />
           <Property Name="idtipoimpuesto" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_sis_impuesto_tipo" Relationship="DBERPModelGeneral.tb_sis_impuesto_tb_sis_impuesto_tipo_FK" FromRole="tb_sis_impuesto" ToRole="tb_sis_impuesto_tipo" />
+          <NavigationProperty Name="tb_sis_impuesto_x_ctacble" Relationship="DBERPModelGeneral.tb_sis_impuesto_x_ctacble_tb_sis_impuesto_FK" FromRole="tb_sis_impuesto" ToRole="tb_sis_impuesto_x_ctacble" />
         </EntityType>
         <EntityType Name="tb_sis_impuesto_tipo">
           <Key>
             <PropertyRef Name="idtipoimpuesto" />
-            <PropertyRef Name="nom_tipoimpuesto" />
           </Key>
           <Property Name="idtipoimpuesto" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="nom_tipoimpuesto" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_sis_impuesto" Relationship="DBERPModelGeneral.tb_sis_impuesto_tb_sis_impuesto_tipo_FK" FromRole="tb_sis_impuesto_tipo" ToRole="tb_sis_impuesto" />
         </EntityType>
         <EntityType Name="tb_sis_impuesto_x_ctacble">
           <Key>
             <PropertyRef Name="idcod_impuesto" />
             <PropertyRef Name="idempresa_cta" />
             <PropertyRef Name="idctacble" />
-            <PropertyRef Name="observacion" />
           </Key>
           <Property Name="idcod_impuesto" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="idempresa_cta" Type="Int32" Nullable="false" />
           <Property Name="idctacble" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="observacion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_sis_impuesto" Relationship="DBERPModelGeneral.tb_sis_impuesto_x_ctacble_tb_sis_impuesto_FK" FromRole="tb_sis_impuesto_x_ctacble" ToRole="tb_sis_impuesto" />
         </EntityType>
         <EntityType Name="tb_sis_log_error_vzen">
           <Key>
@@ -2137,14 +1647,10 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwtb_tb_sis_documento_tipo
         </EntityType>
         <EntityType Name="tb_sis_mensajes_sys">
           <Key>
-            <PropertyRef Name="idsecuencia" />
             <PropertyRef Name="idmensaje" />
-            <PropertyRef Name="mensaje_esp" />
-            <PropertyRef Name="mensaje_englesh" />
-            <PropertyRef Name="estado" />
           </Key>
-          <Property Name="idsecuencia" Type="Decimal" Nullable="false" />
           <Property Name="idmensaje" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="idsecuencia" Type="Decimal" Nullable="false" />
           <Property Name="mensaje_esp" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="mensaje_englesh" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="estado" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
@@ -2152,13 +1658,6 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwtb_tb_sis_documento_tipo
         <EntityType Name="tb_sis_reporte">
           <Key>
             <PropertyRef Name="codreporte" />
-            <PropertyRef Name="nombre" />
-            <PropertyRef Name="nombrecorto" />
-            <PropertyRef Name="modulo" />
-            <PropertyRef Name="vistarpt" />
-            <PropertyRef Name="formulario" />
-            <PropertyRef Name="orden" />
-            <PropertyRef Name="class_data" />
           </Key>
           <Property Name="codreporte" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
@@ -2187,8 +1686,6 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwtb_tb_sis_documento_tipo
           <Key>
             <PropertyRef Name="idempresa" />
             <PropertyRef Name="idsucursal" />
-            <PropertyRef Name="su_descripcion" />
-            <PropertyRef Name="estado" />
           </Key>
           <Property Name="idempresa" Type="Int32" Nullable="false" />
           <Property Name="idsucursal" Type="Int32" Nullable="false" />
@@ -2304,6 +1801,31 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwtb_tb_sis_documento_tipo
           <Property Name="estado" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="orden" Type="Int32" Nullable="false" />
           <Property Name="idtipocatalogo" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vwge_tb_sis_documento_tipo_talonario">
+          <Key>
+            <PropertyRef Name="idempresa" />
+            <PropertyRef Name="em_nombre" />
+            <PropertyRef Name="coddocumentotipo" />
+            <PropertyRef Name="establecimiento" />
+            <PropertyRef Name="puntoemision" />
+            <PropertyRef Name="numdocumento" />
+            <PropertyRef Name="idsucursal" />
+            <PropertyRef Name="su_descripcion" />
+          </Key>
+          <Property Name="idempresa" Type="Int32" Nullable="false" />
+          <Property Name="em_nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="coddocumentotipo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="establecimiento" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="puntoemision" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="numdocumento" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="fechacaducidad" Type="DateTime" />
+          <Property Name="usado" Type="Boolean" />
+          <Property Name="idsucursal" Type="Int32" Nullable="false" />
+          <Property Name="su_descripcion" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="numautorizacion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="es_documento_electronico" Type="Boolean" />
         </EntityType>
         <EntityType Name="vwtb_bodega_x_sucursal_treelist">
           <Key>
@@ -2493,31 +2015,102 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwtb_tb_sis_documento_tipo
           <Property Name="puntoemision" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
           <Property Name="numdocumento" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="vwge_tb_sis_documento_tipo_talonario">
-          <Key>
-            <PropertyRef Name="idempresa" />
-            <PropertyRef Name="em_nombre" />
-            <PropertyRef Name="coddocumentotipo" />
-            <PropertyRef Name="establecimiento" />
-            <PropertyRef Name="puntoemision" />
-            <PropertyRef Name="numdocumento" />
-            <PropertyRef Name="idsucursal" />
-            <PropertyRef Name="su_descripcion" />
-          </Key>
-          <Property Name="idempresa" Type="Int32" Nullable="false" />
-          <Property Name="em_nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="coddocumentotipo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="establecimiento" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <Property Name="puntoemision" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <Property Name="numdocumento" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="fechacaducidad" Type="DateTime" />
-          <Property Name="usado" Type="Boolean" />
-          <Property Name="idsucursal" Type="Int32" Nullable="false" />
-          <Property Name="su_descripcion" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
-          <Property Name="numautorizacion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="estado" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Name="es_documento_electronico" Type="Boolean" />
-        </EntityType>
+        <Association Name="tb_catalogo_tb_catalogotipo_FK">
+          <End Type="DBERPModelGeneral.tb_catalogotipo" Role="tb_catalogotipo" Multiplicity="1" />
+          <End Type="DBERPModelGeneral.tb_catalogo" Role="tb_catalogo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_catalogotipo">
+              <PropertyRef Name="idtipocatalogo" />
+            </Principal>
+            <Dependent Role="tb_catalogo">
+              <PropertyRef Name="idtipocatalogo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_conexion_dbfacturacion_electronica_tb_empresa_FK">
+          <End Type="DBERPModelGeneral.tb_empresa" Role="tb_empresa" Multiplicity="1" />
+          <End Type="DBERPModelGeneral.tb_conexion_dbfacturacion_electronica" Role="tb_conexion_dbfacturacion_electronica" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="tb_empresa">
+              <PropertyRef Name="idempresa" />
+            </Principal>
+            <Dependent Role="tb_conexion_dbfacturacion_electronica">
+              <PropertyRef Name="idempresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_sis_documento_tipo_talonario_tb_empresa_FK">
+          <End Type="DBERPModelGeneral.tb_empresa" Role="tb_empresa" Multiplicity="1" />
+          <End Type="DBERPModelGeneral.tb_sis_documento_tipo_talonario" Role="tb_sis_documento_tipo_talonario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_empresa">
+              <PropertyRef Name="idempresa" />
+            </Principal>
+            <Dependent Role="tb_sis_documento_tipo_talonario">
+              <PropertyRef Name="idempresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_sis_documento_tipo_x_empresa_tb_empresa_FK">
+          <End Type="DBERPModelGeneral.tb_empresa" Role="tb_empresa" Multiplicity="1" />
+          <End Type="DBERPModelGeneral.tb_sis_documento_tipo_x_empresa" Role="tb_sis_documento_tipo_x_empresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_empresa">
+              <PropertyRef Name="idempresa" />
+            </Principal>
+            <Dependent Role="tb_sis_documento_tipo_x_empresa">
+              <PropertyRef Name="idempresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_parametro_tb_parametro_tipo_FK">
+          <End Type="DBERPModelGeneral.tb_parametro_tipo" Role="tb_parametro_tipo" Multiplicity="1" />
+          <End Type="DBERPModelGeneral.tb_parametro" Role="tb_parametro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_parametro_tipo">
+              <PropertyRef Name="idtipoparam" />
+            </Principal>
+            <Dependent Role="tb_parametro">
+              <PropertyRef Name="idtipoparam" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_sis_documento_tipo_x_empresa_tb_sis_documento_tipo_FK">
+          <End Type="DBERPModelGeneral.tb_sis_documento_tipo" Role="tb_sis_documento_tipo" Multiplicity="1" />
+          <End Type="DBERPModelGeneral.tb_sis_documento_tipo_x_empresa" Role="tb_sis_documento_tipo_x_empresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_sis_documento_tipo">
+              <PropertyRef Name="coddocumentotipo" />
+            </Principal>
+            <Dependent Role="tb_sis_documento_tipo_x_empresa">
+              <PropertyRef Name="coddocumentotipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_sis_impuesto_tb_sis_impuesto_tipo_FK">
+          <End Type="DBERPModelGeneral.tb_sis_impuesto_tipo" Role="tb_sis_impuesto_tipo" Multiplicity="1" />
+          <End Type="DBERPModelGeneral.tb_sis_impuesto" Role="tb_sis_impuesto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_sis_impuesto_tipo">
+              <PropertyRef Name="idtipoimpuesto" />
+            </Principal>
+            <Dependent Role="tb_sis_impuesto">
+              <PropertyRef Name="idtipoimpuesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_sis_impuesto_x_ctacble_tb_sis_impuesto_FK">
+          <End Type="DBERPModelGeneral.tb_sis_impuesto" Role="tb_sis_impuesto" Multiplicity="1" />
+          <End Type="DBERPModelGeneral.tb_sis_impuesto_x_ctacble" Role="tb_sis_impuesto_x_ctacble" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_sis_impuesto">
+              <PropertyRef Name="idcod_impuesto" />
+            </Principal>
+            <Dependent Role="tb_sis_impuesto_x_ctacble">
+              <PropertyRef Name="idcod_impuesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2562,34 +2155,6 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwtb_tb_sis_documento_tipo
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tb_calendario">
-            <EntityTypeMapping TypeName="DBERPModelGeneral.tb_calendario">
-              <MappingFragment StoreEntitySet="tb_calendario">
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-                <ScalarProperty Name="esferiado" ColumnName="esferiado" />
-                <ScalarProperty Name="idperiodo" ColumnName="idperiodo" />
-                <ScalarProperty Name="idtrimestre" ColumnName="idtrimestre" />
-                <ScalarProperty Name="nombretrimestre" ColumnName="nombretrimestre" />
-                <ScalarProperty Name="trimestre_x_anio" ColumnName="trimestre_x_anio" />
-                <ScalarProperty Name="idsemana" ColumnName="idsemana" />
-                <ScalarProperty Name="nombresemana" ColumnName="nombresemana" />
-                <ScalarProperty Name="semana_x_anio" ColumnName="semana_x_anio" />
-                <ScalarProperty Name="aniofiscal" ColumnName="aniofiscal" />
-                <ScalarProperty Name="nombrecortomes" ColumnName="nombrecortomes" />
-                <ScalarProperty Name="idmes" ColumnName="idmes" />
-                <ScalarProperty Name="nombremes" ColumnName="nombremes" />
-                <ScalarProperty Name="mes_x_anio" ColumnName="mes_x_anio" />
-                <ScalarProperty Name="nombredia" ColumnName="nombredia" />
-                <ScalarProperty Name="inicial_del_dia" ColumnName="inicial_del_dia" />
-                <ScalarProperty Name="dia_x_mes" ColumnName="dia_x_mes" />
-                <ScalarProperty Name="dia_x_semana" ColumnName="dia_x_semana" />
-                <ScalarProperty Name="nombrecortofecha" ColumnName="nombrecortofecha" />
-                <ScalarProperty Name="nombrefecha" ColumnName="nombrefecha" />
-                <ScalarProperty Name="fecha" ColumnName="fecha" />
-                <ScalarProperty Name="idcalendario" ColumnName="idcalendario" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="tb_catalogo">
             <EntityTypeMapping TypeName="DBERPModelGeneral.tb_catalogo">
               <MappingFragment StoreEntitySet="tb_catalogo">
@@ -2603,9 +2168,9 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwtb_tb_sis_documento_tipo
                 <ScalarProperty Name="ca_orden" ColumnName="ca_orden" />
                 <ScalarProperty Name="ca_estado" ColumnName="ca_estado" />
                 <ScalarProperty Name="ca_descripcion" ColumnName="ca_descripcion" />
-                <ScalarProperty Name="idcatalogo" ColumnName="idcatalogo" />
-                <ScalarProperty Name="idtipocatalogo" ColumnName="idtipocatalogo" />
                 <ScalarProperty Name="codcatalogo" ColumnName="codcatalogo" />
+                <ScalarProperty Name="idtipocatalogo" ColumnName="idtipocatalogo" />
+                <ScalarProperty Name="idcatalogo" ColumnName="idcatalogo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2931,8 +2496,8 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwtb_tb_sis_documento_tipo
                 <ScalarProperty Name="estado" ColumnName="estado" />
                 <ScalarProperty Name="mensaje_englesh" ColumnName="mensaje_englesh" />
                 <ScalarProperty Name="mensaje_esp" ColumnName="mensaje_esp" />
-                <ScalarProperty Name="idmensaje" ColumnName="idmensaje" />
                 <ScalarProperty Name="idsecuencia" ColumnName="idsecuencia" />
+                <ScalarProperty Name="idmensaje" ColumnName="idmensaje" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3060,6 +2625,25 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwtb_tb_sis_documento_tipo
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
                 <ScalarProperty Name="codigo" ColumnName="codigo" />
                 <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwge_tb_sis_documento_tipo_talonario">
+            <EntityTypeMapping TypeName="DBERPModelGeneral.vwge_tb_sis_documento_tipo_talonario">
+              <MappingFragment StoreEntitySet="vwge_tb_sis_documento_tipo_talonario">
+                <ScalarProperty Name="es_documento_electronico" ColumnName="es_documento_electronico" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="numautorizacion" ColumnName="numautorizacion" />
+                <ScalarProperty Name="su_descripcion" ColumnName="su_descripcion" />
+                <ScalarProperty Name="idsucursal" ColumnName="idsucursal" />
+                <ScalarProperty Name="usado" ColumnName="usado" />
+                <ScalarProperty Name="fechacaducidad" ColumnName="fechacaducidad" />
+                <ScalarProperty Name="numdocumento" ColumnName="numdocumento" />
+                <ScalarProperty Name="puntoemision" ColumnName="puntoemision" />
+                <ScalarProperty Name="establecimiento" ColumnName="establecimiento" />
+                <ScalarProperty Name="coddocumentotipo" ColumnName="coddocumentotipo" />
+                <ScalarProperty Name="em_nombre" ColumnName="em_nombre" />
+                <ScalarProperty Name="idempresa" ColumnName="idempresa" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3205,25 +2789,6 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwtb_tb_sis_documento_tipo
                 <ScalarProperty Name="establecimiento" ColumnName="establecimiento" />
                 <ScalarProperty Name="coddocumentotipo" ColumnName="coddocumentotipo" />
                 <ScalarProperty Name="em_ruc" ColumnName="em_ruc" />
-                <ScalarProperty Name="idempresa" ColumnName="idempresa" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vwge_tb_sis_documento_tipo_talonario">
-            <EntityTypeMapping TypeName="DBERPModelGeneral.vwge_tb_sis_documento_tipo_talonario">
-              <MappingFragment StoreEntitySet="vwge_tb_sis_documento_tipo_talonario">
-                <ScalarProperty Name="es_documento_electronico" ColumnName="es_documento_electronico" />
-                <ScalarProperty Name="estado" ColumnName="estado" />
-                <ScalarProperty Name="numautorizacion" ColumnName="numautorizacion" />
-                <ScalarProperty Name="su_descripcion" ColumnName="su_descripcion" />
-                <ScalarProperty Name="idsucursal" ColumnName="idsucursal" />
-                <ScalarProperty Name="usado" ColumnName="usado" />
-                <ScalarProperty Name="fechacaducidad" ColumnName="fechacaducidad" />
-                <ScalarProperty Name="numdocumento" ColumnName="numdocumento" />
-                <ScalarProperty Name="puntoemision" ColumnName="puntoemision" />
-                <ScalarProperty Name="establecimiento" ColumnName="establecimiento" />
-                <ScalarProperty Name="coddocumentotipo" ColumnName="coddocumentotipo" />
-                <ScalarProperty Name="em_nombre" ColumnName="em_nombre" />
                 <ScalarProperty Name="idempresa" ColumnName="idempresa" />
               </MappingFragment>
             </EntityTypeMapping>

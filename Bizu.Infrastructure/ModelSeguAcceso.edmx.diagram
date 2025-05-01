@@ -5,16 +5,20 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="09a5fa1d690c47bcb79212c980eff885" Name="Diagrama1" ZoomLevel="46">
-        <EntityTypeShape EntityType="DBERPModelSeguridad.seg_menu" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DBERPModelSeguridad.seg_menu_x_empresa" Width="1.5" PointX="2.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DBERPModelSeguridad.seg_menu_x_empresa_x_usuario" Width="1.5" PointX="2.75" PointY="3.75" />
-        <EntityTypeShape EntityType="DBERPModelSeguridad.seg_usuario" Width="1.5" PointX="4.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DBERPModelSeguridad.seg_usuario_x_empresa" Width="1.5" PointX="4.75" PointY="5.75" />
-        <EntityTypeShape EntityType="DBERPModelSeguridad.seg_usuario_x_tb_sis_reporte" Width="1.5" PointX="6.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DBERPModelSeguridad.vw_seg_menu_x_usuario_x_empresa" Width="1.5" PointX="0.75" PointY="6.75" />
-        <EntityTypeShape EntityType="DBERPModelSeguridad.vwseg_menu_x_usuario_x_empresa" Width="1.5" PointX="6.75" PointY="3.75" />
-        <EntityTypeShape EntityType="DBERPModelSeguridad.vwseg_usuario_x_empresa" Width="1.5" PointX="8.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DBERPModelSeguridad.vwseg_usuario_x_tb_sis_reporte" Width="1.5" PointX="2.75" PointY="8.75" />
+        <EntityTypeShape EntityType="DBERPModelSeguridad.seg_menu" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DBERPModelSeguridad.seg_menu_x_empresa_x_usuario" Width="1.5" PointX="6" PointY="6.25" />
+        <EntityTypeShape EntityType="DBERPModelSeguridad.seg_usuario" Width="1.5" PointX="0.75" PointY="5.5" />
+        <EntityTypeShape EntityType="DBERPModelSeguridad.seg_usuario_x_empresa" Width="1.5" PointX="3" PointY="11.25" />
+        <EntityTypeShape EntityType="DBERPModelSeguridad.seg_usuario_x_tb_sis_reporte" Width="1.5" PointX="3" PointY="5.375" />
+        <EntityTypeShape EntityType="DBERPModelSeguridad.seg_menu_x_empresa" Width="1.5" PointX="5.75" PointY="3.25" />
+        <EntityTypeShape EntityType="DBERPModelSeguridad.vw_seg_menu_x_usuario_x_empresa" Width="1.5" PointX="5.75" PointY="10.25" />
+        <EntityTypeShape EntityType="DBERPModelSeguridad.vwseg_menu_x_usuario_x_empresa" Width="1.5" PointX="7.75" PointY="10.25" />
+        <EntityTypeShape EntityType="DBERPModelSeguridad.vwseg_usuario_x_empresa" Width="1.5" PointX="2.75" PointY="8.25" />
+        <EntityTypeShape EntityType="DBERPModelSeguridad.vwseg_usuario_x_tb_sis_reporte" Width="1.5" PointX="8.75" PointY="3.25" />
+        <AssociationConnector Association="DBERPModelSeguridad.seg_menu_x_empresa_x_usuario_seg_menu_FK" />
+        <AssociationConnector Association="DBERPModelSeguridad.seg_menu_x_empresa_x_usuario_seg_usuario_FK" />
+        <AssociationConnector Association="DBERPModelSeguridad.seg_usuario_x_empresa_seg_usuario_FK" />
+        <AssociationConnector Association="DBERPModelSeguridad.seg_usuario_x_tb_sis_reporte_seg_usuario_FK" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

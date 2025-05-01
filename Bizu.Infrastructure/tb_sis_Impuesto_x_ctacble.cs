@@ -18,5 +18,7 @@ namespace Bizu.Infrastructure
         public int idempresa_cta { get; set; }
         public string idctacble { get; set; }
         public string observacion { get; set; }
+    
+        public virtual tb_sis_impuesto tb_sis_impuesto { get; set; }
     }
 }

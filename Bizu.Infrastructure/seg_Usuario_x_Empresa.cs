@@ -17,5 +17,7 @@ namespace Bizu.Infrastructure
         public string idusuario { get; set; }
         public int idempresa { get; set; }
         public string observacion { get; set; }
+    
+        public virtual seg_usuario seg_usuario { get; set; }
     }
 }

@@ -14,7 +14,14 @@ namespace Bizu.Infrastructure
     
     public partial class tb_sis_impuesto_tipo
     {
+        public tb_sis_impuesto_tipo()
+        {
+            this.tb_sis_impuesto = new HashSet<tb_sis_impuesto>();
+        }
+    
         public string idtipoimpuesto { get; set; }
         public string nom_tipoimpuesto { get; set; }
+    
+        public virtual ICollection<tb_sis_impuesto> tb_sis_impuesto { get; set; }
     }
 }

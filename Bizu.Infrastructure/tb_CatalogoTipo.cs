@@ -14,6 +14,11 @@ namespace Bizu.Infrastructure
     
     public partial class tb_catalogotipo
     {
+        public tb_catalogotipo()
+        {
+            this.tb_catalogo = new HashSet<tb_catalogo>();
+        }
+    
         public int idtipocatalogo { get; set; }
         public string codigo { get; set; }
         public string tc_descripcion { get; set; }
@@ -24,5 +29,7 @@ namespace Bizu.Infrastructure
         public string idusuarioultanu { get; set; }
         public Nullable<System.DateTime> fecha_ultanu { get; set; }
         public string motivoanulacion { get; set; }
+    
+        public virtual ICollection<tb_catalogo> tb_catalogo { get; set; }
     }
 }

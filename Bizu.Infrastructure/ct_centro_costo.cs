@@ -14,6 +14,11 @@ namespace Bizu.Infrastructure
     
     public partial class ct_centro_costo
     {
+        public ct_centro_costo()
+        {
+            this.ct_cbtecble_det = new HashSet<ct_cbtecble_det>();
+        }
+    
         public int idempresa { get; set; }
         public string idcentrocosto { get; set; }
         public string codcentrocosto { get; set; }
@@ -33,5 +38,7 @@ namespace Bizu.Infrastructure
         public string motivoanulacion { get; set; }
         public string nom_pc { get; set; }
         public string ip { get; set; }
+    
+        public virtual ICollection<ct_cbtecble_det> ct_cbtecble_det { get; set; }
     }
 }

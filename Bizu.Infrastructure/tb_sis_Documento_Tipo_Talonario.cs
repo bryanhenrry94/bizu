@@ -25,5 +25,7 @@ namespace Bizu.Infrastructure
         public int idsucursal { get; set; }
         public string numautorizacion { get; set; }
         public Nullable<bool> es_documento_electronico { get; set; }
+    
+        public virtual tb_empresa tb_empresa { get; set; }
     }
 }

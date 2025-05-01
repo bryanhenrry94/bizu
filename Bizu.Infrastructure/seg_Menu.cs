@@ -14,6 +14,11 @@ namespace Bizu.Infrastructure
     
     public partial class seg_menu
     {
+        public seg_menu()
+        {
+            this.seg_menu_x_empresa_x_usuario = new HashSet<seg_menu_x_empresa_x_usuario>();
+        }
+    
         public int idmenu { get; set; }
         public Nullable<int> idmenupadre { get; set; }
         public string descripcionmenu { get; set; }
@@ -26,5 +31,7 @@ namespace Bizu.Infrastructure
         public byte[] imagen_peque { get; set; }
         public byte[] icono { get; set; }
         public Nullable<int> nivel { get; set; }
+    
+        public virtual ICollection<seg_menu_x_empresa_x_usuario> seg_menu_x_empresa_x_usuario { get; set; }
     }
 }

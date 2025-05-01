@@ -748,6 +748,12 @@
     <Compile Include="ct_plancta_nivel.cs">
       <DependentUpon>ModelConta.tt</DependentUpon>
     </Compile>
+    <Compile Include="ct_tipo_costo.cs">
+      <DependentUpon>ModelConta.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ct_tipo_ctacble.cs">
+      <DependentUpon>ModelConta.tt</DependentUpon>
+    </Compile>
     <Compile Include="CuentasxCobrar\cxc_anticipo_facturado_Data.cs" />
     <Compile Include="CuentasxCobrar\cxc_anticipo_facturado_det_Data.cs" />
     <Compile Include="CuentasxPagar\cp_liquidacion_compra_Data.cs" />
@@ -1854,9 +1860,6 @@
       <DependentUpon>ModelGeneral.tt</DependentUpon>
     </Compile>
     <Compile Include="tb_bodega.cs">
-      <DependentUpon>ModelGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tb_calendario.cs">
       <DependentUpon>ModelGeneral.tt</DependentUpon>
     </Compile>
     <Compile Include="tb_catalogo.cs">

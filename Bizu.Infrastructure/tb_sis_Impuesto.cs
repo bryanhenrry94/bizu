@@ -14,6 +14,11 @@ namespace Bizu.Infrastructure
     
     public partial class tb_sis_impuesto
     {
+        public tb_sis_impuesto()
+        {
+            this.tb_sis_impuesto_x_ctacble = new HashSet<tb_sis_impuesto_x_ctacble>();
+        }
+    
         public string idcod_impuesto { get; set; }
         public string nom_impuesto { get; set; }
         public bool usado_en_ventas { get; set; }
@@ -22,5 +27,8 @@ namespace Bizu.Infrastructure
         public Nullable<int> idcodigo_sri { get; set; }
         public bool estado { get; set; }
         public string idtipoimpuesto { get; set; }
+    
+        public virtual tb_sis_impuesto_tipo tb_sis_impuesto_tipo { get; set; }
+        public virtual ICollection<tb_sis_impuesto_x_ctacble> tb_sis_impuesto_x_ctacble { get; set; }
     }
 }

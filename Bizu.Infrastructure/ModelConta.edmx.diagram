@@ -4,41 +4,55 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a34280bb4e144d03a5e53ce94f4cc0d7" Name="Diagrama1" ZoomLevel="33">
-        <EntityTypeShape EntityType="DBERPModelConta.ct_anio_fiscal" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DBERPModelConta.ct_anio_fiscal_x_cuenta_utilidad" Width="1.5" PointX="2.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DBERPModelConta.ct_cbtecble" Width="1.5" PointX="4.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DBERPModelConta.ct_cbtecble_det" Width="1.5" PointX="0.75" PointY="4.75" />
-        <EntityTypeShape EntityType="DBERPModelConta.ct_cbtecble_reversado" Width="1.5" PointX="6.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DBERPModelConta.ct_cbtecble_tipo" Width="1.5" PointX="2.75" PointY="6.75" />
-        <EntityTypeShape EntityType="DBERPModelConta.ct_centro_costo" Width="1.5" PointX="6.75" PointY="4.75" />
-        <EntityTypeShape EntityType="DBERPModelConta.ct_dashboard_financiero" Width="1.5" PointX="8.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DBERPModelConta.ct_grupocble" Width="1.5" PointX="8.75" PointY="9.75" />
-        <EntityTypeShape EntityType="DBERPModelConta.ct_parametro" Width="1.5" PointX="10.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DBERPModelConta.ct_periodo" Width="1.5" PointX="10.75" PointY="3.75" />
-        <EntityTypeShape EntityType="DBERPModelConta.ct_periodo_x_tb_modulo" Width="1.5" PointX="4.75" PointY="10.75" />
-        <EntityTypeShape EntityType="DBERPModelConta.ct_plancta" Width="1.5" PointX="10.75" PointY="7.75" />
-        <EntityTypeShape EntityType="DBERPModelConta.ct_plancta_nivel" Width="1.5" PointX="0.75" PointY="11.75" />
-        <EntityTypeShape EntityType="DBERPModelConta.vwct_anio_fiscal_x_cuenta_utilidad" Width="1.5" PointX="12.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DBERPModelConta.vwct_cbtecble_con_ctacble_acreedora" Width="1.5" PointX="12.75" PointY="4.75" />
-        <EntityTypeShape EntityType="DBERPModelConta.vwct_cbtecble_con_saldo" Width="1.5" PointX="12.75" PointY="7.75" />
-        <EntityTypeShape EntityType="DBERPModelConta.vwct_cbtecble_con_saldo_cxp" Width="1.5" PointX="12.75" PointY="11.75" />
-        <EntityTypeShape EntityType="DBERPModelConta.vwct_cbtecble_con_saldo_cxp_anti_provee" Width="1.5" PointX="6.75" PointY="13.75" />
-        <EntityTypeShape EntityType="DBERPModelConta.vwct_cbtecble_con_saldo_cxp_consulta" Width="1.5" PointX="14.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DBERPModelConta.vwct_cbtecble_con_saldo_cxp_diario" Width="1.5" PointX="2.75" PointY="14.75" />
-        <EntityTypeShape EntityType="DBERPModelConta.vwct_cbtecble_con_saldo_cxp_nota" Width="1.5" PointX="14.75" PointY="5.75" />
-        <EntityTypeShape EntityType="DBERPModelConta.vwct_cbtecble_det" Width="1.5" PointX="8.75" PointY="14.75" />
-        <EntityTypeShape EntityType="DBERPModelConta.vwct_cbtecble_det_totaldiario" Width="1.5" PointX="14.75" PointY="10.75" />
-        <EntityTypeShape EntityType="DBERPModelConta.vwct_centro_costo" Width="1.5" PointX="14.75" PointY="13.75" />
-        <EntityTypeShape EntityType="DBERPModelConta.vwct_comprobantecontable" Width="1.5" PointX="16.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DBERPModelConta.vwct_periodo" Width="1.5" PointX="16.75" PointY="6.75" />
-        <EntityTypeShape EntityType="DBERPModelConta.vwct_plancta" Width="1.5" PointX="16.75" PointY="11.75" />
-        <EntityTypeShape EntityType="DBERPModelConta.vwct_plancta_nivel" Width="1.5" PointX="16.75" PointY="16.75" />
-        <EntityTypeShape EntityType="DBERPModelConta.vwct_saldosxcuentas" Width="1.5" PointX="10.75" PointY="17.75" />
-        <EntityTypeShape EntityType="DBERPModelConta.vwct_utilidadxperiodo" Width="1.5" PointX="12.75" PointY="17.75" />
-        <EntityTypeShape EntityType="DBERPModelConta.vwct_utilidadxperiodo_saldo_acumulado" Width="1.5" PointX="18.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DBERPModelConta.vwct_utilidadxperiodo_saldo_anterior" Width="1.5" PointX="18.75" PointY="3.75" />
-        <EntityTypeShape EntityType="DBERPModelConta.vwct_utilidadxperiodo_saldo_periodoactual" Width="1.5" PointX="18.75" PointY="6.75" />
+      <Diagram DiagramId="a34280bb4e144d03a5e53ce94f4cc0d7" Name="Diagrama1" ZoomLevel="80">
+        <EntityTypeShape EntityType="DBERPModelConta.ct_anio_fiscal" Width="1.5" PointX="6" PointY="4.25" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_anio_fiscal_x_cuenta_utilidad" Width="1.5" PointX="8.25" PointY="8.75" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_cbtecble" Width="1.5" PointX="3" PointY="7.125" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_cbtecble_det" Width="1.5" PointX="5.25" PointY="8" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_cbtecble_reversado" Width="1.5" PointX="5.25" PointY="17.5" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_cbtecble_tipo" Width="1.5" PointX="0.75" PointY="8.125" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_centro_costo" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_dashboard_financiero" Width="1.5" PointX="8.75" PointY="12.75" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_grupocble" Width="1.5" PointX="3.75" PointY="25.5" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_parametro" Width="1.5" PointX="10.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_periodo" Width="1.5" PointX="8.25" PointY="4" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_plancta" Width="1.5" PointX="6" PointY="21.5" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_plancta_nivel" Width="1.5" PointX="3.75" PointY="21.25" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_tipo_costo" Width="1.5" PointX="10.75" PointY="6.75" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_tipo_ctacble" Width="1.5" PointX="5.75" PointY="13.75" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_periodo_x_tb_modulo" Width="1.5" PointX="10.75" PointY="9.75" />
+        <EntityTypeShape EntityType="DBERPModelConta.vwct_anio_fiscal_x_cuenta_utilidad" Width="1.5" PointX="10.75" PointY="13.75" />
+        <EntityTypeShape EntityType="DBERPModelConta.vwct_cbtecble_con_ctacble_acreedora" Width="1.5" PointX="0.75" PointY="14.75" />
+        <EntityTypeShape EntityType="DBERPModelConta.vwct_cbtecble_con_saldo" Width="1.5" PointX="12.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DBERPModelConta.vwct_cbtecble_con_saldo_cxp" Width="1.5" PointX="12.75" PointY="7.75" />
+        <EntityTypeShape EntityType="DBERPModelConta.vwct_cbtecble_con_saldo_cxp_anti_provee" Width="1.5" PointX="12.75" PointY="13.75" />
+        <EntityTypeShape EntityType="DBERPModelConta.vwct_cbtecble_con_saldo_cxp_consulta" Width="1.5" PointX="14.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DBERPModelConta.vwct_cbtecble_con_saldo_cxp_diario" Width="1.5" PointX="0.75" PointY="17.75" />
+        <EntityTypeShape EntityType="DBERPModelConta.vwct_cbtecble_con_saldo_cxp_nota" Width="1.5" PointX="14.75" PointY="8.75" />
+        <EntityTypeShape EntityType="DBERPModelConta.vwct_cbtecble_det" Width="1.5" PointX="14.75" PointY="13.75" />
+        <EntityTypeShape EntityType="DBERPModelConta.vwct_cbtecble_det_totaldiario" Width="1.5" PointX="2.75" PointY="14.75" />
+        <EntityTypeShape EntityType="DBERPModelConta.vwct_centro_costo" Width="1.5" PointX="16.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DBERPModelConta.vwct_comprobantecontable" Width="1.5" PointX="16.75" PointY="7.75" />
+        <EntityTypeShape EntityType="DBERPModelConta.vwct_periodo" Width="1.5" PointX="16.75" PointY="13.75" />
+        <EntityTypeShape EntityType="DBERPModelConta.vwct_plancta" Width="1.5" PointX="10.75" PointY="19.75" />
+        <EntityTypeShape EntityType="DBERPModelConta.vwct_plancta_nivel" Width="1.5" PointX="12.75" PointY="19.75" />
+        <EntityTypeShape EntityType="DBERPModelConta.vwct_saldosxcuentas" Width="1.5" PointX="14.75" PointY="19.75" />
+        <EntityTypeShape EntityType="DBERPModelConta.vwct_utilidadxperiodo" Width="1.5" PointX="16.75" PointY="18.75" />
+        <EntityTypeShape EntityType="DBERPModelConta.vwct_utilidadxperiodo_saldo_acumulado" Width="1.5" PointX="18.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DBERPModelConta.vwct_utilidadxperiodo_saldo_anterior" Width="1.5" PointX="18.75" PointY="6.75" />
+        <EntityTypeShape EntityType="DBERPModelConta.vwct_utilidadxperiodo_saldo_periodoactual" Width="1.5" PointX="18.75" PointY="9.75" />
+        <AssociationConnector Association="DBERPModelConta.ct_anio_fiscal_x_cuenta_utilidad_ct_anio_fiscal_FK" />
+        <AssociationConnector Association="DBERPModelConta.ct_periodo_ct_anio_fiscal_FK" />
+        <AssociationConnector Association="DBERPModelConta.ct_anio_fiscal_x_cuenta_utilidad_ct_cbtecble_FK" />
+        <AssociationConnector Association="DBERPModelConta.ct_anio_fiscal_x_cuenta_utilidad_ct_plancta_FK" />
+        <AssociationConnector Association="DBERPModelConta.ct_cbtecble_ct_cbtecble_tipo_FK" />
+        <AssociationConnector Association="DBERPModelConta.ct_cbtecble_det_ct_cbtecble_FK" />
+        <AssociationConnector Association="DBERPModelConta.ct_cbtecble_reversado_ct_cbtecble_FK" />
+        <AssociationConnector Association="DBERPModelConta.ct_cbtecble_reversado_ct_cbtecble_FK_1" />
+        <AssociationConnector Association="DBERPModelConta.ct_cbtecble_det_ct_centro_costo_FK" />
+        <AssociationConnector Association="DBERPModelConta.ct_cbtecble_det_ct_plancta_FK" />
+        <AssociationConnector Association="DBERPModelConta.ct_plancta_ct_grupocble_FK" />
+        <AssociationConnector Association="DBERPModelConta.ct_plancta_ct_plancta_nivel_FK" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

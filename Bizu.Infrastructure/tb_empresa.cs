@@ -14,6 +14,12 @@ namespace Bizu.Infrastructure
     
     public partial class tb_empresa
     {
+        public tb_empresa()
+        {
+            this.tb_sis_documento_tipo_talonario = new HashSet<tb_sis_documento_tipo_talonario>();
+            this.tb_sis_documento_tipo_x_empresa = new HashSet<tb_sis_documento_tipo_x_empresa>();
+        }
+    
         public int idempresa { get; set; }
         public string codigo { get; set; }
         public string em_nombre { get; set; }
@@ -39,5 +45,9 @@ namespace Bizu.Infrastructure
         public string em_email { get; set; }
         public string em_email_contacto { get; set; }
         public string sitio_web { get; set; }
+    
+        public virtual tb_conexion_dbfacturacion_electronica tb_conexion_dbfacturacion_electronica { get; set; }
+        public virtual ICollection<tb_sis_documento_tipo_talonario> tb_sis_documento_tipo_talonario { get; set; }
+        public virtual ICollection<tb_sis_documento_tipo_x_empresa> tb_sis_documento_tipo_x_empresa { get; set; }
     }
 }

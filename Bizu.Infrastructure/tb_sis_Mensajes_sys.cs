@@ -14,8 +14,8 @@ namespace Bizu.Infrastructure
     
     public partial class tb_sis_mensajes_sys
     {
-        public decimal idsecuencia { get; set; }
         public string idmensaje { get; set; }
+        public decimal idsecuencia { get; set; }
         public string mensaje_esp { get; set; }
         public string mensaje_englesh { get; set; }
         public string estado { get; set; }

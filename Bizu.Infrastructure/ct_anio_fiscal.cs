@@ -14,9 +14,18 @@ namespace Bizu.Infrastructure
     
     public partial class ct_anio_fiscal
     {
+        public ct_anio_fiscal()
+        {
+            this.ct_anio_fiscal_x_cuenta_utilidad = new HashSet<ct_anio_fiscal_x_cuenta_utilidad>();
+            this.ct_periodo = new HashSet<ct_periodo>();
+        }
+    
         public int idaniofiscal { get; set; }
         public System.DateTime af_fechaini { get; set; }
         public System.DateTime af_fechafin { get; set; }
         public string af_estado { get; set; }
+    
+        public virtual ICollection<ct_anio_fiscal_x_cuenta_utilidad> ct_anio_fiscal_x_cuenta_utilidad { get; set; }
+        public virtual ICollection<ct_periodo> ct_periodo { get; set; }
     }
 }

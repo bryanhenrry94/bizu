@@ -5,22 +5,15 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="DBERPModelConta.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="8.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.ct_anio_fiscal' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ct_anio_fiscal">
           <Key>
             <PropertyRef Name="idaniofiscal" />
-            <PropertyRef Name="af_fechaini" />
-            <PropertyRef Name="af_fechafin" />
-            <PropertyRef Name="af_estado" />
           </Key>
           <Property Name="idaniofiscal" Type="int" Nullable="false" />
           <Property Name="af_fechaini" Type="date" Nullable="false" />
           <Property Name="af_fechafin" Type="date" Nullable="false" />
           <Property Name="af_estado" Type="varchar" MaxLength="1" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.ct_anio_fiscal_x_cuenta_utilidad' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ct_anio_fiscal_x_cuenta_utilidad">
           <Key>
             <PropertyRef Name="idempresa" />
@@ -35,27 +28,11 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.ct_anio_fiscal_x_cuenta_ut
           <Property Name="idtipocbte_cbte_cierre" Type="int" />
           <Property Name="idcbtecble_cbte_cierre" Type="decimal" Precision="18" Scale="0" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.ct_cbtecble' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ct_cbtecble">
           <Key>
             <PropertyRef Name="idempresa" />
             <PropertyRef Name="idtipocbte" />
             <PropertyRef Name="idcbtecble" />
-            <PropertyRef Name="codcbtecble" />
-            <PropertyRef Name="idperiodo" />
-            <PropertyRef Name="cb_fecha" />
-            <PropertyRef Name="cb_valor" />
-            <PropertyRef Name="cb_observacion" />
-            <PropertyRef Name="cb_secuencia" />
-            <PropertyRef Name="cb_estado" />
-            <PropertyRef Name="cb_anio" />
-            <PropertyRef Name="cb_mes" />
-            <PropertyRef Name="idusuario" />
-            <PropertyRef Name="cb_fechatransac" />
-            <PropertyRef Name="cb_mayorizado" />
-            <PropertyRef Name="cb_para_conciliar" />
-            <PropertyRef Name="idsucursal" />
           </Key>
           <Property Name="idempresa" Type="int" Nullable="false" />
           <Property Name="idtipocbte" Type="int" Nullable="false" />
@@ -80,17 +57,12 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.ct_cbtecble' no tiene defi
           <Property Name="cb_para_conciliar" Type="bool" Nullable="false" />
           <Property Name="idsucursal" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.ct_cbtecble_det' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ct_cbtecble_det">
           <Key>
             <PropertyRef Name="idempresa" />
             <PropertyRef Name="idtipocbte" />
             <PropertyRef Name="idcbtecble" />
             <PropertyRef Name="secuencia" />
-            <PropertyRef Name="idctacble" />
-            <PropertyRef Name="dc_valor" />
-            <PropertyRef Name="dc_observacion" />
           </Key>
           <Property Name="idempresa" Type="int" Nullable="false" />
           <Property Name="idtipocbte" Type="int" Nullable="false" />
@@ -107,16 +79,11 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.ct_cbtecble_det' no tiene 
           <Property Name="idpunto_cargo_grupo" Type="int" />
           <Property Name="dc_para_conciliar" Type="bool" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.ct_cbtecble_reversado' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ct_cbtecble_reversado">
           <Key>
             <PropertyRef Name="idempresa" />
             <PropertyRef Name="idtipocbte" />
             <PropertyRef Name="idcbtecble" />
-            <PropertyRef Name="idempresa_anu" />
-            <PropertyRef Name="idtipocbte_anu" />
-            <PropertyRef Name="idcbtecble_anu" />
           </Key>
           <Property Name="idempresa" Type="int" Nullable="false" />
           <Property Name="idtipocbte" Type="int" Nullable="false" />
@@ -126,16 +93,10 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.ct_cbtecble_reversado' no 
           <Property Name="idcbtecble_anu" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="ip" Type="char" MaxLength="1" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.ct_cbtecble_tipo' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ct_cbtecble_tipo">
           <Key>
             <PropertyRef Name="idempresa" />
             <PropertyRef Name="idtipocbte" />
-            <PropertyRef Name="codtipocbte" />
-            <PropertyRef Name="tc_tipocbte" />
-            <PropertyRef Name="tc_estado" />
-            <PropertyRef Name="tc_interno" />
           </Key>
           <Property Name="idempresa" Type="int" Nullable="false" />
           <Property Name="idtipocbte" Type="int" Nullable="false" />
@@ -153,17 +114,10 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.ct_cbtecble_tipo' no tiene
           <Property Name="fecha_ultanu" Type="datetime" Precision="6" />
           <Property Name="motianula" Type="varchar" MaxLength="100" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.ct_centro_costo' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ct_centro_costo">
           <Key>
             <PropertyRef Name="idempresa" />
             <PropertyRef Name="idcentrocosto" />
-            <PropertyRef Name="codcentrocosto" />
-            <PropertyRef Name="centro_costo" />
-            <PropertyRef Name="pc_esmovimiento" />
-            <PropertyRef Name="idnivel" />
-            <PropertyRef Name="pc_estado" />
           </Key>
           <Property Name="idempresa" Type="int" Nullable="false" />
           <Property Name="idcentrocosto" Type="varchar" MaxLength="20" Nullable="false" />
@@ -185,15 +139,10 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.ct_centro_costo' no tiene 
           <Property Name="nom_pc" Type="varchar" MaxLength="50" />
           <Property Name="ip" Type="varchar" MaxLength="50" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.ct_dashboard_financiero' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ct_dashboard_financiero">
           <Key>
             <PropertyRef Name="idempresa" />
             <PropertyRef Name="idusuario" />
-            <PropertyRef Name="anio_fiscal" />
-            <PropertyRef Name="idmes" />
-            <PropertyRef Name="nommes" />
           </Key>
           <Property Name="idempresa" Type="int" Nullable="false" />
           <Property Name="idusuario" Type="varchar" MaxLength="25" Nullable="false" />
@@ -232,15 +181,9 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.ct_dashboard_financiero' n
           <Property Name="pasivo_neto" Type="double" />
           <Property Name="patrimonio_neto" Type="double" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.ct_grupocble' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ct_grupocble">
           <Key>
             <PropertyRef Name="idgrupocble" />
-            <PropertyRef Name="gc_grupocble" />
-            <PropertyRef Name="gc_orden" />
-            <PropertyRef Name="gc_estado_financiero" />
-            <PropertyRef Name="estado" />
           </Key>
           <Property Name="idgrupocble" Type="varchar" MaxLength="5" Nullable="false" />
           <Property Name="gc_grupocble" Type="char" MaxLength="50" Nullable="false" />
@@ -250,8 +193,6 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.ct_grupocble' no tiene def
           <Property Name="estado" Type="char" MaxLength="1" Nullable="false" />
           <Property Name="idgrupo_mayor" Type="varchar" MaxLength="50" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.ct_parametro' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ct_parametro">
           <Key>
             <PropertyRef Name="idempresa" />
@@ -261,17 +202,10 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.ct_parametro' no tiene def
           <Property Name="idtipocbte_asientocierre_anual" Type="int" />
           <Property Name="p_se_muestra_todas_las_ctas_en_combos" Type="bool" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.ct_periodo' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ct_periodo">
           <Key>
             <PropertyRef Name="idempresa" />
             <PropertyRef Name="idperiodo" />
-            <PropertyRef Name="idaniofiscal" />
-            <PropertyRef Name="pe_mes" />
-            <PropertyRef Name="pe_fechaini" />
-            <PropertyRef Name="pe_fechafin" />
-            <PropertyRef Name="pe_cerrado" />
           </Key>
           <Property Name="idempresa" Type="int" Nullable="false" />
           <Property Name="idperiodo" Type="int" Nullable="false" />
@@ -300,18 +234,10 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.ct_periodo_x_tb_modulo' no
           <Property Name="fechatransac" Type="datetime" Precision="6" />
           <Property Name="fechaultmodi" Type="datetime" Precision="6" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.ct_plancta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ct_plancta">
           <Key>
             <PropertyRef Name="idempresa" />
             <PropertyRef Name="idctacble" />
-            <PropertyRef Name="pc_cuenta" />
-            <PropertyRef Name="pc_naturaleza" />
-            <PropertyRef Name="idnivelcta" />
-            <PropertyRef Name="idgrupocble" />
-            <PropertyRef Name="pc_estado" />
-            <PropertyRef Name="pc_esmovimiento" />
           </Key>
           <Property Name="idempresa" Type="int" Nullable="false" />
           <Property Name="idctacble" Type="varchar" MaxLength="20" Nullable="false" />
@@ -338,14 +264,10 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.ct_plancta' no tiene defin
           <Property Name="idtipo_gasto" Type="int" />
           <Property Name="idtipo_costo" Type="int" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.ct_plancta_nivel' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ct_plancta_nivel">
           <Key>
             <PropertyRef Name="idempresa" />
             <PropertyRef Name="idnivelcta" />
-            <PropertyRef Name="nv_numdigitos" />
-            <PropertyRef Name="nv_descripcion" />
           </Key>
           <Property Name="idempresa" Type="int" Nullable="false" />
           <Property Name="idnivelcta" Type="int" Nullable="false" />
@@ -359,6 +281,26 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.ct_plancta_nivel' no tiene
           <Property Name="idusuarioultanu" Type="varchar" MaxLength="20" />
           <Property Name="fecha_ultanu" Type="datetime" Precision="6" />
           <Property Name="motivoanulacion" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ct_tipo_costo">
+          <Key>
+            <PropertyRef Name="idempresa" />
+            <PropertyRef Name="idtipo_costo" />
+          </Key>
+          <Property Name="idempresa" Type="int" Nullable="false" />
+          <Property Name="idtipo_costo" Type="int" Nullable="false" />
+          <Property Name="nom_tipo_costo" Type="varchar" MaxLength="250" />
+          <Property Name="nom_tipo_costo2" Type="varchar" MaxLength="250" />
+          <Property Name="estado" Type="bool" />
+          <Property Name="orden" Type="int" />
+        </EntityType>
+        <EntityType Name="ct_tipo_ctacble">
+          <Key>
+            <PropertyRef Name="idtipoctacble" />
+          </Key>
+          <Property Name="idtipoctacble" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="nom_tipoctacble" Type="varchar" MaxLength="150" />
+          <Property Name="estado" Type="char" MaxLength="1" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'def.optica_zafiro.vwct_anio_fiscal_x_cuenta_utilidad' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -868,195 +810,193 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwct_utilidadxperiodo_sald
           <Property Name="idperiodo" Type="int" Nullable="false" />
           <Property Name="utilidad_periodo" Type="double" />
         </EntityType>
+        <Association Name="ct_anio_fiscal_x_cuenta_utilidad_ct_anio_fiscal_FK">
+          <End Role="ct_anio_fiscal" Type="Self.ct_anio_fiscal" Multiplicity="1" />
+          <End Role="ct_anio_fiscal_x_cuenta_utilidad" Type="Self.ct_anio_fiscal_x_cuenta_utilidad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ct_anio_fiscal">
+              <PropertyRef Name="idaniofiscal" />
+            </Principal>
+            <Dependent Role="ct_anio_fiscal_x_cuenta_utilidad">
+              <PropertyRef Name="idaniofiscal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ct_anio_fiscal_x_cuenta_utilidad_ct_cbtecble_FK">
+          <End Role="ct_cbtecble" Type="Self.ct_cbtecble" Multiplicity="0..1" />
+          <End Role="ct_anio_fiscal_x_cuenta_utilidad" Type="Self.ct_anio_fiscal_x_cuenta_utilidad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ct_cbtecble">
+              <PropertyRef Name="idempresa" />
+              <PropertyRef Name="idtipocbte" />
+              <PropertyRef Name="idcbtecble" />
+            </Principal>
+            <Dependent Role="ct_anio_fiscal_x_cuenta_utilidad">
+              <PropertyRef Name="idempresa_cbte_cierre" />
+              <PropertyRef Name="idtipocbte_cbte_cierre" />
+              <PropertyRef Name="idcbtecble_cbte_cierre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ct_anio_fiscal_x_cuenta_utilidad_ct_plancta_FK">
+          <End Role="ct_plancta" Type="Self.ct_plancta" Multiplicity="1" />
+          <End Role="ct_anio_fiscal_x_cuenta_utilidad" Type="Self.ct_anio_fiscal_x_cuenta_utilidad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ct_plancta">
+              <PropertyRef Name="idempresa" />
+              <PropertyRef Name="idctacble" />
+            </Principal>
+            <Dependent Role="ct_anio_fiscal_x_cuenta_utilidad">
+              <PropertyRef Name="idempresa" />
+              <PropertyRef Name="idctacble" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ct_cbtecble_ct_cbtecble_tipo_FK">
+          <End Role="ct_cbtecble_tipo" Type="Self.ct_cbtecble_tipo" Multiplicity="1" />
+          <End Role="ct_cbtecble" Type="Self.ct_cbtecble" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ct_cbtecble_tipo">
+              <PropertyRef Name="idempresa" />
+              <PropertyRef Name="idtipocbte" />
+            </Principal>
+            <Dependent Role="ct_cbtecble">
+              <PropertyRef Name="idempresa" />
+              <PropertyRef Name="idtipocbte" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ct_cbtecble_det_ct_cbtecble_FK">
+          <End Role="ct_cbtecble" Type="Self.ct_cbtecble" Multiplicity="1" />
+          <End Role="ct_cbtecble_det" Type="Self.ct_cbtecble_det" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ct_cbtecble">
+              <PropertyRef Name="idempresa" />
+              <PropertyRef Name="idtipocbte" />
+              <PropertyRef Name="idcbtecble" />
+            </Principal>
+            <Dependent Role="ct_cbtecble_det">
+              <PropertyRef Name="idempresa" />
+              <PropertyRef Name="idtipocbte" />
+              <PropertyRef Name="idcbtecble" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ct_cbtecble_det_ct_centro_costo_FK">
+          <End Role="ct_centro_costo" Type="Self.ct_centro_costo" Multiplicity="0..1" />
+          <End Role="ct_cbtecble_det" Type="Self.ct_cbtecble_det" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ct_centro_costo">
+              <PropertyRef Name="idempresa" />
+              <PropertyRef Name="idcentrocosto" />
+            </Principal>
+            <Dependent Role="ct_cbtecble_det">
+              <PropertyRef Name="idempresa" />
+              <PropertyRef Name="idcentrocosto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ct_cbtecble_det_ct_plancta_FK">
+          <End Role="ct_plancta" Type="Self.ct_plancta" Multiplicity="1" />
+          <End Role="ct_cbtecble_det" Type="Self.ct_cbtecble_det" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ct_plancta">
+              <PropertyRef Name="idempresa" />
+              <PropertyRef Name="idctacble" />
+            </Principal>
+            <Dependent Role="ct_cbtecble_det">
+              <PropertyRef Name="idempresa" />
+              <PropertyRef Name="idctacble" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ct_cbtecble_reversado_ct_cbtecble_FK">
+          <End Role="ct_cbtecble" Type="Self.ct_cbtecble" Multiplicity="1" />
+          <End Role="ct_cbtecble_reversado" Type="Self.ct_cbtecble_reversado" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="ct_cbtecble">
+              <PropertyRef Name="idempresa" />
+              <PropertyRef Name="idtipocbte" />
+              <PropertyRef Name="idcbtecble" />
+            </Principal>
+            <Dependent Role="ct_cbtecble_reversado">
+              <PropertyRef Name="idempresa" />
+              <PropertyRef Name="idtipocbte" />
+              <PropertyRef Name="idcbtecble" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ct_cbtecble_reversado_ct_cbtecble_FK_1">
+          <End Role="ct_cbtecble" Type="Self.ct_cbtecble" Multiplicity="1" />
+          <End Role="ct_cbtecble_reversado" Type="Self.ct_cbtecble_reversado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ct_cbtecble">
+              <PropertyRef Name="idempresa" />
+              <PropertyRef Name="idtipocbte" />
+              <PropertyRef Name="idcbtecble" />
+            </Principal>
+            <Dependent Role="ct_cbtecble_reversado">
+              <PropertyRef Name="idempresa_anu" />
+              <PropertyRef Name="idtipocbte_anu" />
+              <PropertyRef Name="idcbtecble_anu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ct_periodo_ct_anio_fiscal_FK">
+          <End Role="ct_anio_fiscal" Type="Self.ct_anio_fiscal" Multiplicity="1" />
+          <End Role="ct_periodo" Type="Self.ct_periodo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ct_anio_fiscal">
+              <PropertyRef Name="idaniofiscal" />
+            </Principal>
+            <Dependent Role="ct_periodo">
+              <PropertyRef Name="idaniofiscal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ct_plancta_ct_grupocble_FK">
+          <End Role="ct_grupocble" Type="Self.ct_grupocble" Multiplicity="1" />
+          <End Role="ct_plancta" Type="Self.ct_plancta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ct_grupocble">
+              <PropertyRef Name="idgrupocble" />
+            </Principal>
+            <Dependent Role="ct_plancta">
+              <PropertyRef Name="idgrupocble" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ct_plancta_ct_plancta_nivel_FK">
+          <End Role="ct_plancta_nivel" Type="Self.ct_plancta_nivel" Multiplicity="1" />
+          <End Role="ct_plancta" Type="Self.ct_plancta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ct_plancta_nivel">
+              <PropertyRef Name="idempresa" />
+              <PropertyRef Name="idnivelcta" />
+            </Principal>
+            <Dependent Role="ct_plancta">
+              <PropertyRef Name="idempresa" />
+              <PropertyRef Name="idnivelcta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="DBERPModelContaStoreContainer">
-          <EntitySet Name="ct_anio_fiscal" EntityType="Self.ct_anio_fiscal" store:Type="Tables" store:Schema="optica_zafiro">
-            <DefiningQuery>SELECT 
-`ct_anio_fiscal`.`idaniofiscal`, 
-`ct_anio_fiscal`.`af_fechaini`, 
-`ct_anio_fiscal`.`af_fechafin`, 
-`ct_anio_fiscal`.`af_estado`
- FROM `ct_anio_fiscal` AS `ct_anio_fiscal`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="ct_anio_fiscal_x_cuenta_utilidad" EntityType="Self.ct_anio_fiscal_x_cuenta_utilidad" store:Type="Tables" store:Schema="optica_zafiro">
-            <DefiningQuery>SELECT 
-`ct_anio_fiscal_x_cuenta_utilidad`.`idempresa`, 
-`ct_anio_fiscal_x_cuenta_utilidad`.`idaniofiscal`, 
-`ct_anio_fiscal_x_cuenta_utilidad`.`idctacble`, 
-`ct_anio_fiscal_x_cuenta_utilidad`.`observacion`, 
-`ct_anio_fiscal_x_cuenta_utilidad`.`idempresa_cbte_cierre`, 
-`ct_anio_fiscal_x_cuenta_utilidad`.`idtipocbte_cbte_cierre`, 
-`ct_anio_fiscal_x_cuenta_utilidad`.`idcbtecble_cbte_cierre`
- FROM `ct_anio_fiscal_x_cuenta_utilidad` AS `ct_anio_fiscal_x_cuenta_utilidad`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="ct_cbtecble" EntityType="Self.ct_cbtecble" store:Type="Tables" store:Schema="optica_zafiro">
-            <DefiningQuery>SELECT 
-`ct_cbtecble`.`idempresa`, 
-`ct_cbtecble`.`idtipocbte`, 
-`ct_cbtecble`.`idcbtecble`, 
-`ct_cbtecble`.`codcbtecble`, 
-`ct_cbtecble`.`idperiodo`, 
-`ct_cbtecble`.`cb_fecha`, 
-`ct_cbtecble`.`cb_valor`, 
-`ct_cbtecble`.`cb_observacion`, 
-`ct_cbtecble`.`cb_secuencia`, 
-`ct_cbtecble`.`cb_estado`, 
-`ct_cbtecble`.`cb_anio`, 
-`ct_cbtecble`.`cb_mes`, 
-`ct_cbtecble`.`idusuario`, 
-`ct_cbtecble`.`idusuarioanu`, 
-`ct_cbtecble`.`cb_motivoanu`, 
-`ct_cbtecble`.`idusuarioultmodi`, 
-`ct_cbtecble`.`cb_fechaanu`, 
-`ct_cbtecble`.`cb_fechatransac`, 
-`ct_cbtecble`.`cb_fechaultmodi`, 
-`ct_cbtecble`.`cb_mayorizado`, 
-`ct_cbtecble`.`cb_para_conciliar`, 
-`ct_cbtecble`.`idsucursal`
- FROM `ct_cbtecble` AS `ct_cbtecble`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="ct_cbtecble_det" EntityType="Self.ct_cbtecble_det" store:Type="Tables" store:Schema="optica_zafiro">
-            <DefiningQuery>SELECT 
-`ct_cbtecble_det`.`idempresa`, 
-`ct_cbtecble_det`.`idtipocbte`, 
-`ct_cbtecble_det`.`idcbtecble`, 
-`ct_cbtecble_det`.`secuencia`, 
-`ct_cbtecble_det`.`idctacble`, 
-`ct_cbtecble_det`.`idcentrocosto`, 
-`ct_cbtecble_det`.`idcentrocosto_sub_centro_costo`, 
-`ct_cbtecble_det`.`dc_valor`, 
-`ct_cbtecble_det`.`dc_observacion`, 
-`ct_cbtecble_det`.`dc_numconciliacion`, 
-`ct_cbtecble_det`.`dc_estaconciliado`, 
-`ct_cbtecble_det`.`idpunto_cargo`, 
-`ct_cbtecble_det`.`idpunto_cargo_grupo`, 
-`ct_cbtecble_det`.`dc_para_conciliar`
- FROM `ct_cbtecble_det` AS `ct_cbtecble_det`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="ct_cbtecble_reversado" EntityType="Self.ct_cbtecble_reversado" store:Type="Tables" store:Schema="optica_zafiro">
-            <DefiningQuery>SELECT 
-`ct_cbtecble_reversado`.`idempresa`, 
-`ct_cbtecble_reversado`.`idtipocbte`, 
-`ct_cbtecble_reversado`.`idcbtecble`, 
-`ct_cbtecble_reversado`.`idempresa_anu`, 
-`ct_cbtecble_reversado`.`idtipocbte_anu`, 
-`ct_cbtecble_reversado`.`idcbtecble_anu`, 
-`ct_cbtecble_reversado`.`ip`
- FROM `ct_cbtecble_reversado` AS `ct_cbtecble_reversado`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="ct_cbtecble_tipo" EntityType="Self.ct_cbtecble_tipo" store:Type="Tables" store:Schema="optica_zafiro">
-            <DefiningQuery>SELECT 
-`ct_cbtecble_tipo`.`idempresa`, 
-`ct_cbtecble_tipo`.`idtipocbte`, 
-`ct_cbtecble_tipo`.`codtipocbte`, 
-`ct_cbtecble_tipo`.`tc_tipocbte`, 
-`ct_cbtecble_tipo`.`tc_estado`, 
-`ct_cbtecble_tipo`.`tc_interno`, 
-`ct_cbtecble_tipo`.`tc_nemonico`, 
-`ct_cbtecble_tipo`.`idtipocbte_anul`, 
-`ct_cbtecble_tipo`.`idusuario`, 
-`ct_cbtecble_tipo`.`fecha_transac`, 
-`ct_cbtecble_tipo`.`idusuarioultmod`, 
-`ct_cbtecble_tipo`.`fecha_ultmod`, 
-`ct_cbtecble_tipo`.`idusuarioultanu`, 
-`ct_cbtecble_tipo`.`fecha_ultanu`, 
-`ct_cbtecble_tipo`.`motianula`
- FROM `ct_cbtecble_tipo` AS `ct_cbtecble_tipo`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="ct_centro_costo" EntityType="Self.ct_centro_costo" store:Type="Tables" store:Schema="optica_zafiro">
-            <DefiningQuery>SELECT 
-`ct_centro_costo`.`idempresa`, 
-`ct_centro_costo`.`idcentrocosto`, 
-`ct_centro_costo`.`codcentrocosto`, 
-`ct_centro_costo`.`centro_costo`, 
-`ct_centro_costo`.`idcentrocostopadre`, 
-`ct_centro_costo`.`idcatalogo`, 
-`ct_centro_costo`.`pc_esmovimiento`, 
-`ct_centro_costo`.`idnivel`, 
-`ct_centro_costo`.`pc_estado`, 
-`ct_centro_costo`.`idctacble`, 
-`ct_centro_costo`.`fecha_transac`, 
-`ct_centro_costo`.`idusuario`, 
-`ct_centro_costo`.`idusuarioultmod`, 
-`ct_centro_costo`.`fecha_ultmod`, 
-`ct_centro_costo`.`idusuarioultanu`, 
-`ct_centro_costo`.`fecha_ultanu`, 
-`ct_centro_costo`.`motivoanulacion`, 
-`ct_centro_costo`.`nom_pc`, 
-`ct_centro_costo`.`ip`
- FROM `ct_centro_costo` AS `ct_centro_costo`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="ct_dashboard_financiero" EntityType="Self.ct_dashboard_financiero" store:Type="Tables" store:Schema="optica_zafiro">
-            <DefiningQuery>SELECT 
-`ct_dashboard_financiero`.`idempresa`, 
-`ct_dashboard_financiero`.`idusuario`, 
-`ct_dashboard_financiero`.`anio_fiscal`, 
-`ct_dashboard_financiero`.`idmes`, 
-`ct_dashboard_financiero`.`nommes`, 
-`ct_dashboard_financiero`.`liq_razon_circulante`, 
-`ct_dashboard_financiero`.`liq_razon_circulante_objetivo`, 
-`ct_dashboard_financiero`.`liq_prueba_acida`, 
-`ct_dashboard_financiero`.`liq_prueba_acida_objetivo`, 
-`ct_dashboard_financiero`.`liq_ratio_caja`, 
-`ct_dashboard_financiero`.`liq_dias_de_cobranza`, 
-`ct_dashboard_financiero`.`liq_dias_de_inventario`, 
-`ct_dashboard_financiero`.`liq_dias_de_pago`, 
-`ct_dashboard_financiero`.`liq_rotarion_del_efectivo`, 
-`ct_dashboard_financiero`.`liq_rotacion_del_activo`, 
-`ct_dashboard_financiero`.`liq_rotacion_del_activo_objetivo`, 
-`ct_dashboard_financiero`.`liq_rotacion_del_activo_fijio`, 
-`ct_dashboard_financiero`.`liq_rotacion_del_activo_fijio_objetivo`, 
-`ct_dashboard_financiero`.`liq_capital_de_trabajo`, 
-`ct_dashboard_financiero`.`end_pasivo_total_x_patrimonio_total`, 
-`ct_dashboard_financiero`.`end_pasivo_circulante_x_patrimonio_total`, 
-`ct_dashboard_financiero`.`end_pasivo_no_circulante_x_patrimonio_total`, 
-`ct_dashboard_financiero`.`end_pasivo_total_x_activo_total`, 
-`ct_dashboard_financiero`.`end_cobertura_gastos_financieros`, 
-`ct_dashboard_financiero`.`end_cobertura_gastos_financieros_objetivo`, 
-`ct_dashboard_financiero`.`end_cobertura_gastos_fijos`, 
-`ct_dashboard_financiero`.`end_cobertura_gastos_fijos_objetivo`, 
-`ct_dashboard_financiero`.`end_rotacion_inventario`, 
-`ct_dashboard_financiero`.`end_rotacion_inventario_objetivo`, 
-`ct_dashboard_financiero`.`ren_sobre_la_inversion`, 
-`ct_dashboard_financiero`.`ren_sobre_la_venta`, 
-`ct_dashboard_financiero`.`ren_sobre_el_patrimonio`, 
-`ct_dashboard_financiero`.`ren_utilidad_accion`, 
-`ct_dashboard_financiero`.`ren_margen_utilidad_bruta`, 
-`ct_dashboard_financiero`.`pasivo_neto`, 
-`ct_dashboard_financiero`.`patrimonio_neto`
- FROM `ct_dashboard_financiero` AS `ct_dashboard_financiero`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="ct_grupocble" EntityType="Self.ct_grupocble" store:Type="Tables" store:Schema="optica_zafiro">
-            <DefiningQuery>SELECT 
-`ct_grupocble`.`idgrupocble`, 
-`ct_grupocble`.`gc_grupocble`, 
-`ct_grupocble`.`gc_orden`, 
-`ct_grupocble`.`gc_estado_financiero`, 
-`ct_grupocble`.`gc_signo_operacion`, 
-`ct_grupocble`.`estado`, 
-`ct_grupocble`.`idgrupo_mayor`
- FROM `ct_grupocble` AS `ct_grupocble`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="ct_parametro" EntityType="Self.ct_parametro" store:Type="Tables" store:Schema="optica_zafiro">
-            <DefiningQuery>SELECT 
-`ct_parametro`.`idempresa`, 
-`ct_parametro`.`idtipocbte_saldoinicial`, 
-`ct_parametro`.`idtipocbte_asientocierre_anual`, 
-`ct_parametro`.`p_se_muestra_todas_las_ctas_en_combos`
- FROM `ct_parametro` AS `ct_parametro`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="ct_periodo" EntityType="Self.ct_periodo" store:Type="Tables" store:Schema="optica_zafiro">
-            <DefiningQuery>SELECT 
-`ct_periodo`.`idempresa`, 
-`ct_periodo`.`idperiodo`, 
-`ct_periodo`.`idaniofiscal`, 
-`ct_periodo`.`pe_mes`, 
-`ct_periodo`.`pe_fechaini`, 
-`ct_periodo`.`pe_fechafin`, 
-`ct_periodo`.`pe_cerrado`, 
-`ct_periodo`.`pe_estado`
- FROM `ct_periodo` AS `ct_periodo`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="ct_periodo_x_tb_modulo" EntityType="Self.ct_periodo_x_tb_modulo" store:Type="Tables" store:Schema="optica_zafiro">
+          <EntitySet Name="ct_anio_fiscal" EntityType="Self.ct_anio_fiscal" Schema="" store:Type="Tables" />
+          <EntitySet Name="ct_anio_fiscal_x_cuenta_utilidad" EntityType="Self.ct_anio_fiscal_x_cuenta_utilidad" Schema="" store:Type="Tables" />
+          <EntitySet Name="ct_cbtecble" EntityType="Self.ct_cbtecble" Schema="" store:Type="Tables" />
+          <EntitySet Name="ct_cbtecble_det" EntityType="Self.ct_cbtecble_det" Schema="" store:Type="Tables" />
+          <EntitySet Name="ct_cbtecble_reversado" EntityType="Self.ct_cbtecble_reversado" Schema="" store:Type="Tables" />
+          <EntitySet Name="ct_cbtecble_tipo" EntityType="Self.ct_cbtecble_tipo" Schema="" store:Type="Tables" />
+          <EntitySet Name="ct_centro_costo" EntityType="Self.ct_centro_costo" Schema="" store:Type="Tables" />
+          <EntitySet Name="ct_dashboard_financiero" EntityType="Self.ct_dashboard_financiero" Schema="" store:Type="Tables" />
+          <EntitySet Name="ct_grupocble" EntityType="Self.ct_grupocble" Schema="" store:Type="Tables" />
+          <EntitySet Name="ct_parametro" EntityType="Self.ct_parametro" Schema="" store:Type="Tables" />
+          <EntitySet Name="ct_periodo" EntityType="Self.ct_periodo" Schema="" store:Type="Tables" />
+          <EntitySet Name="ct_plancta" EntityType="Self.ct_plancta" Schema="" store:Type="Tables" />
+          <EntitySet Name="ct_plancta_nivel" EntityType="Self.ct_plancta_nivel" Schema="" store:Type="Tables" />
+          <EntitySet Name="ct_tipo_costo" EntityType="Self.ct_tipo_costo" Schema="" store:Type="Tables" />
+          <EntitySet Name="ct_tipo_ctacble" EntityType="Self.ct_tipo_ctacble" Schema="" store:Type="Tables" />
+          <EntitySet Name="ct_periodo_x_tb_modulo" EntityType="Self.ct_periodo_x_tb_modulo" store:Type="Tables" store:Schema="">
             <DefiningQuery>SELECT 
 `ct_periodo_x_tb_modulo`.`idempresa`, 
 `ct_periodo_x_tb_modulo`.`idperiodo`, 
@@ -1068,51 +1008,7 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwct_utilidadxperiodo_sald
 `ct_periodo_x_tb_modulo`.`fechaultmodi`
  FROM `ct_periodo_x_tb_modulo` AS `ct_periodo_x_tb_modulo`</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="ct_plancta" EntityType="Self.ct_plancta" store:Type="Tables" store:Schema="optica_zafiro">
-            <DefiningQuery>SELECT 
-`ct_plancta`.`idempresa`, 
-`ct_plancta`.`idctacble`, 
-`ct_plancta`.`pc_cuenta`, 
-`ct_plancta`.`idctacblepadre`, 
-`ct_plancta`.`idcatalogo`, 
-`ct_plancta`.`pc_naturaleza`, 
-`ct_plancta`.`idnivelcta`, 
-`ct_plancta`.`idgrupocble`, 
-`ct_plancta`.`idtipoctacble`, 
-`ct_plancta`.`pc_estado`, 
-`ct_plancta`.`pc_esmovimiento`, 
-`ct_plancta`.`pc_es_flujo_efectivo`, 
-`ct_plancta`.`pc_clave_corta`, 
-`ct_plancta`.`fecha_transac`, 
-`ct_plancta`.`idusuario`, 
-`ct_plancta`.`idusuarioultmod`, 
-`ct_plancta`.`fecha_ultmod`, 
-`ct_plancta`.`idusuarioultanu`, 
-`ct_plancta`.`fecha_ultanu`, 
-`ct_plancta`.`motivoanulacion`, 
-`ct_plancta`.`nom_pc`, 
-`ct_plancta`.`ip`, 
-`ct_plancta`.`idtipo_gasto`, 
-`ct_plancta`.`idtipo_costo`
- FROM `ct_plancta` AS `ct_plancta`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="ct_plancta_nivel" EntityType="Self.ct_plancta_nivel" store:Type="Tables" store:Schema="optica_zafiro">
-            <DefiningQuery>SELECT 
-`ct_plancta_nivel`.`idempresa`, 
-`ct_plancta_nivel`.`idnivelcta`, 
-`ct_plancta_nivel`.`nv_numdigitos`, 
-`ct_plancta_nivel`.`nv_descripcion`, 
-`ct_plancta_nivel`.`estado`, 
-`ct_plancta_nivel`.`idusuario`, 
-`ct_plancta_nivel`.`fecha_transaccion`, 
-`ct_plancta_nivel`.`idusuarioultmodi`, 
-`ct_plancta_nivel`.`fecha_ultmod`, 
-`ct_plancta_nivel`.`idusuarioultanu`, 
-`ct_plancta_nivel`.`fecha_ultanu`, 
-`ct_plancta_nivel`.`motivoanulacion`
- FROM `ct_plancta_nivel` AS `ct_plancta_nivel`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="vwct_anio_fiscal_x_cuenta_utilidad" EntityType="Self.vwct_anio_fiscal_x_cuenta_utilidad" store:Type="Views" store:Schema="optica_zafiro">
+          <EntitySet Name="vwct_anio_fiscal_x_cuenta_utilidad" EntityType="Self.vwct_anio_fiscal_x_cuenta_utilidad" store:Type="Views" store:Schema="">
             <DefiningQuery>SELECT 
 `vwct_anio_fiscal_x_cuenta_utilidad`.`idempresa`, 
 `vwct_anio_fiscal_x_cuenta_utilidad`.`idaniofiscal`, 
@@ -1124,7 +1020,7 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwct_utilidadxperiodo_sald
 `vwct_anio_fiscal_x_cuenta_utilidad`.`gc_grupocble`
  FROM `vwct_anio_fiscal_x_cuenta_utilidad` AS `vwct_anio_fiscal_x_cuenta_utilidad`</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="vwct_cbtecble_con_ctacble_acreedora" EntityType="Self.vwct_cbtecble_con_ctacble_acreedora" store:Type="Views" store:Schema="optica_zafiro">
+          <EntitySet Name="vwct_cbtecble_con_ctacble_acreedora" EntityType="Self.vwct_cbtecble_con_ctacble_acreedora" store:Type="Views" store:Schema="">
             <DefiningQuery>SELECT 
 `vwct_cbtecble_con_ctacble_acreedora`.`idempresa`, 
 `vwct_cbtecble_con_ctacble_acreedora`.`idtipocbte`, 
@@ -1132,7 +1028,7 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwct_utilidadxperiodo_sald
 `vwct_cbtecble_con_ctacble_acreedora`.`idctacble_acreedora`
  FROM `vwct_cbtecble_con_ctacble_acreedora` AS `vwct_cbtecble_con_ctacble_acreedora`</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="vwct_cbtecble_con_saldo" EntityType="Self.vwct_cbtecble_con_saldo" store:Type="Views" store:Schema="optica_zafiro">
+          <EntitySet Name="vwct_cbtecble_con_saldo" EntityType="Self.vwct_cbtecble_con_saldo" store:Type="Views" store:Schema="">
             <DefiningQuery>SELECT 
 `vwct_cbtecble_con_saldo`.`idempresa`, 
 `vwct_cbtecble_con_saldo`.`idtipocbte`, 
@@ -1145,7 +1041,7 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwct_utilidadxperiodo_sald
 `vwct_cbtecble_con_saldo`.`cb_fecha`
  FROM `vwct_cbtecble_con_saldo` AS `vwct_cbtecble_con_saldo`</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="vwct_cbtecble_con_saldo_cxp" EntityType="Self.vwct_cbtecble_con_saldo_cxp" store:Type="Views" store:Schema="optica_zafiro">
+          <EntitySet Name="vwct_cbtecble_con_saldo_cxp" EntityType="Self.vwct_cbtecble_con_saldo_cxp" store:Type="Views" store:Schema="">
             <DefiningQuery>SELECT 
 `vwct_cbtecble_con_saldo_cxp`.`idempresa`, 
 `vwct_cbtecble_con_saldo_cxp`.`idcbtecble`, 
@@ -1167,7 +1063,7 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwct_utilidadxperiodo_sald
 `vwct_cbtecble_con_saldo_cxp`.`idbeneficiario`
  FROM `vwct_cbtecble_con_saldo_cxp` AS `vwct_cbtecble_con_saldo_cxp`</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="vwct_cbtecble_con_saldo_cxp_anti_provee" EntityType="Self.vwct_cbtecble_con_saldo_cxp_anti_provee" store:Type="Views" store:Schema="optica_zafiro">
+          <EntitySet Name="vwct_cbtecble_con_saldo_cxp_anti_provee" EntityType="Self.vwct_cbtecble_con_saldo_cxp_anti_provee" store:Type="Views" store:Schema="">
             <DefiningQuery>SELECT 
 `vwct_cbtecble_con_saldo_cxp_anti_provee`.`idempresa`, 
 `vwct_cbtecble_con_saldo_cxp_anti_provee`.`idcbtecble`, 
@@ -1188,7 +1084,7 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwct_utilidadxperiodo_sald
 `vwct_cbtecble_con_saldo_cxp_anti_provee`.`idproveedor`
  FROM `vwct_cbtecble_con_saldo_cxp_anti_provee` AS `vwct_cbtecble_con_saldo_cxp_anti_provee`</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="vwct_cbtecble_con_saldo_cxp_consulta" EntityType="Self.vwct_cbtecble_con_saldo_cxp_consulta" store:Type="Views" store:Schema="optica_zafiro">
+          <EntitySet Name="vwct_cbtecble_con_saldo_cxp_consulta" EntityType="Self.vwct_cbtecble_con_saldo_cxp_consulta" store:Type="Views" store:Schema="">
             <DefiningQuery>SELECT 
 `vwct_cbtecble_con_saldo_cxp_consulta`.`fila`, 
 `vwct_cbtecble_con_saldo_cxp_consulta`.`idempresa`, 
@@ -1206,7 +1102,7 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwct_utilidadxperiodo_sald
 `vwct_cbtecble_con_saldo_cxp_consulta`.`beneficiario`
  FROM `vwct_cbtecble_con_saldo_cxp_consulta` AS `vwct_cbtecble_con_saldo_cxp_consulta`</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="vwct_cbtecble_con_saldo_cxp_diario" EntityType="Self.vwct_cbtecble_con_saldo_cxp_diario" store:Type="Views" store:Schema="optica_zafiro">
+          <EntitySet Name="vwct_cbtecble_con_saldo_cxp_diario" EntityType="Self.vwct_cbtecble_con_saldo_cxp_diario" store:Type="Views" store:Schema="">
             <DefiningQuery>SELECT 
 `vwct_cbtecble_con_saldo_cxp_diario`.`idempresa`, 
 `vwct_cbtecble_con_saldo_cxp_diario`.`idcbtecble`, 
@@ -1223,7 +1119,7 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwct_utilidadxperiodo_sald
 `vwct_cbtecble_con_saldo_cxp_diario`.`idproveedor`
  FROM `vwct_cbtecble_con_saldo_cxp_diario` AS `vwct_cbtecble_con_saldo_cxp_diario`</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="vwct_cbtecble_con_saldo_cxp_nota" EntityType="Self.vwct_cbtecble_con_saldo_cxp_nota" store:Type="Views" store:Schema="optica_zafiro">
+          <EntitySet Name="vwct_cbtecble_con_saldo_cxp_nota" EntityType="Self.vwct_cbtecble_con_saldo_cxp_nota" store:Type="Views" store:Schema="">
             <DefiningQuery>SELECT 
 `vwct_cbtecble_con_saldo_cxp_nota`.`idempresa`, 
 `vwct_cbtecble_con_saldo_cxp_nota`.`idcbtecble_nota`, 
@@ -1242,7 +1138,7 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwct_utilidadxperiodo_sald
 `vwct_cbtecble_con_saldo_cxp_nota`.`idproveedor`
  FROM `vwct_cbtecble_con_saldo_cxp_nota` AS `vwct_cbtecble_con_saldo_cxp_nota`</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="vwct_cbtecble_det" EntityType="Self.vwct_cbtecble_det" store:Type="Views" store:Schema="optica_zafiro">
+          <EntitySet Name="vwct_cbtecble_det" EntityType="Self.vwct_cbtecble_det" store:Type="Views" store:Schema="">
             <DefiningQuery>SELECT 
 `vwct_cbtecble_det`.`idempresa`, 
 `vwct_cbtecble_det`.`idtipocbte`, 
@@ -1265,7 +1161,7 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwct_utilidadxperiodo_sald
 `vwct_cbtecble_det`.`dc_observacion`
  FROM `vwct_cbtecble_det` AS `vwct_cbtecble_det`</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="vwct_cbtecble_det_totaldiario" EntityType="Self.vwct_cbtecble_det_totaldiario" store:Type="Views" store:Schema="optica_zafiro">
+          <EntitySet Name="vwct_cbtecble_det_totaldiario" EntityType="Self.vwct_cbtecble_det_totaldiario" store:Type="Views" store:Schema="">
             <DefiningQuery>SELECT 
 `vwct_cbtecble_det_totaldiario`.`idempresa`, 
 `vwct_cbtecble_det_totaldiario`.`idtipocbte`, 
@@ -1273,7 +1169,7 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwct_utilidadxperiodo_sald
 `vwct_cbtecble_det_totaldiario`.`dc_valor`
  FROM `vwct_cbtecble_det_totaldiario` AS `vwct_cbtecble_det_totaldiario`</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="vwct_centro_costo" EntityType="Self.vwct_centro_costo" store:Type="Views" store:Schema="optica_zafiro">
+          <EntitySet Name="vwct_centro_costo" EntityType="Self.vwct_centro_costo" store:Type="Views" store:Schema="">
             <DefiningQuery>SELECT 
 `vwct_centro_costo`.`idempresa`, 
 `vwct_centro_costo`.`idcentrocosto`, 
@@ -1288,7 +1184,7 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwct_utilidadxperiodo_sald
 `vwct_centro_costo`.`idctacble`
  FROM `vwct_centro_costo` AS `vwct_centro_costo`</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="vwct_comprobantecontable" EntityType="Self.vwct_comprobantecontable" store:Type="Views" store:Schema="optica_zafiro">
+          <EntitySet Name="vwct_comprobantecontable" EntityType="Self.vwct_comprobantecontable" store:Type="Views" store:Schema="">
             <DefiningQuery>SELECT 
 `vwct_comprobantecontable`.`debe`, 
 `vwct_comprobantecontable`.`cred`, 
@@ -1311,7 +1207,7 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwct_utilidadxperiodo_sald
 `vwct_comprobantecontable`.`tc_tipocbte`
  FROM `vwct_comprobantecontable` AS `vwct_comprobantecontable`</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="vwct_periodo" EntityType="Self.vwct_periodo" store:Type="Views" store:Schema="optica_zafiro">
+          <EntitySet Name="vwct_periodo" EntityType="Self.vwct_periodo" store:Type="Views" store:Schema="">
             <DefiningQuery>SELECT 
 `vwct_periodo`.`idempresa`, 
 `vwct_periodo`.`idperiodo`, 
@@ -1327,7 +1223,7 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwct_utilidadxperiodo_sald
 `vwct_periodo`.`smesingles`
  FROM `vwct_periodo` AS `vwct_periodo`</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="vwct_plancta" EntityType="Self.vwct_plancta" store:Type="Views" store:Schema="optica_zafiro">
+          <EntitySet Name="vwct_plancta" EntityType="Self.vwct_plancta" store:Type="Views" store:Schema="">
             <DefiningQuery>SELECT 
 `vwct_plancta`.`idempresa`, 
 `vwct_plancta`.`idctacble`, 
@@ -1346,7 +1242,7 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwct_utilidadxperiodo_sald
 `vwct_plancta`.`idtipo_costo`
  FROM `vwct_plancta` AS `vwct_plancta`</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="vwct_plancta_nivel" EntityType="Self.vwct_plancta_nivel" store:Type="Views" store:Schema="optica_zafiro">
+          <EntitySet Name="vwct_plancta_nivel" EntityType="Self.vwct_plancta_nivel" store:Type="Views" store:Schema="">
             <DefiningQuery>SELECT 
 `vwct_plancta_nivel`.`idempresa`, 
 `vwct_plancta_nivel`.`idnivelcta`, 
@@ -1356,7 +1252,7 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwct_utilidadxperiodo_sald
 `vwct_plancta_nivel`.`nv_numdigitos_total`
  FROM `vwct_plancta_nivel` AS `vwct_plancta_nivel`</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="vwct_saldosxcuentas" EntityType="Self.vwct_saldosxcuentas" store:Type="Views" store:Schema="optica_zafiro">
+          <EntitySet Name="vwct_saldosxcuentas" EntityType="Self.vwct_saldosxcuentas" store:Type="Views" store:Schema="">
             <DefiningQuery>SELECT 
 `vwct_saldosxcuentas`.`idempresa`, 
 `vwct_saldosxcuentas`.`idaniof`, 
@@ -1380,7 +1276,7 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwct_utilidadxperiodo_sald
 `vwct_saldosxcuentas`.`sidperiodo`
  FROM `vwct_saldosxcuentas` AS `vwct_saldosxcuentas`</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="vwct_utilidadxperiodo" EntityType="Self.vwct_utilidadxperiodo" store:Type="Views" store:Schema="optica_zafiro">
+          <EntitySet Name="vwct_utilidadxperiodo" EntityType="Self.vwct_utilidadxperiodo" store:Type="Views" store:Schema="">
             <DefiningQuery>SELECT 
 `vwct_utilidadxperiodo`.`idempresa`, 
 `vwct_utilidadxperiodo`.`idaniofiscal`, 
@@ -1390,7 +1286,7 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwct_utilidadxperiodo_sald
 `vwct_utilidadxperiodo`.`utilidad_acum`
  FROM `vwct_utilidadxperiodo` AS `vwct_utilidadxperiodo`</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="vwct_utilidadxperiodo_saldo_acumulado" EntityType="Self.vwct_utilidadxperiodo_saldo_acumulado" store:Type="Views" store:Schema="optica_zafiro">
+          <EntitySet Name="vwct_utilidadxperiodo_saldo_acumulado" EntityType="Self.vwct_utilidadxperiodo_saldo_acumulado" store:Type="Views" store:Schema="">
             <DefiningQuery>SELECT 
 `vwct_utilidadxperiodo_saldo_acumulado`.`idempresa`, 
 `vwct_utilidadxperiodo_saldo_acumulado`.`idaniof`, 
@@ -1398,7 +1294,7 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwct_utilidadxperiodo_sald
 `vwct_utilidadxperiodo_saldo_acumulado`.`utilidad_acum`
  FROM `vwct_utilidadxperiodo_saldo_acumulado` AS `vwct_utilidadxperiodo_saldo_acumulado`</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="vwct_utilidadxperiodo_saldo_anterior" EntityType="Self.vwct_utilidadxperiodo_saldo_anterior" store:Type="Views" store:Schema="optica_zafiro">
+          <EntitySet Name="vwct_utilidadxperiodo_saldo_anterior" EntityType="Self.vwct_utilidadxperiodo_saldo_anterior" store:Type="Views" store:Schema="">
             <DefiningQuery>SELECT 
 `vwct_utilidadxperiodo_saldo_anterior`.`idempresa`, 
 `vwct_utilidadxperiodo_saldo_anterior`.`idaniof`, 
@@ -1406,7 +1302,7 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwct_utilidadxperiodo_sald
 `vwct_utilidadxperiodo_saldo_anterior`.`utilidad_anterior`
  FROM `vwct_utilidadxperiodo_saldo_anterior` AS `vwct_utilidadxperiodo_saldo_anterior`</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="vwct_utilidadxperiodo_saldo_periodoactual" EntityType="Self.vwct_utilidadxperiodo_saldo_periodoactual" store:Type="Views" store:Schema="optica_zafiro">
+          <EntitySet Name="vwct_utilidadxperiodo_saldo_periodoactual" EntityType="Self.vwct_utilidadxperiodo_saldo_periodoactual" store:Type="Views" store:Schema="">
             <DefiningQuery>SELECT 
 `vwct_utilidadxperiodo_saldo_periodoactual`.`idempresa`, 
 `vwct_utilidadxperiodo_saldo_periodoactual`.`idaniof`, 
@@ -1414,6 +1310,54 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwct_utilidadxperiodo_sald
 `vwct_utilidadxperiodo_saldo_periodoactual`.`utilidad_periodo`
  FROM `vwct_utilidadxperiodo_saldo_periodoactual` AS `vwct_utilidadxperiodo_saldo_periodoactual`</DefiningQuery>
           </EntitySet>
+          <AssociationSet Name="ct_anio_fiscal_x_cuenta_utilidad_ct_anio_fiscal_FK" Association="Self.ct_anio_fiscal_x_cuenta_utilidad_ct_anio_fiscal_FK">
+            <End Role="ct_anio_fiscal" EntitySet="ct_anio_fiscal" />
+            <End Role="ct_anio_fiscal_x_cuenta_utilidad" EntitySet="ct_anio_fiscal_x_cuenta_utilidad" />
+          </AssociationSet>
+          <AssociationSet Name="ct_anio_fiscal_x_cuenta_utilidad_ct_cbtecble_FK" Association="Self.ct_anio_fiscal_x_cuenta_utilidad_ct_cbtecble_FK">
+            <End Role="ct_cbtecble" EntitySet="ct_cbtecble" />
+            <End Role="ct_anio_fiscal_x_cuenta_utilidad" EntitySet="ct_anio_fiscal_x_cuenta_utilidad" />
+          </AssociationSet>
+          <AssociationSet Name="ct_anio_fiscal_x_cuenta_utilidad_ct_plancta_FK" Association="Self.ct_anio_fiscal_x_cuenta_utilidad_ct_plancta_FK">
+            <End Role="ct_plancta" EntitySet="ct_plancta" />
+            <End Role="ct_anio_fiscal_x_cuenta_utilidad" EntitySet="ct_anio_fiscal_x_cuenta_utilidad" />
+          </AssociationSet>
+          <AssociationSet Name="ct_cbtecble_ct_cbtecble_tipo_FK" Association="Self.ct_cbtecble_ct_cbtecble_tipo_FK">
+            <End Role="ct_cbtecble_tipo" EntitySet="ct_cbtecble_tipo" />
+            <End Role="ct_cbtecble" EntitySet="ct_cbtecble" />
+          </AssociationSet>
+          <AssociationSet Name="ct_cbtecble_det_ct_cbtecble_FK" Association="Self.ct_cbtecble_det_ct_cbtecble_FK">
+            <End Role="ct_cbtecble" EntitySet="ct_cbtecble" />
+            <End Role="ct_cbtecble_det" EntitySet="ct_cbtecble_det" />
+          </AssociationSet>
+          <AssociationSet Name="ct_cbtecble_det_ct_centro_costo_FK" Association="Self.ct_cbtecble_det_ct_centro_costo_FK">
+            <End Role="ct_centro_costo" EntitySet="ct_centro_costo" />
+            <End Role="ct_cbtecble_det" EntitySet="ct_cbtecble_det" />
+          </AssociationSet>
+          <AssociationSet Name="ct_cbtecble_det_ct_plancta_FK" Association="Self.ct_cbtecble_det_ct_plancta_FK">
+            <End Role="ct_plancta" EntitySet="ct_plancta" />
+            <End Role="ct_cbtecble_det" EntitySet="ct_cbtecble_det" />
+          </AssociationSet>
+          <AssociationSet Name="ct_cbtecble_reversado_ct_cbtecble_FK" Association="Self.ct_cbtecble_reversado_ct_cbtecble_FK">
+            <End Role="ct_cbtecble" EntitySet="ct_cbtecble" />
+            <End Role="ct_cbtecble_reversado" EntitySet="ct_cbtecble_reversado" />
+          </AssociationSet>
+          <AssociationSet Name="ct_cbtecble_reversado_ct_cbtecble_FK_1" Association="Self.ct_cbtecble_reversado_ct_cbtecble_FK_1">
+            <End Role="ct_cbtecble" EntitySet="ct_cbtecble" />
+            <End Role="ct_cbtecble_reversado" EntitySet="ct_cbtecble_reversado" />
+          </AssociationSet>
+          <AssociationSet Name="ct_periodo_ct_anio_fiscal_FK" Association="Self.ct_periodo_ct_anio_fiscal_FK">
+            <End Role="ct_anio_fiscal" EntitySet="ct_anio_fiscal" />
+            <End Role="ct_periodo" EntitySet="ct_periodo" />
+          </AssociationSet>
+          <AssociationSet Name="ct_plancta_ct_grupocble_FK" Association="Self.ct_plancta_ct_grupocble_FK">
+            <End Role="ct_grupocble" EntitySet="ct_grupocble" />
+            <End Role="ct_plancta" EntitySet="ct_plancta" />
+          </AssociationSet>
+          <AssociationSet Name="ct_plancta_ct_plancta_nivel_FK" Association="Self.ct_plancta_ct_plancta_nivel_FK">
+            <End Role="ct_plancta_nivel" EntitySet="ct_plancta_nivel" />
+            <End Role="ct_plancta" EntitySet="ct_plancta" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -1464,9 +1408,11 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwct_utilidadxperiodo_sald
           <EntitySet Name="ct_grupocble" EntityType="DBERPModelConta.ct_grupocble" />
           <EntitySet Name="ct_parametro" EntityType="DBERPModelConta.ct_parametro" />
           <EntitySet Name="ct_periodo" EntityType="DBERPModelConta.ct_periodo" />
-          <EntitySet Name="ct_periodo_x_tb_modulo" EntityType="DBERPModelConta.ct_periodo_x_tb_modulo" />
           <EntitySet Name="ct_plancta" EntityType="DBERPModelConta.ct_plancta" />
           <EntitySet Name="ct_plancta_nivel" EntityType="DBERPModelConta.ct_plancta_nivel" />
+          <EntitySet Name="ct_tipo_costo" EntityType="DBERPModelConta.ct_tipo_costo" />
+          <EntitySet Name="ct_tipo_ctacble" EntityType="DBERPModelConta.ct_tipo_ctacble" />
+          <EntitySet Name="ct_periodo_x_tb_modulo" EntityType="DBERPModelConta.ct_periodo_x_tb_modulo" />
           <EntitySet Name="vwct_anio_fiscal_x_cuenta_utilidad" EntityType="DBERPModelConta.vwct_anio_fiscal_x_cuenta_utilidad" />
           <EntitySet Name="vwct_cbtecble_con_ctacble_acreedora" EntityType="DBERPModelConta.vwct_cbtecble_con_ctacble_acreedora" />
           <EntitySet Name="vwct_cbtecble_con_saldo" EntityType="DBERPModelConta.vwct_cbtecble_con_saldo" />
@@ -1487,6 +1433,54 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwct_utilidadxperiodo_sald
           <EntitySet Name="vwct_utilidadxperiodo_saldo_acumulado" EntityType="DBERPModelConta.vwct_utilidadxperiodo_saldo_acumulado" />
           <EntitySet Name="vwct_utilidadxperiodo_saldo_anterior" EntityType="DBERPModelConta.vwct_utilidadxperiodo_saldo_anterior" />
           <EntitySet Name="vwct_utilidadxperiodo_saldo_periodoactual" EntityType="DBERPModelConta.vwct_utilidadxperiodo_saldo_periodoactual" />
+          <AssociationSet Name="ct_anio_fiscal_x_cuenta_utilidad_ct_anio_fiscal_FK" Association="DBERPModelConta.ct_anio_fiscal_x_cuenta_utilidad_ct_anio_fiscal_FK">
+            <End Role="ct_anio_fiscal" EntitySet="ct_anio_fiscal" />
+            <End Role="ct_anio_fiscal_x_cuenta_utilidad" EntitySet="ct_anio_fiscal_x_cuenta_utilidad" />
+          </AssociationSet>
+          <AssociationSet Name="ct_periodo_ct_anio_fiscal_FK" Association="DBERPModelConta.ct_periodo_ct_anio_fiscal_FK">
+            <End Role="ct_anio_fiscal" EntitySet="ct_anio_fiscal" />
+            <End Role="ct_periodo" EntitySet="ct_periodo" />
+          </AssociationSet>
+          <AssociationSet Name="ct_anio_fiscal_x_cuenta_utilidad_ct_cbtecble_FK" Association="DBERPModelConta.ct_anio_fiscal_x_cuenta_utilidad_ct_cbtecble_FK">
+            <End Role="ct_cbtecble" EntitySet="ct_cbtecble" />
+            <End Role="ct_anio_fiscal_x_cuenta_utilidad" EntitySet="ct_anio_fiscal_x_cuenta_utilidad" />
+          </AssociationSet>
+          <AssociationSet Name="ct_anio_fiscal_x_cuenta_utilidad_ct_plancta_FK" Association="DBERPModelConta.ct_anio_fiscal_x_cuenta_utilidad_ct_plancta_FK">
+            <End Role="ct_plancta" EntitySet="ct_plancta" />
+            <End Role="ct_anio_fiscal_x_cuenta_utilidad" EntitySet="ct_anio_fiscal_x_cuenta_utilidad" />
+          </AssociationSet>
+          <AssociationSet Name="ct_cbtecble_ct_cbtecble_tipo_FK" Association="DBERPModelConta.ct_cbtecble_ct_cbtecble_tipo_FK">
+            <End Role="ct_cbtecble_tipo" EntitySet="ct_cbtecble_tipo" />
+            <End Role="ct_cbtecble" EntitySet="ct_cbtecble" />
+          </AssociationSet>
+          <AssociationSet Name="ct_cbtecble_det_ct_cbtecble_FK" Association="DBERPModelConta.ct_cbtecble_det_ct_cbtecble_FK">
+            <End Role="ct_cbtecble" EntitySet="ct_cbtecble" />
+            <End Role="ct_cbtecble_det" EntitySet="ct_cbtecble_det" />
+          </AssociationSet>
+          <AssociationSet Name="ct_cbtecble_reversado_ct_cbtecble_FK" Association="DBERPModelConta.ct_cbtecble_reversado_ct_cbtecble_FK">
+            <End Role="ct_cbtecble" EntitySet="ct_cbtecble" />
+            <End Role="ct_cbtecble_reversado" EntitySet="ct_cbtecble_reversado" />
+          </AssociationSet>
+          <AssociationSet Name="ct_cbtecble_reversado_ct_cbtecble_FK_1" Association="DBERPModelConta.ct_cbtecble_reversado_ct_cbtecble_FK_1">
+            <End Role="ct_cbtecble" EntitySet="ct_cbtecble" />
+            <End Role="ct_cbtecble_reversado" EntitySet="ct_cbtecble_reversado" />
+          </AssociationSet>
+          <AssociationSet Name="ct_cbtecble_det_ct_centro_costo_FK" Association="DBERPModelConta.ct_cbtecble_det_ct_centro_costo_FK">
+            <End Role="ct_centro_costo" EntitySet="ct_centro_costo" />
+            <End Role="ct_cbtecble_det" EntitySet="ct_cbtecble_det" />
+          </AssociationSet>
+          <AssociationSet Name="ct_cbtecble_det_ct_plancta_FK" Association="DBERPModelConta.ct_cbtecble_det_ct_plancta_FK">
+            <End Role="ct_plancta" EntitySet="ct_plancta" />
+            <End Role="ct_cbtecble_det" EntitySet="ct_cbtecble_det" />
+          </AssociationSet>
+          <AssociationSet Name="ct_plancta_ct_grupocble_FK" Association="DBERPModelConta.ct_plancta_ct_grupocble_FK">
+            <End Role="ct_grupocble" EntitySet="ct_grupocble" />
+            <End Role="ct_plancta" EntitySet="ct_plancta" />
+          </AssociationSet>
+          <AssociationSet Name="ct_plancta_ct_plancta_nivel_FK" Association="DBERPModelConta.ct_plancta_ct_plancta_nivel_FK">
+            <End Role="ct_plancta_nivel" EntitySet="ct_plancta_nivel" />
+            <End Role="ct_plancta" EntitySet="ct_plancta" />
+          </AssociationSet>
           </EntityContainer>
         <ComplexType Name="spCON_saldo_cuentas_x_anio_para_cierre_Result">
           <Property Type="Int32" Name="IdEmpresa" Nullable="true" />
@@ -1582,14 +1576,13 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwct_utilidadxperiodo_sald
         <EntityType Name="ct_anio_fiscal">
           <Key>
             <PropertyRef Name="idaniofiscal" />
-            <PropertyRef Name="af_fechaini" />
-            <PropertyRef Name="af_fechafin" />
-            <PropertyRef Name="af_estado" />
           </Key>
           <Property Name="idaniofiscal" Type="Int32" Nullable="false" />
           <Property Name="af_fechaini" Type="DateTime" Nullable="false" />
           <Property Name="af_fechafin" Type="DateTime" Nullable="false" />
           <Property Name="af_estado" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ct_anio_fiscal_x_cuenta_utilidad" Relationship="DBERPModelConta.ct_anio_fiscal_x_cuenta_utilidad_ct_anio_fiscal_FK" FromRole="ct_anio_fiscal" ToRole="ct_anio_fiscal_x_cuenta_utilidad" />
+          <NavigationProperty Name="ct_periodo" Relationship="DBERPModelConta.ct_periodo_ct_anio_fiscal_FK" FromRole="ct_anio_fiscal" ToRole="ct_periodo" />
         </EntityType>
         <EntityType Name="ct_anio_fiscal_x_cuenta_utilidad">
           <Key>
@@ -1604,26 +1597,15 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwct_utilidadxperiodo_sald
           <Property Name="idempresa_cbte_cierre" Type="Int32" />
           <Property Name="idtipocbte_cbte_cierre" Type="Int32" />
           <Property Name="idcbtecble_cbte_cierre" Type="Decimal" />
+          <NavigationProperty Name="ct_anio_fiscal" Relationship="DBERPModelConta.ct_anio_fiscal_x_cuenta_utilidad_ct_anio_fiscal_FK" FromRole="ct_anio_fiscal_x_cuenta_utilidad" ToRole="ct_anio_fiscal" />
+          <NavigationProperty Name="ct_cbtecble" Relationship="DBERPModelConta.ct_anio_fiscal_x_cuenta_utilidad_ct_cbtecble_FK" FromRole="ct_anio_fiscal_x_cuenta_utilidad" ToRole="ct_cbtecble" />
+          <NavigationProperty Name="ct_plancta" Relationship="DBERPModelConta.ct_anio_fiscal_x_cuenta_utilidad_ct_plancta_FK" FromRole="ct_anio_fiscal_x_cuenta_utilidad" ToRole="ct_plancta" />
         </EntityType>
         <EntityType Name="ct_cbtecble">
           <Key>
             <PropertyRef Name="idempresa" />
             <PropertyRef Name="idtipocbte" />
             <PropertyRef Name="idcbtecble" />
-            <PropertyRef Name="codcbtecble" />
-            <PropertyRef Name="idperiodo" />
-            <PropertyRef Name="cb_fecha" />
-            <PropertyRef Name="cb_valor" />
-            <PropertyRef Name="cb_observacion" />
-            <PropertyRef Name="cb_secuencia" />
-            <PropertyRef Name="cb_estado" />
-            <PropertyRef Name="cb_anio" />
-            <PropertyRef Name="cb_mes" />
-            <PropertyRef Name="idusuario" />
-            <PropertyRef Name="cb_fechatransac" />
-            <PropertyRef Name="cb_mayorizado" />
-            <PropertyRef Name="cb_para_conciliar" />
-            <PropertyRef Name="idsucursal" />
           </Key>
           <Property Name="idempresa" Type="Int32" Nullable="false" />
           <Property Name="idtipocbte" Type="Int32" Nullable="false" />
@@ -1647,6 +1629,11 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwct_utilidadxperiodo_sald
           <Property Name="cb_mayorizado" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="cb_para_conciliar" Type="Boolean" Nullable="false" />
           <Property Name="idsucursal" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ct_anio_fiscal_x_cuenta_utilidad" Relationship="DBERPModelConta.ct_anio_fiscal_x_cuenta_utilidad_ct_cbtecble_FK" FromRole="ct_cbtecble" ToRole="ct_anio_fiscal_x_cuenta_utilidad" />
+          <NavigationProperty Name="ct_cbtecble_tipo" Relationship="DBERPModelConta.ct_cbtecble_ct_cbtecble_tipo_FK" FromRole="ct_cbtecble" ToRole="ct_cbtecble_tipo" />
+          <NavigationProperty Name="ct_cbtecble_det" Relationship="DBERPModelConta.ct_cbtecble_det_ct_cbtecble_FK" FromRole="ct_cbtecble" ToRole="ct_cbtecble_det" />
+          <NavigationProperty Name="ct_cbtecble_reversado" Relationship="DBERPModelConta.ct_cbtecble_reversado_ct_cbtecble_FK" FromRole="ct_cbtecble" ToRole="ct_cbtecble_reversado" />
+          <NavigationProperty Name="ct_cbtecble_reversado1" Relationship="DBERPModelConta.ct_cbtecble_reversado_ct_cbtecble_FK_1" FromRole="ct_cbtecble" ToRole="ct_cbtecble_reversado" />
         </EntityType>
         <EntityType Name="ct_cbtecble_det">
           <Key>
@@ -1654,9 +1641,6 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwct_utilidadxperiodo_sald
             <PropertyRef Name="idtipocbte" />
             <PropertyRef Name="idcbtecble" />
             <PropertyRef Name="secuencia" />
-            <PropertyRef Name="idctacble" />
-            <PropertyRef Name="dc_valor" />
-            <PropertyRef Name="dc_observacion" />
           </Key>
           <Property Name="idempresa" Type="Int32" Nullable="false" />
           <Property Name="idtipocbte" Type="Int32" Nullable="false" />
@@ -1672,15 +1656,15 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwct_utilidadxperiodo_sald
           <Property Name="idpunto_cargo" Type="Int32" />
           <Property Name="idpunto_cargo_grupo" Type="Int32" />
           <Property Name="dc_para_conciliar" Type="Boolean" />
+          <NavigationProperty Name="ct_cbtecble" Relationship="DBERPModelConta.ct_cbtecble_det_ct_cbtecble_FK" FromRole="ct_cbtecble_det" ToRole="ct_cbtecble" />
+          <NavigationProperty Name="ct_centro_costo" Relationship="DBERPModelConta.ct_cbtecble_det_ct_centro_costo_FK" FromRole="ct_cbtecble_det" ToRole="ct_centro_costo" />
+          <NavigationProperty Name="ct_plancta" Relationship="DBERPModelConta.ct_cbtecble_det_ct_plancta_FK" FromRole="ct_cbtecble_det" ToRole="ct_plancta" />
         </EntityType>
         <EntityType Name="ct_cbtecble_reversado">
           <Key>
             <PropertyRef Name="idempresa" />
             <PropertyRef Name="idtipocbte" />
             <PropertyRef Name="idcbtecble" />
-            <PropertyRef Name="idempresa_anu" />
-            <PropertyRef Name="idtipocbte_anu" />
-            <PropertyRef Name="idcbtecble_anu" />
           </Key>
           <Property Name="idempresa" Type="Int32" Nullable="false" />
           <Property Name="idtipocbte" Type="Int32" Nullable="false" />
@@ -1689,15 +1673,13 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwct_utilidadxperiodo_sald
           <Property Name="idtipocbte_anu" Type="Int32" Nullable="false" />
           <Property Name="idcbtecble_anu" Type="Decimal" Nullable="false" />
           <Property Name="ip" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ct_cbtecble" Relationship="DBERPModelConta.ct_cbtecble_reversado_ct_cbtecble_FK" FromRole="ct_cbtecble_reversado" ToRole="ct_cbtecble" />
+          <NavigationProperty Name="ct_cbtecble1" Relationship="DBERPModelConta.ct_cbtecble_reversado_ct_cbtecble_FK_1" FromRole="ct_cbtecble_reversado" ToRole="ct_cbtecble" />
         </EntityType>
         <EntityType Name="ct_cbtecble_tipo">
           <Key>
             <PropertyRef Name="idempresa" />
             <PropertyRef Name="idtipocbte" />
-            <PropertyRef Name="codtipocbte" />
-            <PropertyRef Name="tc_tipocbte" />
-            <PropertyRef Name="tc_estado" />
-            <PropertyRef Name="tc_interno" />
           </Key>
           <Property Name="idempresa" Type="Int32" Nullable="false" />
           <Property Name="idtipocbte" Type="Int32" Nullable="false" />
@@ -1714,16 +1696,12 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwct_utilidadxperiodo_sald
           <Property Name="idusuarioultanu" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="fecha_ultanu" Type="DateTime" />
           <Property Name="motianula" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ct_cbtecble" Relationship="DBERPModelConta.ct_cbtecble_ct_cbtecble_tipo_FK" FromRole="ct_cbtecble_tipo" ToRole="ct_cbtecble" />
         </EntityType>
         <EntityType Name="ct_centro_costo">
           <Key>
             <PropertyRef Name="idempresa" />
             <PropertyRef Name="idcentrocosto" />
-            <PropertyRef Name="codcentrocosto" />
-            <PropertyRef Name="centro_costo" />
-            <PropertyRef Name="pc_esmovimiento" />
-            <PropertyRef Name="idnivel" />
-            <PropertyRef Name="pc_estado" />
           </Key>
           <Property Name="idempresa" Type="Int32" Nullable="false" />
           <Property Name="idcentrocosto" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
@@ -1744,14 +1722,12 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwct_utilidadxperiodo_sald
           <Property Name="motivoanulacion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="nom_pc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ct_cbtecble_det" Relationship="DBERPModelConta.ct_cbtecble_det_ct_centro_costo_FK" FromRole="ct_centro_costo" ToRole="ct_cbtecble_det" />
         </EntityType>
         <EntityType Name="ct_dashboard_financiero">
           <Key>
             <PropertyRef Name="idempresa" />
             <PropertyRef Name="idusuario" />
-            <PropertyRef Name="anio_fiscal" />
-            <PropertyRef Name="idmes" />
-            <PropertyRef Name="nommes" />
           </Key>
           <Property Name="idempresa" Type="Int32" Nullable="false" />
           <Property Name="idusuario" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
@@ -1793,10 +1769,6 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwct_utilidadxperiodo_sald
         <EntityType Name="ct_grupocble">
           <Key>
             <PropertyRef Name="idgrupocble" />
-            <PropertyRef Name="gc_grupocble" />
-            <PropertyRef Name="gc_orden" />
-            <PropertyRef Name="gc_estado_financiero" />
-            <PropertyRef Name="estado" />
           </Key>
           <Property Name="idgrupocble" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
           <Property Name="gc_grupocble" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -1805,6 +1777,7 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwct_utilidadxperiodo_sald
           <Property Name="gc_signo_operacion" Type="Int32" />
           <Property Name="estado" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="idgrupo_mayor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ct_plancta" Relationship="DBERPModelConta.ct_plancta_ct_grupocble_FK" FromRole="ct_grupocble" ToRole="ct_plancta" />
         </EntityType>
         <EntityType Name="ct_parametro">
           <Key>
@@ -1819,11 +1792,6 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwct_utilidadxperiodo_sald
           <Key>
             <PropertyRef Name="idempresa" />
             <PropertyRef Name="idperiodo" />
-            <PropertyRef Name="idaniofiscal" />
-            <PropertyRef Name="pe_mes" />
-            <PropertyRef Name="pe_fechaini" />
-            <PropertyRef Name="pe_fechafin" />
-            <PropertyRef Name="pe_cerrado" />
           </Key>
           <Property Name="idempresa" Type="Int32" Nullable="false" />
           <Property Name="idperiodo" Type="Int32" Nullable="false" />
@@ -1833,33 +1801,12 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwct_utilidadxperiodo_sald
           <Property Name="pe_fechafin" Type="DateTime" Nullable="false" />
           <Property Name="pe_cerrado" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="pe_estado" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="ct_periodo_x_tb_modulo">
-          <Key>
-            <PropertyRef Name="idempresa" />
-            <PropertyRef Name="idperiodo" />
-            <PropertyRef Name="idmodulo" />
-            <PropertyRef Name="cerrado" />
-          </Key>
-          <Property Name="idempresa" Type="Int32" Nullable="false" />
-          <Property Name="idperiodo" Type="Int32" Nullable="false" />
-          <Property Name="idmodulo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="cerrado" Type="Boolean" Nullable="false" />
-          <Property Name="idusuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="idusuarioultmodi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="fechatransac" Type="DateTime" />
-          <Property Name="fechaultmodi" Type="DateTime" />
+          <NavigationProperty Name="ct_anio_fiscal" Relationship="DBERPModelConta.ct_periodo_ct_anio_fiscal_FK" FromRole="ct_periodo" ToRole="ct_anio_fiscal" />
         </EntityType>
         <EntityType Name="ct_plancta">
           <Key>
             <PropertyRef Name="idempresa" />
             <PropertyRef Name="idctacble" />
-            <PropertyRef Name="pc_cuenta" />
-            <PropertyRef Name="pc_naturaleza" />
-            <PropertyRef Name="idnivelcta" />
-            <PropertyRef Name="idgrupocble" />
-            <PropertyRef Name="pc_estado" />
-            <PropertyRef Name="pc_esmovimiento" />
           </Key>
           <Property Name="idempresa" Type="Int32" Nullable="false" />
           <Property Name="idctacble" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
@@ -1885,13 +1832,15 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwct_utilidadxperiodo_sald
           <Property Name="ip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="idtipo_gasto" Type="Int32" />
           <Property Name="idtipo_costo" Type="Int32" />
+          <NavigationProperty Name="ct_anio_fiscal_x_cuenta_utilidad" Relationship="DBERPModelConta.ct_anio_fiscal_x_cuenta_utilidad_ct_plancta_FK" FromRole="ct_plancta" ToRole="ct_anio_fiscal_x_cuenta_utilidad" />
+          <NavigationProperty Name="ct_cbtecble_det" Relationship="DBERPModelConta.ct_cbtecble_det_ct_plancta_FK" FromRole="ct_plancta" ToRole="ct_cbtecble_det" />
+          <NavigationProperty Name="ct_grupocble" Relationship="DBERPModelConta.ct_plancta_ct_grupocble_FK" FromRole="ct_plancta" ToRole="ct_grupocble" />
+          <NavigationProperty Name="ct_plancta_nivel" Relationship="DBERPModelConta.ct_plancta_ct_plancta_nivel_FK" FromRole="ct_plancta" ToRole="ct_plancta_nivel" />
         </EntityType>
         <EntityType Name="ct_plancta_nivel">
           <Key>
             <PropertyRef Name="idempresa" />
             <PropertyRef Name="idnivelcta" />
-            <PropertyRef Name="nv_numdigitos" />
-            <PropertyRef Name="nv_descripcion" />
           </Key>
           <Property Name="idempresa" Type="Int32" Nullable="false" />
           <Property Name="idnivelcta" Type="Int32" Nullable="false" />
@@ -1905,6 +1854,43 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwct_utilidadxperiodo_sald
           <Property Name="idusuarioultanu" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="fecha_ultanu" Type="DateTime" />
           <Property Name="motivoanulacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ct_plancta" Relationship="DBERPModelConta.ct_plancta_ct_plancta_nivel_FK" FromRole="ct_plancta_nivel" ToRole="ct_plancta" />
+        </EntityType>
+        <EntityType Name="ct_tipo_costo">
+          <Key>
+            <PropertyRef Name="idempresa" />
+            <PropertyRef Name="idtipo_costo" />
+          </Key>
+          <Property Name="idempresa" Type="Int32" Nullable="false" />
+          <Property Name="idtipo_costo" Type="Int32" Nullable="false" />
+          <Property Name="nom_tipo_costo" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="nom_tipo_costo2" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="Boolean" />
+          <Property Name="orden" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ct_tipo_ctacble">
+          <Key>
+            <PropertyRef Name="idtipoctacble" />
+          </Key>
+          <Property Name="idtipoctacble" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="nom_tipoctacble" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ct_periodo_x_tb_modulo">
+          <Key>
+            <PropertyRef Name="idempresa" />
+            <PropertyRef Name="idperiodo" />
+            <PropertyRef Name="idmodulo" />
+            <PropertyRef Name="cerrado" />
+          </Key>
+          <Property Name="idempresa" Type="Int32" Nullable="false" />
+          <Property Name="idperiodo" Type="Int32" Nullable="false" />
+          <Property Name="idmodulo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="cerrado" Type="Boolean" Nullable="false" />
+          <Property Name="idusuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idusuarioultmodi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fechatransac" Type="DateTime" />
+          <Property Name="fechaultmodi" Type="DateTime" />
         </EntityType>
         <EntityType Name="vwct_anio_fiscal_x_cuenta_utilidad">
           <Key>
@@ -2365,6 +2351,176 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwct_utilidadxperiodo_sald
           <Property Name="idperiodo" Type="Int32" Nullable="false" />
           <Property Name="utilidad_periodo" Type="Double" />
         </EntityType>
+        <Association Name="ct_anio_fiscal_x_cuenta_utilidad_ct_anio_fiscal_FK">
+          <End Type="DBERPModelConta.ct_anio_fiscal" Role="ct_anio_fiscal" Multiplicity="1" />
+          <End Type="DBERPModelConta.ct_anio_fiscal_x_cuenta_utilidad" Role="ct_anio_fiscal_x_cuenta_utilidad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ct_anio_fiscal">
+              <PropertyRef Name="idaniofiscal" />
+            </Principal>
+            <Dependent Role="ct_anio_fiscal_x_cuenta_utilidad">
+              <PropertyRef Name="idaniofiscal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ct_periodo_ct_anio_fiscal_FK">
+          <End Type="DBERPModelConta.ct_anio_fiscal" Role="ct_anio_fiscal" Multiplicity="1" />
+          <End Type="DBERPModelConta.ct_periodo" Role="ct_periodo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ct_anio_fiscal">
+              <PropertyRef Name="idaniofiscal" />
+            </Principal>
+            <Dependent Role="ct_periodo">
+              <PropertyRef Name="idaniofiscal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ct_anio_fiscal_x_cuenta_utilidad_ct_cbtecble_FK">
+          <End Type="DBERPModelConta.ct_cbtecble" Role="ct_cbtecble" Multiplicity="0..1" />
+          <End Type="DBERPModelConta.ct_anio_fiscal_x_cuenta_utilidad" Role="ct_anio_fiscal_x_cuenta_utilidad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ct_cbtecble">
+              <PropertyRef Name="idempresa" />
+              <PropertyRef Name="idtipocbte" />
+              <PropertyRef Name="idcbtecble" />
+            </Principal>
+            <Dependent Role="ct_anio_fiscal_x_cuenta_utilidad">
+              <PropertyRef Name="idempresa_cbte_cierre" />
+              <PropertyRef Name="idtipocbte_cbte_cierre" />
+              <PropertyRef Name="idcbtecble_cbte_cierre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ct_anio_fiscal_x_cuenta_utilidad_ct_plancta_FK">
+          <End Type="DBERPModelConta.ct_plancta" Role="ct_plancta" Multiplicity="1" />
+          <End Type="DBERPModelConta.ct_anio_fiscal_x_cuenta_utilidad" Role="ct_anio_fiscal_x_cuenta_utilidad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ct_plancta">
+              <PropertyRef Name="idempresa" />
+              <PropertyRef Name="idctacble" />
+            </Principal>
+            <Dependent Role="ct_anio_fiscal_x_cuenta_utilidad">
+              <PropertyRef Name="idempresa" />
+              <PropertyRef Name="idctacble" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ct_cbtecble_ct_cbtecble_tipo_FK">
+          <End Type="DBERPModelConta.ct_cbtecble_tipo" Role="ct_cbtecble_tipo" Multiplicity="1" />
+          <End Type="DBERPModelConta.ct_cbtecble" Role="ct_cbtecble" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ct_cbtecble_tipo">
+              <PropertyRef Name="idempresa" />
+              <PropertyRef Name="idtipocbte" />
+            </Principal>
+            <Dependent Role="ct_cbtecble">
+              <PropertyRef Name="idempresa" />
+              <PropertyRef Name="idtipocbte" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ct_cbtecble_det_ct_cbtecble_FK">
+          <End Type="DBERPModelConta.ct_cbtecble" Role="ct_cbtecble" Multiplicity="1" />
+          <End Type="DBERPModelConta.ct_cbtecble_det" Role="ct_cbtecble_det" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ct_cbtecble">
+              <PropertyRef Name="idempresa" />
+              <PropertyRef Name="idtipocbte" />
+              <PropertyRef Name="idcbtecble" />
+            </Principal>
+            <Dependent Role="ct_cbtecble_det">
+              <PropertyRef Name="idempresa" />
+              <PropertyRef Name="idtipocbte" />
+              <PropertyRef Name="idcbtecble" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ct_cbtecble_reversado_ct_cbtecble_FK">
+          <End Type="DBERPModelConta.ct_cbtecble" Role="ct_cbtecble" Multiplicity="1" />
+          <End Type="DBERPModelConta.ct_cbtecble_reversado" Role="ct_cbtecble_reversado" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="ct_cbtecble">
+              <PropertyRef Name="idempresa" />
+              <PropertyRef Name="idtipocbte" />
+              <PropertyRef Name="idcbtecble" />
+            </Principal>
+            <Dependent Role="ct_cbtecble_reversado">
+              <PropertyRef Name="idempresa" />
+              <PropertyRef Name="idtipocbte" />
+              <PropertyRef Name="idcbtecble" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ct_cbtecble_reversado_ct_cbtecble_FK_1">
+          <End Type="DBERPModelConta.ct_cbtecble" Role="ct_cbtecble" Multiplicity="1" />
+          <End Type="DBERPModelConta.ct_cbtecble_reversado" Role="ct_cbtecble_reversado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ct_cbtecble">
+              <PropertyRef Name="idempresa" />
+              <PropertyRef Name="idtipocbte" />
+              <PropertyRef Name="idcbtecble" />
+            </Principal>
+            <Dependent Role="ct_cbtecble_reversado">
+              <PropertyRef Name="idempresa_anu" />
+              <PropertyRef Name="idtipocbte_anu" />
+              <PropertyRef Name="idcbtecble_anu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ct_cbtecble_det_ct_centro_costo_FK">
+          <End Type="DBERPModelConta.ct_centro_costo" Role="ct_centro_costo" Multiplicity="0..1" />
+          <End Type="DBERPModelConta.ct_cbtecble_det" Role="ct_cbtecble_det" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ct_centro_costo">
+              <PropertyRef Name="idempresa" />
+              <PropertyRef Name="idcentrocosto" />
+            </Principal>
+            <Dependent Role="ct_cbtecble_det">
+              <PropertyRef Name="idempresa" />
+              <PropertyRef Name="idcentrocosto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ct_cbtecble_det_ct_plancta_FK">
+          <End Type="DBERPModelConta.ct_plancta" Role="ct_plancta" Multiplicity="1" />
+          <End Type="DBERPModelConta.ct_cbtecble_det" Role="ct_cbtecble_det" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ct_plancta">
+              <PropertyRef Name="idempresa" />
+              <PropertyRef Name="idctacble" />
+            </Principal>
+            <Dependent Role="ct_cbtecble_det">
+              <PropertyRef Name="idempresa" />
+              <PropertyRef Name="idctacble" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ct_plancta_ct_grupocble_FK">
+          <End Type="DBERPModelConta.ct_grupocble" Role="ct_grupocble" Multiplicity="1" />
+          <End Type="DBERPModelConta.ct_plancta" Role="ct_plancta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ct_grupocble">
+              <PropertyRef Name="idgrupocble" />
+            </Principal>
+            <Dependent Role="ct_plancta">
+              <PropertyRef Name="idgrupocble" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ct_plancta_ct_plancta_nivel_FK">
+          <End Type="DBERPModelConta.ct_plancta_nivel" Role="ct_plancta_nivel" Multiplicity="1" />
+          <End Type="DBERPModelConta.ct_plancta" Role="ct_plancta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ct_plancta_nivel">
+              <PropertyRef Name="idempresa" />
+              <PropertyRef Name="idnivelcta" />
+            </Principal>
+            <Dependent Role="ct_plancta">
+              <PropertyRef Name="idempresa" />
+              <PropertyRef Name="idnivelcta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2580,20 +2736,6 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwct_utilidadxperiodo_sald
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ct_periodo_x_tb_modulo">
-            <EntityTypeMapping TypeName="DBERPModelConta.ct_periodo_x_tb_modulo">
-              <MappingFragment StoreEntitySet="ct_periodo_x_tb_modulo">
-                <ScalarProperty Name="fechaultmodi" ColumnName="fechaultmodi" />
-                <ScalarProperty Name="fechatransac" ColumnName="fechatransac" />
-                <ScalarProperty Name="idusuarioultmodi" ColumnName="idusuarioultmodi" />
-                <ScalarProperty Name="idusuario" ColumnName="idusuario" />
-                <ScalarProperty Name="cerrado" ColumnName="cerrado" />
-                <ScalarProperty Name="idmodulo" ColumnName="idmodulo" />
-                <ScalarProperty Name="idperiodo" ColumnName="idperiodo" />
-                <ScalarProperty Name="idempresa" ColumnName="idempresa" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="ct_plancta">
             <EntityTypeMapping TypeName="DBERPModelConta.ct_plancta">
               <MappingFragment StoreEntitySet="ct_plancta">
@@ -2638,6 +2780,41 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwct_utilidadxperiodo_sald
                 <ScalarProperty Name="nv_descripcion" ColumnName="nv_descripcion" />
                 <ScalarProperty Name="nv_numdigitos" ColumnName="nv_numdigitos" />
                 <ScalarProperty Name="idnivelcta" ColumnName="idnivelcta" />
+                <ScalarProperty Name="idempresa" ColumnName="idempresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ct_tipo_costo">
+            <EntityTypeMapping TypeName="DBERPModelConta.ct_tipo_costo">
+              <MappingFragment StoreEntitySet="ct_tipo_costo">
+                <ScalarProperty Name="orden" ColumnName="orden" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="nom_tipo_costo2" ColumnName="nom_tipo_costo2" />
+                <ScalarProperty Name="nom_tipo_costo" ColumnName="nom_tipo_costo" />
+                <ScalarProperty Name="idtipo_costo" ColumnName="idtipo_costo" />
+                <ScalarProperty Name="idempresa" ColumnName="idempresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ct_tipo_ctacble">
+            <EntityTypeMapping TypeName="DBERPModelConta.ct_tipo_ctacble">
+              <MappingFragment StoreEntitySet="ct_tipo_ctacble">
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="nom_tipoctacble" ColumnName="nom_tipoctacble" />
+                <ScalarProperty Name="idtipoctacble" ColumnName="idtipoctacble" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ct_periodo_x_tb_modulo">
+            <EntityTypeMapping TypeName="DBERPModelConta.ct_periodo_x_tb_modulo">
+              <MappingFragment StoreEntitySet="ct_periodo_x_tb_modulo">
+                <ScalarProperty Name="fechaultmodi" ColumnName="fechaultmodi" />
+                <ScalarProperty Name="fechatransac" ColumnName="fechatransac" />
+                <ScalarProperty Name="idusuarioultmodi" ColumnName="idusuarioultmodi" />
+                <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+                <ScalarProperty Name="cerrado" ColumnName="cerrado" />
+                <ScalarProperty Name="idmodulo" ColumnName="idmodulo" />
+                <ScalarProperty Name="idperiodo" ColumnName="idperiodo" />
                 <ScalarProperty Name="idempresa" ColumnName="idempresa" />
               </MappingFragment>
             </EntityTypeMapping>

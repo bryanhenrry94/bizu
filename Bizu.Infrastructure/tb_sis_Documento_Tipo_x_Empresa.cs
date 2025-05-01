@@ -22,5 +22,8 @@ namespace Bizu.Infrastructure
         public string descripcion { get; set; }
         public int posicion { get; set; }
         public string aparececombo_filereporte { get; set; }
+    
+        public virtual tb_empresa tb_empresa { get; set; }
+        public virtual tb_sis_documento_tipo tb_sis_documento_tipo { get; set; }
     }
 }

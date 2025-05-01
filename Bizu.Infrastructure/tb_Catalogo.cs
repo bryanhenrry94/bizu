@@ -14,9 +14,9 @@ namespace Bizu.Infrastructure
     
     public partial class tb_catalogo
     {
-        public string codcatalogo { get; set; }
-        public int idtipocatalogo { get; set; }
         public int idcatalogo { get; set; }
+        public int idtipocatalogo { get; set; }
+        public string codcatalogo { get; set; }
         public string ca_descripcion { get; set; }
         public string ca_estado { get; set; }
         public int ca_orden { get; set; }
@@ -27,5 +27,7 @@ namespace Bizu.Infrastructure
         public string idusuarioultanu { get; set; }
         public Nullable<System.DateTime> fecha_ultanu { get; set; }
         public string motivoanulacion { get; set; }
+    
+        public virtual tb_catalogotipo tb_catalogotipo { get; set; }
     }
 }

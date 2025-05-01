@@ -30,7 +30,6 @@ namespace Bizu.Infrastructure
     
         public DbSet<tb_banco> tb_banco { get; set; }
         public DbSet<tb_bodega> tb_bodega { get; set; }
-        public DbSet<tb_calendario> tb_calendario { get; set; }
         public DbSet<tb_catalogo> tb_catalogo { get; set; }
         public DbSet<tb_catalogotipo> tb_catalogotipo { get; set; }
         public DbSet<tb_comprobantesrecibidos> tb_comprobantesrecibidos { get; set; }
@@ -61,13 +60,13 @@ namespace Bizu.Infrastructure
         public DbSet<vw_persona> vw_persona { get; set; }
         public DbSet<vw_tipoctabancos> vw_tipoctabancos { get; set; }
         public DbSet<vw_tipodocumento> vw_tipodocumento { get; set; }
+        public DbSet<vwge_tb_sis_documento_tipo_talonario> vwge_tb_sis_documento_tipo_talonario { get; set; }
         public DbSet<vwtb_bodega_x_sucursal_treelist> vwtb_bodega_x_sucursal_treelist { get; set; }
         public DbSet<vwtb_bodega_x_tb_sucursal> vwtb_bodega_x_tb_sucursal { get; set; }
         public DbSet<vwtb_empresa_x_usuario> vwtb_empresa_x_usuario { get; set; }
         public DbSet<vwtb_persona_beneficiario> vwtb_persona_beneficiario { get; set; }
         public DbSet<vwtb_persona_beneficiario_por_banco_acreditacion> vwtb_persona_beneficiario_por_banco_acreditacion { get; set; }
         public DbSet<vwtb_tb_sis_documento_tipo_talonario> vwtb_tb_sis_documento_tipo_talonario { get; set; }
-        public DbSet<vwge_tb_sis_documento_tipo_talonario> vwge_tb_sis_documento_tipo_talonario { get; set; }
     
         public virtual ObjectResult<spSys_ObtenerFecha_SinFeriadoTampocoSabDom_Result> spSys_ObtenerFecha_SinFeriadoTampocoSabDom(Nullable<System.DateTime> p_FechaInicial, Nullable<int> p_Dias)
         {

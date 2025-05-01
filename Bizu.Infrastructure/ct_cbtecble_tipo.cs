@@ -14,6 +14,11 @@ namespace Bizu.Infrastructure
     
     public partial class ct_cbtecble_tipo
     {
+        public ct_cbtecble_tipo()
+        {
+            this.ct_cbtecble = new HashSet<ct_cbtecble>();
+        }
+    
         public int idempresa { get; set; }
         public int idtipocbte { get; set; }
         public string codtipocbte { get; set; }
@@ -29,5 +34,7 @@ namespace Bizu.Infrastructure
         public string idusuarioultanu { get; set; }
         public Nullable<System.DateTime> fecha_ultanu { get; set; }
         public string motianula { get; set; }
+    
+        public virtual ICollection<ct_cbtecble> ct_cbtecble { get; set; }
     }
 }

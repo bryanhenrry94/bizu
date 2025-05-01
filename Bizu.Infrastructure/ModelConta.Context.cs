@@ -39,9 +39,11 @@ namespace Bizu.Infrastructure
         public DbSet<ct_grupocble> ct_grupocble { get; set; }
         public DbSet<ct_parametro> ct_parametro { get; set; }
         public DbSet<ct_periodo> ct_periodo { get; set; }
-        public DbSet<ct_periodo_x_tb_modulo> ct_periodo_x_tb_modulo { get; set; }
         public DbSet<ct_plancta> ct_plancta { get; set; }
         public DbSet<ct_plancta_nivel> ct_plancta_nivel { get; set; }
+        public DbSet<ct_tipo_costo> ct_tipo_costo { get; set; }
+        public DbSet<ct_tipo_ctacble> ct_tipo_ctacble { get; set; }
+        public DbSet<ct_periodo_x_tb_modulo> ct_periodo_x_tb_modulo { get; set; }
         public DbSet<vwct_anio_fiscal_x_cuenta_utilidad> vwct_anio_fiscal_x_cuenta_utilidad { get; set; }
         public DbSet<vwct_cbtecble_con_ctacble_acreedora> vwct_cbtecble_con_ctacble_acreedora { get; set; }
         public DbSet<vwct_cbtecble_con_saldo> vwct_cbtecble_con_saldo { get; set; }

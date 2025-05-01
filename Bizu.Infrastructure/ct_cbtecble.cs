@@ -14,6 +14,13 @@ namespace Bizu.Infrastructure
     
     public partial class ct_cbtecble
     {
+        public ct_cbtecble()
+        {
+            this.ct_anio_fiscal_x_cuenta_utilidad = new HashSet<ct_anio_fiscal_x_cuenta_utilidad>();
+            this.ct_cbtecble_det = new HashSet<ct_cbtecble_det>();
+            this.ct_cbtecble_reversado1 = new HashSet<ct_cbtecble_reversado>();
+        }
+    
         public int idempresa { get; set; }
         public int idtipocbte { get; set; }
         public decimal idcbtecble { get; set; }
@@ -36,5 +43,11 @@ namespace Bizu.Infrastructure
         public string cb_mayorizado { get; set; }
         public bool cb_para_conciliar { get; set; }
         public int idsucursal { get; set; }
+    
+        public virtual ICollection<ct_anio_fiscal_x_cuenta_utilidad> ct_anio_fiscal_x_cuenta_utilidad { get; set; }
+        public virtual ct_cbtecble_tipo ct_cbtecble_tipo { get; set; }
+        public virtual ICollection<ct_cbtecble_det> ct_cbtecble_det { get; set; }
+        public virtual ct_cbtecble_reversado ct_cbtecble_reversado { get; set; }
+        public virtual ICollection<ct_cbtecble_reversado> ct_cbtecble_reversado1 { get; set; }
     }
 }

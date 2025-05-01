@@ -14,6 +14,12 @@ namespace Bizu.Infrastructure
     
     public partial class ct_plancta
     {
+        public ct_plancta()
+        {
+            this.ct_anio_fiscal_x_cuenta_utilidad = new HashSet<ct_anio_fiscal_x_cuenta_utilidad>();
+            this.ct_cbtecble_det = new HashSet<ct_cbtecble_det>();
+        }
+    
         public int idempresa { get; set; }
         public string idctacble { get; set; }
         public string pc_cuenta { get; set; }
@@ -38,5 +44,10 @@ namespace Bizu.Infrastructure
         public string ip { get; set; }
         public Nullable<int> idtipo_gasto { get; set; }
         public Nullable<int> idtipo_costo { get; set; }
+    
+        public virtual ICollection<ct_anio_fiscal_x_cuenta_utilidad> ct_anio_fiscal_x_cuenta_utilidad { get; set; }
+        public virtual ICollection<ct_cbtecble_det> ct_cbtecble_det { get; set; }
+        public virtual ct_grupocble ct_grupocble { get; set; }
+        public virtual ct_plancta_nivel ct_plancta_nivel { get; set; }
     }
 }

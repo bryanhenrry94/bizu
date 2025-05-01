@@ -28,5 +28,9 @@ namespace Bizu.Infrastructure
         public Nullable<int> idpunto_cargo { get; set; }
         public Nullable<int> idpunto_cargo_grupo { get; set; }
         public Nullable<bool> dc_para_conciliar { get; set; }
+    
+        public virtual ct_cbtecble ct_cbtecble { get; set; }
+        public virtual ct_centro_costo ct_centro_costo { get; set; }
+        public virtual ct_plancta ct_plancta { get; set; }
     }
 }

@@ -22,5 +22,7 @@ namespace Bizu.Infrastructure
         public System.DateTime pe_fechafin { get; set; }
         public string pe_cerrado { get; set; }
         public string pe_estado { get; set; }
+    
+        public virtual ct_anio_fiscal ct_anio_fiscal { get; set; }
     }
 }

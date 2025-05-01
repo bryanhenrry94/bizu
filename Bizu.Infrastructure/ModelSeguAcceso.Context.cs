@@ -26,11 +26,11 @@ namespace Bizu.Infrastructure
         }
     
         public DbSet<seg_menu> seg_menu { get; set; }
-        public DbSet<seg_menu_x_empresa> seg_menu_x_empresa { get; set; }
         public DbSet<seg_menu_x_empresa_x_usuario> seg_menu_x_empresa_x_usuario { get; set; }
         public DbSet<seg_usuario> seg_usuario { get; set; }
         public DbSet<seg_usuario_x_empresa> seg_usuario_x_empresa { get; set; }
         public DbSet<seg_usuario_x_tb_sis_reporte> seg_usuario_x_tb_sis_reporte { get; set; }
+        public DbSet<seg_menu_x_empresa> seg_menu_x_empresa { get; set; }
         public DbSet<vw_seg_menu_x_usuario_x_empresa> vw_seg_menu_x_usuario_x_empresa { get; set; }
         public DbSet<vwseg_menu_x_usuario_x_empresa> vwseg_menu_x_usuario_x_empresa { get; set; }
         public DbSet<vwseg_usuario_x_empresa> vwseg_usuario_x_empresa { get; set; }

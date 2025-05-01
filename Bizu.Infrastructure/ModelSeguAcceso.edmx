@@ -5,17 +5,9 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="DBERPModelSeguridad.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="8.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.seg_menu' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="seg_menu">
           <Key>
             <PropertyRef Name="idmenu" />
-            <PropertyRef Name="descripcionmenu" />
-            <PropertyRef Name="posicionmenu" />
-            <PropertyRef Name="habilitado" />
-            <PropertyRef Name="tiene_formularioasociado" />
-            <PropertyRef Name="nom_formulario" />
-            <PropertyRef Name="nom_asembly" />
           </Key>
           <Property Name="idmenu" Type="int" Nullable="false" />
           <Property Name="idmenupadre" Type="int" />
@@ -46,16 +38,11 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.seg_menu_x_empresa' no tie
           <Property Name="nombreasambly_x_emp" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="nomformulario_x_emp" Type="varchar" MaxLength="200" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.seg_menu_x_empresa_x_usuario' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="seg_menu_x_empresa_x_usuario">
           <Key>
             <PropertyRef Name="idempresa" />
             <PropertyRef Name="idusuario" />
             <PropertyRef Name="idmenu" />
-            <PropertyRef Name="lectura" />
-            <PropertyRef Name="escritura" />
-            <PropertyRef Name="eliminacion" />
           </Key>
           <Property Name="idempresa" Type="int" Nullable="false" />
           <Property Name="idusuario" Type="varchar" MaxLength="50" Nullable="false" />
@@ -64,8 +51,6 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.seg_menu_x_empresa_x_usuar
           <Property Name="escritura" Type="bool" Nullable="false" />
           <Property Name="eliminacion" Type="bool" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.seg_usuario' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="seg_usuario">
           <Key>
             <PropertyRef Name="idusuario" />
@@ -84,8 +69,6 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.seg_usuario' no tiene defi
           <Property Name="cambiarcontraseniasgtsesion" Type="bool" />
           <Property Name="iddepartamento" Type="int" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.seg_usuario_x_empresa' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="seg_usuario_x_empresa">
           <Key>
             <PropertyRef Name="idusuario" />
@@ -95,13 +78,10 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.seg_usuario_x_empresa' no 
           <Property Name="idempresa" Type="int" Nullable="false" />
           <Property Name="observacion" Type="varchar" MaxLength="50" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.optica_zafiro.seg_usuario_x_tb_sis_reporte' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="seg_usuario_x_tb_sis_reporte">
           <Key>
             <PropertyRef Name="idusuario" />
             <PropertyRef Name="codreporte" />
-            <PropertyRef Name="observacion" />
           </Key>
           <Property Name="idusuario" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="codreporte" Type="varchar" MaxLength="50" Nullable="false" />
@@ -231,23 +211,60 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwseg_usuario_x_tb_sis_rep
           <Property Name="disenio_reporte" Type="longblob" />
           <Property Name="esta_en_base" Type="bigint" Nullable="false" />
         </EntityType>
+        <Association Name="seg_menu_x_empresa_x_usuario_seg_menu_FK">
+          <End Role="seg_menu" Type="Self.seg_menu" Multiplicity="1" />
+          <End Role="seg_menu_x_empresa_x_usuario" Type="Self.seg_menu_x_empresa_x_usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="seg_menu">
+              <PropertyRef Name="idmenu" />
+            </Principal>
+            <Dependent Role="seg_menu_x_empresa_x_usuario">
+              <PropertyRef Name="idmenu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="seg_menu_x_empresa_x_usuario_seg_usuario_FK">
+          <End Role="seg_usuario" Type="Self.seg_usuario" Multiplicity="1" />
+          <End Role="seg_menu_x_empresa_x_usuario" Type="Self.seg_menu_x_empresa_x_usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="seg_usuario">
+              <PropertyRef Name="idusuario" />
+            </Principal>
+            <Dependent Role="seg_menu_x_empresa_x_usuario">
+              <PropertyRef Name="idusuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="seg_usuario_x_empresa_seg_usuario_FK">
+          <End Role="seg_usuario" Type="Self.seg_usuario" Multiplicity="1" />
+          <End Role="seg_usuario_x_empresa" Type="Self.seg_usuario_x_empresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="seg_usuario">
+              <PropertyRef Name="idusuario" />
+            </Principal>
+            <Dependent Role="seg_usuario_x_empresa">
+              <PropertyRef Name="idusuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="seg_usuario_x_tb_sis_reporte_seg_usuario_FK">
+          <End Role="seg_usuario" Type="Self.seg_usuario" Multiplicity="1" />
+          <End Role="seg_usuario_x_tb_sis_reporte" Type="Self.seg_usuario_x_tb_sis_reporte" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="seg_usuario">
+              <PropertyRef Name="idusuario" />
+            </Principal>
+            <Dependent Role="seg_usuario_x_tb_sis_reporte">
+              <PropertyRef Name="idusuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="DBERPModelSeguridadStoreContainer">
-          <EntitySet Name="seg_menu" EntityType="Self.seg_menu" store:Type="Tables" store:Schema="">
-            <DefiningQuery>SELECT 
-`seg_menu`.`idmenu`, 
-`seg_menu`.`idmenupadre`, 
-`seg_menu`.`descripcionmenu`, 
-`seg_menu`.`posicionmenu`, 
-`seg_menu`.`habilitado`, 
-`seg_menu`.`tiene_formularioasociado`, 
-`seg_menu`.`nom_formulario`, 
-`seg_menu`.`nom_asembly`, 
-`seg_menu`.`imagen_grande`, 
-`seg_menu`.`imagen_peque`, 
-`seg_menu`.`icono`, 
-`seg_menu`.`nivel`
- FROM `seg_menu` AS `seg_menu`</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="seg_menu" EntityType="Self.seg_menu" Schema="" store:Type="Tables" />
+          <EntitySet Name="seg_menu_x_empresa_x_usuario" EntityType="Self.seg_menu_x_empresa_x_usuario" Schema="" store:Type="Tables" />
+          <EntitySet Name="seg_usuario" EntityType="Self.seg_usuario" Schema="" store:Type="Tables" />
+          <EntitySet Name="seg_usuario_x_empresa" EntityType="Self.seg_usuario_x_empresa" Schema="" store:Type="Tables" />
+          <EntitySet Name="seg_usuario_x_tb_sis_reporte" EntityType="Self.seg_usuario_x_tb_sis_reporte" Schema="" store:Type="Tables" />
           <EntitySet Name="seg_menu_x_empresa" EntityType="Self.seg_menu_x_empresa" store:Type="Tables" store:Schema="">
             <DefiningQuery>SELECT 
 `seg_menu_x_empresa`.`idempresa`, 
@@ -256,47 +273,6 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwseg_usuario_x_tb_sis_rep
 `seg_menu_x_empresa`.`nombreasambly_x_emp`, 
 `seg_menu_x_empresa`.`nomformulario_x_emp`
  FROM `seg_menu_x_empresa` AS `seg_menu_x_empresa`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="seg_menu_x_empresa_x_usuario" EntityType="Self.seg_menu_x_empresa_x_usuario" store:Type="Tables" store:Schema="">
-            <DefiningQuery>SELECT 
-`seg_menu_x_empresa_x_usuario`.`idempresa`, 
-`seg_menu_x_empresa_x_usuario`.`idusuario`, 
-`seg_menu_x_empresa_x_usuario`.`idmenu`, 
-`seg_menu_x_empresa_x_usuario`.`lectura`, 
-`seg_menu_x_empresa_x_usuario`.`escritura`, 
-`seg_menu_x_empresa_x_usuario`.`eliminacion`
- FROM `seg_menu_x_empresa_x_usuario` AS `seg_menu_x_empresa_x_usuario`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="seg_usuario" EntityType="Self.seg_usuario" store:Type="Tables" store:Schema="">
-            <DefiningQuery>SELECT 
-`seg_usuario`.`idusuario`, 
-`seg_usuario`.`contrasena`, 
-`seg_usuario`.`estado`, 
-`seg_usuario`.`fecha_transaccion`, 
-`seg_usuario`.`idusuarioultmodi`, 
-`seg_usuario`.`fecha_ultmod`, 
-`seg_usuario`.`idusuarioultanu`, 
-`seg_usuario`.`fecha_ultanu`, 
-`seg_usuario`.`motivoanulacion`, 
-`seg_usuario`.`nombre`, 
-`seg_usuario`.`exigirdirectivacontrasenia`, 
-`seg_usuario`.`cambiarcontraseniasgtsesion`, 
-`seg_usuario`.`iddepartamento`
- FROM `seg_usuario` AS `seg_usuario`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="seg_usuario_x_empresa" EntityType="Self.seg_usuario_x_empresa" store:Type="Tables" store:Schema="">
-            <DefiningQuery>SELECT 
-`seg_usuario_x_empresa`.`idusuario`, 
-`seg_usuario_x_empresa`.`idempresa`, 
-`seg_usuario_x_empresa`.`observacion`
- FROM `seg_usuario_x_empresa` AS `seg_usuario_x_empresa`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="seg_usuario_x_tb_sis_reporte" EntityType="Self.seg_usuario_x_tb_sis_reporte" store:Type="Tables" store:Schema="">
-            <DefiningQuery>SELECT 
-`seg_usuario_x_tb_sis_reporte`.`idusuario`, 
-`seg_usuario_x_tb_sis_reporte`.`codreporte`, 
-`seg_usuario_x_tb_sis_reporte`.`observacion`
- FROM `seg_usuario_x_tb_sis_reporte` AS `seg_usuario_x_tb_sis_reporte`</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vw_seg_menu_x_usuario_x_empresa" EntityType="Self.vw_seg_menu_x_usuario_x_empresa" store:Type="Views" store:Schema="">
             <DefiningQuery>SELECT 
@@ -376,6 +352,22 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwseg_usuario_x_tb_sis_rep
 `vwseg_usuario_x_tb_sis_reporte`.`esta_en_base`
  FROM `vwseg_usuario_x_tb_sis_reporte` AS `vwseg_usuario_x_tb_sis_reporte`</DefiningQuery>
           </EntitySet>
+          <AssociationSet Name="seg_menu_x_empresa_x_usuario_seg_menu_FK" Association="Self.seg_menu_x_empresa_x_usuario_seg_menu_FK">
+            <End Role="seg_menu" EntitySet="seg_menu" />
+            <End Role="seg_menu_x_empresa_x_usuario" EntitySet="seg_menu_x_empresa_x_usuario" />
+          </AssociationSet>
+          <AssociationSet Name="seg_menu_x_empresa_x_usuario_seg_usuario_FK" Association="Self.seg_menu_x_empresa_x_usuario_seg_usuario_FK">
+            <End Role="seg_usuario" EntitySet="seg_usuario" />
+            <End Role="seg_menu_x_empresa_x_usuario" EntitySet="seg_menu_x_empresa_x_usuario" />
+          </AssociationSet>
+          <AssociationSet Name="seg_usuario_x_empresa_seg_usuario_FK" Association="Self.seg_usuario_x_empresa_seg_usuario_FK">
+            <End Role="seg_usuario" EntitySet="seg_usuario" />
+            <End Role="seg_usuario_x_empresa" EntitySet="seg_usuario_x_empresa" />
+          </AssociationSet>
+          <AssociationSet Name="seg_usuario_x_tb_sis_reporte_seg_usuario_FK" Association="Self.seg_usuario_x_tb_sis_reporte_seg_usuario_FK">
+            <End Role="seg_usuario" EntitySet="seg_usuario" />
+            <End Role="seg_usuario_x_tb_sis_reporte" EntitySet="seg_usuario_x_tb_sis_reporte" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -383,25 +375,35 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwseg_usuario_x_tb_sis_rep
       <Schema Namespace="DBERPModelSeguridad" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
         <EntityContainer Name="EntitiesSeguAcceso" p1:LazyLoadingEnabled="true">
           <EntitySet Name="seg_menu" EntityType="DBERPModelSeguridad.seg_menu" />
-          <EntitySet Name="seg_menu_x_empresa" EntityType="DBERPModelSeguridad.seg_menu_x_empresa" />
           <EntitySet Name="seg_menu_x_empresa_x_usuario" EntityType="DBERPModelSeguridad.seg_menu_x_empresa_x_usuario" />
           <EntitySet Name="seg_usuario" EntityType="DBERPModelSeguridad.seg_usuario" />
           <EntitySet Name="seg_usuario_x_empresa" EntityType="DBERPModelSeguridad.seg_usuario_x_empresa" />
           <EntitySet Name="seg_usuario_x_tb_sis_reporte" EntityType="DBERPModelSeguridad.seg_usuario_x_tb_sis_reporte" />
+          <EntitySet Name="seg_menu_x_empresa" EntityType="DBERPModelSeguridad.seg_menu_x_empresa" />
           <EntitySet Name="vw_seg_menu_x_usuario_x_empresa" EntityType="DBERPModelSeguridad.vw_seg_menu_x_usuario_x_empresa" />
           <EntitySet Name="vwseg_menu_x_usuario_x_empresa" EntityType="DBERPModelSeguridad.vwseg_menu_x_usuario_x_empresa" />
           <EntitySet Name="vwseg_usuario_x_empresa" EntityType="DBERPModelSeguridad.vwseg_usuario_x_empresa" />
           <EntitySet Name="vwseg_usuario_x_tb_sis_reporte" EntityType="DBERPModelSeguridad.vwseg_usuario_x_tb_sis_reporte" />
+          <AssociationSet Name="seg_menu_x_empresa_x_usuario_seg_menu_FK" Association="DBERPModelSeguridad.seg_menu_x_empresa_x_usuario_seg_menu_FK">
+            <End Role="seg_menu" EntitySet="seg_menu" />
+            <End Role="seg_menu_x_empresa_x_usuario" EntitySet="seg_menu_x_empresa_x_usuario" />
+          </AssociationSet>
+          <AssociationSet Name="seg_menu_x_empresa_x_usuario_seg_usuario_FK" Association="DBERPModelSeguridad.seg_menu_x_empresa_x_usuario_seg_usuario_FK">
+            <End Role="seg_usuario" EntitySet="seg_usuario" />
+            <End Role="seg_menu_x_empresa_x_usuario" EntitySet="seg_menu_x_empresa_x_usuario" />
+          </AssociationSet>
+          <AssociationSet Name="seg_usuario_x_empresa_seg_usuario_FK" Association="DBERPModelSeguridad.seg_usuario_x_empresa_seg_usuario_FK">
+            <End Role="seg_usuario" EntitySet="seg_usuario" />
+            <End Role="seg_usuario_x_empresa" EntitySet="seg_usuario_x_empresa" />
+          </AssociationSet>
+          <AssociationSet Name="seg_usuario_x_tb_sis_reporte_seg_usuario_FK" Association="DBERPModelSeguridad.seg_usuario_x_tb_sis_reporte_seg_usuario_FK">
+            <End Role="seg_usuario" EntitySet="seg_usuario" />
+            <End Role="seg_usuario_x_tb_sis_reporte" EntitySet="seg_usuario_x_tb_sis_reporte" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="seg_menu">
           <Key>
             <PropertyRef Name="idmenu" />
-            <PropertyRef Name="descripcionmenu" />
-            <PropertyRef Name="posicionmenu" />
-            <PropertyRef Name="habilitado" />
-            <PropertyRef Name="tiene_formularioasociado" />
-            <PropertyRef Name="nom_formulario" />
-            <PropertyRef Name="nom_asembly" />
           </Key>
           <Property Name="idmenu" Type="Int32" Nullable="false" />
           <Property Name="idmenupadre" Type="Int32" />
@@ -415,29 +417,13 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwseg_usuario_x_tb_sis_rep
           <Property Name="imagen_peque" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="icono" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="nivel" Type="Int32" />
-        </EntityType>
-        <EntityType Name="seg_menu_x_empresa">
-          <Key>
-            <PropertyRef Name="idempresa" />
-            <PropertyRef Name="idmenu" />
-            <PropertyRef Name="habilitado" />
-            <PropertyRef Name="nombreasambly_x_emp" />
-            <PropertyRef Name="nomformulario_x_emp" />
-          </Key>
-          <Property Name="idempresa" Type="Int32" Nullable="false" />
-          <Property Name="idmenu" Type="Int32" Nullable="false" />
-          <Property Name="habilitado" Type="Boolean" Nullable="false" />
-          <Property Name="nombreasambly_x_emp" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="nomformulario_x_emp" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="seg_menu_x_empresa_x_usuario" Relationship="DBERPModelSeguridad.seg_menu_x_empresa_x_usuario_seg_menu_FK" FromRole="seg_menu" ToRole="seg_menu_x_empresa_x_usuario" />
         </EntityType>
         <EntityType Name="seg_menu_x_empresa_x_usuario">
           <Key>
             <PropertyRef Name="idempresa" />
             <PropertyRef Name="idusuario" />
             <PropertyRef Name="idmenu" />
-            <PropertyRef Name="lectura" />
-            <PropertyRef Name="escritura" />
-            <PropertyRef Name="eliminacion" />
           </Key>
           <Property Name="idempresa" Type="Int32" Nullable="false" />
           <Property Name="idusuario" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -445,6 +431,8 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwseg_usuario_x_tb_sis_rep
           <Property Name="lectura" Type="Boolean" Nullable="false" />
           <Property Name="escritura" Type="Boolean" Nullable="false" />
           <Property Name="eliminacion" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="seg_menu" Relationship="DBERPModelSeguridad.seg_menu_x_empresa_x_usuario_seg_menu_FK" FromRole="seg_menu_x_empresa_x_usuario" ToRole="seg_menu" />
+          <NavigationProperty Name="seg_usuario" Relationship="DBERPModelSeguridad.seg_menu_x_empresa_x_usuario_seg_usuario_FK" FromRole="seg_menu_x_empresa_x_usuario" ToRole="seg_usuario" />
         </EntityType>
         <EntityType Name="seg_usuario">
           <Key>
@@ -463,6 +451,9 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwseg_usuario_x_tb_sis_rep
           <Property Name="exigirdirectivacontrasenia" Type="Boolean" />
           <Property Name="cambiarcontraseniasgtsesion" Type="Boolean" />
           <Property Name="iddepartamento" Type="Int32" />
+          <NavigationProperty Name="seg_menu_x_empresa_x_usuario" Relationship="DBERPModelSeguridad.seg_menu_x_empresa_x_usuario_seg_usuario_FK" FromRole="seg_usuario" ToRole="seg_menu_x_empresa_x_usuario" />
+          <NavigationProperty Name="seg_usuario_x_empresa" Relationship="DBERPModelSeguridad.seg_usuario_x_empresa_seg_usuario_FK" FromRole="seg_usuario" ToRole="seg_usuario_x_empresa" />
+          <NavigationProperty Name="seg_usuario_x_tb_sis_reporte" Relationship="DBERPModelSeguridad.seg_usuario_x_tb_sis_reporte_seg_usuario_FK" FromRole="seg_usuario" ToRole="seg_usuario_x_tb_sis_reporte" />
         </EntityType>
         <EntityType Name="seg_usuario_x_empresa">
           <Key>
@@ -472,16 +463,31 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwseg_usuario_x_tb_sis_rep
           <Property Name="idusuario" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="idempresa" Type="Int32" Nullable="false" />
           <Property Name="observacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="seg_usuario" Relationship="DBERPModelSeguridad.seg_usuario_x_empresa_seg_usuario_FK" FromRole="seg_usuario_x_empresa" ToRole="seg_usuario" />
         </EntityType>
         <EntityType Name="seg_usuario_x_tb_sis_reporte">
           <Key>
             <PropertyRef Name="idusuario" />
             <PropertyRef Name="codreporte" />
-            <PropertyRef Name="observacion" />
           </Key>
           <Property Name="idusuario" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="codreporte" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="observacion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="seg_usuario" Relationship="DBERPModelSeguridad.seg_usuario_x_tb_sis_reporte_seg_usuario_FK" FromRole="seg_usuario_x_tb_sis_reporte" ToRole="seg_usuario" />
+        </EntityType>
+        <EntityType Name="seg_menu_x_empresa">
+          <Key>
+            <PropertyRef Name="idempresa" />
+            <PropertyRef Name="idmenu" />
+            <PropertyRef Name="habilitado" />
+            <PropertyRef Name="nombreasambly_x_emp" />
+            <PropertyRef Name="nomformulario_x_emp" />
+          </Key>
+          <Property Name="idempresa" Type="Int32" Nullable="false" />
+          <Property Name="idmenu" Type="Int32" Nullable="false" />
+          <Property Name="habilitado" Type="Boolean" Nullable="false" />
+          <Property Name="nombreasambly_x_emp" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="nomformulario_x_emp" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="vw_seg_menu_x_usuario_x_empresa">
           <Key>
@@ -599,6 +605,54 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwseg_usuario_x_tb_sis_rep
           <Property Name="disenio_reporte" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="esta_en_base" Type="Int64" Nullable="false" />
         </EntityType>
+        <Association Name="seg_menu_x_empresa_x_usuario_seg_menu_FK">
+          <End Type="DBERPModelSeguridad.seg_menu" Role="seg_menu" Multiplicity="1" />
+          <End Type="DBERPModelSeguridad.seg_menu_x_empresa_x_usuario" Role="seg_menu_x_empresa_x_usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="seg_menu">
+              <PropertyRef Name="idmenu" />
+            </Principal>
+            <Dependent Role="seg_menu_x_empresa_x_usuario">
+              <PropertyRef Name="idmenu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="seg_menu_x_empresa_x_usuario_seg_usuario_FK">
+          <End Type="DBERPModelSeguridad.seg_usuario" Role="seg_usuario" Multiplicity="1" />
+          <End Type="DBERPModelSeguridad.seg_menu_x_empresa_x_usuario" Role="seg_menu_x_empresa_x_usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="seg_usuario">
+              <PropertyRef Name="idusuario" />
+            </Principal>
+            <Dependent Role="seg_menu_x_empresa_x_usuario">
+              <PropertyRef Name="idusuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="seg_usuario_x_empresa_seg_usuario_FK">
+          <End Type="DBERPModelSeguridad.seg_usuario" Role="seg_usuario" Multiplicity="1" />
+          <End Type="DBERPModelSeguridad.seg_usuario_x_empresa" Role="seg_usuario_x_empresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="seg_usuario">
+              <PropertyRef Name="idusuario" />
+            </Principal>
+            <Dependent Role="seg_usuario_x_empresa">
+              <PropertyRef Name="idusuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="seg_usuario_x_tb_sis_reporte_seg_usuario_FK">
+          <End Type="DBERPModelSeguridad.seg_usuario" Role="seg_usuario" Multiplicity="1" />
+          <End Type="DBERPModelSeguridad.seg_usuario_x_tb_sis_reporte" Role="seg_usuario_x_tb_sis_reporte" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="seg_usuario">
+              <PropertyRef Name="idusuario" />
+            </Principal>
+            <Dependent Role="seg_usuario_x_tb_sis_reporte">
+              <PropertyRef Name="idusuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -620,17 +674,6 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwseg_usuario_x_tb_sis_rep
                 <ScalarProperty Name="descripcionmenu" ColumnName="descripcionmenu" />
                 <ScalarProperty Name="idmenupadre" ColumnName="idmenupadre" />
                 <ScalarProperty Name="idmenu" ColumnName="idmenu" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="seg_menu_x_empresa">
-            <EntityTypeMapping TypeName="DBERPModelSeguridad.seg_menu_x_empresa">
-              <MappingFragment StoreEntitySet="seg_menu_x_empresa">
-                <ScalarProperty Name="nomformulario_x_emp" ColumnName="nomformulario_x_emp" />
-                <ScalarProperty Name="nombreasambly_x_emp" ColumnName="nombreasambly_x_emp" />
-                <ScalarProperty Name="habilitado" ColumnName="habilitado" />
-                <ScalarProperty Name="idmenu" ColumnName="idmenu" />
-                <ScalarProperty Name="idempresa" ColumnName="idempresa" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -680,6 +723,17 @@ advertencia 6002: La tabla o vista 'def.optica_zafiro.vwseg_usuario_x_tb_sis_rep
                 <ScalarProperty Name="observacion" ColumnName="observacion" />
                 <ScalarProperty Name="codreporte" ColumnName="codreporte" />
                 <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="seg_menu_x_empresa">
+            <EntityTypeMapping TypeName="DBERPModelSeguridad.seg_menu_x_empresa">
+              <MappingFragment StoreEntitySet="seg_menu_x_empresa">
+                <ScalarProperty Name="nomformulario_x_emp" ColumnName="nomformulario_x_emp" />
+                <ScalarProperty Name="nombreasambly_x_emp" ColumnName="nombreasambly_x_emp" />
+                <ScalarProperty Name="habilitado" ColumnName="habilitado" />
+                <ScalarProperty Name="idmenu" ColumnName="idmenu" />
+                <ScalarProperty Name="idempresa" ColumnName="idempresa" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -24,5 +24,7 @@ namespace Bizu.Infrastructure
         public string nombre_basedatos { get; set; }
         public string cadena_conexion { get; set; }
         public string script_comprobantesrecibidos { get; set; }
+    
+        public virtual tb_empresa tb_empresa { get; set; }
     }
 }
